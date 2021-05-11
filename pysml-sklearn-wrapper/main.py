@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import RobustScaler
 from sklearn.preprocessing import Normalizer
+from sklearn.impute import SimpleImputer
 
 
 class DataframeXYWrapper():
@@ -32,22 +33,29 @@ class DataframeXYWrapper():
 
     def apply(self, obj, func, requires_X=False,
                                requires_y=False,
+                               argname_X='X',
+                               argname_y='y',
                                inplace=True,
+                               return_obj=True,
                                **kwargs):
         """
         """
         if requires_X:
-            kwargs['X'] = self.get_X()
+            kwargs[argname_X] = self.get_X()
         if requires_y:
-            kwargs['y'] = self.get_y()
+            kwargs[argname_y] = self.get_y()
 
-        # Return
-        if not inplace:
-            return getattr(obj, func)(**kwargs)
+        # Output
+        out = getattr(obj, func)(**kwargs)
 
         # Inplace
-        self.dataframe[self.X_cols] = \
-            getattr(obj, func)(**kwargs)
+        if inplace:
+            self.dataframe[self.X_cols] = out
+
+        # Return
+        if return_obj:
+            return obj, out
+        return out
 
 
 
@@ -69,29 +77,30 @@ wrapper = DataframeXYWrapper(dataframe=dataframe,
 # Show
 print(wrapper.get_X())
 
-# Create scaler
-std = StandardScaler()
-mmx = MinMaxScaler()
-rbs = RobustScaler()
-nor = Normalizer()
+# ------------------------------
+# Imputers
+# ------------------------------
+# Loop
+for name, imputer in [('mean', SimpleImputer(strategy='mean')),
+                      ('median', SimpleImputer(strategy='median'))]:
+    # Apply imputer
+    obj, out = wrapper.apply(imputer, 'fit_transform', requires_X=True,
+                           inplace=False)
+    # Display
+    print("\n\n{0}:\n{1}".format(imputer, out))
 
-# Apply transform
-standard = wrapper.apply(std, 'fit_transform', requires_X=True, inplace=False)
-minmax = wrapper.apply(mmx, 'fit_transform', requires_X=True, inplace=False)
-robust = wrapper.apply(rbs, 'fit_transform', requires_X=True, inplace=False)
-#normal = wrapper.apply(nor, 'fit_transform', requires_X=True, inplace=False)
+import sys
 
-# Show
-print(standard)
-print(minmax)
-print(robust)
-#print(normal)
-print(wrapper.get_X_y())
-
-
-
-
-
-
-
-
+sys.exit()
+# ------------------------------
+# Scalers
+# ------------------------------
+# Loop
+for name, scaler in [('std', StandardScaler()),
+                     ('mmx', MinMaxScaler()),
+                     ('rbs', RobustScaler())]:
+    # Apply scaler
+    obj, out = wrapper.apply(scaler, 'fit_transform', requires_X=True,
+                           inplace=False)
+    # Display
+    print("\n\n{0}:\n{1}".format(scaler, output))

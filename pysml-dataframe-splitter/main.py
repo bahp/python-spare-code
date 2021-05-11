@@ -8,10 +8,11 @@ from sklearn.model_selection import StratifiedKFold
 #
 
 _DEFAULT_SPLITTERS = {
-  'skfold10': StratifiedKFold(n_splits=10, shuffle=True),
-  'skfold5': StratifiedKFold(n_splits=5, shuffle=True),
-  'skfold2': StratifiedKFold(n_splits=2, shuffle=True),
+    'skfold10': StratifiedKFold(n_splits=10, shuffle=True),
+    'skfold5': StratifiedKFold(n_splits=5, shuffle=True),
+    'skfold2': StratifiedKFold(n_splits=2, shuffle=True),
 }
+
 
 def skfold_acronym_to_instance(acronym):
     """
@@ -52,8 +53,8 @@ def split_dataframe_cvs_folds(dataframe, splitter, label):
         splitter = _DEFAULT_SPLITTERS[splitter]
 
     # Define X and y
-    X = dataframe[dataframe.sets=='cvs'].index.to_numpy()
-    y = dataframe[dataframe.sets=='cvs'][label]
+    X = dataframe[dataframe.sets == 'cvs'].index.to_numpy()
+    y = dataframe[dataframe.sets == 'cvs'][label]
 
     # Splits
     splits = splitter.split(X, y)
@@ -66,6 +67,7 @@ def split_dataframe_cvs_folds(dataframe, splitter, label):
 
     # Return
     return dataframe
+
 
 def split_dataframe_completeness(dataframe):
     pass
@@ -84,14 +86,10 @@ print(dataframe)
 # Split in Hos and CVS sets
 dataframe = split_dataframe_hos_cvs(dataframe)
 dataframe = split_dataframe_cvs_folds(dataframe, splitter='skfold10',
-                                                 label='micro_confirmed')
+                                      label='micro_confirmed')
 
 # Show
 print(dataframe)
-
-
-
-
 
 
 class DataframeHOSCSVSplitter():
@@ -103,8 +101,8 @@ class DataframeHOSCSVSplitter():
     hos_name = 'HOS'
 
     def __init__(self, col_name=None,
-                       cvs_name=None,
-                       hos_name=None):
+                 cvs_name=None,
+                 hos_name=None):
         """
 
         :param col_name:
@@ -117,7 +115,6 @@ class DataframeHOSCSVSplitter():
             self.cvs_name = cvs_name
         if hos_name is not None:
             self.hos_name = hos_name
-
 
     def split(self, dataframe, **kwargs):
         """
