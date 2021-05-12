@@ -2,7 +2,14 @@
 script_01.py
 =============
 
-Example
+.. warning:: Not working!
+
+Requires:
+
+   - ``ldap3``
+   - ``python-ldap-test`` [2017!]
+
+
 """
 import ldap3
 
