@@ -8,11 +8,13 @@
 **/~*
 
 # Data files
-*.csv
-*.xlsx
-*.xls
-
-# Log files
+**/*.csv
+**/*.html
+**/*.png
+**/*.jpg
+**/*.xlsx
+**/*.xls
+**/*.json
 **/*.log
 
 # PyCharm folder
@@ -21,7 +23,6 @@
 # Sphinx documentation
 docs/build
 docs/source/_*
-
 # -------------------------------------------------
 
 # Byte-compiled / optimized / DLL files
