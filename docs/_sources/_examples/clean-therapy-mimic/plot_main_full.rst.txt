@@ -120,21 +120,20 @@ First, lets load and do some basic formatting on the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-58
+.. GENERATED FROM PYTHON SOURCE LINES 50-57
 
 Lets transform the data
 
 .. note:: You might need to add ``NaNs`` for missing days per patient.
-          The other sample (One patient) achieves this by using the
-          following code (see below) but it needs to be applied per
-          patient to work for all.
+          The other sample - ``One patient`` - achieves this by using the
+          following code but it needs to be applied per patient.
 
           aux = aux.asfreq('1D')
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-87
+.. GENERATED FROM PYTHON SOURCE LINES 57-86
 
 .. code-block:: default
-   :lineno-start: 59
+   :lineno-start: 58
 
 
     # -----------------------------
@@ -172,14 +171,14 @@ Lets transform the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-89
+.. GENERATED FROM PYTHON SOURCE LINES 87-88
 
 Show the formatted therapies.
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-93
+.. GENERATED FROM PYTHON SOURCE LINES 88-92
 
 .. code-block:: default
-   :lineno-start: 90
+   :lineno-start: 89
 
 
     print("\nFormatted:")
@@ -217,14 +216,14 @@ Show the formatted therapies.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-95
+.. GENERATED FROM PYTHON SOURCE LINES 93-94
 
 Show the number of days per therapy
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-98
+.. GENERATED FROM PYTHON SOURCE LINES 94-97
 
 .. code-block:: default
-   :lineno-start: 96
+   :lineno-start: 95
 
 
     print("\nTherapies (number of days)")

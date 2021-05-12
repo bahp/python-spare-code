@@ -296,12 +296,12 @@ to download the full example code</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You might need to add <code class="docutils literal notranslate"><span class="pre">NaNs</span></code> for missing days per patient.
-The other sample (One patient) achieves this by using the
-following code (see below) but it needs to be applied per
-patient to work for all.</p>
+The other sample - <code class="docutils literal notranslate"><span class="pre">One</span> <span class="pre">patient</span></code> - achieves this by using the
+following code but it needs to be applied per patient.</p>
 <p>aux = aux.asfreq(‘1D’)</p>
 </div>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">59</span>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">58</span>
+<span class="normal">59</span>
 <span class="normal">60</span>
 <span class="normal">61</span>
 <span class="normal">62</span>
@@ -326,8 +326,7 @@ patient to work for all.</p>
 <span class="normal">81</span>
 <span class="normal">82</span>
 <span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># -----------------------------</span>
+<span class="normal">84</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># -----------------------------</span>
  <span class="c1"># Transform data</span>
  <span class="c1"># -----------------------------</span>
  <span class="c1"># .. note: The closed parameter indicates whether to include</span>
@@ -357,8 +356,8 @@ patient to work for all.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Show the formatted therapies.</p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">90</span>
-<span class="normal">91</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Formatted:&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">89</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Formatted:&quot;</span><span class="p">)</span>
  <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -383,8 +382,8 @@ dtype: object
 </pre></div>
 </div>
 <p>Show the number of days per therapy</p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">96</span>
-<span class="normal">97</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Therapies (number of days)&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">95</span>
+<span class="normal">96</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Therapies (number of days)&quot;</span><span class="p">)</span>
  <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
 </td></tr></table></div>

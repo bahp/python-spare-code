@@ -50,9 +50,8 @@ print(data)
 # Lets transform the data
 #
 # .. note:: You might need to add ``NaNs`` for missing days per patient.
-#           The other sample (One patient) achieves this by using the
-#           following code (see below) but it needs to be applied per
-#           patient to work for all.
+#           The other sample - ``One patient`` - achieves this by using the
+#           following code but it needs to be applied per patient.
 #
 #           aux = aux.asfreq('1D')
 

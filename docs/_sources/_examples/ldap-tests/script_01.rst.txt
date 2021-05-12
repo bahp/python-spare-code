@@ -21,12 +21,17 @@
 script_01.py
 =============
 
-Example
+.. warning: Not working!
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-51
+Requires:
+
+   - ``ldap3``
+   - ``python-ldap-test`` [2017!]
+
+.. GENERATED FROM PYTHON SOURCE LINES 14-58
 
 .. code-block:: default
-   :lineno-start: 7
+   :lineno-start: 14
 
     import ldap3
 
