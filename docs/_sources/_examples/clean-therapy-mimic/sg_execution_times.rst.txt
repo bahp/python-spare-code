@@ -1,0 +1,14 @@
+
+:orphan:
+
+.. _sphx_glr__examples_clean-therapy-mimic_sg_execution_times:
+
+Computation times
+=================
+**00:00.042** total execution time for **_examples_clean-therapy-mimic** files:
+
++-----------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_full.py` (``plot_main_full.py``) | 00:00.042 | 0.0 MB |
++-----------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_one.py` (``plot_main_one.py``)   | 00:00.000 | 0.0 MB |
++-----------------------------------------------------------------------------------------+-----------+--------+

@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>General &mdash; python-spare-code 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="main" href="clean-damien-sepsis/main.html" />
+    <link rel="prev" title="Introduction" href="../usage/introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> python-spare-code
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Example Galleries</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clean-damien-sepsis">clean-damien-sepsis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clean-damien-sepsis/main.html">main</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clean-therapy-mimic">clean-therapy-mimic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clean-therapy-mimic/plot_main_full.html">All patients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clean-therapy-mimic/plot_main_one.html">One patient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#formatting">formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="formatting-agg-patient-single-row/sample.html">Sample</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ldap">ldap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ldap-tests/script_01.html">script_01.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-tpot">learning-tpot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="learning-tpot/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="learning-tpot/tpot_best_pipeline.html">Best pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pysml-dataframe-splitter">pysml-dataframe-splitter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysml-dataframe-splitter/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysml-dataframe-splitter/skfold-test.html">Skfold Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pysml-jsonpickle-test">pysml-jsonpickle-test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysml-jsonpickle-test/main.html">Main</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pysml-sklearn-utils">pysml-sklearn-utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pysml-sklearn-wrapper">pysml-sklearn-wrapper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysml-sklearn-wrapper/main.html">Main</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#review-gunn-keras">review-gunn-keras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="review-gunn-keras/main.html">Main</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">python-spare-code</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>General</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_examples/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general">
+<span id="sphx-glr-examples"></span><h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-clear"></div><div class="section" id="clean-damien-sepsis">
+<span id="sphx-glr-examples-clean-damien-sepsis"></span><h2>clean-damien-sepsis<a class="headerlink" href="#clean-damien-sepsis" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id1">
+<img alt="main" src="../_images/sphx_glr_main_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="clean-damien-sepsis/main.html#sphx-glr-examples-clean-damien-sepsis-main-py"><span class="std std-ref">main</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="clean-therapy-mimic">
+<span id="sphx-glr-examples-clean-therapy-mimic"></span><h2>clean-therapy-mimic<a class="headerlink" href="#clean-therapy-mimic" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="All patients"><div class="figure align-default" id="id2">
+<img alt="All patients" src="../_images/sphx_glr_plot_main_full_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="clean-therapy-mimic/plot_main_full.html#sphx-glr-examples-clean-therapy-mimic-plot-main-full-py"><span class="std std-ref">All patients</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id3">
+<img alt="One patient" src="../_images/sphx_glr_plot_main_one_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="clean-therapy-mimic/plot_main_one.html#sphx-glr-examples-clean-therapy-mimic-plot-main-one-py"><span class="std std-ref">One patient</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="formatting">
+<span id="sphx-glr-examples-formatting-agg-patient-single-row"></span><h2>formatting<a class="headerlink" href="#formatting" title="Permalink to this headline">¶</a></h2>
+<p>Below is a gallery of examples …</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id4">
+<img alt="Sample" src="../_images/sphx_glr_sample_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="formatting-agg-patient-single-row/sample.html#sphx-glr-examples-formatting-agg-patient-single-row-sample-py"><span class="std std-ref">Sample</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="ldap">
+<span id="sphx-glr-examples-ldap-tests"></span><h2>ldap<a class="headerlink" href="#ldap" title="Permalink to this headline">¶</a></h2>
+<p>Below is a gallery of examples …</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id5">
+<img alt="script_01.py" src="../_images/sphx_glr_script_01_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="ldap-tests/script_01.html#sphx-glr-examples-ldap-tests-script-01-py"><span class="std std-ref">script_01.py</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="learning-tpot">
+<span id="sphx-glr-examples-learning-tpot"></span><h2>learning-tpot<a class="headerlink" href="#learning-tpot" title="Permalink to this headline">¶</a></h2>
+<p>Below is a gallery of examples …</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id6">
+<img alt="Main" src="../_images/sphx_glr_main_thumb1.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="learning-tpot/main.html#sphx-glr-examples-learning-tpot-main-py"><span class="std std-ref">Main</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id7">
+<img alt="Best pipeline" src="../_images/sphx_glr_tpot_best_pipeline_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="learning-tpot/tpot_best_pipeline.html#sphx-glr-examples-learning-tpot-tpot-best-pipeline-py"><span class="std std-ref">Best pipeline</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="pysml-dataframe-splitter">
+<span id="sphx-glr-examples-pysml-dataframe-splitter"></span><h2>pysml-dataframe-splitter<a class="headerlink" href="#pysml-dataframe-splitter" title="Permalink to this headline">¶</a></h2>
+<p>Below is a gallery of examples …</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id8">
+<img alt="Main" src="../_images/sphx_glr_main_thumb2.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="pysml-dataframe-splitter/main.html#sphx-glr-examples-pysml-dataframe-splitter-main-py"><span class="std std-ref">Main</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id9">
+<img alt="Skfold Test" src="../_images/sphx_glr_skfold-test_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="pysml-dataframe-splitter/skfold-test.html#sphx-glr-examples-pysml-dataframe-splitter-skfold-test-py"><span class="std std-ref">Skfold Test</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="pysml-jsonpickle-test">
+<span id="sphx-glr-examples-pysml-jsonpickle-test"></span><h2>pysml-jsonpickle-test<a class="headerlink" href="#pysml-jsonpickle-test" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id10">
+<img alt="Main" src="../_images/sphx_glr_main_thumb3.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="pysml-jsonpickle-test/main.html#sphx-glr-examples-pysml-jsonpickle-test-main-py"><span class="std std-ref">Main</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="pysml-sklearn-utils">
+<span id="sphx-glr-examples-pysml-sklearn-utils"></span><h2>pysml-sklearn-utils<a class="headerlink" href="#pysml-sklearn-utils" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="pysml-sklearn-wrapper">
+<span id="sphx-glr-examples-pysml-sklearn-wrapper"></span><h2>pysml-sklearn-wrapper<a class="headerlink" href="#pysml-sklearn-wrapper" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Example"><div class="figure align-default" id="id11">
+<img alt="Main" src="../_images/sphx_glr_main_thumb4.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="pysml-sklearn-wrapper/main.html#sphx-glr-examples-pysml-sklearn-wrapper-main-py"><span class="std std-ref">Main</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="review-gunn-keras">
+<span id="sphx-glr-examples-review-gunn-keras"></span><h2>review-gunn-keras<a class="headerlink" href="#review-gunn-keras" title="Permalink to this headline">¶</a></h2>
+<p>Below is a gallery of examples …</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Main"><div class="figure align-default" id="id12">
+<img alt="Main" src="../_images/sphx_glr_main_thumb5.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="review-gunn-keras/main.html#sphx-glr-examples-review-gunn-keras-main-py"><span class="std std-ref">Main</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div><p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="clean-damien-sepsis/main.html" class="btn btn-neutral float-right" title="main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../usage/introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Bernard Hernandez.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+:orphan:
+
+
+
+.. _sphx_glr__examples:
+
+General
+========
+
+
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_clean-damien-sepsis:
+
+clean-damien-sepsis
+-------------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/clean-damien-sepsis/images/thumb/sphx_glr_main_thumb.png
+     :alt: main
+
+     :ref:`sphx_glr__examples_clean-damien-sepsis_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/clean-damien-sepsis/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_clean-therapy-mimic:
+
+clean-therapy-mimic
+-------------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="All patients">
+
+.. only:: html
+
+ .. figure:: /_examples/clean-therapy-mimic/images/thumb/sphx_glr_plot_main_full_thumb.png
+     :alt: All patients
+
+     :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_full.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/clean-therapy-mimic/plot_main_full
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/clean-therapy-mimic/images/thumb/sphx_glr_plot_main_one_thumb.png
+     :alt: One patient
+
+     :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_one.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/clean-therapy-mimic/plot_main_one
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_formatting-agg-patient-single-row:
+
+formatting
+----------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/formatting-agg-patient-single-row/images/thumb/sphx_glr_sample_thumb.png
+     :alt: Sample
+
+     :ref:`sphx_glr__examples_formatting-agg-patient-single-row_sample.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/formatting-agg-patient-single-row/sample
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_ldap-tests:
+
+ldap
+----------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/ldap-tests/images/thumb/sphx_glr_script_01_thumb.png
+     :alt: script_01.py
+
+     :ref:`sphx_glr__examples_ldap-tests_script_01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/ldap-tests/script_01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_learning-tpot:
+
+learning-tpot
+-------------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/learning-tpot/images/thumb/sphx_glr_main_thumb.png
+     :alt: Main
+
+     :ref:`sphx_glr__examples_learning-tpot_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/learning-tpot/main
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/learning-tpot/images/thumb/sphx_glr_tpot_best_pipeline_thumb.png
+     :alt: Best pipeline
+
+     :ref:`sphx_glr__examples_learning-tpot_tpot_best_pipeline.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/learning-tpot/tpot_best_pipeline
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_pysml-dataframe-splitter:
+
+pysml-dataframe-splitter
+------------------------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/pysml-dataframe-splitter/images/thumb/sphx_glr_main_thumb.png
+     :alt: Main
+
+     :ref:`sphx_glr__examples_pysml-dataframe-splitter_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pysml-dataframe-splitter/main
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/pysml-dataframe-splitter/images/thumb/sphx_glr_skfold-test_thumb.png
+     :alt: Skfold Test
+
+     :ref:`sphx_glr__examples_pysml-dataframe-splitter_skfold-test.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pysml-dataframe-splitter/skfold-test
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_pysml-jsonpickle-test:
+
+pysml-jsonpickle-test
+---------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/pysml-jsonpickle-test/images/thumb/sphx_glr_main_thumb.png
+     :alt: Main
+
+     :ref:`sphx_glr__examples_pysml-jsonpickle-test_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pysml-jsonpickle-test/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_pysml-sklearn-utils:
+
+pysml-sklearn-utils
+-------------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_pysml-sklearn-wrapper:
+
+pysml-sklearn-wrapper
+---------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/pysml-sklearn-wrapper/images/thumb/sphx_glr_main_thumb.png
+     :alt: Main
+
+     :ref:`sphx_glr__examples_pysml-sklearn-wrapper_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pysml-sklearn-wrapper/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_review-gunn-keras:
+
+review-gunn-keras
+-----------------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Main">
+
+.. only:: html
+
+ .. figure:: /_examples/review-gunn-keras/images/thumb/sphx_glr_main_thumb.png
+     :alt: Main
+
+     :ref:`sphx_glr__examples_review-gunn-keras_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/review-gunn-keras/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_
