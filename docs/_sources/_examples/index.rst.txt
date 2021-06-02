@@ -222,6 +222,103 @@ Below is a gallery of examples ...
 
 
 
+.. _sphx_glr__examples_plotly-examples:
+
+plotly-examples
+---------------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotly - ROC">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main01_roc_thumb.png
+     :alt: Plotly - ROC
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main01_roc.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main01_roc
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotly - Distributions">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main02_distributions_thumb.png
+     :alt: Plotly - Distributions
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main02_distributions.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main02_distributions
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotly - Sparklines">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main03_sparklines_thumb.png
+     :alt: Plotly - Sparklines
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main03_sparklines.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main03_sparklines
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotly - Weather">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main10_weather_thumb.png
+     :alt: Plotly - Weather
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main10_weather.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main10_weather
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
 .. _sphx_glr__examples_pysml-dataframe-splitter:
 
 pysml-dataframe-splitter
@@ -383,6 +480,74 @@ Below is a gallery of examples ...
    :hidden:
 
    /_examples/review-gunn-keras/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_shap-examples:
+
+shap-examples
+---------------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap -">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_main01_thumb.png
+     :alt: Shap -
+
+     :ref:`sphx_glr__examples_shap-examples_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/main01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_tableone-examples:
+
+TableOne
+--------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="TableOne">
+
+.. only:: html
+
+ .. figure:: /_examples/tableone-examples/images/thumb/sphx_glr_plot_main01_thumb.png
+     :alt: TableOne
+
+     :ref:`sphx_glr__examples_tableone-examples_plot_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/tableone-examples/plot_main01
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

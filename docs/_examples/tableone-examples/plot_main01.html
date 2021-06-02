@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>TableOne &mdash; python-spare-code 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Shap -" href="../shap-examples/main01.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> python-spare-code
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Example Galleries</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">ldap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#learning-tpot">learning-tpot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly-examples">plotly-examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-dataframe-splitter">pysml-dataframe-splitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-jsonpickle-test">pysml-jsonpickle-test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-sklearn-utils">pysml-sklearn-utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-sklearn-wrapper">pysml-sklearn-wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap-examples">shap-examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#tableone">TableOne</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">TableOne</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">General</a> &raquo;</li>
+        
+      <li>TableOne</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/_examples/tableone-examples/plot_main01.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-tableone-examples-plot-main01-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="tableone">
+<span id="sphx-glr-examples-tableone-examples-plot-main01-py"></span><h1>TableOne<a class="headerlink" href="#tableone" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 5 </span> <span class="c1"># Libraries</span>
+<span class="lineno"> 6 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span> <span class="c1"># Specific</span>
+<span class="lineno"> 9 </span> <span class="kn">from</span> <span class="nn">tableone</span> <span class="kn">import</span> <span class="n">TableOne</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">12 </span> <span class="c1"># Load data</span>
+<span class="lineno">13 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">14 </span> <span class="c1"># Load data</span>
+<span class="lineno">15 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/20210602-134857-completed/dataset.csv&#39;</span><span class="p">)</span>
+<span class="lineno">16 </span>
+<span class="lineno">17 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">18 </span> <span class="c1"># Create tableone</span>
+<span class="lineno">19 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">20 </span> <span class="c1"># Columns</span>
+<span class="lineno">21 </span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;haematocrit_percent&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]</span>
+<span class="lineno">22 </span>
+<span class="lineno">23 </span> <span class="c1"># Categorical</span>
+<span class="lineno">24 </span> <span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span>
+<span class="lineno">25 </span>
+<span class="lineno">26 </span> <span class="c1"># Groupby</span>
+<span class="lineno">27 </span> <span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cvs_hos_split&#39;</span><span class="p">]</span>
+<span class="lineno">28 </span>
+<span class="lineno">29 </span> <span class="c1">#</span>
+<span class="lineno">30 </span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">categorical</span><span class="p">,</span> <span class="n">groupby</span><span class="p">)</span>
+<span class="lineno">31 </span>
+<span class="lineno">32 </span> <span class="c1"># Show</span>
+<span class="lineno">33 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Table&quot;</span><span class="p">)</span>
+<span class="lineno">34 </span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Table
+                                 Grouped by cvs_hos_split
+                                                  Missing        Overall            cvs          hos
+n                                                                    525            393          132
+age, mean (SD)                                          0    37.3 (16.3)    37.4 (16.3)  36.9 (16.5)
+gender, n (%)                  0                        0     249 (47.4)     190 (48.3)    59 (44.7)
+                               1                              276 (52.6)     203 (51.7)    73 (55.3)
+haematocrit_percent, mean (SD)                          0     38.5 (8.6)     38.2 (8.6)   39.3 (8.7)
+plt, mean (SD)                                          0  106.5 (132.5)  110.8 (146.6)  93.8 (75.9)
+</pre></div>
+</div>
+<p>Table</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">40 </span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="4" halign="left">Grouped by cvs_hos_split</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Missing</th>
+      <th>Overall</th>
+      <th>cvs</th>
+      <th>hos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>n</th>
+      <th></th>
+      <td></td>
+      <td>525</td>
+      <td>393</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>age, mean (SD)</th>
+      <th></th>
+      <td>0</td>
+      <td>37.3 (16.3)</td>
+      <td>37.4 (16.3)</td>
+      <td>36.9 (16.5)</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">gender, n (%)</th>
+      <th>0</th>
+      <td>0</td>
+      <td>249 (47.4)</td>
+      <td>190 (48.3)</td>
+      <td>59 (44.7)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td></td>
+      <td>276 (52.6)</td>
+      <td>203 (51.7)</td>
+      <td>73 (55.3)</td>
+    </tr>
+    <tr>
+      <th>haematocrit_percent, mean (SD)</th>
+      <th></th>
+      <td>0</td>
+      <td>38.5 (8.6)</td>
+      <td>38.2 (8.6)</td>
+      <td>39.3 (8.7)</td>
+    </tr>
+    <tr>
+      <th>plt, mean (SD)</th>
+      <th></th>
+      <td>0</td>
+      <td>106.5 (132.5)</td>
+      <td>110.8 (146.6)</td>
+      <td>93.8 (75.9)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.183 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-tableone-examples-plot-main01-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/129cf2ef8ebf216460848274b0d7e82e/plot_main01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d9f387510609f5c4a7c79330d81b55d8/plot_main01.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main01.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../shap-examples/main01.html" class="btn btn-neutral float-left" title="Shap -" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Bernard Hernandez.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>script_01.py &mdash; python-spare-code 0.0.1 documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -33,6 +36,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -103,6 +107,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#learning-tpot">learning-tpot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly-examples">plotly-examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-dataframe-splitter">pysml-dataframe-splitter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-jsonpickle-test">pysml-jsonpickle-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-sklearn-utils">pysml-sklearn-utils</a></li>
@@ -184,8 +189,12 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-ldap-tests-script-01-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="script-01-py">
+<section class="sphx-glr-example-title" id="script-01-py">
 <span id="sphx-glr-examples-ldap-tests-script-01-py"></span><h1>script_01.py<a class="headerlink" href="#script-01-py" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not working!</p>
+</div>
 <p>Requires:</p>
 <blockquote>
 <div><ul class="simple">
@@ -193,108 +202,64 @@ to download the full example code</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">python-ldap-test</span></code> [2017!]</p></li>
 </ul>
 </div></blockquote>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kn">import</span> <span class="nn">ldap3</span>
-
- <span class="kn">from</span> <span class="nn">ldap_test</span> <span class="kn">import</span> <span class="n">LdapServer</span>
-
- <span class="n">server</span> <span class="o">=</span> <span class="n">LdapServer</span><span class="p">({</span>
-     <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">3333</span><span class="p">,</span>
-     <span class="s1">&#39;bind_dn&#39;</span><span class="p">:</span> <span class="s1">&#39;cn=admin,dc=zoldar,dc=net&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;pass1&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;objectclass&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;domain&#39;</span><span class="p">],</span>
-              <span class="s1">&#39;dn&#39;</span><span class="p">:</span> <span class="s1">&#39;dc=zoldar,dc=net&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dc&#39;</span><span class="p">:</span> <span class="s1">&#39;zoldar&#39;</span><span class="p">}},</span>
-     <span class="s1">&#39;entries&#39;</span><span class="p">:</span> <span class="p">[</span>
-         <span class="p">{</span><span class="s1">&#39;objectclass&#39;</span><span class="p">:</span> <span class="s1">&#39;domain&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;dn&#39;</span><span class="p">:</span> <span class="s1">&#39;dc=users,dc=zoldar,dc=net&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dc&#39;</span><span class="p">:</span> <span class="s1">&#39;users&#39;</span><span class="p">}},</span>
-         <span class="p">{</span><span class="s1">&#39;objectclass&#39;</span><span class="p">:</span> <span class="s1">&#39;organization&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;dn&#39;</span><span class="p">:</span> <span class="s1">&#39;o=foocompany,dc=users,dc=zoldar,dc=net&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="s1">&#39;foocompany&#39;</span><span class="p">}},</span>
-     <span class="p">]</span>
- <span class="p">})</span>
-
- <span class="k">try</span><span class="p">:</span>
-     <span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-
-     <span class="n">dn</span> <span class="o">=</span> <span class="s2">&quot;cn=admin,dc=zoldar,dc=net&quot;</span>
-     <span class="n">pw</span> <span class="o">=</span> <span class="s2">&quot;pass1&quot;</span>
-
-     <span class="n">srv</span> <span class="o">=</span> <span class="n">ldap3</span><span class="o">.</span><span class="n">Server</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3333</span><span class="p">)</span>
-     <span class="n">conn</span> <span class="o">=</span> <span class="n">ldap3</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">srv</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">dn</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pw</span><span class="p">,</span> <span class="n">auto_bind</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-     <span class="n">base_dn</span> <span class="o">=</span> <span class="s1">&#39;dc=zoldar,dc=net&#39;</span>
-     <span class="n">search_filter</span> <span class="o">=</span> <span class="s1">&#39;(objectclass=organization)&#39;</span>
-     <span class="n">attrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">]</span>
-
-     <span class="n">conn</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">base_dn</span><span class="p">,</span> <span class="n">search_filter</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span>
-
-     <span class="nb">print</span><span class="p">(</span><span class="n">conn</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>
-     <span class="c1"># [{</span>
-     <span class="c1">#    &#39;dn&#39;: &#39;o=foocompany,dc=users,dc=zoldar,dc=net&#39;,</span>
-     <span class="c1">#    &#39;raw_attributes&#39;: {&#39;o&#39;: [b&#39;foocompany&#39;]},</span>
-     <span class="c1">#    &#39;attributes&#39;: {&#39;o&#39;: [&#39;foocompany&#39;]},</span>
-     <span class="c1">#    &#39;type&#39;: &#39;searchResEntry&#39;</span>
-     <span class="c1"># }]</span>
- <span class="k">finally</span><span class="p">:</span>
-     <span class="n">server</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">14 </span> <span class="kn">import</span> <span class="nn">ldap3</span>
+<span class="lineno">15 </span>
+<span class="lineno">16 </span> <span class="kn">from</span> <span class="nn">ldap_test</span> <span class="kn">import</span> <span class="n">LdapServer</span>
+<span class="lineno">17 </span>
+<span class="lineno">18 </span> <span class="n">server</span> <span class="o">=</span> <span class="n">LdapServer</span><span class="p">({</span>
+<span class="lineno">19 </span>     <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">3333</span><span class="p">,</span>
+<span class="lineno">20 </span>     <span class="s1">&#39;bind_dn&#39;</span><span class="p">:</span> <span class="s1">&#39;cn=admin,dc=zoldar,dc=net&#39;</span><span class="p">,</span>
+<span class="lineno">21 </span>     <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;pass1&#39;</span><span class="p">,</span>
+<span class="lineno">22 </span>     <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;objectclass&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;domain&#39;</span><span class="p">],</span>
+<span class="lineno">23 </span>              <span class="s1">&#39;dn&#39;</span><span class="p">:</span> <span class="s1">&#39;dc=zoldar,dc=net&#39;</span><span class="p">,</span>
+<span class="lineno">24 </span>              <span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dc&#39;</span><span class="p">:</span> <span class="s1">&#39;zoldar&#39;</span><span class="p">}},</span>
+<span class="lineno">25 </span>     <span class="s1">&#39;entries&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="lineno">26 </span>         <span class="p">{</span><span class="s1">&#39;objectclass&#39;</span><span class="p">:</span> <span class="s1">&#39;domain&#39;</span><span class="p">,</span>
+<span class="lineno">27 </span>          <span class="s1">&#39;dn&#39;</span><span class="p">:</span> <span class="s1">&#39;dc=users,dc=zoldar,dc=net&#39;</span><span class="p">,</span>
+<span class="lineno">28 </span>          <span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dc&#39;</span><span class="p">:</span> <span class="s1">&#39;users&#39;</span><span class="p">}},</span>
+<span class="lineno">29 </span>         <span class="p">{</span><span class="s1">&#39;objectclass&#39;</span><span class="p">:</span> <span class="s1">&#39;organization&#39;</span><span class="p">,</span>
+<span class="lineno">30 </span>          <span class="s1">&#39;dn&#39;</span><span class="p">:</span> <span class="s1">&#39;o=foocompany,dc=users,dc=zoldar,dc=net&#39;</span><span class="p">,</span>
+<span class="lineno">31 </span>          <span class="s1">&#39;attributes&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="s1">&#39;foocompany&#39;</span><span class="p">}},</span>
+<span class="lineno">32 </span>     <span class="p">]</span>
+<span class="lineno">33 </span> <span class="p">})</span>
+<span class="lineno">34 </span>
+<span class="lineno">35 </span> <span class="k">try</span><span class="p">:</span>
+<span class="lineno">36 </span>     <span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="lineno">37 </span>
+<span class="lineno">38 </span>     <span class="n">dn</span> <span class="o">=</span> <span class="s2">&quot;cn=admin,dc=zoldar,dc=net&quot;</span>
+<span class="lineno">39 </span>     <span class="n">pw</span> <span class="o">=</span> <span class="s2">&quot;pass1&quot;</span>
+<span class="lineno">40 </span>
+<span class="lineno">41 </span>     <span class="n">srv</span> <span class="o">=</span> <span class="n">ldap3</span><span class="o">.</span><span class="n">Server</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3333</span><span class="p">)</span>
+<span class="lineno">42 </span>     <span class="n">conn</span> <span class="o">=</span> <span class="n">ldap3</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">srv</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">dn</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pw</span><span class="p">,</span> <span class="n">auto_bind</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="lineno">43 </span>
+<span class="lineno">44 </span>     <span class="n">base_dn</span> <span class="o">=</span> <span class="s1">&#39;dc=zoldar,dc=net&#39;</span>
+<span class="lineno">45 </span>     <span class="n">search_filter</span> <span class="o">=</span> <span class="s1">&#39;(objectclass=organization)&#39;</span>
+<span class="lineno">46 </span>     <span class="n">attrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">]</span>
+<span class="lineno">47 </span>
+<span class="lineno">48 </span>     <span class="n">conn</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">base_dn</span><span class="p">,</span> <span class="n">search_filter</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span>
+<span class="lineno">49 </span>
+<span class="lineno">50 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">conn</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>
+<span class="lineno">51 </span>     <span class="c1"># [{</span>
+<span class="lineno">52 </span>     <span class="c1">#    &#39;dn&#39;: &#39;o=foocompany,dc=users,dc=zoldar,dc=net&#39;,</span>
+<span class="lineno">53 </span>     <span class="c1">#    &#39;raw_attributes&#39;: {&#39;o&#39;: [b&#39;foocompany&#39;]},</span>
+<span class="lineno">54 </span>     <span class="c1">#    &#39;attributes&#39;: {&#39;o&#39;: [&#39;foocompany&#39;]},</span>
+<span class="lineno">55 </span>     <span class="c1">#    &#39;type&#39;: &#39;searchResEntry&#39;</span>
+<span class="lineno">56 </span>     <span class="c1"># }]</span>
+<span class="lineno">57 </span> <span class="k">finally</span><span class="p">:</span>
+<span class="lineno">58 </span>     <span class="n">server</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-ldap-tests-script-01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/49130ef00cdf70efe975274cf804bdcd/script_01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">script_01.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/8d3188de44cd4fa260b46b79c0928f4c/script_01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">script_01.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/55841683e5822743e82bc30e73d6a9d6/script_01.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">script_01.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/6bcd3849b1694e985b19d2003e6a9fe2/script_01.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">script_01.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
            </div>

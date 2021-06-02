@@ -243,11 +243,11 @@ Show the number of days per therapy
     [meropenem, vancomycin]                                      4
     [piperacillin-tazobactam]                                    3
     [piperacillin-tazobactam, vancomycin]                        2
-    [meropenem]                                                  1
-    [azithromycin, meropenem, tobramycin sulfate, vancomycin]    1
-    [meropenem, metronidazole (flagyl)]                          1
-    [meropenem, metronidazole (flagyl), vancomycin]              1
     [azithromycin, meropenem, metronidazole (flagyl)]            1
+    [meropenem, metronidazole (flagyl), vancomycin]              1
+    [azithromycin, meropenem, tobramycin sulfate, vancomycin]    1
+    [meropenem]                                                  1
+    [meropenem, metronidazole (flagyl)]                          1
     dtype: int64
 
 
@@ -256,7 +256,7 @@ Show the number of days per therapy
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.042 seconds)
+   **Total running time of the script:** ( 0 minutes  0.058 seconds)
 
 
 .. _sphx_glr_download__examples_clean-therapy-mimic_plot_main_full.py:

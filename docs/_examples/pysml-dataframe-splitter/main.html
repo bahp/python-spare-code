@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Main &mdash; python-spare-code 0.0.1 documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -33,6 +36,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -43,7 +47,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Skfold Test" href="skfold-test.html" />
-    <link rel="prev" title="Best pipeline" href="../learning-tpot/tpot_best_pipeline.html" /> 
+    <link rel="prev" title="&lt;no title&gt;" href="../plotly-examples/main03-sparklines.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,12 +98,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Example Galleries</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">ldap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#learning-tpot">learning-tpot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly-examples">plotly-examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#pysml-dataframe-splitter">pysml-dataframe-splitter</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Main</a></li>
 <li class="toctree-l3"><a class="reference internal" href="skfold-test.html">Skfold Test</a></li>
@@ -159,7 +164,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../index.html">Examples</a> &raquo;</li>
+          <li><a href="../index.html">General</a> &raquo;</li>
         
       <li>Main</li>
     
@@ -185,397 +190,210 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-pysml-dataframe-splitter-main-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="main">
+<section class="sphx-glr-example-title" id="main">
 <span id="sphx-glr-examples-pysml-dataframe-splitter-main-py"></span><h1>Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h1>
 <p>Example</p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Libraries</span>
- <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
- <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
- <span class="c1"># Libraries specific</span>
- <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
- <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
- <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-
- <span class="c1">#</span>
-
- <span class="n">_DEFAULT_SPLITTERS</span> <span class="o">=</span> <span class="p">{</span>
-     <span class="s1">&#39;skfold10&#39;</span><span class="p">:</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-     <span class="s1">&#39;skfold5&#39;</span><span class="p">:</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-     <span class="s1">&#39;skfold2&#39;</span><span class="p">:</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
- <span class="p">}</span>
-
-
-
- <span class="k">def</span> <span class="nf">split_dataframe_hos_cvs</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-     <span class="sd">&quot;&quot;&quot;This method labels the dataframe hos and cvs sets.</span>
-
-<span class="sd">     Parameters</span>
-<span class="sd">     ----------</span>
-<span class="sd">     dataframe: np.array or pd.DataFrame</span>
-<span class="sd">         The data to be divided into HOS/CVS.</span>
-
-<span class="sd">     Returns</span>
-<span class="sd">     -------</span>
-<span class="sd">     np.array:</span>
-<span class="sd">         The outcome is a numpy array with rows labelled as</span>
-<span class="sd">         cvs (cross-validation set) and hos (hold-out set).</span>
-<span class="sd">         :param data:</span>
-<span class="sd">         :param inplace:</span>
-<span class="sd">     &quot;&quot;&quot;</span>
-     <span class="c1"># Length</span>
-     <span class="n">n</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-     <span class="c1"># Split in hos and training sets</span>
-     <span class="n">cvs</span><span class="p">,</span> <span class="n">hos</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-     <span class="c1"># Create result</span>
-     <span class="n">empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
-     <span class="n">empty</span><span class="p">[</span><span class="n">cvs</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cvs&#39;</span>
-     <span class="n">empty</span><span class="p">[</span><span class="n">hos</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hos&#39;</span>
-
-     <span class="c1"># Include</span>
-     <span class="k">if</span> <span class="n">inplace</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-         <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;sets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">empty</span>
-
-     <span class="c1"># Return</span>
-     <span class="k">return</span> <span class="n">empty</span>
-
-
- <span class="k">def</span> <span class="nf">split_dataframe_cvs_folds</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">splitter</span><span class="p">,</span> <span class="n">selected_rows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-     <span class="sd">&quot;&quot;&quot;This method labels the different folds.</span>
-
-<span class="sd">         .. note:</span>
-
-<span class="sd">     Parameters</span>
-<span class="sd">     ----------</span>
-<span class="sd">     dataframe: np.array or pd.DataFrame</span>
-<span class="sd">         The data to be divided into folds.</span>
-
-<span class="sd">     splitter: str or splitter</span>
-<span class="sd">         The splitter which can be an str or an splitter from the</span>
-<span class="sd">         sklearn library which implementeds the method split.</span>
-
-<span class="sd">     selected_rows: array of bools.</span>
-<span class="sd">         The rows to be considered to create the folds. Note that if</span>
-<span class="sd">         y is passed (for stratified cross validation) y will also be</span>
-<span class="sd">         filtered by these rows.</span>
-
-<span class="sd">     kwargs:</span>
-
-<span class="sd">     Returns</span>
-<span class="sd">     -------</span>
-<span class="sd">     pd.DataFrame:</span>
-<span class="sd">         The outcome is the same dataframe with an additional column</span>
-<span class="sd">         &lt;set&gt; with the values cvs (cross-validation set) and hos</span>
-<span class="sd">         (hold-out set).</span>
-<span class="sd">     &quot;&quot;&quot;</span>
-     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">splitter</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-         <span class="n">splitter</span> <span class="o">=</span> <span class="n">_DEFAULT_SPLITTERS</span><span class="p">[</span><span class="n">splitter</span><span class="p">]</span>
-
-     <span class="c1"># Define X and y</span>
-     <span class="c1">#X = dataframe[dataframe.sets == &#39;cvs&#39;].index.to_numpy()</span>
-     <span class="c1">#y = dataframe[dataframe.sets == &#39;cvs&#39;][label]</span>
-
-     <span class="c1"># Shape</span>
-     <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span>
-
-     <span class="c1"># No rows selected (all by default)</span>
-     <span class="k">if</span> <span class="n">selected_rows</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-         <span class="n">selected_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-
-     <span class="c1"># Select rows from y</span>
-     <span class="k">if</span> <span class="s1">&#39;y&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-         <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-             <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">selected_rows</span><span class="p">]</span>
-
-     <span class="c1"># Create indexes to use for splitting</span>
-     <span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">r</span><span class="p">)[</span><span class="n">selected_rows</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-     <span class="c1"># Get splits of idxs</span>
-     <span class="n">splits</span> <span class="o">=</span> <span class="n">splitter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">idxs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-     <span class="c1"># Loop and add</span>
-     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">splits</span><span class="p">):</span>
-         <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;set_iter_</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span>
-         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idxs</span><span class="p">[</span><span class="n">train</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="s1">&#39;set_iter_</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;train&#39;</span>
-         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idxs</span><span class="p">[</span><span class="n">test</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="s1">&#39;set_iter_</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
-
-
-
-
- <span class="k">def</span> <span class="nf">split_dataframe_completeness</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
-     <span class="k">pass</span>
-
-
- <span class="c1"># --------------------------------------------------</span>
- <span class="c1"># Main</span>
- <span class="c1"># --------------------------------------------------</span>
- <span class="c1"># Read data</span>
- <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./dataset.csv&#39;</span><span class="p">)</span>
-
- <span class="c1"># Show</span>
- <span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
-
-
- <span class="c1"># Split in Hos and CVS sets</span>
- <span class="c1">#dataframe = split_dataframe_hos_cvs(dataframe)</span>
- <span class="c1">#dataframe = split_dataframe_cvs_folds(dataframe, splitter=&#39;skfold10&#39;,</span>
- <span class="c1">#                                      label=&#39;micro_confirmed&#39;)</span>
-
- <span class="c1"># Split in HOS and CVS sets</span>
- <span class="n">split_dataframe_hos_cvs</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
- <span class="nb">print</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
-
- <span class="c1"># Split in folds</span>
- <span class="n">split_dataframe_cvs_folds</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span>
-                 <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;skfold5&#39;</span><span class="p">,</span>
-                 <span class="n">y</span><span class="o">=</span><span class="n">dataframe</span><span class="o">.</span><span class="n">micro_confirmed</span><span class="p">,</span>
-                 <span class="n">selected_rows</span><span class="o">=</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">sets</span> <span class="o">==</span> <span class="s1">&#39;cvs&#39;</span><span class="p">))</span>
-
- <span class="c1"># Show</span>
- <span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
-
-
- <span class="k">class</span> <span class="nc">DataframeHOSCSVSplitter</span><span class="p">():</span>
-     <span class="sd">&quot;&quot;&quot;</span>
-
-<span class="sd">     &quot;&quot;&quot;</span>
-     <span class="n">col_name</span> <span class="o">=</span> <span class="s1">&#39;sets&#39;</span>
-     <span class="n">cvs_name</span> <span class="o">=</span> <span class="s1">&#39;CSV&#39;</span>
-     <span class="n">hos_name</span> <span class="o">=</span> <span class="s1">&#39;HOS&#39;</span>
-
-     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                  <span class="n">cvs_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                  <span class="n">hos_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-         <span class="sd">&quot;&quot;&quot;</span>
-
-<span class="sd">         :param col_name:</span>
-<span class="sd">         :param cvs_name:</span>
-<span class="sd">         :param hos_name:</span>
-<span class="sd">         &quot;&quot;&quot;</span>
-         <span class="k">if</span> <span class="n">col_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-             <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span> <span class="o">=</span> <span class="n">col_name</span>
-         <span class="k">if</span> <span class="n">cvs_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-             <span class="bp">self</span><span class="o">.</span><span class="n">cvs_name</span> <span class="o">=</span> <span class="n">cvs_name</span>
-         <span class="k">if</span> <span class="n">hos_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-             <span class="bp">self</span><span class="o">.</span><span class="n">hos_name</span> <span class="o">=</span> <span class="n">hos_name</span>
-
-     <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-         <span class="sd">&quot;&quot;&quot;</span>
-
-<span class="sd">         &quot;&quot;&quot;</span>
-         <span class="c1"># Split</span>
-         <span class="n">cvs</span><span class="p">,</span> <span class="n">hos</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-         <span class="c1"># Fill dataset</span>
-         <span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cvs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cvs_name</span>
-         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hos_name</span>
-
-         <span class="c1"># Return</span>
-         <span class="k">return</span> <span class="n">dataframe</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">  7 </span> <span class="c1"># Libraries</span>
+<span class="lineno">  8 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="lineno">  9 </span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="lineno"> 10 </span>
+<span class="lineno"> 11 </span> <span class="c1"># Libraries specific</span>
+<span class="lineno"> 12 </span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="lineno"> 13 </span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<span class="lineno"> 14 </span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+<span class="lineno"> 15 </span>
+<span class="lineno"> 16 </span> <span class="c1">#</span>
+<span class="lineno"> 17 </span>
+<span class="lineno"> 18 </span> <span class="n">_DEFAULT_SPLITTERS</span> <span class="o">=</span> <span class="p">{</span>
+<span class="lineno"> 19 </span>     <span class="s1">&#39;skfold10&#39;</span><span class="p">:</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="lineno"> 20 </span>     <span class="s1">&#39;skfold5&#39;</span><span class="p">:</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="lineno"> 21 </span>     <span class="s1">&#39;skfold2&#39;</span><span class="p">:</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="lineno"> 22 </span> <span class="p">}</span>
+<span class="lineno"> 23 </span>
+<span class="lineno"> 24 </span>
+<span class="lineno"> 25 </span>
+<span class="lineno"> 26 </span> <span class="k">def</span> <span class="nf">split_dataframe_hos_cvs</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="lineno"> 27 </span>     <span class="sd">&quot;&quot;&quot;This method labels the dataframe hos and cvs sets.</span>
+<span class="lineno"> 28 </span>
+<span class="lineno"> 29 </span><span class="sd">     Parameters</span>
+<span class="lineno"> 30 </span><span class="sd">     ----------</span>
+<span class="lineno"> 31 </span><span class="sd">     dataframe: np.array or pd.DataFrame</span>
+<span class="lineno"> 32 </span><span class="sd">         The data to be divided into HOS/CVS.</span>
+<span class="lineno"> 33 </span>
+<span class="lineno"> 34 </span><span class="sd">     Returns</span>
+<span class="lineno"> 35 </span><span class="sd">     -------</span>
+<span class="lineno"> 36 </span><span class="sd">     np.array:</span>
+<span class="lineno"> 37 </span><span class="sd">         The outcome is a numpy array with rows labelled as</span>
+<span class="lineno"> 38 </span><span class="sd">         cvs (cross-validation set) and hos (hold-out set).</span>
+<span class="lineno"> 39 </span><span class="sd">         :param data:</span>
+<span class="lineno"> 40 </span><span class="sd">         :param inplace:</span>
+<span class="lineno"> 41 </span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="lineno"> 42 </span>     <span class="c1"># Length</span>
+<span class="lineno"> 43 </span>     <span class="n">n</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="lineno"> 44 </span>
+<span class="lineno"> 45 </span>     <span class="c1"># Split in hos and training sets</span>
+<span class="lineno"> 46 </span>     <span class="n">cvs</span><span class="p">,</span> <span class="n">hos</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="lineno"> 47 </span>
+<span class="lineno"> 48 </span>     <span class="c1"># Create result</span>
+<span class="lineno"> 49 </span>     <span class="n">empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<span class="lineno"> 50 </span>     <span class="n">empty</span><span class="p">[</span><span class="n">cvs</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cvs&#39;</span>
+<span class="lineno"> 51 </span>     <span class="n">empty</span><span class="p">[</span><span class="n">hos</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hos&#39;</span>
+<span class="lineno"> 52 </span>
+<span class="lineno"> 53 </span>     <span class="c1"># Include</span>
+<span class="lineno"> 54 </span>     <span class="k">if</span> <span class="n">inplace</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="lineno"> 55 </span>         <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;sets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">empty</span>
+<span class="lineno"> 56 </span>
+<span class="lineno"> 57 </span>     <span class="c1"># Return</span>
+<span class="lineno"> 58 </span>     <span class="k">return</span> <span class="n">empty</span>
+<span class="lineno"> 59 </span>
+<span class="lineno"> 60 </span>
+<span class="lineno"> 61 </span> <span class="k">def</span> <span class="nf">split_dataframe_cvs_folds</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">splitter</span><span class="p">,</span> <span class="n">selected_rows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="lineno"> 62 </span>     <span class="sd">&quot;&quot;&quot;This method labels the different folds.</span>
+<span class="lineno"> 63 </span>
+<span class="lineno"> 64 </span><span class="sd">         .. note:</span>
+<span class="lineno"> 65 </span>
+<span class="lineno"> 66 </span><span class="sd">     Parameters</span>
+<span class="lineno"> 67 </span><span class="sd">     ----------</span>
+<span class="lineno"> 68 </span><span class="sd">     dataframe: np.array or pd.DataFrame</span>
+<span class="lineno"> 69 </span><span class="sd">         The data to be divided into folds.</span>
+<span class="lineno"> 70 </span>
+<span class="lineno"> 71 </span><span class="sd">     splitter: str or splitter</span>
+<span class="lineno"> 72 </span><span class="sd">         The splitter which can be an str or an splitter from the</span>
+<span class="lineno"> 73 </span><span class="sd">         sklearn library which implementeds the method split.</span>
+<span class="lineno"> 74 </span>
+<span class="lineno"> 75 </span><span class="sd">     selected_rows: array of bools.</span>
+<span class="lineno"> 76 </span><span class="sd">         The rows to be considered to create the folds. Note that if</span>
+<span class="lineno"> 77 </span><span class="sd">         y is passed (for stratified cross validation) y will also be</span>
+<span class="lineno"> 78 </span><span class="sd">         filtered by these rows.</span>
+<span class="lineno"> 79 </span>
+<span class="lineno"> 80 </span><span class="sd">     kwargs:</span>
+<span class="lineno"> 81 </span>
+<span class="lineno"> 82 </span><span class="sd">     Returns</span>
+<span class="lineno"> 83 </span><span class="sd">     -------</span>
+<span class="lineno"> 84 </span><span class="sd">     pd.DataFrame:</span>
+<span class="lineno"> 85 </span><span class="sd">         The outcome is the same dataframe with an additional column</span>
+<span class="lineno"> 86 </span><span class="sd">         &lt;set&gt; with the values cvs (cross-validation set) and hos</span>
+<span class="lineno"> 87 </span><span class="sd">         (hold-out set).</span>
+<span class="lineno"> 88 </span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="lineno"> 89 </span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">splitter</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="lineno"> 90 </span>         <span class="n">splitter</span> <span class="o">=</span> <span class="n">_DEFAULT_SPLITTERS</span><span class="p">[</span><span class="n">splitter</span><span class="p">]</span>
+<span class="lineno"> 91 </span>
+<span class="lineno"> 92 </span>     <span class="c1"># Define X and y</span>
+<span class="lineno"> 93 </span>     <span class="c1">#X = dataframe[dataframe.sets == &#39;cvs&#39;].index.to_numpy()</span>
+<span class="lineno"> 94 </span>     <span class="c1">#y = dataframe[dataframe.sets == &#39;cvs&#39;][label]</span>
+<span class="lineno"> 95 </span>
+<span class="lineno"> 96 </span>     <span class="c1"># Shape</span>
+<span class="lineno"> 97 </span>     <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span>
+<span class="lineno"> 98 </span>
+<span class="lineno"> 99 </span>     <span class="c1"># No rows selected (all by default)</span>
+<span class="lineno">100 </span>     <span class="k">if</span> <span class="n">selected_rows</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">101 </span>         <span class="n">selected_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="lineno">102 </span>
+<span class="lineno">103 </span>     <span class="c1"># Select rows from y</span>
+<span class="lineno">104 </span>     <span class="k">if</span> <span class="s1">&#39;y&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="lineno">105 </span>         <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">106 </span>             <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">selected_rows</span><span class="p">]</span>
+<span class="lineno">107 </span>
+<span class="lineno">108 </span>     <span class="c1"># Create indexes to use for splitting</span>
+<span class="lineno">109 </span>     <span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">r</span><span class="p">)[</span><span class="n">selected_rows</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="lineno">110 </span>
+<span class="lineno">111 </span>     <span class="c1"># Get splits of idxs</span>
+<span class="lineno">112 </span>     <span class="n">splits</span> <span class="o">=</span> <span class="n">splitter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">idxs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="lineno">113 </span>
+<span class="lineno">114 </span>     <span class="c1"># Loop and add</span>
+<span class="lineno">115 </span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">splits</span><span class="p">):</span>
+<span class="lineno">116 </span>         <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;set_iter_</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="lineno">117 </span>         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idxs</span><span class="p">[</span><span class="n">train</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="s1">&#39;set_iter_</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;train&#39;</span>
+<span class="lineno">118 </span>         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idxs</span><span class="p">[</span><span class="n">test</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="s1">&#39;set_iter_</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
+<span class="lineno">119 </span>
+<span class="lineno">120 </span>
+<span class="lineno">121 </span>
+<span class="lineno">122 </span>
+<span class="lineno">123 </span> <span class="k">def</span> <span class="nf">split_dataframe_completeness</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+<span class="lineno">124 </span>     <span class="k">pass</span>
+<span class="lineno">125 </span>
+<span class="lineno">126 </span>
+<span class="lineno">127 </span> <span class="c1"># --------------------------------------------------</span>
+<span class="lineno">128 </span> <span class="c1"># Main</span>
+<span class="lineno">129 </span> <span class="c1"># --------------------------------------------------</span>
+<span class="lineno">130 </span> <span class="c1"># Read data</span>
+<span class="lineno">131 </span> <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./dataset.csv&#39;</span><span class="p">)</span>
+<span class="lineno">132 </span>
+<span class="lineno">133 </span> <span class="c1"># Show</span>
+<span class="lineno">134 </span> <span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+<span class="lineno">135 </span>
+<span class="lineno">136 </span>
+<span class="lineno">137 </span> <span class="c1"># Split in Hos and CVS sets</span>
+<span class="lineno">138 </span> <span class="c1">#dataframe = split_dataframe_hos_cvs(dataframe)</span>
+<span class="lineno">139 </span> <span class="c1">#dataframe = split_dataframe_cvs_folds(dataframe, splitter=&#39;skfold10&#39;,</span>
+<span class="lineno">140 </span> <span class="c1">#                                      label=&#39;micro_confirmed&#39;)</span>
+<span class="lineno">141 </span>
+<span class="lineno">142 </span> <span class="c1"># Split in HOS and CVS sets</span>
+<span class="lineno">143 </span> <span class="n">split_dataframe_hos_cvs</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="lineno">144 </span>
+<span class="lineno">145 </span> <span class="nb">print</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+<span class="lineno">146 </span>
+<span class="lineno">147 </span> <span class="c1"># Split in folds</span>
+<span class="lineno">148 </span> <span class="n">split_dataframe_cvs_folds</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span>
+<span class="lineno">149 </span>                 <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;skfold5&#39;</span><span class="p">,</span>
+<span class="lineno">150 </span>                 <span class="n">y</span><span class="o">=</span><span class="n">dataframe</span><span class="o">.</span><span class="n">micro_confirmed</span><span class="p">,</span>
+<span class="lineno">151 </span>                 <span class="n">selected_rows</span><span class="o">=</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">sets</span> <span class="o">==</span> <span class="s1">&#39;cvs&#39;</span><span class="p">))</span>
+<span class="lineno">152 </span>
+<span class="lineno">153 </span> <span class="c1"># Show</span>
+<span class="lineno">154 </span> <span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+<span class="lineno">155 </span>
+<span class="lineno">156 </span>
+<span class="lineno">157 </span> <span class="k">class</span> <span class="nc">DataframeHOSCSVSplitter</span><span class="p">():</span>
+<span class="lineno">158 </span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno">159 </span>
+<span class="lineno">160 </span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="lineno">161 </span>     <span class="n">col_name</span> <span class="o">=</span> <span class="s1">&#39;sets&#39;</span>
+<span class="lineno">162 </span>     <span class="n">cvs_name</span> <span class="o">=</span> <span class="s1">&#39;CSV&#39;</span>
+<span class="lineno">163 </span>     <span class="n">hos_name</span> <span class="o">=</span> <span class="s1">&#39;HOS&#39;</span>
+<span class="lineno">164 </span>
+<span class="lineno">165 </span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="lineno">166 </span>                  <span class="n">cvs_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="lineno">167 </span>                  <span class="n">hos_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="lineno">168 </span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno">169 </span>
+<span class="lineno">170 </span><span class="sd">         :param col_name:</span>
+<span class="lineno">171 </span><span class="sd">         :param cvs_name:</span>
+<span class="lineno">172 </span><span class="sd">         :param hos_name:</span>
+<span class="lineno">173 </span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="lineno">174 </span>         <span class="k">if</span> <span class="n">col_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">175 </span>             <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span> <span class="o">=</span> <span class="n">col_name</span>
+<span class="lineno">176 </span>         <span class="k">if</span> <span class="n">cvs_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">177 </span>             <span class="bp">self</span><span class="o">.</span><span class="n">cvs_name</span> <span class="o">=</span> <span class="n">cvs_name</span>
+<span class="lineno">178 </span>         <span class="k">if</span> <span class="n">hos_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">179 </span>             <span class="bp">self</span><span class="o">.</span><span class="n">hos_name</span> <span class="o">=</span> <span class="n">hos_name</span>
+<span class="lineno">180 </span>
+<span class="lineno">181 </span>     <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="lineno">182 </span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno">183 </span>
+<span class="lineno">184 </span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="lineno">185 </span>         <span class="c1"># Split</span>
+<span class="lineno">186 </span>         <span class="n">cvs</span><span class="p">,</span> <span class="n">hos</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="lineno">187 </span>
+<span class="lineno">188 </span>         <span class="c1"># Fill dataset</span>
+<span class="lineno">189 </span>         <span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="lineno">190 </span>         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cvs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cvs_name</span>
+<span class="lineno">191 </span>         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hos_name</span>
+<span class="lineno">192 </span>
+<span class="lineno">193 </span>         <span class="c1"># Return</span>
+<span class="lineno">194 </span>         <span class="k">return</span> <span class="n">dataframe</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pysml-dataframe-splitter-main-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/ee2d94bd3b967cfeda13b5448384c45b/main.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">main.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/7f53b4512ecbbac70f89de68a42294bf/main.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">main.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/9c213ab299d968f35e8db4a791e03ee3/main.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">main.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/b01a5f0d0be8e14c075732fdf1d5aa19/main.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">main.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
            </div>
@@ -584,7 +402,7 @@ to download the full example code</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="skfold-test.html" class="btn btn-neutral float-right" title="Skfold Test" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../learning-tpot/tpot_best_pipeline.html" class="btn btn-neutral float-left" title="Best pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plotly-examples/main03-sparklines.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

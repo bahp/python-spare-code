@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Main &mdash; python-spare-code 0.0.1 documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -33,6 +36,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -94,12 +98,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Example Galleries</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">ldap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#learning-tpot">learning-tpot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly-examples">plotly-examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-dataframe-splitter">pysml-dataframe-splitter</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#pysml-jsonpickle-test">pysml-jsonpickle-test</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Main</a></li>
@@ -158,7 +163,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../index.html">Examples</a> &raquo;</li>
+          <li><a href="../index.html">General</a> &raquo;</li>
         
       <li>Main</li>
     
@@ -184,131 +189,77 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-pysml-jsonpickle-test-main-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="main">
+<section class="sphx-glr-example-title" id="main">
 <span id="sphx-glr-examples-pysml-jsonpickle-test-main-py"></span><h1>Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h1>
 <p>Example</p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Libraries</span>
- <span class="kn">import</span> <span class="nn">json</span>
- <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
- <span class="c1"># Jsonpickle</span>
- <span class="kn">import</span> <span class="nn">jsonpickle</span>
- <span class="kn">import</span> <span class="nn">jsonpickle.ext.numpy</span> <span class="k">as</span> <span class="nn">jsonpickle_numpy</span>
-
- <span class="c1"># Configure jsonpickle</span>
- <span class="n">jsonpickle</span><span class="o">.</span><span class="n">set_preferred_backend</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
- <span class="n">jsonpickle_numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">()</span>
-
-
- <span class="c1"># -------------------</span>
- <span class="c1"># Main</span>
- <span class="c1"># -------------------</span>
- <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"> In order to test whether the jsonpickle encode method saves</span>
-<span class="sd"> the estimators so they can be retrieved no matter the numpy</span>
-<span class="sd"> version. Note that previously using pickle old estimators</span>
-<span class="sd"> could not be loaded because of numpy issues.</span>
-
-<span class="sd"> At the moment I have tested using the system (no virtual</span>
-<span class="sd"> environment) using the following...</span>
-
-<span class="sd">     $ py -m pip install numpy==1.18</span>
-<span class="sd">     $ py main.py</span>
-<span class="sd">     $ py -m pip install numpy==1.19.1</span>
-<span class="sd">     $ py main.py</span>
-
-<span class="sd"> And it works normally.</span>
-
-<span class="sd"> .. todo: Test it through a venvpy28-jsonpickle.</span>
-<span class="sd"> &quot;&quot;&quot;</span>
-
- <span class="c1"># Path</span>
- <span class="n">path</span> <span class="o">=</span>  <span class="s1">&#39;./estimator_00.json&#39;</span>
-
- <span class="c1"># Read</span>
- <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
-     <span class="n">d</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
-
- <span class="c1"># Show information</span>
- <span class="c1">#print(d[&#39;iteration_00&#39;])</span>
-
- <span class="c1"># Show information</span>
- <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Using numpy... &lt;</span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
-
- <span class="c1"># Load</span>
- <span class="n">estimator</span> <span class="o">=</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;iteration_00&#39;</span><span class="p">])</span>
-
- <span class="c1"># Show</span>
- <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Estimator loaded. </span><span class="se">\n</span><span class="s2">   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">estimator</span><span class="p">)</span>
- <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Predictions completed. </span><span class="se">\n</span><span class="s2">   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> \
-       <span class="n">estimator</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 7 </span> <span class="c1"># Libraries</span>
+<span class="lineno"> 8 </span> <span class="kn">import</span> <span class="nn">json</span>
+<span class="lineno"> 9 </span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span> <span class="c1"># Jsonpickle</span>
+<span class="lineno">12 </span> <span class="kn">import</span> <span class="nn">jsonpickle</span>
+<span class="lineno">13 </span> <span class="kn">import</span> <span class="nn">jsonpickle.ext.numpy</span> <span class="k">as</span> <span class="nn">jsonpickle_numpy</span>
+<span class="lineno">14 </span>
+<span class="lineno">15 </span> <span class="c1"># Configure jsonpickle</span>
+<span class="lineno">16 </span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">set_preferred_backend</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="lineno">17 </span> <span class="n">jsonpickle_numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">()</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span>
+<span class="lineno">20 </span> <span class="c1"># -------------------</span>
+<span class="lineno">21 </span> <span class="c1"># Main</span>
+<span class="lineno">22 </span> <span class="c1"># -------------------</span>
+<span class="lineno">23 </span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno">24 </span><span class="sd"> In order to test whether the jsonpickle encode method saves</span>
+<span class="lineno">25 </span><span class="sd"> the estimators so they can be retrieved no matter the numpy</span>
+<span class="lineno">26 </span><span class="sd"> version. Note that previously using pickle old estimators</span>
+<span class="lineno">27 </span><span class="sd"> could not be loaded because of numpy issues.</span>
+<span class="lineno">28 </span>
+<span class="lineno">29 </span><span class="sd"> At the moment I have tested using the system (no virtual</span>
+<span class="lineno">30 </span><span class="sd"> environment) using the following...</span>
+<span class="lineno">31 </span>
+<span class="lineno">32 </span><span class="sd">     $ py -m pip install numpy==1.18</span>
+<span class="lineno">33 </span><span class="sd">     $ py main.py</span>
+<span class="lineno">34 </span><span class="sd">     $ py -m pip install numpy==1.19.1</span>
+<span class="lineno">35 </span><span class="sd">     $ py main.py</span>
+<span class="lineno">36 </span>
+<span class="lineno">37 </span><span class="sd"> And it works normally.</span>
+<span class="lineno">38 </span>
+<span class="lineno">39 </span><span class="sd"> .. todo: Test it through a venvpy28-jsonpickle.</span>
+<span class="lineno">40 </span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="lineno">41 </span>
+<span class="lineno">42 </span> <span class="c1"># Path</span>
+<span class="lineno">43 </span> <span class="n">path</span> <span class="o">=</span>  <span class="s1">&#39;./estimator_00.json&#39;</span>
+<span class="lineno">44 </span>
+<span class="lineno">45 </span> <span class="c1"># Read</span>
+<span class="lineno">46 </span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+<span class="lineno">47 </span>     <span class="n">d</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
+<span class="lineno">48 </span>
+<span class="lineno">49 </span> <span class="c1"># Show information</span>
+<span class="lineno">50 </span> <span class="c1">#print(d[&#39;iteration_00&#39;])</span>
+<span class="lineno">51 </span>
+<span class="lineno">52 </span> <span class="c1"># Show information</span>
+<span class="lineno">53 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Using numpy... &lt;</span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+<span class="lineno">54 </span>
+<span class="lineno">55 </span> <span class="c1"># Load</span>
+<span class="lineno">56 </span> <span class="n">estimator</span> <span class="o">=</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;iteration_00&#39;</span><span class="p">])</span>
+<span class="lineno">57 </span>
+<span class="lineno">58 </span> <span class="c1"># Show</span>
+<span class="lineno">59 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Estimator loaded. </span><span class="se">\n</span><span class="s2">   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">estimator</span><span class="p">)</span>
+<span class="lineno">60 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Predictions completed. </span><span class="se">\n</span><span class="s2">   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> \
+<span class="lineno">61 </span>       <span class="n">estimator</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pysml-jsonpickle-test-main-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/b64801ab14a30e76c2d9df317c0150f7/main.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">main.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/2a84d111786319a55dff956ccc067db5/main.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">main.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/f3411f36350b30308842fd10d999df1a/main.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">main.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/86262313422a220e5745442c176e3e81/main.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">main.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
            </div>
