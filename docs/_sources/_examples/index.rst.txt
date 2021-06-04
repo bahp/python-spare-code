@@ -222,6 +222,40 @@ Below is a gallery of examples ...
 
 
 
+.. _sphx_glr__examples_pandas-examples:
+
+pandas-examples
+---------------
+
+Below is a gallery of examples ...
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pandas - Main 01">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas-examples/images/thumb/sphx_glr_plot_main01_thumb.png
+     :alt: Pandas - Main 01
+
+     :ref:`sphx_glr__examples_pandas-examples_plot_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas-examples/plot_main01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
 .. _sphx_glr__examples_plotly-examples:
 
 plotly-examples
@@ -500,10 +534,10 @@ Below is a gallery of examples ...
 
 .. only:: html
 
- .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_main01_thumb.png
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main01_thumb.png
      :alt: Shap -
 
-     :ref:`sphx_glr__examples_shap-examples_main01.py`
+     :ref:`sphx_glr__examples_shap-examples_plot_main01.py`
 
 .. raw:: html
 
@@ -513,7 +547,49 @@ Below is a gallery of examples ...
 .. toctree::
    :hidden:
 
-   /_examples/shap-examples/main01
+   /_examples/shap-examples/plot_main01
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap -">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main02_thumb.png
+     :alt: Shap -
+
+     :ref:`sphx_glr__examples_shap-examples_plot_main02.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/plot_main02
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap -">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main03_thumb.png
+     :alt: Shap -
+
+     :ref:`sphx_glr__examples_shap-examples_plot_main03.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/plot_main03
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

@@ -5,14 +5,14 @@
 
 Computation times
 =================
-**00:01.429** total execution time for **_examples_plotly-examples** files:
+**00:01.683** total execution time for **_examples_plotly-examples** files:
 
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main10_weather.py` (``plot_main10_weather.py``)             | 00:01.040 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main10_weather.py` (``plot_main10_weather.py``)             | 00:01.195 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main01_roc.py` (``plot_main01_roc.py``)                     | 00:00.146 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main01_roc.py` (``plot_main01_roc.py``)                     | 00:00.216 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main02_distributions.py` (``plot_main02_distributions.py``) | 00:00.123 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main02_distributions.py` (``plot_main02_distributions.py``) | 00:00.148 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main03_sparklines.py` (``plot_main03_sparklines.py``)       | 00:00.120 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main03_sparklines.py` (``plot_main03_sparklines.py``)       | 00:00.123 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+

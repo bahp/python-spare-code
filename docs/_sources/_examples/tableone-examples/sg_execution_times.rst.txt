@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:00.183** total execution time for **_examples_tableone-examples** files:
+**00:00.195** total execution time for **_examples_tableone-examples** files:
 
 +---------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_tableone-examples_plot_main01.py` (``plot_main01.py``) | 00:00.183 | 0.0 MB |
+| :ref:`sphx_glr__examples_tableone-examples_plot_main01.py` (``plot_main01.py``) | 00:00.195 | 0.0 MB |
 +---------------------------------------------------------------------------------+-----------+--------+

@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Shap -" href="../shap-examples/main01.html" /> 
+    <link rel="prev" title="Shap -" href="../shap-examples/plot_main03.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">ldap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#learning-tpot">learning-tpot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas-examples">pandas-examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly-examples">plotly-examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-dataframe-splitter">pysml-dataframe-splitter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-jsonpickle-test">pysml-jsonpickle-test</a></li>
@@ -218,26 +219,10 @@ to download the full example code</p>
 <span class="lineno">28 </span>
 <span class="lineno">29 </span> <span class="c1">#</span>
 <span class="lineno">30 </span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">categorical</span><span class="p">,</span> <span class="n">groupby</span><span class="p">)</span>
-<span class="lineno">31 </span>
-<span class="lineno">32 </span> <span class="c1"># Show</span>
-<span class="lineno">33 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Table&quot;</span><span class="p">)</span>
-<span class="lineno">34 </span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Table
-                                 Grouped by cvs_hos_split
-                                                  Missing        Overall            cvs          hos
-n                                                                    525            393          132
-age, mean (SD)                                          0    37.3 (16.3)    37.4 (16.3)  36.9 (16.5)
-gender, n (%)                  0                        0     249 (47.4)     190 (48.3)    59 (44.7)
-                               1                              276 (52.6)     203 (51.7)    73 (55.3)
-haematocrit_percent, mean (SD)                          0     38.5 (8.6)     38.2 (8.6)   39.3 (8.7)
-plt, mean (SD)                                          0  106.5 (132.5)  110.8 (146.6)  93.8 (75.9)
-</pre></div>
-</div>
-<p>Table</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">40 </span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
+<p>Show</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">36 </span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -324,7 +309,84 @@ plt, mean (SD)                                          0  106.5 (132.5)  110.8 
 </div>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.183 seconds)</p>
+<br /><p>Show (HTML)</p>
+<p>Html</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">42 </span> <span class="n">html</span> <span class="o">=</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+<span class="lineno">43 </span>
+<span class="lineno">44 </span> <span class="c1"># show</span>
+<span class="lineno">45 </span> <span class="nb">print</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th colspan=&quot;4&quot; halign=&quot;left&quot;&gt;Grouped by cvs_hos_split&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Missing&lt;/th&gt;
+      &lt;th&gt;Overall&lt;/th&gt;
+      &lt;th&gt;cvs&lt;/th&gt;
+      &lt;th&gt;hos&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;n&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;td&gt;&lt;/td&gt;
+      &lt;td&gt;525&lt;/td&gt;
+      &lt;td&gt;393&lt;/td&gt;
+      &lt;td&gt;132&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;age, mean (SD)&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;37.3 (16.3)&lt;/td&gt;
+      &lt;td&gt;37.4 (16.3)&lt;/td&gt;
+      &lt;td&gt;36.9 (16.5)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot; valign=&quot;top&quot;&gt;gender, n (%)&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;249 (47.4)&lt;/td&gt;
+      &lt;td&gt;190 (48.3)&lt;/td&gt;
+      &lt;td&gt;59 (44.7)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;&lt;/td&gt;
+      &lt;td&gt;276 (52.6)&lt;/td&gt;
+      &lt;td&gt;203 (51.7)&lt;/td&gt;
+      &lt;td&gt;73 (55.3)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;haematocrit_percent, mean (SD)&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;38.5 (8.6)&lt;/td&gt;
+      &lt;td&gt;38.2 (8.6)&lt;/td&gt;
+      &lt;td&gt;39.3 (8.7)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;plt, mean (SD)&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;106.5 (132.5)&lt;/td&gt;
+      &lt;td&gt;110.8 (146.6)&lt;/td&gt;
+      &lt;td&gt;93.8 (75.9)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.195 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-tableone-examples-plot-main01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/129cf2ef8ebf216460848274b0d7e82e/plot_main01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01.py</span></code></a></p>
@@ -342,7 +404,7 @@ plt, mean (SD)                                          0  106.5 (132.5)  110.8 
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../shap-examples/main01.html" class="btn btn-neutral float-left" title="Shap -" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../shap-examples/plot_main03.html" class="btn btn-neutral float-left" title="Shap -" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

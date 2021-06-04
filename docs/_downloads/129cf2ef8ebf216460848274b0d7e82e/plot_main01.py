@@ -29,12 +29,17 @@ groupby = ['cvs_hos_split']
 #
 mytable = TableOne(data, columns, categorical, groupby)
 
-# Show
-print("\nTable")
-print(mytable.tableone)
-
 ########################################################
-# Table
+# Show
 #
 
 mytable.tableone
+
+########################################################
+# Show (HTML)
+#
+# Html
+html = mytable.to_html()
+
+# show
+print(html)
