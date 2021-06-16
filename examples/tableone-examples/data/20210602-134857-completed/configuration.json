@@ -1,0 +1,459 @@
+{
+    "dataset": {
+        "aux": "fluid_accumulation",
+        "description": "Daily profiles...",
+        "features": [
+            "age",
+            "gender",
+            "haematocrit_percent",
+            "plt"
+        ],
+        "labels": [
+            "outcome"
+        ]
+    },
+    "description": "This workbench is for trial/error",
+    "uuid": "20210602-134857",
+    "workbench": {
+        "estimators": [
+            "gnb"
+        ],
+        "n_splits": 10,
+        "param_grid": {
+            "ann": {
+                "ann__activation": [
+                    "relu"
+                ],
+                "ann__alpha": [
+                    1.0,
+                    0.01
+                ],
+                "ann__batch_size": [
+                    "auto"
+                ],
+                "ann__hidden_layer_sizes": [
+                    [
+                        20,
+                        20
+                    ],
+                    [
+                        100,
+                        100
+                    ],
+                    [
+                        100,
+                        100,
+                        100
+                    ]
+                ],
+                "ann__learning_rate": [
+                    "constant"
+                ],
+                "ann__learning_rate_init": [
+                    0.001
+                ],
+                "ann__max_iter": [
+                    1000
+                ],
+                "ann__momentum": [
+                    0.9
+                ],
+                "ann__power_t": [
+                    0.5
+                ],
+                "ann__solver": [
+                    "adam"
+                ],
+                "ann__tol": [
+                    0.0001
+                ],
+                "ann__warm_start": [
+                    false
+                ]
+            },
+            "cann": {
+                "cann__base_estimator__activation": [
+                    "relu"
+                ],
+                "cann__base_estimator__alpha": [
+                    1.0,
+                    0.01
+                ],
+                "cann__base_estimator__batch_size": [
+                    "auto"
+                ],
+                "cann__base_estimator__hidden_layer_sizes": [
+                    [
+                        20,
+                        20
+                    ],
+                    [
+                        100,
+                        100
+                    ],
+                    [
+                        100,
+                        100,
+                        100
+                    ]
+                ],
+                "cann__base_estimator__learning_rate": [
+                    "constant"
+                ],
+                "cann__base_estimator__learning_rate_init": [
+                    0.001
+                ],
+                "cann__base_estimator__max_iter": [
+                    1000
+                ],
+                "cann__base_estimator__momentum": [
+                    0.9
+                ],
+                "cann__base_estimator__power_t": [
+                    0.5
+                ],
+                "cann__base_estimator__solver": [
+                    "adam"
+                ],
+                "cann__base_estimator__tol": [
+                    0.0001
+                ],
+                "cann__base_estimator__warm_start": [
+                    false
+                ]
+            },
+            "cdtc": {
+                "cdtc__base_estimator__class_weight": [
+                    null
+                ],
+                "cdtc__base_estimator__criterion": [
+                    "gini",
+                    "entropy"
+                ],
+                "cdtc__base_estimator__max_features": [
+                    null
+                ],
+                "cdtc__base_estimator__min_samples_leaf": [
+                    5,
+                    50,
+                    100
+                ],
+                "cdtc__base_estimator__min_samples_split": [
+                    10,
+                    100,
+                    200
+                ]
+            },
+            "cgnb": {
+                "cgnb__base_estimator__var_smoothing": [
+                    0.01,
+                    1e-09
+                ]
+            },
+            "ckeras": {
+                "ckeras__base_estimator__batch_size": [
+                    128
+                ],
+                "ckeras__base_estimator__epochs": [
+                    1,
+                    2,
+                    3
+                ]
+            },
+            "clgbm": {
+                "clgbm__base_estimator__application": [
+                    "binary"
+                ],
+                "clgbm__base_estimator__bagging_fraction": [
+                    0.5
+                ],
+                "clgbm__base_estimator__bagging_freq": [
+                    20
+                ],
+                "clgbm__base_estimator__boosting": [
+                    "gbdt"
+                ],
+                "clgbm__base_estimator__feature_fraction": [
+                    0.5
+                ],
+                "clgbm__base_estimator__is_unbalance": [
+                    "true"
+                ],
+                "clgbm__base_estimator__learning_rate": [
+                    0.05
+                ],
+                "clgbm__base_estimator__metric": [
+                    "auc"
+                ],
+                "clgbm__base_estimator__num_leaves": [
+                    31
+                ],
+                "clgbm__base_estimator__objective": [
+                    "binary"
+                ],
+                "clgbm__base_estimator__verbose": [
+                    0
+                ]
+            },
+            "cllr": {
+                "cllr__base_estimator__C": [
+                    0.01,
+                    0.1,
+                    1.0
+                ],
+                "cllr__base_estimator__class_weight": [
+                    null,
+                    "balanced"
+                ],
+                "cllr__base_estimator__fit_intercept": [
+                    true,
+                    false
+                ],
+                "cllr__base_estimator__max_iter": [
+                    500
+                ],
+                "cllr__base_estimator__penalty": [
+                    "l2"
+                ]
+            },
+            "crfc": {
+                "crfc__base_estimator__class_weight": [
+                    null
+                ],
+                "crfc__base_estimator__criterion": [
+                    "gini"
+                ],
+                "crfc__base_estimator__max_features": [
+                    null
+                ],
+                "crfc__base_estimator__min_samples_leaf": [
+                    5,
+                    50,
+                    100
+                ],
+                "crfc__base_estimator__min_samples_split": [
+                    5,
+                    50
+                ],
+                "crfc__base_estimator__n_estimators": [
+                    3,
+                    5,
+                    10,
+                    100
+                ]
+            },
+            "csvm": {
+                "csvm__base_estimator__C": [
+                    1,
+                    0.1,
+                    0.01
+                ],
+                "csvm__base_estimator__gamma": [
+                    1,
+                    0.1,
+                    0.01
+                ],
+                "csvm__base_estimator__max_iter": [
+                    500
+                ],
+                "csvm__base_estimator__probability": [
+                    true
+                ]
+            },
+            "cxgb": {
+                "cxgb__base_estimator__colsample_bytree": [
+                    0.1,
+                    0.8
+                ],
+                "cxgb__base_estimator__gamma": [
+                    0.001,
+                    1
+                ],
+                "cxgb__base_estimator__learning_rate": [
+                    0.01
+                ],
+                "cxgb__base_estimator__max_depth": [
+                    2,
+                    10
+                ],
+                "cxgb__base_estimator__n_estimators": [
+                    10,
+                    100
+                ],
+                "cxgb__base_estimator__subsample": [
+                    0.2,
+                    0.8
+                ],
+                "cxgb__base_estimator__use_label_encoder": [
+                    false
+                ]
+            },
+            "dtc": {
+                "dtc__class_weight": [
+                    null
+                ],
+                "dtc__criterion": [
+                    "gini",
+                    "entropy"
+                ],
+                "dtc__max_features": [
+                    null
+                ],
+                "dtc__min_samples_leaf": [
+                    5,
+                    50,
+                    100
+                ],
+                "dtc__min_samples_split": [
+                    10,
+                    100,
+                    200
+                ]
+            },
+            "gnb": {
+                "gnb__var_smoothing": [
+                    0.01,
+                    1e-09
+                ]
+            },
+            "keras": {
+                "keras__batch_size": [
+                    128
+                ],
+                "keras__epochs": [
+                    1,
+                    2,
+                    3
+                ]
+            },
+            "lgbm": {
+                "lgbm__application": [
+                    "binary"
+                ],
+                "lgbm__bagging_fraction": [
+                    0.5
+                ],
+                "lgbm__bagging_freq": [
+                    20
+                ],
+                "lgbm__boosting": [
+                    "gbdt"
+                ],
+                "lgbm__feature_fraction": [
+                    0.5
+                ],
+                "lgbm__is_unbalance": [
+                    "true"
+                ],
+                "lgbm__learning_rate": [
+                    0.05
+                ],
+                "lgbm__metric": [
+                    "auc"
+                ],
+                "lgbm__num_leaves": [
+                    31
+                ],
+                "lgbm__objective": [
+                    "binary"
+                ],
+                "lgbm__verbose": [
+                    0
+                ]
+            },
+            "llr": {
+                "llr__C": [
+                    0.01,
+                    0.1,
+                    1.0
+                ],
+                "llr__class_weight": [
+                    null,
+                    "balanced"
+                ],
+                "llr__fit_intercept": [
+                    true,
+                    false
+                ],
+                "llr__max_iter": [
+                    500
+                ],
+                "llr__penalty": [
+                    "l2"
+                ]
+            },
+            "rfc": {
+                "rfc__class_weight": [
+                    null
+                ],
+                "rfc__criterion": [
+                    "gini"
+                ],
+                "rfc__max_features": [
+                    null
+                ],
+                "rfc__min_samples_leaf": [
+                    5,
+                    50,
+                    100
+                ],
+                "rfc__min_samples_split": [
+                    5,
+                    50
+                ],
+                "rfc__n_estimators": [
+                    3,
+                    5,
+                    10,
+                    100
+                ]
+            },
+            "svm": {
+                "svm__C": [
+                    1,
+                    0.1,
+                    0.01
+                ],
+                "svm__gamma": [
+                    1,
+                    0.1,
+                    0.01
+                ],
+                "svm__max_iter": [
+                    500
+                ],
+                "svm__probability": [
+                    true
+                ]
+            },
+            "xgb": {
+                "xgb__colsample_bytree": [
+                    0.1,
+                    0.8
+                ],
+                "xgb__gamma": [
+                    0.001,
+                    1
+                ],
+                "xgb__learning_rate": [
+                    0.01
+                ],
+                "xgb__max_depth": [
+                    2,
+                    10
+                ],
+                "xgb__n_estimators": [
+                    10,
+                    100
+                ],
+                "xgb__subsample": [
+                    0.2,
+                    0.8
+                ],
+                "xgb__use_label_encoder": [
+                    false
+                ]
+            }
+        }
+    }
+}
