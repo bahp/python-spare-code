@@ -52,7 +52,7 @@ print(data)
 # Create layout
 layout = {
   "font": {"family": "Georgia, serif"},
-  "title": "Weather Ho Chi Minh (missing units!)",
+  "title": "Weather Ho Chi Minh",
   #"width": 500,
   "height": 1000,
   #"margin": {"t": 80},
@@ -89,5 +89,5 @@ for i, column in enumerate(data.columns):
 fig.update_layout(layout)
 
 # Show
-#fig.show()
+fig.show()
 fig

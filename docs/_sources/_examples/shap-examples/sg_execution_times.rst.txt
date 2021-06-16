@@ -5,12 +5,14 @@
 
 Computation times
 =================
-**00:15.685** total execution time for **_examples_shap-examples** files:
+**00:00.436** total execution time for **_examples_shap-examples** files:
 
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap-examples_plot_main02.py` (``plot_main02.py``) | 00:12.935 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap-examples_plot_main04.py` (``plot_main04.py``) | 00:00.436 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap-examples_plot_main01.py` (``plot_main01.py``) | 00:02.245 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap-examples_plot_main01.py` (``plot_main01.py``) | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap-examples_plot_main03.py` (``plot_main03.py``) | 00:00.506 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap-examples_plot_main02.py` (``plot_main02.py``) | 00:00.000 | 0.0 MB |
++-----------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_shap-examples_plot_main03.py` (``plot_main03.py``) | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+

@@ -32,7 +32,7 @@ Pandas - Main 01
     import pandas as pd
 
     # Show in terminal
-    TERMINAL = False
+    TERMINAL = True
 
     # Create data
     data = [
@@ -65,6 +65,24 @@ Pandas - Main 01
 
 
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Data:
+      patient       date  plt  hct  bil
+    0      p1 2021-05-01  1.0    2  3.0
+    1      p1 2021-05-02  3.0    3  3.0
+    2      p1 2021-05-03  4.0    4  4.0
+    3      p1 2021-05-05  5.0    5  5.0
+    4      p2 2021-05-11  5.0    3  3.0
+    5      p2 2021-05-12  4.0    3  NaN
+    6      p2 2021-05-16  NaN    1  NaN
+    7      p2 2021-05-15  5.0    2  4.0
 
 
 .. raw:: html
@@ -191,6 +209,24 @@ Sort values
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+      patient       date  plt  hct  bil
+    0      p1 2021-05-01  1.0    2  3.0
+    1      p1 2021-05-02  3.0    3  3.0
+    5      p2 2021-05-12  4.0    3  NaN
+    2      p1 2021-05-03  4.0    4  4.0
+    7      p2 2021-05-15  5.0    2  4.0
+    4      p2 2021-05-11  5.0    3  3.0
+    3      p1 2021-05-05  5.0    5  5.0
+    6      p2 2021-05-16  NaN    1  NaN
+
 
 .. raw:: html
 
@@ -315,6 +351,24 @@ Select columns
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+      patient       date  plt
+    0      p1 2021-05-01  1.0
+    1      p1 2021-05-02  3.0
+    2      p1 2021-05-03  4.0
+    3      p1 2021-05-05  5.0
+    4      p2 2021-05-11  5.0
+    5      p2 2021-05-12  4.0
+    6      p2 2021-05-16  NaN
+    7      p2 2021-05-15  5.0
+
 
 .. raw:: html
 
@@ -422,6 +476,23 @@ Indexing (not nan)
 
 
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+      patient       date  plt  hct  bil
+    0      p1 2021-05-01  1.0    2  3.0
+    1      p1 2021-05-02  3.0    3  3.0
+    2      p1 2021-05-03  4.0    4  4.0
+    3      p1 2021-05-05  5.0    5  5.0
+    4      p2 2021-05-11  5.0    3  3.0
+    5      p2 2021-05-12  4.0    3  NaN
+    7      p2 2021-05-15  5.0    2  4.0
 
 
 .. raw:: html
@@ -541,6 +612,22 @@ Drop nan (in subset)
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+      patient       date  plt  hct  bil
+    0      p1 2021-05-01  1.0    2  3.0
+    1      p1 2021-05-02  3.0    3  3.0
+    2      p1 2021-05-03  4.0    4  4.0
+    3      p1 2021-05-05  5.0    5  5.0
+    4      p2 2021-05-11  5.0    3  3.0
+    7      p2 2021-05-15  5.0    2  4.0
+
 
 .. raw:: html
 
@@ -650,6 +737,22 @@ Drop nan (all)
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+      patient       date  plt  hct  bil
+    0      p1 2021-05-01  1.0    2  3.0
+    1      p1 2021-05-02  3.0    3  3.0
+    2      p1 2021-05-03  4.0    4  4.0
+    3      p1 2021-05-05  5.0    5  5.0
+    4      p2 2021-05-11  5.0    3  3.0
+    7      p2 2021-05-15  5.0    2  4.0
+
 
 .. raw:: html
 
@@ -735,17 +838,18 @@ Drop nan (all)
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-111
+.. GENERATED FROM PYTHON SOURCE LINES 108-110
 
-Resample dates
+Resample daily
 
-Resample
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-119
+.. GENERATED FROM PYTHON SOURCE LINES 110-120
 
 .. code-block:: default
    :lineno-start: 111
 
+
+    # Resample
     aux = data.set_index('date').resample('D').asfreq()
 
     # Show
@@ -757,6 +861,33 @@ Resample
 
 
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+               patient  plt  hct  bil
+    date                             
+    2021-05-01      p1  1.0  2.0  3.0
+    2021-05-02      p1  3.0  3.0  3.0
+    2021-05-03      p1  4.0  4.0  4.0
+    2021-05-04     NaN  NaN  NaN  NaN
+    2021-05-05      p1  5.0  5.0  5.0
+    2021-05-06     NaN  NaN  NaN  NaN
+    2021-05-07     NaN  NaN  NaN  NaN
+    2021-05-08     NaN  NaN  NaN  NaN
+    2021-05-09     NaN  NaN  NaN  NaN
+    2021-05-10     NaN  NaN  NaN  NaN
+    2021-05-11      p2  5.0  3.0  3.0
+    2021-05-12      p2  4.0  3.0  NaN
+    2021-05-13     NaN  NaN  NaN  NaN
+    2021-05-14     NaN  NaN  NaN  NaN
+    2021-05-15      p2  5.0  2.0  4.0
+    2021-05-16      p2  NaN  1.0  NaN
 
 
 .. raw:: html
@@ -913,15 +1044,15 @@ Resample
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-122
+.. GENERATED FROM PYTHON SOURCE LINES 121-123
 
 Filling missing (pad)
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-130
+.. GENERATED FROM PYTHON SOURCE LINES 123-133
 
 .. code-block:: default
-   :lineno-start: 123
+   :lineno-start: 124
 
 
     # Pad is synonym of DataFrame.fillna() with method='ffill'.
@@ -936,6 +1067,35 @@ Filling missing (pad)
 
 
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+               patient  plt  hct  bil
+    date                             
+    2021-05-01      p1  1.0  2.0  3.0
+    2021-05-02      p1  3.0  3.0  3.0
+    2021-05-03      p1  4.0  4.0  4.0
+    2021-05-04      p1  4.0  4.0  4.0
+    2021-05-05      p1  5.0  5.0  5.0
+    2021-05-06      p1  5.0  5.0  5.0
+    2021-05-07      p1  5.0  5.0  5.0
+    2021-05-08      p1  5.0  5.0  5.0
+    2021-05-09      p1  5.0  5.0  5.0
+    2021-05-10      p1  5.0  5.0  5.0
+    2021-05-11      p2  5.0  3.0  3.0
+    2021-05-12      p2  4.0  3.0  3.0
+    2021-05-13      p2  4.0  3.0  3.0
+    2021-05-14      p2  4.0  3.0  3.0
+    2021-05-15      p2  5.0  2.0  4.0
+    2021-05-16      p2  5.0  1.0  4.0
+
+
 .. raw:: html
 
     <div class="output_subarea output_html rendered_html output_result">
@@ -1090,10 +1250,171 @@ Filling missing (pad)
     <br />
     <br />
 
+.. GENERATED FROM PYTHON SOURCE LINES 134-135
+
+Group by patient and sum
+
+.. GENERATED FROM PYTHON SOURCE LINES 135-145
+
+.. code-block:: default
+   :lineno-start: 136
+
+
+    # Group by patient and sum
+    agg = aux.groupby('patient').sum()
+
+    # Show
+    if TERMINAL:
+        print("\nOut:")
+        print(agg)
+    agg
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+              plt   hct   bil
+    patient                  
+    p1       42.0  43.0  44.0
+    p2       27.0  15.0  20.0
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>plt</th>
+          <th>hct</th>
+          <th>bil</th>
+        </tr>
+        <tr>
+          <th>patient</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>p1</th>
+          <td>42.0</td>
+          <td>43.0</td>
+          <td>44.0</td>
+        </tr>
+        <tr>
+          <th>p2</th>
+          <td>27.0</td>
+          <td>15.0</td>
+          <td>20.0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 146-147
+
+Group by patient (2days) and ..
+
+.. GENERATED FROM PYTHON SOURCE LINES 147-183
+
+.. code-block:: default
+   :lineno-start: 148
+
+
+    agg = aux.groupby(by=['patient', pd.Grouper(freq='2D')]) \
+        .agg('mean', 'max')
+        #.agg({'idx': ['first', 'last'],
+        #      0: [skew, kurtosis, own],
+        #      1: [skew, kurtosis, own],
+        #      '0_hr': [own],
+        #      '0_rr': [own]})
+
+    # Show
+    if TERMINAL:
+        print("\nOut:")
+        print(agg)
+    agg
+
+
+    def f(x):
+        print(x)
+
+    #agg = aux.groupby(by='patient').rolling(2).apply(f)
+    #print(agg)
+
+
+
+
+    """#https://stackoverflow.com/questions/39674713/neural-network-lstm-input-shape-from-dataframe
+    # Put your inputs into a single list
+    aux = data.copy(deep=True)
+    aux['single_input_vector'] = aux[['hct', 'plt']].apply(tuple, axis=1).apply(list)
+    # Double-encapsulate list so that you can sum it in the next step and keep time steps as separate elements
+    aux['single_input_vector'] = aux.single_input_vector.apply(lambda x: [list(x)])
+    # Use .cumsum() to include previous row vectors in the current row list of vectors
+    aux['cumulative_input_vectors'] = aux.single_input_vector.cumsum()
+    # If your output is multi-dimensional, you need to capture those dimensions in one object
+    # If your output is a single dimension, this step may be unnecessary
+    aux['output_vector'] = aux[['bil']].apply(tuple, axis=1).apply(list)
+    print(aux)"""
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Out:
+                        plt  hct  bil
+    patient date                     
+    p1      2021-05-01  2.0  2.5  3.0
+            2021-05-03  4.0  4.0  4.0
+            2021-05-05  5.0  5.0  5.0
+            2021-05-07  5.0  5.0  5.0
+            2021-05-09  5.0  5.0  5.0
+    p2      2021-05-11  4.5  3.0  3.0
+            2021-05-13  4.0  3.0  3.0
+            2021-05-15  5.0  1.5  4.0
+
+    "#https://stackoverflow.com/questions/39674713/neural-network-lstm-input-shape-from-dataframe\n# Put your inputs into a single list\naux = data.copy(deep=True)\naux['single_input_vector'] = aux[['hct', 'plt']].apply(tuple, axis=1).apply(list)\n# Double-encapsulate list so that you can sum it in the next step and keep time steps as separate elements\naux['single_input_vector'] = aux.single_input_vector.apply(lambda x: [list(x)])\n# Use .cumsum() to include previous row vectors in the current row list of vectors\naux['cumulative_input_vectors'] = aux.single_input_vector.cumsum()\n# If your output is multi-dimensional, you need to capture those dimensions in one object\n# If your output is a single dimension, this step may be unnecessary\naux['output_vector'] = aux[['bil']].apply(tuple, axis=1).apply(list)\nprint(aux)"
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.041 seconds)
+   **Total running time of the script:** ( 0 minutes  0.104 seconds)
 
 
 .. _sphx_glr_download__examples_pandas-examples_plot_main01.py:

@@ -67,11 +67,12 @@ xgb = XGBClassifier(
     max_depth= 4,
     n_estimators= 100)
 ann = MLPClassifier()
-svm = SVC()
+svm = SVC(probability=True)
 etc = ExtraTreesClassifier()
 
 # List
 clfs = [gnb, llr, dtc, rfc, xgb, ann, svm, etc]
+#clfs = [svm, dtc]
 
 # Fit
 for clf in clfs:
@@ -80,37 +81,79 @@ for clf in clfs:
 # ----------------------------------------
 # Find shap values
 # ----------------------------------------
-# shap.DeepExplainer works with Deep Learning models.
-# shap.KernelExplainer works with all models, though it is
-# slower than other Explainers and it offers an approximation rather than exact Shap values.
+# Possible explainers:
+#    - shap.DeepExplainer
+#    - shap.KernelExplainer
+#    - shap.TreeExplainer
+#    - shap.LinearExplainer
+#    - shap.Exact
+#    - shap.Explainer
+
 # Import
 import shap
 
 # Initialise
 shap.initjs()
 
+
+def predict_proba(x):
+    return clf.predict_proba(x)[:, 1]
+
 # Loop
 for clf in clfs:
 
     try:
-        # Get generic explainer
-        explainer = shap.Explainer(clf, X_train)
-
-        # Set generic kernel explainer
-        #explainer = shap.KernelExplainer(clf.predict_proba, X_train)
-
-        # Show kernel type
+        # Show classifier
         print("\n" + '-'*80)
         print("Classifier: %s" % clf)
+
+        """
+        # Create shap explainer
+        if isinstance(clf,
+            (DecisionTreeClassifier,
+             ExtraTreesClassifier,
+             XGBClassifier)):
+            # Set Tree explainer
+            explainer = shap.TreeExplainer(clf)
+        elif isinstance(clf, LogisticRegression):
+            # Masker
+            masker = shap.maskers.Independent(X_train, max_samples=100)
+            # Set Linear explainer
+            #explainer = shap.LinearExplainer(predict_proba)#, masker)
+            explainer = shap.Explainer(predict_proba, masker)
+        elif isinstance(clf, int):
+            # Set NN explainer
+            explainer = shap.DeepExplainer(clf)
+        else:
+            # Works for [svc]
+            # If too many examples (pass aux to explainer).
+            aux = shap.sample(X_train, 100)
+            # Set generic kernel explainer
+            explainer = shap.KernelExplainer(predict_proba, aux)
+        """
+
+        # Sample to speed up processing.
+        sample = shap.sample(X_train, 100)
+
+        if isinstance(clf, XGBClassifier):
+            # Works for [llr, dtc, etc, xgb]
+            explainer = shap.Explainer(clf, sample)
+        else:
+            # Works for all but [xgb]
+            explainer = shap.KernelExplainer(predict_proba, sample)
+
+        # Show kernel type
         print("Kernel type: %s" % type(explainer))
 
         # Get shap values
         #shap_values = explainer(X)
-        shap_values = explainer(X_train)
+        shap_values = explainer.shap_values(X_train)
 
         # Show information
-        print("shap_values: %s" % \
-              str(shap_values.shape))
+        print("base value: %s" % \
+              explainer.expected_value)
+        #print("shap_values: %s" % \
+        #      str(shap_values.shape))
 
         # Summary plot
         plt.figure()
@@ -124,61 +167,7 @@ for clf in clfs:
         plt.tight_layout()
 
     except Exception as e:
-        print(e)
+        print("Error: %s" % e)
 
 # Show
 plt.show()
-
-"""
-import sys
-sys.exit()
-
-import seaborn as sns
-sv = explainer.shap_values(X_train)
-sv = pd.DataFrame(sv, columns=X.columns)
-sv = sv.stack().reset_index()
-sv['val'] = X_train.stack().reset_index()[0]
-
-#import plotly.express as px
-
-#f = px.strip(data_frame=sv, x=0, y='level_1', color='val')
-#f.show()
-
-print(sv)
-#sns.swarmplot(data=sv, x=0, y='level_1', color='viridis', palette='viridis')
-#sns.stripplot(data=sv, x=0, y='level_1', color='viridis', palette='viridis')
-#plt.show()
-import sys
-sys.exit()
-#sns.swarmplot(x=)
-
-import sys
-sys.exit()
-
-#html = f"<head>{shap.getjs()}</head><body>"
-# Bee swarm
-# .. note: unexpected algorithm matplotlib!
-# .. note: does not return an object!
-plot_bee = shap.plots.beeswarm(shap_values, show=False)
-
-# Sow
-print("\nBEE")
-print(plot_bee)
-
-#print(f)
-# Waterfall
-# .. note: not working!
-#shap.plots.waterfall(shap_values[0], max_display=14)
-
-# Force plot
-# .. note: not working!
-plot_force = shap.plots.force(explainer.expected_value,
-    explainer.shap_values(X_train), X_train,
-    matplotlib=False, show=False)
-
-# Show
-print("\nFORCE:")
-print(plot_force)
-print(plot_force.html())
-print(shap.save_html('e.html', plot_force))
-"""

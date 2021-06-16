@@ -590,6 +590,27 @@ Below is a gallery of examples ...
    :hidden:
 
    /_examples/shap-examples/plot_main03
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap -">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main04_thumb.png
+     :alt: Shap -
+
+     :ref:`sphx_glr__examples_shap-examples_plot_main04.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/plot_main04
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
