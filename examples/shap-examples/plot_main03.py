@@ -64,7 +64,7 @@ xgb = XGBClassifier(
     n_estimators= 100)
 
 # Select one
-clf = xgb
+clf = rfc
 
 # Fit
 clf.fit(X_train, y_train)
@@ -75,21 +75,8 @@ clf.fit(X_train, y_train)
 # Import
 import shap
 
-"""
-# Create shap explainer
-if isinstance(clf,
-    (DecisionTreeClassifier,
-     RandomForestClassifier,
-     XGBClassifier)):
-    # Set Tree explainer
-    explainer = shap.TreeExplainer(clf)
-elif isinstance(clf, int):
-    # Set NN explainer
-    explainer = shap.DeepExplainer(clf)
-else:
-    # Set generic kernel explainer
-    explainer = shap.KernelExplainer(clf.predict_proba, X_train)
-"""
+# Initialise
+shap.initjs()
 
 # Get generic explainer
 explainer = shap.Explainer(clf, X_train)
@@ -97,31 +84,35 @@ explainer = shap.Explainer(clf, X_train)
 # Show kernel type
 print("\nKernel type: %s" % type(explainer))
 
-# Get shap values
-shap_values = explainer(X)
-
-# For interactions!!
-# https://github.com/slundberg/shap/issues/501
+# Variables
+#rows = X_train.iloc[5, :]
+#shap = explainer.shap_values(row)
 
 # Get shap values
-#shap_values = \
-#    explainer.shap_values(X_train)
-#shap_interaction_values = \
-#    explainer.shap_interaction_values(X_train)
+shap_values = explainer.shap_values(X_train.iloc[5, :])
+#shap_values = explainer.shap_values(X_test.iloc[5, :])
 
-# Show information
-print("shap_values (shape): %s" % \
-      str(shap_values.shape))
-#print("shap_values_interaction (shape): %s" % \
-#      str(shap_interaction_values.shape))
+print(shap_values)
 
+# Force plot
+# .. note: not working!
+plot_force = shap.plots.force(explainer.expected_value[1],
+    shap_values[1], X_train.iloc[5, :],
+    matplotlib=True, show=True)
+
+plt.tight_layout()
+plt.show()
+
+"""
+import sys
+sys.exit()
 
 # ----------------------------------------
 # Visualize
 # ----------------------------------------
 # Initialise
 shap.initjs()
-
+"""
 """
 # Dependence plot
 shap.dependence_plot(0, shap_values,
@@ -130,6 +121,7 @@ shap.dependence_plot(0, shap_values,
 plt.tight_layout()
 """
 
+"""
 print(explainer.shap_values(X_train))
 
 # Summary plot
@@ -155,7 +147,6 @@ sv['val'] = X_train.stack().reset_index()[0]
 #f = px.strip(data_frame=sv, x=0, y='level_1', color='val')
 #f.show()
 
-"""
 print(sv)
 #sns.swarmplot(data=sv, x=0, y='level_1', color='viridis', palette='viridis')
 #sns.stripplot(data=sv, x=0, y='level_1', color='viridis', palette='viridis')

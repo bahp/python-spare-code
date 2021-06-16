@@ -34,3 +34,12 @@ mytable = TableOne(data, columns, categorical, groupby)
 #
 
 mytable.tableone
+
+########################################################
+# Show (HTML)
+#
+# Html
+html = mytable.to_html()
+
+# show
+print(html)
