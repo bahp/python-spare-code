@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Main &mdash; python-spare-code 0.0.1 documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -33,6 +36,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -94,12 +98,16 @@
 </ul>
 <p class="caption"><span class="caption-text">Example Galleries</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">ldap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#learning-tpot">learning-tpot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-dataframe-splitter">pysml-dataframe-splitter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-jsonpickle-test">pysml-jsonpickle-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-sklearn-utils">pysml-sklearn-utils</a></li>
@@ -108,6 +116,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
 </ul>
 </li>
 </ul>
@@ -158,7 +169,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../index.html">Examples</a> &raquo;</li>
+          <li><a href="../index.html">General</a> &raquo;</li>
         
       <li>Main</li>
     
@@ -184,233 +195,128 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-pysml-sklearn-wrapper-main-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="main">
+<section class="sphx-glr-example-title" id="main">
 <span id="sphx-glr-examples-pysml-sklearn-wrapper-main-py"></span><h1>Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h1>
 <p>Example</p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Libraries</span>
- <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
- <span class="c1"># Libraries specific</span>
- <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
- <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
- <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
- <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Normalizer</span>
- <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
-
-
- <span class="k">class</span> <span class="nc">DataframeXYWrapper</span><span class="p">():</span>
-
-     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">X_columns</span><span class="p">,</span> <span class="n">y_columns</span><span class="p">):</span>
-         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">         &quot;&quot;&quot;</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">=</span> <span class="n">X_columns</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span> <span class="o">=</span> <span class="n">y_columns</span>
-
-     <span class="k">def</span> <span class="nf">get_X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-         <span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
-         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span><span class="p">]</span>
-
-     <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-         <span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
-         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
-
-     <span class="k">def</span> <span class="nf">get_X_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-         <span class="sd">&quot;&quot;&quot;Return...</span>
-<span class="sd">         &quot;&quot;&quot;</span>
-         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
-
-     <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                <span class="n">requires_y</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                <span class="n">argname_X</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
-                                <span class="n">argname_y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
-                                <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                <span class="n">return_obj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">         &quot;&quot;&quot;</span>
-         <span class="k">if</span> <span class="n">requires_X</span><span class="p">:</span>
-             <span class="n">kwargs</span><span class="p">[</span><span class="n">argname_X</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_X</span><span class="p">()</span>
-         <span class="k">if</span> <span class="n">requires_y</span><span class="p">:</span>
-             <span class="n">kwargs</span><span class="p">[</span><span class="n">argname_y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span>
-
-         <span class="c1"># Output</span>
-         <span class="n">out</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-         <span class="c1"># Inplace</span>
-         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
-             <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
-
-         <span class="c1"># Return</span>
-         <span class="k">if</span> <span class="n">return_obj</span><span class="p">:</span>
-             <span class="k">return</span> <span class="n">obj</span><span class="p">,</span> <span class="n">out</span>
-         <span class="k">return</span> <span class="n">out</span>
-
-
-
- <span class="c1"># --------------------------------------------------</span>
- <span class="c1"># Main</span>
- <span class="c1"># --------------------------------------------------</span>
- <span class="c1"># Read data</span>
- <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./dataset.csv&#39;</span><span class="p">)</span>
- <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
- <span class="c1"># Define columns</span>
- <span class="n">X_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BIL&#39;</span><span class="p">,</span> <span class="s1">&#39;CRP&#39;</span><span class="p">,</span> <span class="s1">&#39;CRE&#39;</span><span class="p">]</span>
- <span class="n">y_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;micro_confirmed&#39;</span><span class="p">]</span>
-
- <span class="c1"># Create wrapper</span>
- <span class="n">wrapper</span> <span class="o">=</span> <span class="n">DataframeXYWrapper</span><span class="p">(</span><span class="n">dataframe</span><span class="o">=</span><span class="n">dataframe</span><span class="p">,</span>
-                              <span class="n">X_columns</span><span class="o">=</span><span class="n">X_columns</span><span class="p">,</span>
-                              <span class="n">y_columns</span><span class="o">=</span><span class="n">y_columns</span><span class="p">)</span>
- <span class="c1"># Show</span>
- <span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">get_X</span><span class="p">())</span>
-
- <span class="c1"># ------------------------------</span>
- <span class="c1"># Imputers</span>
- <span class="c1"># ------------------------------</span>
- <span class="c1"># Loop</span>
- <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">imputer</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)),</span>
-                       <span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">))]:</span>
-     <span class="c1"># Apply imputer</span>
-     <span class="n">obj</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">imputer</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                            <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-     <span class="c1"># Display</span>
-     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="si">{0}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">imputer</span><span class="p">,</span> <span class="n">out</span><span class="p">))</span>
-
- <span class="kn">import</span> <span class="nn">sys</span>
-
- <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
- <span class="c1"># ------------------------------</span>
- <span class="c1"># Scalers</span>
- <span class="c1"># ------------------------------</span>
- <span class="c1"># Loop</span>
- <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">scaler</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
-                      <span class="p">(</span><span class="s1">&#39;mmx&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span>
-                      <span class="p">(</span><span class="s1">&#39;rbs&#39;</span><span class="p">,</span> <span class="n">RobustScaler</span><span class="p">())]:</span>
-     <span class="c1"># Apply scaler</span>
-     <span class="n">obj</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">scaler</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                            <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-     <span class="c1"># Display</span>
-     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="si">{0}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scaler</span><span class="p">,</span> <span class="n">output</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  8</span> <span class="c1"># Libraries</span>
+<span class="linenos">  9</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span> <span class="c1"># Libraries specific</span>
+<span class="linenos"> 12</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="linenos"> 13</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="linenos"> 14</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
+<span class="linenos"> 15</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Normalizer</span>
+<span class="linenos"> 16</span> <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span> <span class="k">class</span> <span class="nc">DataframeXYWrapper</span><span class="p">():</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">X_columns</span><span class="p">,</span> <span class="n">y_columns</span><span class="p">):</span>
+<span class="linenos"> 22</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 23</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="linenos"> 24</span>         <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span>
+<span class="linenos"> 25</span>         <span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">=</span> <span class="n">X_columns</span>
+<span class="linenos"> 26</span>         <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span> <span class="o">=</span> <span class="n">y_columns</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span>     <span class="k">def</span> <span class="nf">get_X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 29</span>         <span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
+<span class="linenos"> 30</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span><span class="p">]</span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span>     <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 33</span>         <span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
+<span class="linenos"> 34</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span>     <span class="k">def</span> <span class="nf">get_X_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 37</span>         <span class="sd">&quot;&quot;&quot;Return...</span>
+<span class="linenos"> 38</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="linenos"> 39</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span>     <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 42</span>                                <span class="n">requires_y</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 43</span>                                <span class="n">argname_X</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="linenos"> 44</span>                                <span class="n">argname_y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+<span class="linenos"> 45</span>                                <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 46</span>                                <span class="n">return_obj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 47</span>                                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 48</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 49</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="linenos"> 50</span>         <span class="k">if</span> <span class="n">requires_X</span><span class="p">:</span>
+<span class="linenos"> 51</span>             <span class="n">kwargs</span><span class="p">[</span><span class="n">argname_X</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_X</span><span class="p">()</span>
+<span class="linenos"> 52</span>         <span class="k">if</span> <span class="n">requires_y</span><span class="p">:</span>
+<span class="linenos"> 53</span>             <span class="n">kwargs</span><span class="p">[</span><span class="n">argname_y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span>         <span class="c1"># Output</span>
+<span class="linenos"> 56</span>         <span class="n">out</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span>         <span class="c1"># Inplace</span>
+<span class="linenos"> 59</span>         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+<span class="linenos"> 60</span>             <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span>         <span class="c1"># Return</span>
+<span class="linenos"> 63</span>         <span class="k">if</span> <span class="n">return_obj</span><span class="p">:</span>
+<span class="linenos"> 64</span>             <span class="k">return</span> <span class="n">obj</span><span class="p">,</span> <span class="n">out</span>
+<span class="linenos"> 65</span>         <span class="k">return</span> <span class="n">out</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span> <span class="c1"># --------------------------------------------------</span>
+<span class="linenos"> 70</span> <span class="c1"># Main</span>
+<span class="linenos"> 71</span> <span class="c1"># --------------------------------------------------</span>
+<span class="linenos"> 72</span> <span class="c1"># Read data</span>
+<span class="linenos"> 73</span> <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./dataset.csv&#39;</span><span class="p">)</span>
+<span class="linenos"> 74</span> <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span> <span class="c1"># Define columns</span>
+<span class="linenos"> 77</span> <span class="n">X_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BIL&#39;</span><span class="p">,</span> <span class="s1">&#39;CRP&#39;</span><span class="p">,</span> <span class="s1">&#39;CRE&#39;</span><span class="p">]</span>
+<span class="linenos"> 78</span> <span class="n">y_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;micro_confirmed&#39;</span><span class="p">]</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span> <span class="c1"># Create wrapper</span>
+<span class="linenos"> 81</span> <span class="n">wrapper</span> <span class="o">=</span> <span class="n">DataframeXYWrapper</span><span class="p">(</span><span class="n">dataframe</span><span class="o">=</span><span class="n">dataframe</span><span class="p">,</span>
+<span class="linenos"> 82</span>                              <span class="n">X_columns</span><span class="o">=</span><span class="n">X_columns</span><span class="p">,</span>
+<span class="linenos"> 83</span>                              <span class="n">y_columns</span><span class="o">=</span><span class="n">y_columns</span><span class="p">)</span>
+<span class="linenos"> 84</span> <span class="c1"># Show</span>
+<span class="linenos"> 85</span> <span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">get_X</span><span class="p">())</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span> <span class="c1"># ------------------------------</span>
+<span class="linenos"> 88</span> <span class="c1"># Imputers</span>
+<span class="linenos"> 89</span> <span class="c1"># ------------------------------</span>
+<span class="linenos"> 90</span> <span class="c1"># Loop</span>
+<span class="linenos"> 91</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">imputer</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)),</span>
+<span class="linenos"> 92</span>                       <span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">))]:</span>
+<span class="linenos"> 93</span>     <span class="c1"># Apply imputer</span>
+<span class="linenos"> 94</span>     <span class="n">obj</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">imputer</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 95</span>                            <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 96</span>     <span class="c1"># Display</span>
+<span class="linenos"> 97</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="si">{0}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">imputer</span><span class="p">,</span> <span class="n">out</span><span class="p">))</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span class="linenos">102</span> <span class="c1"># ------------------------------</span>
+<span class="linenos">103</span> <span class="c1"># Scalers</span>
+<span class="linenos">104</span> <span class="c1"># ------------------------------</span>
+<span class="linenos">105</span> <span class="c1"># Loop</span>
+<span class="linenos">106</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">scaler</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+<span class="linenos">107</span>                      <span class="p">(</span><span class="s1">&#39;mmx&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span>
+<span class="linenos">108</span>                      <span class="p">(</span><span class="s1">&#39;rbs&#39;</span><span class="p">,</span> <span class="n">RobustScaler</span><span class="p">())]:</span>
+<span class="linenos">109</span>     <span class="c1"># Apply scaler</span>
+<span class="linenos">110</span>     <span class="n">obj</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">scaler</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">111</span>                            <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">112</span>     <span class="c1"># Display</span>
+<span class="linenos">113</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="si">{0}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scaler</span><span class="p">,</span> <span class="n">output</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pysml-sklearn-wrapper-main-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/267112522c5e62470b38b1c59030d832/main.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">main.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/a10a0b5c648a48febd561502a881c7bb/main.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">main.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/0895ad50d12d22ed2867ccb87ea8a469/main.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">main.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/4fc5465b877d5a72df26c62ee8498e09/main.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">main.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
            </div>

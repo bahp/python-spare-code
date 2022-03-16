@@ -99,6 +99,40 @@ clean-therapy-mimic
 
 
 
+.. _sphx_glr__examples_explainerdashboard:
+
+Explainer Dashboard
+-------------------
+
+Gallery of examples using ``explainerdashboard``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example runs an app which an interactive user interface to explore the importance of the f...">
+
+.. only:: html
+
+ .. figure:: /_examples/explainerdashboard/images/thumb/sphx_glr_plot_main_01_thumb.png
+     :alt: Explainer Dash
+
+     :ref:`sphx_glr__examples_explainerdashboard_plot_main_01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/explainerdashboard/plot_main_01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
 .. _sphx_glr__examples_formatting-agg-patient-single-row:
 
 formatting
@@ -135,20 +169,20 @@ Below is a gallery of examples ...
 
 .. _sphx_glr__examples_ldap-tests:
 
-ldap
-----------
+LDAP
+------
 
-Below is a gallery of examples ...
+Gallery of examples using ``ldap3``.
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Requires:">
+    <div class="sphx-glr-thumbcontainer" tooltip="It requires ldap3 and python-ldap-test [2017!].">
 
 .. only:: html
 
  .. figure:: /_examples/ldap-tests/images/thumb/sphx_glr_script_01_thumb.png
-     :alt: script_01.py
+     :alt: LDAP sample
 
      :ref:`sphx_glr__examples_ldap-tests_script_01.py`
 
@@ -169,10 +203,10 @@ Below is a gallery of examples ...
 
 .. _sphx_glr__examples_learning-tpot:
 
-learning-tpot
--------------
+TPOT
+-----
 
-Below is a gallery of examples ...
+Gallery of examples using ``tpot``.
 
 
 .. raw:: html
@@ -216,6 +250,339 @@ Below is a gallery of examples ...
    :hidden:
 
    /_examples/learning-tpot/tpot_best_pipeline
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_matplotlib:
+
+Matplotlib
+----------
+
+Gallery of examples using ``matplotlib``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_2dhist_thumb.png
+     :alt: Histogram 2D
+
+     :ref:`sphx_glr__examples_matplotlib_plot_2dhist.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_2dhist
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example estimates and displays the Gaussian Mixture Model (GMM) and KDE (Kernel Density Es...">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_ga_latent_space_01_thumb.png
+     :alt: Plot GMM and KDE
+
+     :ref:`sphx_glr__examples_matplotlib_plot_ga_latent_space_01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_ga_latent_space_01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_pandas-examples:
+
+Pandas
+------
+
+Gallery of examples using ``pandas``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pandas - Main 01">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas-examples/images/thumb/sphx_glr_plot_main01_thumb.png
+     :alt: Pandas - Main 01
+
+     :ref:`sphx_glr__examples_pandas-examples_plot_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas-examples/plot_main01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_plotly-examples:
+
+Plotly
+------
+
+Gallery of examples using ``plotly``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot the ROC curves for various splits obtained for example when usin...">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main01_roc_thumb.png
+     :alt: Plot ROC
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main01_roc.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main01_roc
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot the probability distributions for each of the components of the ...">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main02_distributions_thumb.png
+     :alt: Plot Distributions
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main02_distributions.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main02_distributions
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows to to plot sparklines style graphs.">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main03_sparklines_thumb.png
+     :alt: Plot Sparklines
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main03_sparklines.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main03_sparklines
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot Histogram 2D">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main04_2dhist_thumb.png
+     :alt: Plot Histogram 2D
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main04_2dhist.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main04_2dhist
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot Treemap v1">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main06_treemap_thumb.png
+     :alt: Plot Treemap v1
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main06_treemap
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example displays a Treemap using the MIMIC dataset.">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main07_treemap_thumb.png
+     :alt: Plot Treemap (MIMIC)
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main07_treemap.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main07_treemap
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example displays a Treemap using a portion of the NHS dataset. This example needs pyAMR to...">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main08_treemap_thumb.png
+     :alt: Plotly Treemap (sari)
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main08_treemap.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main08_treemap
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotly - Weather">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main10_weather_thumb.png
+     :alt: Plotly - Weather
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main10_weather.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main10_weather
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot updatemenus">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main11_updatemenus_thumb.png
+     :alt: Plot updatemenus
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main11_updatemenus.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main11_updatemenus
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot SHAP summary">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main_12_shap_thumb.png
+     :alt: Plot SHAP summary
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main_12_shap.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main_12_shap
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Mpl to Plotly">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main_13_mpl2ply_thumb.png
+     :alt: Mpl to Plotly
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main_13_mpl2ply.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main_13_mpl2ply
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -383,6 +750,171 @@ Below is a gallery of examples ...
    :hidden:
 
    /_examples/review-gunn-keras/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_shap-examples:
+
+Shap
+----------
+
+Gallery of examples using ``shap``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 01">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main01_thumb.png
+     :alt: Shap - Main 01
+
+     :ref:`sphx_glr__examples_shap-examples_plot_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/plot_main01
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 02">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main02_thumb.png
+     :alt: Shap - Main 02
+
+     :ref:`sphx_glr__examples_shap-examples_plot_main02.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/plot_main02
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 03">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main03_thumb.png
+     :alt: Shap - Main 03
+
+     :ref:`sphx_glr__examples_shap-examples_plot_main03.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/plot_main03
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 04">
+
+.. only:: html
+
+ .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main04_thumb.png
+     :alt: Shap - Main 04
+
+     :ref:`sphx_glr__examples_shap-examples_plot_main04.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/shap-examples/plot_main04
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_tableone-examples:
+
+TableOne
+----------
+
+Gallery of examples using ``tableone``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="TableOne">
+
+.. only:: html
+
+ .. figure:: /_examples/tableone-examples/images/thumb/sphx_glr_plot_main01_thumb.png
+     :alt: TableOne
+
+     :ref:`sphx_glr__examples_tableone-examples_plot_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/tableone-examples/plot_main01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_threshold-moving:
+
+Threshold Moving
+----------------
+
+Gallery of examples using ``...``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" .. note::  https://en.wikipedia.org/wiki/Sensitivity_and_specificity">
+
+.. only:: html
+
+ .. figure:: /_examples/threshold-moving/images/thumb/sphx_glr_main01_thumb.png
+     :alt: Threshold moving
+
+     :ref:`sphx_glr__examples_threshold-moving_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/threshold-moving/main01
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
