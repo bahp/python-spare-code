@@ -180,7 +180,14 @@ fig.update_traces(hovertemplate=htmp_guide)
 #fig.data[0].hovertemplate = '%{label}<br>%{value}'
 #fig.data[0].hovertemplate = '%{Freq}<br>%{Antimicrobial Name}'
 
-
+fig.update_layout(
+    margin={
+        'l': 0,
+        'r': 0,
+        'b': 0,
+        't': 0,
+        'pad': 4
+     })
 # ----------------------------
 # Save
 # ----------------------------
