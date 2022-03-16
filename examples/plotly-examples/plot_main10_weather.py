@@ -89,5 +89,5 @@ for i, column in enumerate(data.columns):
 fig.update_layout(layout)
 
 # Show
-fig.show()
+#fig.show()
 fig

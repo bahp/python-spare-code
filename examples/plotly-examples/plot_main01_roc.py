@@ -1,11 +1,11 @@
 """
-Plotly - ROC
+Plot ROC
 ============
 
+This example shows how to plot the ROC curves
+for various splits obtained for example when
+using Cross Validation.
 """
-
-
-
 
 # Libraries
 import plotly.graph_objects as go
@@ -32,16 +32,16 @@ tpr = np.arange(10)/10
 
 # Data
 data = {
-    'split1': np.vstack((fpr + 0.1, tpr)).T,
-    'split2': np.vstack((fpr + 0.2, tpr)).T,
-    'split3': np.vstack((fpr + 0.2, tpr)).T,
-    'split4': np.vstack((fpr + 0.2, tpr)).T,
-    'split5': np.vstack((fpr + 0.2, tpr)).T,
-    'split6': np.vstack((fpr + 0.2, tpr)).T,
-    'split7': np.vstack((fpr + 0.2, tpr)).T,
-    'split8': np.vstack((fpr + 0.2, tpr)).T,
-    'split9': np.vstack((fpr + 0.2, tpr)).T,
-    'split10': np.vstack((fpr + 0.2, tpr)).T
+    'split1': np.vstack((fpr + -0.10, tpr)).T,
+    'split2': np.vstack((fpr + -0.15, tpr)).T,
+    'split3': np.vstack((fpr + -0.20, tpr)).T,
+    'split4': np.vstack((fpr + -0.25, tpr)).T,
+    'split5': np.vstack((fpr + -0.30, tpr)).T,
+    'split6': np.vstack((fpr + 0.15, tpr)).T,
+    'split7': np.vstack((fpr + 0.15, tpr)).T,
+    'split8': np.vstack((fpr + 0.20, tpr)).T,
+    'split9': np.vstack((fpr + 0.25, tpr)).T,
+    'split10': np.vstack((fpr + 0.30, tpr)).T
 }
 
 

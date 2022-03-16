@@ -1,4 +1,4 @@
-shap-examples
----------------
+Shap
+----------
 
-Below is a gallery of examples ...
+Gallery of examples using ``shap``.

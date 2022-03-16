@@ -1,4 +1,4 @@
 TableOne
---------
+----------
 
-Below is a gallery of examples ...
+Gallery of examples using ``tableone``.
