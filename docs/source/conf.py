@@ -61,7 +61,8 @@ napoleon_use_ivar = True
 # ------------------
 # Include plotly
 import plotly.io as pio
-pio.renderers.default = 'sphinx_gallery'
+#pio.renderers.default = 'sphinx_gallery'    # It does not generate thumbmails
+pio.renderers.default = 'sphinx_gallery_png' # It distorts htmls a bit.
 
 
 # ------------------
@@ -72,6 +73,7 @@ pio.renderers.default = 'sphinx_gallery'
 
 # Import library
 from sphinx_gallery.sorting import FileNameSortKey
+from plotly.io._sg_scraper import plotly_sg_scraper
 
 # Configuration for sphinx_gallery
 sphinx_gallery_conf = {
@@ -86,7 +88,10 @@ sphinx_gallery_conf = {
     # Other
     'line_numbers': True,
     'download_all_examples': False,
-    'within_subsection_order': FileNameSortKey}
+    'within_subsection_order': FileNameSortKey,
+    'image_scrapers': ('matplotlib', plotly_sg_scraper,)
+    #'matplotlib_animations': True
+}
 
 # ------------------
 # Todo extension
