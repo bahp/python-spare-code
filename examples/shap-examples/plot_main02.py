@@ -149,6 +149,9 @@ for clf in clfs:
         #shap_values = explainer(X)
         shap_values = explainer.shap_values(X_train)
 
+        print(shap_values)
+
+
         # Show information
         print("base value: %s" % \
               explainer.expected_value)

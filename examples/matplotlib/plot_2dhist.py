@@ -4,7 +4,6 @@ Histogram 2D
 
 See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
 
-
 """
 # Libraries
 import numpy as np

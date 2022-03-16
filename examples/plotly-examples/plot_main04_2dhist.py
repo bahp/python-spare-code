@@ -1,8 +1,13 @@
-import plotly.graph_objects as go
+"""
+Plot Histogram 2D
+=================
+
+.. note:: https://plotly.com/python/2d-histogram-contour/
+
+"""
 
 import numpy as np
-
-# Ref: https://plotly.com/python/2d-histogram-contour/
+import plotly.graph_objects as go
 
 # ----------------
 # Create data
@@ -93,6 +98,5 @@ fig.update_layout(
     showlegend = False
 )
 
-fig.write_html("plot_main04_2dhist.html")
-
-fig.show()
+#fig.show()
+fig
