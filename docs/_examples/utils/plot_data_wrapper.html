@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Data Wrapper &mdash; python-spare-code 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IQRFilter" href="plot_sklearn_iqr.html" />
+    <link rel="prev" title="Data splitters" href="plot_data_splitters.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> python-spare-code
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Example Galleries</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#utils">Utils</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_data_skfold_test.html">Test Skfold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_data_splitters.html">Data splitters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Data Wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sklearn_iqr.html">IQRFilter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">General</a> &raquo;</li>
+        
+      <li>Data Wrapper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/_examples/utils/plot_data_wrapper.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-utils-plot-data-wrapper-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="data-wrapper">
+<span id="sphx-glr-examples-utils-plot-data-wrapper-py"></span><h1>Data Wrapper<a class="headerlink" href="#data-wrapper" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Non sense.</p>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Features:
+             0         1         2         3         4         5        6
+0     0.056451  0.897007       NaN       NaN  0.136730 -0.990677      NaN
+1    -0.427038       NaN       NaN  1.232730  1.737826       NaN      NaN
+2    -1.099285       NaN  0.987910  1.290544 -0.742300       NaN      NaN
+3     0.696138  1.131787  0.754314       NaN  0.538522       NaN      NaN
+4          NaN       NaN -0.225438       NaN       NaN  1.203770      NaN
+...        ...       ...       ...       ...       ...       ...      ...
+1995       NaN       NaN -0.310351 -0.884647  1.482089       NaN      NaN
+1996 -1.158887       NaN  0.561063       NaN       NaN       NaN  0.28021
+1997       NaN       NaN       NaN       NaN       NaN       NaN      NaN
+1998       NaN       NaN       NaN       NaN       NaN  0.708559      NaN
+1999 -0.171525       NaN  2.185621       NaN       NaN -0.163857      NaN
+
+[2000 rows x 7 columns]
+
+SimpleImputer()
+             0         1         2         3         4         5         6
+0     0.056451  0.897007  0.013247 -0.024598  0.136730 -0.990677 -0.008045
+1    -0.427038  0.040370  0.013247  1.232730  1.737826 -0.011921 -0.008045
+2    -1.099285  0.040370  0.987910  1.290544 -0.742300 -0.011921 -0.008045
+3     0.696138  1.131787  0.754314 -0.024598  0.538522 -0.011921 -0.008045
+4     0.037109  0.040370 -0.225438 -0.024598 -0.033058  1.203770 -0.008045
+...        ...       ...       ...       ...       ...       ...       ...
+1995  0.037109  0.040370 -0.310351 -0.884647  1.482089 -0.011921 -0.008045
+1996 -1.158887  0.040370  0.561063 -0.024598 -0.033058 -0.011921  0.280210
+1997  0.037109  0.040370  0.013247 -0.024598 -0.033058 -0.011921 -0.008045
+1998  0.037109  0.040370  0.013247 -0.024598 -0.033058  0.708559 -0.008045
+1999 -0.171525  0.040370  2.185621 -0.024598 -0.033058 -0.163857 -0.008045
+
+[2000 rows x 7 columns]
+
+SimpleImputer(strategy=&#39;median&#39;)
+             0         1         2         3         4         5         6
+0     0.056451  0.897007 -0.008354 -0.046689  0.136730 -0.990677  0.000069
+1    -0.427038 -0.000171 -0.008354  1.232730  1.737826  0.006750  0.000069
+2    -1.099285 -0.000171  0.987910  1.290544 -0.742300  0.006750  0.000069
+3     0.696138  1.131787  0.754314 -0.046689  0.538522  0.006750  0.000069
+4    -0.022586 -0.000171 -0.225438 -0.046689 -0.005400  1.203770  0.000069
+...        ...       ...       ...       ...       ...       ...       ...
+1995 -0.022586 -0.000171 -0.310351 -0.884647  1.482089  0.006750  0.000069
+1996 -1.158887 -0.000171  0.561063 -0.046689 -0.005400  0.006750  0.280210
+1997 -0.022586 -0.000171 -0.008354 -0.046689 -0.005400  0.006750  0.000069
+1998 -0.022586 -0.000171 -0.008354 -0.046689 -0.005400  0.708559  0.000069
+1999 -0.171525 -0.000171  2.185621 -0.046689 -0.005400 -0.163857  0.000069
+
+[2000 rows x 7 columns]
+
+StandardScaler()
+             0         1         2         3         4         5         6
+0     0.019110  0.868868       NaN       NaN  0.167914 -1.047631       NaN
+1    -0.458589       NaN       NaN  1.200635  1.751342       NaN       NaN
+2    -1.122785       NaN  1.027158  1.255843 -0.701416       NaN       NaN
+3     0.651137  1.107000  0.780981       NaN  0.565272       NaN       NaN
+4          NaN       NaN -0.251541       NaN       NaN  1.301240       NaN
+...        ...       ...       ...       ...       ...       ...       ...
+1995       NaN       NaN -0.341027 -0.821270  1.498428       NaN       NaN
+1996 -1.181674       NaN  0.577321       NaN       NaN       NaN  0.294727
+1997       NaN       NaN       NaN       NaN       NaN       NaN       NaN
+1998       NaN       NaN       NaN       NaN       NaN  0.771181       NaN
+1999 -0.206136       NaN  2.289378       NaN       NaN -0.162627       NaN
+
+[2000 rows x 7 columns]
+
+MinMaxScaler()
+             0         1         2         3         4         5         6
+0     0.499313  0.565029       NaN       NaN  0.545706  0.326623       NaN
+1     0.413165       NaN       NaN  0.687559  0.834713       NaN       NaN
+2     0.293386       NaN  0.662697  0.697405  0.387037       NaN       NaN
+3     0.613291  0.604279  0.620443       NaN  0.618232       NaN       NaN
+4          NaN       NaN  0.443223       NaN       NaN  0.725590       NaN
+...        ...       ...       ...       ...       ...       ...       ...
+1995       NaN       NaN  0.427864  0.326973  0.788551       NaN       NaN
+1996  0.282766       NaN  0.585487       NaN       NaN       NaN  0.556777
+1997       NaN       NaN       NaN       NaN       NaN       NaN       NaN
+1998       NaN       NaN       NaN       NaN       NaN  0.635557       NaN
+1999  0.458692       NaN  0.879341       NaN       NaN  0.476945       NaN
+
+[2000 rows x 7 columns]
+
+RobustScaler()
+             0         1         2         3         4         5         6
+0     0.059074  0.678838       NaN       NaN  0.098522 -0.772043       NaN
+1    -0.302297       NaN       NaN  0.879179  1.208370       NaN       NaN
+2    -0.804749       NaN  0.772633  0.918907 -0.510804       NaN       NaN
+3     0.537190  0.856481  0.591473       NaN  0.377036       NaN       NaN
+4          NaN       NaN -0.168355       NaN       NaN  0.926535       NaN
+...        ...       ...       ...       ...       ...       ...       ...
+1995       NaN       NaN -0.234207 -0.575821  1.031098       NaN       NaN
+1996 -0.849297       NaN  0.441600       NaN       NaN       NaN  0.209561
+1997       NaN       NaN       NaN       NaN       NaN       NaN       NaN
+1998       NaN       NaN       NaN       NaN       NaN  0.543225       NaN
+1999 -0.111320       NaN  1.701494       NaN       NaN -0.132055       NaN
+
+[2000 rows x 7 columns]
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  9</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 10</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 11</span>
+<span class="linenos"> 12</span> <span class="c1"># Libraries specific</span>
+<span class="linenos"> 13</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="linenos"> 14</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="linenos"> 15</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
+<span class="linenos"> 16</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Normalizer</span>
+<span class="linenos"> 17</span> <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span> <span class="k">class</span> <span class="nc">DataframeXYWrapper</span><span class="p">():</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">X_columns</span><span class="p">,</span> <span class="n">y_columns</span><span class="p">):</span>
+<span class="linenos"> 23</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 24</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="linenos"> 25</span>         <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span>
+<span class="linenos"> 26</span>         <span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">=</span> <span class="n">X_columns</span>
+<span class="linenos"> 27</span>         <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span> <span class="o">=</span> <span class="n">y_columns</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span>     <span class="k">def</span> <span class="nf">get_X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 30</span>         <span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
+<span class="linenos"> 31</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span><span class="p">]</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span>     <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 34</span>         <span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
+<span class="linenos"> 35</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span>     <span class="k">def</span> <span class="nf">get_X_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 38</span>         <span class="sd">&quot;&quot;&quot;Return...</span>
+<span class="linenos"> 39</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="linenos"> 40</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span>     <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 43</span>                                <span class="n">requires_y</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 44</span>                                <span class="n">argname_X</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="linenos"> 45</span>                                <span class="n">argname_y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+<span class="linenos"> 46</span>                                <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 47</span>                                <span class="n">return_obj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 48</span>                                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 49</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 50</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="linenos"> 51</span>         <span class="k">if</span> <span class="n">requires_X</span><span class="p">:</span>
+<span class="linenos"> 52</span>             <span class="n">kwargs</span><span class="p">[</span><span class="n">argname_X</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_X</span><span class="p">()</span>
+<span class="linenos"> 53</span>         <span class="k">if</span> <span class="n">requires_y</span><span class="p">:</span>
+<span class="linenos"> 54</span>             <span class="n">kwargs</span><span class="p">[</span><span class="n">argname_y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span>         <span class="c1"># Output</span>
+<span class="linenos"> 57</span>         <span class="n">out</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span>         <span class="c1"># Inplace</span>
+<span class="linenos"> 60</span>         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+<span class="linenos"> 61</span>             <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span>         <span class="c1"># Return</span>
+<span class="linenos"> 64</span>         <span class="k">if</span> <span class="n">return_obj</span><span class="p">:</span>
+<span class="linenos"> 65</span>             <span class="k">return</span> <span class="n">obj</span><span class="p">,</span> <span class="n">out</span>
+<span class="linenos"> 66</span>         <span class="k">return</span> <span class="n">out</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span> <span class="c1"># --------------------------------------------------</span>
+<span class="linenos"> 71</span> <span class="c1"># Main</span>
+<span class="linenos"> 72</span> <span class="c1"># --------------------------------------------------</span>
+<span class="linenos"> 73</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 74</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># number of observations</span>
+<span class="linenos"> 77</span> <span class="n">F</span> <span class="o">=</span> <span class="mi">7</span>    <span class="c1"># number of features</span>
+<span class="linenos"> 78</span> <span class="n">P</span> <span class="o">=</span> <span class="mi">70</span>   <span class="c1"># percent of cells with nan</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span> <span class="c1"># Create dataset</span>
+<span class="linenos"> 81</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="linenos"> 82</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span> <span class="c1"># Include NaN</span>
+<span class="linenos"> 85</span> <span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">F</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="mi">100</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 86</span> <span class="n">X</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">idxs</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span> <span class="c1"># Create dataframe</span>
+<span class="linenos"> 89</span> <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="linenos"> 90</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span> <span class="c1"># Create wrapper</span>
+<span class="linenos"> 93</span> <span class="n">wrapper</span> <span class="o">=</span> <span class="n">DataframeXYWrapper</span><span class="p">(</span><span class="n">dataframe</span><span class="o">=</span><span class="n">dataframe</span><span class="p">,</span>
+<span class="linenos"> 94</span>                              <span class="n">X_columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">F</span><span class="p">)),</span>
+<span class="linenos"> 95</span>                              <span class="n">y_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="linenos"> 96</span> <span class="c1"># Show</span>
+<span class="linenos"> 97</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Features:&quot;</span><span class="p">)</span>
+<span class="linenos"> 98</span> <span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">get_X</span><span class="p">())</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span> <span class="c1"># ------------------------------</span>
+<span class="linenos">101</span> <span class="c1"># Imputers</span>
+<span class="linenos">102</span> <span class="c1"># ------------------------------</span>
+<span class="linenos">103</span> <span class="c1"># Loop</span>
+<span class="linenos">104</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">imputer</span> <span class="ow">in</span> <span class="p">[</span>
+<span class="linenos">105</span>             <span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)),</span>
+<span class="linenos">106</span>             <span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">))]:</span>
+<span class="linenos">107</span>     <span class="c1"># Apply imputer</span>
+<span class="linenos">108</span>     <span class="n">obj</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">imputer</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">,</span>
+<span class="linenos">109</span>             <span class="n">requires_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">110</span>     <span class="c1"># Display</span>
+<span class="linenos">111</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">imputer</span><span class="p">)</span>
+<span class="linenos">112</span>     <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span>
+<span class="linenos">115</span> <span class="c1"># ------------------------------</span>
+<span class="linenos">116</span> <span class="c1"># Scalers</span>
+<span class="linenos">117</span> <span class="c1"># ------------------------------</span>
+<span class="linenos">118</span> <span class="c1"># Loop</span>
+<span class="linenos">119</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">scaler</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+<span class="linenos">120</span>                      <span class="p">(</span><span class="s1">&#39;mmx&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span>
+<span class="linenos">121</span>                      <span class="p">(</span><span class="s1">&#39;rbs&#39;</span><span class="p">,</span> <span class="n">RobustScaler</span><span class="p">())]:</span>
+<span class="linenos">122</span>     <span class="c1"># Apply scaler</span>
+<span class="linenos">123</span>     <span class="n">obj</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">scaler</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">,</span>
+<span class="linenos">124</span>             <span class="n">requires_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">125</span>     <span class="c1"># Display</span>
+<span class="linenos">126</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">scaler</span><span class="p">)</span>
+<span class="linenos">127</span>     <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.093 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-utils-plot-data-wrapper-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/3c135ac5f20c2ccd00f4d1f8c9e7455f/plot_data_wrapper.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_data_wrapper.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/30c2b85edb683868083cb08ce4c07519/plot_data_wrapper.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_data_wrapper.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="plot_sklearn_iqr.html" class="btn btn-neutral float-right" title="IQRFilter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_data_splitters.html" class="btn btn-neutral float-left" title="Data splitters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Bernard Hernandez.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

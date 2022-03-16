@@ -31,7 +31,7 @@ Plot updatemenus
 
     <div class="output_subarea output_html rendered_html output_result">
     <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-            <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>                <div id="5037db75-fa26-46fc-8e2e-ed18d7e281be" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("5037db75-fa26-46fc-8e2e-ed18d7e281be")) {                    Plotly.newPlot(                        "5037db75-fa26-46fc-8e2e-ed18d7e281be",                        [{"marker":{"color":["green","black","red"]},"mode":"markers","type":"scatter","x":[0,1,1],"y":[1,0,1]}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"text":"Scatter Color Switcher"},"updatemenus":[{"buttons":[{"args":[{"marker.color":[["red","green","blue"]]}],"label":"Color Set 1","method":"update"},{"args":[{"marker.color":[["black","blue","red"]]}],"label":"Color Set 2","method":"update"}],"direction":"left","pad":{"r":10,"t":10},"showactive":true,"type":"buttons","x":0.1,"xanchor":"left","y":1.1,"yanchor":"top"}]},                        {"responsive": true}                    )                };                            </script>        </div>
+            <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>                <div id="d247bf30-6bbb-4b17-9deb-0feb5ed31e10" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d247bf30-6bbb-4b17-9deb-0feb5ed31e10")) {                    Plotly.newPlot(                        "d247bf30-6bbb-4b17-9deb-0feb5ed31e10",                        [{"marker":{"color":["green","black","red"]},"mode":"markers","type":"scatter","x":[0,1,1],"y":[1,0,1]}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"text":"Scatter Color Switcher"},"updatemenus":[{"buttons":[{"args":[{"marker.color":[["red","green","blue"]]}],"label":"Color Set 1","method":"update"},{"args":[{"marker.color":[["black","blue","red"]]}],"label":"Color Set 2","method":"update"}],"direction":"left","pad":{"r":10,"t":10},"showactive":true,"type":"buttons","x":0.1,"xanchor":"left","y":1.1,"yanchor":"top"}]},                        {"responsive": true}                    )                };                            </script>        </div>
     </div>
     <br />
     <br />
@@ -117,7 +117,7 @@ Plot updatemenus
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.029 seconds)
+   **Total running time of the script:** ( 0 minutes  0.050 seconds)
 
 
 .. _sphx_glr_download__examples_plotly-examples_plot_main11_updatemenus.py:

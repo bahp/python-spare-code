@@ -1,8 +1,11 @@
 """
-Main
-=============
+Data splitters
+==============
 
-Example
+This example shows some methods to split the data.
+
+.. warning:: Not completed!
+
 """
 # Libraries
 import pandas as pd
@@ -13,17 +16,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import KFold
 
-#
 
-_DEFAULT_SPLITTERS = {
-    'skfold10': StratifiedKFold(n_splits=10, shuffle=True),
-    'skfold5': StratifiedKFold(n_splits=5, shuffle=True),
-    'skfold2': StratifiedKFold(n_splits=2, shuffle=True),
-}
-
-
-
-def split_dataframe_hos_cvs(dataframe, inplace=False, **kwargs):
+def split_dataframe_hos_cvs(dataframe,  **kwargs):
     """This method labels the dataframe hos and cvs sets.
 
     Parameters
@@ -39,6 +33,10 @@ def split_dataframe_hos_cvs(dataframe, inplace=False, **kwargs):
         :param data:
         :param inplace:
     """
+    # Check it is a dataframe
+    if not isinstance(dataframe, pd.DataFrame):
+        raise TypeError
+
     # Length
     n = dataframe.shape[0]
 
@@ -51,14 +49,14 @@ def split_dataframe_hos_cvs(dataframe, inplace=False, **kwargs):
     empty[hos] = 'hos'
 
     # Include
-    if inplace and isinstance(dataframe, pd.DataFrame):
-        dataframe['sets'] = empty
+    dataframe['sets'] = empty
 
     # Return
-    return empty
+    return dataframe
 
 
-def split_dataframe_cvs_folds(dataframe, splitter, selected_rows=None, **kwargs):
+def split_dataframe_cvs_folds(dataframe, splitter,
+            selected_rows=None, **kwargs):
     """This method labels the different folds.
 
         .. note:
@@ -86,6 +84,11 @@ def split_dataframe_cvs_folds(dataframe, splitter, selected_rows=None, **kwargs)
         <set> with the values cvs (cross-validation set) and hos
         (hold-out set).
     """
+    # Check it is a dataframe
+    if not isinstance(dataframe, pd.DataFrame):
+        raise TypeError
+
+    # Get splitter from string
     if isinstance(splitter, str):
         splitter = _DEFAULT_SPLITTERS[splitter]
 
@@ -113,59 +116,30 @@ def split_dataframe_cvs_folds(dataframe, splitter, selected_rows=None, **kwargs)
 
     # Loop and add
     for i, (train, test) in enumerate(splits):
-        dataframe['set_iter_{0}'.format(i)] = None
-        dataframe.loc[idxs[train].flatten(), 'set_iter_{0}'.format(i)] = 'train'
-        dataframe.loc[idxs[test].flatten(), 'set_iter_{0}'.format(i)] = 'test'
+        dataframe['split_{0}'.format(i)] = None
+        dataframe.loc[idxs[train].flatten(), 'split_{0}'.format(i)] = 'train'
+        dataframe.loc[idxs[test].flatten(), 'split_{0}'.format(i)] = 'test'
 
-
+    # Return
+    return dataframe
 
 
 def split_dataframe_completeness(dataframe):
     pass
 
 
-# --------------------------------------------------
-# Main
-# --------------------------------------------------
-# Read data
-dataframe = pd.read_csv('./dataset.csv')
-
-# Show
-print(dataframe)
-
-
-# Split in Hos and CVS sets
-#dataframe = split_dataframe_hos_cvs(dataframe)
-#dataframe = split_dataframe_cvs_folds(dataframe, splitter='skfold10',
-#                                      label='micro_confirmed')
-
-# Split in HOS and CVS sets
-split_dataframe_hos_cvs(dataframe, inplace=True)
-
-print (dataframe)
-
-# Split in folds
-split_dataframe_cvs_folds(dataframe,
-                splitter='skfold5',
-                y=dataframe.micro_confirmed,
-                selected_rows=(dataframe.sets == 'cvs'))
-
-# Show
-print(dataframe)
-
 
 class DataframeHOSCSVSplitter():
     """
-
     """
     col_name = 'sets'
-    cvs_name = 'CSV'
+    cvs_name = 'CVS'
     hos_name = 'HOS'
 
     def __init__(self, col_name=None,
-                 cvs_name=None,
-                 hos_name=None):
-        """
+                       cvs_name=None,
+                       hos_name=None):
+        """Constructor
 
         :param col_name:
         :param cvs_name:
@@ -179,8 +153,7 @@ class DataframeHOSCSVSplitter():
             self.hos_name = hos_name
 
     def split(self, dataframe, **kwargs):
-        """
-
+        """Splits the dataframe...
         """
         # Split
         cvs, hos = train_test_split(dataframe.index.to_numpy(), **kwargs)
@@ -192,3 +165,68 @@ class DataframeHOSCSVSplitter():
 
         # Return
         return dataframe
+
+
+
+# Default splliters.
+_DEFAULT_SPLITTERS = {
+    'skfold10': StratifiedKFold(n_splits=10, shuffle=True),
+    'skfold5': StratifiedKFold(n_splits=5, shuffle=True),
+    'skfold2': StratifiedKFold(n_splits=2, shuffle=True),
+}
+
+TERMINAL = True
+
+# --------------------------------------------------
+# Main
+# --------------------------------------------------
+# Libraries
+from sklearn.datasets import load_iris
+
+# Load data
+bunch = load_iris(as_frame=True)
+
+# Dataframe
+dataframe = bunch.data
+
+# %%
+# Lets see the dataset
+
+if TERMINAL:
+    print("\nData")
+    print(dataframe)
+dataframe
+
+# Split in HOS and CVS sets
+df = split_dataframe_hos_cvs(dataframe)
+
+# %%
+# Lets see the HOS/CV splits
+
+if TERMINAL:
+    print("\nData")
+    print(df)
+df
+
+# Split in folds
+df = split_dataframe_cvs_folds(dataframe,
+    splitter='skfold5', y=bunch.target,
+    selected_rows=(dataframe.sets == 'cvs'))
+
+# %%
+# Lets see the splits
+
+if TERMINAL:
+    print("\nData")
+    print(df)
+df
+
+# Divide in HOS and CSV.
+df = DataframeHOSCSVSplitter().split(dataframe)
+
+# %%
+# Lets see the HOS/CSV sets
+if TERMINAL:
+    print("\nData")
+    print(df)
+df

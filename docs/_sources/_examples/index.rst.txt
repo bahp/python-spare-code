@@ -167,6 +167,39 @@ Below is a gallery of examples ...
 
 
 
+.. _sphx_glr__examples_jsonpickle:
+
+jsonpickle
+---------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/jsonpickle/images/thumb/sphx_glr_main_thumb.png
+     :alt: Main
+
+     :ref:`sphx_glr__examples_jsonpickle_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/jsonpickle/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
 .. _sphx_glr__examples_ldap-tests:
 
 LDAP
@@ -589,139 +622,6 @@ Gallery of examples using ``plotly``.
 
 
 
-.. _sphx_glr__examples_pysml-dataframe-splitter:
-
-pysml-dataframe-splitter
-------------------------
-
-Below is a gallery of examples ...
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
-
-.. only:: html
-
- .. figure:: /_examples/pysml-dataframe-splitter/images/thumb/sphx_glr_main_thumb.png
-     :alt: Main
-
-     :ref:`sphx_glr__examples_pysml-dataframe-splitter_main.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pysml-dataframe-splitter/main
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
-
-.. only:: html
-
- .. figure:: /_examples/pysml-dataframe-splitter/images/thumb/sphx_glr_skfold-test_thumb.png
-     :alt: Skfold Test
-
-     :ref:`sphx_glr__examples_pysml-dataframe-splitter_skfold-test.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pysml-dataframe-splitter/skfold-test
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. _sphx_glr__examples_pysml-jsonpickle-test:
-
-pysml-jsonpickle-test
----------------------
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
-
-.. only:: html
-
- .. figure:: /_examples/pysml-jsonpickle-test/images/thumb/sphx_glr_main_thumb.png
-     :alt: Main
-
-     :ref:`sphx_glr__examples_pysml-jsonpickle-test_main.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pysml-jsonpickle-test/main
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. _sphx_glr__examples_pysml-sklearn-utils:
-
-pysml-sklearn-utils
--------------------
-
-
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. _sphx_glr__examples_pysml-sklearn-wrapper:
-
-pysml-sklearn-wrapper
----------------------
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
-
-.. only:: html
-
- .. figure:: /_examples/pysml-sklearn-wrapper/images/thumb/sphx_glr_main_thumb.png
-     :alt: Main
-
-     :ref:`sphx_glr__examples_pysml-sklearn-wrapper_main.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pysml-sklearn-wrapper/main
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
 .. _sphx_glr__examples_review-gunn-keras:
 
 review-gunn-keras
@@ -915,6 +815,104 @@ Gallery of examples using ``...``.
    :hidden:
 
    /_examples/threshold-moving/main01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_utils:
+
+Utils
+-----
+
+Gallery of examples with useful widgets.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example just proves that StratifiedKFold is deterministic and always returns the same spli...">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_data_skfold_test_thumb.png
+     :alt: Test Skfold
+
+     :ref:`sphx_glr__examples_utils_plot_data_skfold_test.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_data_skfold_test
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows some methods to split the data.">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_data_splitters_thumb.png
+     :alt: Data splitters
+
+     :ref:`sphx_glr__examples_utils_plot_data_splitters.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_data_splitters
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Wrapper">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_data_wrapper_thumb.png
+     :alt: Data Wrapper
+
+     :ref:`sphx_glr__examples_utils_plot_data_wrapper.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_data_wrapper
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="IQRFilter">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_sklearn_iqr_thumb.png
+     :alt: IQRFilter
+
+     :ref:`sphx_glr__examples_utils_plot_sklearn_iqr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_sklearn_iqr
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

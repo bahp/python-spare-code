@@ -1291,7 +1291,7 @@ Lets group by patient per 2days and compute mean and max.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.060 seconds)
+   **Total running time of the script:** ( 0 minutes  0.094 seconds)
 
 
 .. _sphx_glr_download__examples_pandas-examples_plot_main01.py:

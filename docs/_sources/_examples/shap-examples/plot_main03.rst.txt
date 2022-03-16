@@ -238,7 +238,7 @@ Shap - Main 03
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.560 seconds)
+   **Total running time of the script:** ( 0 minutes  0.532 seconds)
 
 
 .. _sphx_glr_download__examples_shap-examples_plot_main03.py:

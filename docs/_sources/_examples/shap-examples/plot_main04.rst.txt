@@ -33,7 +33,7 @@ Shap - Main 04
  .. code-block:: none
 
     <IPython.core.display.HTML object>
-      0%|          | 0/1 [00:00<?, ?it/s]    100%|##########| 1/1 [00:00<00:00, 91.08it/s]
+      0%|          | 0/1 [00:00<?, ?it/s]    100%|##########| 1/1 [00:00<00:00, 101.75it/s]
     /Users/cbit/Desktop/repositories/environments/venv-py39-oss1017/lib/python3.9/site-packages/xgboost/core.py:105: UserWarning:
 
     ntree_limit is deprecated, use `iteration_range` or model slicing instead.
@@ -132,7 +132,7 @@ Shap - Main 04
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.244 seconds)
+   **Total running time of the script:** ( 0 minutes  0.211 seconds)
 
 
 .. _sphx_glr_download__examples_shap-examples_plot_main04.py:

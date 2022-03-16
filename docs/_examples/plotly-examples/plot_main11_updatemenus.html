@@ -103,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
@@ -121,14 +122,11 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_main_13_mpl2ply.html">Mpl to Plotly</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-dataframe-splitter">pysml-dataframe-splitter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-jsonpickle-test">pysml-jsonpickle-test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-sklearn-utils">pysml-sklearn-utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#pysml-sklearn-wrapper">pysml-sklearn-wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
 </li>
 </ul>
@@ -209,7 +207,7 @@ to download the full example code</p>
 <span id="sphx-glr-examples-plotly-examples-plot-main11-updatemenus-py"></span><h1>Plot updatemenus<a class="headerlink" href="#plot-updatemenus" title="Permalink to this headline">¶</a></h1>
 <div class="output_subarea output_html rendered_html output_result">
 <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>                <div id="5037db75-fa26-46fc-8e2e-ed18d7e281be" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("5037db75-fa26-46fc-8e2e-ed18d7e281be")) {                    Plotly.newPlot(                        "5037db75-fa26-46fc-8e2e-ed18d7e281be",                        [{"marker":{"color":["green","black","red"]},"mode":"markers","type":"scatter","x":[0,1,1],"y":[1,0,1]}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"text":"Scatter Color Switcher"},"updatemenus":[{"buttons":[{"args":[{"marker.color":[["red","green","blue"]]}],"label":"Color Set 1","method":"update"},{"args":[{"marker.color":[["black","blue","red"]]}],"label":"Color Set 2","method":"update"}],"direction":"left","pad":{"r":10,"t":10},"showactive":true,"type":"buttons","x":0.1,"xanchor":"left","y":1.1,"yanchor":"top"}]},                        {"responsive": true}                    )                };                            </script>        </div>
+        <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>                <div id="d247bf30-6bbb-4b17-9deb-0feb5ed31e10" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d247bf30-6bbb-4b17-9deb-0feb5ed31e10")) {                    Plotly.newPlot(                        "d247bf30-6bbb-4b17-9deb-0feb5ed31e10",                        [{"marker":{"color":["green","black","red"]},"mode":"markers","type":"scatter","x":[0,1,1],"y":[1,0,1]}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"text":"Scatter Color Switcher"},"updatemenus":[{"buttons":[{"args":[{"marker.color":[["red","green","blue"]]}],"label":"Color Set 1","method":"update"},{"args":[{"marker.color":[["black","blue","red"]]}],"label":"Color Set 2","method":"update"}],"direction":"left","pad":{"r":10,"t":10},"showactive":true,"type":"buttons","x":0.1,"xanchor":"left","y":1.1,"yanchor":"top"}]},                        {"responsive": true}                    )                };                            </script>        </div>
 </div>
 <br />
 <br /><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span> <span class="kn">import</span> <span class="nn">plotly</span>
@@ -288,7 +286,7 @@ to download the full example code</p>
 <span class="linenos">80</span> <span class="n">fig</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.029 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.050 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plotly-examples-plot-main11-updatemenus-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3e8d6b30b781da2c48c9a6ea2f0169b6/plot_main11_updatemenus.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main11_updatemenus.py</span></code></a></p>

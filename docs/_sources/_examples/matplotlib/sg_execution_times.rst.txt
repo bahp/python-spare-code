@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:01.920** total execution time for **_examples_matplotlib** files:
+**00:03.754** total execution time for **_examples_matplotlib** files:
 
 +--------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_matplotlib_plot_2dhist.py` (``plot_2dhist.py``)                         | 00:01.344 | 0.0 MB |
+| :ref:`sphx_glr__examples_matplotlib_plot_2dhist.py` (``plot_2dhist.py``)                         | 00:02.642 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_matplotlib_plot_ga_latent_space_01.py` (``plot_ga_latent_space_01.py``) | 00:00.576 | 0.0 MB |
+| :ref:`sphx_glr__examples_matplotlib_plot_ga_latent_space_01.py` (``plot_ga_latent_space_01.py``) | 00:01.112 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------+-----------+--------+
