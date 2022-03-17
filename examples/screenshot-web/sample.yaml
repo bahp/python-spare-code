@@ -1,0 +1,5 @@
+projects:
+  - name: paper-jac-tim-covid19
+    url: https://academic.oup.com/jacamr/article/3/1/dlab002/6127116?login=false
+    size: (500, 500)
+    class: widget-items

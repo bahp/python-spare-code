@@ -1,0 +1,40 @@
+projects:
+  - name: repo-pyamr
+    url: https://bahp.github.io/pyAMR/
+    size: (1200, 800)
+  - name: repo-datablend
+    url: https://bahp.github.io/datablend/
+    size: (1200, 800)
+  - name: repo-vital-oucru-clinical
+    url: https://bahp.github.io/vital-oucru-clinical/
+    size: (1200, 800)
+
+
+  - name: web-wix-bahp
+    url: https://bernardhernandezpe.wixsite.com/bahp
+    size: (1200, 800)
+  - name: web-wix-epicimpoc
+    url: https://bernardhernandezpe.wixsite.com/epicimpoc
+    size: (1200, 800)
+
+  - name: paper-bmc-damien-covid19
+    url: https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-021-06696-2
+    size: (1200, 800)
+  - name: paper-jac-tim-covid19
+    url: https://academic.oup.com/jacamr/article/3/1/dlab002/6127116?login=false
+    size: (1200, 800)
+  - name: paper-cid-tim-cbr
+    url: https://academic.oup.com/cid/article/72/12/2103/5815768?login=true
+    size: (1200, 800)
+  - name: paper-jac-tim-pi
+    url: https://academic.oup.com/jac/article/74/4/1108/5258037?login=false
+    size: (1200, 800)
+  - name: paper-antibiotics-bernard-trend
+    url: https://www.mdpi.com/2079-6382/10/10/1267
+    size: (1200, 800)
+  - name: paper-bmc-bernard-pi
+    url: https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-017-0550-1
+    size: (1200, 800)
+  - name: paper-cmi-tim-review
+    url: https://www.sciencedirect.com/science/article/pii/S1198743X17301258
+    size: (1200, 800)
