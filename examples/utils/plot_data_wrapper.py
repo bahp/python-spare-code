@@ -1,8 +1,9 @@
 """
-Main
+Data Wrapper
 =============
 
-Example
+.. warning:: Non sense.
+
 """
 
 # Libraries
@@ -69,36 +70,48 @@ class DataframeXYWrapper():
 # --------------------------------------------------
 # Main
 # --------------------------------------------------
-# Read data
-dataframe = pd.read_csv('./dataset.csv')
-dataframe = dataframe.reset_index()
+# Libraries
+import numpy as np
 
-# Define columns
-X_columns = ['BIL', 'CRP', 'CRE']
-y_columns = ['micro_confirmed']
+N = 2000 # number of observations
+F = 7    # number of features
+P = 70   # percent of cells with nan
+
+# Create dataset
+X = np.random.randn(N, F)
+y = (np.random.rand(N) > 0.1).astype(int)
+
+# Include NaN
+idxs = np.random.choice(X.size, int(N*F*P/100), replace=False)
+X.ravel()[idxs] = np.nan
+
+# Create dataframe
+dataframe = pd.DataFrame(X)
+dataframe['y'] = y
 
 # Create wrapper
 wrapper = DataframeXYWrapper(dataframe=dataframe,
-                             X_columns=X_columns,
-                             y_columns=y_columns)
+                             X_columns=list(range(F)),
+                             y_columns=['y'])
 # Show
+print("Features:")
 print(wrapper.get_X())
 
 # ------------------------------
 # Imputers
 # ------------------------------
 # Loop
-for name, imputer in [('mean', SimpleImputer(strategy='mean')),
-                      ('median', SimpleImputer(strategy='median'))]:
+for name, imputer in [
+            ('mean', SimpleImputer(strategy='mean')),
+            ('median', SimpleImputer(strategy='median'))]:
     # Apply imputer
-    obj, out = wrapper.apply(imputer, 'fit_transform', requires_X=True,
-                           inplace=False)
+    obj, out = wrapper.apply(imputer, 'fit_transform',
+            requires_X=True, inplace=False)
     # Display
-    print("\n\n{0}:\n{1}".format(imputer, out))
+    print("\n%s" % imputer)
+    print(pd.DataFrame(out))
 
-import sys
 
-sys.exit()
 # ------------------------------
 # Scalers
 # ------------------------------
@@ -107,7 +120,8 @@ for name, scaler in [('std', StandardScaler()),
                      ('mmx', MinMaxScaler()),
                      ('rbs', RobustScaler())]:
     # Apply scaler
-    obj, out = wrapper.apply(scaler, 'fit_transform', requires_X=True,
-                           inplace=False)
+    obj, out = wrapper.apply(scaler, 'fit_transform',
+            requires_X=True, inplace=False)
     # Display
-    print("\n\n{0}:\n{1}".format(scaler, output))
+    print("\n%s" % scaler)
+    print(pd.DataFrame(out))

@@ -1,2 +1,2 @@
-pysml-sklearn-wrapper
+jsonpickle
 ---------------------

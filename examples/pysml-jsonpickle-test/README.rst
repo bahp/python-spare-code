@@ -1,2 +1,0 @@
-pysml-jsonpickle-test
----------------------

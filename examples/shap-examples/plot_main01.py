@@ -1,6 +1,6 @@
 """
-Shap -
-=================
+Shap - Main 01
+==============
 
 """
 # Generic
@@ -99,6 +99,8 @@ print("\nKernel type: %s" % type(explainer))
 
 # Get shap values
 shap_values = explainer(X)
+
+print(shap_values)
 
 # For interactions!!
 # https://github.com/slundberg/shap/issues/501

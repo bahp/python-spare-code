@@ -1,9 +1,16 @@
+"""
+IQRFilter
+=============
+
+.. warning:: Non sense.
+
+"""
+
 # Import from future.
 from __future__ import division
 
 # Libraries
 import numpy as np
-
 
 # --------------------------------------------------------------------------
 #                       Inter-Quantile Range filter

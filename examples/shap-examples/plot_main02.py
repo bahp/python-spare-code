@@ -1,6 +1,6 @@
 """
-Shap -
-=================
+Shap - Main 02
+==============
 
 """
 # Generic
@@ -148,6 +148,9 @@ for clf in clfs:
         # Get shap values
         #shap_values = explainer(X)
         shap_values = explainer.shap_values(X_train)
+
+        print(shap_values)
+
 
         # Show information
         print("base value: %s" % \

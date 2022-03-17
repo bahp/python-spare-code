@@ -1,20 +1,20 @@
 """
-script_01.py
+LDAP sample
 =============
+
+It requires ``ldap3`` and ``python-ldap-test`` [2017!].
 
 .. warning:: Not working!
 
-Requires:
-
-   - ``ldap3``
-   - ``python-ldap-test`` [2017!]
-
-
 """
+
+# Generic
 import ldap3
 
+# Specific
 from ldap_test import LdapServer
 
+# Create LDAP server.
 server = LdapServer({
     'port': 3333,
     'bind_dn': 'cn=admin,dc=zoldar,dc=net',

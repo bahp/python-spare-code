@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 # Show in terminal
-TERMINAL = True
+TERMINAL = False
 
 # Create data
 data = [
@@ -39,7 +39,7 @@ if TERMINAL:
 data
 
 ####################################################################
-# Sort values
+# Lets sort values
 
 # Note that if you set columns as indexes (e.g. the
 # datetime) they will be sorted by default.
@@ -52,7 +52,7 @@ if TERMINAL:
 aux
 
 ###################################################################
-# Select columns
+# Lets select columns
 
 # Select columns from DataFrame
 aux = data[['patient', 'date', 'plt']]
@@ -64,7 +64,7 @@ if TERMINAL:
 aux
 
 ###################################################################
-# Indexing (not nan)
+# Lets do indexing (not nan)
 #
 
 # Keep rows where plt is not nan
@@ -78,7 +78,7 @@ aux
 
 
 ###################################################################
-# Drop nan (in subset)
+# Lets drop nan (in subset)
 #
 
 # Keep rows without any nan in subset
@@ -92,7 +92,7 @@ aux
 
 
 ###################################################################
-# Drop nan (all)
+# Lets drop nan (all)
 #
 
 # Keep rows without any nan at all
@@ -105,7 +105,7 @@ if TERMINAL:
 aux
 
 ###################################################################
-# Resample daily
+# Lets resample daily
 #
 
 # Resample
@@ -118,7 +118,7 @@ if TERMINAL:
 aux
 
 ###################################################################
-# Filling missing (pad)
+# Lets fill missing values (pad)
 #
 
 # Pad is synonym of DataFrame.fillna() with method='ffill'.
@@ -131,7 +131,7 @@ if TERMINAL:
 aux
 
 ###################################################################
-# Group by patient and sum
+# Lets group by patient and sum
 
 # Group by patient and sum
 agg = aux.groupby('patient').sum()
@@ -143,7 +143,7 @@ if TERMINAL:
 agg
 
 ###################################################################
-# Group by patient (2days) and ..
+# Lets group by patient per 2days and compute mean and max.
 
 agg = aux.groupby(by=['patient', pd.Grouper(freq='2D')]) \
     .agg('mean', 'max')
@@ -158,26 +158,3 @@ if TERMINAL:
     print("\nOut:")
     print(agg)
 agg
-
-
-def f(x):
-    print(x)
-
-#agg = aux.groupby(by='patient').rolling(2).apply(f)
-#print(agg)
-
-
-
-
-"""#https://stackoverflow.com/questions/39674713/neural-network-lstm-input-shape-from-dataframe
-# Put your inputs into a single list
-aux = data.copy(deep=True)
-aux['single_input_vector'] = aux[['hct', 'plt']].apply(tuple, axis=1).apply(list)
-# Double-encapsulate list so that you can sum it in the next step and keep time steps as separate elements
-aux['single_input_vector'] = aux.single_input_vector.apply(lambda x: [list(x)])
-# Use .cumsum() to include previous row vectors in the current row list of vectors
-aux['cumulative_input_vectors'] = aux.single_input_vector.cumsum()
-# If your output is multi-dimensional, you need to capture those dimensions in one object
-# If your output is a single dimension, this step may be unnecessary
-aux['output_vector'] = aux[['bil']].apply(tuple, axis=1).apply(list)
-print(aux)"""

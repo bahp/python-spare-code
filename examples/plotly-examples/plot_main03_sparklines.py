@@ -1,6 +1,8 @@
 """
-Plotly - Sparklines
+Plot Sparklines
 ===================
+
+This example shows to to plot sparklines style graphs.
 """
 # -------------------
 # Main
@@ -17,6 +19,8 @@ import plotly.graph_objects as go
 
 from pandas.tseries.offsets import DateOffset
 from plotly.subplots import make_subplots
+
+TERMINAL = False
 
 # Constants
 colors = px.colors.sequential.Viridis_r
@@ -49,8 +53,9 @@ data = data.set_index('dates')
 data = data.drop(columns='timedelta')
 
 # Show data
-print("\nData:")
-print(data)
+if TERMINAL:
+    print("\nData:")
+    print(data)
 
 
 
@@ -60,8 +65,8 @@ print(data)
 # Create layout
 layout = {
   "font": {"family": "Georgia, serif"},
-  "title": "Sparklines",
-  "width": 500,
+  #"title": "Sparklines",
+  "width": 700,
   "height": 500,
   "margin": {"t": 80},
   "paper_bgcolor": 'rgba(0,0,0,0)',  # transparent

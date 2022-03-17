@@ -1,4 +1,4 @@
-learning-tpot
--------------
+TPOT
+-----
 
-Below is a gallery of examples ...
+Gallery of examples using ``tpot``.

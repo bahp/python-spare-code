@@ -1,4 +1,4 @@
-pandas-examples
----------------
+Pandas
+------
 
-Below is a gallery of examples ...
+Gallery of examples using ``pandas``.

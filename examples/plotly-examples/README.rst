@@ -1,4 +1,4 @@
-plotly-examples
----------------
+Plotly
+------
 
-Below is a gallery of examples ...
+Gallery of examples using ``plotly``.
