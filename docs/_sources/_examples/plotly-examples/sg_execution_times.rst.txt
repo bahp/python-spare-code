@@ -5,28 +5,36 @@
 
 Computation times
 =================
-**00:43.812** total execution time for **_examples_plotly-examples** files:
+**00:15.892** total execution time for **_examples_plotly-examples** files:
 
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main08_treemap.py` (``plot_main08_treemap.py``)             | 00:33.733 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap_v3.py` (``plot_main06_treemap_v3.py``)       | 00:09.587 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main10_weather.py` (``plot_main10_weather.py``)             | 00:04.153 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main12_mpl2ply_shap.py` (``plot_main12_mpl2ply_shap.py``)   | 00:01.832 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main07_treemap.py` (``plot_main07_treemap.py``)             | 00:02.372 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main10_weather.py` (``plot_main10_weather.py``)             | 00:01.705 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main_12_shap.py` (``plot_main_12_shap.py``)                 | 00:02.119 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main07_parallel_v2.py` (``plot_main07_parallel_v2.py``)     | 00:01.261 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main01_roc.py` (``plot_main01_roc.py``)                     | 00:00.325 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main30_dash_table.py` (``plot_main30_dash_table.py``)       | 00:00.297 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap.py` (``plot_main06_treemap.py``)             | 00:00.290 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main07_parallel_v1.py` (``plot_main07_parallel_v1.py``)     | 00:00.261 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main03_sparklines.py` (``plot_main03_sparklines.py``)       | 00:00.278 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap_v1.py` (``plot_main06_treemap_v1.py``)       | 00:00.242 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main02_distributions.py` (``plot_main02_distributions.py``) | 00:00.234 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main12_mpl2ply.py` (``plot_main12_mpl2ply.py``)             | 00:00.182 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main_13_mpl2ply.py` (``plot_main_13_mpl2ply.py``)           | 00:00.177 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main01_roc.py` (``plot_main01_roc.py``)                     | 00:00.157 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main04_2dhist.py` (``plot_main04_2dhist.py``)               | 00:00.081 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main02_distributions.py` (``plot_main02_distributions.py``) | 00:00.108 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_plotly-examples_plot_main11_updatemenus.py` (``plot_main11_updatemenus.py``)     | 00:00.050 | 0.0 MB |
+| :ref:`sphx_glr__examples_plotly-examples_plot_main03_sparklines.py` (``plot_main03_sparklines.py``)       | 00:00.105 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap_v2.py` (``plot_main06_treemap_v2.py``)       | 00:00.056 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_plotly-examples_plot_main11_updatemenus.py` (``plot_main11_updatemenus.py``)     | 00:00.051 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_plotly-examples_plot_main04_2dhist.py` (``plot_main04_2dhist.py``)               | 00:00.049 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_plotly-examples_plot_main30_dash_LS.py` (``plot_main30_dash_LS.py``)             | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------+-----------+--------+

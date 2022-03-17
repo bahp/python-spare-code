@@ -1,0 +1,12 @@
+
+:orphan:
+
+.. _sphx_glr__examples_scikits-examples_sg_execution_times:
+
+Computation times
+=================
+**00:00.013** total execution time for **_examples_scikits-examples** files:
+
++----------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_scikits-examples_plot_param_grid.py` (``plot_param_grid.py``) | 00:00.013 | 0.0 MB |
++----------------------------------------------------------------------------------------+-----------+--------+

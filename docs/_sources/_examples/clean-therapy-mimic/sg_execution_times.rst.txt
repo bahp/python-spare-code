@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:00.169** total execution time for **_examples_clean-therapy-mimic** files:
+**00:00.076** total execution time for **_examples_clean-therapy-mimic** files:
 
 +-----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_full.py` (``plot_main_full.py``) | 00:00.089 | 0.0 MB |
+| :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_full.py` (``plot_main_full.py``) | 00:00.040 | 0.0 MB |
 +-----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_one.py` (``plot_main_one.py``)   | 00:00.080 | 0.0 MB |
+| :ref:`sphx_glr__examples_clean-therapy-mimic_plot_main_one.py` (``plot_main_one.py``)   | 00:00.036 | 0.0 MB |
 +-----------------------------------------------------------------------------------------+-----------+--------+

@@ -388,7 +388,7 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot the ROC curves for various splits obtained for example when usin...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot the ROC curves for various splits.">
 
 .. only:: html
 
@@ -472,14 +472,14 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot Treemap v1">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot Treemap (v1)">
 
 .. only:: html
 
- .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main06_treemap_thumb.png
-     :alt: Plot Treemap v1
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main06_treemap_v1_thumb.png
+     :alt: Plot Treemap (v1)
 
-     :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap.py`
+     :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap_v1.py`
 
 .. raw:: html
 
@@ -489,7 +489,7 @@ Gallery of examples using ``plotly``.
 .. toctree::
    :hidden:
 
-   /_examples/plotly-examples/plot_main06_treemap
+   /_examples/plotly-examples/plot_main06_treemap_v1
 
 .. raw:: html
 
@@ -497,10 +497,10 @@ Gallery of examples using ``plotly``.
 
 .. only:: html
 
- .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main07_treemap_thumb.png
-     :alt: Plot Treemap (MIMIC)
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main06_treemap_v2_thumb.png
+     :alt: Plot Treemap (v2) - MIMIC
 
-     :ref:`sphx_glr__examples_plotly-examples_plot_main07_treemap.py`
+     :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap_v2.py`
 
 .. raw:: html
 
@@ -510,7 +510,7 @@ Gallery of examples using ``plotly``.
 .. toctree::
    :hidden:
 
-   /_examples/plotly-examples/plot_main07_treemap
+   /_examples/plotly-examples/plot_main06_treemap_v2
 
 .. raw:: html
 
@@ -518,10 +518,10 @@ Gallery of examples using ``plotly``.
 
 .. only:: html
 
- .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main08_treemap_thumb.png
-     :alt: Plotly Treemap (sari)
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main06_treemap_v3_thumb.png
+     :alt: Plot Treemap (v3) - NHS
 
-     :ref:`sphx_glr__examples_plotly-examples_plot_main08_treemap.py`
+     :ref:`sphx_glr__examples_plotly-examples_plot_main06_treemap_v3.py`
 
 .. raw:: html
 
@@ -531,16 +531,58 @@ Gallery of examples using ``plotly``.
 .. toctree::
    :hidden:
 
-   /_examples/plotly-examples/plot_main08_treemap
+   /_examples/plotly-examples/plot_main06_treemap_v3
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotly - Weather">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example plots a parallel graph.">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main07_parallel_v1_thumb.png
+     :alt: Plot Parallel (v1)
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main07_parallel_v1.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main07_parallel_v1
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example plots a parallel graph.">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main07_parallel_v2_thumb.png
+     :alt: Plot Parallel (v2)
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main07_parallel_v2.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main07_parallel_v2
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot Weather">
 
 .. only:: html
 
  .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main10_weather_thumb.png
-     :alt: Plotly - Weather
+     :alt: Plot Weather
 
      :ref:`sphx_glr__examples_plotly-examples_plot_main10_weather.py`
 
@@ -556,7 +598,7 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot updatemenus">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example show how to include buttons in the plotly graph by using update menus. Work should...">
 
 .. only:: html
 
@@ -577,14 +619,14 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot SHAP summary">
+    <div class="sphx-glr-thumbcontainer" tooltip="Matplotlib to Plotly">
 
 .. only:: html
 
- .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main_12_shap_thumb.png
-     :alt: Plot SHAP summary
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main12_mpl2ply_thumb.png
+     :alt: Matplotlib to Plotly
 
-     :ref:`sphx_glr__examples_plotly-examples_plot_main_12_shap.py`
+     :ref:`sphx_glr__examples_plotly-examples_plot_main12_mpl2ply.py`
 
 .. raw:: html
 
@@ -594,18 +636,18 @@ Gallery of examples using ``plotly``.
 .. toctree::
    :hidden:
 
-   /_examples/plotly-examples/plot_main_12_shap
+   /_examples/plotly-examples/plot_main12_mpl2ply
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Mpl to Plotly">
+    <div class="sphx-glr-thumbcontainer" tooltip="MPL2PLY SHAP summary">
 
 .. only:: html
 
- .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main_13_mpl2ply_thumb.png
-     :alt: Mpl to Plotly
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main12_mpl2ply_shap_thumb.png
+     :alt: MPL2PLY SHAP summary
 
-     :ref:`sphx_glr__examples_plotly-examples_plot_main_13_mpl2ply.py`
+     :ref:`sphx_glr__examples_plotly-examples_plot_main12_mpl2ply_shap.py`
 
 .. raw:: html
 
@@ -615,7 +657,49 @@ Gallery of examples using ``plotly``.
 .. toctree::
    :hidden:
 
-   /_examples/plotly-examples/plot_main_13_mpl2ply
+   /_examples/plotly-examples/plot_main12_mpl2ply_shap
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Dash LS (empty)">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main30_dash_LS_thumb.png
+     :alt: Dash LS (empty)
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main30_dash_LS.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main30_dash_LS
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Dash Table">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly-examples/images/thumb/sphx_glr_plot_main30_dash_table_thumb.png
+     :alt: Dash Table
+
+     :ref:`sphx_glr__examples_plotly-examples_plot_main30_dash_table.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly-examples/plot_main30_dash_table
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -650,6 +734,40 @@ Below is a gallery of examples ...
    :hidden:
 
    /_examples/review-gunn-keras/main
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_scikits-examples:
+
+Scikits
+-----------------
+
+Gallery of examples using ``scikits``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows different configurations of ParamGrid.">
+
+.. only:: html
+
+ .. figure:: /_examples/scikits-examples/images/thumb/sphx_glr_plot_param_grid_thumb.png
+     :alt: ParamGrid
+
+     :ref:`sphx_glr__examples_scikits-examples_plot_param_grid.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/scikits-examples/plot_param_grid
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
