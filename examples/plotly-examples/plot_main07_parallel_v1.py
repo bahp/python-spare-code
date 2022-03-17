@@ -1,11 +1,27 @@
+"""
+Plot Parallel (v1)
+==================
+
+This example plots a parallel graph.
+
+"""
+
 import plotly.graph_objects as go
 
 import pandas as pd
 
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
+
+# Load
 df = pd.read_csv("https://raw.githubusercontent.com/bcdunbar/datasets/master/parcoords_data.csv")
 
-
 # Show data
+print("Data:")
 print(df)
 
 # Show
@@ -37,4 +53,5 @@ fig = go.Figure(data=
                  label = 'Height st Width', values = df['HstW'])])
     )
 )
-fig.show()
+#fig.show()
+fig

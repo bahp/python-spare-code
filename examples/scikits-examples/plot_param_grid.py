@@ -1,8 +1,21 @@
+"""
+ParamGrid
+============
+
+This example shows different configurations of ParamGrid.
+"""
+
 # Generic
 import pandas as pd
 
 # Library
 from sklearn.model_selection import ParameterGrid
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 # -----------------------------
 # Sample I
@@ -12,9 +25,13 @@ params = {'a': [1, 2], 'b': [True, False]}
 # Create params grid
 grid = list(ParameterGrid(params))
 # Show
-print("\nExample I:")
-print(pd.DataFrame(grid))
+if TERMINAL:
+    print("\nExample I:")
+    print(pd.DataFrame(grid))
+pd.DataFrame(grid)
 
+# %%
+#
 
 
 # -----------------------------
@@ -26,10 +43,13 @@ params = [{'kernel': ['linear']},
 # Create params grid
 grid = list(ParameterGrid(params))
 # Show
-print("\nExample II:")
-print(pd.DataFrame(grid))
+if TERMINAL:
+    print("\nExample II:")
+    print(pd.DataFrame(grid))
+pd.DataFrame(grid)
 
-
+# %%
+#
 
 # -----------------------------
 # Sample III
@@ -41,13 +61,17 @@ params = {'imp': ['simp', 'iimp'],
 # Create params grid
 grid = list(ParameterGrid(params))
 # Show
-print("\nExample IV:")
-print(pd.DataFrame(grid))
+if TERMINAL:
+    print("\nExample III:")
+    print(pd.DataFrame(grid))
+pd.DataFrame(grid)
 
+# %%
+#
 
 
 # -----------------------------
-# Sample III
+# Sample IV
 # -----------------------------
 # Define params
 params = [{'imp': ['simp', 'iimp'], 'scl': ['minmax'], 'est': ['PCA']},
@@ -55,5 +79,10 @@ params = [{'imp': ['simp', 'iimp'], 'scl': ['minmax'], 'est': ['PCA']},
 # Create params grid
 grid = list(ParameterGrid(params))
 # Show
-print("\nExample III:")
-print(pd.DataFrame(grid))
+if TERMINAL:
+    print("\nExample IV:")
+    print(pd.DataFrame(grid))
+pd.DataFrame(grid)
+
+# %%
+#

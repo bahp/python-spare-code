@@ -3,16 +3,22 @@ Plot ROC
 ============
 
 This example shows how to plot the ROC curves
-for various splits obtained for example when
-using Cross Validation.
+for various splits.
 """
 
 # Libraries
 import plotly.graph_objects as go
-from plotly.graph_objects import Layout
 import plotly.express as px
 import numpy as np
 
+# Layout
+from plotly.graph_objects import Layout
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 # -----------------------------------------
 # Config
@@ -21,7 +27,6 @@ import numpy as np
 colors = px.colors.qualitative.Plotly
 colors = px.colors.sequential.Plasma_r
 colors = px.colors.sequential.Viridis_r
-#colors = px.colors.sequential.Blues # Issue only 9!
 
 # -----------------------------------------
 # Data
@@ -108,5 +113,6 @@ fig.update_yaxes(showgrid=True,
                  gridcolor='lightgray')
 
 # Show
-#fig.show()
+if TERMINAL:
+    fig.show()
 fig

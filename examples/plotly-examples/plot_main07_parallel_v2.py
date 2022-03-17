@@ -1,9 +1,23 @@
+"""
+Plot Parallel (v2)
+==================
+
+This example plots a parallel graph.
+
+"""
+
 import plotly.graph_objects as go
 
 import numpy as np
 import pandas as pd
 from pandas.api.types import is_string_dtype
 from pandas.api.types import is_numeric_dtype
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 
 def load_gridsearch_sklearn_iris():
@@ -58,9 +72,22 @@ def load_raw_dengue():
     return df, line, columns
 
 def create_dimension(s):
-    """This method..."""
+    """This method creates the dimesions.
+
+    Dimension: numeric
+    dict(range = [32000,227900],
+         constraintrange = [100000,150000],
+         label = "Block Height",
+         values = df['blockHeight'])
+
+    Dimension: enumerated
+    dict(tickvals = [0,0.5,1,2,3],
+         ticktext = ['A','AB','B','Y','Z'],
+         label = 'Cyclinder Material',
+         values = df['cycMaterial'],
+         visible = True)
+    """
     if is_numeric_dtype(s):
-        print('numeric', s.name)
         return dict(
             range=[s.min(), s.max()],
             constraintrange=[s.min(), s.max()],
@@ -76,12 +103,6 @@ def create_dimension(s):
 df, line, columns = load_raw_dengue()
 #df, columns = load_gridsearch_sklearn_iris()
 
-print(df.columns)
-
-# dict(tickvals = [0,0.5,1,2,3],
-#     ticktext = ['A','AB','B','Y','Z'],
-#     label = 'Cyclinder Material', values = df['cycMaterial']),
-
 # Show
 fig = go.Figure(data=
     go.Parcoords(line=line,
@@ -90,43 +111,7 @@ fig = go.Figure(data=
     ))
 
 
-
-
-
-"""
-        list([
-            dict(range = [df.mean_train_spearman.min(),
-                          df.mean_train_spearman.max()],
-                 constraintrange = [df.mean_train_spearman.min(),
-                                    df.mean_train_spearman.max()],
-                 label="Spearman", values=df.mean_train_spearman),
-
-            dict(range=[df.mean_train_pearson.min(),
-                        df.mean_train_pearson.max()],
-                 constraintrange=[df.mean_train_pearson.min(),
-                                  df.mean_train_pearson.max()],
-                 label="Spearman", values=df.mean_train_pearson),
-
-            ])
-            #dict(range = [32000,227900],
-            #     constraintrange = [100000,150000],
-            #     label = "Block Height", values = df['blockHeight']),
-            #dict(range = [0,700000],
-            #     label = 'Block Width', values = df['blockWidth']),
-            #dict(tickvals = [0,0.5,1,2,3],
-            #     ticktext = ['A','AB','B','Y','Z'],
-            #     label = 'Cyclinder Material', values = df['cycMaterial']),
-            #dict(range = [-1,4],
-            #     tickvals = [0,1,2,3],
-            #     label = 'Block Material', values = df['blockMaterial']),
-            #dict(range = [134,3154],
-            #     visible = True,
-            #     label = 'Total Weight', values = df['totalWeight']),
-            #dict(range = [9,19984],
-            #     label = 'Assembly Penalty Wt', values = df['assemblyPW']),
-            #dict(range = [49000,568000],
-            #     label = 'Height st Width', values = df['HstW'])])
-    )
-)
-"""
-fig.show()
+# Show
+if TERMINAL:
+    fig.show()
+fig

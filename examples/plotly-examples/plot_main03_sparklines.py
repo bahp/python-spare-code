@@ -20,7 +20,11 @@ import plotly.graph_objects as go
 from pandas.tseries.offsets import DateOffset
 from plotly.subplots import make_subplots
 
-TERMINAL = False
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 # Constants
 colors = px.colors.sequential.Viridis_r
@@ -124,5 +128,6 @@ for i, column in enumerate(data.columns):
 fig.update_layout(layout)
 
 # Show
-#fig.show()
+if TERMINAL:
+    fig.show()
 fig

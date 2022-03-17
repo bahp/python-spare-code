@@ -11,12 +11,19 @@ probability values.
 
 # Libraries
 import plotly.graph_objects as go
-from plotly.graph_objects import Layout
 import plotly.express as px
 import pandas as pd
 import numpy as np
 
-TERMINAL = False
+# Specific
+from plotly.graph_objects import Layout
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
 
 # -----------------------------------------
 # Helper method
@@ -140,5 +147,6 @@ fig.update_layout(
 fig.update_yaxes(visible=True)
 
 # Show
-#fig.show()
+if TERMINAL:
+    fig.show()
 fig

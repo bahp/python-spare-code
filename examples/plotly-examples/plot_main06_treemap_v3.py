@@ -1,6 +1,6 @@
 """
-Plotly Treemap (sari)
----------------------
+Plot Treemap (v3) - NHS
+-----------------------
 
 This example displays a Treemap using a portion of the NHS dataset. This
 example needs ``pyAMR`` to load the corresponding data.
@@ -20,6 +20,12 @@ import plotly.express as px
 # Import own libraries
 from pyamr.core.sari import sari
 from pyamr.datasets.load import load_data_nhs
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 
 # Methods

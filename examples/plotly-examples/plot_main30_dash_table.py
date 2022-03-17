@@ -1,9 +1,18 @@
+"""
+Dash Table
+=================
+
+.. note:: https://plotly.com/python/2d-histogram-contour/
+
+"""
+
 import dash
 from dash.dependencies import Input, Output, State
 import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
 
+"""
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
@@ -80,3 +89,4 @@ def display_output(rows, columns):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+"""
