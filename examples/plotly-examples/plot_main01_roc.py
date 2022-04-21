@@ -4,6 +4,11 @@ Plot ROC
 
 This example shows how to plot the ROC curves
 for various splits.
+
+.. todo: Instead of specify the color for each single trace,
+         which is also a good option, it is possible to
+         define in the layout the variable colorway with the
+         cycle of colors that will be used.
 """
 
 # Libraries
