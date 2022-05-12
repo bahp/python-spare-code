@@ -25,3 +25,5 @@ Run the following command whithin `main/docs`
 ```sh
 $ make github    # Generate sphinx docs.
 ```
+
+And commit all the changes in gh-pages.
