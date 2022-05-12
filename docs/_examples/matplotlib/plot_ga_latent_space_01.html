@@ -20,8 +20,11 @@
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
   
 
   
@@ -114,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
@@ -199,331 +203,327 @@ to download the full example code</p>
 <p>This example estimates and displays the Gaussian
 Mixture Model (GMM) and KDE (Kernel Density Estimation)
 for each class.</p>
-<ul class="sphx-glr-horizontal">
-<li><img alt="Latent Space" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_ga_latent_space_01_001.png" />
-</li>
-<li><img alt="Label 0" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_ga_latent_space_01_002.png" />
-</li>
-<li><img alt="Label 1" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_ga_latent_space_01_003.png" />
-</li>
-<li><img alt="Label 2" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_ga_latent_space_01_004.png" />
-</li>
+<ul class="sphx-glr-horizontal simple">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 10</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 12</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos"> 13</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="linenos"> 14</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos"> 15</span>
-<span class="linenos"> 16</span> <span class="c1"># Specific</span>
-<span class="linenos"> 17</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-<span class="linenos"> 18</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">mixture</span>
-<span class="linenos"> 19</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="linenos"> 20</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
-<span class="linenos"> 21</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
-<span class="linenos"> 22</span> <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
-<span class="linenos"> 23</span>
-<span class="linenos"> 24</span> <span class="c1"># Latexify</span>
-<span class="linenos"> 25</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos"> 26</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-<span class="linenos"> 27</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="linenos"> 28</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="linenos"> 29</span>
-<span class="linenos"> 30</span>
-<span class="linenos"> 31</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 32</span> <span class="c1"># Methods</span>
-<span class="linenos"> 33</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 34</span> <span class="k">def</span> <span class="nf">make_colormap</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
-<span class="linenos"> 35</span>     <span class="sd">&quot;&quot;&quot;Return a LinearSegmentedColormap</span>
-<span class="linenos"> 36</span>
-<span class="linenos"> 37</span><span class="sd">     Parameters</span>
-<span class="linenos"> 38</span><span class="sd">     ----------</span>
-<span class="linenos"> 39</span><span class="sd">     seq: list</span>
-<span class="linenos"> 40</span><span class="sd">         A sequence of floats and RGB-tuples. The floats</span>
-<span class="linenos"> 41</span><span class="sd">         should be increasing and in the interval (0,1).</span>
-<span class="linenos"> 42</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="linenos"> 43</span>     <span class="c1"># Library</span>
-<span class="linenos"> 44</span>     <span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
-<span class="linenos"> 45</span>     <span class="c1"># Code</span>
-<span class="linenos"> 46</span>     <span class="n">seq</span> <span class="o">=</span> <span class="p">[(</span><span class="kc">None</span><span class="p">,)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span>
-<span class="linenos"> 47</span>     <span class="n">cdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;red&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="p">[]}</span>
-<span class="linenos"> 48</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
-<span class="linenos"> 49</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
-<span class="linenos"> 50</span>             <span class="n">r1</span><span class="p">,</span> <span class="n">g1</span><span class="p">,</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<span class="linenos"> 51</span>             <span class="n">r2</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-<span class="linenos"> 52</span>             <span class="n">cdict</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">])</span>
-<span class="linenos"> 53</span>             <span class="n">cdict</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">,</span> <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">])</span>
-<span class="linenos"> 54</span>             <span class="n">cdict</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">])</span>
-<span class="linenos"> 55</span>     <span class="k">return</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="p">(</span><span class="s1">&#39;CustomMap&#39;</span><span class="p">,</span> <span class="n">cdict</span><span class="p">)</span>
-<span class="linenos"> 56</span>
-<span class="linenos"> 57</span> <span class="k">def</span> <span class="nf">adjust_lightness</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
-<span class="linenos"> 58</span>     <span class="sd">&quot;&quot;&quot;Adjusts the lightness of a color</span>
-<span class="linenos"> 59</span>
-<span class="linenos"> 60</span><span class="sd">     Parameters</span>
-<span class="linenos"> 61</span><span class="sd">     ----------</span>
-<span class="linenos"> 62</span><span class="sd">     color: string or vector</span>
-<span class="linenos"> 63</span><span class="sd">         The color in string, hex or rgb format.</span>
-<span class="linenos"> 64</span>
-<span class="linenos"> 65</span><span class="sd">     amount: float</span>
-<span class="linenos"> 66</span><span class="sd">         Lower values result in dark colors.</span>
-<span class="linenos"> 67</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="linenos"> 68</span>     <span class="c1"># Libraries</span>
-<span class="linenos"> 69</span>     <span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mc</span>
-<span class="linenos"> 70</span>     <span class="kn">import</span> <span class="nn">colorsys</span>
-<span class="linenos"> 71</span>     <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 72</span>         <span class="n">c</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">cnames</span><span class="p">[</span><span class="n">color</span><span class="p">]</span>
-<span class="linenos"> 73</span>     <span class="k">except</span><span class="p">:</span>
-<span class="linenos"> 74</span>         <span class="n">c</span> <span class="o">=</span> <span class="n">color</span>
-<span class="linenos"> 75</span>     <span class="n">c</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">rgb_to_hls</span><span class="p">(</span><span class="o">*</span><span class="n">mc</span><span class="o">.</span><span class="n">to_rgb</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-<span class="linenos"> 76</span>     <span class="k">return</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hls_to_rgb</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> \
-<span class="linenos"> 77</span>         <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="linenos"> 78</span>
-<span class="linenos"> 79</span> <span class="k">def</span> <span class="nf">kde_mpl_compute</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="linenos"> 80</span>     <span class="sd">&quot;&quot;&quot;Computes the gaussian kde.</span>
-<span class="linenos"> 81</span>
-<span class="linenos"> 82</span><span class="sd">     Parameters</span>
-<span class="linenos"> 83</span><span class="sd">     ----------</span>
-<span class="linenos"> 84</span>
-<span class="linenos"> 85</span><span class="sd">     Returns</span>
-<span class="linenos"> 86</span><span class="sd">     -------</span>
-<span class="linenos"> 87</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="linenos"> 88</span>     <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 89</span>         <span class="c1"># Plot density</span>
-<span class="linenos"> 90</span>         <span class="n">kde</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="linenos"> 91</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos"> 92</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception! </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
-<span class="linenos"> 93</span>         <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
-<span class="linenos"> 94</span>
-<span class="linenos"> 95</span>     <span class="c1"># Parameters</span>
-<span class="linenos"> 96</span>     <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="linenos"> 97</span>     <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos"> 98</span>
-<span class="linenos"> 99</span>     <span class="c1"># Set xlim and ylim</span>
-<span class="linenos">100</span>     <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">101</span>         <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">xlim</span>
-<span class="linenos">102</span>     <span class="k">if</span> <span class="n">ylim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">103</span>         <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ylim</span>
-<span class="linenos">104</span>
-<span class="linenos">105</span>     <span class="c1"># evaluate on a regular grid</span>
-<span class="linenos">106</span>     <span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="linenos">107</span>     <span class="n">ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="linenos">108</span>     <span class="n">Xgrid</span><span class="p">,</span> <span class="n">Ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
-<span class="linenos">109</span>     <span class="n">zgrid</span> <span class="o">=</span> <span class="n">kde</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
-<span class="linenos">110</span>         <span class="n">Xgrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
-<span class="linenos">111</span>         <span class="n">Ygrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="linenos">112</span>     <span class="p">]))</span>
-<span class="linenos">113</span>     <span class="n">Zgrid</span> <span class="o">=</span> <span class="n">zgrid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Xgrid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="linenos">114</span>
-<span class="linenos">115</span>     <span class="c1"># Return</span>
-<span class="linenos">116</span>     <span class="k">return</span> <span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span>
-<span class="linenos">117</span>
-<span class="linenos">118</span> <span class="k">def</span> <span class="nf">plot_ellipses</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="linenos">119</span>     <span class="sd">&quot;&quot;&quot;Plot ellipses from GaussianMixtureModel&quot;&quot;&quot;</span>
-<span class="linenos">120</span>
-<span class="linenos">121</span>     <span class="c1"># Define color</span>
-<span class="linenos">122</span>     <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">123</span>         <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
-<span class="linenos">124</span>     <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">125</span>         <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos">126</span>
-<span class="linenos">127</span>     <span class="c1"># Get covariances</span>
-<span class="linenos">128</span>     <span class="k">if</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
-<span class="linenos">129</span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">n</span><span class="p">][:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="linenos">130</span>     <span class="k">elif</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;tied&#39;</span><span class="p">:</span>
-<span class="linenos">131</span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="linenos">132</span>     <span class="k">elif</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;diag&#39;</span><span class="p">:</span>
-<span class="linenos">133</span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">n</span><span class="p">][:</span><span class="mi">2</span><span class="p">])</span>
-<span class="linenos">134</span>     <span class="k">elif</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;spherical&#39;</span><span class="p">:</span>
-<span class="linenos">135</span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">means_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-<span class="linenos">136</span>
-<span class="linenos">137</span>     <span class="c1"># Compute</span>
-<span class="linenos">138</span>     <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">covariances</span><span class="p">)</span>
-<span class="linenos">139</span>     <span class="c1"># v = 2. * np.sqrt(2.) * np.sqrt(v) # Oliver</span>
-<span class="linenos">140</span>     <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="linenos">141</span>     <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="linenos">142</span>     <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># convert to degrees</span>
-<span class="linenos">143</span>     <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="linenos">144</span>
-<span class="linenos">145</span>     <span class="c1"># Plot</span>
-<span class="linenos">146</span>     <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
-<span class="linenos">147</span>         <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
-<span class="linenos">148</span>     <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
-<span class="linenos">149</span>     <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="linenos">150</span>     <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
-<span class="linenos">151</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;datalim&#39;</span><span class="p">)</span>
-<span class="linenos">152</span>
-<span class="linenos">153</span>
-<span class="linenos">154</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">155</span> <span class="c1"># Create data</span>
-<span class="linenos">156</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">157</span> <span class="c1"># Colors</span>
-<span class="linenos">158</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#377eb8&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f00&#39;</span><span class="p">,</span> <span class="s1">&#39;#4daf4a&#39;</span><span class="p">,</span>
-<span class="linenos">159</span>           <span class="s1">&#39;#a65628&#39;</span><span class="p">,</span> <span class="s1">&#39;#984ea3&#39;</span><span class="p">,</span>
-<span class="linenos">160</span>           <span class="s1">&#39;#999999&#39;</span><span class="p">,</span> <span class="s1">&#39;#e41a1c&#39;</span><span class="p">,</span> <span class="s1">&#39;#dede00&#39;</span><span class="p">]</span>
-<span class="linenos">161</span>
-<span class="linenos">162</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">163</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos">164</span> <span class="n">c3</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="linenos">165</span>
-<span class="linenos">166</span> <span class="c1"># Data</span>
-<span class="linenos">167</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
-<span class="linenos">168</span>     <span class="p">[</span><span class="mf">0.19</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">169</span>     <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">170</span>     <span class="p">[</span><span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">171</span>     <span class="p">[</span><span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">172</span>     <span class="p">[</span><span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">173</span>     <span class="p">[</span><span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">174</span>
-<span class="linenos">175</span>     <span class="p">[</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">176</span>     <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">177</span>     <span class="p">[</span><span class="mf">0.49</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">178</span>     <span class="p">[</span><span class="mf">0.44</span><span class="p">,</span> <span class="mf">0.64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">179</span>     <span class="p">[</span><span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">180</span>     <span class="p">[</span><span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">181</span>     <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">182</span>     <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">183</span>     <span class="p">[</span><span class="mf">0.52</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">184</span>     <span class="p">[</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">185</span>     <span class="p">[</span><span class="mf">0.46</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">186</span>     <span class="p">[</span><span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">187</span>     <span class="p">[</span><span class="mf">0.68</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">188</span>     <span class="p">[</span><span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos">189</span>     <span class="p">[</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">190</span>     <span class="p">[</span><span class="mf">0.64</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">191</span>     <span class="p">[</span><span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">192</span>     <span class="p">[</span><span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">193</span>
-<span class="linenos">194</span>     <span class="p">[</span><span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">195</span>     <span class="p">[</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.83</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">196</span>     <span class="p">[</span><span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">197</span>     <span class="p">[</span><span class="mf">0.84</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">198</span>     <span class="p">[</span><span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">199</span>     <span class="p">[</span><span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">200</span> <span class="p">]</span>
-<span class="linenos">201</span>
-<span class="linenos">202</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">203</span><span class="sd"> # Create DataFrame (manual data)</span>
-<span class="linenos">204</span><span class="sd"> data = pd.DataFrame(data)</span>
-<span class="linenos">205</span><span class="sd"> data.columns = [&#39;x&#39;, &#39;y&#39;, &#39;target&#39;,</span>
-<span class="linenos">206</span><span class="sd">     &#39;Label 0&#39;, &#39;Label 1&#39;, &#39;Label 2&#39;,</span>
-<span class="linenos">207</span><span class="sd">     &#39;Label 3&#39;]</span>
-<span class="linenos">208</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="linenos">209</span>
-<span class="linenos">210</span> <span class="c1"># Create bloobs</span>
-<span class="linenos">211</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<span class="linenos">212</span>     <span class="n">centers</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">],</span>
-<span class="linenos">213</span>              <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
-<span class="linenos">214</span>              <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">]],</span>
-<span class="linenos">215</span>     <span class="n">cluster_std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">])</span>
-<span class="linenos">216</span>
-<span class="linenos">217</span> <span class="c1"># Preprocessing</span>
-<span class="linenos">218</span> <span class="n">X</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="linenos">219</span>
-<span class="linenos">220</span> <span class="c1"># Create Dataframe</span>
-<span class="linenos">221</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
-<span class="linenos">222</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
-<span class="linenos">223</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-<span class="linenos">224</span>     <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Label </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="o">==</span><span class="n">i</span>
-<span class="linenos">225</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
-<span class="linenos">226</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
-<span class="linenos">227</span>
-<span class="linenos">228</span> <span class="c1"># Create X</span>
-<span class="linenos">229</span> <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]]</span>
-<span class="linenos">230</span>
-<span class="linenos">231</span> <span class="c1"># Create gaussian</span>
-<span class="linenos">232</span> <span class="n">gmm</span> <span class="o">=</span> <span class="n">mixture</span><span class="o">.</span><span class="n">GaussianMixture</span><span class="p">(</span>
-<span class="linenos">233</span>     <span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">covariance_type</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span>
-<span class="linenos">234</span>
-<span class="linenos">235</span> <span class="c1"># Since we have class labels for the training data, we can</span>
-<span class="linenos">236</span> <span class="c1"># initialize the GMM parameters in a supervised manner.</span>
-<span class="linenos">237</span> <span class="n">gmm</span><span class="o">.</span><span class="n">means_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> \
-<span class="linenos">238</span>     <span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">239</span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
-<span class="linenos">240</span>
-<span class="linenos">241</span> <span class="c1"># Fit a Gaussian mixture with EM using five components</span>
-<span class="linenos">242</span> <span class="n">gmm</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]])</span>
-<span class="linenos">243</span>
-<span class="linenos">244</span>
-<span class="linenos">245</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">246</span> <span class="c1"># Visualisation (</span>
-<span class="linenos">247</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">248</span> <span class="c1"># Create figure</span>
-<span class="linenos">249</span> <span class="n">figure</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">))</span>
-<span class="linenos">250</span>
-<span class="linenos">251</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">aux</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)):</span>
-<span class="linenos">252</span>
-<span class="linenos">253</span>     <span class="c1"># Plot markers</span>
-<span class="linenos">254</span>     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">aux</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-<span class="linenos">255</span>        <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
-<span class="linenos">256</span>        <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="linenos">257</span>
-<span class="linenos">258</span>     <span class="c1"># Plot ellipse</span>
-<span class="linenos">259</span>     <span class="n">plot_ellipses</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos">260</span>
-<span class="linenos">261</span> <span class="c1"># Configure</span>
-<span class="linenos">262</span> <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
-<span class="linenos">263</span>        <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span>
-<span class="linenos">264</span>        <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">265</span>        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Latent Space&#39;</span><span class="p">)</span>
-<span class="linenos">266</span>
-<span class="linenos">267</span> <span class="c1"># Hide the right and top spines</span>
-<span class="linenos">268</span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="linenos">269</span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="linenos">270</span>
-<span class="linenos">271</span> <span class="c1"># Adjust</span>
-<span class="linenos">272</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="linenos">273</span>
-<span class="linenos">274</span>
-<span class="linenos">275</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">276</span> <span class="c1"># Visualisation labels</span>
-<span class="linenos">277</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">278</span> <span class="c1"># Loop</span>
-<span class="linenos">279</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;Label 0&#39;</span><span class="p">,</span>
-<span class="linenos">280</span>                        <span class="s1">&#39;Label 1&#39;</span><span class="p">,</span>
-<span class="linenos">281</span>                        <span class="s1">&#39;Label 2&#39;</span><span class="p">]):</span>
-<span class="linenos">282</span>     <span class="c1"># Filter data</span>
-<span class="linenos">283</span>     <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
-<span class="linenos">284</span>
-<span class="linenos">285</span>     <span class="c1"># Compute KDE</span>
-<span class="linenos">286</span>     <span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span> <span class="o">=</span> \
-<span class="linenos">287</span>         <span class="n">kde_mpl_compute</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">aux</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
-<span class="linenos">288</span>             <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="linenos">289</span>
-<span class="linenos">290</span>     <span class="c1"># Create colormap</span>
-<span class="linenos">291</span>     <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="linenos">292</span>          <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">adjust_lightness</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mf">0.6</span><span class="p">)],</span> <span class="mi">14</span><span class="p">)</span>
-<span class="linenos">293</span>
-<span class="linenos">294</span>     <span class="c1"># Create figure</span>
-<span class="linenos">295</span>     <span class="n">figure</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">296</span>
-<span class="linenos">297</span>     <span class="c1"># Plot contour</span>
-<span class="linenos">298</span>     <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span><span class="p">,</span>
-<span class="linenos">299</span>        <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span class="linenos">300</span>        <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="linenos">301</span>     <span class="c1"># Plot fill spaces</span>
-<span class="linenos">302</span>     <span class="n">cntr</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span><span class="p">,</span>
-<span class="linenos">303</span>        <span class="n">levels</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
-<span class="linenos">304</span>     <span class="c1"># Add colorbar</span>
-<span class="linenos">305</span>     <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cntr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="linenos">306</span>
-<span class="linenos">307</span>     <span class="c1"># Configure</span>
-<span class="linenos">308</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
-<span class="linenos">309</span>            <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">l</span><span class="p">,</span>
-<span class="linenos">310</span>            <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="linenos">311</span>
-<span class="linenos">312</span>     <span class="c1"># Adjust</span>
-<span class="linenos">313</span>     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="linenos">314</span>
-<span class="linenos">315</span>
-<span class="linenos">316</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">317</span> <span class="c1"># All together</span>
-<span class="linenos">318</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos">319</span>
-<span class="linenos">320</span> <span class="c1"># Con</span>
-<span class="linenos">321</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 10 </span> <span class="c1"># Libraries</span>
+<span class="lineno"> 11 </span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="lineno"> 12 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="lineno"> 13 </span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="lineno"> 14 </span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="lineno"> 15 </span>
+<span class="lineno"> 16 </span> <span class="c1"># Specific</span>
+<span class="lineno"> 17 </span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="lineno"> 18 </span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">mixture</span>
+<span class="lineno"> 19 </span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="lineno"> 20 </span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="lineno"> 21 </span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
+<span class="lineno"> 22 </span> <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="lineno"> 23 </span>
+<span class="lineno"> 24 </span> <span class="c1"># Latexify</span>
+<span class="lineno"> 25 </span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="lineno"> 26 </span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="lineno"> 27 </span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="lineno"> 28 </span> <span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="lineno"> 29 </span>
+<span class="lineno"> 30 </span>
+<span class="lineno"> 31 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno"> 32 </span> <span class="c1"># Methods</span>
+<span class="lineno"> 33 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno"> 34 </span> <span class="k">def</span> <span class="nf">make_colormap</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+<span class="lineno"> 35 </span>     <span class="sd">&quot;&quot;&quot;Return a LinearSegmentedColormap</span>
+<span class="lineno"> 36 </span>
+<span class="lineno"> 37 </span><span class="sd">     Parameters</span>
+<span class="lineno"> 38 </span><span class="sd">     ----------</span>
+<span class="lineno"> 39 </span><span class="sd">     seq: list</span>
+<span class="lineno"> 40 </span><span class="sd">         A sequence of floats and RGB-tuples. The floats</span>
+<span class="lineno"> 41 </span><span class="sd">         should be increasing and in the interval (0,1).</span>
+<span class="lineno"> 42 </span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="lineno"> 43 </span>     <span class="c1"># Library</span>
+<span class="lineno"> 44 </span>     <span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
+<span class="lineno"> 45 </span>     <span class="c1"># Code</span>
+<span class="lineno"> 46 </span>     <span class="n">seq</span> <span class="o">=</span> <span class="p">[(</span><span class="kc">None</span><span class="p">,)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span>
+<span class="lineno"> 47 </span>     <span class="n">cdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;red&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+<span class="lineno"> 48 </span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+<span class="lineno"> 49 </span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+<span class="lineno"> 50 </span>             <span class="n">r1</span><span class="p">,</span> <span class="n">g1</span><span class="p">,</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<span class="lineno"> 51 </span>             <span class="n">r2</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+<span class="lineno"> 52 </span>             <span class="n">cdict</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">])</span>
+<span class="lineno"> 53 </span>             <span class="n">cdict</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">,</span> <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">])</span>
+<span class="lineno"> 54 </span>             <span class="n">cdict</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">])</span>
+<span class="lineno"> 55 </span>     <span class="k">return</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="p">(</span><span class="s1">&#39;CustomMap&#39;</span><span class="p">,</span> <span class="n">cdict</span><span class="p">)</span>
+<span class="lineno"> 56 </span>
+<span class="lineno"> 57 </span> <span class="k">def</span> <span class="nf">adjust_lightness</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span class="lineno"> 58 </span>     <span class="sd">&quot;&quot;&quot;Adjusts the lightness of a color</span>
+<span class="lineno"> 59 </span>
+<span class="lineno"> 60 </span><span class="sd">     Parameters</span>
+<span class="lineno"> 61 </span><span class="sd">     ----------</span>
+<span class="lineno"> 62 </span><span class="sd">     color: string or vector</span>
+<span class="lineno"> 63 </span><span class="sd">         The color in string, hex or rgb format.</span>
+<span class="lineno"> 64 </span>
+<span class="lineno"> 65 </span><span class="sd">     amount: float</span>
+<span class="lineno"> 66 </span><span class="sd">         Lower values result in dark colors.</span>
+<span class="lineno"> 67 </span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="lineno"> 68 </span>     <span class="c1"># Libraries</span>
+<span class="lineno"> 69 </span>     <span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mc</span>
+<span class="lineno"> 70 </span>     <span class="kn">import</span> <span class="nn">colorsys</span>
+<span class="lineno"> 71 </span>     <span class="k">try</span><span class="p">:</span>
+<span class="lineno"> 72 </span>         <span class="n">c</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">cnames</span><span class="p">[</span><span class="n">color</span><span class="p">]</span>
+<span class="lineno"> 73 </span>     <span class="k">except</span><span class="p">:</span>
+<span class="lineno"> 74 </span>         <span class="n">c</span> <span class="o">=</span> <span class="n">color</span>
+<span class="lineno"> 75 </span>     <span class="n">c</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">rgb_to_hls</span><span class="p">(</span><span class="o">*</span><span class="n">mc</span><span class="o">.</span><span class="n">to_rgb</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="lineno"> 76 </span>     <span class="k">return</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hls_to_rgb</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> \
+<span class="lineno"> 77 </span>         <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="lineno"> 78 </span>
+<span class="lineno"> 79 </span> <span class="k">def</span> <span class="nf">kde_mpl_compute</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="lineno"> 80 </span>     <span class="sd">&quot;&quot;&quot;Computes the gaussian kde.</span>
+<span class="lineno"> 81 </span>
+<span class="lineno"> 82 </span><span class="sd">     Parameters</span>
+<span class="lineno"> 83 </span><span class="sd">     ----------</span>
+<span class="lineno"> 84 </span>
+<span class="lineno"> 85 </span><span class="sd">     Returns</span>
+<span class="lineno"> 86 </span><span class="sd">     -------</span>
+<span class="lineno"> 87 </span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="lineno"> 88 </span>     <span class="k">try</span><span class="p">:</span>
+<span class="lineno"> 89 </span>         <span class="c1"># Plot density</span>
+<span class="lineno"> 90 </span>         <span class="n">kde</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="lineno"> 91 </span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="lineno"> 92 </span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception! </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+<span class="lineno"> 93 </span>         <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+<span class="lineno"> 94 </span>
+<span class="lineno"> 95 </span>     <span class="c1"># Parameters</span>
+<span class="lineno"> 96 </span>     <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="lineno"> 97 </span>     <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="lineno"> 98 </span>
+<span class="lineno"> 99 </span>     <span class="c1"># Set xlim and ylim</span>
+<span class="lineno">100 </span>     <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">101 </span>         <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">xlim</span>
+<span class="lineno">102 </span>     <span class="k">if</span> <span class="n">ylim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">103 </span>         <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ylim</span>
+<span class="lineno">104 </span>
+<span class="lineno">105 </span>     <span class="c1"># evaluate on a regular grid</span>
+<span class="lineno">106 </span>     <span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="lineno">107 </span>     <span class="n">ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="lineno">108 </span>     <span class="n">Xgrid</span><span class="p">,</span> <span class="n">Ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
+<span class="lineno">109 </span>     <span class="n">zgrid</span> <span class="o">=</span> <span class="n">kde</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+<span class="lineno">110 </span>         <span class="n">Xgrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
+<span class="lineno">111 </span>         <span class="n">Ygrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="lineno">112 </span>     <span class="p">]))</span>
+<span class="lineno">113 </span>     <span class="n">Zgrid</span> <span class="o">=</span> <span class="n">zgrid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Xgrid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="lineno">114 </span>
+<span class="lineno">115 </span>     <span class="c1"># Return</span>
+<span class="lineno">116 </span>     <span class="k">return</span> <span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span>
+<span class="lineno">117 </span>
+<span class="lineno">118 </span> <span class="k">def</span> <span class="nf">plot_ellipses</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="lineno">119 </span>     <span class="sd">&quot;&quot;&quot;Plot ellipses from GaussianMixtureModel&quot;&quot;&quot;</span>
+<span class="lineno">120 </span>
+<span class="lineno">121 </span>     <span class="c1"># Define color</span>
+<span class="lineno">122 </span>     <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">123 </span>         <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+<span class="lineno">124 </span>     <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="lineno">125 </span>         <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="lineno">126 </span>
+<span class="lineno">127 </span>     <span class="c1"># Get covariances</span>
+<span class="lineno">128 </span>     <span class="k">if</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+<span class="lineno">129 </span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">n</span><span class="p">][:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="lineno">130 </span>     <span class="k">elif</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;tied&#39;</span><span class="p">:</span>
+<span class="lineno">131 </span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="lineno">132 </span>     <span class="k">elif</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;diag&#39;</span><span class="p">:</span>
+<span class="lineno">133 </span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">n</span><span class="p">][:</span><span class="mi">2</span><span class="p">])</span>
+<span class="lineno">134 </span>     <span class="k">elif</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">==</span> <span class="s1">&#39;spherical&#39;</span><span class="p">:</span>
+<span class="lineno">135 </span>         <span class="n">covariances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">means_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+<span class="lineno">136 </span>
+<span class="lineno">137 </span>     <span class="c1"># Compute</span>
+<span class="lineno">138 </span>     <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">covariances</span><span class="p">)</span>
+<span class="lineno">139 </span>     <span class="c1"># v = 2. * np.sqrt(2.) * np.sqrt(v) # Oliver</span>
+<span class="lineno">140 </span>     <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="lineno">141 </span>     <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="lineno">142 </span>     <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># convert to degrees</span>
+<span class="lineno">143 </span>     <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="lineno">144 </span>
+<span class="lineno">145 </span>     <span class="c1"># Plot</span>
+<span class="lineno">146 </span>     <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+<span class="lineno">147 </span>         <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="lineno">148 </span>     <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
+<span class="lineno">149 </span>     <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="lineno">150 </span>     <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
+<span class="lineno">151 </span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;datalim&#39;</span><span class="p">)</span>
+<span class="lineno">152 </span>
+<span class="lineno">153 </span>
+<span class="lineno">154 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">155 </span> <span class="c1"># Create data</span>
+<span class="lineno">156 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">157 </span> <span class="c1"># Colors</span>
+<span class="lineno">158 </span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#377eb8&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f00&#39;</span><span class="p">,</span> <span class="s1">&#39;#4daf4a&#39;</span><span class="p">,</span>
+<span class="lineno">159 </span>           <span class="s1">&#39;#a65628&#39;</span><span class="p">,</span> <span class="s1">&#39;#984ea3&#39;</span><span class="p">,</span>
+<span class="lineno">160 </span>           <span class="s1">&#39;#999999&#39;</span><span class="p">,</span> <span class="s1">&#39;#e41a1c&#39;</span><span class="p">,</span> <span class="s1">&#39;#dede00&#39;</span><span class="p">]</span>
+<span class="lineno">161 </span>
+<span class="lineno">162 </span> <span class="n">c1</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="lineno">163 </span> <span class="n">c2</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="lineno">164 </span> <span class="n">c3</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="lineno">165 </span>
+<span class="lineno">166 </span> <span class="c1"># Data</span>
+<span class="lineno">167 </span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+<span class="lineno">168 </span>     <span class="p">[</span><span class="mf">0.19</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">169 </span>     <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">170 </span>     <span class="p">[</span><span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">171 </span>     <span class="p">[</span><span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">172 </span>     <span class="p">[</span><span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">173 </span>     <span class="p">[</span><span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">174 </span>
+<span class="lineno">175 </span>     <span class="p">[</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">176 </span>     <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">177 </span>     <span class="p">[</span><span class="mf">0.49</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">178 </span>     <span class="p">[</span><span class="mf">0.44</span><span class="p">,</span> <span class="mf">0.64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">179 </span>     <span class="p">[</span><span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">180 </span>     <span class="p">[</span><span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">181 </span>     <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">182 </span>     <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">183 </span>     <span class="p">[</span><span class="mf">0.52</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">184 </span>     <span class="p">[</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">185 </span>     <span class="p">[</span><span class="mf">0.46</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">186 </span>     <span class="p">[</span><span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">187 </span>     <span class="p">[</span><span class="mf">0.68</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">188 </span>     <span class="p">[</span><span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="lineno">189 </span>     <span class="p">[</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">190 </span>     <span class="p">[</span><span class="mf">0.64</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">191 </span>     <span class="p">[</span><span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">192 </span>     <span class="p">[</span><span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">193 </span>
+<span class="lineno">194 </span>     <span class="p">[</span><span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">195 </span>     <span class="p">[</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.83</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">196 </span>     <span class="p">[</span><span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">197 </span>     <span class="p">[</span><span class="mf">0.84</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">198 </span>     <span class="p">[</span><span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">199 </span>     <span class="p">[</span><span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">200 </span> <span class="p">]</span>
+<span class="lineno">201 </span>
+<span class="lineno">202 </span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno">203 </span><span class="sd"> # Create DataFrame (manual data)</span>
+<span class="lineno">204 </span><span class="sd"> data = pd.DataFrame(data)</span>
+<span class="lineno">205 </span><span class="sd"> data.columns = [&#39;x&#39;, &#39;y&#39;, &#39;target&#39;,</span>
+<span class="lineno">206 </span><span class="sd">     &#39;Label 0&#39;, &#39;Label 1&#39;, &#39;Label 2&#39;,</span>
+<span class="lineno">207 </span><span class="sd">     &#39;Label 3&#39;]</span>
+<span class="lineno">208 </span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="lineno">209 </span>
+<span class="lineno">210 </span> <span class="c1"># Create bloobs</span>
+<span class="lineno">211 </span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="lineno">212 </span>     <span class="n">centers</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">],</span>
+<span class="lineno">213 </span>              <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
+<span class="lineno">214 </span>              <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">]],</span>
+<span class="lineno">215 </span>     <span class="n">cluster_std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">])</span>
+<span class="lineno">216 </span>
+<span class="lineno">217 </span> <span class="c1"># Preprocessing</span>
+<span class="lineno">218 </span> <span class="n">X</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="lineno">219 </span>
+<span class="lineno">220 </span> <span class="c1"># Create Dataframe</span>
+<span class="lineno">221 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="lineno">222 </span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+<span class="lineno">223 </span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="lineno">224 </span>     <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Label </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="o">==</span><span class="n">i</span>
+<span class="lineno">225 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
+<span class="lineno">226 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
+<span class="lineno">227 </span>
+<span class="lineno">228 </span> <span class="c1"># Create X</span>
+<span class="lineno">229 </span> <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]]</span>
+<span class="lineno">230 </span>
+<span class="lineno">231 </span> <span class="c1"># Create gaussian</span>
+<span class="lineno">232 </span> <span class="n">gmm</span> <span class="o">=</span> <span class="n">mixture</span><span class="o">.</span><span class="n">GaussianMixture</span><span class="p">(</span>
+<span class="lineno">233 </span>     <span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">covariance_type</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span>
+<span class="lineno">234 </span>
+<span class="lineno">235 </span> <span class="c1"># Since we have class labels for the training data, we can</span>
+<span class="lineno">236 </span> <span class="c1"># initialize the GMM parameters in a supervised manner.</span>
+<span class="lineno">237 </span> <span class="n">gmm</span><span class="o">.</span><span class="n">means_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> \
+<span class="lineno">238 </span>     <span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="lineno">239 </span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+<span class="lineno">240 </span>
+<span class="lineno">241 </span> <span class="c1"># Fit a Gaussian mixture with EM using five components</span>
+<span class="lineno">242 </span> <span class="n">gmm</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]])</span>
+<span class="lineno">243 </span>
+<span class="lineno">244 </span>
+<span class="lineno">245 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">246 </span> <span class="c1"># Visualisation (</span>
+<span class="lineno">247 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">248 </span> <span class="c1"># Create figure</span>
+<span class="lineno">249 </span> <span class="n">figure</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">))</span>
+<span class="lineno">250 </span>
+<span class="lineno">251 </span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">aux</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)):</span>
+<span class="lineno">252 </span>
+<span class="lineno">253 </span>     <span class="c1"># Plot markers</span>
+<span class="lineno">254 </span>     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">aux</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+<span class="lineno">255 </span>        <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+<span class="lineno">256 </span>        <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="lineno">257 </span>
+<span class="lineno">258 </span>     <span class="c1"># Plot ellipse</span>
+<span class="lineno">259 </span>     <span class="n">plot_ellipses</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+<span class="lineno">260 </span>
+<span class="lineno">261 </span> <span class="c1"># Configure</span>
+<span class="lineno">262 </span> <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+<span class="lineno">263 </span>        <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span>
+<span class="lineno">264 </span>        <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="lineno">265 </span>        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Latent Space&#39;</span><span class="p">)</span>
+<span class="lineno">266 </span>
+<span class="lineno">267 </span> <span class="c1"># Hide the right and top spines</span>
+<span class="lineno">268 </span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="lineno">269 </span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="lineno">270 </span>
+<span class="lineno">271 </span> <span class="c1"># Adjust</span>
+<span class="lineno">272 </span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="lineno">273 </span>
+<span class="lineno">274 </span>
+<span class="lineno">275 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">276 </span> <span class="c1"># Visualisation labels</span>
+<span class="lineno">277 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">278 </span> <span class="c1"># Loop</span>
+<span class="lineno">279 </span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;Label 0&#39;</span><span class="p">,</span>
+<span class="lineno">280 </span>                        <span class="s1">&#39;Label 1&#39;</span><span class="p">,</span>
+<span class="lineno">281 </span>                        <span class="s1">&#39;Label 2&#39;</span><span class="p">]):</span>
+<span class="lineno">282 </span>     <span class="c1"># Filter data</span>
+<span class="lineno">283 </span>     <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="lineno">284 </span>
+<span class="lineno">285 </span>     <span class="c1"># Compute KDE</span>
+<span class="lineno">286 </span>     <span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span> <span class="o">=</span> \
+<span class="lineno">287 </span>         <span class="n">kde_mpl_compute</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">aux</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+<span class="lineno">288 </span>             <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="lineno">289 </span>
+<span class="lineno">290 </span>     <span class="c1"># Create colormap</span>
+<span class="lineno">291 </span>     <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="lineno">292 </span>          <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">adjust_lightness</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mf">0.6</span><span class="p">)],</span> <span class="mi">14</span><span class="p">)</span>
+<span class="lineno">293 </span>
+<span class="lineno">294 </span>     <span class="c1"># Create figure</span>
+<span class="lineno">295 </span>     <span class="n">figure</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="lineno">296 </span>
+<span class="lineno">297 </span>     <span class="c1"># Plot contour</span>
+<span class="lineno">298 </span>     <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span><span class="p">,</span>
+<span class="lineno">299 </span>        <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="lineno">300 </span>        <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="lineno">301 </span>     <span class="c1"># Plot fill spaces</span>
+<span class="lineno">302 </span>     <span class="n">cntr</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">,</span> <span class="n">Zgrid</span><span class="p">,</span>
+<span class="lineno">303 </span>        <span class="n">levels</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="lineno">304 </span>     <span class="c1"># Add colorbar</span>
+<span class="lineno">305 </span>     <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cntr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="lineno">306 </span>
+<span class="lineno">307 </span>     <span class="c1"># Configure</span>
+<span class="lineno">308 </span>     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+<span class="lineno">309 </span>            <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">l</span><span class="p">,</span>
+<span class="lineno">310 </span>            <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="lineno">311 </span>
+<span class="lineno">312 </span>     <span class="c1"># Adjust</span>
+<span class="lineno">313 </span>     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="lineno">314 </span>
+<span class="lineno">315 </span>
+<span class="lineno">316 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">317 </span> <span class="c1"># All together</span>
+<span class="lineno">318 </span> <span class="c1"># -----------------------------------------</span>
+<span class="lineno">319 </span>
+<span class="lineno">320 </span> <span class="c1"># Con</span>
+<span class="lineno">321 </span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.112 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.427 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-ga-latent-space-01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/03aa83ce37762d35bcc0cc7438c8a06f/plot_ga_latent_space_01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ga_latent_space_01.py</span></code></a></p>

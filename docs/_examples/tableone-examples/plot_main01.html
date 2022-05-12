@@ -20,8 +20,11 @@
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
   
 
   
@@ -110,6 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#tableone">TableOne</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">TableOne</a></li>
@@ -195,36 +199,41 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="tableone">
 <span id="sphx-glr-examples-tableone-examples-plot-main01-py"></span><h1>TableOne<a class="headerlink" href="#tableone" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 6</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span> <span class="c1"># Specific</span>
-<span class="linenos"> 9</span> <span class="kn">from</span> <span class="nn">tableone</span> <span class="kn">import</span> <span class="n">TableOne</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span> <span class="c1"># ------------------------</span>
-<span class="linenos">12</span> <span class="c1"># Load data</span>
-<span class="linenos">13</span> <span class="c1"># ------------------------</span>
-<span class="linenos">14</span> <span class="c1"># Load data</span>
-<span class="linenos">15</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/20210602-134857-completed/dataset.csv&#39;</span><span class="p">)</span>
-<span class="linenos">16</span>
-<span class="linenos">17</span> <span class="c1"># ------------------------</span>
-<span class="linenos">18</span> <span class="c1"># Create tableone</span>
-<span class="linenos">19</span> <span class="c1"># ------------------------</span>
-<span class="linenos">20</span> <span class="c1"># Columns</span>
-<span class="linenos">21</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;haematocrit_percent&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]</span>
-<span class="linenos">22</span>
-<span class="linenos">23</span> <span class="c1"># Categorical</span>
-<span class="linenos">24</span> <span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span>
-<span class="linenos">25</span>
-<span class="linenos">26</span> <span class="c1"># Groupby</span>
-<span class="linenos">27</span> <span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cvs_hos_split&#39;</span><span class="p">]</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span> <span class="c1">#</span>
-<span class="linenos">30</span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">categorical</span><span class="p">,</span> <span class="n">groupby</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 5 </span> <span class="c1"># Libraries</span>
+<span class="lineno"> 6 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span> <span class="c1"># Specific</span>
+<span class="lineno"> 9 </span> <span class="kn">from</span> <span class="nn">tableone</span> <span class="kn">import</span> <span class="n">TableOne</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">12 </span> <span class="c1"># Load data</span>
+<span class="lineno">13 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">14 </span> <span class="c1"># Load data</span>
+<span class="lineno">15 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/20210602-134857-completed/dataset.csv&#39;</span><span class="p">)</span>
+<span class="lineno">16 </span>
+<span class="lineno">17 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">18 </span> <span class="c1"># Create tableone</span>
+<span class="lineno">19 </span> <span class="c1"># ------------------------</span>
+<span class="lineno">20 </span> <span class="c1"># Columns</span>
+<span class="lineno">21 </span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;haematocrit_percent&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]</span>
+<span class="lineno">22 </span>
+<span class="lineno">23 </span> <span class="c1"># Categorical</span>
+<span class="lineno">24 </span> <span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span>
+<span class="lineno">25 </span>
+<span class="lineno">26 </span> <span class="c1"># Groupby</span>
+<span class="lineno">27 </span> <span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cvs_hos_split&#39;</span><span class="p">]</span>
+<span class="lineno">28 </span>
+<span class="lineno">29 </span> <span class="c1">#</span>
+<span class="lineno">30 </span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">categorical</span><span class="p">,</span> <span class="n">groupby</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
 </pre></div>
 </div>
 <p>Show</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">36</span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">36 </span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -313,10 +322,10 @@ to download the full example code</p>
 <br />
 <br /><p>Show (HTML)</p>
 <p>Html</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">42</span> <span class="n">html</span> <span class="o">=</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
-<span class="linenos">43</span>
-<span class="linenos">44</span> <span class="c1"># show</span>
-<span class="linenos">45</span> <span class="nb">print</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">42 </span> <span class="n">html</span> <span class="o">=</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+<span class="lineno">43 </span>
+<span class="lineno">44 </span> <span class="c1"># show</span>
+<span class="lineno">45 </span> <span class="nb">print</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -388,7 +397,7 @@ to download the full example code</p>
 &lt;/table&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.237 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.169 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-tableone-examples-plot-main01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/129cf2ef8ebf216460848274b0d7e82e/plot_main01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01.py</span></code></a></p>

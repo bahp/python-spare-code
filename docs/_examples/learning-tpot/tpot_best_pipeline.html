@@ -20,8 +20,11 @@
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
   
 
   
@@ -114,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
@@ -197,56 +201,56 @@ to download the full example code</p>
 <section class="sphx-glr-example-title" id="best-pipeline">
 <span id="sphx-glr-examples-learning-tpot-tpot-best-pipeline-py"></span><h1>Best pipeline<a class="headerlink" href="#best-pipeline" title="Permalink to this headline">¶</a></h1>
 <p>Example</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos">10</span> <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
-<span class="linenos">11</span> <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectPercentile</span><span class="p">,</span> <span class="n">f_classif</span>
-<span class="linenos">12</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="linenos">13</span> <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span> <span class="kn">from</span> <span class="nn">sklearn.metrics._scorer</span> <span class="kn">import</span> <span class="n">_check_multimetric_scoring</span>
-<span class="linenos">16</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection._validation</span> <span class="kn">import</span> <span class="n">_score</span>
-<span class="linenos">17</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection._validation</span> <span class="kn">import</span> <span class="n">_aggregate_score_dicts</span>
-<span class="linenos">18</span>
-<span class="linenos">19</span> <span class="kn">from</span> <span class="nn">pySML2.settings</span> <span class="kn">import</span> <span class="n">_DEFAULT_METRICS</span>
-<span class="linenos">20</span>
-<span class="linenos">21</span> <span class="c1"># ---------------------------------------------------------------------------------</span>
-<span class="linenos">22</span> <span class="c1"># Configuration</span>
-<span class="linenos">23</span> <span class="c1"># ---------------------------------------------------------------------------------</span>
-<span class="linenos">24</span> <span class="c1"># The input features and label for the algorithm</span>
-<span class="linenos">25</span> <span class="n">features</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="s1">&#39;alb&#39;</span><span class="p">,</span> <span class="s1">&#39;alp&#39;</span><span class="p">,</span> <span class="s1">&#39;alt&#39;</span><span class="p">,</span> <span class="s1">&#39;baso&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">,</span> <span class="s1">&#39;cl&#39;</span><span class="p">,</span> <span class="s1">&#39;cre&#39;</span><span class="p">,</span> <span class="s1">&#39;crp&#39;</span><span class="p">,</span> <span class="s1">&#39;egfr&#39;</span><span class="p">,</span>
-<span class="linenos">26</span>                   <span class="s1">&#39;eos&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;ly&#39;</span><span class="p">,</span>  <span class="s1">&#39;mcv&#39;</span><span class="p">,</span> <span class="s1">&#39;mono&#39;</span><span class="p">,</span> <span class="s1">&#39;mpv&#39;</span><span class="p">,</span> <span class="s1">&#39;nrbca&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;rbc&#39;</span><span class="p">,</span>
-<span class="linenos">27</span>                   <span class="s1">&#39;rdw&#39;</span><span class="p">,</span>  <span class="s1">&#39;urea&#39;</span><span class="p">,</span> <span class="s1">&#39;wbc&#39;</span><span class="p">])</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span> <span class="c1"># The labels</span>
-<span class="linenos">30</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="s1">&#39;micro_confirmed&#39;</span><span class="p">])</span>
-<span class="linenos">31</span>
-<span class="linenos">32</span> <span class="c1"># NOTE: Make sure that the outcome column is labeled &#39;target&#39; in the data file</span>
-<span class="linenos">33</span> <span class="n">tpot_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;tpot_data_train.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="linenos">34</span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-<span class="linenos">35</span> <span class="n">tpot_data</span> <span class="o">=</span> <span class="n">tpot_data</span><span class="p">[</span><span class="n">features</span> <span class="o">+</span> <span class="n">labels</span><span class="p">]</span>
-<span class="linenos">36</span> <span class="n">tpot_data</span> <span class="o">=</span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;micro_confirmed&#39;</span><span class="p">:</span><span class="s1">&#39;target&#39;</span><span class="p">})</span>
-<span class="linenos">37</span>
-<span class="linenos">38</span> <span class="n">features</span> <span class="o">=</span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">39</span> <span class="n">training_features</span><span class="p">,</span> <span class="n">testing_features</span><span class="p">,</span> <span class="n">training_target</span><span class="p">,</span> <span class="n">testing_target</span> <span class="o">=</span> \
-<span class="linenos">40</span>             <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">tpot_data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="linenos">41</span>
-<span class="linenos">42</span> <span class="c1"># Average CV score on the training set was: 0.739462953567469</span>
-<span class="linenos">43</span> <span class="n">exported_pipeline</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
-<span class="linenos">44</span>     <span class="n">SelectPercentile</span><span class="p">(</span><span class="n">score_func</span><span class="o">=</span><span class="n">f_classif</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">69</span><span class="p">),</span>
-<span class="linenos">45</span>     <span class="n">ExtraTreesClassifier</span><span class="p">(</span><span class="n">bootstrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mf">0.6000000000000001</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="linenos">46</span> <span class="p">)</span>
-<span class="linenos">47</span>
-<span class="linenos">48</span> <span class="n">exported_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_features</span><span class="p">,</span> <span class="n">training_target</span><span class="p">)</span>
-<span class="linenos">49</span> <span class="n">results</span> <span class="o">=</span> <span class="n">exported_pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">testing_features</span><span class="p">)</span>
-<span class="linenos">50</span>
-<span class="linenos">51</span> <span class="nb">print</span><span class="p">(</span><span class="n">_DEFAULT_METRICS</span><span class="p">)</span>
-<span class="linenos">52</span>
-<span class="linenos">53</span>
-<span class="linenos">54</span> <span class="n">scorers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_check_multimetric_scoring</span><span class="p">(</span><span class="n">exported_pipeline</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">_DEFAULT_METRICS</span><span class="p">)</span>
-<span class="linenos">55</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">_score</span><span class="p">(</span><span class="n">exported_pipeline</span><span class="p">,</span> <span class="n">testing_features</span><span class="p">,</span> <span class="n">testing_target</span><span class="p">,</span> <span class="n">scorers</span><span class="p">)</span>
-<span class="linenos">56</span> <span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-<span class="linenos">57</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">_aggregate_score_dicts</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 8 </span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="lineno"> 9 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="lineno">10 </span> <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
+<span class="lineno">11 </span> <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectPercentile</span><span class="p">,</span> <span class="n">f_classif</span>
+<span class="lineno">12 </span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="lineno">13 </span> <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="lineno">14 </span>
+<span class="lineno">15 </span> <span class="kn">from</span> <span class="nn">sklearn.metrics._scorer</span> <span class="kn">import</span> <span class="n">_check_multimetric_scoring</span>
+<span class="lineno">16 </span> <span class="kn">from</span> <span class="nn">sklearn.model_selection._validation</span> <span class="kn">import</span> <span class="n">_score</span>
+<span class="lineno">17 </span> <span class="kn">from</span> <span class="nn">sklearn.model_selection._validation</span> <span class="kn">import</span> <span class="n">_aggregate_score_dicts</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span> <span class="kn">from</span> <span class="nn">pySML2.settings</span> <span class="kn">import</span> <span class="n">_DEFAULT_METRICS</span>
+<span class="lineno">20 </span>
+<span class="lineno">21 </span> <span class="c1"># ---------------------------------------------------------------------------------</span>
+<span class="lineno">22 </span> <span class="c1"># Configuration</span>
+<span class="lineno">23 </span> <span class="c1"># ---------------------------------------------------------------------------------</span>
+<span class="lineno">24 </span> <span class="c1"># The input features and label for the algorithm</span>
+<span class="lineno">25 </span> <span class="n">features</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="s1">&#39;alb&#39;</span><span class="p">,</span> <span class="s1">&#39;alp&#39;</span><span class="p">,</span> <span class="s1">&#39;alt&#39;</span><span class="p">,</span> <span class="s1">&#39;baso&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">,</span> <span class="s1">&#39;cl&#39;</span><span class="p">,</span> <span class="s1">&#39;cre&#39;</span><span class="p">,</span> <span class="s1">&#39;crp&#39;</span><span class="p">,</span> <span class="s1">&#39;egfr&#39;</span><span class="p">,</span>
+<span class="lineno">26 </span>                   <span class="s1">&#39;eos&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;ly&#39;</span><span class="p">,</span>  <span class="s1">&#39;mcv&#39;</span><span class="p">,</span> <span class="s1">&#39;mono&#39;</span><span class="p">,</span> <span class="s1">&#39;mpv&#39;</span><span class="p">,</span> <span class="s1">&#39;nrbca&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;rbc&#39;</span><span class="p">,</span>
+<span class="lineno">27 </span>                   <span class="s1">&#39;rdw&#39;</span><span class="p">,</span>  <span class="s1">&#39;urea&#39;</span><span class="p">,</span> <span class="s1">&#39;wbc&#39;</span><span class="p">])</span>
+<span class="lineno">28 </span>
+<span class="lineno">29 </span> <span class="c1"># The labels</span>
+<span class="lineno">30 </span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="s1">&#39;micro_confirmed&#39;</span><span class="p">])</span>
+<span class="lineno">31 </span>
+<span class="lineno">32 </span> <span class="c1"># NOTE: Make sure that the outcome column is labeled &#39;target&#39; in the data file</span>
+<span class="lineno">33 </span> <span class="n">tpot_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;tpot_data_train.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="lineno">34 </span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="lineno">35 </span> <span class="n">tpot_data</span> <span class="o">=</span> <span class="n">tpot_data</span><span class="p">[</span><span class="n">features</span> <span class="o">+</span> <span class="n">labels</span><span class="p">]</span>
+<span class="lineno">36 </span> <span class="n">tpot_data</span> <span class="o">=</span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;micro_confirmed&#39;</span><span class="p">:</span><span class="s1">&#39;target&#39;</span><span class="p">})</span>
+<span class="lineno">37 </span>
+<span class="lineno">38 </span> <span class="n">features</span> <span class="o">=</span> <span class="n">tpot_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="lineno">39 </span> <span class="n">training_features</span><span class="p">,</span> <span class="n">testing_features</span><span class="p">,</span> <span class="n">training_target</span><span class="p">,</span> <span class="n">testing_target</span> <span class="o">=</span> \
+<span class="lineno">40 </span>             <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">tpot_data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="lineno">41 </span>
+<span class="lineno">42 </span> <span class="c1"># Average CV score on the training set was: 0.739462953567469</span>
+<span class="lineno">43 </span> <span class="n">exported_pipeline</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+<span class="lineno">44 </span>     <span class="n">SelectPercentile</span><span class="p">(</span><span class="n">score_func</span><span class="o">=</span><span class="n">f_classif</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">69</span><span class="p">),</span>
+<span class="lineno">45 </span>     <span class="n">ExtraTreesClassifier</span><span class="p">(</span><span class="n">bootstrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mf">0.6000000000000001</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="lineno">46 </span> <span class="p">)</span>
+<span class="lineno">47 </span>
+<span class="lineno">48 </span> <span class="n">exported_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_features</span><span class="p">,</span> <span class="n">training_target</span><span class="p">)</span>
+<span class="lineno">49 </span> <span class="n">results</span> <span class="o">=</span> <span class="n">exported_pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">testing_features</span><span class="p">)</span>
+<span class="lineno">50 </span>
+<span class="lineno">51 </span> <span class="nb">print</span><span class="p">(</span><span class="n">_DEFAULT_METRICS</span><span class="p">)</span>
+<span class="lineno">52 </span>
+<span class="lineno">53 </span>
+<span class="lineno">54 </span> <span class="n">scorers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_check_multimetric_scoring</span><span class="p">(</span><span class="n">exported_pipeline</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">_DEFAULT_METRICS</span><span class="p">)</span>
+<span class="lineno">55 </span> <span class="n">scores</span> <span class="o">=</span> <span class="n">_score</span><span class="p">(</span><span class="n">exported_pipeline</span><span class="p">,</span> <span class="n">testing_features</span><span class="p">,</span> <span class="n">testing_target</span><span class="p">,</span> <span class="n">scorers</span><span class="p">)</span>
+<span class="lineno">56 </span> <span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="lineno">57 </span> <span class="n">scores</span> <span class="o">=</span> <span class="n">_aggregate_score_dicts</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>

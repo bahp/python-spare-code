@@ -20,8 +20,11 @@
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/eniapp.ico"/>
   
 
   
@@ -143,17 +146,25 @@
 <li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main02_distributions.html">Plot Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main03_sparklines.html">Plot Sparklines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main04_2dhist.html">Plot Histogram 2D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main06_treemap.html">Plot Treemap v1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main07_treemap.html">Plot Treemap (MIMIC)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main08_treemap.html">Plotly Treemap (sari)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main10_weather.html">Plotly - Weather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main06_treemap_v1.html">Plot Treemap (v1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main06_treemap_v2.html">Plot Treemap (v2) - MIMIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main06_treemap_v3.html">Plot Treemap (v3) - NHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main07_parallel_v1.html">Plot Parallel (v1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main07_parallel_v2.html">Plot Parallel (v2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main10_weather.html">Plot Weather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main11_updatemenus.html">Plot updatemenus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main_12_shap.html">Plot SHAP summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main_13_mpl2ply.html">Mpl to Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main12_mpl2ply.html">Matplotlib to Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main12_mpl2ply_shap.html">MPL2PLY SHAP summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main30_dash_LS.html">Dash LS (empty)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-examples/plot_main30_dash_table.html">Dash Table</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#review-gunn-keras">review-gunn-keras</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="review-gunn-keras/main.html">Main</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scikits">Scikits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scikits-examples/plot_param_grid.html">ParamGrid</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#shap">Shap</a><ul>
@@ -381,7 +392,7 @@
 <section id="plotly">
 <span id="sphx-glr-examples-plotly-examples"></span><h2>Plotly<a class="headerlink" href="#plotly" title="Permalink to this headline">¶</a></h2>
 <p>Gallery of examples using <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
-<div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot the ROC curves for various splits obtained for example when usin..."><figure class="align-default" id="id13">
+<div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot the ROC curves for various splits."><figure class="align-default" id="id13">
 <img alt="Plot ROC" src="../_images/sphx_glr_plot_main01_roc_thumb.png" />
 <figcaption>
 <p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main01_roc.html#sphx-glr-examples-plotly-examples-plot-main01-roc-py"><span class="std std-ref">Plot ROC</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
@@ -413,58 +424,90 @@
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Plot Treemap v1"><figure class="align-default" id="id17">
-<img alt="Plot Treemap v1" src="../_images/sphx_glr_plot_main06_treemap_thumb.png" />
+<div class="sphx-glr-thumbcontainer" tooltip="Plot Treemap (v1)"><figure class="align-default" id="id17">
+<img alt="Plot Treemap (v1)" src="../_images/sphx_glr_plot_main06_treemap_v1_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main06_treemap.html#sphx-glr-examples-plotly-examples-plot-main06-treemap-py"><span class="std std-ref">Plot Treemap v1</span></a></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main06_treemap_v1.html#sphx-glr-examples-plotly-examples-plot-main06-treemap-v1-py"><span class="std std-ref">Plot Treemap (v1)</span></a></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-thumbcontainer" tooltip="This example displays a Treemap using the MIMIC dataset."><figure class="align-default" id="id18">
-<img alt="Plot Treemap (MIMIC)" src="../_images/sphx_glr_plot_main07_treemap_thumb.png" />
+<img alt="Plot Treemap (v2) - MIMIC" src="../_images/sphx_glr_plot_main06_treemap_v2_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main07_treemap.html#sphx-glr-examples-plotly-examples-plot-main07-treemap-py"><span class="std std-ref">Plot Treemap (MIMIC)</span></a></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main06_treemap_v2.html#sphx-glr-examples-plotly-examples-plot-main06-treemap-v2-py"><span class="std std-ref">Plot Treemap (v2) - MIMIC</span></a></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-thumbcontainer" tooltip="This example displays a Treemap using a portion of the NHS dataset. This example needs pyAMR to..."><figure class="align-default" id="id19">
-<img alt="Plotly Treemap (sari)" src="../_images/sphx_glr_plot_main08_treemap_thumb.png" />
+<img alt="Plot Treemap (v3) - NHS" src="../_images/sphx_glr_plot_main06_treemap_v3_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main08_treemap.html#sphx-glr-examples-plotly-examples-plot-main08-treemap-py"><span class="std std-ref">Plotly Treemap (sari)</span></a></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main06_treemap_v3.html#sphx-glr-examples-plotly-examples-plot-main06-treemap-v3-py"><span class="std std-ref">Plot Treemap (v3) - NHS</span></a></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Plotly - Weather"><figure class="align-default" id="id20">
-<img alt="Plotly - Weather" src="../_images/sphx_glr_plot_main10_weather_thumb.png" />
+<div class="sphx-glr-thumbcontainer" tooltip="This example plots a parallel graph."><figure class="align-default" id="id20">
+<img alt="Plot Parallel (v1)" src="../_images/sphx_glr_plot_main07_parallel_v1_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main10_weather.html#sphx-glr-examples-plotly-examples-plot-main10-weather-py"><span class="std std-ref">Plotly - Weather</span></a></span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main07_parallel_v1.html#sphx-glr-examples-plotly-examples-plot-main07-parallel-v1-py"><span class="std std-ref">Plot Parallel (v1)</span></a></span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Plot updatemenus"><figure class="align-default" id="id21">
+<div class="sphx-glr-thumbcontainer" tooltip="This example plots a parallel graph."><figure class="align-default" id="id21">
+<img alt="Plot Parallel (v2)" src="../_images/sphx_glr_plot_main07_parallel_v2_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main07_parallel_v2.html#sphx-glr-examples-plotly-examples-plot-main07-parallel-v2-py"><span class="std std-ref">Plot Parallel (v2)</span></a></span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Plot Weather"><figure class="align-default" id="id22">
+<img alt="Plot Weather" src="../_images/sphx_glr_plot_main10_weather_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main10_weather.html#sphx-glr-examples-plotly-examples-plot-main10-weather-py"><span class="std std-ref">Plot Weather</span></a></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="This example show how to include buttons in the plotly graph by using update menus. Work should..."><figure class="align-default" id="id23">
 <img alt="Plot updatemenus" src="../_images/sphx_glr_plot_main11_updatemenus_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main11_updatemenus.html#sphx-glr-examples-plotly-examples-plot-main11-updatemenus-py"><span class="std std-ref">Plot updatemenus</span></a></span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main11_updatemenus.html#sphx-glr-examples-plotly-examples-plot-main11-updatemenus-py"><span class="std std-ref">Plot updatemenus</span></a></span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Plot SHAP summary"><figure class="align-default" id="id22">
-<img alt="Plot SHAP summary" src="../_images/sphx_glr_plot_main_12_shap_thumb.png" />
+<div class="sphx-glr-thumbcontainer" tooltip="Matplotlib to Plotly"><figure class="align-default" id="id24">
+<img alt="Matplotlib to Plotly" src="../_images/sphx_glr_plot_main12_mpl2ply_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main_12_shap.html#sphx-glr-examples-plotly-examples-plot-main-12-shap-py"><span class="std std-ref">Plot SHAP summary</span></a></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main12_mpl2ply.html#sphx-glr-examples-plotly-examples-plot-main12-mpl2ply-py"><span class="std std-ref">Matplotlib to Plotly</span></a></span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Mpl to Plotly"><figure class="align-default" id="id23">
-<img alt="Mpl to Plotly" src="../_images/sphx_glr_plot_main_13_mpl2ply_thumb.png" />
+<div class="sphx-glr-thumbcontainer" tooltip="MPL2PLY SHAP summary"><figure class="align-default" id="id25">
+<img alt="MPL2PLY SHAP summary" src="../_images/sphx_glr_plot_main12_mpl2ply_shap_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main_13_mpl2ply.html#sphx-glr-examples-plotly-examples-plot-main-13-mpl2ply-py"><span class="std std-ref">Mpl to Plotly</span></a></span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main12_mpl2ply_shap.html#sphx-glr-examples-plotly-examples-plot-main12-mpl2ply-shap-py"><span class="std std-ref">MPL2PLY SHAP summary</span></a></span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Dash LS (empty)"><figure class="align-default" id="id26">
+<img alt="Dash LS (empty)" src="../_images/sphx_glr_plot_main30_dash_LS_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main30_dash_LS.html#sphx-glr-examples-plotly-examples-plot-main30-dash-ls-py"><span class="std std-ref">Dash LS (empty)</span></a></span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Dash Table"><figure class="align-default" id="id27">
+<img alt="Dash Table" src="../_images/sphx_glr_plot_main30_dash_table_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="plotly-examples/plot_main30_dash_table.html#sphx-glr-examples-plotly-examples-plot-main30-dash-table-py"><span class="std std-ref">Dash Table</span></a></span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
@@ -473,10 +516,22 @@
 <section id="review-gunn-keras">
 <span id="sphx-glr-examples-review-gunn-keras"></span><h2>review-gunn-keras<a class="headerlink" href="#review-gunn-keras" title="Permalink to this headline">¶</a></h2>
 <p>Below is a gallery of examples …</p>
-<div class="sphx-glr-thumbcontainer" tooltip="Main"><figure class="align-default" id="id24">
+<div class="sphx-glr-thumbcontainer" tooltip="Main"><figure class="align-default" id="id28">
 <img alt="Main" src="../_images/sphx_glr_main_thumb3.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="review-gunn-keras/main.html#sphx-glr-examples-review-gunn-keras-main-py"><span class="std std-ref">Main</span></a></span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="review-gunn-keras/main.html#sphx-glr-examples-review-gunn-keras-main-py"><span class="std std-ref">Main</span></a></span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></section>
+<section id="scikits">
+<span id="sphx-glr-examples-scikits-examples"></span><h2>Scikits<a class="headerlink" href="#scikits" title="Permalink to this headline">¶</a></h2>
+<p>Gallery of examples using <code class="docutils literal notranslate"><span class="pre">scikits</span></code>.</p>
+<div class="sphx-glr-thumbcontainer" tooltip="This example shows different configurations of ParamGrid."><figure class="align-default" id="id29">
+<img alt="ParamGrid" src="../_images/sphx_glr_plot_param_grid_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="scikits-examples/plot_param_grid.html#sphx-glr-examples-scikits-examples-plot-param-grid-py"><span class="std std-ref">ParamGrid</span></a></span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
@@ -485,34 +540,34 @@
 <section id="shap">
 <span id="sphx-glr-examples-shap-examples"></span><h2>Shap<a class="headerlink" href="#shap" title="Permalink to this headline">¶</a></h2>
 <p>Gallery of examples using <code class="docutils literal notranslate"><span class="pre">shap</span></code>.</p>
-<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 01"><figure class="align-default" id="id25">
+<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 01"><figure class="align-default" id="id30">
 <img alt="Shap - Main 01" src="../_images/sphx_glr_plot_main01_thumb1.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main01.html#sphx-glr-examples-shap-examples-plot-main01-py"><span class="std std-ref">Shap - Main 01</span></a></span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main01.html#sphx-glr-examples-shap-examples-plot-main01-py"><span class="std std-ref">Shap - Main 01</span></a></span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 02"><figure class="align-default" id="id26">
+<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 02"><figure class="align-default" id="id31">
 <img alt="Shap - Main 02" src="../_images/sphx_glr_plot_main02_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main02.html#sphx-glr-examples-shap-examples-plot-main02-py"><span class="std std-ref">Shap - Main 02</span></a></span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main02.html#sphx-glr-examples-shap-examples-plot-main02-py"><span class="std std-ref">Shap - Main 02</span></a></span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 03"><figure class="align-default" id="id27">
+<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 03"><figure class="align-default" id="id32">
 <img alt="Shap - Main 03" src="../_images/sphx_glr_plot_main03_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main03.html#sphx-glr-examples-shap-examples-plot-main03-py"><span class="std std-ref">Shap - Main 03</span></a></span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main03.html#sphx-glr-examples-shap-examples-plot-main03-py"><span class="std std-ref">Shap - Main 03</span></a></span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 04"><figure class="align-default" id="id28">
+<div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 04"><figure class="align-default" id="id33">
 <img alt="Shap - Main 04" src="../_images/sphx_glr_plot_main04_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main04.html#sphx-glr-examples-shap-examples-plot-main04-py"><span class="std std-ref">Shap - Main 04</span></a></span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="shap-examples/plot_main04.html#sphx-glr-examples-shap-examples-plot-main04-py"><span class="std std-ref">Shap - Main 04</span></a></span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
@@ -521,10 +576,10 @@
 <section id="tableone">
 <span id="sphx-glr-examples-tableone-examples"></span><h2>TableOne<a class="headerlink" href="#tableone" title="Permalink to this headline">¶</a></h2>
 <p>Gallery of examples using <code class="docutils literal notranslate"><span class="pre">tableone</span></code>.</p>
-<div class="sphx-glr-thumbcontainer" tooltip="TableOne"><figure class="align-default" id="id29">
+<div class="sphx-glr-thumbcontainer" tooltip="TableOne"><figure class="align-default" id="id34">
 <img alt="TableOne" src="../_images/sphx_glr_plot_main01_thumb2.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="tableone-examples/plot_main01.html#sphx-glr-examples-tableone-examples-plot-main01-py"><span class="std std-ref">TableOne</span></a></span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="tableone-examples/plot_main01.html#sphx-glr-examples-tableone-examples-plot-main01-py"><span class="std std-ref">TableOne</span></a></span><a class="headerlink" href="#id34" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
@@ -533,10 +588,10 @@
 <section id="threshold-moving">
 <span id="sphx-glr-examples-threshold-moving"></span><h2>Threshold Moving<a class="headerlink" href="#threshold-moving" title="Permalink to this headline">¶</a></h2>
 <p>Gallery of examples using <code class="docutils literal notranslate"><span class="pre">...</span></code>.</p>
-<div class="sphx-glr-thumbcontainer" tooltip=" .. note::  https://en.wikipedia.org/wiki/Sensitivity_and_specificity"><figure class="align-default" id="id30">
+<div class="sphx-glr-thumbcontainer" tooltip=" .. note::  https://en.wikipedia.org/wiki/Sensitivity_and_specificity"><figure class="align-default" id="id35">
 <img alt="Threshold moving" src="../_images/sphx_glr_main01_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="threshold-moving/main01.html#sphx-glr-examples-threshold-moving-main01-py"><span class="std std-ref">Threshold moving</span></a></span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="threshold-moving/main01.html#sphx-glr-examples-threshold-moving-main01-py"><span class="std std-ref">Threshold moving</span></a></span><a class="headerlink" href="#id35" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
@@ -545,34 +600,34 @@
 <section id="utils">
 <span id="sphx-glr-examples-utils"></span><h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
 <p>Gallery of examples with useful widgets.</p>
-<div class="sphx-glr-thumbcontainer" tooltip="This example just proves that StratifiedKFold is deterministic and always returns the same spli..."><figure class="align-default" id="id31">
+<div class="sphx-glr-thumbcontainer" tooltip="This example just proves that StratifiedKFold is deterministic and always returns the same spli..."><figure class="align-default" id="id36">
 <img alt="Test Skfold" src="../_images/sphx_glr_plot_data_skfold_test_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="utils/plot_data_skfold_test.html#sphx-glr-examples-utils-plot-data-skfold-test-py"><span class="std std-ref">Test Skfold</span></a></span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="utils/plot_data_skfold_test.html#sphx-glr-examples-utils-plot-data-skfold-test-py"><span class="std std-ref">Test Skfold</span></a></span><a class="headerlink" href="#id36" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This example shows some methods to split the data."><figure class="align-default" id="id32">
+<div class="sphx-glr-thumbcontainer" tooltip="This example shows some methods to split the data."><figure class="align-default" id="id37">
 <img alt="Data splitters" src="../_images/sphx_glr_plot_data_splitters_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="utils/plot_data_splitters.html#sphx-glr-examples-utils-plot-data-splitters-py"><span class="std std-ref">Data splitters</span></a></span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="utils/plot_data_splitters.html#sphx-glr-examples-utils-plot-data-splitters-py"><span class="std std-ref">Data splitters</span></a></span><a class="headerlink" href="#id37" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Data Wrapper"><figure class="align-default" id="id33">
+<div class="sphx-glr-thumbcontainer" tooltip="Data Wrapper"><figure class="align-default" id="id38">
 <img alt="Data Wrapper" src="../_images/sphx_glr_plot_data_wrapper_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="utils/plot_data_wrapper.html#sphx-glr-examples-utils-plot-data-wrapper-py"><span class="std std-ref">Data Wrapper</span></a></span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="utils/plot_data_wrapper.html#sphx-glr-examples-utils-plot-data-wrapper-py"><span class="std std-ref">Data Wrapper</span></a></span><a class="headerlink" href="#id38" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="IQRFilter"><figure class="align-default" id="id34">
+<div class="sphx-glr-thumbcontainer" tooltip="IQRFilter"><figure class="align-default" id="id39">
 <img alt="IQRFilter" src="../_images/sphx_glr_plot_sklearn_iqr_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="utils/plot_sklearn_iqr.html#sphx-glr-examples-utils-plot-sklearn-iqr-py"><span class="std std-ref">IQRFilter</span></a></span><a class="headerlink" href="#id34" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="utils/plot_sklearn_iqr.html#sphx-glr-examples-utils-plot-sklearn-iqr-py"><span class="std std-ref">IQRFilter</span></a></span><a class="headerlink" href="#id39" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">

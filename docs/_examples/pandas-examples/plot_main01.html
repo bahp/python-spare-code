@@ -20,8 +20,11 @@
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
   
 
   
@@ -113,6 +116,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
@@ -195,40 +199,40 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="pandas-main-01">
 <span id="sphx-glr-examples-pandas-examples-plot-main01-py"></span><h1>Pandas - Main 01<a class="headerlink" href="#pandas-main-01" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 6</span> <span class="c1"># Library</span>
-<span class="linenos"> 7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span> <span class="c1"># Show in terminal</span>
-<span class="linenos">11</span> <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span> <span class="c1"># Create data</span>
-<span class="linenos">14</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
-<span class="linenos">15</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;1/5/2021&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<span class="linenos">16</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;2/5/2021&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<span class="linenos">17</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;3/5/2021&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-<span class="linenos">18</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;5/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-<span class="linenos">19</span>
-<span class="linenos">20</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;11/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<span class="linenos">21</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;12/5/2021&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-<span class="linenos">22</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;16/5/2021&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="c1"># unordered</span>
-<span class="linenos">23</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;15/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-<span class="linenos">24</span> <span class="p">]</span>
-<span class="linenos">25</span>
-<span class="linenos">26</span> <span class="c1"># Load DataFrame</span>
-<span class="linenos">27</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
-<span class="linenos">28</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;hct&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">])</span>
-<span class="linenos">29</span>
-<span class="linenos">30</span> <span class="c1"># Format datetime</span>
-<span class="linenos">31</span> <span class="c1"># Date will be a datetime65[ns] instead of string</span>
-<span class="linenos">32</span> <span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">33</span> <span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span> <span class="c1"># Show</span>
-<span class="linenos">36</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">37</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
-<span class="linenos">38</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="linenos">39</span> <span class="n">data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 6 </span> <span class="c1"># Library</span>
+<span class="lineno"> 7 </span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="lineno"> 8 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span> <span class="c1"># Show in terminal</span>
+<span class="lineno">11 </span> <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="lineno">12 </span>
+<span class="lineno">13 </span> <span class="c1"># Create data</span>
+<span class="lineno">14 </span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+<span class="lineno">15 </span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;1/5/2021&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="lineno">16 </span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;2/5/2021&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="lineno">17 </span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;3/5/2021&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="lineno">18 </span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;5/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="lineno">19 </span>
+<span class="lineno">20 </span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;11/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="lineno">21 </span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;12/5/2021&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+<span class="lineno">22 </span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;16/5/2021&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="c1"># unordered</span>
+<span class="lineno">23 </span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;15/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="lineno">24 </span> <span class="p">]</span>
+<span class="lineno">25 </span>
+<span class="lineno">26 </span> <span class="c1"># Load DataFrame</span>
+<span class="lineno">27 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="lineno">28 </span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;hct&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">])</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span> <span class="c1"># Format datetime</span>
+<span class="lineno">31 </span> <span class="c1"># Date will be a datetime65[ns] instead of string</span>
+<span class="lineno">32 </span> <span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="lineno">33 </span> <span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<span class="lineno">34 </span>
+<span class="lineno">35 </span> <span class="c1"># Show</span>
+<span class="lineno">36 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">37 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
+<span class="lineno">38 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="lineno">39 </span> <span class="n">data</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -328,15 +332,15 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets sort values</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">44</span> <span class="c1"># Note that if you set columns as indexes (e.g. the</span>
-<span class="linenos">45</span> <span class="c1"># datetime) they will be sorted by default.</span>
-<span class="linenos">46</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;hct&#39;</span><span class="p">])</span>
-<span class="linenos">47</span>
-<span class="linenos">48</span> <span class="c1"># Show</span>
-<span class="linenos">49</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">50</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">51</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
-<span class="linenos">52</span> <span class="n">aux</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">44 </span> <span class="c1"># Note that if you set columns as indexes (e.g. the</span>
+<span class="lineno">45 </span> <span class="c1"># datetime) they will be sorted by default.</span>
+<span class="lineno">46 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;hct&#39;</span><span class="p">])</span>
+<span class="lineno">47 </span>
+<span class="lineno">48 </span> <span class="c1"># Show</span>
+<span class="lineno">49 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">50 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">51 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="lineno">52 </span> <span class="n">aux</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -436,14 +440,14 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets select columns</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">57</span> <span class="c1"># Select columns from DataFrame</span>
-<span class="linenos">58</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]]</span>
-<span class="linenos">59</span>
-<span class="linenos">60</span> <span class="c1"># Show</span>
-<span class="linenos">61</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">62</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">63</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
-<span class="linenos">64</span> <span class="n">aux</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">57 </span> <span class="c1"># Select columns from DataFrame</span>
+<span class="lineno">58 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]]</span>
+<span class="lineno">59 </span>
+<span class="lineno">60 </span> <span class="c1"># Show</span>
+<span class="lineno">61 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">62 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">63 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="lineno">64 </span> <span class="n">aux</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -525,14 +529,14 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets do indexing (not nan)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">70</span> <span class="c1"># Keep rows where plt is not nan</span>
-<span class="linenos">71</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
-<span class="linenos">72</span>
-<span class="linenos">73</span> <span class="c1"># Show</span>
-<span class="linenos">74</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">75</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">76</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
-<span class="linenos">77</span> <span class="n">aux</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">70 </span> <span class="c1"># Keep rows where plt is not nan</span>
+<span class="lineno">71 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+<span class="lineno">72 </span>
+<span class="lineno">73 </span> <span class="c1"># Show</span>
+<span class="lineno">74 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">75 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">76 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="lineno">77 </span> <span class="n">aux</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -624,14 +628,14 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets drop nan (in subset)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">84</span> <span class="c1"># Keep rows without any nan in subset</span>
-<span class="linenos">85</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">])</span>
-<span class="linenos">86</span>
-<span class="linenos">87</span> <span class="c1"># Show</span>
-<span class="linenos">88</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">89</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">90</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
-<span class="linenos">91</span> <span class="n">aux</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">84 </span> <span class="c1"># Keep rows without any nan in subset</span>
+<span class="lineno">85 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">])</span>
+<span class="lineno">86 </span>
+<span class="lineno">87 </span> <span class="c1"># Show</span>
+<span class="lineno">88 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">89 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">90 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="lineno">91 </span> <span class="n">aux</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -715,14 +719,14 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets drop nan (all)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 98</span> <span class="c1"># Keep rows without any nan at all</span>
-<span class="linenos"> 99</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
-<span class="linenos">100</span>
-<span class="linenos">101</span> <span class="c1"># Show</span>
-<span class="linenos">102</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">103</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">104</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
-<span class="linenos">105</span> <span class="n">aux</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 98 </span> <span class="c1"># Keep rows without any nan at all</span>
+<span class="lineno"> 99 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
+<span class="lineno">100 </span>
+<span class="lineno">101 </span> <span class="c1"># Show</span>
+<span class="lineno">102 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">103 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">104 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="lineno">105 </span> <span class="n">aux</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -806,14 +810,14 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets resample daily</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">111</span> <span class="c1"># Resample</span>
-<span class="linenos">112</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span>
-<span class="linenos">113</span>
-<span class="linenos">114</span> <span class="c1"># Show</span>
-<span class="linenos">115</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">116</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">117</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
-<span class="linenos">118</span> <span class="n">aux</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">111 </span> <span class="c1"># Resample</span>
+<span class="lineno">112 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span>
+<span class="lineno">113 </span>
+<span class="lineno">114 </span> <span class="c1"># Show</span>
+<span class="lineno">115 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">116 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">117 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="lineno">118 </span> <span class="n">aux</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -967,14 +971,14 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets fill missing values (pad)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">124</span> <span class="c1"># Pad is synonym of DataFrame.fillna() with method=&#39;ffill&#39;.</span>
-<span class="linenos">125</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span><span class="o">.</span><span class="n">pad</span><span class="p">()</span>
-<span class="linenos">126</span>
-<span class="linenos">127</span> <span class="c1"># Show</span>
-<span class="linenos">128</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">129</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">130</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
-<span class="linenos">131</span> <span class="n">aux</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">124 </span> <span class="c1"># Pad is synonym of DataFrame.fillna() with method=&#39;ffill&#39;.</span>
+<span class="lineno">125 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span><span class="o">.</span><span class="n">pad</span><span class="p">()</span>
+<span class="lineno">126 </span>
+<span class="lineno">127 </span> <span class="c1"># Show</span>
+<span class="lineno">128 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">129 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">130 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="lineno">131 </span> <span class="n">aux</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -1128,14 +1132,14 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets group by patient and sum</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">136</span> <span class="c1"># Group by patient and sum</span>
-<span class="linenos">137</span> <span class="n">agg</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;patient&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="linenos">138</span>
-<span class="linenos">139</span> <span class="c1"># Show</span>
-<span class="linenos">140</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">141</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">142</span>     <span class="nb">print</span><span class="p">(</span><span class="n">agg</span><span class="p">)</span>
-<span class="linenos">143</span> <span class="n">agg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">136 </span> <span class="c1"># Group by patient and sum</span>
+<span class="lineno">137 </span> <span class="n">agg</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;patient&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="lineno">138 </span>
+<span class="lineno">139 </span> <span class="c1"># Show</span>
+<span class="lineno">140 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">141 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">142 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">agg</span><span class="p">)</span>
+<span class="lineno">143 </span> <span class="n">agg</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -1187,19 +1191,19 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Lets group by patient per 2days and compute mean and max.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">148</span> <span class="n">agg</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;2D&#39;</span><span class="p">)])</span> \
-<span class="linenos">149</span>     <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">)</span>
-<span class="linenos">150</span>     <span class="c1">#.agg({&#39;idx&#39;: [&#39;first&#39;, &#39;last&#39;],</span>
-<span class="linenos">151</span>     <span class="c1">#      0: [skew, kurtosis, own],</span>
-<span class="linenos">152</span>     <span class="c1">#      1: [skew, kurtosis, own],</span>
-<span class="linenos">153</span>     <span class="c1">#      &#39;0_hr&#39;: [own],</span>
-<span class="linenos">154</span>     <span class="c1">#      &#39;0_rr&#39;: [own]})</span>
-<span class="linenos">155</span>
-<span class="linenos">156</span> <span class="c1"># Show</span>
-<span class="linenos">157</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">158</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
-<span class="linenos">159</span>     <span class="nb">print</span><span class="p">(</span><span class="n">agg</span><span class="p">)</span>
-<span class="linenos">160</span> <span class="n">agg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">148 </span> <span class="n">agg</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;2D&#39;</span><span class="p">)])</span> \
+<span class="lineno">149 </span>     <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">)</span>
+<span class="lineno">150 </span>     <span class="c1">#.agg({&#39;idx&#39;: [&#39;first&#39;, &#39;last&#39;],</span>
+<span class="lineno">151 </span>     <span class="c1">#      0: [skew, kurtosis, own],</span>
+<span class="lineno">152 </span>     <span class="c1">#      1: [skew, kurtosis, own],</span>
+<span class="lineno">153 </span>     <span class="c1">#      &#39;0_hr&#39;: [own],</span>
+<span class="lineno">154 </span>     <span class="c1">#      &#39;0_rr&#39;: [own]})</span>
+<span class="lineno">155 </span>
+<span class="lineno">156 </span> <span class="c1"># Show</span>
+<span class="lineno">157 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="lineno">158 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="lineno">159 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">agg</span><span class="p">)</span>
+<span class="lineno">160 </span> <span class="n">agg</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -1290,7 +1294,7 @@ to download the full example code</p>
 </div>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.094 seconds)</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.043 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pandas-examples-plot-main01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e71908e48d1bc72c01c7e71dca767254/plot_main01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01.py</span></code></a></p>

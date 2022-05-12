@@ -20,8 +20,11 @@
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
   
 
   
@@ -114,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
@@ -196,47 +200,47 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="all-patients">
 <span id="sphx-glr-examples-clean-therapy-mimic-plot-main-full-py"></span><h1>All patients<a class="headerlink" href="#all-patients" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">6</span> <span class="c1"># Generic libraries</span>
-<span class="linenos">7</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">6 </span> <span class="c1"># Generic libraries</span>
+<span class="lineno">7 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 <p>First, lets load and do some basic formatting on the data.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">12</span> <span class="c1"># -----------------------------</span>
-<span class="linenos">13</span> <span class="c1"># Constants</span>
-<span class="linenos">14</span> <span class="c1"># -----------------------------</span>
-<span class="linenos">15</span> <span class="c1"># Path</span>
-<span class="linenos">16</span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./data/One_patient_condensed_10656173.csv&#39;</span>
-<span class="linenos">17</span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./data/One_patient_condensed_11803145.csv&#39;</span>
-<span class="linenos">18</span> <span class="c1">#path = &#39;./data/ICU_diagnoses_antibiotics.csv&#39;</span>
-<span class="linenos">19</span>
-<span class="linenos">20</span> <span class="c1"># -----------------------------</span>
-<span class="linenos">21</span> <span class="c1"># Load data</span>
-<span class="linenos">22</span> <span class="c1"># -----------------------------</span>
-<span class="linenos">23</span> <span class="c1"># Read data</span>
-<span class="linenos">24</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span>
-<span class="linenos">25</span>     <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">26</span>     <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">,</span>
-<span class="linenos">27</span>                  <span class="s1">&#39;stoptime&#39;</span><span class="p">])</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span> <span class="c1"># Keep only useful columns</span>
-<span class="linenos">30</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
-<span class="linenos">31</span>              <span class="s1">&#39;hadm_id&#39;</span><span class="p">,</span>
-<span class="linenos">32</span>              <span class="s1">&#39;stay_id&#39;</span><span class="p">,</span>
-<span class="linenos">33</span>              <span class="s1">&#39;icd_code&#39;</span><span class="p">,</span>
-<span class="linenos">34</span>              <span class="s1">&#39;antibiotic&#39;</span><span class="p">,</span>
-<span class="linenos">35</span>              <span class="s1">&#39;route&#39;</span><span class="p">,</span>
-<span class="linenos">36</span>              <span class="s1">&#39;starttime&#39;</span><span class="p">,</span>
-<span class="linenos">37</span>              <span class="s1">&#39;stoptime&#39;</span><span class="p">]]</span>
-<span class="linenos">38</span>
-<span class="linenos">39</span> <span class="c1"># Reformat (time info and str)</span>
-<span class="linenos">40</span> <span class="n">data</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">starttime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
-<span class="linenos">41</span> <span class="n">data</span><span class="o">.</span><span class="n">stoptime</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">stoptime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
-<span class="linenos">42</span> <span class="n">data</span><span class="o">.</span><span class="n">antibiotic</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">antibiotic</span> \
-<span class="linenos">43</span>     <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> \
-<span class="linenos">44</span>     <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="linenos">45</span>
-<span class="linenos">46</span> <span class="c1"># Show data</span>
-<span class="linenos">47</span> <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">12 </span> <span class="c1"># -----------------------------</span>
+<span class="lineno">13 </span> <span class="c1"># Constants</span>
+<span class="lineno">14 </span> <span class="c1"># -----------------------------</span>
+<span class="lineno">15 </span> <span class="c1"># Path</span>
+<span class="lineno">16 </span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./data/One_patient_condensed_10656173.csv&#39;</span>
+<span class="lineno">17 </span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./data/One_patient_condensed_11803145.csv&#39;</span>
+<span class="lineno">18 </span> <span class="c1">#path = &#39;./data/ICU_diagnoses_antibiotics.csv&#39;</span>
+<span class="lineno">19 </span>
+<span class="lineno">20 </span> <span class="c1"># -----------------------------</span>
+<span class="lineno">21 </span> <span class="c1"># Load data</span>
+<span class="lineno">22 </span> <span class="c1"># -----------------------------</span>
+<span class="lineno">23 </span> <span class="c1"># Read data</span>
+<span class="lineno">24 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span>
+<span class="lineno">25 </span>     <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="lineno">26 </span>     <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">,</span>
+<span class="lineno">27 </span>                  <span class="s1">&#39;stoptime&#39;</span><span class="p">])</span>
+<span class="lineno">28 </span>
+<span class="lineno">29 </span> <span class="c1"># Keep only useful columns</span>
+<span class="lineno">30 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
+<span class="lineno">31 </span>              <span class="s1">&#39;hadm_id&#39;</span><span class="p">,</span>
+<span class="lineno">32 </span>              <span class="s1">&#39;stay_id&#39;</span><span class="p">,</span>
+<span class="lineno">33 </span>              <span class="s1">&#39;icd_code&#39;</span><span class="p">,</span>
+<span class="lineno">34 </span>              <span class="s1">&#39;antibiotic&#39;</span><span class="p">,</span>
+<span class="lineno">35 </span>              <span class="s1">&#39;route&#39;</span><span class="p">,</span>
+<span class="lineno">36 </span>              <span class="s1">&#39;starttime&#39;</span><span class="p">,</span>
+<span class="lineno">37 </span>              <span class="s1">&#39;stoptime&#39;</span><span class="p">]]</span>
+<span class="lineno">38 </span>
+<span class="lineno">39 </span> <span class="c1"># Reformat (time info and str)</span>
+<span class="lineno">40 </span> <span class="n">data</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">starttime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="lineno">41 </span> <span class="n">data</span><span class="o">.</span><span class="n">stoptime</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">stoptime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="lineno">42 </span> <span class="n">data</span><span class="o">.</span><span class="n">antibiotic</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">antibiotic</span> \
+<span class="lineno">43 </span>     <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> \
+<span class="lineno">44 </span>     <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="lineno">45 </span>
+<span class="lineno">46 </span> <span class="c1"># Show data</span>
+<span class="lineno">47 </span> <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -273,38 +277,38 @@ The other sample - <code class="docutils literal notranslate"><span class="pre">
 following code but it needs to be applied per patient.</p>
 <p>aux = aux.asfreq(‘1D’)</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">58</span> <span class="c1"># -----------------------------</span>
-<span class="linenos">59</span> <span class="c1"># Transform data</span>
-<span class="linenos">60</span> <span class="c1"># -----------------------------</span>
-<span class="linenos">61</span> <span class="c1"># .. note: The closed parameter indicates whether to include</span>
-<span class="linenos">62</span> <span class="c1">#          the first and/or last samples. None will keep both,</span>
-<span class="linenos">63</span> <span class="c1">#          left will keep only start date and right will keep</span>
-<span class="linenos">64</span> <span class="c1">#          also the right date.</span>
-<span class="linenos">65</span> <span class="c1"># Create column with date range</span>
-<span class="linenos">66</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;startdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
-<span class="linenos">67</span>     <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">],</span>
-<span class="linenos">68</span>                   <span class="n">end</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;stoptime&#39;</span><span class="p">],</span>
-<span class="linenos">69</span>                   <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>         <span class="c1"># ignoring right</span>
-<span class="linenos">70</span>                   <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">71</span>
-<span class="linenos">72</span> <span class="c1"># Explode such column</span>
-<span class="linenos">73</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;startdate&#39;</span><span class="p">)</span>
-<span class="linenos">74</span>
-<span class="linenos">75</span> <span class="c1"># Groupby</span>
-<span class="linenos">76</span> <span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
-<span class="linenos">77</span>            <span class="s1">&#39;hadm_id&#39;</span><span class="p">,</span>
-<span class="linenos">78</span>            <span class="s1">&#39;stay_id&#39;</span><span class="p">,</span>
-<span class="linenos">79</span>            <span class="s1">&#39;startdate&#39;</span><span class="p">]</span>
-<span class="linenos">80</span>
-<span class="linenos">81</span> <span class="c1"># Create daily therapies</span>
-<span class="linenos">82</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupby</span><span class="p">)</span> \
-<span class="linenos">83</span>     <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">antibiotic</span> \
-<span class="linenos">84</span>         <span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">58 </span> <span class="c1"># -----------------------------</span>
+<span class="lineno">59 </span> <span class="c1"># Transform data</span>
+<span class="lineno">60 </span> <span class="c1"># -----------------------------</span>
+<span class="lineno">61 </span> <span class="c1"># .. note: The closed parameter indicates whether to include</span>
+<span class="lineno">62 </span> <span class="c1">#          the first and/or last samples. None will keep both,</span>
+<span class="lineno">63 </span> <span class="c1">#          left will keep only start date and right will keep</span>
+<span class="lineno">64 </span> <span class="c1">#          also the right date.</span>
+<span class="lineno">65 </span> <span class="c1"># Create column with date range</span>
+<span class="lineno">66 </span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;startdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<span class="lineno">67 </span>     <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">],</span>
+<span class="lineno">68 </span>                   <span class="n">end</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;stoptime&#39;</span><span class="p">],</span>
+<span class="lineno">69 </span>                   <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>         <span class="c1"># ignoring right</span>
+<span class="lineno">70 </span>                   <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="lineno">71 </span>
+<span class="lineno">72 </span> <span class="c1"># Explode such column</span>
+<span class="lineno">73 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;startdate&#39;</span><span class="p">)</span>
+<span class="lineno">74 </span>
+<span class="lineno">75 </span> <span class="c1"># Groupby</span>
+<span class="lineno">76 </span> <span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
+<span class="lineno">77 </span>            <span class="s1">&#39;hadm_id&#39;</span><span class="p">,</span>
+<span class="lineno">78 </span>            <span class="s1">&#39;stay_id&#39;</span><span class="p">,</span>
+<span class="lineno">79 </span>            <span class="s1">&#39;startdate&#39;</span><span class="p">]</span>
+<span class="lineno">80 </span>
+<span class="lineno">81 </span> <span class="c1"># Create daily therapies</span>
+<span class="lineno">82 </span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupby</span><span class="p">)</span> \
+<span class="lineno">83 </span>     <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">antibiotic</span> \
+<span class="lineno">84 </span>         <span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
 </pre></div>
 </div>
 <p>Show the formatted therapies.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">89</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Formatted:&quot;</span><span class="p">)</span>
-<span class="linenos">90</span> <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">89 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Formatted:&quot;</span><span class="p">)</span>
+<span class="lineno">90 </span> <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -328,8 +332,8 @@ dtype: object
 </pre></div>
 </div>
 <p>Show the number of days per therapy</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">95</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Therapies (number of days)&quot;</span><span class="p">)</span>
-<span class="linenos">96</span> <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">95 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Therapies (number of days)&quot;</span><span class="p">)</span>
+<span class="lineno">96 </span> <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -339,13 +343,13 @@ dtype: object
 [piperacillin-tazobactam, vancomycin]                        2
 [meropenem]                                                  1
 [azithromycin, meropenem, tobramycin sulfate, vancomycin]    1
-[meropenem, metronidazole (flagyl)]                          1
-[meropenem, metronidazole (flagyl), vancomycin]              1
 [azithromycin, meropenem, metronidazole (flagyl)]            1
+[meropenem, metronidazole (flagyl), vancomycin]              1
+[meropenem, metronidazole (flagyl)]                          1
 dtype: int64
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.089 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.040 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-clean-therapy-mimic-plot-main-full-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a0956fb42afe13bd9572217d325a1627/plot_main_full.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main_full.py</span></code></a></p>
