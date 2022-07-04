@@ -1,26 +1,47 @@
 """
-Sample
-=============
+Agg Patient Single Row
+======================
 
 Example
 """
 
 # Generic
 import warnings
+import numpy as np
 import pandas as pd 
 
 # Ignore warnings
 warnings.simplefilter("ignore")
 
+def load_data():
+	return pd.read_csv('./laboratory.csv', parse_dates=['date'])
+
+def create_data():
+	""""""
+	# Configuration
+	ROWS, COLS = 150000, 10
+	PATIENTS = 300
+
+	# Create random values
+	features = np.random.random_sample((ROWS, COLS))
+	patients = np.random.randint(PATIENTS, size=(ROWS, 1))
+
+	# Create DataFrame
+	df = pd.DataFrame(data=features)
+	df = df.add_prefix('f_')
+	df['id'] = patients
+
+	# Return
+	return df
+
+
 # -----------------------
 # Read data
 # -----------------------
 # Read data
-data = pd.read_csv('./laboratory.csv', parse_dates=['date'])
+#data = pd.read_csv('./laboratory.csv', parse_dates=['date'])
 
-# Show data
-print(data.columns)
-
+data = create_data()
 
 
 # -----------------------
@@ -71,7 +92,7 @@ for i, (k, g) in enumerate(groups):
 	d = d.stack()
 	d.index = ['_'.join(e) for e in d.index.tolist()]
 	d['id'] = k                  # patient identifier
-	d['date'] = min(g['date'])   # admission date
+	#d['date'] = min(g['date'])   # admission date
 
 	# Append result
 	results = results.append(d, ignore_index=True)
@@ -83,10 +104,12 @@ for i, (k, g) in enumerate(groups):
 
 
 # Show columns
-print(results.columns.values)
+#print(results.columns.values)
+
+print(results)
 
 # Show results (partially)
-print(results[['id', 'date', 'max_wcc']])
+#print(results[['id', 'date', 'max_wcc']])
 
 # .. note: Once it works as you want, you can try to do it
 #          in one single line and compare the results to 

@@ -1,3 +1,10 @@
+"""
+Factory Boy
+-----------
+
+"""
+
+
 import factory
 import inspect
 
