@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plot Treemap (v2) - MIMIC &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plot Treemap (v3) - NHS" href="plot_main06_treemap_v3.html" />
+    <link rel="prev" title="Plot Treemap (v1)" href="plot_main06_treemap_v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Example Galleries</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#plotly">Plotly</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_roc.html">Plot ROC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_distributions.html">Plot Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_sparklines.html">Plot Sparklines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_2dhist.html">Plot Histogram 2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_treemap_v1.html">Plot Treemap (v1)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Plot Treemap (v2) - MIMIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_treemap_v3.html">Plot Treemap (v3) - NHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_parallel_v1.html">Plot Parallel (v1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_parallel_v2.html">Plot Parallel (v2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_weather.html">Plot Weather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main11_updatemenus.html">Plot updatemenus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main12_mpl2ply.html">Matplotlib to Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main12_mpl2ply_shap.html">MPL2PLY SHAP summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_dash_LS.html">Dash LS (empty)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_dash_table.html">Dash Table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">General</a> &raquo;</li>
+      <li>Plot Treemap (v2) - MIMIC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/plotly/plot_main06_treemap_v2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-plotly-plot-main06-treemap-v2-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="plot-treemap-v2-mimic">
+<span id="sphx-glr-examples-plotly-plot-main06-treemap-v2-py"></span><h1>Plot Treemap (v2) - MIMIC<a class="headerlink" href="#plot-treemap-v2-mimic" title="Permalink to this headline"></a></h1>
+<p>This example displays a Treemap using the MIMIC dataset.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is not completed!</p>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Data:
+                      ids          labels         parents
+0                  Coffee  Coffee Flavors             NaN
+1                  Aromas          Aromas          Coffee
+2                  Tastes          Tastes          Coffee
+3        Aromas-Enzymatic       Enzymatic          Aromas
+4   Aromas-Sugar Browning  Sugar Browning          Aromas
+..                    ...             ...             ...
+92          Pungent-Thyme           Thyme   Spicy-Pungent
+93           Smokey-Tarry           Tarry  Carbony-Smokey
+94    Smokey-Pipe Tobacco    Pipe Tobacco  Carbony-Smokey
+95             Ashy-Burnt           Burnt    Carbony-Ashy
+96           Ashy-Charred         Charred    Carbony-Ashy
+
+[97 rows x 3 columns]
+DF:
+                      ids          labels         parents
+0                  Coffee  Coffee Flavors             NaN
+1                  Aromas          Aromas          Coffee
+2                  Tastes          Tastes          Coffee
+3        Aromas-Enzymatic       Enzymatic          Aromas
+4   Aromas-Sugar Browning  Sugar Browning          Aromas
+..                    ...             ...             ...
+92          Pungent-Thyme           Thyme   Spicy-Pungent
+93           Smokey-Tarry           Tarry  Carbony-Smokey
+94    Smokey-Pipe Tobacco    Pipe Tobacco  Carbony-Smokey
+95             Ashy-Burnt           Burnt    Carbony-Ashy
+96           Ashy-Charred         Charred    Carbony-Ashy
+
+[97 rows x 3 columns]
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>                <div id="ea548706-0010-458a-802c-c32215a5f92e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("ea548706-0010-458a-802c-c32215a5f92e")) {                    Plotly.newPlot(                        "ea548706-0010-458a-802c-c32215a5f92e",                        [{"branchvalues":"total","labels":["BLD","SAUR","PENI","CIPRO"],"parents":[null,"BLD","SAUR","SAUR"],"pathbar":{"textfont":{"size":15}},"root":{"color":"lightgrey"},"textinfo":"label+value","type":"treemap","values":[0,1,2,3]}],                        {"margin":{"b":25,"l":25,"r":25,"t":50},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"uniformtext":{"minsize":10,"mode":"hide"}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+<br />
+<br /><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 10</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span> <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 14</span>     <span class="vm">__file__</span>
+<span class="linenos"> 15</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos"> 16</span> <span class="k">except</span><span class="p">:</span>
+<span class="linenos"> 17</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span> <span class="c1"># ---------------------</span>
+<span class="linenos"> 21</span> <span class="c1"># Helper method</span>
+<span class="linenos"> 22</span> <span class="c1"># ---------------------</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span> <span class="c1"># Methods</span>
+<span class="linenos"> 25</span> <span class="k">def</span> <span class="nf">build_hierarchical_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">value_column</span><span class="p">,</span> <span class="n">color_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos"> 26</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 27</span><span class="sd">     Build a hierarchy of levels for Sunburst or Treemap charts.</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="sd">     Levels are given starting from the bottom to the top of the hierarchy,</span>
+<span class="linenos"> 30</span><span class="sd">     ie the last level corresponds to the root.</span>
+<span class="linenos"> 31</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 32</span>     <span class="n">df_all_trees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;parent&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">])</span>
+<span class="linenos"> 33</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">levels</span><span class="p">):</span>
+<span class="linenos"> 34</span>         <span class="n">df_tree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;parent&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">])</span>
+<span class="linenos"> 35</span>         <span class="n">dfg</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">i</span><span class="p">:])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="linenos"> 36</span>         <span class="n">dfg</span> <span class="o">=</span> <span class="n">dfg</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="linenos"> 37</span>         <span class="n">df_tree</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfg</span><span class="p">[</span><span class="n">level</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="linenos"> 38</span>         <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 39</span>             <span class="n">df_tree</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfg</span><span class="p">[</span><span class="n">levels</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="linenos"> 40</span>         <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 41</span>             <span class="n">df_tree</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;total&#39;</span>
+<span class="linenos"> 42</span>         <span class="n">df_tree</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfg</span><span class="p">[</span><span class="n">value_column</span><span class="p">]</span>
+<span class="linenos"> 43</span>         <span class="c1">#df_tree[&#39;color&#39;] = dfg[color_columns[0]] / dfg[color_columns[1]]</span>
+<span class="linenos"> 44</span>         <span class="n">df_all_trees</span> <span class="o">=</span> <span class="n">df_all_trees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_tree</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 45</span>     <span class="c1">#total = pd.Series(dict(id=&#39;total&#39;, parent=&#39;&#39;,</span>
+<span class="linenos"> 46</span>     <span class="c1">#                          value=df[value_column].sum(),</span>
+<span class="linenos"> 47</span>     <span class="c1">#                          color=df[color_columns[0]].sum() / df[color_columns[1]].sum()))</span>
+<span class="linenos"> 48</span>     <span class="n">total</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;total&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">value_column</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<span class="linenos"> 49</span>     <span class="n">df_all_trees</span> <span class="o">=</span> <span class="n">df_all_trees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 50</span>     <span class="k">return</span> <span class="n">df_all_trees</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span> <span class="k">def</span> <span class="nf">load_sunburst</span><span class="p">():</span>
+<span class="linenos"> 53</span>     <span class="sd">&quot;&quot;&quot;Load sunburst data.&quot;&quot;&quot;</span>
+<span class="linenos"> 54</span>     <span class="c1"># Define URL</span>
+<span class="linenos"> 55</span>     <span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/plotly/&#39;</span>
+<span class="linenos"> 56</span>     <span class="n">URL</span><span class="o">+=</span> <span class="s1">&#39;datasets/96c0bd/sunburst-coffee-flavors-complete.csv&#39;</span>
+<span class="linenos"> 57</span>     <span class="c1"># Load dataframe</span>
+<span class="linenos"> 58</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="linenos"> 59</span>     <span class="c1"># Return</span>
+<span class="linenos"> 60</span>     <span class="k">return</span> <span class="n">df</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span> <span class="k">def</span> <span class="nf">load_microbiology_nhs</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+<span class="linenos"> 63</span>     <span class="sd">&quot;&quot;&quot;Loads and formats microbiology data.&quot;&quot;&quot;</span>
+<span class="linenos"> 64</span>     <span class="c1"># Libraries</span>
+<span class="linenos"> 65</span>     <span class="kn">from</span> <span class="nn">pyamr.core.sari</span> <span class="kn">import</span> <span class="n">sari</span>
+<span class="linenos"> 66</span>     <span class="kn">from</span> <span class="nn">pyamr.datasets.load</span> <span class="kn">import</span> <span class="n">load_data_nhs</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>     <span class="c1"># Load data</span>
+<span class="linenos"> 69</span>     <span class="n">data</span><span class="p">,</span> <span class="n">antimicrobials</span><span class="p">,</span> <span class="n">microorganisms</span> <span class="o">=</span> \
+<span class="linenos"> 70</span>         <span class="n">load_data_nhs</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">specimen_code</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;BLOOD CULTURE&#39;</span><span class="p">])]</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span>     <span class="c1"># Create DataFrame</span>
+<span class="linenos"> 75</span>     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;specimen_code&#39;</span><span class="p">,</span>
+<span class="linenos"> 76</span>                               <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
+<span class="linenos"> 77</span>                               <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
+<span class="linenos"> 78</span>                               <span class="s1">&#39;sensitivity&#39;</span><span class="p">])</span> \
+<span class="linenos"> 79</span>         <span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span>     <span class="c1"># Compute frequency</span>
+<span class="linenos"> 83</span>     <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 84</span>     <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;sari&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sari</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;hard&#39;</span><span class="p">)</span>
+<span class="linenos"> 85</span>     <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;sari_medium&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sari</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;medium&#39;</span><span class="p">)</span>
+<span class="linenos"> 86</span>     <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;sari_soft&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sari</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;soft&#39;</span><span class="p">)</span>
+<span class="linenos"> 87</span>     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span>     <span class="c1"># Add info for popup (micro and abxs)</span>
+<span class="linenos"> 90</span>     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">antimicrobials</span><span class="p">,</span>
+<span class="linenos"> 91</span>         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
+<span class="linenos"> 92</span>         <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">)</span>
+<span class="linenos"> 93</span>     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">microorganisms</span><span class="p">,</span>
+<span class="linenos"> 94</span>         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
+<span class="linenos"> 95</span>         <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;microorganism_code&#39;</span><span class="p">)</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span>     <span class="c1"># Format dataframe</span>
+<span class="linenos"> 98</span>     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span>     <span class="c1"># Configuration</span>
+<span class="linenos">101</span>     <span class="n">LEVELS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;specimen_code&#39;</span><span class="p">,</span> <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">]</span>
+<span class="linenos">102</span>     <span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sari&#39;</span><span class="p">]</span>
+<span class="linenos">103</span>     <span class="n">VALUE</span> <span class="o">=</span> <span class="s1">&#39;freq&#39;</span>
+<span class="linenos">104</span>
+<span class="linenos">105</span>     <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">LEVELS</span> <span class="o">+</span> <span class="n">COLORS</span> <span class="o">+</span> <span class="p">[</span><span class="n">VALUE</span><span class="p">]]</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span>     <span class="n">aux2</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">LEVELS</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span>
+<span class="linenos">110</span>     <span class="c1"># Return</span>
+<span class="linenos">111</span>     <span class="n">aux</span> <span class="o">=</span> <span class="n">build_hierarchical_dataframe</span><span class="p">(</span><span class="n">aux2</span><span class="p">,</span> <span class="n">LEVELS</span><span class="p">,</span> <span class="n">COLORS</span><span class="p">,</span> <span class="n">VALUE</span><span class="p">)</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span>     <span class="k">return</span> <span class="n">aux</span>
+<span class="linenos">114</span>
+<span class="linenos">115</span>
+<span class="linenos">116</span> <span class="c1"># -----------------------------------</span>
+<span class="linenos">117</span> <span class="c1"># Display basic</span>
+<span class="linenos">118</span> <span class="c1"># -----------------------------------</span>
+<span class="linenos">119</span> <span class="c1"># Libraries</span>
+<span class="linenos">120</span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="linenos">121</span>
+<span class="linenos">122</span> <span class="c1"># Load data</span>
+<span class="linenos">123</span> <span class="n">df</span> <span class="o">=</span> <span class="n">load_sunburst</span><span class="p">()</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span> <span class="c1"># Show data</span>
+<span class="linenos">126</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
+<span class="linenos">127</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">128</span>
+<span class="linenos">129</span> <span class="c1"># Define template</span>
+<span class="linenos">130</span> <span class="n">htmp</span> <span class="o">=</span> <span class="s1">&#39;&lt;b&gt;%</span><span class="si">{label}</span><span class="s1">&lt;/b&gt;&lt;br&gt;&#39;</span>
+<span class="linenos">131</span> <span class="n">htmp</span><span class="o">+=</span> <span class="s1">&#39;Sales:%</span><span class="si">{value}</span><span class="s1">&lt;br&gt;&#39;</span>
+<span class="linenos">132</span> <span class="n">htmp</span><span class="o">+=</span> <span class="s1">&#39;Success rate: %</span><span class="si">{color:.2f}</span><span class="s1">&#39;</span>
+<span class="linenos">133</span>
+<span class="linenos">134</span> <span class="c1"># Create figure</span>
+<span class="linenos">135</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Treemap</span><span class="p">(</span>
+<span class="linenos">136</span>     <span class="n">ids</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span>
+<span class="linenos">137</span>     <span class="n">labels</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span>
+<span class="linenos">138</span>     <span class="n">parents</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">parents</span><span class="p">,</span>
+<span class="linenos">139</span>     <span class="n">pathbar_textfont_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">140</span>     <span class="n">root_color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">,</span>
+<span class="linenos">141</span>     <span class="c1">#maxdepth=3,</span>
+<span class="linenos">142</span>     <span class="n">branchvalues</span><span class="o">=</span><span class="s1">&#39;total&#39;</span><span class="p">,</span>
+<span class="linenos">143</span>     <span class="c1">#marker=dict(</span>
+<span class="linenos">144</span>     <span class="c1">#    colors=df_all_trees[&#39;color&#39;],</span>
+<span class="linenos">145</span>     <span class="c1">#    colorscale=&#39;RdBu&#39;,</span>
+<span class="linenos">146</span>     <span class="c1">#    cmid=average_score),</span>
+<span class="linenos">147</span>     <span class="c1">#hovertemplate=htmp,</span>
+<span class="linenos">148</span>     <span class="c1">#marker_colorscale=&#39;Blues&#39;</span>
+<span class="linenos">149</span> <span class="p">))</span>
+<span class="linenos">150</span>
+<span class="linenos">151</span> <span class="c1"># Update layout</span>
+<span class="linenos">152</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+<span class="linenos">153</span>     <span class="n">uniformtext</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">minsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;hide&#39;</span><span class="p">),</span>
+<span class="linenos">154</span>     <span class="n">margin</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="linenos">155</span> <span class="p">)</span>
+<span class="linenos">156</span>
+<span class="linenos">157</span>
+<span class="linenos">158</span> <span class="c1"># -----------------------------------</span>
+<span class="linenos">159</span> <span class="c1"># Display NHS</span>
+<span class="linenos">160</span> <span class="c1"># -----------------------------------</span>
+<span class="linenos">161</span> <span class="c1"># Load data</span>
+<span class="linenos">162</span> <span class="c1">#df = load_microbiology_nhs()</span>
+<span class="linenos">163</span> <span class="c1">#df = df.drop_duplicates(subset=[&#39;id&#39;, &#39;parent&#39;])</span>
+<span class="linenos">164</span>
+<span class="linenos">165</span> <span class="c1"># Show</span>
+<span class="linenos">166</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DF:&quot;</span><span class="p">)</span>
+<span class="linenos">167</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">168</span>
+<span class="linenos">169</span> <span class="c1"># Create data</span>
+<span class="linenos">170</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="linenos">171</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BLD&#39;</span><span class="p">,</span> <span class="s1">&#39;SAUR&#39;</span><span class="p">,</span> <span class="s1">&#39;PENI&#39;</span><span class="p">,</span> <span class="s1">&#39;CIPRO&#39;</span><span class="p">]</span>
+<span class="linenos">172</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;BLD&#39;</span><span class="p">,</span> <span class="s1">&#39;SAUR&#39;</span><span class="p">,</span> <span class="s1">&#39;SAUR&#39;</span><span class="p">]</span>
+<span class="linenos">173</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos">174</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;info1&#39;</span><span class="p">,</span> <span class="s1">&#39;info2&#39;</span><span class="p">,</span> <span class="s1">&#39;info3&#39;</span><span class="p">,</span> <span class="s1">&#39;info4&#39;</span><span class="p">]</span>
+<span class="linenos">175</span>
+<span class="linenos">176</span> <span class="c1"># Define template</span>
+<span class="linenos">177</span> <span class="n">htmp</span> <span class="o">=</span> <span class="s1">&#39;&lt;b&gt; %</span><span class="si">{id}</span><span class="s1"> &lt;/b&gt;&lt;br&gt;&#39;</span>
+<span class="linenos">178</span> <span class="n">htmp</span><span class="o">+=</span> <span class="s1">&#39;Info: %</span><span class="si">{info}</span><span class="s1"> &lt;br&gt;&#39;</span>
+<span class="linenos">179</span> <span class="n">htmp</span><span class="o">+=</span> <span class="s1">&#39;Value %</span><span class="si">{value}</span><span class="s1">&#39;</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span> <span class="c1"># Create figure</span>
+<span class="linenos">182</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Treemap</span><span class="p">(</span>
+<span class="linenos">183</span>     <span class="c1">#ids=df.id,</span>
+<span class="linenos">184</span>     <span class="n">labels</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+<span class="linenos">185</span>     <span class="n">values</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+<span class="linenos">186</span>     <span class="n">parents</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span>
+<span class="linenos">187</span>     <span class="n">pathbar_textfont_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">188</span>     <span class="n">root_color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">,</span>
+<span class="linenos">189</span>     <span class="c1">#maxdepth=3,</span>
+<span class="linenos">190</span>     <span class="n">branchvalues</span><span class="o">=</span><span class="s1">&#39;total&#39;</span><span class="p">,</span>
+<span class="linenos">191</span>     <span class="c1">#marker=dict(</span>
+<span class="linenos">192</span>     <span class="c1">#    colors=df_all_trees[&#39;color&#39;],</span>
+<span class="linenos">193</span>     <span class="c1">#    colorscale=&#39;RdBu&#39;,</span>
+<span class="linenos">194</span>     <span class="c1">#    cmid=average_score),</span>
+<span class="linenos">195</span>     <span class="c1">#hovertemplate=htmp,</span>
+<span class="linenos">196</span>     <span class="c1">#marker_colorscale=&#39;Blues&#39;</span>
+<span class="linenos">197</span>     <span class="c1">#hovertemplate=htmp, # overrides hoverinfo</span>
+<span class="linenos">198</span>     <span class="c1">#texttemplate=htmp, # overrides textinfo</span>
+<span class="linenos">199</span>     <span class="c1">#hoverinfo=[&#39;all&#39;],</span>
+<span class="linenos">200</span>     <span class="c1">#textinfo=[&#39;all&#39;]</span>
+<span class="linenos">201</span>     <span class="n">textinfo</span><span class="o">=</span><span class="s2">&quot;label+value&quot;</span><span class="p">,</span>
+<span class="linenos">202</span> <span class="p">))</span>
+<span class="linenos">203</span>
+<span class="linenos">204</span> <span class="c1"># Update layout</span>
+<span class="linenos">205</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+<span class="linenos">206</span>     <span class="n">uniformtext</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">minsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;hide&#39;</span><span class="p">),</span>
+<span class="linenos">207</span>     <span class="n">margin</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="linenos">208</span> <span class="p">)</span>
+<span class="linenos">209</span>
+<span class="linenos">210</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">211</span><span class="sd"> # Add traces.</span>
+<span class="linenos">212</span><span class="sd"> fig.add_trace(go.Treemap(</span>
+<span class="linenos">213</span><span class="sd">     #labels=df_trees.id,</span>
+<span class="linenos">214</span><span class="sd">     #parents=df_trees.parent,</span>
+<span class="linenos">215</span><span class="sd">     #values=df_trees.value,</span>
+<span class="linenos">216</span><span class="sd">     #branchvalues=&#39;total&#39;,</span>
+<span class="linenos">217</span><span class="sd">     labels=df_trees.ids,</span>
+<span class="linenos">218</span><span class="sd">     parents=df_trees.parents,</span>
+<span class="linenos">219</span><span class="sd">     values=df_trees.values,</span>
+<span class="linenos">220</span><span class="sd">     #marker=dict(</span>
+<span class="linenos">221</span><span class="sd">     #    colors=df_all_trees[&#39;color&#39;],</span>
+<span class="linenos">222</span><span class="sd">     #    colorscale=&#39;RdBu&#39;,</span>
+<span class="linenos">223</span><span class="sd">     #    cmid=average_score),</span>
+<span class="linenos">224</span><span class="sd">     #hovertemplate=&#39;&lt;b&gt;%{label} &lt;/b&gt; &lt;br&gt; Sales: %{value}&lt;br&gt; Success rate: %{color:.2f}&#39;,</span>
+<span class="linenos">225</span><span class="sd">     #name=&#39;&#39;</span>
+<span class="linenos">226</span><span class="sd">     ), 1, 1)</span>
+<span class="linenos">227</span>
+<span class="linenos">228</span><span class="sd"> # Update layout</span>
+<span class="linenos">229</span><span class="sd"> #fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))</span>
+<span class="linenos">230</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">231</span>
+<span class="linenos">232</span> <span class="c1"># Show</span>
+<span class="linenos">233</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">234</span>     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">235</span> <span class="n">fig</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.150 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plotly-plot-main06-treemap-v2-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f818e4f5277c2b27e315b8c2f96ec329/plot_main06_treemap_v2.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main06_treemap_v2.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/3e11d66fd9e2fbfbf258f87803da00b1/plot_main06_treemap_v2.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main06_treemap_v2.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main06_treemap_v1.html" class="btn btn-neutral float-left" title="Plot Treemap (v1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main06_treemap_v3.html" class="btn btn-neutral float-right" title="Plot Treemap (v3) - NHS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
