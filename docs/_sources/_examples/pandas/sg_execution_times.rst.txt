@@ -1,0 +1,14 @@
+
+:orphan:
+
+.. _sphx_glr__examples_pandas_sg_execution_times:
+
+Computation times
+=================
+**00:44.852** total execution time for **_examples_pandas** files:
+
++--------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_pandas_plot_format01.py` (``plot_format01.py``) | 00:44.852 | 0.0 MB |
++--------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_pandas_plot_main01.py` (``plot_main01.py``)     | 00:00.000 | 0.0 MB |
++--------------------------------------------------------------------------+-----------+--------+

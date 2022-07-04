@@ -1,81 +1,40 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Threshold moving &mdash; python-spare-code 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Test Skfold" href="../utils/plot_data_skfold_test.html" />
-    <link rel="prev" title="TableOne" href="../tableone-examples/plot_main01.html" /> 
+    <link rel="next" title="Main" href="../tpot/main.html" />
+    <link rel="prev" title="TableOne" href="../tableone/plot_main01.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> python-spare-code
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -83,23 +42,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Tutorial</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Example Galleries</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Example Galleries</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
@@ -108,7 +52,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
@@ -120,375 +63,334 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Threshold moving</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">python-spare-code</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../index.html">General</a> &raquo;</li>
-        
       <li>Threshold moving</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/_examples/threshold-moving/main01.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-threshold-moving-main01-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="threshold-moving">
-<span id="sphx-glr-examples-threshold-moving-main01-py"></span><h1>Threshold moving<a class="headerlink" href="#threshold-moving" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-examples-threshold-moving-main01-py"></span><h1>Threshold moving<a class="headerlink" href="#threshold-moving" title="Permalink to this headline"></a></h1>
 <blockquote>
 <div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a></p>
 </div>
 </div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">  8 </span> <span class="c1"># Libraries</span>
-<span class="lineno">  9 </span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="lineno"> 10 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="lineno"> 11 </span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="lineno"> 12 </span>
-<span class="lineno"> 13 </span> <span class="c1"># Libraries scikits</span>
-<span class="lineno"> 14 </span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-<span class="lineno"> 15 </span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="lineno"> 16 </span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
-<span class="lineno"> 17 </span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="lineno"> 18 </span> <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
-<span class="lineno"> 19 </span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="lineno"> 20 </span> <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
-<span class="lineno"> 21 </span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="lineno"> 22 </span>
-<span class="lineno"> 23 </span>
-<span class="lineno"> 24 </span> <span class="k">def</span> <span class="nf">display_npv_ppv_curve</span><span class="p">(</span><span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ths</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-<span class="lineno"> 25 </span>     <span class="sd">&quot;&quot;&quot;This method plots the curve</span>
-<span class="lineno"> 26 </span>
-<span class="lineno"> 27 </span><span class="sd">     Parameters</span>
-<span class="lineno"> 28 </span><span class="sd">     ----------</span>
-<span class="lineno"> 29 </span><span class="sd">     ppv: array-like</span>
-<span class="lineno"> 30 </span><span class="sd">     npv: array-like</span>
-<span class="lineno"> 31 </span><span class="sd">     ths: array-like</span>
-<span class="lineno"> 32 </span><span class="sd">     idx: integer</span>
-<span class="lineno"> 33 </span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="lineno"> 34 </span>     <span class="c1"># Display</span>
-<span class="lineno"> 35 </span>     <span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="lineno"> 36 </span>     <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ths</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;npv&#39;</span><span class="p">)</span>
-<span class="lineno"> 37 </span>     <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ths</span><span class="p">,</span> <span class="n">ppv</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ppv&#39;</span><span class="p">)</span>
-<span class="lineno"> 38 </span>     <span class="n">axes</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-<span class="lineno"> 39 </span>         <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;threshold&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;th=</span><span class="si">{0}</span><span class="s1">, npv=</span><span class="si">{1}</span><span class="s1">, ppv=</span><span class="si">{2}</span><span class="s1">&#39;</span> \
-<span class="lineno"> 40 </span>             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">ths</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
-<span class="lineno"> 41 </span>                     <span class="nb">round</span><span class="p">(</span><span class="n">npv</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
-<span class="lineno"> 42 </span>                     <span class="nb">round</span><span class="p">(</span><span class="n">ppv</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="lineno"> 43 </span>     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="lineno"> 44 </span>
-<span class="lineno"> 45 </span>
-<span class="lineno"> 46 </span> <span class="k">def</span> <span class="nf">npv_ppv_from_sens_spec</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prev</span><span class="p">):</span>
-<span class="lineno"> 47 </span>     <span class="sd">&quot;&quot;&quot;Compute npv and ppv.</span>
-<span class="lineno"> 48 </span>
-<span class="lineno"> 49 </span><span class="sd">     Parameters</span>
-<span class="lineno"> 50 </span><span class="sd">     ----------</span>
-<span class="lineno"> 51 </span><span class="sd">     sens: array-like</span>
-<span class="lineno"> 52 </span><span class="sd">     spec: array-like</span>
-<span class="lineno"> 53 </span><span class="sd">     prev: float</span>
-<span class="lineno"> 54 </span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="lineno"> 55 </span>     <span class="n">npv</span> <span class="o">=</span> <span class="p">(</span><span class="n">spec</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prev</span><span class="p">))</span> <span class="o">/</span> <span class="p">((</span><span class="n">spec</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prev</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sens</span><span class="p">)</span> <span class="o">*</span> <span class="n">prev</span><span class="p">))</span>
-<span class="lineno"> 56 </span>     <span class="n">ppv</span> <span class="o">=</span> <span class="p">(</span><span class="n">sens</span> <span class="o">*</span> <span class="n">prev</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">sens</span> <span class="o">*</span> <span class="n">prev</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">spec</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prev</span><span class="p">)))</span>
-<span class="lineno"> 57 </span>     <span class="k">return</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ppv</span>
-<span class="lineno"> 58 </span>
-<span class="lineno"> 59 </span>
-<span class="lineno"> 60 </span>
-<span class="lineno"> 61 </span> <span class="c1"># ----------------------</span>
-<span class="lineno"> 62 </span> <span class="c1"># Load data</span>
-<span class="lineno"> 63 </span> <span class="c1"># ----------------------</span>
-<span class="lineno"> 64 </span> <span class="c1"># Fetch data</span>
-<span class="lineno"> 65 </span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">1464</span><span class="p">,</span>
-<span class="lineno"> 66 </span>                     <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="lineno"> 67 </span>                     <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="lineno"> 68 </span>
-<span class="lineno"> 69 </span> <span class="c1"># Format y to binary (0,1)</span>
-<span class="lineno"> 70 </span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;1&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
-<span class="lineno"> 71 </span>
-<span class="lineno"> 72 </span> <span class="c1"># Split</span>
-<span class="lineno"> 73 </span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> \
-<span class="lineno"> 74 </span>     <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="lineno"> 75 </span>
-<span class="lineno"> 76 </span> <span class="c1"># ----------------------</span>
-<span class="lineno"> 77 </span> <span class="c1"># Create pipeline</span>
-<span class="lineno"> 78 </span> <span class="c1"># ----------------------</span>
-<span class="lineno"> 79 </span> <span class="c1"># Create pipeline</span>
-<span class="lineno"> 80 </span> <span class="n">clf</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
-<span class="lineno"> 81 </span>     <span class="n">StandardScaler</span><span class="p">(),</span>
-<span class="lineno"> 82 </span>     <span class="c1">#LogisticRegression(random_state=0)</span>
-<span class="lineno"> 83 </span>     <span class="n">ExtraTreesClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="lineno"> 84 </span> <span class="p">)</span>
-<span class="lineno"> 85 </span>
-<span class="lineno"> 86 </span> <span class="c1"># Train</span>
-<span class="lineno"> 87 </span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="lineno"> 88 </span>
-<span class="lineno"> 89 </span> <span class="c1"># Predictions</span>
-<span class="lineno"> 90 </span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="lineno"> 91 </span> <span class="n">y_prob</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="lineno"> 92 </span>
-<span class="lineno"> 93 </span> <span class="c1"># .. note: Some classifiers do not have the decision</span>
-<span class="lineno"> 94 </span> <span class="c1">#          function method but all implement the</span>
-<span class="lineno"> 95 </span> <span class="c1">#          predict_proba.</span>
-<span class="lineno"> 96 </span> <span class="c1">#y_score = clf.decision_function(X_test)</span>
-<span class="lineno"> 97 </span>
-<span class="lineno"> 98 </span> <span class="c1"># -----------------------</span>
-<span class="lineno"> 99 </span> <span class="c1"># Show confusion matrix</span>
-<span class="lineno">100 </span> <span class="c1"># -----------------------</span>
-<span class="lineno">101 </span> <span class="c1"># .. note: We are using Display objects to plot</span>
-<span class="lineno">102 </span> <span class="c1">#          the graphs, they could also be displayed</span>
-<span class="lineno">103 </span> <span class="c1">#          using the functions or matplotlib</span>
-<span class="lineno">104 </span> <span class="c1">#          directly.</span>
-<span class="lineno">105 </span> <span class="c1">#</span>
-<span class="lineno">106 </span> <span class="c1"># plot_roc_curve(clf, X_test, y_test, ax=ax_roc, name=name)</span>
-<span class="lineno">107 </span> <span class="c1"># plot_det_curve(clf, X_test, y_test, ax=ax_roc, name=name)</span>
-<span class="lineno">108 </span>
-<span class="lineno">109 </span> <span class="c1"># Libraries</span>
-<span class="lineno">110 </span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="lineno">111 </span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
-<span class="lineno">112 </span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
-<span class="lineno">113 </span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">RocCurveDisplay</span>
-<span class="lineno">114 </span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_recall_curve</span>
-<span class="lineno">115 </span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">PrecisionRecallDisplay</span>
-<span class="lineno">116 </span>
-<span class="lineno">117 </span> <span class="c1"># Prevalence</span>
-<span class="lineno">118 </span> <span class="n">prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-<span class="lineno">119 </span>
-<span class="lineno">120 </span> <span class="c1"># Confusion matrix</span>
-<span class="lineno">121 </span> <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="lineno">122 </span>
-<span class="lineno">123 </span> <span class="c1"># .. note: It is possible to use either y_score</span>
-<span class="lineno">124 </span> <span class="c1">#          or y_prob in the roc_curve function</span>
-<span class="lineno">125 </span> <span class="c1"># .. note: sens=tpr, spec=1-fpr</span>
-<span class="lineno">126 </span> <span class="c1"># Compute ROC curve</span>
-<span class="lineno">127 </span> <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">ths1</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span>
-<span class="lineno">128 </span>     <span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="lineno">129 </span>     <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="lineno">130 </span>
-<span class="lineno">131 </span> <span class="c1"># .. note: ppv=prec, sens=recall</span>
-<span class="lineno">132 </span> <span class="c1"># Compute PR curve</span>
-<span class="lineno">133 </span> <span class="n">prec</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">ths2</span> <span class="o">=</span> \
-<span class="lineno">134 </span>     <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="lineno">135 </span>
-<span class="lineno">136 </span> <span class="c1"># Create plot objects</span>
-<span class="lineno">137 </span> <span class="n">cm_display</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
-<span class="lineno">138 </span> <span class="n">roc_display</span> <span class="o">=</span> <span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="o">=</span><span class="n">tpr</span><span class="p">)</span>
-<span class="lineno">139 </span> <span class="n">pr_display</span> <span class="o">=</span> <span class="n">PrecisionRecallDisplay</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="n">prec</span><span class="p">,</span> <span class="n">recall</span><span class="o">=</span><span class="n">recall</span><span class="p">)</span>
-<span class="lineno">140 </span>
-<span class="lineno">141 </span> <span class="c1"># Create figure</span>
-<span class="lineno">142 </span> <span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="lineno">143 </span> <span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-<span class="lineno">144 </span>
-<span class="lineno">145 </span> <span class="c1"># Display</span>
-<span class="lineno">146 </span> <span class="n">cm_display</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="lineno">147 </span> <span class="n">roc_display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="lineno">148 </span> <span class="n">pr_display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="lineno">149 </span>
-<span class="lineno">150 </span> <span class="c1"># Configure</span>
-<span class="lineno">151 </span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
-<span class="lineno">152 </span>     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="lineno">153 </span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="lineno">154 </span>
-<span class="lineno">155 </span>
-<span class="lineno">156 </span>
-<span class="lineno">157 </span> <span class="c1"># ---------</span>
-<span class="lineno">158 </span> <span class="c1"># Option I</span>
-<span class="lineno">159 </span> <span class="c1"># ---------</span>
-<span class="lineno">160 </span> <span class="c1"># Compute the npv and ppv from the sensitivity</span>
-<span class="lineno">161 </span> <span class="c1"># and specificity values obtained from the</span>
-<span class="lineno">162 </span> <span class="c1"># &#39;roc_curve&#39; function.</span>
-<span class="lineno">163 </span>
-<span class="lineno">164 </span> <span class="c1"># Compute ROC curve</span>
-<span class="lineno">165 </span> <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">ths1</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span>
-<span class="lineno">166 </span>     <span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="lineno">167 </span>     <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="lineno">168 </span>
-<span class="lineno">169 </span> <span class="c1"># Compute npv and ppv</span>
-<span class="lineno">170 </span> <span class="n">npv</span><span class="p">,</span> <span class="n">ppv</span> <span class="o">=</span> <span class="n">npv_ppv_from_sens_spec</span><span class="p">(</span> \
-<span class="lineno">171 </span>     <span class="n">sens</span><span class="o">=</span><span class="n">tpr</span><span class="p">,</span> <span class="n">spec</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">fpr</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="n">prev</span><span class="p">)</span>
-<span class="lineno">172 </span>
-<span class="lineno">173 </span> <span class="c1"># Create DataFrame</span>
-<span class="lineno">174 </span> <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-<span class="lineno">175 </span>     <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ths1</span><span class="p">,</span> <span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">fpr</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="lineno">176 </span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;th&#39;</span><span class="p">,</span> <span class="s1">&#39;ppv&#39;</span><span class="p">,</span> <span class="s1">&#39;npv&#39;</span><span class="p">,</span> <span class="s1">&#39;sens&#39;</span><span class="p">,</span> <span class="s1">&#39;spec&#39;</span><span class="p">]</span>
-<span class="lineno">177 </span> <span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;th&#39;</span><span class="p">)</span>
-<span class="lineno">178 </span>
-<span class="lineno">179 </span> <span class="c1"># Add gmean</span>
-<span class="lineno">180 </span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;gmean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tpr</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">fpr</span><span class="p">))</span>
-<span class="lineno">181 </span>
-<span class="lineno">182 </span> <span class="c1"># Find closest to 0.8</span>
-<span class="lineno">183 </span> <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">npv</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">))</span>
-<span class="lineno">184 </span>
-<span class="lineno">185 </span> <span class="c1"># Find best gmean</span>
-<span class="lineno">186 </span> <span class="n">idx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">gmean</span><span class="p">)</span>
-<span class="lineno">187 </span>
-<span class="lineno">188 </span> <span class="c1"># Display</span>
-<span class="lineno">189 </span> <span class="n">display_npv_ppv_curve</span><span class="p">(</span><span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ths1</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
-<span class="lineno">190 </span>
-<span class="lineno">191 </span> <span class="c1"># Title</span>
-<span class="lineno">192 </span> <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;From &#39;roc_curve&#39;&quot;</span><span class="p">)</span>
-<span class="lineno">193 </span>
-<span class="lineno">194 </span> <span class="c1"># Show</span>
-<span class="lineno">195 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Results from &#39;roc_curve&#39;&quot;</span><span class="p">)</span>
-<span class="lineno">196 </span> <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="lineno">197 </span>
-<span class="lineno">198 </span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="lineno">199 </span><span class="sd"> # ---------</span>
-<span class="lineno">200 </span><span class="sd"> # Option II</span>
-<span class="lineno">201 </span><span class="sd"> # ---------</span>
-<span class="lineno">202 </span><span class="sd"> # NOT WORKING!</span>
-<span class="lineno">203 </span><span class="sd"> #</span>
-<span class="lineno">204 </span><span class="sd"> # Compute the npv by knowing that it is the inverse</span>
-<span class="lineno">205 </span><span class="sd"> # of the precision, thus calling the function</span>
-<span class="lineno">206 </span><span class="sd"> # &#39;precision_recall_curve&#39; with opposite labels and</span>
-<span class="lineno">207 </span><span class="sd"> # probabilities.</span>
-<span class="lineno">208 </span>
-<span class="lineno">209 </span><span class="sd"> # .. note: invprec=npv</span>
-<span class="lineno">210 </span><span class="sd"> # .. note: invrec=fnr</span>
-<span class="lineno">211 </span><span class="sd"> # Computed inverted PR curve</span>
-<span class="lineno">212 </span><span class="sd"> invprec, invrec, invths2 = \</span>
-<span class="lineno">213 </span><span class="sd">     precision_recall_curve(y_test, y_prob[:, 0],</span>
-<span class="lineno">214 </span><span class="sd">         pos_label=clf.classes_[0])</span>
-<span class="lineno">215 </span>
-<span class="lineno">216 </span><span class="sd"> # Create DataFrame</span>
-<span class="lineno">217 </span><span class="sd"> results = pd.DataFrame()</span>
-<span class="lineno">218 </span><span class="sd"> results[&#39;th&#39;] = invths2[::-1]</span>
-<span class="lineno">219 </span><span class="sd"> results[&#39;npv&#39;] = invprec[1:]</span>
-<span class="lineno">220 </span><span class="sd"> results[&#39;ppv&#39;] = 0.0</span>
-<span class="lineno">221 </span><span class="sd"> results = results.sort_values(by=&#39;th&#39;)</span>
-<span class="lineno">222 </span>
-<span class="lineno">223 </span><span class="sd"> # Find closest to 0.8</span>
-<span class="lineno">224 </span><span class="sd"> idx = np.nanargmin(np.abs(invprec - 0.8))</span>
-<span class="lineno">225 </span>
-<span class="lineno">226 </span><span class="sd"> # Show</span>
-<span class="lineno">227 </span><span class="sd"> print(&quot;\n\nResults from &#39;precision_recall_curve&#39;&quot;)</span>
-<span class="lineno">228 </span><span class="sd"> print(results)</span>
-<span class="lineno">229 </span><span class="sd"> print(&quot;\nIndex: {0} | Threshold: {1} | NPV: {2}&quot; \</span>
-<span class="lineno">230 </span><span class="sd">     .format(idx, invths2[idx-1], npv[idx]))</span>
-<span class="lineno">231 </span>
-<span class="lineno">232 </span><span class="sd"> # Display graph</span>
-<span class="lineno">233 </span><span class="sd"> display_npv_ppv_curve(</span>
-<span class="lineno">234 </span><span class="sd">     results.ppv,</span>
-<span class="lineno">235 </span><span class="sd">     results.npv,</span>
-<span class="lineno">236 </span><span class="sd">     results.th,</span>
-<span class="lineno">237 </span><span class="sd">     idx)</span>
-<span class="lineno">238 </span>
-<span class="lineno">239 </span><span class="sd"> # Title</span>
-<span class="lineno">240 </span><span class="sd"> plt.suptitle(&quot;From &#39;precision_recall_curve&#39;&quot;)</span>
-<span class="lineno">241 </span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="lineno">242 </span>
-<span class="lineno">243 </span> <span class="c1"># ----------</span>
-<span class="lineno">244 </span> <span class="c1"># Option II</span>
-<span class="lineno">245 </span> <span class="c1"># ----------</span>
-<span class="lineno">246 </span> <span class="c1"># Perform the computation of metrics and the threshold</span>
-<span class="lineno">247 </span> <span class="c1"># search based on a condition (e.g. npv closest to an</span>
-<span class="lineno">248 </span> <span class="c1"># specific value) manually.</span>
-<span class="lineno">249 </span> <span class="c1"># Thresholds</span>
-<span class="lineno">250 </span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="lineno">251 </span>
-<span class="lineno">252 </span> <span class="c1"># Metrics</span>
-<span class="lineno">253 </span> <span class="k">def</span> <span class="nf">metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="lineno">254 </span>     <span class="c1"># Libraries</span>
-<span class="lineno">255 </span>     <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="lineno">256 </span>     <span class="c1"># Compute confusion matrix</span>
-<span class="lineno">257 </span>     <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="o">&gt;</span><span class="n">th</span><span class="p">)</span>
-<span class="lineno">258 </span>     <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="lineno">259 </span>     <span class="c1"># Compute metrics</span>
-<span class="lineno">260 </span>     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;th&#39;</span><span class="p">:</span> <span class="n">th</span><span class="p">,</span>
-<span class="lineno">261 </span>             <span class="s1">&#39;ppv&#39;</span><span class="p">:</span> <span class="n">tp</span><span class="o">/</span><span class="p">(</span><span class="n">tp</span><span class="o">+</span><span class="n">fp</span><span class="p">),</span>
-<span class="lineno">262 </span>             <span class="s1">&#39;npv&#39;</span><span class="p">:</span> <span class="n">tn</span><span class="o">/</span><span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">fn</span><span class="p">),</span>
-<span class="lineno">263 </span>             <span class="s1">&#39;sens&#39;</span><span class="p">:</span> <span class="n">tp</span><span class="o">/</span><span class="p">(</span><span class="n">tp</span><span class="o">+</span><span class="n">fn</span><span class="p">),</span>
-<span class="lineno">264 </span>             <span class="s1">&#39;spec&#39;</span><span class="p">:</span> <span class="n">tn</span><span class="o">/</span><span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">fp</span><span class="p">)}</span>
-<span class="lineno">265 </span>
-<span class="lineno">266 </span> <span class="c1"># Compute scores</span>
-<span class="lineno">267 </span> <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span> \
-<span class="lineno">268 </span>     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">]</span>
-<span class="lineno">269 </span>
-<span class="lineno">270 </span> <span class="c1"># Create DataFrame</span>
-<span class="lineno">271 </span> <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-<span class="lineno">272 </span>
-<span class="lineno">273 </span> <span class="c1"># Find idx where npv is closest to 0.8</span>
-<span class="lineno">274 </span> <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">npv</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">))</span>
-<span class="lineno">275 </span>
-<span class="lineno">276 </span> <span class="c1"># Show</span>
-<span class="lineno">277 </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Results from manual&quot;</span><span class="p">)</span>
-<span class="lineno">278 </span> <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="lineno">279 </span>
-<span class="lineno">280 </span> <span class="c1"># Display graph</span>
-<span class="lineno">281 </span> <span class="n">display_npv_ppv_curve</span><span class="p">(</span>
-<span class="lineno">282 </span>     <span class="n">results</span><span class="o">.</span><span class="n">ppv</span><span class="p">,</span>
-<span class="lineno">283 </span>     <span class="n">results</span><span class="o">.</span><span class="n">npv</span><span class="p">,</span>
-<span class="lineno">284 </span>     <span class="n">results</span><span class="o">.</span><span class="n">th</span><span class="p">,</span>
-<span class="lineno">285 </span>     <span class="n">idx</span><span class="p">)</span>
-<span class="lineno">286 </span>
-<span class="lineno">287 </span> <span class="c1"># Title</span>
-<span class="lineno">288 </span> <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;From &#39;manual thresholds&#39;&quot;</span><span class="p">)</span>
-<span class="lineno">289 </span>
-<span class="lineno">290 </span> <span class="c1"># Show</span>
-<span class="lineno">291 </span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  8</span> <span class="c1"># Libraries</span>
+<span class="linenos">  9</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 10</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span> <span class="c1"># Libraries scikits</span>
+<span class="linenos"> 14</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="linenos"> 15</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="linenos"> 16</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="linenos"> 17</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="linenos"> 18</span> <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="linenos"> 19</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="linenos"> 20</span> <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
+<span class="linenos"> 21</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span> <span class="k">def</span> <span class="nf">display_npv_ppv_curve</span><span class="p">(</span><span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ths</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+<span class="linenos"> 25</span>     <span class="sd">&quot;&quot;&quot;This method plots the curve</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="sd">     Parameters</span>
+<span class="linenos"> 28</span><span class="sd">     ----------</span>
+<span class="linenos"> 29</span><span class="sd">     ppv: array-like</span>
+<span class="linenos"> 30</span><span class="sd">     npv: array-like</span>
+<span class="linenos"> 31</span><span class="sd">     ths: array-like</span>
+<span class="linenos"> 32</span><span class="sd">     idx: integer</span>
+<span class="linenos"> 33</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 34</span>     <span class="c1"># Display</span>
+<span class="linenos"> 35</span>     <span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 36</span>     <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ths</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;npv&#39;</span><span class="p">)</span>
+<span class="linenos"> 37</span>     <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ths</span><span class="p">,</span> <span class="n">ppv</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ppv&#39;</span><span class="p">)</span>
+<span class="linenos"> 38</span>     <span class="n">axes</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+<span class="linenos"> 39</span>         <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;threshold&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;th=</span><span class="si">{0}</span><span class="s1">, npv=</span><span class="si">{1}</span><span class="s1">, ppv=</span><span class="si">{2}</span><span class="s1">&#39;</span> \
+<span class="linenos"> 40</span>             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">ths</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+<span class="linenos"> 41</span>                     <span class="nb">round</span><span class="p">(</span><span class="n">npv</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+<span class="linenos"> 42</span>                     <span class="nb">round</span><span class="p">(</span><span class="n">ppv</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="linenos"> 43</span>     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span> <span class="k">def</span> <span class="nf">npv_ppv_from_sens_spec</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prev</span><span class="p">):</span>
+<span class="linenos"> 47</span>     <span class="sd">&quot;&quot;&quot;Compute npv and ppv.</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="sd">     Parameters</span>
+<span class="linenos"> 50</span><span class="sd">     ----------</span>
+<span class="linenos"> 51</span><span class="sd">     sens: array-like</span>
+<span class="linenos"> 52</span><span class="sd">     spec: array-like</span>
+<span class="linenos"> 53</span><span class="sd">     prev: float</span>
+<span class="linenos"> 54</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 55</span>     <span class="n">npv</span> <span class="o">=</span> <span class="p">(</span><span class="n">spec</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prev</span><span class="p">))</span> <span class="o">/</span> <span class="p">((</span><span class="n">spec</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prev</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sens</span><span class="p">)</span> <span class="o">*</span> <span class="n">prev</span><span class="p">))</span>
+<span class="linenos"> 56</span>     <span class="n">ppv</span> <span class="o">=</span> <span class="p">(</span><span class="n">sens</span> <span class="o">*</span> <span class="n">prev</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">sens</span> <span class="o">*</span> <span class="n">prev</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">spec</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prev</span><span class="p">)))</span>
+<span class="linenos"> 57</span>     <span class="k">return</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ppv</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span> <span class="c1"># ----------------------</span>
+<span class="linenos"> 62</span> <span class="c1"># Load data</span>
+<span class="linenos"> 63</span> <span class="c1"># ----------------------</span>
+<span class="linenos"> 64</span> <span class="c1"># Fetch data</span>
+<span class="linenos"> 65</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">1464</span><span class="p">,</span>
+<span class="linenos"> 66</span>                     <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 67</span>                     <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span> <span class="c1"># Format y to binary (0,1)</span>
+<span class="linenos"> 70</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;1&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span> <span class="c1"># Split</span>
+<span class="linenos"> 73</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> \
+<span class="linenos"> 74</span>     <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span> <span class="c1"># ----------------------</span>
+<span class="linenos"> 77</span> <span class="c1"># Create pipeline</span>
+<span class="linenos"> 78</span> <span class="c1"># ----------------------</span>
+<span class="linenos"> 79</span> <span class="c1"># Create pipeline</span>
+<span class="linenos"> 80</span> <span class="n">clf</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+<span class="linenos"> 81</span>     <span class="n">StandardScaler</span><span class="p">(),</span>
+<span class="linenos"> 82</span>     <span class="c1">#LogisticRegression(random_state=0)</span>
+<span class="linenos"> 83</span>     <span class="n">ExtraTreesClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 84</span> <span class="p">)</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span> <span class="c1"># Train</span>
+<span class="linenos"> 87</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span> <span class="c1"># Predictions</span>
+<span class="linenos"> 90</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="linenos"> 91</span> <span class="n">y_prob</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span> <span class="c1"># .. note: Some classifiers do not have the decision</span>
+<span class="linenos"> 94</span> <span class="c1">#          function method but all implement the</span>
+<span class="linenos"> 95</span> <span class="c1">#          predict_proba.</span>
+<span class="linenos"> 96</span> <span class="c1">#y_score = clf.decision_function(X_test)</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span> <span class="c1"># -----------------------</span>
+<span class="linenos"> 99</span> <span class="c1"># Show confusion matrix</span>
+<span class="linenos">100</span> <span class="c1"># -----------------------</span>
+<span class="linenos">101</span> <span class="c1"># .. note: We are using Display objects to plot</span>
+<span class="linenos">102</span> <span class="c1">#          the graphs, they could also be displayed</span>
+<span class="linenos">103</span> <span class="c1">#          using the functions or matplotlib</span>
+<span class="linenos">104</span> <span class="c1">#          directly.</span>
+<span class="linenos">105</span> <span class="c1">#</span>
+<span class="linenos">106</span> <span class="c1"># plot_roc_curve(clf, X_test, y_test, ax=ax_roc, name=name)</span>
+<span class="linenos">107</span> <span class="c1"># plot_det_curve(clf, X_test, y_test, ax=ax_roc, name=name)</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span> <span class="c1"># Libraries</span>
+<span class="linenos">110</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="linenos">111</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="linenos">112</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
+<span class="linenos">113</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">RocCurveDisplay</span>
+<span class="linenos">114</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_recall_curve</span>
+<span class="linenos">115</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">PrecisionRecallDisplay</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span> <span class="c1"># Prevalence</span>
+<span class="linenos">118</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span> <span class="c1"># Confusion matrix</span>
+<span class="linenos">121</span> <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="linenos">122</span>
+<span class="linenos">123</span> <span class="c1"># .. note: It is possible to use either y_score</span>
+<span class="linenos">124</span> <span class="c1">#          or y_prob in the roc_curve function</span>
+<span class="linenos">125</span> <span class="c1"># .. note: sens=tpr, spec=1-fpr</span>
+<span class="linenos">126</span> <span class="c1"># Compute ROC curve</span>
+<span class="linenos">127</span> <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">ths1</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span>
+<span class="linenos">128</span>     <span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="linenos">129</span>     <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">130</span>
+<span class="linenos">131</span> <span class="c1"># .. note: ppv=prec, sens=recall</span>
+<span class="linenos">132</span> <span class="c1"># Compute PR curve</span>
+<span class="linenos">133</span> <span class="n">prec</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">ths2</span> <span class="o">=</span> \
+<span class="linenos">134</span>     <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="linenos">135</span>
+<span class="linenos">136</span> <span class="c1"># Create plot objects</span>
+<span class="linenos">137</span> <span class="n">cm_display</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+<span class="linenos">138</span> <span class="n">roc_display</span> <span class="o">=</span> <span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="o">=</span><span class="n">tpr</span><span class="p">)</span>
+<span class="linenos">139</span> <span class="n">pr_display</span> <span class="o">=</span> <span class="n">PrecisionRecallDisplay</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="n">prec</span><span class="p">,</span> <span class="n">recall</span><span class="o">=</span><span class="n">recall</span><span class="p">)</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span> <span class="c1"># Create figure</span>
+<span class="linenos">142</span> <span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">143</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="linenos">144</span>
+<span class="linenos">145</span> <span class="c1"># Display</span>
+<span class="linenos">146</span> <span class="n">cm_display</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="linenos">147</span> <span class="n">roc_display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">148</span> <span class="n">pr_display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">149</span>
+<span class="linenos">150</span> <span class="c1"># Configure</span>
+<span class="linenos">151</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+<span class="linenos">152</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">153</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos">154</span>
+<span class="linenos">155</span>
+<span class="linenos">156</span>
+<span class="linenos">157</span> <span class="c1"># ---------</span>
+<span class="linenos">158</span> <span class="c1"># Option I</span>
+<span class="linenos">159</span> <span class="c1"># ---------</span>
+<span class="linenos">160</span> <span class="c1"># Compute the npv and ppv from the sensitivity</span>
+<span class="linenos">161</span> <span class="c1"># and specificity values obtained from the</span>
+<span class="linenos">162</span> <span class="c1"># &#39;roc_curve&#39; function.</span>
+<span class="linenos">163</span>
+<span class="linenos">164</span> <span class="c1"># Compute ROC curve</span>
+<span class="linenos">165</span> <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">ths1</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span>
+<span class="linenos">166</span>     <span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="linenos">167</span>     <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">168</span>
+<span class="linenos">169</span> <span class="c1"># Compute npv and ppv</span>
+<span class="linenos">170</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ppv</span> <span class="o">=</span> <span class="n">npv_ppv_from_sens_spec</span><span class="p">(</span> \
+<span class="linenos">171</span>     <span class="n">sens</span><span class="o">=</span><span class="n">tpr</span><span class="p">,</span> <span class="n">spec</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">fpr</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="n">prev</span><span class="p">)</span>
+<span class="linenos">172</span>
+<span class="linenos">173</span> <span class="c1"># Create DataFrame</span>
+<span class="linenos">174</span> <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="linenos">175</span>     <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ths1</span><span class="p">,</span> <span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">fpr</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+<span class="linenos">176</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;th&#39;</span><span class="p">,</span> <span class="s1">&#39;ppv&#39;</span><span class="p">,</span> <span class="s1">&#39;npv&#39;</span><span class="p">,</span> <span class="s1">&#39;sens&#39;</span><span class="p">,</span> <span class="s1">&#39;spec&#39;</span><span class="p">]</span>
+<span class="linenos">177</span> <span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;th&#39;</span><span class="p">)</span>
+<span class="linenos">178</span>
+<span class="linenos">179</span> <span class="c1"># Add gmean</span>
+<span class="linenos">180</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;gmean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tpr</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">fpr</span><span class="p">))</span>
+<span class="linenos">181</span>
+<span class="linenos">182</span> <span class="c1"># Find closest to 0.8</span>
+<span class="linenos">183</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">npv</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">))</span>
+<span class="linenos">184</span>
+<span class="linenos">185</span> <span class="c1"># Find best gmean</span>
+<span class="linenos">186</span> <span class="n">idx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">gmean</span><span class="p">)</span>
+<span class="linenos">187</span>
+<span class="linenos">188</span> <span class="c1"># Display</span>
+<span class="linenos">189</span> <span class="n">display_npv_ppv_curve</span><span class="p">(</span><span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ths1</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+<span class="linenos">190</span>
+<span class="linenos">191</span> <span class="c1"># Title</span>
+<span class="linenos">192</span> <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;From &#39;roc_curve&#39;&quot;</span><span class="p">)</span>
+<span class="linenos">193</span>
+<span class="linenos">194</span> <span class="c1"># Show</span>
+<span class="linenos">195</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Results from &#39;roc_curve&#39;&quot;</span><span class="p">)</span>
+<span class="linenos">196</span> <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="linenos">197</span>
+<span class="linenos">198</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">199</span><span class="sd"> # ---------</span>
+<span class="linenos">200</span><span class="sd"> # Option II</span>
+<span class="linenos">201</span><span class="sd"> # ---------</span>
+<span class="linenos">202</span><span class="sd"> # NOT WORKING!</span>
+<span class="linenos">203</span><span class="sd"> #</span>
+<span class="linenos">204</span><span class="sd"> # Compute the npv by knowing that it is the inverse</span>
+<span class="linenos">205</span><span class="sd"> # of the precision, thus calling the function</span>
+<span class="linenos">206</span><span class="sd"> # &#39;precision_recall_curve&#39; with opposite labels and</span>
+<span class="linenos">207</span><span class="sd"> # probabilities.</span>
+<span class="linenos">208</span>
+<span class="linenos">209</span><span class="sd"> # .. note: invprec=npv</span>
+<span class="linenos">210</span><span class="sd"> # .. note: invrec=fnr</span>
+<span class="linenos">211</span><span class="sd"> # Computed inverted PR curve</span>
+<span class="linenos">212</span><span class="sd"> invprec, invrec, invths2 = \</span>
+<span class="linenos">213</span><span class="sd">     precision_recall_curve(y_test, y_prob[:, 0],</span>
+<span class="linenos">214</span><span class="sd">         pos_label=clf.classes_[0])</span>
+<span class="linenos">215</span>
+<span class="linenos">216</span><span class="sd"> # Create DataFrame</span>
+<span class="linenos">217</span><span class="sd"> results = pd.DataFrame()</span>
+<span class="linenos">218</span><span class="sd"> results[&#39;th&#39;] = invths2[::-1]</span>
+<span class="linenos">219</span><span class="sd"> results[&#39;npv&#39;] = invprec[1:]</span>
+<span class="linenos">220</span><span class="sd"> results[&#39;ppv&#39;] = 0.0</span>
+<span class="linenos">221</span><span class="sd"> results = results.sort_values(by=&#39;th&#39;)</span>
+<span class="linenos">222</span>
+<span class="linenos">223</span><span class="sd"> # Find closest to 0.8</span>
+<span class="linenos">224</span><span class="sd"> idx = np.nanargmin(np.abs(invprec - 0.8))</span>
+<span class="linenos">225</span>
+<span class="linenos">226</span><span class="sd"> # Show</span>
+<span class="linenos">227</span><span class="sd"> print(&quot;\n\nResults from &#39;precision_recall_curve&#39;&quot;)</span>
+<span class="linenos">228</span><span class="sd"> print(results)</span>
+<span class="linenos">229</span><span class="sd"> print(&quot;\nIndex: {0} | Threshold: {1} | NPV: {2}&quot; \</span>
+<span class="linenos">230</span><span class="sd">     .format(idx, invths2[idx-1], npv[idx]))</span>
+<span class="linenos">231</span>
+<span class="linenos">232</span><span class="sd"> # Display graph</span>
+<span class="linenos">233</span><span class="sd"> display_npv_ppv_curve(</span>
+<span class="linenos">234</span><span class="sd">     results.ppv,</span>
+<span class="linenos">235</span><span class="sd">     results.npv,</span>
+<span class="linenos">236</span><span class="sd">     results.th,</span>
+<span class="linenos">237</span><span class="sd">     idx)</span>
+<span class="linenos">238</span>
+<span class="linenos">239</span><span class="sd"> # Title</span>
+<span class="linenos">240</span><span class="sd"> plt.suptitle(&quot;From &#39;precision_recall_curve&#39;&quot;)</span>
+<span class="linenos">241</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">242</span>
+<span class="linenos">243</span> <span class="c1"># ----------</span>
+<span class="linenos">244</span> <span class="c1"># Option II</span>
+<span class="linenos">245</span> <span class="c1"># ----------</span>
+<span class="linenos">246</span> <span class="c1"># Perform the computation of metrics and the threshold</span>
+<span class="linenos">247</span> <span class="c1"># search based on a condition (e.g. npv closest to an</span>
+<span class="linenos">248</span> <span class="c1"># specific value) manually.</span>
+<span class="linenos">249</span> <span class="c1"># Thresholds</span>
+<span class="linenos">250</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">251</span>
+<span class="linenos">252</span> <span class="c1"># Metrics</span>
+<span class="linenos">253</span> <span class="k">def</span> <span class="nf">metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">254</span>     <span class="c1"># Libraries</span>
+<span class="linenos">255</span>     <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="linenos">256</span>     <span class="c1"># Compute confusion matrix</span>
+<span class="linenos">257</span>     <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="o">&gt;</span><span class="n">th</span><span class="p">)</span>
+<span class="linenos">258</span>     <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="linenos">259</span>     <span class="c1"># Compute metrics</span>
+<span class="linenos">260</span>     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;th&#39;</span><span class="p">:</span> <span class="n">th</span><span class="p">,</span>
+<span class="linenos">261</span>             <span class="s1">&#39;ppv&#39;</span><span class="p">:</span> <span class="n">tp</span><span class="o">/</span><span class="p">(</span><span class="n">tp</span><span class="o">+</span><span class="n">fp</span><span class="p">),</span>
+<span class="linenos">262</span>             <span class="s1">&#39;npv&#39;</span><span class="p">:</span> <span class="n">tn</span><span class="o">/</span><span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">fn</span><span class="p">),</span>
+<span class="linenos">263</span>             <span class="s1">&#39;sens&#39;</span><span class="p">:</span> <span class="n">tp</span><span class="o">/</span><span class="p">(</span><span class="n">tp</span><span class="o">+</span><span class="n">fn</span><span class="p">),</span>
+<span class="linenos">264</span>             <span class="s1">&#39;spec&#39;</span><span class="p">:</span> <span class="n">tn</span><span class="o">/</span><span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">fp</span><span class="p">)}</span>
+<span class="linenos">265</span>
+<span class="linenos">266</span> <span class="c1"># Compute scores</span>
+<span class="linenos">267</span> <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span> \
+<span class="linenos">268</span>     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">]</span>
+<span class="linenos">269</span>
+<span class="linenos">270</span> <span class="c1"># Create DataFrame</span>
+<span class="linenos">271</span> <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="linenos">272</span>
+<span class="linenos">273</span> <span class="c1"># Find idx where npv is closest to 0.8</span>
+<span class="linenos">274</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">npv</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">))</span>
+<span class="linenos">275</span>
+<span class="linenos">276</span> <span class="c1"># Show</span>
+<span class="linenos">277</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Results from manual&quot;</span><span class="p">)</span>
+<span class="linenos">278</span> <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="linenos">279</span>
+<span class="linenos">280</span> <span class="c1"># Display graph</span>
+<span class="linenos">281</span> <span class="n">display_npv_ppv_curve</span><span class="p">(</span>
+<span class="linenos">282</span>     <span class="n">results</span><span class="o">.</span><span class="n">ppv</span><span class="p">,</span>
+<span class="linenos">283</span>     <span class="n">results</span><span class="o">.</span><span class="n">npv</span><span class="p">,</span>
+<span class="linenos">284</span>     <span class="n">results</span><span class="o">.</span><span class="n">th</span><span class="p">,</span>
+<span class="linenos">285</span>     <span class="n">idx</span><span class="p">)</span>
+<span class="linenos">286</span>
+<span class="linenos">287</span> <span class="c1"># Title</span>
+<span class="linenos">288</span> <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;From &#39;manual thresholds&#39;&quot;</span><span class="p">)</span>
+<span class="linenos">289</span>
+<span class="linenos">290</span> <span class="c1"># Show</span>
+<span class="linenos">291</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
@@ -505,50 +407,33 @@ to download the full example code</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../utils/plot_data_skfold_test.html" class="btn btn-neutral float-right" title="Test Skfold" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../tableone-examples/plot_main01.html" class="btn btn-neutral float-left" title="TableOne" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tableone/plot_main01.html" class="btn btn-neutral float-left" title="TableOne" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tpot/main.html" class="btn btn-neutral float-right" title="Main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Bernard Hernandez.
-
-    </p>
+    <p>&#169; Copyright 2021, Bernard Hernandez.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

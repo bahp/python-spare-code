@@ -234,61 +234,6 @@ Gallery of examples using ``ldap3``.
 
 
 
-.. _sphx_glr__examples_learning-tpot:
-
-TPOT
------
-
-Gallery of examples using ``tpot``.
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
-
-.. only:: html
-
- .. figure:: /_examples/learning-tpot/images/thumb/sphx_glr_main_thumb.png
-     :alt: Main
-
-     :ref:`sphx_glr__examples_learning-tpot_main.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/learning-tpot/main
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
-
-.. only:: html
-
- .. figure:: /_examples/learning-tpot/images/thumb/sphx_glr_tpot_best_pipeline_thumb.png
-     :alt: Best pipeline
-
-     :ref:`sphx_glr__examples_learning-tpot_tpot_best_pipeline.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/learning-tpot/tpot_best_pipeline
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
 .. _sphx_glr__examples_matplotlib:
 
 Matplotlib
@@ -344,7 +289,7 @@ Gallery of examples using ``matplotlib``.
 
 
 
-.. _sphx_glr__examples_pandas-examples:
+.. _sphx_glr__examples_pandas:
 
 Pandas
 ------
@@ -354,14 +299,14 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Pandas - Main 01">
+    <div class="sphx-glr-thumbcontainer" tooltip="Pandas - Format 01">
 
 .. only:: html
 
- .. figure:: /_examples/pandas-examples/images/thumb/sphx_glr_plot_main01_thumb.png
-     :alt: Pandas - Main 01
+ .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format01_thumb.png
+     :alt: Pandas - Format 01
 
-     :ref:`sphx_glr__examples_pandas-examples_plot_main01.py`
+     :ref:`sphx_glr__examples_pandas_plot_format01.py`
 
 .. raw:: html
 
@@ -371,7 +316,28 @@ Gallery of examples using ``pandas``.
 .. toctree::
    :hidden:
 
-   /_examples/pandas-examples/plot_main01
+   /_examples/pandas/plot_format01
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pandas - Main 01">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_main01_thumb.png
+     :alt: Pandas - Main 01
+
+     :ref:`sphx_glr__examples_pandas_plot_main01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas/plot_main01
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -740,7 +706,7 @@ Below is a gallery of examples ...
 
 
 
-.. _sphx_glr__examples_scikits-examples:
+.. _sphx_glr__examples_scikits:
 
 Scikits
 -----------------
@@ -754,10 +720,10 @@ Gallery of examples using ``scikits``.
 
 .. only:: html
 
- .. figure:: /_examples/scikits-examples/images/thumb/sphx_glr_plot_param_grid_thumb.png
+ .. figure:: /_examples/scikits/images/thumb/sphx_glr_plot_param_grid_thumb.png
      :alt: ParamGrid
 
-     :ref:`sphx_glr__examples_scikits-examples_plot_param_grid.py`
+     :ref:`sphx_glr__examples_scikits_plot_param_grid.py`
 
 .. raw:: html
 
@@ -767,14 +733,14 @@ Gallery of examples using ``scikits``.
 .. toctree::
    :hidden:
 
-   /_examples/scikits-examples/plot_param_grid
+   /_examples/scikits/plot_param_grid
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
 
 
 
-.. _sphx_glr__examples_shap-examples:
+.. _sphx_glr__examples_shap:
 
 Shap
 ----------
@@ -788,10 +754,10 @@ Gallery of examples using ``shap``.
 
 .. only:: html
 
- .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main01_thumb.png
+ .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main01_thumb.png
      :alt: Shap - Main 01
 
-     :ref:`sphx_glr__examples_shap-examples_plot_main01.py`
+     :ref:`sphx_glr__examples_shap_plot_main01.py`
 
 .. raw:: html
 
@@ -801,7 +767,7 @@ Gallery of examples using ``shap``.
 .. toctree::
    :hidden:
 
-   /_examples/shap-examples/plot_main01
+   /_examples/shap/plot_main01
 
 .. raw:: html
 
@@ -809,10 +775,10 @@ Gallery of examples using ``shap``.
 
 .. only:: html
 
- .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main02_thumb.png
+ .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main02_thumb.png
      :alt: Shap - Main 02
 
-     :ref:`sphx_glr__examples_shap-examples_plot_main02.py`
+     :ref:`sphx_glr__examples_shap_plot_main02.py`
 
 .. raw:: html
 
@@ -822,7 +788,7 @@ Gallery of examples using ``shap``.
 .. toctree::
    :hidden:
 
-   /_examples/shap-examples/plot_main02
+   /_examples/shap/plot_main02
 
 .. raw:: html
 
@@ -830,10 +796,10 @@ Gallery of examples using ``shap``.
 
 .. only:: html
 
- .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main03_thumb.png
+ .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main03_thumb.png
      :alt: Shap - Main 03
 
-     :ref:`sphx_glr__examples_shap-examples_plot_main03.py`
+     :ref:`sphx_glr__examples_shap_plot_main03.py`
 
 .. raw:: html
 
@@ -843,7 +809,7 @@ Gallery of examples using ``shap``.
 .. toctree::
    :hidden:
 
-   /_examples/shap-examples/plot_main03
+   /_examples/shap/plot_main03
 
 .. raw:: html
 
@@ -851,10 +817,10 @@ Gallery of examples using ``shap``.
 
 .. only:: html
 
- .. figure:: /_examples/shap-examples/images/thumb/sphx_glr_plot_main04_thumb.png
+ .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main04_thumb.png
      :alt: Shap - Main 04
 
-     :ref:`sphx_glr__examples_shap-examples_plot_main04.py`
+     :ref:`sphx_glr__examples_shap_plot_main04.py`
 
 .. raw:: html
 
@@ -864,14 +830,14 @@ Gallery of examples using ``shap``.
 .. toctree::
    :hidden:
 
-   /_examples/shap-examples/plot_main04
+   /_examples/shap/plot_main04
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
 
 
 
-.. _sphx_glr__examples_tableone-examples:
+.. _sphx_glr__examples_tableone:
 
 TableOne
 ----------
@@ -885,10 +851,10 @@ Gallery of examples using ``tableone``.
 
 .. only:: html
 
- .. figure:: /_examples/tableone-examples/images/thumb/sphx_glr_plot_main01_thumb.png
+ .. figure:: /_examples/tableone/images/thumb/sphx_glr_plot_main01_thumb.png
      :alt: TableOne
 
-     :ref:`sphx_glr__examples_tableone-examples_plot_main01.py`
+     :ref:`sphx_glr__examples_tableone_plot_main01.py`
 
 .. raw:: html
 
@@ -898,7 +864,7 @@ Gallery of examples using ``tableone``.
 .. toctree::
    :hidden:
 
-   /_examples/tableone-examples/plot_main01
+   /_examples/tableone/plot_main01
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -933,6 +899,61 @@ Gallery of examples using ``...``.
    :hidden:
 
    /_examples/threshold-moving/main01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_tpot:
+
+TPOT
+-----
+
+Gallery of examples using ``tpot``.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/tpot/images/thumb/sphx_glr_main_thumb.png
+     :alt: Main
+
+     :ref:`sphx_glr__examples_tpot_main.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/tpot/main
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/tpot/images/thumb/sphx_glr_tpot_best_pipeline_thumb.png
+     :alt: Best pipeline
+
+     :ref:`sphx_glr__examples_tpot_tpot_best_pipeline.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/tpot/tpot_best_pipeline
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -1010,6 +1031,27 @@ Gallery of examples with useful widgets.
    :hidden:
 
    /_examples/utils/plot_data_wrapper
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example lists all the libraries installed in the environment using pip, gets their site ur...">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_favicons_thumb.png
+     :alt: Plot favicons
+
+     :ref:`sphx_glr__examples_utils_plot_favicons.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_favicons
 
 .. raw:: html
 

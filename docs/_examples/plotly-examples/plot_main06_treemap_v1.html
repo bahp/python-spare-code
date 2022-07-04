@@ -1,81 +1,40 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Plot Treemap (v1) &mdash; python-spare-code 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Plot Treemap (v2) - MIMIC" href="plot_main06_treemap_v2.html" />
     <link rel="prev" title="Plot Histogram 2D" href="plot_main04_2dhist.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> python-spare-code
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -83,23 +42,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Tutorial</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Example Galleries</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Example Galleries</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
@@ -108,7 +52,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#plotly">Plotly</a><ul class="current">
@@ -134,112 +77,71 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">python-spare-code</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../index.html">General</a> &raquo;</li>
-        
       <li>Plot Treemap (v1)</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/_examples/plotly-examples/plot_main06_treemap_v1.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-plotly-examples-plot-main06-treemap-v1-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="plot-treemap-v1">
-<span id="sphx-glr-examples-plotly-examples-plot-main06-treemap-v1-py"></span><h1>Plot Treemap (v1)<a class="headerlink" href="#plot-treemap-v1" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-examples-plotly-examples-plot-main06-treemap-v1-py"></span><h1>Plot Treemap (v1)<a class="headerlink" href="#plot-treemap-v1" title="Permalink to this headline"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html">https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html</a></p>
 </div>
 <p>Lets load the dataset.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">11 </span> <span class="c1"># Libraries</span>
-<span class="lineno">12 </span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="lineno">13 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="lineno">14 </span>
-<span class="lineno">15 </span> <span class="k">try</span><span class="p">:</span>
-<span class="lineno">16 </span>     <span class="vm">__file__</span>
-<span class="lineno">17 </span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="lineno">18 </span> <span class="k">except</span><span class="p">:</span>
-<span class="lineno">19 </span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="lineno">20 </span>
-<span class="lineno">21 </span>
-<span class="lineno">22 </span> <span class="c1"># Define URL</span>
-<span class="lineno">23 </span> <span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-flavors-complete.csv&#39;</span>
-<span class="lineno">24 </span>
-<span class="lineno">25 </span> <span class="c1"># Load dataframe</span>
-<span class="lineno">26 </span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
-<span class="lineno">27 </span>
-<span class="lineno">28 </span> <span class="c1"># Show</span>
-<span class="lineno">29 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="lineno">30 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DF:&quot;</span><span class="p">)</span>
-<span class="lineno">31 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="lineno">32 </span> <span class="n">df</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">11</span> <span class="c1"># Libraries</span>
+<span class="linenos">12</span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="linenos">13</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span> <span class="k">try</span><span class="p">:</span>
+<span class="linenos">16</span>     <span class="vm">__file__</span>
+<span class="linenos">17</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">18</span> <span class="k">except</span><span class="p">:</span>
+<span class="linenos">19</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span> <span class="c1"># Define URL</span>
+<span class="linenos">23</span> <span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-flavors-complete.csv&#39;</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span> <span class="c1"># Load dataframe</span>
+<span class="linenos">26</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span> <span class="c1"># Show</span>
+<span class="linenos">29</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">30</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DF:&quot;</span><span class="p">)</span>
+<span class="linenos">31</span>     <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">32</span> <span class="n">df</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -339,26 +241,26 @@ to download the full example code</p>
 </div>
 </div>
 <br />
-<br /><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">37 </span> <span class="c1"># Display</span>
-<span class="lineno">38 </span> <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Treemap</span><span class="p">(</span>
-<span class="lineno">39 </span>     <span class="n">ids</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span>
-<span class="lineno">40 </span>     <span class="n">labels</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span>
-<span class="lineno">41 </span>     <span class="n">parents</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">parents</span><span class="p">,</span>
-<span class="lineno">42 </span>     <span class="n">pathbar_textfont_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-<span class="lineno">43 </span>     <span class="c1">#maxdepth=3,</span>
-<span class="lineno">44 </span>     <span class="n">root_color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span>
-<span class="lineno">45 </span> <span class="p">))</span>
-<span class="lineno">46 </span>
-<span class="lineno">47 </span> <span class="c1"># Update</span>
-<span class="lineno">48 </span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-<span class="lineno">49 </span>     <span class="n">uniformtext</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">minsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;hide&#39;</span><span class="p">),</span>
-<span class="lineno">50 </span>     <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-<span class="lineno">51 </span> <span class="p">)</span>
-<span class="lineno">52 </span>
-<span class="lineno">53 </span> <span class="c1"># Show</span>
-<span class="lineno">54 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="lineno">55 </span>     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="lineno">56 </span> <span class="n">fig</span>
+<br /><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">37</span> <span class="c1"># Display</span>
+<span class="linenos">38</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Treemap</span><span class="p">(</span>
+<span class="linenos">39</span>     <span class="n">ids</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span>
+<span class="linenos">40</span>     <span class="n">labels</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span>
+<span class="linenos">41</span>     <span class="n">parents</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">parents</span><span class="p">,</span>
+<span class="linenos">42</span>     <span class="n">pathbar_textfont_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">43</span>     <span class="c1">#maxdepth=3,</span>
+<span class="linenos">44</span>     <span class="n">root_color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span>
+<span class="linenos">45</span> <span class="p">))</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span> <span class="c1"># Update</span>
+<span class="linenos">48</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+<span class="linenos">49</span>     <span class="n">uniformtext</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">minsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;hide&#39;</span><span class="p">),</span>
+<span class="linenos">50</span>     <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="linenos">51</span> <span class="p">)</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span> <span class="c1"># Show</span>
+<span class="linenos">54</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">55</span>     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">56</span> <span class="n">fig</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -380,50 +282,33 @@ to download the full example code</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="plot_main06_treemap_v2.html" class="btn btn-neutral float-right" title="Plot Treemap (v2) - MIMIC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_main04_2dhist.html" class="btn btn-neutral float-left" title="Plot Histogram 2D" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main06_treemap_v2.html" class="btn btn-neutral float-right" title="Plot Treemap (v2) - MIMIC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Bernard Hernandez.
-
-    </p>
+    <p>&#169; Copyright 2021, Bernard Hernandez.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

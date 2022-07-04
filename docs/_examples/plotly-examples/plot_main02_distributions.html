@@ -1,81 +1,40 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Plot Distributions &mdash; python-spare-code 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Plot Sparklines" href="plot_main03_sparklines.html" />
     <link rel="prev" title="Plot ROC" href="plot_main01_roc.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> python-spare-code
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -83,23 +42,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Tutorial</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Example Galleries</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Example Galleries</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
@@ -108,7 +52,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#plotly">Plotly</a><ul class="current">
@@ -134,85 +77,44 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">python-spare-code</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../index.html">General</a> &raquo;</li>
-        
       <li>Plot Distributions</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/_examples/plotly-examples/plot_main02_distributions.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-plotly-examples-plot-main02-distributions-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="plot-distributions">
-<span id="sphx-glr-examples-plotly-examples-plot-main02-distributions-py"></span><h1>Plot Distributions<a class="headerlink" href="#plot-distributions" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-examples-plotly-examples-plot-main02-distributions-py"></span><h1>Plot Distributions<a class="headerlink" href="#plot-distributions" title="Permalink to this headline"></a></h1>
 <p>This example shows how to plot the probability distributions
 for each of the components of the confusion matrix. Note that
 data is created artificially. If necessary, it is possible
@@ -223,147 +125,147 @@ probability values.</p>
         <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>                <div id="057b16b0-6cd0-4d82-a7f7-0057ced30b3c" class="plotly-graph-div" style="height:350px; width:700px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("057b16b0-6cd0-4d82-a7f7-0057ced30b3c")) {                    Plotly.newPlot(                        "057b16b0-6cd0-4d82-a7f7-0057ced30b3c",                        [{"box":{"visible":true},"fillcolor":"#6ece58","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"tn","opacity":0.5,"type":"violin","x":[0.9710529842401512,-1.3042661765254548,-0.48596027492733596,0.13060031670782996,-0.35088916868802533,-0.9189094099162662,-0.027642528389851387,-0.5292931500366014,-0.3614364181857471,-0.29413181697660173,-2.8373720716928106,0.8667699207791393,-1.851977157204426,-0.1884682129212437,-0.45478179032581006,0.622087226885033,1.767440110236125,1.4283466017934634,-0.5692004012559349,0.7827672176287827,-0.19720853913865102],"xaxis":"x","yaxis":"y"},{"box":{"visible":true},"fillcolor":"#1f9e89","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"fp","opacity":0.5,"type":"violin","x":[0.5860359883047087,0.6445814249351016,0.9505340739672966,0.27095936430707346,0.5720630636437699,0.8264743032726907,1.6026579368470248,1.5541198209914642,-0.5791407062539607,-0.21388556163067202,1.8858600709371556,-1.272143553849639,-0.059604630825954984,-1.3358777177581376,-0.6031051224058018,-0.7854060684994073,-1.8221568718477414,0.35236207130938113,1.2141060652135964,-0.7000322836044309,1.6079344383665861,0.13894211449607916],"xaxis":"x2","yaxis":"y2"},{"box":{"visible":true},"fillcolor":"#31688e","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"fn","opacity":0.5,"type":"violin","x":[-0.5837389368034578,-0.08564129189659386,1.009873268062978,1.1749261871317072,1.1015275155483693,-1.673259835176511,-1.4799024161778898,1.501804395560281,-1.22662996778512,-1.3720472409035602,-0.21932918842545598,-0.5906350747618065,-0.002618290210362801,0.5583372755616857,0.0632527834391148,-0.6480720654602029,-1.5355142808138507,0.12311788544854259,0.9388513811334789,-1.93820047552154,-0.6813628773047319,0.807256363600141,0.29708021195408274,0.9752898957158336,-0.39484820081670813,0.38942288712068746,-0.3841660364322844,-0.42236844390951533],"xaxis":"x3","yaxis":"y3"},{"box":{"visible":true},"fillcolor":"#fde725","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"tp","opacity":0.5,"type":"violin","x":[-0.8603619955084517,-1.1534935776292246,-1.2736629833263258,1.5991444472132603,0.40130823326086285,-1.1663238317079847,0.5958690628549058,-1.0840808674831235,1.185249250146511,-1.7640746358362527,-0.34873065854982827,-0.3335202968769739,0.9468181182643156,1.128485946641385,1.46519074053991,0.04038635824401576,0.5249976009246012,-0.03836579206085905,-1.1280213073052547,2.6745432086714187,0.7025935990117629,-3.5036714437731833,-0.5111525227646413,1.260286897473336,0.555177490717675,0.2994378219214445,0.5147329087722795,-2.4616871219093137,-2.079991269772204],"xaxis":"x4","yaxis":"y4"}],                        {"height":350,"margin":{"b":0,"l":0,"pad":0,"r":0,"t":0},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"width":700,"xaxis":{"anchor":"y","domain":[0.0,0.45]},"xaxis2":{"anchor":"y2","domain":[0.55,1.0]},"xaxis3":{"anchor":"y3","domain":[0.0,0.45]},"xaxis4":{"anchor":"y4","domain":[0.55,1.0]},"yaxis":{"anchor":"x","domain":[0.575,1.0],"visible":true},"yaxis2":{"anchor":"x2","domain":[0.575,1.0],"visible":true},"yaxis3":{"anchor":"x3","domain":[0.0,0.425],"visible":true},"yaxis4":{"anchor":"x4","domain":[0.0,0.425],"visible":true}},                        {"responsive": true}                    )                };                            </script>        </div>
 </div>
 <br />
-<br /><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 12 </span> <span class="c1"># Libraries</span>
-<span class="lineno"> 13 </span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="lineno"> 14 </span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="lineno"> 15 </span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="lineno"> 16 </span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="lineno"> 17 </span>
-<span class="lineno"> 18 </span> <span class="c1"># Specific</span>
-<span class="lineno"> 19 </span> <span class="kn">from</span> <span class="nn">plotly.graph_objects</span> <span class="kn">import</span> <span class="n">Layout</span>
-<span class="lineno"> 20 </span>
-<span class="lineno"> 21 </span> <span class="k">try</span><span class="p">:</span>
-<span class="lineno"> 22 </span>     <span class="vm">__file__</span>
-<span class="lineno"> 23 </span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="lineno"> 24 </span> <span class="k">except</span><span class="p">:</span>
-<span class="lineno"> 25 </span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="lineno"> 26 </span>
-<span class="lineno"> 27 </span>
-<span class="lineno"> 28 </span> <span class="c1"># -----------------------------------------</span>
-<span class="lineno"> 29 </span> <span class="c1"># Helper method</span>
-<span class="lineno"> 30 </span> <span class="c1"># -----------------------------------------</span>
-<span class="lineno"> 31 </span> <span class="c1"># This method is implemented in pySML.</span>
-<span class="lineno"> 32 </span> <span class="k">def</span> <span class="nf">_tp_fp_tn_fn_distributions</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">):</span>
-<span class="lineno"> 33 </span>     <span class="sd">&quot;&quot;&quot;This function returns probabilities for each of the confusion</span>
-<span class="lineno"> 34 </span><span class="sd">     matrix elements (tp, tn, fp, fn).</span>
-<span class="lineno"> 35 </span>
-<span class="lineno"> 36 </span><span class="sd">     Parameters</span>
-<span class="lineno"> 37 </span><span class="sd">     ----------</span>
-<span class="lineno"> 38 </span><span class="sd">     y : array-like</span>
-<span class="lineno"> 39 </span><span class="sd">       The real categories</span>
-<span class="lineno"> 40 </span>
-<span class="lineno"> 41 </span><span class="sd">     y_pred : array-like</span>
-<span class="lineno"> 42 </span><span class="sd">       The predicted categories</span>
-<span class="lineno"> 43 </span>
-<span class="lineno"> 44 </span><span class="sd">     y_prob: array-like</span>
-<span class="lineno"> 45 </span><span class="sd">       The predict probabilities</span>
-<span class="lineno"> 46 </span>
-<span class="lineno"> 47 </span><span class="sd">     Returns</span>
-<span class="lineno"> 48 </span><span class="sd">     -------</span>
-<span class="lineno"> 49 </span><span class="sd">     tp_probs, tn_probs, fp_probs, fn_probs</span>
-<span class="lineno"> 50 </span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="lineno"> 51 </span>     <span class="c1"># Tags.</span>
-<span class="lineno"> 52 </span>     <span class="n">tp_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-<span class="lineno"> 53 </span>     <span class="n">tn_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-<span class="lineno"> 54 </span>     <span class="n">fp_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-<span class="lineno"> 55 </span>     <span class="n">fn_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-<span class="lineno"> 56 </span>     <span class="c1"># Show information.</span>
-<span class="lineno"> 57 </span>     <span class="n">tp_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">tp_idx</span><span class="p">]</span>
-<span class="lineno"> 58 </span>     <span class="n">tn_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">tn_idx</span><span class="p">]</span>
-<span class="lineno"> 59 </span>     <span class="n">fp_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">fp_idx</span><span class="p">]</span>
-<span class="lineno"> 60 </span>     <span class="n">fn_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">fn_idx</span><span class="p">]</span>
-<span class="lineno"> 61 </span>     <span class="c1"># Return</span>
-<span class="lineno"> 62 </span>     <span class="k">return</span> <span class="n">tp_probs</span><span class="p">,</span> <span class="n">tn_probs</span><span class="p">,</span> <span class="n">fp_probs</span><span class="p">,</span> <span class="n">fn_probs</span>
-<span class="lineno"> 63 </span>
-<span class="lineno"> 64 </span> <span class="c1"># -----------------------------------------</span>
-<span class="lineno"> 65 </span> <span class="c1"># Config</span>
-<span class="lineno"> 66 </span> <span class="c1"># -----------------------------------------</span>
-<span class="lineno"> 67 </span> <span class="c1"># Colors</span>
-<span class="lineno"> 68 </span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
-<span class="lineno"> 69 </span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma_r</span>
-<span class="lineno"> 70 </span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Viridis_r</span>
-<span class="lineno"> 71 </span>
-<span class="lineno"> 72 </span> <span class="c1"># -----------------------------------------</span>
-<span class="lineno"> 73 </span> <span class="c1"># Data</span>
-<span class="lineno"> 74 </span> <span class="c1"># -----------------------------------------</span>
-<span class="lineno"> 75 </span> <span class="c1"># Create data</span>
-<span class="lineno"> 76 </span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="lineno"> 77 </span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y_true&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="lineno"> 78 </span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="lineno"> 79 </span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y_prob&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="lineno"> 80 </span>
-<span class="lineno"> 81 </span> <span class="c1"># Get distributions</span>
-<span class="lineno"> 82 </span> <span class="n">tp_probs</span><span class="p">,</span> <span class="n">tn_probs</span><span class="p">,</span> <span class="n">fp_probs</span><span class="p">,</span> <span class="n">fn_probs</span> <span class="o">=</span> \
-<span class="lineno"> 83 </span>     <span class="n">_tp_fp_tn_fn_distributions</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y_true</span><span class="p">,</span>
-<span class="lineno"> 84 </span>                                <span class="n">data</span><span class="o">.</span><span class="n">y_pred</span><span class="p">,</span>
-<span class="lineno"> 85 </span>                                <span class="n">data</span><span class="o">.</span><span class="n">y_prob</span><span class="p">)</span>
-<span class="lineno"> 86 </span>
-<span class="lineno"> 87 </span> <span class="c1"># Visualize</span>
-<span class="lineno"> 88 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="lineno"> 89 </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
-<span class="lineno"> 90 </span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="lineno"> 91 </span>
-<span class="lineno"> 92 </span>
-<span class="lineno"> 93 </span> <span class="c1"># -------------------------------------</span>
-<span class="lineno"> 94 </span> <span class="c1"># Visualize</span>
-<span class="lineno"> 95 </span> <span class="c1"># -------------------------------------</span>
-<span class="lineno"> 96 </span> <span class="c1"># Import subplots</span>
-<span class="lineno"> 97 </span> <span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
-<span class="lineno"> 98 </span>
-<span class="lineno"> 99 </span> <span class="c1"># Create figure</span>
-<span class="lineno">100 </span> <span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="lineno">101 </span> <span class="c1"># subplot_titles=(&#39;TP&#39;, &#39;TN&#39;, &#39;FP&#39;, &#39;FN&#39;))</span>
-<span class="lineno">102 </span>
-<span class="lineno">103 </span> <span class="c1">#  Add traces</span>
-<span class="lineno">104 </span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tn_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="lineno">105 </span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tn&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
-<span class="lineno">106 </span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="lineno">107 </span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fp_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="lineno">108 </span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fp&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
-<span class="lineno">109 </span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="lineno">110 </span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fn_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="lineno">111 </span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fn&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>
-<span class="lineno">112 </span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="lineno">113 </span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tp_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="lineno">114 </span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tp&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-<span class="lineno">115 </span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="lineno">116 </span>
-<span class="lineno">117 </span> <span class="c1"># Update layout</span>
-<span class="lineno">118 </span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-<span class="lineno">119 </span>     <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
-<span class="lineno">120 </span>     <span class="c1">#xaxis_title=&#39;False Positive Rate&#39;,</span>
-<span class="lineno">121 </span>     <span class="c1">#yaxis_title=&#39;True Positive Rate&#39;,</span>
-<span class="lineno">122 </span>     <span class="c1">#yaxis=dict(scaleanchor=&quot;x&quot;, scaleratio=1),</span>
-<span class="lineno">123 </span>     <span class="c1">#xaxis=dict(constrain=&#39;domain&#39;),</span>
-<span class="lineno">124 </span>     <span class="c1">#legend=dict(</span>
-<span class="lineno">125 </span>     <span class="c1">#    x=1.0, y=0.0,  # x=1, y=1.02</span>
-<span class="lineno">126 </span>     <span class="c1">#    orientation=&quot;v&quot;,</span>
-<span class="lineno">127 </span>     <span class="c1">#    font={&#39;size&#39;: 12},</span>
-<span class="lineno">128 </span>     <span class="c1">#    yanchor=&quot;bottom&quot;,</span>
-<span class="lineno">129 </span>     <span class="c1">#    xanchor=&quot;right&quot;,</span>
-<span class="lineno">130 </span>     <span class="c1">#),</span>
-<span class="lineno">131 </span>     <span class="n">margin</span><span class="o">=</span><span class="p">{</span>
-<span class="lineno">132 </span>         <span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="lineno">133 </span>         <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="lineno">134 </span>         <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="lineno">135 </span>         <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="lineno">136 </span>         <span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mi">0</span>
-<span class="lineno">137 </span>     <span class="p">},</span>
-<span class="lineno">138 </span>     <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span><span class="p">,</span>  <span class="c1"># transparent</span>
-<span class="lineno">139 </span>     <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span>  <span class="c1"># transparent</span>
-<span class="lineno">140 </span> <span class="p">)</span>
-<span class="lineno">141 </span>
-<span class="lineno">142 </span> <span class="c1"># Update axes</span>
-<span class="lineno">143 </span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.0, 0.5], row=1, col=1)</span>
-<span class="lineno">144 </span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.5, 1.0], row=1, col=2)</span>
-<span class="lineno">145 </span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.0, 0.5], row=2, col=1)</span>
-<span class="lineno">146 </span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.5, 1.0], row=2, col=2)</span>
-<span class="lineno">147 </span> <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="lineno">148 </span>
-<span class="lineno">149 </span> <span class="c1"># Show</span>
-<span class="lineno">150 </span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="lineno">151 </span>     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="lineno">152 </span> <span class="n">fig</span>
+<br /><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 12</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 13</span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="linenos"> 14</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="linenos"> 15</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 16</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span> <span class="c1"># Specific</span>
+<span class="linenos"> 19</span> <span class="kn">from</span> <span class="nn">plotly.graph_objects</span> <span class="kn">import</span> <span class="n">Layout</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span> <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 22</span>     <span class="vm">__file__</span>
+<span class="linenos"> 23</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos"> 24</span> <span class="k">except</span><span class="p">:</span>
+<span class="linenos"> 25</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span> <span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 29</span> <span class="c1"># Helper method</span>
+<span class="linenos"> 30</span> <span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 31</span> <span class="c1"># This method is implemented in pySML.</span>
+<span class="linenos"> 32</span> <span class="k">def</span> <span class="nf">_tp_fp_tn_fn_distributions</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">):</span>
+<span class="linenos"> 33</span>     <span class="sd">&quot;&quot;&quot;This function returns probabilities for each of the confusion</span>
+<span class="linenos"> 34</span><span class="sd">     matrix elements (tp, tn, fp, fn).</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="sd">     Parameters</span>
+<span class="linenos"> 37</span><span class="sd">     ----------</span>
+<span class="linenos"> 38</span><span class="sd">     y : array-like</span>
+<span class="linenos"> 39</span><span class="sd">       The real categories</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="sd">     y_pred : array-like</span>
+<span class="linenos"> 42</span><span class="sd">       The predicted categories</span>
+<span class="linenos"> 43</span>
+<span class="linenos"> 44</span><span class="sd">     y_prob: array-like</span>
+<span class="linenos"> 45</span><span class="sd">       The predict probabilities</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span><span class="sd">     Returns</span>
+<span class="linenos"> 48</span><span class="sd">     -------</span>
+<span class="linenos"> 49</span><span class="sd">     tp_probs, tn_probs, fp_probs, fn_probs</span>
+<span class="linenos"> 50</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 51</span>     <span class="c1"># Tags.</span>
+<span class="linenos"> 52</span>     <span class="n">tp_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 53</span>     <span class="n">tn_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 54</span>     <span class="n">fp_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 55</span>     <span class="n">fn_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 56</span>     <span class="c1"># Show information.</span>
+<span class="linenos"> 57</span>     <span class="n">tp_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">tp_idx</span><span class="p">]</span>
+<span class="linenos"> 58</span>     <span class="n">tn_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">tn_idx</span><span class="p">]</span>
+<span class="linenos"> 59</span>     <span class="n">fp_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">fp_idx</span><span class="p">]</span>
+<span class="linenos"> 60</span>     <span class="n">fn_probs</span> <span class="o">=</span> <span class="n">y_prob</span><span class="p">[</span><span class="n">fn_idx</span><span class="p">]</span>
+<span class="linenos"> 61</span>     <span class="c1"># Return</span>
+<span class="linenos"> 62</span>     <span class="k">return</span> <span class="n">tp_probs</span><span class="p">,</span> <span class="n">tn_probs</span><span class="p">,</span> <span class="n">fp_probs</span><span class="p">,</span> <span class="n">fn_probs</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span> <span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 65</span> <span class="c1"># Config</span>
+<span class="linenos"> 66</span> <span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 67</span> <span class="c1"># Colors</span>
+<span class="linenos"> 68</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
+<span class="linenos"> 69</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma_r</span>
+<span class="linenos"> 70</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Viridis_r</span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span> <span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 73</span> <span class="c1"># Data</span>
+<span class="linenos"> 74</span> <span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 75</span> <span class="c1"># Create data</span>
+<span class="linenos"> 76</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="linenos"> 77</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y_true&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 78</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 79</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y_prob&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span> <span class="c1"># Get distributions</span>
+<span class="linenos"> 82</span> <span class="n">tp_probs</span><span class="p">,</span> <span class="n">tn_probs</span><span class="p">,</span> <span class="n">fp_probs</span><span class="p">,</span> <span class="n">fn_probs</span> <span class="o">=</span> \
+<span class="linenos"> 83</span>     <span class="n">_tp_fp_tn_fn_distributions</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y_true</span><span class="p">,</span>
+<span class="linenos"> 84</span>                                <span class="n">data</span><span class="o">.</span><span class="n">y_pred</span><span class="p">,</span>
+<span class="linenos"> 85</span>                                <span class="n">data</span><span class="o">.</span><span class="n">y_prob</span><span class="p">)</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span> <span class="c1"># Visualize</span>
+<span class="linenos"> 88</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos"> 89</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
+<span class="linenos"> 90</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span> <span class="c1"># -------------------------------------</span>
+<span class="linenos"> 94</span> <span class="c1"># Visualize</span>
+<span class="linenos"> 95</span> <span class="c1"># -------------------------------------</span>
+<span class="linenos"> 96</span> <span class="c1"># Import subplots</span>
+<span class="linenos"> 97</span> <span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span> <span class="c1"># Create figure</span>
+<span class="linenos">100</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">101</span> <span class="c1"># subplot_titles=(&#39;TP&#39;, &#39;TN&#39;, &#39;FP&#39;, &#39;FN&#39;))</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span> <span class="c1">#  Add traces</span>
+<span class="linenos">104</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tn_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos">105</span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tn&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+<span class="linenos">106</span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">107</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fp_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos">108</span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fp&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+<span class="linenos">109</span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">110</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fn_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos">111</span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fn&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>
+<span class="linenos">112</span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">113</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Violin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tp_probs</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos">114</span>     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tp&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="linenos">115</span>     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">meanline_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span> <span class="c1"># Update layout</span>
+<span class="linenos">118</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+<span class="linenos">119</span>     <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+<span class="linenos">120</span>     <span class="c1">#xaxis_title=&#39;False Positive Rate&#39;,</span>
+<span class="linenos">121</span>     <span class="c1">#yaxis_title=&#39;True Positive Rate&#39;,</span>
+<span class="linenos">122</span>     <span class="c1">#yaxis=dict(scaleanchor=&quot;x&quot;, scaleratio=1),</span>
+<span class="linenos">123</span>     <span class="c1">#xaxis=dict(constrain=&#39;domain&#39;),</span>
+<span class="linenos">124</span>     <span class="c1">#legend=dict(</span>
+<span class="linenos">125</span>     <span class="c1">#    x=1.0, y=0.0,  # x=1, y=1.02</span>
+<span class="linenos">126</span>     <span class="c1">#    orientation=&quot;v&quot;,</span>
+<span class="linenos">127</span>     <span class="c1">#    font={&#39;size&#39;: 12},</span>
+<span class="linenos">128</span>     <span class="c1">#    yanchor=&quot;bottom&quot;,</span>
+<span class="linenos">129</span>     <span class="c1">#    xanchor=&quot;right&quot;,</span>
+<span class="linenos">130</span>     <span class="c1">#),</span>
+<span class="linenos">131</span>     <span class="n">margin</span><span class="o">=</span><span class="p">{</span>
+<span class="linenos">132</span>         <span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">133</span>         <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">134</span>         <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">135</span>         <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">136</span>         <span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="linenos">137</span>     <span class="p">},</span>
+<span class="linenos">138</span>     <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span><span class="p">,</span>  <span class="c1"># transparent</span>
+<span class="linenos">139</span>     <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span>  <span class="c1"># transparent</span>
+<span class="linenos">140</span> <span class="p">)</span>
+<span class="linenos">141</span>
+<span class="linenos">142</span> <span class="c1"># Update axes</span>
+<span class="linenos">143</span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.0, 0.5], row=1, col=1)</span>
+<span class="linenos">144</span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.5, 1.0], row=1, col=2)</span>
+<span class="linenos">145</span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.0, 0.5], row=2, col=1)</span>
+<span class="linenos">146</span> <span class="c1">#fig.update_xaxes(visible=True, range=[0.5, 1.0], row=2, col=2)</span>
+<span class="linenos">147</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">148</span>
+<span class="linenos">149</span> <span class="c1"># Show</span>
+<span class="linenos">150</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">151</span>     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">152</span> <span class="n">fig</span>
 </pre></div>
 </div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.108 seconds)</p>
@@ -380,50 +282,33 @@ probability values.</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="plot_main03_sparklines.html" class="btn btn-neutral float-right" title="Plot Sparklines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_main01_roc.html" class="btn btn-neutral float-left" title="Plot ROC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main03_sparklines.html" class="btn btn-neutral float-right" title="Plot Sparklines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Bernard Hernandez.
-
-    </p>
+    <p>&#169; Copyright 2021, Bernard Hernandez.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

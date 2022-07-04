@@ -1,11 +1,6 @@
 Welcome to python-spare-code gallery!
 =====================================
 
-.. image:: ./_static/images/epicimpoc-medium-removebg.webp
-   :width: 200
-   :align: right
-   :alt: EPiC IMPOC
-
 This repository contains a compendium of python scripts.
 
 .. raw:: html
@@ -32,7 +27,8 @@ This repository contains a compendium of python scripts.
    :caption: Tutorial
    :hidden:
 
-   usage/introduction
+   # usage/introduction
+
 
 .. toctree::
    :maxdepth: 2
@@ -40,12 +36,3 @@ This repository contains a compendium of python scripts.
    :hidden:
 
    _examples/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-

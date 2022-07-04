@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pandas - Format 01 &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pandas - Main 01" href="plot_main01.html" />
+    <link rel="prev" title="Plot GMM and KDE" href="../matplotlib/plot_ga_latent_space_01.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Example Galleries</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clean-therapy-mimic">clean-therapy-mimic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#formatting">formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#pandas">Pandas</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pandas - Format 01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main01.html">Pandas - Main 01</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#review-gunn-keras">review-gunn-keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">General</a> &raquo;</li>
+      <li>Pandas - Format 01</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/pandas/plot_format01.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-pandas-plot-format01-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="pandas-format-01">
+<span id="sphx-glr-examples-pandas-plot-format01-py"></span><h1>Pandas - Format 01<a class="headerlink" href="#pandas-format-01" title="Permalink to this headline"></a></h1>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Data:
+        feature_0  feature_1  feature_2  feature_3  feature_4  feature_5  feature_6  feature_7  feature_8  feature_9  patient  day
+0        0.979623   0.614196   0.987418   0.783977   0.124067   0.091703   0.786561   0.469344   0.875400   0.376862        0 -764
+1        0.703788   0.273728   0.340300   0.615004   0.684191   0.942062   0.348010   0.967824   0.385762   0.871937        0 -763
+2        0.371438   0.079782   0.823260   0.708306   0.369938   0.811628   0.633204   0.651392   0.280484   0.695567        0 -762
+3        0.328020   0.885688   0.392587   0.680641   0.392955   0.553611   0.042594   0.548246   0.390492   0.456034        0 -761
+4        0.501297   0.165586   0.460081   0.731801   0.000282   0.241274   0.907297   0.970229   0.811748   0.860023        0 -760
+...           ...        ...        ...        ...        ...        ...        ...        ...        ...        ...      ...  ...
+149995   0.191597   0.511255   0.806912   0.230416   0.567208   0.694325   0.199896   0.888170   0.712706   0.852861      199   -5
+149996   0.921064   0.273353   0.092491   0.479319   0.371410   0.577101   0.704072   0.794275   0.153683   0.486088      199   -4
+149997   0.452191   0.763281   0.842967   0.137117   0.781363   0.947584   0.055635   0.668294   0.979773   0.216724      199   -3
+149998   0.470518   0.021949   0.700425   0.011306   0.947252   0.571024   0.627322   0.083457   0.025955   0.739100      199   -2
+149999   0.347461   0.806756   0.588549   0.306150   0.099819   0.964866   0.507220   0.188999   0.602958   0.684916      199   -1
+
+[150000 rows x 12 columns]
+
+Result:
+                feature_0  feature_1  feature_2  feature_3  feature_4  feature_5  feature_6  feature_7  feature_8  feature_9  patient  day  window
+patient
+0       0        0.979623   0.614196   0.987418   0.783977   0.124067   0.091703   0.786561   0.469344   0.875400   0.376862        0 -764       0
+        1        0.703788   0.273728   0.340300   0.615004   0.684191   0.942062   0.348010   0.967824   0.385762   0.871937        0 -763       0
+        2        0.371438   0.079782   0.823260   0.708306   0.369938   0.811628   0.633204   0.651392   0.280484   0.695567        0 -762       0
+        1        0.703788   0.273728   0.340300   0.615004   0.684191   0.942062   0.348010   0.967824   0.385762   0.871937        0 -763       1
+        2        0.371438   0.079782   0.823260   0.708306   0.369938   0.811628   0.633204   0.651392   0.280484   0.695567        0 -762       1
+...                   ...        ...        ...        ...        ...        ...        ...        ...        ...        ...      ...  ...     ...
+199     149997   0.452191   0.763281   0.842967   0.137117   0.781363   0.947584   0.055635   0.668294   0.979773   0.216724      199   -3     759
+        149998   0.470518   0.021949   0.700425   0.011306   0.947252   0.571024   0.627322   0.083457   0.025955   0.739100      199   -2     759
+        149997   0.452191   0.763281   0.842967   0.137117   0.781363   0.947584   0.055635   0.668294   0.979773   0.216724      199   -3     760
+        149998   0.470518   0.021949   0.700425   0.011306   0.947252   0.571024   0.627322   0.083457   0.025955   0.739100      199   -2     760
+        149999   0.347461   0.806756   0.588549   0.306150   0.099819   0.964866   0.507220   0.188999   0.602958   0.684916      199   -1     760
+
+[448800 rows x 13 columns]
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 6</span> <span class="c1"># Interesting code.</span>
+<span class="linenos"> 7</span> <span class="c1"># np.lib.stride_tricks.sliding_window_view(df.index, 3)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span> <span class="c1"># Libraries</span>
+<span class="linenos">10</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">11</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span> <span class="c1"># Configuration</span>
+<span class="linenos">14</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span> <span class="o">=</span> <span class="mi">150000</span><span class="p">,</span> <span class="mi">10</span>
+<span class="linenos">15</span> <span class="n">PATIENTS</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span> <span class="c1"># Create random values</span>
+<span class="linenos">18</span> <span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">((</span><span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">))</span>
+<span class="linenos">19</span> <span class="n">patients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">PATIENTS</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">ROWS</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span> <span class="c1"># Create DataFrame</span>
+<span class="linenos">22</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
+<span class="linenos">23</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;feature_&#39;</span><span class="p">)</span>
+<span class="linenos">24</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">patients</span>
+<span class="linenos">25</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;patient&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">26</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">],</span>
+<span class="linenos">27</span>     <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span> <span class="c1"># Show</span>
+<span class="linenos">30</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
+<span class="linenos">31</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span> <span class="c1"># ----------------------------------</span>
+<span class="linenos">34</span> <span class="c1"># Method I: Own method</span>
+<span class="linenos">35</span> <span class="c1"># ----------------------------------</span>
+<span class="linenos">36</span> <span class="k">def</span> <span class="nf">sliding_window_iter</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">include_id</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="linenos">37</span>     <span class="sd">&quot;&quot;&quot;series is a column of a DataFrame.</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="sd">     .. note: The DataFrame should be pre-ordered to ensure</span>
+<span class="linenos">40</span><span class="sd">              that IDs remain consistent.</span>
+<span class="linenos">41</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">42</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">start_row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span> <span class="o">-</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="linenos">43</span>         <span class="n">s</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">start_row</span><span class="p">:</span><span class="n">start_row</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span>
+<span class="linenos">44</span>         <span class="k">if</span> <span class="n">include_id</span><span class="p">:</span>
+<span class="linenos">45</span>             <span class="n">s</span><span class="p">[</span><span class="s1">&#39;window&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+<span class="linenos">46</span>         <span class="k">yield</span> <span class="n">s</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span> <span class="c1"># Group by patient and compute sliding window</span>
+<span class="linenos">50</span> <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;patient&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<span class="linenos">51</span>     <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sliding_window_iter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span> <span class="c1"># Show</span>
+<span class="linenos">54</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Result:&quot;</span><span class="p">)</span>
+<span class="linenos">55</span> <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span> <span class="c1"># ----------------------------------</span>
+<span class="linenos">58</span> <span class="c1"># Method II: Using rolling</span>
+<span class="linenos">59</span> <span class="c1"># ----------------------------------</span>
+<span class="linenos">60</span> <span class="c1">#a = df.groupby(&#39;patient&#39;).rolling(window=3)</span>
+<span class="linenos">61</span> <span class="c1">#b = [win for win in a if win.shape[0] == 3]</span>
+<span class="linenos">62</span> <span class="c1">#c = pd.concat(b)</span>
+<span class="linenos">63</span> <span class="c1">#print(c)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  44.852 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pandas-plot-format01-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/4b652c73a3b81eb96a004b331dd44fa5/plot_format01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_format01.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f0ad7b47cbef4c71168b54147b1f87f8/plot_format01.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_format01.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../matplotlib/plot_ga_latent_space_01.html" class="btn btn-neutral float-left" title="Plot GMM and KDE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main01.html" class="btn btn-neutral float-right" title="Pandas - Main 01" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
