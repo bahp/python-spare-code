@@ -12,7 +12,7 @@ import pandas as pd
 
 # Configuration
 ROWS, COLS = 150000, 10
-PATIENTS = 200
+PATIENTS = 300
 
 # Create random values
 features = np.random.random_sample((ROWS, COLS))
