@@ -33,7 +33,6 @@ print(df)
 # ----------------------------------
 # Method I: Own method
 # ----------------------------------
-
 def sliding_window_iter(series, size, include_id=True):
     """series is a column of a DataFrame.
 
