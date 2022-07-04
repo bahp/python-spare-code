@@ -1,12 +1,18 @@
 """
-Mpl to Plotly
-==============
+Matplotlib to Plotly
+====================
 
 """
 
 # Libraries
 import numpy as np
 import matplotlib.pyplot as plt
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 
 # Create data

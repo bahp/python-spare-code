@@ -2,10 +2,24 @@
 Plot updatemenus
 ================
 
+This example show how to include buttons in the
+plotly graph by using update menus. Work should
+be put on control their placement and how to
+avoid them to be missaligned when resizing the
+window!
+
+.. warning:: It is not finished!
+
 """
 
 import plotly
 import plotly.graph_objs as go
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 
 def get_color_set(color_set_id):

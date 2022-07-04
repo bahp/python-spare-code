@@ -9,6 +9,13 @@ Plot Histogram 2D
 import numpy as np
 import plotly.graph_objects as go
 
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
 # ----------------
 # Create data
 # ----------------
@@ -98,5 +105,7 @@ fig.update_layout(
     showlegend = False
 )
 
-#fig.show()
+# Show
+if TERMINAL:
+    fig.show()
 fig

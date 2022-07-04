@@ -1,6 +1,6 @@
 """
-Plot SHAP summary
-=================
+MPL2PLY SHAP summary
+====================
 
 """
 # Generic
@@ -19,6 +19,13 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Xgboost
 from xgboost import XGBClassifier
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
 
 # ----------------------------------------
 # Load data

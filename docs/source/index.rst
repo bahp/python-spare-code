@@ -1,9 +1,26 @@
-Welcome to pyAMR's documentation!
-=================================
+Welcome to python-spare-code gallery!
+=====================================
 
-This repository contains spare scripts.
+.. image:: ./_static/images/epicimpoc-medium-removebg.webp
+   :width: 200
+   :align: right
+   :alt: EPiC IMPOC
 
-The code of the project is on Github: https://github.com/bahp/python-spare-code
+This repository contains a compendium of python scripts.
+
+.. raw:: html
+
+   <center>
+
+      <a href="https://github.com/bahp/python-spare-code" target="_blank">
+         <button class="btn-github"> View on GitHub
+            <img class="btn-icon" src="./_static/images/icon-github.svg" width=18/>
+         </button>
+      </a>
+
+   </center>
+
+   <br><br>
 
 
 .. toctree::

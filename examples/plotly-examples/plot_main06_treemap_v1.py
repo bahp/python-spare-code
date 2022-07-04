@@ -1,6 +1,6 @@
 """
-Plot Treemap v1
----------------
+Plot Treemap (v1)
+-----------------
 
 .. note:: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
 
@@ -12,7 +12,12 @@ Plot Treemap v1
 import plotly.graph_objects as go
 import pandas as pd
 
-TERMINAL = False
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
 
 # Define URL
 URL = 'https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-flavors-complete.csv'
@@ -20,8 +25,8 @@ URL = 'https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-
 # Load dataframe
 df = pd.read_csv(URL)
 
+# Show
 if TERMINAL:
-    # Show
     print("\nDF:")
     print(df)
 df
@@ -46,5 +51,6 @@ fig.update_layout(
 )
 
 # Show
-#fig.show()
-
+if TERMINAL:
+    fig.show()
+fig

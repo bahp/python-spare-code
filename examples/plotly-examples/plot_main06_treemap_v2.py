@@ -1,6 +1,6 @@
 """
-Plot Treemap (MIMIC)
---------------------
+Plot Treemap (v2) - MIMIC
+-------------------------
 
 This example displays a Treemap using the MIMIC dataset.
 
@@ -9,6 +9,13 @@ This example displays a Treemap using the MIMIC dataset.
 
 # Libraries
 import pandas as pd
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
 
 # ---------------------
 # Helper method
@@ -105,8 +112,6 @@ def load_microbiology_nhs(n=10000):
 
     return aux
 
-
-TERMINAL = True
 
 # -----------------------------------
 # Display basic
@@ -225,8 +230,9 @@ fig.add_trace(go.Treemap(
 """
 
 # Show
-fig.show()
-#fig
+if TERMINAL:
+    fig.show()
+fig
 
 # %%
 #
