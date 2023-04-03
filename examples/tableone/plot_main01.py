@@ -1,45 +1,46 @@
 """
-TableOne
---------
+TableOne Basic Example
+----------------------
 """
 # Libraries
 import pandas as pd
 
-# Specific
 from tableone import TableOne
 
-# ------------------------
 # Load data
-# ------------------------
-# Load data
-data = pd.read_csv('./data/20210602-134857-completed/dataset.csv')
+url="https://raw.githubusercontent.com/tompollard/data/master/primary-biliary-cirrhosis/pbc.csv"
+data=pd.read_csv(url)
 
-# ------------------------
-# Create tableone
-# ------------------------
-# Columns
-columns = ['age', 'gender', 'haematocrit_percent', 'plt']
+# List of columns
+columns = [
+    'age', 'bili', 'albumin', 'ast',
+    'platelet', 'protime', 'ascites',
+    'hepato', 'spiders', 'edema', 'sex',
+    'trt'
+]
 
-# Categorical
-categorical = ['gender']
+# Specify categorical columns
+categorical = ['ascites','hepato','edema','sex','spiders','trt']
 
-# Groupby
-groupby = ['cvs_hos_split']
+# Define groupy and not normal
+groupby = 'trt'
+nonnormal = ['bili']
 
-#
-mytable = TableOne(data, columns, categorical, groupby)
+# Create descriptive table
+mytable = TableOne(data, columns, categorical,
+                   groupby, nonnormal, pval=True)
 
-########################################################
 # Show
-#
 
-mytable.tableone
-
-########################################################
-# Show (HTML)
-#
-# Html
+#%%
+# Convert to html
 html = mytable.to_html()
+html
 
-# show
-print(html)
+#%%
+# Lets tabulate for github.
+print(mytable.tabulate(tablefmt="github"))
+
+#%%
+# Save as latex file
+mytable.to_latex('mytable.tex')

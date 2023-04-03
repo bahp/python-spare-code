@@ -84,11 +84,8 @@ model.run_eagerly = False
 # Display model summary
 print(model.summary())
 
-model.save('model.h5')
+model.save('outputs/model.h5')
 
-print(x)
-print(x[:10])
-print("AHH")
 # Fit
 model.fit(x, y, epochs=16, batch_size=64)
 
@@ -109,7 +106,9 @@ shap.initjs()
 
 print(shap_values[0].shape)
 
-shap_values = explainer(x)
+#shap_values = explainer(x)
+
+"""
 shap.plots.beeswarm(shap_values,
     max_display=12, order=shap.Explanation.abs.mean(0))
 
@@ -121,7 +120,7 @@ plt.show()
 
 import sys
 sys.exit()
-
+"""
 
 shap_values_2D = shap_values[0].reshape(-1,x.shape[-1])
 x_2D = pd.DataFrame(
@@ -156,7 +155,7 @@ x_test_2d_step = pd.DataFrame(
 
 print(x_test_2d_step)
 
-shap.summary_plot(shap_values_2D_step, x_test_2d_step)
+shap.summary_plot(shap_values_2D_step, x_test_2d_step, sort=False)
 
 """
 for step in range(NUM_STEPS):

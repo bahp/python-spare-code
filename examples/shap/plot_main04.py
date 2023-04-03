@@ -35,10 +35,11 @@ data["target"] = y
 
 # In[3]:
 
-X_train, X_test, y_train, y_test = train_test_split(data[feature_names], ## predictors only
-                                                    data.target,
-                                                    test_size=0.30,
-                                                    random_state=0)
+X_train, X_test, y_train, y_test = \
+    train_test_split(data[feature_names], ## predictors only
+                     data.target,
+                     test_size=0.30,
+                     random_state=0)
 
 
 # In[4]:
@@ -70,6 +71,7 @@ shap_values_single = shap_kernel_explainer.shap_values(X_test.iloc[[5]])
 shap.force_plot(shap_kernel_explainer.expected_value, shap_values_single, X_test.iloc[[5]])
 
 
+
 # In[9]:
 
 #### Tree SHAP
@@ -78,8 +80,9 @@ shap_tree_explainer = shap.TreeExplainer(estimator)
 
 # In[10]:
 
+# Deprecated error
 ## shapely values with Tree SHAP
-shap_values_single = shap_tree_explainer.shap_values(X_test.iloc[[5]])
-shap.force_plot(shap_tree_explainer.expected_value, shap_values_single, X_test.iloc[[5]])
+#shap_values_single = shap_tree_explainer.shap_values(X_test.iloc[[5]])
+#shap.force_plot(shap_tree_explainer.expected_value, shap_values_single, X_test.iloc[[5]])
 
 plt.show()

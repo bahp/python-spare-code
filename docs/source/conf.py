@@ -80,14 +80,16 @@ sphinx_gallery_conf = {
     # path to your example scripts
     'examples_dirs': [
         #'../../examples/plotly',
-        '../../examples/matplotlib',
-        '../../examples/shap'
+        #'../../examples/matplotlib',
+        #'../../examples/shap',
+        '../../examples/tableone'
     ],
     # path to where to save gallery generated output
     'gallery_dirs': [
         #'../source/_examples/plotly',
-        '../source/_examples/matplotlib',
-        '../source/_examples/shap'
+        #'../source/_examples/matplotlib',
+        #'../source/_examples/shap',
+        '../source/_examples/tableone'
     ],
     # Other
     'line_numbers': True,
