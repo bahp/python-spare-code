@@ -7,6 +7,9 @@ in the environment using pip, gets their site
 url, downloads the icon and displays it in the
 example.
 
+.. note:: The command ``cut`` is not available in windows! It might
+          available on Cygwin o Git for windows.
+
 """
 
 # Libraries

@@ -1,10 +1,27 @@
+"""
+Visualise LSTM shap values
+==========================
+"""
+
 # Libraries
 import shap
 import numpy as np
 import pandas as pd
 import seaborn as sns
+
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import matplotlib.colorbar
+import matplotlib.colors
+import matplotlib.cm
+
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 # ------------------------
 # Methods
@@ -30,10 +47,42 @@ def scalar_colormap(values, cmap, vmin, vmax):
     # Create scalar mappable
     norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax, clip=True)
     mapper = mpl.cm.ScalarMappable(norm=norm, cmap=cmap)
-    # Gete color map
+    # Get color map
     colormap = sns.color_palette([mapper.to_rgba(i) for i in values])
     # Return
-    return colormap
+    return colormap, norm
+
+
+def scalar_palette(values, cmap, vmin, vmax):
+    """This method creates a colorpalette based on values.
+
+    Parameters
+    ----------
+    values : array-like
+    The values to create the corresponding colors
+
+    cmap : str
+    The colormap
+
+    vmin, vmax : float
+    The minimum and maximum possible values
+
+    Returns
+    -------
+    scalar colormap
+
+    """
+    # Create a matplotlib colormap from name
+    #cmap = sns.light_palette(cmap, reverse=False, as_cmap=True)
+    cmap = sns.color_palette(cmap, as_cmap=True)
+    # Normalize to the range of possible values from df["c"]
+    norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+    # Create a color dictionary (value in c : color from colormap)
+    colors = {}
+    for cval in values:
+        colors.update({cval : cmap(norm(cval))})
+    # Return
+    return colors, norm
 
 
 def create_random_shap(samples, timesteps, features):
@@ -45,6 +94,16 @@ def create_random_shap(samples, timesteps, features):
 
     Parameters
     ----------
+    samples: int
+        The number of observations
+    timesteps: int
+        The number of time steps
+    features: int
+        The number of features
+
+    Returns
+    -------
+    Stacked matrix with the data.
 
     """
     # .. note: Either perform a pre-processing step such as
@@ -77,17 +136,20 @@ def create_random_shap(samples, timesteps, features):
 
 
 def load_shap_file():
-    data = pd.read_csv('./shap.csv')
+    data = pd.read_csv('./data/shap.csv')
     data = data.iloc[: , 1:]
     return data
 
+#################################################################
+# Lets generate and/or load the shap values.
 
-# -----------------------------------------------------
-# Main
-# -----------------------------------------------------
+# .. note: The right format to use for plotting depends
+#          on the library we use. The data structure is
+#          good when using seaborn
 # Load data
-#data = create_random_shap(100, 5, 10)
+#data = create_random_shap(10, 6, 4)
 data = load_shap_file()
+data = data.head(1000)
 
 shap_values = pd.pivot_table(data,
         values='shap_values',
@@ -100,27 +162,50 @@ feature_values = pd.pivot_table(data,
         columns=['features'])
 
 # Show
-print("\nShow:")
-print(data)
-print(shap_values)
-print(feature_values)
+if TERMINAL:
+    print("\nShow:")
+    print(data)
+    print(shap_values)
+    print(feature_values)
+
+#%%
+# Let's see how data looks like
+data.head(10)
+
+#%%
+# Let's see how shap_values looks like
+shap_values.iloc[:10, :5]
+
+#%%
+# Let's see how feature_values looks like
+feature_values.iloc[:10, :5]
 
 
-# Method 0: Using shap library trick
-# ----------------------------------
-# The number of timesteps
-TIMESTEPS = len(shap_values.index.unique(level='timestep'))
-SAMPLES = len(shap_values.index.unique(level='sample'))
+########################################################################
+# Display using ``shap.summary_plot``
+# -----------------------------------------------
+#
+# The first option is to use the ``shap`` library to plot the results.
+
+# Let's define/extract some useful variables.
+N = 4                                                       # max loops filter
+TIMESTEPS = len(shap_values.index.unique(level='timestep')) # number of timesteps
+SAMPLES = len(shap_values.index.unique(level='sample'))     # number of samples
+
+shap_min = data.shap_values.min()
+shap_max = data.shap_values.max()
+
+#%%
+# Now, let's display the shap values for all features in each timestep.
 
 # For each timestep (visualise all features)
-for i, step in enumerate(range(TIMESTEPS)):
+for i, step in enumerate(range(TIMESTEPS)[:N]):
     # Show
-    print('%2d. %s' % (i, step))
+    #print('%2d. %s' % (i, step))
 
-    # .. note: First is only necessary if we work with a numpy
-    #          array. However, since we are using a DataFrame
-    #          with the timestep, we can index by that index
-    #          level.
+    # .. note: First option (commented) is only necessary if we work
+    #          with a numpy array. However, since we are using a DataFrame
+    #          with the timestep, we can index by that index level.
     # Compute indices
     #indice = np.arange(SAMPLES)*TIMESTEPS + step
     indice = shap_values.index.get_level_values('timestep') == i
@@ -130,13 +215,21 @@ for i, step in enumerate(range(TIMESTEPS)):
     feat_aux = feature_values.iloc[indice]
 
     # Display
-    #shap.summary_plot(shap_aux.to_numpy(), feat_aux)
+    plt.figure()
+    plt.title("Timestep: %s" % i)
+    shap.summary_plot(shap_aux.to_numpy(), feat_aux, show=False)
+    plt.xlim(shap_min, shap_max)
 
+# Show
+plt.show()
 
-# For each feature (visualise all timesteps)
-for i, f in enumerate(shap_values.columns[:2]):
+#%%
+# Now, let's display the shap values for all timesteps of each feature.
+
+# For each feature (visualise all time-steps)
+for i, f in enumerate(shap_values.columns[:N]):
     # Show
-    print('%2d. %s' % (i, f))
+    #print('%2d. %s' % (i, f))
 
     # Create auxiliary matrices (select feature and reshape)
     shap_aux = shap_values.iloc[:, i] \
@@ -148,52 +241,109 @@ for i, f in enumerate(shap_values.columns[:2]):
     )
 
     # Show
-    #shap.summary_plot(shap_aux, feat_aux, sort=False)
+    plt.figure()
+    plt.title("Feature: %s" % f)
+    shap.summary_plot(shap_aux, feat_aux, sort=False)
+    plt.xlim(shap_min, shap_max)
+
+#%%
+# .. note:: If y-axis represents timesteps the ``sort`` parameter
+#           in the ``summary_plot`` function is set to False.
 
 
-# Method 1:
-# --------
-for i, df in data.groupby('features'):
+########################################################################
+# Display using ``sns.stripplot``
+# -------------------------------
+#
+# .. warning:: This method seems to be quite slow.
+#
+# Let's display the shap values for each feature and all time steps.
+# In contrast to the previous example, the timesteps are now displayed
+# on the x-axis and the y-axis contains the shap values.
 
+
+def add_colorbar(fig, norm):
+    """"""
+    divider = make_axes_locatable(plt.gca())
+    ax_cb = divider.new_horizontal(size="5%", pad=0.05)
+    fig.add_axes(ax_cb)
+    cb1 = matplotlib.colorbar.ColorbarBase(ax_cb,
+         cmap='coolwarm', norm=norm, orientation='vertical')
+
+
+# Loop
+for i, (name, df) in enumerate(data.groupby('features')):
+
+    # Get colormap
+    values = df.feature_values
+    cmap, norm = scalar_palette(values=values, cmap='coolwarm',
+        vmin=values.min(), vmax=values.max())
+
+    # Display
+    fig = plt.figure()
     f = sns.stripplot(x='timestep',
                       y='shap_values',
                       hue='feature_values',
-                      palette='viridis', 
-                      data=data)
-    plt.title(i)
+                      palette=cmap,
+                      data=df)
+
+    # Configure axes
+    plt.title(name)
     plt.legend([], [], frameon=False)
     f.invert_xaxis()
+    add_colorbar(fig, norm)
+
+    # End
+    if int(i) > N:
+        break
 
 # Show
 plt.show()
 
-import sys
-sys.exit()
 
-for i, df in df_stack.groupby('f'):
+########################################################################
+# Display using ``sns.swarmplot``
+# -------------------------------
+#
+# .. note: If the number of samples is too high, the points overlap
+#          and are ignored by the ``swarmplot`` library. In such scenario
+#          it is better to use ``stripplot``.
+#
+#
+# Let's display the shap values for each timestep.
 
+# Loop
+for i, (name, df) in enumerate(data.groupby('features')):
 
-    col = 'value'
+    # Get colormap
+    values = df.feature_values
+    cmap, norm = scalar_palette(values=values, cmap='coolwarm',
+        vmin=values.min(), vmax=values.max())
 
-    colormap = scalar_colormap(df[col],
-        cmap='RdYlBu', vmin=df[col].min(),
-        vmax=df[col].max())
+    # Display
+    fig = plt.figure()
+    f = sns.swarmplot(x='timestep',
+                      y='shap_values',
+                      hue='feature_values',
+                      palette=cmap,
+                      data=df)
 
-    plt.figure()
-    f = sns.stripplot(x='t', y='value', hue='original',
-        palette='viridis', data=df)
-    plt.title(i)
+    # Configure axes
+    plt.title(name)
     plt.legend([], [], frameon=False)
     f.invert_xaxis()
+    add_colorbar(fig, norm)
 
-    """
-    ax = sns.scatterplot(data=tips,
-        x="sex", y="total_bill", hue="total_bill", palette="viridis", legend=False)
-    pts = ax.collections[0]
-    pts.set_offsets(pts.get_offsets() + np.c_[np.random.uniform(-.1, .1, len(tips)), np.zeros(len(tips))])
-    ax.margins(x=.5)
-    ax.autoscale_view()
-    """
+    # End
+    if int(i) > N:
+        break
+
+# Show
+plt.show()
+
+
+
+
 
 
 
@@ -231,16 +381,23 @@ grid.fig.tight_layout(w_pad=1)
 """
 
 
-plt.show()
+#plt.show()
 
-# Method 3: Facet Grid
-# --------------------
+##########################################################################
+# Display using ``sns.FacetGrid``
+# -------------------------------
+#
+
 #g = sns.FacetGrid(df_stack, col="f", hue='original')
 #g.map(sns.swarmplot, "t", "value", alpha=.7)
 #g.add_legend()
 
-# Method 4: Using beeswarm
-# ------------------------
+
+##########################################################################
+# Display using ``shap.beeswarm``
+# -------------------------------
+#
+
 # REF: https://github.com/slundberg/shap/blob/master/shap/plots/_beeswarm.py
 #
 # .. note: It needs a kernel explainer, and while it works with

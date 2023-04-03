@@ -36,3 +36,4 @@ This repository contains a compendium of python scripts.
    :hidden:
 
    _examples/index
+   _examples/shap/index

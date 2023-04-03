@@ -1,3 +1,9 @@
+"""
+Shap - Main 06
+==============
+
+"""
+
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
@@ -22,7 +28,7 @@ import shap
 #
 # train_y is corresponding classification of train_x sequences, always 0 or 1
 # [0, 1, 0, 1, 0, ... 0]
-
+"""
 SAMPLES_CNT = 1000
 
 train_x = np.random.rand(SAMPLES_CNT,5,4)
@@ -45,3 +51,4 @@ fit = model.fit(train_x, train_y, batch_size=64, epochs=2,
 
 explainer = shap.DeepExplainer(model, train_x[:10])
 shap_vals = explainer.shap_values(val_x[:10][:, 0, :])
+"""

@@ -79,11 +79,15 @@ from plotly.io._sg_scraper import plotly_sg_scraper
 sphinx_gallery_conf = {
     # path to your example scripts
     'examples_dirs': [
-        '../../examples/'
+        #'../../examples/plotly',
+        '../../examples/matplotlib',
+        '../../examples/shap'
     ],
     # path to where to save gallery generated output
     'gallery_dirs': [
-        '../source/_examples/'
+        #'../source/_examples/plotly',
+        '../source/_examples/matplotlib',
+        '../source/_examples/shap'
     ],
     # Other
     'line_numbers': True,
