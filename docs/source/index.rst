@@ -31,7 +31,7 @@ This repository contains a compendium of python scripts.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Example Galleries
    :hidden:
 
