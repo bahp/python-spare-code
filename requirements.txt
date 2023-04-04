@@ -12,3 +12,5 @@ seaborn
 dash
 absl
 favicon
+pybaobabdt
+pygraphviz

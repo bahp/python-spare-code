@@ -37,4 +37,3 @@ This repository contains a compendium of python scripts.
 
    _examples/index
    _examples/shap/index
-   _examples/tableone/index

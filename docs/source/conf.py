@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'python-spare-code'
-copyright = '2021, Bernard Hernandez'
+copyright = '2021-2023, Bernard Hernandez'
 author = 'Bernard Hernandez'
 
 # The full version, including alpha/beta/rc tags
@@ -79,17 +79,21 @@ from plotly.io._sg_scraper import plotly_sg_scraper
 sphinx_gallery_conf = {
     # path to your example scripts
     'examples_dirs': [
+        '../../examples/',
         #'../../examples/plotly',
         #'../../examples/matplotlib',
         #'../../examples/shap',
-        '../../examples/tableone'
+        #'../../examples/tableone',
+        #'../../examples/plotly'
     ],
     # path to where to save gallery generated output
     'gallery_dirs': [
         #'../source/_examples/plotly',
         #'../source/_examples/matplotlib',
         #'../source/_examples/shap',
-        '../source/_examples/tableone'
+        #'../source/_examples/tableone',
+        #'../source/_examples/plotly'
+        '../source/_examples',
     ],
     # Other
     'line_numbers': True,

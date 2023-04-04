@@ -2,6 +2,9 @@
 Shap - Main 02
 ==============
 
+Computing SHAP values for different classifiers to understand which
+type of SHAP explainers can be used with the different algorithms.
+
 """
 # Generic
 import numpy as np

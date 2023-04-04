@@ -2,10 +2,9 @@
 Test Skfold
 =============
 
-This example just proves that StratifiedKFold is
-deterministic and always returns the same splits.
-The way to change the splits is by changing the
-random state.
+Demonstrate that ``StratifiedKFold`` is deterministic and
+always returns the same splits. The way to change the splits
+is by changing the random state.
 """
 # General
 import numpy as np

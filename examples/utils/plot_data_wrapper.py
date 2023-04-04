@@ -1,8 +1,10 @@
 """
-Data Wrapper
-=============
+Dummy Data Wrapper
+==================
 
-.. warning:: Non sense.
+Dummy data wrapper
+
+.. warning:: Non sense!
 
 """
 

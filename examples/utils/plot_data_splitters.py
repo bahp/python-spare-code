@@ -2,7 +2,8 @@
 Data splitters
 ==============
 
-This example shows some methods to split the data.
+Useful methods to split data such as (i) hold out and
+csv sets or (ii) cross validation folds.
 
 .. warning:: Not completed!
 

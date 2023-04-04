@@ -2,7 +2,7 @@
 IQRFilter
 =============
 
-.. warning:: Non sense.
+Example of implementing an IQR filter.
 
 """
 
@@ -238,6 +238,8 @@ class IQRFilter():
             return self.filter(X)
         # Return
         return self.filter(X, y), y
+
+
 
 
 if __name__ == '__main__':

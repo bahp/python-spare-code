@@ -1,7 +1,14 @@
+"""
+Pandas - Format 03
+==================
+
+Example
+"""
 # Libraries
 import numpy as np
 import pandas as pd
 
+"""
 # Load data
 df = pd.read_csv('./datasets/format03_data_300.csv')
 
@@ -22,5 +29,8 @@ print("aaa")
 print(aux)
 print(type(aux))
 
+a = np.frombuffer(aux, dtype=np.complex_)
+print(a)
 a = np.fromstring(aux, dtype=np.complex_)
 print(a)
+"""

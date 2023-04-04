@@ -34,7 +34,7 @@ n_splits = 10
 # Dataset
 # -------
 # Dataset filepath
-filepath = './dataset.csv'
+filepath = 'data/dataset.csv'
 
 # ---------------------------------------------
 # Load dataset and format it
@@ -56,10 +56,10 @@ data['cvs_hos_split'] = cvs_hos_split(data, selected_rows=cmp)
 # ---------------------------------------------
 # Train
 # ---------------------------------------------
-data[(data.missing == 0)].to_csv('tpot_data_cvs.csv')
-data[(data.cvs_hos_split == 'hos')].to_csv('tpot_data_hos.csv')
-data[(data.cvs_hos_split == 'cvs')].to_csv('tpot_data_cvs.csv')
-data[(data.cvs_hos_split == 'hos')].to_csv('tpot_data_hos.csv')
+data[(data.missing == 0)].to_csv('outcomes/main01/tpot_data_cvs.csv')
+data[(data.cvs_hos_split == 'hos')].to_csv('outcomes/main01/tpot_data_hos.csv')
+data[(data.cvs_hos_split == 'cvs')].to_csv('outcomes/main01/tpot_data_cvs.csv')
+data[(data.cvs_hos_split == 'hos')].to_csv('outcomes/main01/tpot_data_hos.csv')
 
 # ---------------------------------------------
 # Train
@@ -90,4 +90,4 @@ tpot.fit(X_train, y_train)
 score = tpot.score(X_test, y_test)
 
 # Save
-tpot.export('tpot_best_pipeline.py')
+tpot.export('outcomes/main01/tpot_best_pipeline.py')
