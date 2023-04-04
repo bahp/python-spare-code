@@ -21,14 +21,15 @@
 Data splitters
 ==============
 
-This example shows some methods to split the data.
+Useful methods to split data such as (i) hold out and
+csv sets or (ii) cross validation folds.
 
 .. warning:: Not completed!
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-192
+.. GENERATED FROM PYTHON SOURCE LINES 11-193
 
 .. code-block:: default
-   :lineno-start: 10
+   :lineno-start: 11
 
     # Libraries
     import pandas as pd
@@ -219,14 +220,14 @@ This example shows some methods to split the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 193-194
+.. GENERATED FROM PYTHON SOURCE LINES 194-195
 
 Lets see the dataset
 
-.. GENERATED FROM PYTHON SOURCE LINES 194-203
+.. GENERATED FROM PYTHON SOURCE LINES 195-204
 
 .. code-block:: default
-   :lineno-start: 195
+   :lineno-start: 196
 
 
     if TERMINAL:
@@ -267,14 +268,14 @@ Lets see the dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 204-205
+.. GENERATED FROM PYTHON SOURCE LINES 205-206
 
 Lets see the HOS/CV splits
 
-.. GENERATED FROM PYTHON SOURCE LINES 205-216
+.. GENERATED FROM PYTHON SOURCE LINES 206-217
 
 .. code-block:: default
-   :lineno-start: 206
+   :lineno-start: 207
 
 
     if TERMINAL:
@@ -300,16 +301,16 @@ Lets see the HOS/CV splits
 
     Data
          sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm) sets
-    0                  5.1               3.5                1.4               0.2  hos
+    0                  5.1               3.5                1.4               0.2  cvs
     1                  4.9               3.0                1.4               0.2  cvs
-    2                  4.7               3.2                1.3               0.2  cvs
-    3                  4.6               3.1                1.5               0.2  cvs
+    2                  4.7               3.2                1.3               0.2  hos
+    3                  4.6               3.1                1.5               0.2  hos
     4                  5.0               3.6                1.4               0.2  cvs
     ..                 ...               ...                ...               ...  ...
-    145                6.7               3.0                5.2               2.3  cvs
+    145                6.7               3.0                5.2               2.3  hos
     146                6.3               2.5                5.0               1.9  cvs
     147                6.5               3.0                5.2               2.0  cvs
-    148                6.2               3.4                5.4               2.3  hos
+    148                6.2               3.4                5.4               2.3  cvs
     149                5.9               3.0                5.1               1.8  hos
 
     [150 rows x 5 columns]
@@ -317,14 +318,14 @@ Lets see the HOS/CV splits
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-218
+.. GENERATED FROM PYTHON SOURCE LINES 218-219
 
 Lets see the splits
 
-.. GENERATED FROM PYTHON SOURCE LINES 218-227
+.. GENERATED FROM PYTHON SOURCE LINES 219-228
 
 .. code-block:: default
-   :lineno-start: 219
+   :lineno-start: 220
 
 
     if TERMINAL:
@@ -348,16 +349,16 @@ Lets see the splits
 
     Data
          sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm) sets split_0 split_1 split_2 split_3 split_4
-    0                  5.1               3.5                1.4               0.2  hos    None    None    None    None    None
-    1                  4.9               3.0                1.4               0.2  cvs   train   train   train   train    test
-    2                  4.7               3.2                1.3               0.2  cvs   train   train    test   train   train
-    3                  4.6               3.1                1.5               0.2  cvs   train   train    test   train   train
-    4                  5.0               3.6                1.4               0.2  cvs   train    test   train   train   train
+    0                  5.1               3.5                1.4               0.2  cvs   train   train   train   train    test
+    1                  4.9               3.0                1.4               0.2  cvs   train   train   train    test   train
+    2                  4.7               3.2                1.3               0.2  hos    None    None    None    None    None
+    3                  4.6               3.1                1.5               0.2  hos    None    None    None    None    None
+    4                  5.0               3.6                1.4               0.2  cvs   train   train   train    test   train
     ..                 ...               ...                ...               ...  ...     ...     ...     ...     ...     ...
-    145                6.7               3.0                5.2               2.3  cvs   train   train   train   train    test
-    146                6.3               2.5                5.0               1.9  cvs   train   train   train   train    test
-    147                6.5               3.0                5.2               2.0  cvs   train   train   train   train    test
-    148                6.2               3.4                5.4               2.3  hos    None    None    None    None    None
+    145                6.7               3.0                5.2               2.3  hos    None    None    None    None    None
+    146                6.3               2.5                5.0               1.9  cvs    test   train   train   train   train
+    147                6.5               3.0                5.2               2.0  cvs    test   train   train   train   train
+    148                6.2               3.4                5.4               2.3  cvs   train   train    test   train   train
     149                5.9               3.0                5.1               1.8  hos    None    None    None    None    None
 
     [150 rows x 10 columns]
@@ -365,14 +366,14 @@ Lets see the splits
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-229
+.. GENERATED FROM PYTHON SOURCE LINES 229-230
 
 Lets see the HOS/CSV sets
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-233
+.. GENERATED FROM PYTHON SOURCE LINES 230-234
 
 .. code-block:: default
-   :lineno-start: 229
+   :lineno-start: 230
 
     if TERMINAL:
         print("\nData")
@@ -391,17 +392,17 @@ Lets see the HOS/CSV sets
 
     Data
          sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm) sets split_0 split_1 split_2 split_3 split_4
-    0                  5.1               3.5                1.4               0.2  HOS    None    None    None    None    None
-    1                  4.9               3.0                1.4               0.2  CVS   train   train   train   train    test
-    2                  4.7               3.2                1.3               0.2  CVS   train   train    test   train   train
-    3                  4.6               3.1                1.5               0.2  HOS   train   train    test   train   train
-    4                  5.0               3.6                1.4               0.2  CVS   train    test   train   train   train
+    0                  5.1               3.5                1.4               0.2  CVS   train   train   train   train    test
+    1                  4.9               3.0                1.4               0.2  CVS   train   train   train    test   train
+    2                  4.7               3.2                1.3               0.2  HOS    None    None    None    None    None
+    3                  4.6               3.1                1.5               0.2  HOS    None    None    None    None    None
+    4                  5.0               3.6                1.4               0.2  CVS   train   train   train    test   train
     ..                 ...               ...                ...               ...  ...     ...     ...     ...     ...     ...
-    145                6.7               3.0                5.2               2.3  HOS   train   train   train   train    test
-    146                6.3               2.5                5.0               1.9  HOS   train   train   train   train    test
-    147                6.5               3.0                5.2               2.0  CVS   train   train   train   train    test
-    148                6.2               3.4                5.4               2.3  CVS    None    None    None    None    None
-    149                5.9               3.0                5.1               1.8  CVS    None    None    None    None    None
+    145                6.7               3.0                5.2               2.3  CVS    None    None    None    None    None
+    146                6.3               2.5                5.0               1.9  CVS    test   train   train   train   train
+    147                6.5               3.0                5.2               2.0  CVS    test   train   train   train   train
+    148                6.2               3.4                5.4               2.3  CVS   train   train    test   train   train
+    149                5.9               3.0                5.1               1.8  HOS    None    None    None    None    None
 
     [150 rows x 10 columns]
 
@@ -446,12 +447,12 @@ Lets see the HOS/CSV sets
           <td>3.5</td>
           <td>1.4</td>
           <td>0.2</td>
-          <td>HOS</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
+          <td>CVS</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
+          <td>test</td>
         </tr>
         <tr>
           <th>1</th>
@@ -463,8 +464,8 @@ Lets see the HOS/CSV sets
           <td>train</td>
           <td>train</td>
           <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>2</th>
@@ -472,12 +473,12 @@ Lets see the HOS/CSV sets
           <td>3.2</td>
           <td>1.3</td>
           <td>0.2</td>
-          <td>CVS</td>
-          <td>train</td>
-          <td>train</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
+          <td>HOS</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>3</th>
@@ -486,11 +487,11 @@ Lets see the HOS/CSV sets
           <td>1.5</td>
           <td>0.2</td>
           <td>HOS</td>
-          <td>train</td>
-          <td>train</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>4</th>
@@ -500,9 +501,9 @@ Lets see the HOS/CSV sets
           <td>0.2</td>
           <td>CVS</td>
           <td>train</td>
+          <td>train</td>
+          <td>train</td>
           <td>test</td>
-          <td>train</td>
-          <td>train</td>
           <td>train</td>
         </tr>
         <tr>
@@ -524,12 +525,12 @@ Lets see the HOS/CSV sets
           <td>3.0</td>
           <td>5.2</td>
           <td>2.3</td>
-          <td>HOS</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>test</td>
+          <td>CVS</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>146</th>
@@ -537,12 +538,12 @@ Lets see the HOS/CSV sets
           <td>2.5</td>
           <td>5.0</td>
           <td>1.9</td>
-          <td>HOS</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
+          <td>CVS</td>
           <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>147</th>
@@ -551,11 +552,11 @@ Lets see the HOS/CSV sets
           <td>5.2</td>
           <td>2.0</td>
           <td>CVS</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>148</th>
@@ -564,11 +565,11 @@ Lets see the HOS/CSV sets
           <td>5.4</td>
           <td>2.3</td>
           <td>CVS</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
+          <td>train</td>
+          <td>train</td>
+          <td>test</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>149</th>
@@ -576,7 +577,7 @@ Lets see the HOS/CSV sets
           <td>3.0</td>
           <td>5.1</td>
           <td>1.8</td>
-          <td>CVS</td>
+          <td>HOS</td>
           <td>None</td>
           <td>None</td>
           <td>None</td>
@@ -594,7 +595,7 @@ Lets see the HOS/CSV sets
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.058 seconds)
+   **Total running time of the script:** ( 0 minutes  0.068 seconds)
 
 
 .. _sphx_glr_download__examples_utils_plot_data_splitters.py:

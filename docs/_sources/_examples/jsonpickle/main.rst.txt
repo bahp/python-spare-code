@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_jsonpickle_main.py:
 
 
-Main
-=============
+Jsonpickle - Main 01
+====================
 
 Example
 

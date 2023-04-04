@@ -1,40 +1,75 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>Plot ROC &mdash; python-spare-code 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../../_static/eniapp.ico"/>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/js/theme.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Plot Distributions" href="plot_main02_distributions.html" />
-    <link rel="prev" title="Pandas - Main 01" href="../pandas/plot_main01.html" /> 
+    <link rel="prev" title="MPL2PLY SHAP summary" href="main12_mpl2ply_shap.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../../index.html" class="icon icon-home"> python-spare-code
+          
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -42,8 +77,19 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Example Galleries</span></p>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Example Galleries</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#clean-damien-sepsis">clean-damien-sepsis</a></li>
@@ -56,24 +102,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#plotly">Plotly</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="main06_treemap_v3.html">Plot Treemap (v3) - NHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main12_mpl2ply.html">Matplotlib to Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main12_mpl2ply_shap.html">MPL2PLY SHAP summary</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Plot ROC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main02_distributions.html">Plot Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main03_sparklines.html">Plot Sparklines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main04_2dhist.html">Plot Histogram 2D</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main06_treemap_v1.html">Plot Treemap (v1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main06_treemap_v2.html">Plot Treemap (v2) - MIMIC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main06_treemap_v3.html">Plot Treemap (v3) - NHS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_parallel_v1.html">Plot Parallel (v1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_parallel_v2.html">Plot Parallel (v2)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main10_weather.html">Plot Weather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main11_updatemenus.html">Plot updatemenus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main12_mpl2ply.html">Matplotlib to Plotly</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main12_mpl2ply_shap.html">MPL2PLY SHAP summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main30_dash_LS.html">Dash LS (empty)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main30_dash_table.html">Dash Table</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#screenshot-web">screenshot-web</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
@@ -83,198 +130,366 @@
 </li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">python-spare-code</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
           <li><a href="../index.html">General</a> &raquo;</li>
+        
       <li>Plot ROC</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="../../_sources/_examples/plotly/plot_main01_roc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-plotly-plot-main01-roc-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="plot-roc">
-<span id="sphx-glr-examples-plotly-plot-main01-roc-py"></span><h1>Plot ROC<a class="headerlink" href="#plot-roc" title="Permalink to this headline"></a></h1>
+<div class="sphx-glr-example-title section" id="plot-roc">
+<span id="sphx-glr-examples-plotly-plot-main01-roc-py"></span><h1>Plot ROC<a class="headerlink" href="#plot-roc" title="Permalink to this headline">¶</a></h1>
 <p>This example shows how to plot the ROC curves
 for various splits.</p>
 <div class="output_subarea output_html rendered_html output_result">
 <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>                <div id="aed67cb3-7205-46bd-bc45-3e49d71a1e70" class="plotly-graph-div" style="height:350px; width:350px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("aed67cb3-7205-46bd-bc45-3e49d71a1e70")) {                    Plotly.newPlot(                        "aed67cb3-7205-46bd-bc45-3e49d71a1e70",                        [{"line":{"color":"#fde725","width":0.5},"mode":"lines+markers","name":"split1","type":"scatter","x":[-0.1,0.0,0.1,0.19999999999999998,0.30000000000000004,0.4,0.5,0.6,0.7000000000000001,0.8],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#b5de2b","width":0.5},"mode":"lines+markers","name":"split2","type":"scatter","x":[-0.15,-0.04999999999999999,0.05000000000000002,0.15,0.25,0.35,0.44999999999999996,0.5499999999999999,0.65,0.75],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#6ece58","width":0.5},"mode":"lines+markers","name":"split3","type":"scatter","x":[-0.2,-0.1,0.0,0.09999999999999998,0.2,0.3,0.39999999999999997,0.49999999999999994,0.6000000000000001,0.7],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#35b779","width":0.5},"mode":"lines+markers","name":"split4","type":"scatter","x":[-0.25,-0.15,-0.04999999999999999,0.04999999999999999,0.15000000000000002,0.25,0.35,0.44999999999999996,0.55,0.65],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#1f9e89","width":0.5},"mode":"lines+markers","name":"split5","type":"scatter","x":[-0.3,-0.19999999999999998,-0.09999999999999998,0.0,0.10000000000000003,0.2,0.3,0.39999999999999997,0.5,0.6000000000000001],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#26828e","width":0.5},"mode":"lines+markers","name":"split6","type":"scatter","x":[0.15,0.25,0.35,0.44999999999999996,0.55,0.65,0.75,0.85,0.9500000000000001,1.05],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#31688e","width":0.5},"mode":"lines+markers","name":"split7","type":"scatter","x":[0.15,0.25,0.35,0.44999999999999996,0.55,0.65,0.75,0.85,0.9500000000000001,1.05],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#3e4989","width":0.5},"mode":"lines+markers","name":"split8","type":"scatter","x":[0.2,0.30000000000000004,0.4,0.5,0.6000000000000001,0.7,0.8,0.8999999999999999,1.0,1.1],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#482878","width":0.5},"mode":"lines+markers","name":"split9","type":"scatter","x":[0.25,0.35,0.45,0.55,0.65,0.75,0.85,0.95,1.05,1.15],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]},{"line":{"color":"#440154","width":0.5},"mode":"lines+markers","name":"split10","type":"scatter","x":[0.3,0.4,0.5,0.6,0.7,0.8,0.8999999999999999,1.0,1.1,1.2],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]}],                        {"height":350,"legend":{"font":{"size":12},"orientation":"v","x":1.0,"xanchor":"right","y":0.0,"yanchor":"bottom"},"margin":{"b":0,"l":0,"pad":4,"r":0,"t":0},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","shapes":[{"line":{"color":"gray","dash":"dash","width":1},"type":"line","x0":0,"x1":1,"y0":0,"y1":1}],"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"width":350,"xaxis":{"constrain":"domain","gridcolor":"lightgray","gridwidth":1,"nticks":10,"range":[0,1],"showgrid":true,"title":{"text":"False Positive Rate"}},"yaxis":{"gridcolor":"lightgray","gridwidth":1,"nticks":10,"range":[0,1],"scaleanchor":"x","scaleratio":1,"showgrid":true,"title":{"text":"True Positive Rate"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>                <div id="65c34e97-7d2c-418e-8ec9-25217575e762" class="plotly-graph-div" style="height:350px; width:350px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("65c34e97-7d2c-418e-8ec9-25217575e762")) {                    Plotly.newPlot(                        "65c34e97-7d2c-418e-8ec9-25217575e762",                        [{"line":{"color":"#fde725","width":0.5},"mode":"lines+markers","name":"split1","x":[-0.1,0.0,0.1,0.19999999999999998,0.30000000000000004,0.4,0.5,0.6,0.7000000000000001,0.8],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#b5de2b","width":0.5},"mode":"lines+markers","name":"split2","x":[-0.15,-0.04999999999999999,0.05000000000000002,0.15,0.25,0.35,0.44999999999999996,0.5499999999999999,0.65,0.75],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#6ece58","width":0.5},"mode":"lines+markers","name":"split3","x":[-0.2,-0.1,0.0,0.09999999999999998,0.2,0.3,0.39999999999999997,0.49999999999999994,0.6000000000000001,0.7],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#35b779","width":0.5},"mode":"lines+markers","name":"split4","x":[-0.25,-0.15,-0.04999999999999999,0.04999999999999999,0.15000000000000002,0.25,0.35,0.44999999999999996,0.55,0.65],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#1f9e89","width":0.5},"mode":"lines+markers","name":"split5","x":[-0.3,-0.19999999999999998,-0.09999999999999998,0.0,0.10000000000000003,0.2,0.3,0.39999999999999997,0.5,0.6000000000000001],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#26828e","width":0.5},"mode":"lines+markers","name":"split6","x":[0.15,0.25,0.35,0.44999999999999996,0.55,0.65,0.75,0.85,0.9500000000000001,1.05],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#31688e","width":0.5},"mode":"lines+markers","name":"split7","x":[0.15,0.25,0.35,0.44999999999999996,0.55,0.65,0.75,0.85,0.9500000000000001,1.05],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#3e4989","width":0.5},"mode":"lines+markers","name":"split8","x":[0.2,0.30000000000000004,0.4,0.5,0.6000000000000001,0.7,0.8,0.8999999999999999,1.0,1.1],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#482878","width":0.5},"mode":"lines+markers","name":"split9","x":[0.25,0.35,0.45,0.55,0.65,0.75,0.85,0.95,1.05,1.15],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"},{"line":{"color":"#440154","width":0.5},"mode":"lines+markers","name":"split10","x":[0.3,0.4,0.5,0.6,0.7,0.8,0.8999999999999999,1.0,1.1,1.2],"y":[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"shapes":[{"line":{"color":"gray","dash":"dash","width":1},"type":"line","x0":0,"x1":1,"y0":0,"y1":1}],"yaxis":{"title":{"text":"True Positive Rate"},"scaleanchor":"x","scaleratio":1,"showgrid":true,"gridwidth":1,"range":[0,1],"nticks":10,"gridcolor":"lightgray"},"xaxis":{"title":{"text":"False Positive Rate"},"constrain":"domain","showgrid":true,"gridwidth":1,"nticks":10,"range":[0,1],"gridcolor":"lightgray"},"legend":{"font":{"size":12},"x":1.0,"y":0.0,"orientation":"v","yanchor":"bottom","xanchor":"right"},"margin":{"l":0,"r":0,"b":0,"t":0,"pad":4},"width":350,"height":350,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };                            </script>        </div>
 </div>
 <br />
-<br /><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 14</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 15</span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="linenos"> 16</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="linenos"> 17</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 18</span>
-<span class="linenos"> 19</span> <span class="c1"># Layout</span>
-<span class="linenos"> 20</span> <span class="kn">from</span> <span class="nn">plotly.graph_objects</span> <span class="kn">import</span> <span class="n">Layout</span>
-<span class="linenos"> 21</span>
-<span class="linenos"> 22</span> <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 23</span>     <span class="vm">__file__</span>
-<span class="linenos"> 24</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos"> 25</span> <span class="k">except</span><span class="p">:</span>
-<span class="linenos"> 26</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="linenos"> 27</span>
-<span class="linenos"> 28</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 29</span> <span class="c1"># Config</span>
-<span class="linenos"> 30</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 31</span> <span class="c1"># Colors</span>
-<span class="linenos"> 32</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
-<span class="linenos"> 33</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma_r</span>
-<span class="linenos"> 34</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Viridis_r</span>
-<span class="linenos"> 35</span>
-<span class="linenos"> 36</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 37</span> <span class="c1"># Data</span>
-<span class="linenos"> 38</span> <span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 39</span> <span class="c1"># Create some data</span>
-<span class="linenos"> 40</span> <span class="n">fpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>
-<span class="linenos"> 41</span> <span class="n">tpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>
-<span class="linenos"> 42</span>
-<span class="linenos"> 43</span> <span class="c1"># Data</span>
-<span class="linenos"> 44</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-<span class="linenos"> 45</span>     <span class="s1">&#39;split1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 46</span>     <span class="s1">&#39;split2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 47</span>     <span class="s1">&#39;split3&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 48</span>     <span class="s1">&#39;split4&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 49</span>     <span class="s1">&#39;split5&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 50</span>     <span class="s1">&#39;split6&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 51</span>     <span class="s1">&#39;split7&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 52</span>     <span class="s1">&#39;split8&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 53</span>     <span class="s1">&#39;split9&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="linenos"> 54</span>     <span class="s1">&#39;split10&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.30</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="linenos"> 55</span> <span class="p">}</span>
-<span class="linenos"> 56</span>
-<span class="linenos"> 57</span>
-<span class="linenos"> 58</span> <span class="c1"># -------------------------------------</span>
-<span class="linenos"> 59</span> <span class="c1"># Visualize</span>
-<span class="linenos"> 60</span> <span class="c1"># -------------------------------------</span>
-<span class="linenos"> 61</span> <span class="c1"># Create figure</span>
-<span class="linenos"> 62</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-<span class="linenos"> 63</span>
-<span class="linenos"> 64</span> <span class="c1"># Add diagonal line</span>
-<span class="linenos"> 65</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="linenos"> 66</span>     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dash&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-<span class="linenos"> 67</span> <span class="p">)</span>
-<span class="linenos"> 68</span>
-<span class="linenos"> 69</span> <span class="c1"># Plot each split</span>
-<span class="linenos"> 70</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-<span class="linenos"> 71</span>     <span class="c1"># Name of split</span>
-<span class="linenos"> 72</span>     <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># (AUC={10:.2f})&quot;</span>
-<span class="linenos"> 73</span>     <span class="c1"># Add trace</span>
-<span class="linenos"> 74</span>     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="linenos"> 75</span>                              <span class="n">y</span><span class="o">=</span><span class="n">array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos"> 76</span>                              <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-<span class="linenos"> 77</span>                              <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-<span class="linenos"> 78</span>                              <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-<span class="linenos"> 79</span>                                        <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)))</span>
-<span class="linenos"> 80</span>
-<span class="linenos"> 81</span> <span class="c1"># Update layout</span>
-<span class="linenos"> 82</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-<span class="linenos"> 83</span>     <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">,</span>
-<span class="linenos"> 84</span>     <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">,</span>
-<span class="linenos"> 85</span>     <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">scaleanchor</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">scaleratio</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-<span class="linenos"> 86</span>     <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">constrain</span><span class="o">=</span><span class="s1">&#39;domain&#39;</span><span class="p">),</span>
-<span class="linenos"> 87</span>     <span class="n">width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
-<span class="linenos"> 88</span>     <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-<span class="linenos"> 89</span>         <span class="n">x</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># x=1, y=1.02</span>
-<span class="linenos"> 90</span>         <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
-<span class="linenos"> 91</span>         <span class="n">font</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span>
-<span class="linenos"> 92</span>         <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
-<span class="linenos"> 93</span>         <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
-<span class="linenos"> 94</span>     <span class="p">),</span>
-<span class="linenos"> 95</span>     <span class="n">margin</span><span class="o">=</span><span class="p">{</span>
-<span class="linenos"> 96</span>         <span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="linenos"> 97</span>         <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="linenos"> 98</span>         <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="linenos"> 99</span>         <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="linenos">100</span>         <span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mi">4</span>
-<span class="linenos">101</span>     <span class="p">},</span>
-<span class="linenos">102</span>     <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span><span class="p">,</span>  <span class="c1"># transparent</span>
-<span class="linenos">103</span>     <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span>  <span class="c1"># transparent</span>
-<span class="linenos">104</span> <span class="p">)</span>
-<span class="linenos">105</span>
-<span class="linenos">106</span> <span class="c1"># Update xaxes</span>
-<span class="linenos">107</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">108</span>                  <span class="n">gridwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="linenos">109</span>                  <span class="n">nticks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<span class="linenos">110</span>                  <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">111</span>                  <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
-<span class="linenos">112</span>
-<span class="linenos">113</span> <span class="c1"># Update yaxes</span>
-<span class="linenos">114</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">115</span>                  <span class="n">gridwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="linenos">116</span>                  <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="linenos">117</span>                  <span class="n">nticks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<span class="linenos">118</span>                  <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
-<span class="linenos">119</span>
-<span class="linenos">120</span> <span class="c1"># Show</span>
-<span class="linenos">121</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">122</span>     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="linenos">123</span> <span class="n">fig</span>
+<br /><div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Libraries</span>
+ <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+ <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+ <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+ <span class="c1"># Layout</span>
+ <span class="kn">from</span> <span class="nn">plotly.graph_objects</span> <span class="kn">import</span> <span class="n">Layout</span>
+
+ <span class="k">try</span><span class="p">:</span>
+     <span class="vm">__file__</span>
+     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
+ <span class="k">except</span><span class="p">:</span>
+     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+
+ <span class="c1"># -----------------------------------------</span>
+ <span class="c1"># Config</span>
+ <span class="c1"># -----------------------------------------</span>
+ <span class="c1"># Colors</span>
+ <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
+ <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma_r</span>
+ <span class="n">colors</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Viridis_r</span>
+
+ <span class="c1"># -----------------------------------------</span>
+ <span class="c1"># Data</span>
+ <span class="c1"># -----------------------------------------</span>
+ <span class="c1"># Create some data</span>
+ <span class="n">fpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>
+ <span class="n">tpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>
+
+ <span class="c1"># Data</span>
+ <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="s1">&#39;split1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split3&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split4&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split5&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="o">-</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split6&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split7&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split8&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split9&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;split10&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fpr</span> <span class="o">+</span> <span class="mf">0.30</span><span class="p">,</span> <span class="n">tpr</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+ <span class="p">}</span>
+
+
+ <span class="c1"># -------------------------------------</span>
+ <span class="c1"># Visualize</span>
+ <span class="c1"># -------------------------------------</span>
+ <span class="c1"># Create figure</span>
+ <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+ <span class="c1"># Add diagonal line</span>
+ <span class="n">fig</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dash&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+ <span class="p">)</span>
+
+ <span class="c1"># Plot each split</span>
+ <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+     <span class="c1"># Name of split</span>
+     <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># (AUC={10:.2f})&quot;</span>
+     <span class="c1"># Add trace</span>
+     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                              <span class="n">y</span><span class="o">=</span><span class="n">array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                              <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                              <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
+                              <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                        <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)))</span>
+
+ <span class="c1"># Update layout</span>
+ <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+     <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">,</span>
+     <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">,</span>
+     <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">scaleanchor</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">scaleratio</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+     <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">constrain</span><span class="o">=</span><span class="s1">&#39;domain&#39;</span><span class="p">),</span>
+     <span class="n">width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+     <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+         <span class="n">x</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># x=1, y=1.02</span>
+         <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+         <span class="n">font</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span>
+         <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+         <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+     <span class="p">),</span>
+     <span class="n">margin</span><span class="o">=</span><span class="p">{</span>
+         <span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mi">4</span>
+     <span class="p">},</span>
+     <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span><span class="p">,</span>  <span class="c1"># transparent</span>
+     <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,0,0,0)&#39;</span>  <span class="c1"># transparent</span>
+ <span class="p">)</span>
+
+ <span class="c1"># Update xaxes</span>
+ <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">gridwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">nticks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                  <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                  <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+ <span class="c1"># Update yaxes</span>
+ <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">gridwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                  <span class="n">nticks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                  <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+ <span class="c1"># Show</span>
+ <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+ <span class="n">fig</span>
 </pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.233 seconds)</p>
+</td></tr></table></div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.087 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plotly-plot-main01-roc-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/c972b21e3c00c2cc3a75b968bdf15be5/plot_main01_roc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01_roc.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/337ed8b2f51a56e2cf59cbbc138b9ad4/plot_main01_roc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01_roc.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/fe67e8c0bf86e81a1030a9bed2514e03/plot_main01_roc.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main01_roc.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/7b767ef63bc87b6190eb1fb829145a70/plot_main01_roc.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main01_roc.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
+</div>
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../pandas/plot_main01.html" class="btn btn-neutral float-left" title="Pandas - Main 01" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="plot_main02_distributions.html" class="btn btn-neutral float-right" title="Plot Distributions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="main12_mpl2ply_shap.html" class="btn btn-neutral float-left" title="MPL2PLY SHAP summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Bernard Hernandez.</p>
-  </div>
+    <p>
+        &#169; Copyright 2021-2023, Bernard Hernandez.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

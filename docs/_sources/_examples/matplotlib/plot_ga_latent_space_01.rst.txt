@@ -34,31 +34,27 @@ for each class.
 
     *
 
-      .. image-sg:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_001.png
-         :alt: Latent Space
-         :srcset: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_001.png
-         :class: sphx-glr-multi-img
+      .. image:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_001.png
+          :alt: Latent Space
+          :class: sphx-glr-multi-img
 
     *
 
-      .. image-sg:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_002.png
-         :alt: Label 0
-         :srcset: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_002.png
-         :class: sphx-glr-multi-img
+      .. image:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_002.png
+          :alt: Label 0
+          :class: sphx-glr-multi-img
 
     *
 
-      .. image-sg:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_003.png
-         :alt: Label 1
-         :srcset: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_003.png
-         :class: sphx-glr-multi-img
+      .. image:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_003.png
+          :alt: Label 1
+          :class: sphx-glr-multi-img
 
     *
 
-      .. image-sg:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_004.png
-         :alt: Label 2
-         :srcset: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_004.png
-         :class: sphx-glr-multi-img
+      .. image:: /_examples/matplotlib/images/sphx_glr_plot_ga_latent_space_01_004.png
+          :alt: Label 2
+          :class: sphx-glr-multi-img
 
 
 
@@ -325,8 +321,8 @@ for each class.
            title='Latent Space')
 
     # Hide the right and top spines
-    ax.spines.right.set_visible(False)
-    ax.spines.top.set_visible(False)
+    #ax.spines.right.set_visible(False)
+    #ax.spines.top.set_visible(False)
 
     # Adjust
     plt.tight_layout()
@@ -383,7 +379,7 @@ for each class.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.427 seconds)
+   **Total running time of the script:** ( 0 minutes  0.729 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_ga_latent_space_01.py:

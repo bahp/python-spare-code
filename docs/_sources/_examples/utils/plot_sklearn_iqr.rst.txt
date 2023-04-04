@@ -21,9 +21,9 @@
 IQRFilter
 =============
 
-.. warning:: Non sense.
+Example of implementing an IQR filter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-297
+.. GENERATED FROM PYTHON SOURCE LINES 8-299
 
 
 
@@ -289,6 +289,8 @@ IQRFilter
                 return self.filter(X)
             # Return
             return self.filter(X, y), y
+
+
 
 
     if __name__ == '__main__':

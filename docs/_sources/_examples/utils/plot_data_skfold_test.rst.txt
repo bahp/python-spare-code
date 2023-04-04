@@ -21,12 +21,11 @@
 Test Skfold
 =============
 
-This example just proves that StratifiedKFold is
-deterministic and always returns the same splits.
-The way to change the splits is by changing the
-random state.
+Demonstrate that ``StratifiedKFold`` is deterministic and
+always returns the same splits. The way to change the splits
+is by changing the random state.
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-102
+.. GENERATED FROM PYTHON SOURCE LINES 9-101
 
 
 
@@ -58,7 +57,7 @@ random state.
 |
 
 .. code-block:: default
-   :lineno-start: 10
+   :lineno-start: 9
 
     # General
     import numpy as np
@@ -156,7 +155,7 @@ random state.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.031 seconds)
+   **Total running time of the script:** ( 0 minutes  0.032 seconds)
 
 
 .. _sphx_glr_download__examples_utils_plot_data_skfold_test.py:
