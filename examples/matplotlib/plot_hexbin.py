@@ -20,8 +20,8 @@ def data_shap():
 # Main
 # ---------------------------------------------------------------
 # Load data
-#x, y, c = data_random()
-x, y, c = data_shap()
+x, y, c = data_random()
+#x, y, c = data_shap()
 
 # Compute limits
 xmin = x.min()

@@ -25,7 +25,7 @@ def data_shap():
 #biny = np.linspace(-1, 1, 100)
 
 # Load data
-x, y = data_shap()
+#x, y = data_shap()
 x, y = data_random()
 
 # Compute bins
@@ -44,6 +44,17 @@ plt.plot(x, y, 'b.', label='raw data')
 plt.hlines(bin_means, bin_edges[:-1], bin_edges[1:],
     colors='g', lw=5, label='binned statistic of data')
 plt.legend()
+
+
+
+# Compute bins
+bin_means, bin_edges, binnumber = \
+    stats.binned_statistic_2d(x=x, values=y,
+        statistic='median', bins=10,
+        expand_binnumbers=False)
+
+print(binnumber)
+
 plt.show()
 
 
