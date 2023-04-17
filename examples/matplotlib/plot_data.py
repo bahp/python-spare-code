@@ -49,8 +49,8 @@ plt.legend()
 
 # Compute bins
 bin_means, bin_edges, binnumber = \
-    stats.binned_statistic_2d(x=x, values=y,
-        statistic='median', bins=10,
+    stats.binned_statistic_2d(x=x, y=y, values=None,
+        statistic='count', bins=10,
         expand_binnumbers=False)
 
 print(binnumber)
