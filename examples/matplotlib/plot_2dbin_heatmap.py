@@ -1,5 +1,11 @@
+"""
+Heatmap
+------------
+"""
+
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 from scipy import stats
@@ -10,21 +16,15 @@ x = data.timestep
 y = data.shap_values
 z = data.feature_values
 
+# Show
+print(x.unique())
+
 # Binned stats
 statistic, x_edge, y_edge, binnumber = \
     stats.binned_statistic_2d(x=x, y=y, values=z,
-        statistic='count', bins=[5, 10],
+        statistic='count', bins=[20, x.nunique()],
         expand_binnumbers=False)
 
-print(statistic)
+sns.heatmap(statistic, annot=True, linewidth=.5, cmap='coolwarm')
 
-# Plot
-plt.subplot(111)
-plt.imshow(statistic)
-plt.subplots_adjust(left=0.0, bottom=0.1, right=0.7, top=0.9)
-cax = plt.axes([0.85, 0.1, 0.075, 0.8])
-plt.colorbar(cax=cax)
-plt.tight_layout()
-
-# Show
 plt.show()

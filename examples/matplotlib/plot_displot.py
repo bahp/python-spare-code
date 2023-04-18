@@ -1,9 +1,15 @@
+"""
+Display using hexbin
+--------------------
+
+"""
+
 import pandas as pd
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-sns.set_theme(style="dark")
+sns.set_style(style="white")
 
 
 def scalar_colormap(values, cmap, vmin, vmax):
@@ -67,50 +73,23 @@ def scalar_palette(values, cmap, vmin, vmax):
 # Load dataset
 data = pd.read_csv('./data/shap.csv')
 data = data[data.features.isin(['C-Reactive Protein'])]
-data = data[data.timestep == 6]
-#data.feature_values = data.feature_values * 100
+
+# Since the colorbar is discrete, needs to round so that
+# the amount of bins is small and therefore visible. Would
+# it be possible to define a continuous colormap?
 data.feature_values = data.feature_values.round(1)
-#data = data.head(1000)
-#print(data)
+
+# Show
 print(data.describe())
 
 # Configuration
 cmap_name = 'coolwarm' # colormap name
-norm_shap = True
-
-
-import numpy as np
-from scipy import stats
-
-
-x = data.timestep
-y = data.shap_values
-z = data.feature_values
-
-binx = np.array([5.5, 6.5])
-biny = np.linspace(-1, 1, 10)
-
-print(binx)
-print(biny)
-
-# Compute binned statistic (median)
-r3 = stats.binned_statistic_2d(x=x, y=y, values=z,
-    statistic='median', bins=[20, 20],
-    expand_binnumbers=False)
-
-print(r3.statistic)
-print(r3.x_edge)
-print(r3.y_edge)
-
-plt.imshow(r3.statistic)
-plt.colorbar()
-plt.show()
-
-import sys
-sys.exit()
 
 # Loop
 for i, (name, df) in enumerate(data.groupby('features')):
+
+    # Info
+    print("%2d. Computing... %s" % (i, name))
 
     # Get colormap
     values = df.feature_values
@@ -118,64 +97,32 @@ for i, (name, df) in enumerate(data.groupby('features')):
         cmap=cmap_name, vmin=values.min(),
         vmax=values.max())
 
-    print(i)
-
-    # Display
-    """
-    ax = sns.displot(data=df, x='timestep', y='shap_values',
+    # Display displot
+    sns.displot(data=df, x='timestep', y='shap_values',
         hue='feature_values', palette='coolwarm',
         hue_norm=(values.min(), values.max()),
         rug=False)
+
     """
-
-    print(df)
-
-    ax = sns.histplot(
+    # Display histplot
+    sns.histplot(
         data=df, x='timestep', y='shap_values',
-        discrete=(False, False),
-        hue='feature_values', palette='coolwarm',
+        discrete=(False, False), ax=axs[1],
+        hue='feature_values', palette=cmap_name,
         hue_norm=(values.min(), values.max()),
         cbar=False, cbar_kws=dict(shrink=.75),
         #pthresh=.05, pmax=.9, bins=100
     )
+    """
 
     # Format figure
-    plt.title(name)
+    plt.suptitle(name)
+    plt.tight_layout()
     plt.legend([], [], frameon=False)
 
-    #if norm_shap:
-    #    plt.ylim(data.shap_values.min(),
-    #             data.shap_values.max())
-
-    # Invert x axis (if no negative timesteps)
-    # ax.invert_xaxis()
-
-    # Create colormap (fix for old versions of mpl)
-    #cmap = matplotlib.cm.get_cmap(cmap_name)
-
-    # Add colorbar
-    #add_colorbar(plt.gcf(), cmap, norm)
-    break
     # Show only first N
     if int(i) > 2:
         break
 
 # Show
-plt.show()
-
-
-"""
-values = data.feature_values
-cmap, hnorm = scalar_colormap(values=values,
-         cmap='coolwarm', vmin=values.min(),
-         vmax=values.max())
-
-
-# Display
-sns.displot(
-    data=data, x="timestep", y="shap_values", hue='feature_values',
-    col="features", log_scale=(False, False), height=4, aspect=.7,
-    col_wrap=2, palette=cmap, kind='hist'
-)
-"""
 plt.show()

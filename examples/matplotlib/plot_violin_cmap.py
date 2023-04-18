@@ -1,3 +1,9 @@
+"""
+Display violin with linear cmap
+-------------------------------
+
+"""
+
 import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt

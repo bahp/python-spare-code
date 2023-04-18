@@ -1,9 +1,23 @@
+"""
+Histogram 2D
+------------
+
+"""
+
 import matplotlib
 import numpy as np
 import pandas as pd
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+
 from scipy import stats
 
+# See https://matplotlib.org/devdocs/users/explain/customizing.html
+mpl.rcParams['font.size'] = 8
+mpl.rcParams['axes.titlesize'] = 8
+mpl.rcParams['axes.labelsize'] = 8
+mpl.rcParams['xtick.labelsize'] = 8
+mpl.rcParams['ytick.labelsize'] = 8
 
 def heatmap(data, row_labels, col_labels, ax=None,
             cbar_kw=None, cbarlabel="", **kwargs):
@@ -124,7 +138,7 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
     return texts
 
 
-def plot_binned_statistic(r, ax, title=None, **kwargs):
+def plot_binned_statistic(r, ax, title=None, astype=None, **kwargs):
     """Plots the binned statistic
 
     Parameters
@@ -138,26 +152,30 @@ def plot_binned_statistic(r, ax, title=None, **kwargs):
     # Variables
     rows, cols = r.statistic.shape
 
+    # Compute centers
     x_center = (r.x_edge[:-1] + r.x_edge[1:]) / 2
     y_center = (r.y_edge[:-1] + r.y_edge[1:]) / 2
 
+    # Plot heatmap (matplotlib sample, use seaborn instead)
     im, cbar = heatmap(r.statistic,
         np.around(x_center, 2), np.around(y_center, 2), ax=ax,
         cmap="coolwarm", cbarlabel="value [unit]")
-    texts = annotate_heatmap(im)
+    texts = annotate_heatmap(im, **kwargs)
 
     # Configure
     ax.set_aspect('equal', 'box')
     if title is not None:
         ax.set_title(title)
 
+    """
     # Show
     print("\n\n")
-    print(r.statistic)
+    print(matrix)
     print(r.x_edge)
     print(r.y_edge)
     print(r.binnumber)
     print(np.flip(r.statistic, axis=1))
+    """
 
 def data_manual():
     """"""
@@ -211,11 +229,12 @@ r4 = stats.binned_statistic_2d(x=x, y=y, values=z,
     statistic='mean', bins=[binx, biny],
     expand_binnumbers=False)
 
+
 # Plot
 fig, axs = plt.subplots(nrows=2, ncols=2,
     sharey=True, sharex=True, figsize=(14, 7))
-plot_binned_statistic(r1, axs[0,0], title='r1 (count)')
-plot_binned_statistic(r2, axs[0,1], title='r2 (count)')
+plot_binned_statistic(r1, axs[0,0], title='r1 (count)', valfmt="{x:g}")
+plot_binned_statistic(r2, axs[0,1], title='r2 (count)', valfmt="{x:g}")
 plot_binned_statistic(r3, axs[1,0], title='r3 (median)')
 plot_binned_statistic(r3, axs[1,1], title='r4 (mean)')
 

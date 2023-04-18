@@ -1,3 +1,9 @@
+"""
+Display table with bars
+------------------------
+
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 
