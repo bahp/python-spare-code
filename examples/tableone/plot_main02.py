@@ -13,7 +13,7 @@ from tableone import TableOne
 # Load data
 # ------------------------
 # Load data
-data = pd.read_csv('./data/20210602-134857-completed/dataset.csv')
+data = pd.read_csv('./data/dengue.csv')
 
 # ------------------------
 # Create tableone
