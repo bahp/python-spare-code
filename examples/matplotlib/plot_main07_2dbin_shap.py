@@ -126,6 +126,11 @@ for i, (name, df) in enumerate(data.groupby('features')):
     axs[1].tick_params(axis=u'y', which=u'both', length=0)
     # axs[1].invert_yaxis()
 
+    # Identify zero crossing
+    #zero_crossing = np.where(np.diff(np.sign(biny)))[0]
+    # Display line on that index (not exactly 0 though)
+    #plt.axhline(y=len(biny) - zero_crossing, color='lightgray', linestyle='--')
+
     # Generic
     plt.suptitle(name)
     plt.tight_layout()

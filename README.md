@@ -24,6 +24,10 @@ Install libraries as follows
 $ python -m pip install -r requirements.txt
 ```
 
+There is an issue with the dropdown in the side bar for most recent versions
+of `sphinx` and `sphinx-gallery`. Thus, these have been fixed in the requirements
+to the following versions: `sphinx==5.3.0` and `sphinx-gallery==0.10.0`.
+
 ### Adding a new project
 
 Create a new folder `foldername` and a `foldername/scriptname.py` script as shown below

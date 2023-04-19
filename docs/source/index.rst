@@ -41,22 +41,9 @@ might offer a valuable resource. So dive in and start exploring!
 
    usage/introduction
 
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Favourites
-   :hidden:
-
-   _examples/matplotlib/index
-   _examples/plotly/index
-   _examples/scikits/index
-   _examples/shap/index
-   _examples/pandas/index
-
-
 .. toctree::
    :maxdepth: 4
-   :caption: All
+   :caption: Gallery
    :hidden:
 
    _examples/index

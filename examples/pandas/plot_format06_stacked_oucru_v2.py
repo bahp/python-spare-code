@@ -41,7 +41,7 @@ def keep_by_table(df, tablename, remove_prefix=True):
 # Load data
 # -----------------------------
 # Load data
-data = pd.read_csv('./data/combined_stacked.csv',
+data = pd.read_csv('./data/stacked-oucru/combined_stacked.csv',
     #nrows=1000,
     parse_dates=['date'])
 

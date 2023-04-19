@@ -10,7 +10,7 @@ import pandas as pd
 # Load data
 # -----------------------------
 # Load data
-data = pd.read_csv('./data/combined_stacked.csv',
+data = pd.read_csv('./data/stacked-oucru/combined_stacked.csv',
     parse_dates=['date'])
 
 # Show

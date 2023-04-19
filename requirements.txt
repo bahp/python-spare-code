@@ -3,7 +3,8 @@ tableone
 tensorflow
 hiplot
 plotly
-sklearn
+#sklearn
+scikit-learn
 shap
 tpot
 factory-boy
@@ -14,8 +15,8 @@ dash
 favicon
 pybaobabdt
 #pygraphviz
-sphinx
-sphinx-gallery
+sphinx==5.3.0
+sphinx-gallery==0.10.0
 sphinx-rtd-theme
 openpyxl
 kaleido
