@@ -9,14 +9,14 @@
 
 # Data files
 #**/*.csv
-#**/*.html
-#**/*.png
-#**/*.jpg
-#**/*.xlsx
-#**/*.xls
-#**/*.json
-#**/*.log
-#**/*.p
+**/*.html
+**/*.png
+**/*.jpg
+**/*.xlsx
+**/*.xls
+**/*.json
+**/*.log
+**/*.p
 
 # PyCharm folder
 .idea
