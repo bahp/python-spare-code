@@ -18,3 +18,4 @@ sphinx
 sphinx-gallery
 sphinx-rtd-theme
 openpyxl
+kaleido
