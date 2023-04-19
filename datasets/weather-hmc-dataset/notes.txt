@@ -1,0 +1,7 @@
+Notes
+-----
+Downloaded from the following webpage.
+Maximum 1000 free rows per day.
+Maximum 250 rows per query.
+
+URL: https://www.visualcrossing.com/weather/weather-data-services#/viewData

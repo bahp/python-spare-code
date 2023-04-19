@@ -1,0 +1,185 @@
+Name,Date time,Maximum Temperature,Minimum Temperature,Temperature,Wind Chill,Heat Index,Precipitation,Snow,Snow Depth,Wind Speed,Wind Direction,Wind Gust,Visibility,Cloud Cover,Relative Humidity,Conditions
+"Quận 1, Hồ Chí Minh, Việt Nam",07/01/2020,32,25,27.7,,38.6,6.3,,,19.2,200.59,63,8.1,51.5,85.09,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/02/2020,32.4,24.4,28,,39.2,19.2,,,25,244.92,,9.8,56.7,82.18,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/03/2020,29.4,25,27.1,,35.2,5.1,,,18.9,220.88,,9.4,58.4,85.94,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/04/2020,32.2,26,28.7,,37.7,0,,,13,276,,9.6,47.8,75.09,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/05/2020,32.6,24.8,28,,39.3,19,,,12.2,222.35,31.7,9.2,54.9,84.87,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/06/2020,30,26,28,,37.6,13,,,13,159.33,,9.3,50.4,85.97,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/07/2020,33,27,29.6,,40,0,,,17.3,160.68,,9.7,54.1,78.57,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/08/2020,31.4,23.6,27,,38,41,,,19.2,162.89,33.5,8.1,50.8,89.52,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/09/2020,34,24.4,29.1,,39.8,0,,,18.4,248.86,,8.5,45.4,77.13,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/10/2020,33.4,27,29,,39.4,0,,,18.4,238.14,,10.3,50.9,80.15,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/11/2020,33.9,26,29.3,,39.9,0,,,17.6,194.65,,9.6,58.5,78.56,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/12/2020,33.6,25.1,28.5,,38.8,0,,,14.4,254.79,,10.3,57.1,80.06,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/13/2020,31.6,25,27.3,,39.1,8.1,,,27.7,200.78,,9.2,58.9,89.67,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/14/2020,35.4,24.6,29.5,,41.4,0,,,20.7,236,,9.1,51,77.87,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/15/2020,32.4,24,28.6,,39.2,46,,,16.6,203.2,,9.4,54.2,81.3,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/16/2020,32.6,27.9,29.6,,40,0.7,,,17,201.42,,10.1,48.2,79.13,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/17/2020,34.1,26,30,,40.7,0,,,14,190.17,,9.4,50.6,75.52,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/18/2020,31.8,26,28.2,,38.6,0.2,,,16.5,227.39,,8.9,47.2,84.15,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/19/2020,34,25,29.4,,40.6,0,,,11.5,193.68,,8.2,49.1,79.95,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/20/2020,32.3,24.8,28.1,,39.6,1.2,,,17.2,188.82,,8.8,63.3,87.22,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/21/2020,31.6,25,28.1,,39.4,0,,,10.8,167.95,,8.8,51.8,84.12,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/22/2020,34,25.6,29.8,,40.6,0,,,13,158.5,,9.8,51,76.26,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/23/2020,33.2,23.4,28,,39.1,0.9,,,18.4,212.6,46.4,9.5,60,83.25,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/24/2020,33,24.4,26.9,,39.1,20.6,,,14.4,174.95,,9.1,59.2,88.52,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/25/2020,33,25,28.6,,40,0.1,,,14.4,162.5,,8,55.6,81.62,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/26/2020,32.6,26,29,,38.7,0,,,12.6,226.57,,9.5,47.6,80.46,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/27/2020,34.3,26.1,30,,39.8,0,,,16.2,206.94,,9.9,49.8,75.25,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/28/2020,32.6,25.6,29,,39.9,0,,,18.9,193.82,,9.6,49,81.71,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",07/29/2020,34,24,28.6,,42.3,14.9,,,23.9,239.81,,9.6,59,80.16,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/30/2020,33,25,29,,40.6,4,,,22.3,295.18,,9.8,47.8,79.68,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",07/31/2020,32.9,24.4,28.5,,40.3,0,,,27,263.42,,9.6,60.6,84.31,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/01/2020,31,26,27.2,,38.8,24.1,,,37.5,242.29,48.2,9.8,76.9,88.02,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/02/2020,29,24.9,25.7,,34.5,32.8,,,24.5,230.38,,8.7,72.8,93.28,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/03/2020,28,24,26.3,,32.7,19,,,24.5,240.29,,9.4,60.5,92.04,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/04/2020,32.5,26,28.2,,39.7,0.1,,,25.5,247.29,,10,54.5,82.49,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/05/2020,32.6,23,27.2,,40.6,43.4,,,21.8,268.41,46.4,8.7,56,87.43,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/06/2020,31,23.1,26.5,,37.7,88.5,,,20.7,270.08,,8.7,67.5,89.95,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/07/2020,32,24,27.2,,37.9,21,,,14.8,293.23,,9.6,63,84.79,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/08/2020,31,25.2,27.1,,37.1,3,,,19.2,265.26,,8.5,59.8,90.7,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/09/2020,32.4,25,26.9,,39,10.3,,,17,236.57,42.5,9.2,49,88.99,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/10/2020,31,24,27.1,,37.7,16,,,25.8,237.14,55.4,9.9,52.7,87.76,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/11/2020,33.3,26.9,29.7,,40.1,0,,,26.1,250.63,,10.3,51.1,76.65,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/12/2020,31.3,26,27.9,,39.1,26.3,,,17.3,221.68,,9,60,88.33,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/13/2020,31,25.4,27.1,,37.7,0,,,21.3,199.53,,9.7,55.6,90.68,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/14/2020,32.4,24.9,27.6,,39.7,0,,,14.1,205.25,,8.9,56.2,84.91,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/15/2020,32,24,27.4,,39.2,40,,,15.5,255.77,,9.4,49.6,84.44,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/16/2020,34,25,28.7,,39.2,0.3,,,17.3,279.38,,9.3,50.3,79.18,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/17/2020,33,25,28.8,,39.6,0.5,,,17.3,230.17,,9.9,47.3,78.67,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/18/2020,33.9,26,29.2,,40.4,0,,,16.6,278.39,,9.9,59.2,76.76,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/19/2020,32.1,25,27.7,,40.1,32.4,,,17.6,258.88,,9.3,65.7,85.96,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/20/2020,33,25,28.3,,39.1,9,,,14.8,223.05,,9.3,57.5,80.52,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/21/2020,34,26.4,29.7,,41.6,0.1,,,16,253.91,,9.9,49.2,75.59,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/22/2020,34,27,29.6,,39.8,22.4,,,18.4,229.54,,9.9,52.1,77.37,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/23/2020,34,27.4,29.6,,40,0,,,17.2,228.13,,10.1,47.8,76.1,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/24/2020,33.6,26,28.9,,40.6,6,,,13,245.06,,9.2,55.7,80.71,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/25/2020,35,26.1,30.2,,41.9,3.1,,,16.9,235.74,,9.5,50.8,76.88,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/26/2020,35,27,30.4,,42.6,0.2,,,20,251.25,,10.3,54.2,77.06,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",08/27/2020,34,27,30.5,,40.6,0,,,22,253.75,,10.4,46,74.29,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/28/2020,34.6,27,30.2,,41.5,0,,,23.1,248.71,,10.7,49.7,75.49,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/29/2020,34,27,29.9,,42.2,0,,,19.6,239.46,51.8,10.1,51.6,78.97,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/30/2020,34.1,26.9,29,,42.1,0,,,17.1,228.18,,10.3,52.2,80.37,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",08/31/2020,34.8,26,28.7,,41.7,0.4,,,22.9,222.92,,10,50.3,79.81,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/01/2020,31.9,25,27.5,,39.6,12.3,,,24.9,159.45,,8.3,55.5,89.04,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/02/2020,34,25,28.6,,41.1,1.3,,,19.6,228.26,,9,65.2,83.92,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/03/2020,33.1,25.4,29.4,,40.6,35,,,13,255.05,,9.9,60.6,79.19,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/04/2020,34,25,29.1,,41.5,10,,,20.3,203.59,,9.5,56.5,81.23,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/05/2020,32.6,25.4,28.5,,39.7,0,,,22.2,226.6,50,9.1,55.2,83.87,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/06/2020,34.2,24.6,28.4,,41.3,0,,,14.7,243.05,,8.8,60,84.97,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/07/2020,34,24.1,28.6,,40.6,0,,,19.3,238.36,,9.9,43.2,81.36,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/08/2020,33,26,29.4,,40.6,0,,,14.7,250.05,,10,42.7,81.52,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/09/2020,33.4,27,28.7,,40.7,0,,,18.2,251.95,,9.1,51.9,84.7,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/10/2020,33.6,24.8,28.3,,40,0,,,21,230.27,59.4,8.9,56.9,85.22,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/11/2020,32.6,25,28.1,,40.6,0,,,13.6,238.6,,8.1,59.7,86.47,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/12/2020,34,25.6,28.5,,41.5,0.1,,,20.2,255.64,,8.8,58.2,84.02,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/13/2020,32,25,26.7,,39.1,7.1,,,22.2,222.47,33.5,8.3,64.6,91.34,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/14/2020,29.6,24.4,26.3,,36.7,1.5,,,18.4,250.05,,6.9,59.1,93.73,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/15/2020,31,24.4,27.4,,37,0,,,17.3,256.13,,9.2,59.3,84.93,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/16/2020,32.6,25,28.5,,38.7,0.1,,,17.8,269,,9.7,55.3,81.17,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/17/2020,33,25,28,,40,0.1,,,19.2,268.79,,9.2,56.9,84.21,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/18/2020,30.4,25,27.1,,38,2.1,,,29.3,234.25,,9.6,77,91.5,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/19/2020,30,23,25.3,,37.4,51.6,,,18.4,177.7,,8.4,68.1,95.4,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/20/2020,32,24,26.9,,38.3,2.1,,,26.3,203.8,50,9.5,64.7,89.07,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/21/2020,33.1,24.4,27.9,,40.9,0.5,,,20.4,211.06,,8,61,88.6,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/22/2020,33.5,25,28.3,,40,0,,,23.7,187.83,,8.5,57,86,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/23/2020,32,24,27,,38.3,77,,,14.8,204.2,,9,55.2,87.56,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/24/2020,33.4,25,27.6,,40.9,0,,,18.4,197.5,,8.7,52.3,87.82,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",09/25/2020,32.6,24,28,,41.5,0.1,,,26.5,206.91,48.2,9.1,48.8,86.74,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/26/2020,31,24.2,27.3,,39.1,0.1,,,23.4,264.55,,9.5,58.6,89.03,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/27/2020,31,24.9,26.6,,39.1,14.2,,,16,240.23,,8.6,66.6,93.33,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/28/2020,30.6,25,27.2,,38.1,4.4,,,16.7,201.3,,10,64.5,88.06,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/29/2020,30.4,25,27.1,,38.8,0.2,,,17.3,269.35,,9.6,53.4,89.43,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",09/30/2020,32.4,25,28.1,,40.5,0.1,,,16.9,269.91,,9.2,52.2,86.05,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/01/2020,33,25.4,28.6,,41.2,0,,,14.7,290.71,,9.6,52.4,84.02,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",10/02/2020,32.3,26,27.8,,41.8,2.9,,,15.8,225.61,,7.1,61.6,92.92,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/03/2020,32.6,25.1,28.1,,40.9,2,,,21.6,253.95,,8.7,56.1,87.58,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/04/2020,32.6,25,28.3,,39.6,0,,,23.4,252.73,,9.6,60.7,84.74,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",10/05/2020,31,24.9,26.4,,38.4,8.5,,,20.6,265.68,,9.1,59.8,93.1,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/06/2020,30,25,27.4,,37.4,6,,,14.8,300.3,,8.9,61.8,90.97,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/07/2020,27.6,25,26.1,,33,62,,,15.1,276.32,,7.8,62.5,98.19,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/08/2020,31.5,25,27.3,,38.5,0,,,19.6,194.42,,9.6,80.4,89.06,Overcast
+"Quận 1, Hồ Chí Minh, Việt Nam",10/09/2020,29,25.6,26.4,,36.8,7.8,,,10.8,173.35,,7.9,79.6,97.4,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/10/2020,30.4,25,26.6,,38.7,25.4,,,23.9,249,,7.3,83.6,94.59,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/11/2020,28.4,25,26.4,,35.5,14.8,,,22.8,258.65,,7.8,87.1,96.7,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/12/2020,31,25,27,,37.7,7.1,,,19.2,282.54,,8.6,80.3,90.04,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/13/2020,30,25,26.7,,36.2,0.2,,,20,270.5,,8.8,83.3,90.95,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/14/2020,27,25,25.8,,31.2,27.1,,,13.3,226.09,,8.1,77.3,98.03,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/15/2020,30.6,25,26.5,,37.1,4.4,,,19.6,262.63,,8.2,77.1,94.35,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/16/2020,28,25,25.7,,33.5,8.7,,,26.6,245.54,59.4,8.8,97,96.84,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/17/2020,30,24.9,26.1,,35.7,8.1,,,25.9,229.08,,8.3,94.7,93.4,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/18/2020,29,23.4,26.3,,34.5,24.1,,,16.6,223.19,,9.4,97.8,92.65,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/19/2020,31,25,28,,36.8,0.2,,,17.6,266.71,,9.7,80.1,85.56,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/20/2020,32,25,28.2,,39,11,,,10.2,281.25,,9.7,69.3,83.2,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/21/2020,31,26,27.9,,39.1,0.9,,,14.8,230,,9.9,79,86.92,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/22/2020,33.4,25.4,29,,39,0,,,9.7,252.63,,9.1,64.5,76.69,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",10/23/2020,31.6,25.9,28.2,,35.3,25,,,11.5,259.74,,9.4,71.5,75.89,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/24/2020,32.6,26,28.1,,35.6,0,,,14.8,230.04,,9.4,66.8,75.26,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",10/25/2020,31,25,27.7,,35.5,0,,,12.2,248.14,,9.9,67.5,80.79,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",10/26/2020,32.1,25,28,,35.9,0,,,16,281.04,,9.3,50.7,74.16,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",10/27/2020,30.6,25,27.5,,34.4,0,,,22.7,316.13,,9.8,73.8,75.42,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",10/28/2020,29,26,27.1,,32.7,0,,,21.6,284.09,,9.7,99.6,76.23,Overcast
+"Quận 1, Hồ Chí Minh, Việt Nam",10/29/2020,32.6,25,27.3,,37.5,0.5,,,25.2,215.21,,9.5,87.4,81.41,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/30/2020,33.4,24.4,28.2,,38.6,0.6,,,14.8,204.71,,9.4,61.1,78.38,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",10/31/2020,32.6,23.4,27.6,,40.6,0.9,,,19.3,274.86,,8,70.6,86.17,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/01/2020,32.4,25,28.2,,39.2,0.1,,,13,279.57,,9.2,73.7,84.15,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/02/2020,31.6,25,27.8,,35.6,16,,,12.4,262.8,,10,51.8,78.8,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/03/2020,33,25,28.6,,35.6,0,,,10.4,205.35,,8.7,47.9,75.45,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/04/2020,31.6,26,28,,36.9,0,,,17.8,235.36,,8.4,65.2,81.1,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/05/2020,33.6,25,28.7,,37.7,0,,,14,272.56,,8.5,53,77.14,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/06/2020,30,26,27.8,,35.1,0.3,,,11.8,226.64,,8.9,67.5,80.69,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/07/2020,32.4,25,28.4,,37.4,0,,,16.2,114.14,,10,53.1,77.79,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/08/2020,32.3,25,28.3,,36.6,22,,,18.5,248.52,,9.3,65.9,71.05,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/09/2020,31,23,27,,33.7,0,,,16.6,144.59,,9.2,73.8,71.13,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/10/2020,29,24.6,26.4,,31.1,0,,,23.8,323.63,,10.1,82.6,72.85,Overcast
+"Quận 1, Hồ Chí Minh, Việt Nam",11/11/2020,29.6,22,25.5,,34.1,0,,,12.6,216.05,,9.7,78,84.67,Overcast
+"Quận 1, Hồ Chí Minh, Việt Nam",11/12/2020,33.4,23.4,27.1,,37.7,2,,,16.6,182.14,,7.9,58.9,84.29,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/13/2020,31,24,27.5,,36.5,0,,,11.5,271.23,,8.7,57.6,81.03,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/14/2020,33,23,28,,36.1,0,,,13,268.43,,9.7,41.1,65.89,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/15/2020,32.6,25,28.3,,37.9,0,,,13.7,173.57,,9.6,51.3,72.55,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/16/2020,34.2,24.9,28.1,,39,0,,,16.6,138.56,51.8,9.4,58.8,79.03,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/17/2020,34,24.6,29,,38.7,0,,,11.9,163.72,,8.9,56.4,75.96,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/18/2020,33,25,28.4,,38.5,0.1,,,16,157.81,,9,51.2,79.92,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/19/2020,33,26,28.6,,40,0.3,,,15.8,138.05,,9,52.7,79.4,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/20/2020,32.2,26,28.7,,39.4,2,,,15.1,112.9,,9.7,63.3,77.96,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/21/2020,32,25,27.7,,38.8,1,,,11.2,169.78,,7.7,62,86.14,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/22/2020,33.6,24,27.8,,39.5,0,,,11.9,178.68,,9.2,54.9,82.24,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/23/2020,33.4,25,27.8,,39.3,0.1,,,14,237.84,,8,51.3,85.57,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/24/2020,32.6,24,28,,34.8,0,,,11.4,135.37,,9.4,48.9,73.42,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/25/2020,33,25,28.3,,35.8,0,,,12.5,83.84,,9.6,61.2,72.09,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/26/2020,32.3,26,28.5,,34.5,0,,,9.8,149.76,,9.4,70,70.49,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/27/2020,33.1,25,28.3,,35.4,0,,,12.2,133.5,,9.1,64.6,72.16,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/28/2020,32.8,23.4,28.2,,36.9,0,,,16.6,62.52,,9.7,60.8,70.74,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",11/29/2020,29,25,26.8,,33.6,14.7,,,14.8,105.3,,9.1,82.6,86.29,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",11/30/2020,31.4,24.1,27.2,,35.5,0.9,,,16.8,102,,9.4,72.7,81.9,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/01/2020,31,25,27.7,,35.9,0,,,19.6,141.19,,9.3,70.2,80.73,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/02/2020,32.9,24,28.2,,35.9,0,,,12.6,98.96,,9.4,56.6,73.61,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/03/2020,33,22.4,27.5,,33.5,0,,,13,98.17,,10.1,40.5,60.22,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/04/2020,32,22,26.8,,31.8,0,,,14,51.71,,10.2,32.6,53.81,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/05/2020,32,21.5,26.7,,33.2,0,,,13.3,199.43,,9.8,28,65.4,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/06/2020,33,22.4,27.7,,34.8,0,,,11.2,162,,10.3,38.3,64.86,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/07/2020,30.6,24,27.3,,33.7,0,,,11.9,97.82,,10.1,60.6,68.93,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/08/2020,32,23,27.4,,34.1,0,,,13.7,49.65,,10.2,49.5,65.2,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/09/2020,30.9,25,27.6,,33.2,0,,,14.8,125.46,,10.1,68.4,63.25,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/10/2020,31.4,25,27,,35.6,0.2,,,13,157.86,,8.6,75.3,79.17,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/11/2020,30.6,24,27.2,,36.8,0.2,,,8.6,245.72,,7.3,80.7,88.1,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/12/2020,32,26,27.9,,39.2,0,,,11.9,159.53,,8,63,87.36,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/13/2020,30,25,27.4,,36.2,0,,,9.4,248.24,,7.7,67.8,87.05,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/14/2020,33.6,25,28.2,,39.2,6.3,,,17.5,118.1,,9.3,62.2,81.5,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/15/2020,33,25,28,,38.2,0.3,,,13.7,161.82,,8,54.2,84.36,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/16/2020,33,24,28,,36.1,1.4,,,13,107,,9.4,52.6,76.65,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/17/2020,33,25,28.5,,35.8,0.1,,,10.1,183.59,,9.9,55.2,70.64,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/18/2020,31.6,24,28.1,,35.3,0.1,,,13.4,51.05,,9.9,62.6,68,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/19/2020,31,24.4,27.4,,33.3,0,,,14.8,42.67,,9.9,59.9,66.5,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/20/2020,29.5,23,25.8,,30.4,0,,,22.7,155.17,,10.1,62.5,65.41,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/21/2020,31,22,26.2,,31.8,0,,,24.1,99.29,,10.3,62.5,58.39,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/22/2020,28,22.9,25.5,,28.9,0.1,,,19.6,299.42,,10.1,77.3,64.29,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/23/2020,30.5,23,25.4,,33.9,6.3,,,16.2,290.83,38.9,8.9,88.9,81.06,"Rain, Overcast"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/24/2020,32.5,23.9,27.5,,36.8,0.1,,,16.2,167.3,37.1,7.6,62.4,83.25,"Rain, Partially cloudy"
+"Quận 1, Hồ Chí Minh, Việt Nam",12/25/2020,32,23.4,27.7,,35.8,0,,,12.4,121.96,,9.1,56.1,78.67,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/26/2020,33.6,24,28.1,,35.9,0,,,11.2,172,,9.2,56.5,76.61,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/27/2020,33.6,24,27.9,,37.4,0,,,18.4,230,,8.7,51.5,78.68,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/28/2020,32.2,24,27.6,,35.1,0,,,12.2,242.43,,9.7,47.7,75.42,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/29/2020,32.9,24.9,28.1,,34.9,0,,,14.4,219.05,,9.2,62.4,75.07,Partially cloudy
+"Quận 1, Hồ Chí Minh, Việt Nam",12/30/2020,30,25,27.2,,31.1,0,,,25.9,84.63,,9.3,77.5,64.6,Overcast
+"Quận 1, Hồ Chí Minh, Việt Nam",12/31/2020,29,24,26.4,,29.2,0,,,18.4,83,,10.2,67.7,53.66,Partially cloudy
