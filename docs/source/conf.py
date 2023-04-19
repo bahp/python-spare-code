@@ -62,10 +62,12 @@ napoleon_use_ivar = True
 # ------------------
 # Plotly outcomes
 # ------------------
-# Include plotly
+# Requires kaleido library
 import plotly.io as pio
+from plotly.io._sg_scraper import plotly_sg_scraper
 #pio.renderers.default = 'sphinx_gallery'    # It does not generate thumbmails
 pio.renderers.default = 'sphinx_gallery_png' # It distorts htmls a bit.
+image_scrapers = ('matplotlib', plotly_sg_scraper)
 
 
 # ------------------
@@ -102,8 +104,8 @@ sphinx_gallery_conf = {
     'line_numbers': True,
     'download_all_examples': False,
     'within_subsection_order': FileNameSortKey,
-    'image_scrapers': ('matplotlib', plotly_sg_scraper,)
-    #'matplotlib_animations': True
+    'image_scrapers': image_scrapers,
+    'matplotlib_animations': True
 }
 
 # ------------------

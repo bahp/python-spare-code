@@ -293,6 +293,8 @@ if __name__ == '__main__':
     iqr = IQRFilter(iqrrange=[25, 75], coefficient=1.5)
 
     # Fit and filter
-    print(iqr.fit_filter(data, y))
+    X, y = iqr.fit_filter(data, y)
 
-    # Do some sample plots...
+    # Show
+    print(X)
+    print(y)

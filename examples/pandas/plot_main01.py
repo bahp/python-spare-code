@@ -1,5 +1,5 @@
 """
-Pandas - Main 01
+Main 01 -
 ================
 """
 
@@ -28,7 +28,7 @@ data = pd.DataFrame(data,
     columns=['patient', 'date', 'plt', 'hct', 'bil'])
 
 # Format datetime
-# Date will be a datetime65[ns] instead of string
+# Date will be a datetime64[ns] instead of string
 data.date = pd.to_datetime(data.date, dayfirst=True)
 data.date = data.date.dt.normalize()
 
@@ -143,7 +143,7 @@ if TERMINAL:
 agg
 
 ###################################################################
-# Lets group by patient per 2days and compute mean and max.
+# Lets group by patient per 2 days and compute mean and max.
 
 agg = aux.groupby(by=['patient', pd.Grouper(freq='2D')]) \
     .agg('mean', 'max')

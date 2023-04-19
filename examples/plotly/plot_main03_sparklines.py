@@ -1,6 +1,6 @@
 """
-Plot Sparklines
-===================
+Main 03 - Plot Sparklines
+=========================
 
 This example shows to to plot sparklines style graphs.
 """
@@ -19,6 +19,7 @@ import plotly.graph_objects as go
 
 from pandas.tseries.offsets import DateOffset
 from plotly.subplots import make_subplots
+from plotly.io import show
 
 try:
     __file__
@@ -60,6 +61,7 @@ data = data.drop(columns='timedelta')
 if TERMINAL:
     print("\nData:")
     print(data)
+data
 
 
 
@@ -128,6 +130,4 @@ for i, column in enumerate(data.columns):
 fig.update_layout(layout)
 
 # Show
-if TERMINAL:
-    fig.show()
-fig
+show(fig)

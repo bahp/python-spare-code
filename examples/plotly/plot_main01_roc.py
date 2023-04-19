@@ -1,14 +1,15 @@
 """
-Plot ROC
-============
+Main 01 - Plot ROC
+===================
 
-This example shows how to plot the ROC curves
-for various splits.
+This example shows how to plot the ROC curves for various splits.
 
 .. todo: Instead of specify the color for each single trace,
          which is also a good option, it is possible to
          define in the layout the variable colorway with the
          cycle of colors that will be used.
+
+# sphinx_gallery_thumbnail_path = '_static/images/icon-github.svg'
 """
 
 # Libraries
@@ -16,14 +17,10 @@ import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
 
+from plotly.io import show
+
 # Layout
 from plotly.graph_objects import Layout
-
-try:
-    __file__
-    TERMINAL = True
-except:
-    TERMINAL = False
 
 # -----------------------------------------
 # Config
@@ -118,6 +115,4 @@ fig.update_yaxes(showgrid=True,
                  gridcolor='lightgray')
 
 # Show
-if TERMINAL:
-    fig.show()
-fig
+show(fig)

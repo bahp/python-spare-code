@@ -1,6 +1,6 @@
 """
-Dash Table
-=================
+Main 30 - Dash Table
+====================
 
 .. note:: https://plotly.com/python/2d-histogram-contour/
 

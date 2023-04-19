@@ -1,8 +1,6 @@
 """
-Plot Treemap (v1)
------------------
-
-.. note:: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
+Main 06 - Plot Treemap with coffee
+----------------------------------
 
 """
 # %%
@@ -11,6 +9,8 @@ Plot Treemap (v1)
 # Libraries
 import plotly.graph_objects as go
 import pandas as pd
+
+from plotly.io import show
 
 try:
     __file__
@@ -51,6 +51,4 @@ fig.update_layout(
 )
 
 # Show
-if TERMINAL:
-    fig.show()
-fig
+show(fig)

@@ -51,8 +51,7 @@ might offer a valuable resource. So dive in and start exploring!
    _examples/plotly/index
    _examples/scikits/index
    _examples/shap/index
-   _examples/tableone/index
-   _examples/jsonpickle/index
+   _examples/pandas/index
 
 
 .. toctree::

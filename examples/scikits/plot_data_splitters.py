@@ -18,6 +18,12 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import KFold
 
 
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
 def split_dataframe_hos_cvs(dataframe,  **kwargs):
     """This method labels the dataframe hos and cvs sets.
 
@@ -176,7 +182,6 @@ _DEFAULT_SPLITTERS = {
     'skfold2': StratifiedKFold(n_splits=2, shuffle=True),
 }
 
-TERMINAL = True
 
 # --------------------------------------------------
 # Main
@@ -198,35 +203,40 @@ if TERMINAL:
     print(dataframe)
 dataframe
 
+# %%
+# Lets split in HOS and CVS
+
 # Split in HOS and CVS sets
 df = split_dataframe_hos_cvs(dataframe)
-
-# %%
-# Lets see the HOS/CV splits
 
 if TERMINAL:
     print("\nData")
     print(df)
 df
+
+# %%
+# Lets split the CSV in various folds
 
 # Split in folds
 df = split_dataframe_cvs_folds(dataframe,
     splitter='skfold5', y=bunch.target,
     selected_rows=(dataframe.sets == 'cvs'))
 
-# %%
-# Lets see the splits
-
 if TERMINAL:
     print("\nData")
     print(df)
 df
 
+
+
+# %%
+# Lets split in HOS and CVS using the class
+#
+# .. note:: This might not be working properly!
+
 # Divide in HOS and CSV.
 df = DataframeHOSCSVSplitter().split(dataframe)
 
-# %%
-# Lets see the HOS/CSV sets
 if TERMINAL:
     print("\nData")
     print(df)

@@ -1,6 +1,6 @@
 """
-Plot Treemap (v2) - MIMIC
--------------------------
+Main 06 - Plot Treemap with MIMIC
+---------------------------------
 
 This example displays a Treemap using the MIMIC dataset.
 
@@ -9,6 +9,9 @@ This example displays a Treemap using the MIMIC dataset.
 
 # Libraries
 import pandas as pd
+
+
+from plotly.io import show
 
 try:
     __file__
@@ -230,9 +233,4 @@ fig.add_trace(go.Treemap(
 """
 
 # Show
-if TERMINAL:
-    fig.show()
-fig
-
-# %%
-#
+show(fig)

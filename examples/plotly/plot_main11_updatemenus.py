@@ -1,6 +1,6 @@
 """
-Plot updatemenus
-================
+Main 11 - Using updatemenus
+===========================
 
 This example show how to include buttons in the
 plotly graph by using update menus. Work should
@@ -14,6 +14,8 @@ window!
 
 import plotly
 import plotly.graph_objs as go
+
+from plotly.io import show
 
 try:
     __file__
@@ -89,6 +91,5 @@ path.mkdir(parents=True, exist_ok=True)
 # Save
 fig.write_html("%s/%s" % (path, filename))
 
-# Show (sphinx)
-#fig.show()
-fig
+# Show
+show(fig)

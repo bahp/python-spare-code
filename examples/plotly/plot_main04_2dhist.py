@@ -1,6 +1,6 @@
 """
-Plot Histogram 2D
-=================
+Main 04 - Histogram 2D
+======================
 
 .. note:: https://plotly.com/python/2d-histogram-contour/
 
@@ -9,6 +9,7 @@ Plot Histogram 2D
 import numpy as np
 import plotly.graph_objects as go
 
+from plotly.io import show
 
 try:
     __file__
@@ -106,6 +107,4 @@ fig.update_layout(
 )
 
 # Show
-if TERMINAL:
-    fig.show()
-fig
+show(fig)

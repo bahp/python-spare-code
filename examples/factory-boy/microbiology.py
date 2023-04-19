@@ -128,7 +128,3 @@ if __name__ == '__main__':
            norgs=randrange(N_MAX_ORGS),
            nabxs=randrange(N_MAX_ABXS)
        )
-
-
-
-

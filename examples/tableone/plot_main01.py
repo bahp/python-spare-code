@@ -31,7 +31,7 @@ mytable = TableOne(data, columns, categorical,
                    groupby, nonnormal, pval=True)
 
 
-# %%
+#%%
 mytable.tableone
 
 #%%

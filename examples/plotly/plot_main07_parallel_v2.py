@@ -1,6 +1,6 @@
 """
-Plot Parallel (v2)
-==================
+Main 07 - Plot Parallel with dengue
+===================================
 
 This example plots a parallel graph.
 
@@ -12,6 +12,8 @@ import numpy as np
 import pandas as pd
 from pandas.api.types import is_string_dtype
 from pandas.api.types import is_numeric_dtype
+
+from plotly.io import show
 
 try:
     __file__
@@ -112,6 +114,4 @@ fig = go.Figure(data=
 
 
 # Show
-if TERMINAL:
-    fig.show()
-fig
+show(fig)

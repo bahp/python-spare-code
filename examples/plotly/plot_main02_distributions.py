@@ -1,6 +1,6 @@
 """
-Plot Distributions
-======================
+Main 02 - Plot Distributions
+============================
 
 This example shows how to plot the probability distributions
 for each of the components of the confusion matrix. Note that
@@ -15,6 +15,8 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
+from plotly.io import show
+
 # Specific
 from plotly.graph_objects import Layout
 
@@ -23,7 +25,6 @@ try:
     TERMINAL = True
 except:
     TERMINAL = False
-
 
 # -----------------------------------------
 # Helper method
@@ -88,6 +89,7 @@ tp_probs, tn_probs, fp_probs, fn_probs = \
 if TERMINAL:
     print("\nData:")
     print(data)
+data
 
 
 # -------------------------------------
@@ -147,6 +149,4 @@ fig.update_layout(
 fig.update_yaxes(visible=True)
 
 # Show
-if TERMINAL:
-    fig.show()
-fig
+show(fig)

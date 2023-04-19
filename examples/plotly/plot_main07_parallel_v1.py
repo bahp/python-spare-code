@@ -1,14 +1,15 @@
 """
-Plot Parallel (v1)
-==================
+Main 07 - Plot Parallel
+============================
 
 This example plots a parallel graph.
 
 """
 
 import plotly.graph_objects as go
-
 import pandas as pd
+
+from plotly.io import show
 
 try:
     __file__
@@ -20,9 +21,11 @@ except:
 # Load
 df = pd.read_csv("https://raw.githubusercontent.com/bcdunbar/datasets/master/parcoords_data.csv")
 
-# Show data
-print("Data:")
-print(df)
+# Visualize
+if TERMINAL:
+    print("\nData:")
+    print(df)
+df
 
 # Show
 fig = go.Figure(data=
@@ -53,5 +56,6 @@ fig = go.Figure(data=
                  label = 'Height st Width', values = df['HstW'])])
     )
 )
-#fig.show()
-fig
+
+# Show
+show(fig)
