@@ -51,7 +51,7 @@ def load_gridsearch_sklearn_iris():
 def load_raw_dengue():
     """This method..."""
     # Define datapath
-    FILEPATH = './data/dengue/data.csv'
+    FILEPATH = '../../datasets/dengue-htd-dataset/combined.csv'
     # Load data
     df = pd.read_csv(FILEPATH)
     # Columns

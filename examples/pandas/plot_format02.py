@@ -1,8 +1,8 @@
 """
-Agg Patient Single Row
+Paandas - Format 01
 ======================
 
-Example
+Aggregate patient's data in a single row.
 """
 
 # Generic

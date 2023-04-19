@@ -1,7 +1,19 @@
 Welcome to python-spare-code gallery!
 =====================================
 
-This repository contains a compendium of python scripts.
+.. image:: ./_static/images/file_type_python_icon_130221.ico
+   :width: 100
+   :align: right
+   :alt: python
+
+This repository contains a diverse collection of sample ``python`` scripts that have
+been gathered from a variety of sources, including official documentation sites or
+common sites where programmers post question, answers and/or tutorials. Additionally,
+some of the scripts have been edited by the repository owner to make them more
+comprehensive or tailored to specific use cases.
+
+Whether you're a beginner or an experienced ``python`` programmer, this repository
+might offer a valuable resource. So dive in and start exploring!
 
 .. raw:: html
 
@@ -27,13 +39,25 @@ This repository contains a compendium of python scripts.
    :caption: Tutorial
    :hidden:
 
-   # usage/introduction
+   usage/introduction
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Favourites
+   :hidden:
+
+   _examples/matplotlib/index
+   _examples/plotly/index
+   _examples/scikits/index
+   _examples/shap/index
+   _examples/tableone/index
+   _examples/jsonpickle/index
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: Example Galleries
+   :caption: All
    :hidden:
 
    _examples/index
-   _examples/shap/index

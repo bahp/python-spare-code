@@ -1,3 +1,8 @@
+"""
+Screenshot web
+==============
+"""
+
 # Geeric
 import yaml
 import requests

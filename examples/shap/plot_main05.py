@@ -1,6 +1,6 @@
 """
 Shap - Main 05
-==========================
+==============ss
 """
 
 # Libraries
@@ -138,6 +138,7 @@ def create_random_shap(samples, timesteps, features):
 def load_shap_file():
     data = pd.read_csv('./data/shap.csv')
     data = data.iloc[: , 1:]
+    #data.timestep = data.timestep - (data.timestep.nunique() - 1)
     return data
 
 #################################################################
@@ -147,9 +148,9 @@ def load_shap_file():
 #          on the library we use. The data structure is
 #          good when using seaborn
 # Load data
-#data = create_random_shap(10, 6, 4)
-data = load_shap_file()
-data = data.head(1000)
+data = create_random_shap(10, 6, 4)
+#data = load_shap_file()
+#data = data[data['sample'] < 100]
 
 shap_values = pd.pivot_table(data,
         values='shap_values',
@@ -220,9 +221,6 @@ for i, step in enumerate(range(TIMESTEPS)[:N]):
     shap.summary_plot(shap_aux.to_numpy(), feat_aux, show=False)
     plt.xlim(shap_min, shap_max)
 
-# Show
-plt.show()
-
 #%%
 # Now, let's display the shap values for all timesteps of each feature.
 
@@ -243,13 +241,12 @@ for i, f in enumerate(shap_values.columns[:N]):
     # Show
     plt.figure()
     plt.title("Feature: %s" % f)
-    shap.summary_plot(shap_aux, feat_aux, sort=False)
+    shap.summary_plot(shap_aux, feat_aux, sort=False, show=False)
     plt.xlim(shap_min, shap_max)
 
 #%%
 # .. note:: If y-axis represents timesteps the ``sort`` parameter
 #           in the ``summary_plot`` function is set to False.
-
 
 ########################################################################
 # Display using ``sns.stripplot``
@@ -262,13 +259,13 @@ for i, f in enumerate(shap_values.columns[:N]):
 # on the x-axis and the y-axis contains the shap values.
 
 
-def add_colorbar(fig, norm):
+def add_colorbar(fig, cmap, norm):
     """"""
     divider = make_axes_locatable(plt.gca())
     ax_cb = divider.new_horizontal(size="5%", pad=0.05)
     fig.add_axes(ax_cb)
     cb1 = matplotlib.colorbar.ColorbarBase(ax_cb,
-         cmap='coolwarm', norm=norm, orientation='vertical')
+         cmap=cmap, norm=norm, orientation='vertical')
 
 
 # Loop
@@ -279,19 +276,25 @@ for i, (name, df) in enumerate(data.groupby('features')):
     cmap, norm = scalar_palette(values=values, cmap='coolwarm',
         vmin=values.min(), vmax=values.max())
 
+    print(df)
+
     # Display
-    fig = plt.figure()
-    f = sns.stripplot(x='timestep',
-                      y='shap_values',
-                      hue='feature_values',
-                      palette=cmap,
-                      data=df)
+    fig, ax = plt.subplots()
+    ax = sns.stripplot(x='timestep',
+                       y='shap_values',
+                       hue='feature_values',
+                       palette=cmap,
+                       data=df,
+                       ax=ax)
+
+    # Needed for older matplotlib versions
+    cmap = matplotlib.cm.get_cmap('coolwarm')
 
     # Configure axes
     plt.title(name)
     plt.legend([], [], frameon=False)
-    f.invert_xaxis()
-    add_colorbar(fig, norm)
+    ax.invert_xaxis()
+    add_colorbar(plt.gcf(), cmap, norm)
 
     # End
     if int(i) > N:
@@ -321,18 +324,23 @@ for i, (name, df) in enumerate(data.groupby('features')):
         vmin=values.min(), vmax=values.max())
 
     # Display
-    fig = plt.figure()
-    f = sns.swarmplot(x='timestep',
-                      y='shap_values',
-                      hue='feature_values',
-                      palette=cmap,
-                      data=df)
+    fig, ax = plt.subplots()
+    ax = sns.swarmplot(x='timestep',
+                       y='shap_values',
+                       hue='feature_values',
+                       palette=cmap,
+                       data=df,
+                       size=2,
+                       ax=ax)
+
+    # Needed for older matplotlib versions
+    cmap = matplotlib.cm.get_cmap('coolwarm')
 
     # Configure axes
     plt.title(name)
     plt.legend([], [], frameon=False)
-    f.invert_xaxis()
-    add_colorbar(fig, norm)
+    ax.invert_xaxis()
+    add_colorbar(plt.gcf(), cmap, norm)
 
     # End
     if int(i) > N:

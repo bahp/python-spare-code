@@ -15,10 +15,13 @@
 #sys.path.insert(0, os.path.abspath('../../%s/' % 'pkg'))
 
 
+from datetime import date
+today = date.today().year
+
 # -- Project information -----------------------------------------------------
 
 project = 'python-spare-code'
-copyright = '2021-2023, Bernard Hernandez'
+copyright = '2021-%s, Bernard Hernandez' % today
 author = 'Bernard Hernandez'
 
 # The full version, including alpha/beta/rc tags

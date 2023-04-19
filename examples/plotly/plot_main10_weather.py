@@ -35,7 +35,7 @@ colors += px.colors.sequential.Viridis_r
 # Load data
 # -------------------
 # Define folder
-folder = './data/weather-hmc-dataset/'
+folder = '../../datasets/weather-hmc-dataset/'
 
 # Load data
 data = pd.concat([pd.read_csv(f) \
