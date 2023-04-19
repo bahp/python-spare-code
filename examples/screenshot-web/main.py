@@ -1,6 +1,9 @@
 """
 Screenshot web
 ==============
+
+.. note:: For ome reason, in windows it does not save the images. But
+          it does work as expected (more or less) when using macOs.
 """
 
 # Geeric
@@ -48,8 +51,9 @@ for info in CONFIG['projects']:
         hti.screenshot(html_str=e,
                        save_as='%s-%s.png' % (info['name'], i),
                        size=eval(info['size']))
-    """
 
+    print(info)
+    """
     hti.screenshot(url=info['url'],
                    save_as='%s.png'%info['name'],
                    size=eval(info['size']))

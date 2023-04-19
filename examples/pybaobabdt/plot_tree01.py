@@ -5,7 +5,8 @@ Plot Tree
 This example shows how to plot a Decision Tree
 
 .. warning:: Broken because the library graphviz is missing
-             and it gives an error when trying to install it.
+             and it gives an error when trying to install it
+             in both mac and windows.
 """
 
 # Generic

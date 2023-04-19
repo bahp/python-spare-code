@@ -19,3 +19,4 @@ sphinx-gallery
 sphinx-rtd-theme
 openpyxl
 kaleido
+pyyaml

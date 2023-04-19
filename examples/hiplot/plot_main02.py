@@ -6,20 +6,33 @@ Creating Hiplot HTML
 import pandas as pd
 import hiplot as hip
 
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
+
 # -----------------------------
 # Load data
 # -----------------------------
 # Sample data
-data = [{'dropout':0.1, 'lr': 0.001, 'loss': 10.0, 'optimizer': 'SGD'},
-        {'dropout':0.15, 'lr': 0.01, 'loss': 3.5, 'optimizer': 'Adam'},
-        {'dropout':0.3, 'lr': 0.1, 'loss': 4.5, 'optimizer': 'Adam'}]
+data = [
+    {'dropout':0.1, 'lr': 0.001, 'loss': 10.0, 'optimizer': 'SGD'},
+    {'dropout':0.15, 'lr': 0.01, 'loss': 3.5, 'optimizer': 'Adam'},
+    {'dropout':0.3, 'lr': 0.1, 'loss': 4.5, 'optimizer': 'Adam'}
+]
 
 # Path
 path = './datasets/20210602-172616-completed/outcome.csv'
 #path = './datasets/single-results.csv'
+path = '../../datasets/gridsearch-workbench-dataset/20210602-134857-completed/outcome.csv'
+path = '../../datasets/gridsearch-workbench-dataset/20200820-145219-completed/outcome.csv'
 
 # Data
 data = pd.read_csv(path)
+
+
+print(data)
 
 # ----------------------------
 # Columns to keep
@@ -29,7 +42,7 @@ DEF_SET = 'hos'
 DEF_ALG = 'ann'
 
 # Algorithm selected
-algorithm = data.slug_short.str.endswith('-%s' % DEF_ALG)
+#algorithm = data.slug_short.str.endswith('-%s' % DEF_ALG)
 
 # Create params DataFrame
 params = pd.json_normalize(data.params.apply(eval))
@@ -58,10 +71,21 @@ data = pd.concat((data, params), axis=1)
 data = data[cols_scores +
             cols_params +
             cols_other]
-data = data[algorithm]
+#data = data[algorithm]
 data = data.round(decimals=3)
 data = data.dropna(axis=1, how='all')
 data = data.rename(columns=rename)
+
+
+# Show data
+if TERMINAL:
+    print("\nData:")
+    print(data)
+data
+
+####################################################################
+# Now......
+
 
 # ----------------------------
 # Create experiment
