@@ -51,9 +51,9 @@ for info in CONFIG['projects']:
         hti.screenshot(html_str=e,
                        save_as='%s-%s.png' % (info['name'], i),
                        size=eval(info['size']))
-
-    print(info)
     """
+
+    # Get and save image
     hti.screenshot(url=info['url'],
                    save_as='%s.png'%info['name'],
                    size=eval(info['size']))
