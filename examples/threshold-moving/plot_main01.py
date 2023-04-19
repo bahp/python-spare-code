@@ -64,10 +64,12 @@ def npv_ppv_from_sens_spec(sens, spec, prev):
 # Fetch data
 X, y = fetch_openml(data_id=1464,
                     return_X_y=True,
-                    as_frame=True)
+                    as_frame=True,
+                    parser='auto')
 
 # Format y to binary (0,1)
-y = y.replace({'1':0, '2':1})
+y = y.cat.rename_categories({'1':0, '2':1})
+
 
 # Split
 X_train, X_test, y_train, y_test = \
@@ -114,8 +116,11 @@ from sklearn.metrics import RocCurveDisplay
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import PrecisionRecallDisplay
 
+# Value counts
+value_counts = y.value_counts()
+
 # Prevalence
-prev = np.sum(y_test) / len(y_test)
+prev = value_counts[1] / len(y_test)
 
 # Confusion matrix
 cm = confusion_matrix(y_test, y_pred)
