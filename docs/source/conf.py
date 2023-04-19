@@ -121,7 +121,7 @@ html_theme = 'sphinx_rtd_theme'
 
 # Configuration of sphin_rtd_theme
 #html_logo = './_static/images/logo-ls2d-v1.png'
-html_favicon = './_static/images/eniapp.ico'
+html_favicon = './_static/images/python_icon_191765.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
