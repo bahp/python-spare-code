@@ -4,6 +4,10 @@ Matplotlib to Plotly
 
 [REF] https://github.com/plotly/plotly.py/issues/3624#issuecomment-1161805210
 
+.. note:: In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py line 368,
+          it still calls is_frame_like() function. There is already an issue tracking this. You may need
+          choose to downgrade Matplotlib if you still want to use mpl_to_plotly() function.
+
 """
 
 # Libraries
@@ -38,6 +42,7 @@ plt.errorbar(x, y, yerr=yerr, uplims=upperlimits, lolims=lowerlimits,
 # add legent
 plt.legend(loc='lower right')
 
+"""
 # Convert to plotly
 import plotly.tools as tls
 
@@ -49,3 +54,4 @@ print(fig.data)
 # Show
 #fig.show()
 fig
+"""

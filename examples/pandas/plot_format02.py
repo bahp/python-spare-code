@@ -95,7 +95,7 @@ for i, (k, g) in enumerate(groups):
 	#d['date'] = min(g['date'])   # admission date
 
 	# Append result
-	results = results.append(d, ignore_index=True)
+	results = pd.concat([results, d], ignore_index=True, axis=1)
 
 	# Break clause for testing
 	#if break_loop_after is not None:

@@ -2,6 +2,10 @@
 MPL2PLY SHAP summary
 ====================
 
+.. note:: In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py line 368,
+          it still calls is_frame_like() function. There is already an issue tracking this. You may need
+          choose to downgrade Matplotlib if you still want to use mpl_to_plotly() function.
+
 """
 # Generic
 import numpy as np
@@ -108,6 +112,7 @@ plot_summary = shap.summary_plot( \
 # Show
 #plt.show()
 
+"""
 # Convert to plotly
 import plotly.tools as tls
 import plotly.graph_objs as go
@@ -195,3 +200,4 @@ fig.add_trace(colorbar_trace)
 # Show
 #fig.show()
 fig
+"""

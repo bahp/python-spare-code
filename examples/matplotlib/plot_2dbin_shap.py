@@ -25,11 +25,27 @@ mpl.rcParams['ytick.labelsize'] = 8
 # Load data
 data = pd.read_csv('./data/shap.csv')
 
+# Filter
+data = data[data.features.isin([
+    'Alanine Transaminase',
+    'Albumin',
+    'Alkaline Phosphatase',
+    'Bilirubin',
+    'C-Reactive Protein',
+    'Chloride',
+    'Creatinine'
+
+])]
+
 # Show
 print(data.head(10))
 
 # figsize = (8,7) for 100 bins
 # figsize = (8,3) for 50 bins
+#
+# .. note: The y-axis does not represent a continuous space,
+#          it is a discrete space where each tick is describing
+#          a bin.
 
 # Loop
 for i, (name, df) in enumerate(data.groupby('features')):

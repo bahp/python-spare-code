@@ -148,7 +148,7 @@ plt.tight_layout()
 plt.show()
 
 
-
+"""
 import sys
 sys.exit()
 # Compute bin statistic (count and median)
@@ -169,3 +169,4 @@ cb = plt.colorbar()
 cb.set_label('counts in bin')
 plt.title('Counts (square bin)')
 plt.show()
+"""
