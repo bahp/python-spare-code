@@ -1,4 +1,4 @@
-Matplotlib
-----------
+Matplotlib / Seaborn
+---------------------
 
-Gallery of examples using ``matplotlib``.
+Gallery of examples using ``matplotlib`` and/or ``seaborn``.

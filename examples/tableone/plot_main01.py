@@ -22,7 +22,7 @@ columns = [
 # Specify categorical columns
 categorical = ['ascites','hepato','edema','sex','spiders','trt']
 
-# Define groupy and not normal
+# Define groupby and not normal
 groupby = 'trt'
 nonnormal = ['bili']
 
@@ -30,7 +30,9 @@ nonnormal = ['bili']
 mytable = TableOne(data, columns, categorical,
                    groupby, nonnormal, pval=True)
 
-# Show
+
+# %%
+mytable.tableone
 
 #%%
 # Convert to html
@@ -42,5 +44,25 @@ html
 print(mytable.tabulate(tablefmt="github"))
 
 #%%
+# Lets tabulate for latex.
+print(mytable.tabulate(tablefmt="latex"))
+
+#%%
+# Lets tabulate for grid.
+print(mytable.tabulate(tablefmt="grid"))
+
+#%%
+# Lets tabulate for fancy grid.
+print(mytable.tabulate(tablefmt="fancy_grid"))
+
+#%%
+# Lets tabulate for markdown
+print(mytable.tabulate(tablefmt="rst"))
+
+#%%
 # Save as latex file
-mytable.to_latex('mytable.tex')
+mytable.to_latex('./outputs/main01-mytable.tex')
+
+#%%
+# Save as xls file
+mytable.to_excel('./outputs/main01-mytable.xlsx')

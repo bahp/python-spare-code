@@ -84,6 +84,7 @@ COMMAND+= "awk '/^Name/{printf $2} /^Home-page/{print \": \"$2}'"
 output = sp.getoutput(COMMAND)
 
 # Show
+print("\nCommand output:")
 print(output)
 
 # Create dictionary
@@ -91,12 +92,14 @@ d = {}
 for line in output.split("\n")[2:]:
     # Find name and url
     name, url = line.split(': ')
+    if not url.startswith('https:'):
+        continue
     if name not in INCLUDE:
         continue
     # Store name and url
     icons = favicon.get(url)
-    if len(icons):
-        d[name] = icons[0].url
+    for i, ico in enumerate(icons):
+        d['%s-%s' % (name, i)] = ico.url
 
 
 # %%

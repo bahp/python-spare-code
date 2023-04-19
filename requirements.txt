@@ -10,7 +10,11 @@ factory-boy
 xgboost
 seaborn
 dash
-absl
+#absl
 favicon
 pybaobabdt
-pygraphviz
+#pygraphviz
+sphinx
+sphinx-gallery
+sphinx-rtd-theme
+openpyxl
