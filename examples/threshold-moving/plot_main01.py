@@ -64,8 +64,8 @@ def npv_ppv_from_sens_spec(sens, spec, prev):
 # Fetch data
 X, y = fetch_openml(data_id=1464,
                     return_X_y=True,
-                    as_frame=True,
-                    parser='auto')
+                    as_frame=True)
+                    #parser='auto')
 
 # Format y to binary (0,1)
 y = y.cat.rename_categories({'1':0, '2':1})
