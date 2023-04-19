@@ -26,9 +26,7 @@ $ python -m pip install -r requirements.txt
 
 ### Adding a new project
 
-Create a new folder `foldername`. 
-
-Create a `foldername/scriptname.py` script which starts with the following...
+Create a new folder `foldername` and a `foldername/scriptname.py` script as shown below
 
 ```python
 """
@@ -42,13 +40,23 @@ Description of the script
 print("Works!")
 ```
 
-To include scripts within the folder when creating the docs include 
-a `README.rst` inside `foldername`. Remember that the script name must
-start with `plot_` to include the graphical outputs. See `sphinx` and
-`sphinx-gallery` for more information.
-
 
 ### Creating docs
+
+To include all scripts within `foldername` in the documentation, the 
+folder must contain a `README.rst` file as shown below.
+ 
+ ```sh
+"""
+Sidebar title
+=============
+
+```
+ 
+Also, remember that the script name must start with `plot_<scriptname>.py` 
+so that the graphical output is also included in the documentation. See 
+`sphinx` and `sphinx-gallery`  for more information.
+
 
 Run the following command whithin `main/docs`
 
