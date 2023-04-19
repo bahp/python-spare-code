@@ -369,45 +369,52 @@ Let's show using ``sns.stripplot``
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_001.png
-          :alt: Alanine Transaminase
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_001.png
+         :alt: Alanine Transaminase
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_stripplot_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_002.png
-          :alt: Albumin
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_002.png
+         :alt: Albumin
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_stripplot_002.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_003.png
-          :alt: Alkaline Phosphatase
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_003.png
+         :alt: Alkaline Phosphatase
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_stripplot_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_004.png
-          :alt: Bilirubin
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_004.png
+         :alt: Bilirubin
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_stripplot_004.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_005.png
-          :alt: C-Reactive Protein
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_005.png
+         :alt: C-Reactive Protein
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_stripplot_005.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_006.png
-          :alt: Chloride
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_006.png
+         :alt: Chloride
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_stripplot_006.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_007.png
-          :alt: Creatinine
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_stripplot_007.png
+         :alt: Creatinine
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_stripplot_007.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -416,7 +423,7 @@ Let's show using ``sns.stripplot``
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  26.387 seconds)
+   **Total running time of the script:** ( 0 minutes  20.573 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_stripplot.py:

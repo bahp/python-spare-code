@@ -5,28 +5,30 @@
 
 Computation times
 =================
-**11:55.718** total execution time for **_examples_shap** files:
+**18:42.966** total execution time for **_examples_shap** files:
 
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main05_swarmplot.py` (``plot_main05_swarmplot.py``)     | 09:23.739 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main05_swarmplot.py` (``plot_main05_swarmplot.py``)     | 15:36.777 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main05_stripplot.py` (``plot_main05_stripplot.py``)     | 02:26.387 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main02.py` (``plot_main02.py``)                         | 01:24.122 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main05_summaryplot.py` (``plot_main05_summaryplot.py``) | 00:05.592 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main07.py` (``plot_main07.py``)                         | 01:04.988 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main01.py` (``plot_main01.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main05_stripplot.py` (``plot_main05_stripplot.py``)     | 00:20.573 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main02.py` (``plot_main02.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main05_summaryplot.py` (``plot_main05_summaryplot.py``) | 00:06.350 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main03.py` (``plot_main03.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main06.py` (``plot_main06.py``)                         | 00:04.049 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main04.py` (``plot_main04.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main05.py` (``plot_main05.py``)                         | 00:03.674 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main05.py` (``plot_main05.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main01.py` (``plot_main01.py``)                         | 00:01.999 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main06.py` (``plot_main06.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main03.py` (``plot_main03.py``)                         | 00:00.319 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main07.py` (``plot_main07.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main04.py` (``plot_main04.py``)                         | 00:00.114 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_shap_plot_main08.py` (``plot_main08.py``)                         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_shap_plot_main08.py` (``plot_main08.py``)                         | 00:00.001 | 0.0 MB |
++--------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_shap_temp.py` (``temp.py``)                                       | 00:00.000 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+

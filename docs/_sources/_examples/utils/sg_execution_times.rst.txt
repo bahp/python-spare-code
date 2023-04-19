@@ -5,16 +5,16 @@
 
 Computation times
 =================
-**00:00.005** total execution time for **_examples_utils** files:
+**00:00.363** total execution time for **_examples_utils** files:
 
 +-----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_favicons.py` (``plot_favicons.py``)                 | 00:00.005 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_favicons.py` (``plot_favicons.py``)                 | 00:00.150 | 0.0 MB |
 +-----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_data_skfold_test.py` (``plot_data_skfold_test.py``) | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_data_wrapper.py` (``plot_data_wrapper.py``)         | 00:00.101 | 0.0 MB |
 +-----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_data_splitters.py` (``plot_data_splitters.py``)     | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_data_splitters.py` (``plot_data_splitters.py``)     | 00:00.076 | 0.0 MB |
 +-----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_data_wrapper.py` (``plot_data_wrapper.py``)         | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_data_skfold_test.py` (``plot_data_skfold_test.py``) | 00:00.030 | 0.0 MB |
 +-----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_sklearn_iqr.py` (``plot_sklearn_iqr.py``)           | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_sklearn_iqr.py` (``plot_sklearn_iqr.py``)           | 00:00.007 | 0.0 MB |
 +-----------------------------------------------------------------------------------------+-----------+--------+

@@ -21,7 +21,7 @@
 Factory Boy
 -----------
 
-.. GENERATED FROM PYTHON SOURCE LINES 6-135
+.. GENERATED FROM PYTHON SOURCE LINES 6-130
 
 .. code-block:: default
    :lineno-start: 8
@@ -151,11 +151,6 @@ Factory Boy
                norgs=randrange(N_MAX_ORGS),
                nabxs=randrange(N_MAX_ABXS)
            )
-
-
-
-
-
 
 .. rst-class:: sphx-glr-timing
 

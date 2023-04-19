@@ -588,45 +588,52 @@ Now, let's display the shap values for all features in each timestep.
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_001.png
-          :alt: Timestep: -6
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_001.png
+         :alt: Timestep: -6
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_002.png
-          :alt: Timestep: -5
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_002.png
+         :alt: Timestep: -5
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_002.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_003.png
-          :alt: Timestep: -4
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_003.png
+         :alt: Timestep: -4
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_004.png
-          :alt: Timestep: -3
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_004.png
+         :alt: Timestep: -3
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_004.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_005.png
-          :alt: Timestep: -2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_005.png
+         :alt: Timestep: -2
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_005.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_006.png
-          :alt: Timestep: -1
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_006.png
+         :alt: Timestep: -1
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_006.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_007.png
-          :alt: Timestep: 0
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_007.png
+         :alt: Timestep: 0
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_007.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -659,7 +666,7 @@ Now, let's display the shap values for all timesteps of each feature.
         # Show
         plt.figure()
         plt.title("Feature: %s" % f)
-        shap.summary_plot(shap_aux, feat_aux, sort=False, show=False)
+        shap.summary_plot(shap_aux, feat_aux, sort=False, show=False, plot_type='violin')
         plt.xlim(shap_min, shap_max)
         plt.gca().invert_yaxis()
 
@@ -673,63 +680,73 @@ Now, let's display the shap values for all timesteps of each feature.
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_008.png
-          :alt: Feature: Alanine Transaminase
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_008.png
+         :alt: Feature: Alanine Transaminase
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_008.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_009.png
-          :alt: Feature: Albumin
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_009.png
+         :alt: Feature: Albumin
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_009.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_010.png
-          :alt: Feature: Alkaline Phosphatase
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_010.png
+         :alt: Feature: Alkaline Phosphatase
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_010.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_011.png
-          :alt: Feature: Bilirubin
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_011.png
+         :alt: Feature: Bilirubin
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_011.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_012.png
-          :alt: Feature: C-Reactive Protein
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_012.png
+         :alt: Feature: C-Reactive Protein
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_012.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_013.png
-          :alt: Feature: Chloride
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_013.png
+         :alt: Feature: Chloride
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_013.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_014.png
-          :alt: Feature: Creatinine
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_014.png
+         :alt: Feature: Creatinine
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_014.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_015.png
-          :alt: Feature: D-Dimer
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_015.png
+         :alt: Feature: D-Dimer
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_015.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_016.png
-          :alt: Feature: Eosinophils
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_016.png
+         :alt: Feature: Eosinophils
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_016.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_017.png
-          :alt: Feature: Ferritin
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_017.png
+         :alt: Feature: Ferritin
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_summaryplot_017.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -738,7 +755,7 @@ Now, let's display the shap values for all timesteps of each feature.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.592 seconds)
+   **Total running time of the script:** ( 0 minutes  6.350 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_summaryplot.py:

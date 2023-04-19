@@ -1,226 +1,172 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Computation times &mdash; python-spare-code 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> python-spare-code
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Example Galleries</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">General</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">python-spare-code</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Computation times</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Computation times</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/_examples/matplotlib/sg_execution_times.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="computation-times">
-<span id="sphx-glr-examples-matplotlib-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this headline">¶</a></h1>
-<p><strong>00:04.001</strong> total execution time for <strong>_examples_matplotlib</strong> files:</p>
+             
+  <section id="computation-times">
+<span id="sphx-glr-examples-matplotlib-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading"></a></h1>
+<p><strong>00:16.336</strong> total execution time for <strong>_examples_matplotlib</strong> files:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 84%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-</colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_2dhist.html#sphx-glr-examples-matplotlib-plot-2dhist-py"><span class="std std-ref">Histogram 2D</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2dhist.py</span></code>)</p></td>
-<td><p>00:03.272</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_main07_2dbin_shap.html#sphx-glr-examples-matplotlib-plot-main07-2dbin-shap-py"><span class="std std-ref">Main 07 - 2dbin with shap.csv</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main07_2dbin_shap.py</span></code>)</p></td>
+<td><p>00:06.196</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="plot_ga_latent_space_01.html#sphx-glr-examples-matplotlib-plot-ga-latent-space-01-py"><span class="std std-ref">Plot GMM and KDE</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_ga_latent_space_01.py</span></code>)</p></td>
-<td><p>00:00.729</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_main06_displot.html#sphx-glr-examples-matplotlib-plot-main06-displot-py"><span class="std std-ref">Main 06 - sns.displot</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main06_displot.py</span></code>)</p></td>
+<td><p>00:02.079</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_main_20_animation.html#sphx-glr-examples-matplotlib-plot-main-20-animation-py"><span class="std std-ref">Main 20 - Animation</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main_20_animation.py</span></code>)</p></td>
+<td><p>00:01.819</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_main03_hist2d.html#sphx-glr-examples-matplotlib-plot-main03-hist2d-py"><span class="std std-ref">Main 03 - mpl.hist2d</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main03_hist2d.py</span></code>)</p></td>
+<td><p>00:01.499</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_main07_2dbin_stat.html#sphx-glr-examples-matplotlib-plot-main07-2dbin-stat-py"><span class="std std-ref">Main 07 - 2dbin demo</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main07_2dbin_stat.py</span></code>)</p></td>
+<td><p>00:01.126</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_main07_2dbin_manual.html#sphx-glr-examples-matplotlib-plot-main07-2dbin-manual-py"><span class="std std-ref">Main 07 - 2dbin with manual data</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main07_2dbin_manual.py</span></code>)</p></td>
+<td><p>00:01.011</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_main02_hexbin.html#sphx-glr-examples-matplotlib-plot-main02-hexbin-py"><span class="std std-ref">Main 02 - mpl.hexbin</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main02_hexbin.py</span></code>)</p></td>
+<td><p>00:00.799</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_main04_gmm_kde.html#sphx-glr-examples-matplotlib-plot-main04-gmm-kde-py"><span class="std std-ref">Main 04 - Plot GMM and KDE</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main04_gmm_kde.py</span></code>)</p></td>
+<td><p>00:00.545</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_main07_2dbin_heatmap.html#sphx-glr-examples-matplotlib-plot-main07-2dbin-heatmap-py"><span class="std std-ref">Main 07 - 2dbin and sns.heatmap</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main07_2dbin_heatmap.py</span></code>)</p></td>
+<td><p>00:00.432</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_main09_tripcolor.html#sphx-glr-examples-matplotlib-plot-main09-tripcolor-py"><span class="std std-ref">Main 09 - mpl.tripcolor</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main09_tripcolor.py</span></code>)</p></td>
+<td><p>00:00.336</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_main10_violin_cmap.html#sphx-glr-examples-matplotlib-plot-main10-violin-cmap-py"><span class="std std-ref">Main 10 - mpl.violin with linear cmap</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main10_violin_cmap.py</span></code>)</p></td>
+<td><p>00:00.253</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_main01_imshow.html#sphx-glr-examples-matplotlib-plot-main01-imshow-py"><span class="std std-ref">Main 01 - mpl.imshow</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main01_imshow.py</span></code>)</p></td>
+<td><p>00:00.125</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_main08_table.html#sphx-glr-examples-matplotlib-plot-main08-table-py"><span class="std std-ref">Main 08 - Plot table with bars</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_main08_table.py</span></code>)</p></td>
+<td><p>00:00.116</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 </tbody>
 </table>
-</div>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021-2023, Bernard Hernandez.
-
-    </p>
+    <p>&#169; Copyright 2021-2023, Bernard Hernandez.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

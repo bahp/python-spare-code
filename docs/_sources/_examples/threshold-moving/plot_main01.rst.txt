@@ -23,7 +23,7 @@ Threshold moving
 
  .. note::  https://en.wikipedia.org/wiki/Sensitivity_and_specificity
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-291
+.. GENERATED FROM PYTHON SOURCE LINES 7-296
 
 
 
@@ -32,27 +32,31 @@ Threshold moving
 
     *
 
-      .. image:: /_examples/threshold-moving/images/sphx_glr_plot_main01_001.png
-          :alt: plot main01
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/threshold-moving/images/sphx_glr_plot_main01_001.png
+         :alt: plot main01
+         :srcset: /_examples/threshold-moving/images/sphx_glr_plot_main01_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/threshold-moving/images/sphx_glr_plot_main01_002.png
-          :alt: plot main01
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/threshold-moving/images/sphx_glr_plot_main01_002.png
+         :alt: plot main01
+         :srcset: /_examples/threshold-moving/images/sphx_glr_plot_main01_002.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/threshold-moving/images/sphx_glr_plot_main01_003.png
-          :alt: From 'roc_curve', th=0.39, npv=0.8, ppv=0.362
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/threshold-moving/images/sphx_glr_plot_main01_003.png
+         :alt: From 'roc_curve', th=0.06, npv=0.07, ppv=0.962
+         :srcset: /_examples/threshold-moving/images/sphx_glr_plot_main01_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/threshold-moving/images/sphx_glr_plot_main01_004.png
-          :alt: From 'manual thresholds', th=0.374, npv=0.8, ppv=0.362
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/threshold-moving/images/sphx_glr_plot_main01_004.png
+         :alt: From 'manual thresholds', th=0.374, npv=0.8, ppv=0.362
+         :srcset: /_examples/threshold-moving/images/sphx_glr_plot_main01_004.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -65,17 +69,17 @@ Threshold moving
 
     Results from 'roc_curve'
            th       ppv       npv      sens      spec     gmean
-    66  0.000  0.240642       NaN  1.000000  0.000000  0.000000
-    65  0.005  0.257353  0.803922  0.777778  0.288732  0.148018
-    64  0.010  0.261538  0.807018  0.755556  0.323944  0.147488
-    63  0.020  0.264000  0.806452  0.733333  0.352113  0.146957
-    62  0.030  0.271186  0.811594  0.711111  0.394366  0.207074
+    66  0.000  0.951872       NaN  1.000000  0.000000  0.000000
+    65  0.005  0.955805  0.061645  0.777778  0.288732  0.148018
+    64  0.010  0.956717  0.062798  0.755556  0.323944  0.147488
+    63  0.020  0.957240  0.062585  0.733333  0.352113  0.146957
+    62  0.030  0.958716  0.064566  0.711111  0.394366  0.207074
     ..    ...       ...       ...       ...       ...       ...
-    4   0.920  0.285714  0.761111  0.044444  0.964789  0.529564
-    3   0.925  0.200000  0.758242  0.022222  0.971831  0.508150
-    2   0.940  0.250000  0.759563  0.022222  0.978873  0.494730
-    1   1.000  0.333333  0.760870  0.022222  0.985915  0.473888
-    0   2.000       NaN  0.759358  0.000000  1.000000  0.000000
+    4   0.920  0.961485  0.048571  0.044444  0.964789  0.529564
+    3   0.925  0.939768  0.047850  0.022222  0.971831  0.508150
+    2   0.940  0.954135  0.048180  0.022222  0.978873  0.494730
+    1   1.000  0.968949  0.048509  0.022222  0.985915  0.473888
+    0   2.000       NaN  0.048128  0.000000  1.000000  0.000000
 
     [67 rows x 6 columns]
 
@@ -167,9 +171,11 @@ Threshold moving
     X, y = fetch_openml(data_id=1464,
                         return_X_y=True,
                         as_frame=True)
+                        #parser='auto')
 
     # Format y to binary (0,1)
-    y = y.replace({'1':0, '2':1})
+    y = y.cat.rename_categories({'1':0, '2':1})
+
 
     # Split
     X_train, X_test, y_train, y_test = \
@@ -216,8 +222,11 @@ Threshold moving
     from sklearn.metrics import precision_recall_curve
     from sklearn.metrics import PrecisionRecallDisplay
 
+    # Value counts
+    value_counts = y.value_counts()
+
     # Prevalence
-    prev = np.sum(y_test) / len(y_test)
+    prev = value_counts[1] / len(y_test)
 
     # Confusion matrix
     cm = confusion_matrix(y_test, y_pred)
@@ -394,7 +403,7 @@ Threshold moving
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.565 seconds)
+   **Total running time of the script:** ( 0 minutes  0.487 seconds)
 
 
 .. _sphx_glr_download__examples_threshold-moving_plot_main01.py:

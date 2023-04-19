@@ -367,102 +367,53 @@ Display using ``sns.swarmplot`
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_001.png
-          :alt: Alanine Transaminase
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_001.png
+         :alt: Alanine Transaminase
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_002.png
-          :alt: Albumin
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_002.png
+         :alt: Albumin
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_002.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_003.png
-          :alt: Alkaline Phosphatase
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_003.png
+         :alt: Alkaline Phosphatase
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_004.png
-          :alt: Bilirubin
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_004.png
+         :alt: Bilirubin
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_004.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_005.png
-          :alt: C-Reactive Protein
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_005.png
+         :alt: C-Reactive Protein
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_005.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_006.png
-          :alt: Chloride
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_006.png
+         :alt: Chloride
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_006.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_007.png
-          :alt: Creatinine
-          :class: sphx-glr-multi-img
+      .. image-sg:: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_007.png
+         :alt: Creatinine
+         :srcset: /_examples/shap/images/sphx_glr_plot_main05_swarmplot_007.png
+         :class: sphx-glr-multi-img
 
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    79.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    83.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    75.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    61.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    57.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    59.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    47.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    93.5% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    90.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    90.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    75.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    79.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    66.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    53.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    78.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    75.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    77.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    76.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    73.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    66.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    68.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    91.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    91.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    81.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    80.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    73.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    57.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    69.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    88.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    89.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    80.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    74.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    60.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    49.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    75.5% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    92.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    88.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    81.5% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    85.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    82.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    57.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    75.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    74.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    76.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    78.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    60.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    61.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    61.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    44.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
 
 
 
@@ -470,7 +421,7 @@ Display using ``sns.swarmplot`
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 9 minutes  23.739 seconds)
+   **Total running time of the script:** ( 15 minutes  36.777 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_swarmplot.py:

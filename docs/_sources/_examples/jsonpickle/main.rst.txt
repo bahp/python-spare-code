@@ -18,10 +18,10 @@
 .. _sphx_glr__examples_jsonpickle_main.py:
 
 
-Jsonpickle - Main 01
-====================
+Main 01
+-------
 
-Example
+Description
 
 .. GENERATED FROM PYTHON SOURCE LINES 7-62
 

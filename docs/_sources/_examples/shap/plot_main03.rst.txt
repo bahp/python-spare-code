@@ -25,9 +25,10 @@ Shap - Main 03
 
 
 
-.. image:: /_examples/shap/images/sphx_glr_plot_main03_001.png
-    :alt: plot main03
-    :class: sphx-glr-single-img
+.. image-sg:: /_examples/shap/images/sphx_glr_plot_main03_001.png
+   :alt: plot main03
+   :srcset: /_examples/shap/images/sphx_glr_plot_main03_001.png
+   :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -39,7 +40,7 @@ Shap - Main 03
     <IPython.core.display.HTML object>
 
     Kernel type: <class 'shap.explainers._tree.Tree'>
-    [array([-0.07981666, -0.12006666, -0.18221666]), array([0.07981667, 0.12006666, 0.18221666])]
+    [array([-0.08, -0.12, -0.18]), array([0.08, 0.12, 0.18])]
 
     '\nprint(explainer.shap_values(X_train))\n\n# Summary plot\nplot_summary = shap.summary_plot(     explainer.shap_values(X_train),\n    X_train, cmap=\'viridis\',\n    show=False)\n\nplt.tight_layout()\nplt.show()\n\nprint(plot_summary)\n\n\nimport seaborn as sns\nsv = explainer.shap_values(X_train)\nsv = pd.DataFrame(sv, columns=X.columns)\nsv = sv.stack().reset_index()\nsv[\'val\'] = X_train.stack().reset_index()[0]\n\n#import plotly.express as px\n\n#f = px.strip(data_frame=sv, x=0, y=\'level_1\', color=\'val\')\n#f.show()\n\nprint(sv)\n#sns.swarmplot(data=sv, x=0, y=\'level_1\', color=\'viridis\', palette=\'viridis\')\n#sns.stripplot(data=sv, x=0, y=\'level_1\', color=\'viridis\', palette=\'viridis\')\n#plt.show()\nimport sys\nsys.exit()\n#sns.swarmplot(x=)\n\nimport sys\nsys.exit()\n\n#html = f"<head>{shap.getjs()}</head><body>"\n# Bee swarm\n# .. note: unexpected algorithm matplotlib!\n# .. note: does not return an object!\nplot_bee = shap.plots.beeswarm(shap_values, show=False)\n\n# Sow\nprint("\nBEE")\nprint(plot_bee)\n\n#print(f)\n# Waterfall\n# .. note: not working!\n#shap.plots.waterfall(shap_values[0], max_display=14)\n\n# Force plot\n# .. note: not working!\nplot_force = shap.plots.force(explainer.expected_value,\n    explainer.shap_values(X_train), X_train,\n    matplotlib=False, show=False)\n\n# Show\nprint("\nFORCE:")\nprint(plot_force)\nprint(plot_force.html())\nprint(shap.save_html(\'e.html\', plot_force))\n'
 
@@ -238,7 +239,7 @@ Shap - Main 03
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.543 seconds)
+   **Total running time of the script:** ( 0 minutes  0.319 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main03.py:

@@ -29,7 +29,7 @@ example.
 .. note:: The command ``cut`` is not available in windows! It might
           available on Cygwin o Git for windows.
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-102
+.. GENERATED FROM PYTHON SOURCE LINES 14-105
 
 .. code-block:: default
    :lineno-start: 15
@@ -107,6 +107,7 @@ example.
     output = sp.getoutput(COMMAND)
 
     # Show
+    print("\nCommand output:")
     print(output)
 
     # Create dictionary
@@ -114,50 +115,80 @@ example.
     for line in output.split("\n")[2:]:
         # Find name and url
         name, url = line.split(': ')
+        if not url.startswith('https:'):
+            continue
         if name not in INCLUDE:
             continue
         # Store name and url
         icons = favicon.get(url)
-        if len(icons):
-            d[name] = icons[0].url
+        for i, ico in enumerate(icons):
+            d['%s-%s' % (name, i)] = ico.url
+
+
 
 
 
 
 .. rst-class:: sphx-glr-script-out
 
-.. code-block:: pytb
+ Out:
 
-    Traceback (most recent call last):
-      File "C:\Users\kelda\Desktop\repositories\github\python-spare-code\examples\utils\plot_favicons.py", line 16, in <module>
-        import favicon
-    ModuleNotFoundError: No module named 'favicon'
+ .. code-block:: none
 
 
+    Command output:
+    'cut' is not recognized as an internal or external command,
+    operable program or batch file.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-107
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 107-110
 
 .. code-block:: default
-   :lineno-start: 104
+   :lineno-start: 107
 
     aux = IconHTML(d)
     aux
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-112
+
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 112-115
 
 .. code-block:: default
-   :lineno-start: 109
+   :lineno-start: 112
 
     aux = IconHTML(d, verbose=1)
     aux
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-127
+
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 117-130
 
 .. code-block:: default
-   :lineno-start: 115
+   :lineno-start: 118
 
 
     # Create dictionary
@@ -173,17 +204,35 @@ example.
             d['%s-%s' % (name, i)] = ico.url
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-130
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 132-133
 
 .. code-block:: default
-   :lineno-start: 129
+   :lineno-start: 132
 
     aux = IconHTML(d, verbose=1)
     aux
 
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+    </div>
+    <br />
+    <br />
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.005 seconds)
+   **Total running time of the script:** ( 0 minutes  0.150 seconds)
 
 
 .. _sphx_glr_download__examples_utils_plot_favicons.py:

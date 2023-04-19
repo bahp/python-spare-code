@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_plotly_plot_main30_dash_LS.py:
 
 
-Dash LS (empty)
-=================
+Main 30 - Dash LS (empty)
+=========================
 
 .. note:: https://plotly.com/python/2d-histogram-contour/
 

@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_plotly_plot_main02_distributions.py:
 
 
-Plot Distributions
-======================
+Main 02 - Plot Distributions
+============================
 
 This example shows how to plot the probability distributions
 for each of the components of the confusion matrix. Note that
@@ -31,16 +31,12 @@ probability values.
 
 
 
-
-
 .. raw:: html
+    :file: images\sphx_glr_plot_main02_distributions_001.html
 
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-            <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>                <div id="41431b99-c3f2-4306-bc6c-5cf1f4ba8b02" class="plotly-graph-div" style="height:350px; width:700px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("41431b99-c3f2-4306-bc6c-5cf1f4ba8b02")) {                    Plotly.newPlot(                        "41431b99-c3f2-4306-bc6c-5cf1f4ba8b02",                        [{"box":{"visible":true},"fillcolor":"#6ece58","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"tn","opacity":0.5,"x":[0.3110114518429194,-0.13876679792929056,0.6813312681993123,-1.1384621205928855,-0.050645455364626786,-0.570013681722507,0.19888199284939062,-0.9012426554476475,-0.3153728595117496,-2.5143000387266827,-0.5940590701964391,-0.10056528938412605,-1.2739951429333538,0.6792133508489601,-2.6196720993340445,-0.6326271936185035,-0.29373743896313437,-0.6943149482316383,-0.4008913228721252,-0.6650639156028763,0.4077432500065194,0.40800475204262926,-1.7114374000969228,1.252326037221048,-0.013197628914964664,-0.015014023470994012],"type":"violin","xaxis":"x","yaxis":"y"},{"box":{"visible":true},"fillcolor":"#1f9e89","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"fp","opacity":0.5,"x":[-0.529847151677828,-0.35591383947775035,-1.847036964176665,0.2804365036247698,0.5818778575173476,0.7632622766098889,0.2987079407866376,-0.02828662550751954,-0.4081138320413275,-0.03684147081182057,0.8342287360687409,0.4435778776829061,-0.6619612660464942,-0.8600608551451331,-0.3780771730251872,-1.2320889852371013,2.508417423820959,0.7280409496675043,0.9986430901035935],"type":"violin","xaxis":"x2","yaxis":"y2"},{"box":{"visible":true},"fillcolor":"#31688e","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"fn","opacity":0.5,"x":[-0.2432000931234326,1.0620095806019596,0.8749017644970711,0.5905902142300888,0.5711450780973512,0.27636224892223565,-0.07313995552235378,-0.966992241054649,-0.8821557801298933,-1.2306638953455191,1.5012387987946223,0.6302002745179991,0.5414876044111252,-0.4646042738458056,1.7088919380386915,0.19993150399615503,-0.11943370661607029,-0.5348099132118966,0.04907330767946437,-1.5963263709415447,-0.03262453567424067,-0.8067890708488563,-1.383021087484775,-0.6833560582829931,-0.2971737766940802,-0.024668150662543995],"type":"violin","xaxis":"x3","yaxis":"y3"},{"box":{"visible":true},"fillcolor":"#fde725","line":{"color":"black","width":1},"meanline":{"visible":true},"name":"tp","opacity":0.5,"x":[0.38658853533470494,0.473658393086147,-1.6031696955397916,-0.2813014129593099,-0.48352143517965235,-0.8616496720777471,-0.5708355943895298,0.4743807713556666,-0.09170955079940031,0.926072708927645,0.43106775477383935,-0.7957893084991471,-0.223781147040886,1.5561330992918272,-0.08957151265082494,-0.6448175193783131,2.056725783197109,-0.49422170277380756,-0.45339173472243843,-0.24720165556479431,0.8662306062481312,-0.3347347048889973,1.135361963644565,-1.5752623865051665,-0.4478394748611185,-2.5112176782337294,0.8317428358339065,0.15146623401728318,0.8644646500197019],"type":"violin","xaxis":"x4","yaxis":"y4"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45]},"yaxis":{"anchor":"x","domain":[0.575,1.0],"visible":true},"xaxis2":{"anchor":"y2","domain":[0.55,1.0]},"yaxis2":{"anchor":"x2","domain":[0.575,1.0],"visible":true},"xaxis3":{"anchor":"y3","domain":[0.0,0.45]},"yaxis3":{"anchor":"x3","domain":[0.0,0.425],"visible":true},"xaxis4":{"anchor":"y4","domain":[0.55,1.0]},"yaxis4":{"anchor":"x4","domain":[0.0,0.425],"visible":true},"margin":{"l":0,"r":0,"b":0,"t":0,"pad":0},"width":700,"height":350,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };                            </script>        </div>
-    </div>
-    <br />
-    <br />
+
+
+
 
 .. code-block:: default
    :lineno-start: 12
@@ -52,6 +48,8 @@ probability values.
     import pandas as pd
     import numpy as np
 
+    from plotly.io import show
+
     # Specific
     from plotly.graph_objects import Layout
 
@@ -60,7 +58,6 @@ probability values.
         TERMINAL = True
     except:
         TERMINAL = False
-
 
     # -----------------------------------------
     # Helper method
@@ -125,6 +122,7 @@ probability values.
     if TERMINAL:
         print("\nData:")
         print(data)
+    data
 
 
     # -------------------------------------
@@ -184,13 +182,11 @@ probability values.
     fig.update_yaxes(visible=True)
 
     # Show
-    if TERMINAL:
-        fig.show()
-    fig
+    show(fig)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.126 seconds)
+   **Total running time of the script:** ( 0 minutes  0.284 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main02_distributions.py:

@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_tableone_plot_main02.py:
 
 
-TableOne
---------
+TableOne - Main02
+=================
 
 .. GENERATED FROM PYTHON SOURCE LINES 5-33
 
@@ -37,7 +37,7 @@ TableOne
     # Load data
     # ------------------------
     # Load data
-    data = pd.read_csv('./data/20210602-134857-completed/dataset.csv')
+    data = pd.read_csv('./data/dengue.csv')
 
     # ------------------------
     # Create tableone
@@ -265,7 +265,7 @@ Html
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.161 seconds)
+   **Total running time of the script:** ( 0 minutes  0.155 seconds)
 
 
 .. _sphx_glr_download__examples_tableone_plot_main02.py:

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main 07 - 2dbin demo &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Main 08 - Plot table with bars" href="plot_main08_table.html" />
+    <link rel="prev" title="Main 07 - 2dbin with shap.csv" href="plot_main07_2dbin_shap.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">Main 01 - <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">Main 02 - <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">Main 03 - <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">Main 04 - Plot GMM and KDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_displot.html">Main 06 - <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_heatmap.html">Main 07 - 2dbin and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_manual.html">Main 07 - 2dbin with manual data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_shap.html">Main 07 - 2dbin with shap.csv</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Main 07 - 2dbin demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">Main 08 - Plot table with bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">Main 09 - <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">Main 10 - <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main_20_animation.html">Main 20 - Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas-profile">Pandas-profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">Main 07 - 2dbin demo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/matplotlib/plot_main07_2dbin_stat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-matplotlib-plot-main07-2dbin-stat-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="main-07-2dbin-demo">
+<span id="sphx-glr-examples-matplotlib-plot-main07-2dbin-stat-py"></span><h1>Main 07 - 2dbin demo<a class="headerlink" href="#main-07-2dbin-demo" title="Permalink to this heading"></a></h1>
+<img src="../../_images/sphx_glr_plot_main07_2dbin_stat_001.png" srcset="../../_images/sphx_glr_plot_main07_2dbin_stat_001.png" alt="r1 (count), r2 (count), r3 (median), r4 (mean)" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>        Unnamed: 0  sample  timestep                       features  feature_values  shap_values
+0                0       0         0                   Ward Lactate        0.000000     0.000652
+1                1       0         0                   Ward Glucose        0.000000    -0.000596
+2                2       0         0                       Ward sO2        0.000000     0.000231
+3                3       0         0  White blood cell count, blood        0.000000     0.000582
+4                4       0         0                      Platelets        0.000000    -0.001705
+...            ...     ...       ...                            ...             ...          ...
+251995      251995     999         6                  Procalcitonin        0.000000     0.000027
+251996      251996     999         6                       Ferritin        0.000000    -0.001375
+251997      251997     999         6                        D-Dimer        0.000000     0.000045
+251998      251998     999         6                            sex       -1.000000    -0.002359
+251999      251999     999         6                            age        0.169952     0.000237
+
+[252000 rows x 6 columns]
+&lt;string&gt;:6: UserWarning:
+
+Warning: converting a masked element to nan.
+
+c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\matplotlib\colors.py:1211: UserWarning:
+
+Warning: converting a masked element to nan.
+
+c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\matplotlib\ticker.py:380: FutureWarning:
+
+Format strings passed to MaskedConstant are ignored, but in future may error or produce different behavior
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  7</span> <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="linenos">  8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">  9</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 10</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span> <span class="c1"># See https://matplotlib.org/devdocs/users/explain/customizing.html</span>
+<span class="linenos"> 16</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="linenos"> 17</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlesize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="linenos"> 18</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="linenos"> 19</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="linenos"> 20</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span> <span class="k">def</span> <span class="nf">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">row_labels</span><span class="p">,</span> <span class="n">col_labels</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="linenos"> 23</span>             <span class="n">cbar_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cbarlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 24</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 25</span><span class="sd">     Create a heatmap from a numpy array and two lists of labels.</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="sd">     Parameters</span>
+<span class="linenos"> 28</span><span class="sd">     ----------</span>
+<span class="linenos"> 29</span><span class="sd">     data</span>
+<span class="linenos"> 30</span><span class="sd">         A 2D numpy array of shape (M, N).</span>
+<span class="linenos"> 31</span><span class="sd">     row_labels</span>
+<span class="linenos"> 32</span><span class="sd">         A list or array of length M with the labels for the rows.</span>
+<span class="linenos"> 33</span><span class="sd">     col_labels</span>
+<span class="linenos"> 34</span><span class="sd">         A list or array of length N with the labels for the columns.</span>
+<span class="linenos"> 35</span><span class="sd">     ax</span>
+<span class="linenos"> 36</span><span class="sd">         A `matplotlib.axes.Axes` instance to which the heatmap is plotted.  If</span>
+<span class="linenos"> 37</span><span class="sd">         not provided, use current axes or create a new one.  Optional.</span>
+<span class="linenos"> 38</span><span class="sd">     cbar_kw</span>
+<span class="linenos"> 39</span><span class="sd">         A dictionary with arguments to `matplotlib.Figure.colorbar`.  Optional.</span>
+<span class="linenos"> 40</span><span class="sd">     cbarlabel</span>
+<span class="linenos"> 41</span><span class="sd">         The label for the colorbar.  Optional.</span>
+<span class="linenos"> 42</span><span class="sd">     **kwargs</span>
+<span class="linenos"> 43</span><span class="sd">         All other arguments are forwarded to `imshow`.</span>
+<span class="linenos"> 44</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span>     <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 47</span>         <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span>     <span class="k">if</span> <span class="n">cbar_kw</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 50</span>         <span class="n">cbar_kw</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span>     <span class="c1"># Plot the heatmap</span>
+<span class="linenos"> 53</span>     <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span>     <span class="c1"># Create colorbar</span>
+<span class="linenos"> 56</span>     <span class="n">cbar</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">cbar_kw</span><span class="p">)</span>
+<span class="linenos"> 57</span>     <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">cbarlabel</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span>     <span class="c1"># Show all ticks and label them with the respective list entries.</span>
+<span class="linenos"> 60</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">labels</span><span class="o">=</span><span class="n">col_labels</span><span class="p">)</span>
+<span class="linenos"> 61</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">labels</span><span class="o">=</span><span class="n">row_labels</span><span class="p">)</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span>     <span class="c1"># Let the horizontal axes labeling appear on top.</span>
+<span class="linenos"> 64</span>     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 65</span>                    <span class="n">labeltop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>     <span class="c1"># Rotate the tick labels and set their alignment.</span>
+<span class="linenos"> 68</span>     <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">30</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+<span class="linenos"> 69</span>              <span class="n">rotation_mode</span><span class="o">=</span><span class="s2">&quot;anchor&quot;</span><span class="p">)</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span>     <span class="c1"># Turn spines off and create white grid.</span>
+<span class="linenos"> 72</span>     <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[:]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 75</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 76</span>     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 77</span>     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 78</span>
+<span class="linenos"> 79</span>     <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">cbar</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span> <span class="k">def</span> <span class="nf">annotate_heatmap</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valfmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{x:.2f}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="linenos"> 83</span>                      <span class="n">textcolors</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">),</span>
+<span class="linenos"> 84</span>                      <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">textkw</span><span class="p">):</span>
+<span class="linenos"> 85</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 86</span><span class="sd">     A function to annotate a heatmap.</span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span><span class="sd">     Parameters</span>
+<span class="linenos"> 89</span><span class="sd">     ----------</span>
+<span class="linenos"> 90</span><span class="sd">     im</span>
+<span class="linenos"> 91</span><span class="sd">         The AxesImage to be labeled.</span>
+<span class="linenos"> 92</span><span class="sd">     data</span>
+<span class="linenos"> 93</span><span class="sd">         Data used to annotate.  If None, the image&#39;s data is used.  Optional.</span>
+<span class="linenos"> 94</span><span class="sd">     valfmt</span>
+<span class="linenos"> 95</span><span class="sd">         The format of the annotations inside the heatmap.  This should either</span>
+<span class="linenos"> 96</span><span class="sd">         use the string format method, e.g. &quot;$ {x:.2f}&quot;, or be a</span>
+<span class="linenos"> 97</span><span class="sd">         `matplotlib.ticker.Formatter`.  Optional.</span>
+<span class="linenos"> 98</span><span class="sd">     textcolors</span>
+<span class="linenos"> 99</span><span class="sd">         A pair of colors.  The first is used for values below a threshold,</span>
+<span class="linenos">100</span><span class="sd">         the second for those above.  Optional.</span>
+<span class="linenos">101</span><span class="sd">     threshold</span>
+<span class="linenos">102</span><span class="sd">         Value in data units according to which the colors from textcolors are</span>
+<span class="linenos">103</span><span class="sd">         applied.  If None (the default) uses the middle of the colormap as</span>
+<span class="linenos">104</span><span class="sd">         separation.  Optional.</span>
+<span class="linenos">105</span><span class="sd">     **kwargs</span>
+<span class="linenos">106</span><span class="sd">         All other arguments are forwarded to each call to `text` used to create</span>
+<span class="linenos">107</span><span class="sd">         the text labels.</span>
+<span class="linenos">108</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">109</span>
+<span class="linenos">110</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+<span class="linenos">111</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">get_array</span><span class="p">()</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span>     <span class="c1"># Normalize the threshold to the images color range.</span>
+<span class="linenos">114</span>     <span class="k">if</span> <span class="n">threshold</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">115</span>         <span class="n">threshold</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
+<span class="linenos">116</span>     <span class="k">else</span><span class="p">:</span>
+<span class="linenos">117</span>         <span class="n">threshold</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">/</span><span class="mf">2.</span>
+<span class="linenos">118</span>
+<span class="linenos">119</span>     <span class="c1"># Set default alignment to center, but allow it to be</span>
+<span class="linenos">120</span>     <span class="c1"># overwritten by textkw.</span>
+<span class="linenos">121</span>     <span class="n">kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+<span class="linenos">122</span>               <span class="n">verticalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="linenos">123</span>     <span class="n">kw</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">textkw</span><span class="p">)</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span>     <span class="c1"># Get the formatter in case a string is supplied</span>
+<span class="linenos">126</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">valfmt</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="linenos">127</span>         <span class="n">valfmt</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">StrMethodFormatter</span><span class="p">(</span><span class="n">valfmt</span><span class="p">)</span>
+<span class="linenos">128</span>
+<span class="linenos">129</span>     <span class="c1"># Loop over the data and create a `Text` for each &quot;pixel&quot;.</span>
+<span class="linenos">130</span>     <span class="c1"># Change the text&#39;s color depending on the data.</span>
+<span class="linenos">131</span>     <span class="n">texts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">132</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<span class="linenos">133</span>         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+<span class="linenos">134</span>             <span class="n">kw</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">textcolors</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)])</span>
+<span class="linenos">135</span>             <span class="n">text</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">valfmt</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+<span class="linenos">136</span>             <span class="n">texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span>     <span class="k">return</span> <span class="n">texts</span>
+<span class="linenos">139</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span> <span class="k">def</span> <span class="nf">plot_binned_statistic</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">astype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">142</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Plots the binned statistic</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span><span class="sd">     Parameters</span>
+<span class="linenos">145</span><span class="sd">     ----------</span>
+<span class="linenos">146</span><span class="sd">     r: the binned statistic</span>
+<span class="linenos">147</span><span class="sd">     ax: the axes to plot</span>
+<span class="linenos">148</span>
+<span class="linenos">149</span><span class="sd">     Returns</span>
+<span class="linenos">150</span><span class="sd">     -------</span>
+<span class="linenos">151</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">152</span>     <span class="c1"># Variables</span>
+<span class="linenos">153</span>     <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">statistic</span><span class="o">.</span><span class="n">shape</span>
+<span class="linenos">154</span>
+<span class="linenos">155</span>     <span class="c1"># Compute centers</span>
+<span class="linenos">156</span>     <span class="n">x_center</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">x_edge</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">x_edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="linenos">157</span>     <span class="n">y_center</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">y_edge</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">y_edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="linenos">158</span>
+<span class="linenos">159</span>     <span class="c1"># Plot heatmap (matplotlib sample, use seaborn instead)</span>
+<span class="linenos">160</span>     <span class="n">im</span><span class="p">,</span> <span class="n">cbar</span> <span class="o">=</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span>
+<span class="linenos">161</span>         <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">x_center</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">y_center</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="linenos">162</span>         <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">cbarlabel</span><span class="o">=</span><span class="s2">&quot;value [unit]&quot;</span><span class="p">)</span>
+<span class="linenos">163</span>     <span class="n">texts</span> <span class="o">=</span> <span class="n">annotate_heatmap</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">164</span>
+<span class="linenos">165</span>     <span class="c1"># Configure</span>
+<span class="linenos">166</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="linenos">167</span>     <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">168</span>         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="linenos">169</span>
+<span class="linenos">170</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">171</span><span class="sd">     # Show</span>
+<span class="linenos">172</span><span class="sd">     print(&quot;\n\n&quot;)</span>
+<span class="linenos">173</span><span class="sd">     print(matrix)</span>
+<span class="linenos">174</span><span class="sd">     print(r.x_edge)</span>
+<span class="linenos">175</span><span class="sd">     print(r.y_edge)</span>
+<span class="linenos">176</span><span class="sd">     print(r.binnumber)</span>
+<span class="linenos">177</span><span class="sd">     print(np.flip(r.statistic, axis=1))</span>
+<span class="linenos">178</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">179</span>
+<span class="linenos">180</span> <span class="k">def</span> <span class="nf">data_manual</span><span class="p">():</span>
+<span class="linenos">181</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="linenos">182</span>     <span class="c1"># Create random values</span>
+<span class="linenos">183</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="linenos">184</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="linenos">185</span>     <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="linenos">186</span>     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+<span class="linenos">187</span>
+<span class="linenos">188</span> <span class="k">def</span> <span class="nf">data_shap</span><span class="p">():</span>
+<span class="linenos">189</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="linenos">190</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/shap.csv&#39;</span><span class="p">)</span>
+<span class="linenos">191</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">192</span>     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">timestep</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_values</span>
+<span class="linenos">193</span>
+<span class="linenos">194</span>
+<span class="linenos">195</span>
+<span class="linenos">196</span>
+<span class="linenos">197</span> <span class="c1"># Load data</span>
+<span class="linenos">198</span> <span class="c1">#x, y, z = data_manual()</span>
+<span class="linenos">199</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">data_shap</span><span class="p">()</span>
+<span class="linenos">200</span>
+<span class="linenos">201</span> <span class="c1"># Using np.arange</span>
+<span class="linenos">202</span> <span class="n">binx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="c1"># [0.5, 1.5, 2.5, ...., N + 0.5]</span>
+<span class="linenos">203</span> <span class="n">biny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="c1"># [0.5, 1.5, 2.5, ...., N + 0.5]</span>
+<span class="linenos">204</span>
+<span class="linenos">205</span> <span class="c1"># Using np.linspace</span>
+<span class="linenos">206</span> <span class="n">biny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="linenos">207</span>
+<span class="linenos">208</span> <span class="c1"># Manual</span>
+<span class="linenos">209</span> <span class="c1">#binx = np.arange(5) + 0.5</span>
+<span class="linenos">210</span> <span class="c1">#biny = np.arange(8) + 0.5</span>
+<span class="linenos">211</span>
+<span class="linenos">212</span> <span class="c1"># Compute binned statistic (count)</span>
+<span class="linenos">213</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="linenos">214</span>     <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">binx</span><span class="p">,</span> <span class="n">biny</span><span class="p">],</span>
+<span class="linenos">215</span>     <span class="n">expand_binnumbers</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">216</span>
+<span class="linenos">217</span> <span class="c1"># Compute binned statistic (median)</span>
+<span class="linenos">218</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>
+<span class="linenos">219</span>     <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+<span class="linenos">220</span>     <span class="n">expand_binnumbers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">221</span>
+<span class="linenos">222</span> <span class="c1"># Compute binned statistic (median)</span>
+<span class="linenos">223</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>
+<span class="linenos">224</span>     <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">binx</span><span class="p">,</span> <span class="n">biny</span><span class="p">],</span>
+<span class="linenos">225</span>     <span class="n">expand_binnumbers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">226</span>
+<span class="linenos">227</span> <span class="c1"># Compute binned statistic (median)</span>
+<span class="linenos">228</span> <span class="n">r4</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>
+<span class="linenos">229</span>     <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">binx</span><span class="p">,</span> <span class="n">biny</span><span class="p">],</span>
+<span class="linenos">230</span>     <span class="n">expand_binnumbers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">231</span>
+<span class="linenos">232</span>
+<span class="linenos">233</span> <span class="c1"># Plot</span>
+<span class="linenos">234</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">235</span>     <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="linenos">236</span> <span class="n">plot_binned_statistic</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;r1 (count)&#39;</span><span class="p">,</span> <span class="n">valfmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{x:g}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">237</span> <span class="n">plot_binned_statistic</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;r2 (count)&#39;</span><span class="p">,</span> <span class="n">valfmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{x:g}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">238</span> <span class="n">plot_binned_statistic</span><span class="p">(</span><span class="n">r3</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;r3 (median)&#39;</span><span class="p">)</span>
+<span class="linenos">239</span> <span class="n">plot_binned_statistic</span><span class="p">(</span><span class="n">r3</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;r4 (mean)&#39;</span><span class="p">)</span>
+<span class="linenos">240</span>
+<span class="linenos">241</span> <span class="c1"># Display</span>
+<span class="linenos">242</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos">243</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.126 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main07-2dbin-stat-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/817d3b2cfd7f878a6ab4c93083e3d0e2/plot_main07_2dbin_stat.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main07_2dbin_stat.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/235826bd309df445a17fc9859c68611e/plot_main07_2dbin_stat.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main07_2dbin_stat.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main07_2dbin_shap.html" class="btn btn-neutral float-left" title="Main 07 - 2dbin with shap.csv" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main08_table.html" class="btn btn-neutral float-right" title="Main 08 - Plot table with bars" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2023, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main 02 - mpl.hexbin &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Main 03 - mpl.hist2d" href="plot_main03_hist2d.html" />
+    <link rel="prev" title="Main 01 - mpl.imshow" href="plot_main01_imshow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">Main 01 - <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Main 02 - <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">Main 03 - <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">Main 04 - Plot GMM and KDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_displot.html">Main 06 - <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_heatmap.html">Main 07 - 2dbin and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_manual.html">Main 07 - 2dbin with manual data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_shap.html">Main 07 - 2dbin with shap.csv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_stat.html">Main 07 - 2dbin demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">Main 08 - Plot table with bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">Main 09 - <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">Main 10 - <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main_20_animation.html">Main 20 - Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas-profile">Pandas-profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">Main 02 - <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/matplotlib/plot_main02_hexbin.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-matplotlib-plot-main02-hexbin-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="main-02-mpl-hexbin">
+<span id="sphx-glr-examples-matplotlib-plot-main02-hexbin-py"></span><h1>Main 02 - <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code><a class="headerlink" href="#main-02-mpl-hexbin" title="Permalink to this heading"></a></h1>
+<img src="../../_images/sphx_glr_plot_main02_hexbin_001.png" srcset="../../_images/sphx_glr_plot_main02_hexbin_001.png" alt="Hexagon binning, With a log color scale" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span> <span class="c1"># constant</span>
+<span class="linenos">12</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span> <span class="c1"># Fixing random state for reproducibility</span>
+<span class="linenos">15</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span> <span class="c1"># Generate data</span>
+<span class="linenos">18</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos">19</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos">20</span> <span class="n">z</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span> <span class="c1"># Compute limits</span>
+<span class="linenos">23</span> <span class="n">xmin</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="linenos">24</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="linenos">25</span> <span class="n">ymin</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="linenos">26</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span> <span class="c1"># Display hexagon binning (linear)</span>
+<span class="linenos">29</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">30</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.93</span><span class="p">)</span>
+<span class="linenos">31</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">32</span> <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">reduce_C_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
+<span class="linenos">33</span> <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="linenos">34</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hexagon binning&quot;</span><span class="p">)</span>
+<span class="linenos">35</span> <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+<span class="linenos">36</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="linenos">37</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;N=median&#39;</span><span class="p">)</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span> <span class="c1"># Display hexagon binning (log)</span>
+<span class="linenos">40</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">41</span> <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">reduce_C_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
+<span class="linenos">42</span> <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="linenos">43</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;With a log color scale&quot;</span><span class="p">)</span>
+<span class="linenos">44</span> <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+<span class="linenos">45</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="linenos">46</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;log10(N)&#39;</span><span class="p">)</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span> <span class="c1"># Show</span>
+<span class="linenos">49</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos">50</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.799 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main02-hexbin-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/c64d155b1ff63586a6cb858d4a9fc41a/plot_main02_hexbin.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main02_hexbin.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/3d3df18868a2127faa3e0a98f252e199/plot_main02_hexbin.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main02_hexbin.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main01_imshow.html" class="btn btn-neutral float-left" title="Main 01 - mpl.imshow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main03_hist2d.html" class="btn btn-neutral float-right" title="Main 03 - mpl.hist2d" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2023, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
