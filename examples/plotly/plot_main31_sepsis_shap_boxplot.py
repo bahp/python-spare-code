@@ -36,52 +36,11 @@ try:
 except:
     TERMINAL = False
 
-# Features
-features = [
-    'Ward Lactate',
-    #'Ward Glucose',
-    #'Ward sO2',
-    #'White blood cell count, blood',
-    'Platelets',
-    'Haemoglobin',
-    'Mean cell volume, blood',
-    'Haematocrit',
-    #'Mean cell haemoglobin conc, blood',
-    #'Mean cell haemoglobin level, blood',
-    #'Red blood cell count, blood',
-    #'Red blood cell distribution width',
-    #'Creatinine',
-    #'Urea level, blood',
-    #'Potassium',
-    #'Sodium',
-    'Neutrophils',
-    'Chloride',
-    'Lymphocytes',
-    'Monocytes',
-    'Eosinophils',
-    'C-Reactive Protein',
-    'Albumin',
-    #'Alkaline Phosphatase',
-    #'Glucose POCT Strip Blood',
-    'Total Protein',
-    'Globulin',
-    'Alanine Transaminase',
-    'Bilirubin',
-    'Prothrombin time',
-    'Fibrinogen (clauss)',
-    'Procalcitonin',
-    'Ferritin',
-    'D-Dimer',
-    'sex',
-    'age'
-]
 
 # Load data
 data = pd.read_csv('../../datasets/shap/shap.csv')
 
-# Filter
-data = data[data.features.isin(features)]
-
+# Show
 if TERMINAL:
     print("\nData:")
     print(data)
@@ -106,11 +65,12 @@ c2 = sample_colorscale('RdBu', list(x))
 c3 = sample_colorscale('Jet', list(x))
 c4 = sample_colorscale('Agsunset', list(x))
 
+# .. note:: Remove width and size if running locally.
+
 # Boxplot
-#plt.figure(figsize=(12, 4))
 fig = px.box(data, x='timestep', y='shap_values',
              color='features', color_discrete_sequence=c4,
-             points='outliers')
+             points='outliers', width=750, height=900)
 
 # .. note:: If using widescreen, commenting the legend section
 #           will automatically generate a vertical legend with
@@ -128,11 +88,16 @@ fig.update_layout(
     #},
     legend=dict(
         orientation="h",
-        entrywidth=128,
+        entrywidth=140,
         yanchor="bottom",
         y=1.02,
         xanchor="right",
-        x=1
+        x=1,
+        #font=dict(
+        #    family="Courier",
+        #    size=7,
+        #    #color="black"
+        #),
     ),
     paper_bgcolor='rgba(0,0,0,0)',  # transparent
     plot_bgcolor='rgba(0,0,0,0)'  # transparent
