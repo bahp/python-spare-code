@@ -8,7 +8,7 @@
 **/~*
 
 # Data files
-#**/*.csv
+**/*.csv
 **/*.html
 **/*.png
 **/*.jpg
@@ -17,6 +17,7 @@
 **/*.json
 **/*.log
 **/*.p
+**/*.pth
 
 # PyCharm folder
 .idea
