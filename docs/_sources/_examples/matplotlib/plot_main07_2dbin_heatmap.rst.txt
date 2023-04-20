@@ -58,7 +58,7 @@ Main 07 - 2dbin and ``sns.heatmap``
     from scipy import stats
 
     # Load data
-    data = pd.read_csv('./data/shap.csv')
+    data = pd.read_csv('../../datasets/shap/shap.csv')
     x = data.timestep
     y = data.shap_values
     z = data.feature_values
@@ -78,7 +78,7 @@ Main 07 - 2dbin and ``sns.heatmap``
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.432 seconds)
+   **Total running time of the script:** ( 0 minutes  1.074 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main07_2dbin_heatmap.py:

@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:00.616** total execution time for **_examples_pandas** files:
+**00:00.688** total execution time for **_examples_pandas** files:
 
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_pandas_plot_format05_damien_sepsis.py` (``plot_format05_damien_sepsis.py``)       | 00:00.616 | 0.0 MB |
+| :ref:`sphx_glr__examples_pandas_plot_format05_damien_sepsis.py` (``plot_format05_damien_sepsis.py``)       | 00:00.688 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_pandas_plot_format01.py` (``plot_format01.py``)                                   | 00:00.000 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+

@@ -73,16 +73,18 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">Main 08 - Plot table with bars</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">Main 09 - <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">Main 10 - <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main_20_animation.html">Main 20 - Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">Main 20 - Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">Main 30 - Sample shap.csv boxplot</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas-profile">Pandas-profile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#sphx-glr-examples-tensorflow">Other</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
@@ -336,7 +338,7 @@ Format strings passed to MaskedConstant are ignored, but in future may error or 
 <span class="linenos">187</span>
 <span class="linenos">188</span> <span class="k">def</span> <span class="nf">data_shap</span><span class="p">():</span>
 <span class="linenos">189</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="linenos">190</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/shap.csv&#39;</span><span class="p">)</span>
+<span class="linenos">190</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../datasets/shap/shap.csv&#39;</span><span class="p">)</span>
 <span class="linenos">191</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="linenos">192</span>     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">timestep</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_values</span>
 <span class="linenos">193</span>
@@ -392,7 +394,7 @@ Format strings passed to MaskedConstant are ignored, but in future may error or 
 <span class="linenos">243</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.126 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.139 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main07-2dbin-stat-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/817d3b2cfd7f878a6ab4c93083e3d0e2/plot_main07_2dbin_stat.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main07_2dbin_stat.py</span></code></a></p>

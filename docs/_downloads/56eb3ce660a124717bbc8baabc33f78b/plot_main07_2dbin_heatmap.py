@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 
 # Load data
-data = pd.read_csv('./data/shap.csv')
+data = pd.read_csv('../../datasets/shap/shap.csv')
 x = data.timestep
 y = data.shap_values
 z = data.feature_values

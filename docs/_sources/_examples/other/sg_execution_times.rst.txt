@@ -1,0 +1,12 @@
+
+:orphan:
+
+.. _sphx_glr__examples_other_sg_execution_times:
+
+Computation times
+=================
+**02:19.237** total execution time for **_examples_other** files:
+
++-------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_other_plot_main01_segment_anything.py` (``plot_main01_segment_anything.py``) | 02:19.237 | 0.0 MB |
++-------------------------------------------------------------------------------------------------------+-----------+--------+

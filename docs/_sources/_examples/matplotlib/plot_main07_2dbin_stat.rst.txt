@@ -258,7 +258,7 @@ Main 07 - 2dbin demo
 
     def data_shap():
         """"""
-        data = pd.read_csv('./data/shap.csv')
+        data = pd.read_csv('../../datasets/shap/shap.csv')
         print(data)
         return data.timestep, data.shap_values, data.feature_values
 
@@ -315,7 +315,7 @@ Main 07 - 2dbin demo
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.126 seconds)
+   **Total running time of the script:** ( 0 minutes  1.139 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main07_2dbin_stat.py:

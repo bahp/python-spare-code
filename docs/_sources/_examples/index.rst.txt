@@ -415,10 +415,10 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. only:: html
 
- .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main_20_animation_thumb.gif
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main20_animation_thumb.gif
      :alt: Main 20 - Animation
 
-     :ref:`sphx_glr__examples_matplotlib_plot_main_20_animation.py`
+     :ref:`sphx_glr__examples_matplotlib_plot_main20_animation.py`
 
 .. raw:: html
 
@@ -428,7 +428,62 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. toctree::
    :hidden:
 
-   /_examples/matplotlib/plot_main_20_animation
+   /_examples/matplotlib/plot_main20_animation
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The aim is to visualise all the features for all the timesteps to quickly see which shap values...">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main30_sepsis_shap_boxplot_thumb.png
+     :alt: Main 30 - Sample shap.csv boxplot
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main30_sepsis_shap_boxplot.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main30_sepsis_shap_boxplot
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_other:
+
+Other
+-----
+
+Gallery with ``miscellaneous`` examples.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Segment Anything Model (SAM) produces high quality object masks from input prompts such as ...">
+
+.. only:: html
+
+ .. figure:: /_examples/other/images/thumb/sphx_glr_plot_main01_segment_anything_thumb.png
+     :alt: Main 01 - Segment anything
+
+     :ref:`sphx_glr__examples_other_plot_main01_segment_anything.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/other/plot_main01_segment_anything
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -1014,6 +1069,27 @@ Gallery of examples using ``plotly``.
    :hidden:
 
    /_examples/plotly/plot_main30_dash_table
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The aim is to visualise all the features for all the timesteps to quickly see which shap values...">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main31_sepsis_shap_boxplot_thumb.png
+     :alt: Main 31 - Sample shap.csv boxplot
+
+     :ref:`sphx_glr__examples_plotly_plot_main31_sepsis_shap_boxplot.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly/plot_main31_sepsis_shap_boxplot
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
