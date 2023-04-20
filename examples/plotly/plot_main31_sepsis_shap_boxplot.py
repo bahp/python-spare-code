@@ -1,12 +1,10 @@
 """
-Main 30 - Sample shap.csv boxplot
------------------------------
+Main 31 - Sample shap.csv boxplot
+---------------------------------
 
 The aim is to visualise all the features for all the timesteps
 to quickly see which shap values are higher and therefore
 influence more in the result.
-
-.. note:: Using plotly we could interact with the outcome!
 
 """
 
@@ -21,10 +19,6 @@ import plotly.express as px
 from plotly.io import show
 from plotly.colors import n_colors
 from plotly.express.colors import sample_colorscale
-from scipy import stats
-from matplotlib.colors import LogNorm
-
-sns.set_theme(style="white")
 
 # See https://matplotlib.org/devdocs/users/explain/customizing.html
 mpl.rcParams['axes.titlesize'] = 8
@@ -93,7 +87,6 @@ if TERMINAL:
     print(data)
 data
 
-
 # Number of colors
 N = data.features.nunique()
 
@@ -114,11 +107,33 @@ c3 = sample_colorscale('Jet', list(x))
 c4 = sample_colorscale('Agsunset', list(x))
 
 # Boxplot
-plt.figure(figsize=(12, 4))
-fig = px.box(data, x='timestep', y='shap_values', color='features',
-             color_discrete_sequence=c4, points='outliers')
-             #color_discrete_map='viridis')
+#plt.figure(figsize=(12, 4))
+fig = px.box(data, x='timestep', y='shap_values',
+             color='features', color_discrete_sequence=c4,
+             points='outliers')
+
+# .. note:: If using widescreen, commenting the legend section
+#           will automatically generate a vertical legend with
+#           scrolling if needed. For display purposes in the
+#           docs we have included the legend on top.
+
+# Update layout
 fig.update_layout(
+    #margin={
+    #    'l': 0,
+    #    'r': 0,
+    #    'b': 0,
+    #    't': 0,
+    #    'pad': 4
+    #},
+    legend=dict(
+        orientation="h",
+        entrywidth=128,
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
     paper_bgcolor='rgba(0,0,0,0)',  # transparent
     plot_bgcolor='rgba(0,0,0,0)'  # transparent
 )
