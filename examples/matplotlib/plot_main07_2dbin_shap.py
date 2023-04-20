@@ -23,7 +23,7 @@ mpl.rcParams['xtick.labelsize'] = 8
 mpl.rcParams['ytick.labelsize'] = 8
 
 # Load data
-data = pd.read_csv('./data/shap.csv')
+data = pd.read_csv('../../datasets/shap/shap.csv')
 
 # Filter
 data = data[data.features.isin([

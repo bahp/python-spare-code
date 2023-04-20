@@ -1,6 +1,12 @@
 """
-Main 07 - 2dbin with shap.csv
+Main 30 - Sample shap.csv boxplot
 -----------------------------
+
+The aim is to visualise all the features for all the timesteps
+to quickly see which shap values are higher and therefore
+influence more in the result.
+
+.. note:: Using plotly we could interact with the outcome!
 
 """
 
@@ -67,7 +73,7 @@ features = [
 ]
 
 # Load data
-data = pd.read_csv('./data/shap.csv')
+data = pd.read_csv('../../datasets/shap/shap.csv')
 
 # Filter
 data = data[data.features.isin(features)]

@@ -187,7 +187,7 @@ def data_manual():
 
 def data_shap():
     """"""
-    data = pd.read_csv('./data/shap.csv')
+    data = pd.read_csv('../../datasets/shap/shap.csv')
     print(data)
     return data.timestep, data.shap_values, data.feature_values
 

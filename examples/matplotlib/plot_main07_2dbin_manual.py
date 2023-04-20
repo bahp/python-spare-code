@@ -13,7 +13,7 @@ from scipy import stats
 from matplotlib.colors import LogNorm
 
 def data_shap():
-    data = pd.read_csv('./data/shap.csv')
+    data = pd.read_csv('../../datasets/shap/shap.csv')
     return data.timestep, \
            data.shap_values, \
            data.feature_values, \
