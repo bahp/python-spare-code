@@ -36,23 +36,28 @@ def mutual_info_matrix_v3(x=None, y=None, ct=None):
     Returns
     -------
     """
+
     def _check_nparray(obj, param_name):
         if obj is not None:
-            if isinstance(obj, pd.Series):
+            if isinstance(obj, np.ndarray):
+                return obj
+            elif isinstance(obj, pd.Series):
+                return obj.to_numpy()
+            elif isinstance(obj, pd.DataFrame):
                 return obj.to_numpy()
             elif isinstance(obj, list):
                 return np.array(obj)
-            if not isinstance(obj, np.ndarray):
+            else:
                 raise ValueError("""
-                    The input parameter '{0}' is of type '{1} which is 
-                    not supported. Please ensure it is a np.ndarray."""
-                    .format(param_name, type(obj)))
+                       The input parameter '{0}' is of type '{1} which is 
+                       not supported. Please ensure it is a np.ndarray."""
+                                 .format(param_name, type(obj)))
 
+        # Ensure they are all np arrays
 
-    # Ensure they are all np arrays
-    _check_nparray(x, 'x')
-    _check_nparray(y, 'y')
-    _check_nparray(ct, 'ct')
+    x = _check_nparray(x, 'x')
+    y = _check_nparray(y, 'y')
+    ct = _check_nparray(ct, 'ct')
 
     # Compute contingency
     if ct is None:
@@ -85,7 +90,7 @@ def mutual_info_matrix_v3(x=None, y=None, ct=None):
     return m
 
 
-def mutual_info_matrix_2d(x=None, y=None, ct=None):
+def mutual_info_matrix_v2(x=None, y=None, ct=None):
     """Computes the component information.
 
     The component information is calculated as below where X/Y
@@ -136,18 +141,28 @@ def mutual_info_matrix_2d(x=None, y=None, ct=None):
     -------
 
     """
+
     def _check_nparray(obj, param_name):
         if obj is not None:
-            if not isinstance(obj, np.ndarray):
+            if isinstance(obj, np.ndarray):
+                return obj
+            elif isinstance(obj, pd.Series):
+                return obj.to_numpy()
+            elif isinstance(obj, pd.DataFrame):
+                return obj.to_numpy()
+            elif isinstance(obj, list):
+                return np.array(obj)
+            else:
                 raise ValueError("""
-                    The input parameter '{0}' is of type '{1} which is 
-                    not supported. Please ensure it is a np.ndarray."""
-                    .format(param_name, type(obj)))
+                       The input parameter '{0}' is of type '{1} which is 
+                       not supported. Please ensure it is a np.ndarray."""
+                                 .format(param_name, type(obj)))
 
-    # Ensure they are all np arrays
-    _check_nparray(x, 'x')
-    _check_nparray(y, 'y')
-    _check_nparray(ct, 'ct')
+        # Ensure they are all np arrays
+
+    x = _check_nparray(x, 'x')
+    y = _check_nparray(y, 'y')
+    ct = _check_nparray(ct, 'ct')
 
     # Compute contingency
     if ct is None:
@@ -175,8 +190,8 @@ def mutual_info_matrix_2d(x=None, y=None, ct=None):
     return m
 
 
-def component_information_v1(labels_true, labels_pred, *, contingency=None):
-    """Computes the component information.
+def mutual_info_matrix_v1(x=None, y=None, *, ct=None):
+    """Computes the mutual information matrix
 
     The component information is calculated as below where X/Y
     denotes a state (e.g. RR).
@@ -186,17 +201,19 @@ def component_information_v1(labels_true, labels_pred, *, contingency=None):
                = P(XY) * [log(P(XY)) - (log(P(X)) + log(P(Y)))]
                = P(XY) * [log(P(XY)) - log(P(X)) - log(P(Y))]
 
-    .. note: It is inspired by the code from sklearn.metrics.mutual_info_score.
-
+    .. note:: It is inspired by the code from sklearn.metrics.mutual_info_score.
 
     Notes
     -----
     The logarithm used is the natural logarithm (base-e).
     """
+    from math import log
     from scipy import sparse as sp
     from sklearn.metrics.cluster._supervised import check_clusterings
     from sklearn.metrics.cluster._supervised import check_array
     from sklearn.metrics.cluster._supervised import contingency_matrix
+
+    labels_true, labels_pred, contingency = x, y, ct
 
     if contingency is None:
         labels_true, labels_pred = check_clusterings(labels_true, labels_pred)
@@ -222,11 +239,6 @@ def component_information_v1(labels_true, labels_pred, *, contingency=None):
     pi = np.ravel(contingency.sum(axis=1))
     pj = np.ravel(contingency.sum(axis=0))
 
-    print("===> INSIDEEEE")
-    print(nz_val)
-    print(contingency_sum)
-    print(pi)
-    print(pj)
     # Since MI <= min(H(X), H(Y)), any labelling with zero entropy, i.e. containing a
     # single cluster, implies MI = 0
     if pi.size == 1 or pj.size == 1:
@@ -239,15 +251,15 @@ def component_information_v1(labels_true, labels_pred, *, contingency=None):
             pj.take(nzy).astype(np.int64, copy=False) # b*c
     log_outer = -np.log(outer) + np.log(pi.sum()) + np.log(pj.sum())
 
-
-    print(log_contingency_nm)
-    print(contingency_nm)
-    print(outer)
-    print(log_outer)
     mi = (
         contingency_nm * (log_contingency_nm - np.log(contingency_sum))
         + contingency_nm * log_outer
     )
     mi = np.where(np.abs(mi) < np.finfo(mi.dtype).eps, 0.0, mi)
 
-    return np.clip(mi.sum(), 0.0, None), mi
+    #return np.clip(mi.sum(), 0.0, None), mi
+    try:
+        return np.array(mi).reshape(contingency.shape).T
+    except:
+        return mi
+        #return mutual_info_matrix_v3(x=x, y=y, ct=ct)

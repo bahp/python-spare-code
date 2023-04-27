@@ -2,7 +2,7 @@
 Mutual Information Criteria
 ---------------------------
 
-The ``Mutual Information score``, often denoted as ``MIS``, expresses the extent
+The ``Mutual Information Score``, often denoted as ``MIS``, expresses the extent
 to which observed frequency of co-occurrence differs from what we would expect
 (statistically speaking). In statistically pure terms this is a measure of the
 strength of association between words x and y.
@@ -28,6 +28,7 @@ See below for a few resources.
 # Lets import the main libraries
 
 # Generic
+import warnings
 import numpy as np
 import pandas as pd
 
@@ -41,7 +42,10 @@ from sklearn.metrics import normalized_mutual_info_score
 
 # Own
 from mic import mutual_info_matrix_v3
-from mic import mutual_info_matrix_2d
+from mic import mutual_info_matrix_v2
+from mic import mutual_info_matrix_v1
+
+warnings.filterwarnings("ignore")
 
 try:
     __file__
@@ -78,10 +82,9 @@ m1 = np.array([[mi1, mi3], [0, mi4]])
 score1 = mi1 + mi3 + mi4 # 0.22
 
 # Compute component information matrix
-m2 = mutual_info_matrix_v3(ct=ct)
-
-# Compute component information matrix
-m3 = mutual_info_matrix_2d(ct=ct)
+m2 = mutual_info_matrix_v1(ct=ct)
+m3 = mutual_info_matrix_v2(ct=ct)
+m4 = mutual_info_matrix_v3(ct=ct)
 
 # .. note: Raises a math domain error.
 # Compute MIS scikits
@@ -89,23 +92,35 @@ m3 = mutual_info_matrix_2d(ct=ct)
 #                           labels_pred=None,
 #                           contingency=ct)
 
-# Show
-print("\n" + "="*80)
-print("Example 1")
-print("="*80)
-print("\nContigency:")
-print(ct)
-print("\nManual:")
-print(m1)
-print("MIS: %.5f" % score1)
-print("\nMethod v3:")
-print(m2)
-print("MIS: %.5f" % m2.sum())
-print("\nMethod 2d:")
-print(m3)
-print("MIS: %.5f" % m3.sum())
-#print("\nScikits:")
-#print(score4)
+# Cumu
+cumu = pd.DataFrame([
+    ['manual'] + m1.flatten().tolist(),
+    ['mutual_info_matrix_v1'] + m2.flatten().tolist(),
+    ['mutual_info_matrix_v2'] + m3.flatten().tolist(),
+    ['mutual_info_matrix_v3'] + m4.flatten().tolist()
+], columns=['method', 'c11', 'c12', 'c21', 'c22'])
+
+# Compute MIS score
+cumu['mis'] = cumu.sum(axis=1)
+
+#%%
+# Lets see the contingency matrix
+if TERMINAL:
+    print("\n" + "="*80 + "\nExample 1\n" + "="*80)
+    print('\nContingency:')
+    print(ct)
+pd.DataFrame(ct)
+
+#%%
+# Lets see the results
+if TERMINAL:
+    print("\nResults:")
+    print(cumu)
+cumu
+
+
+#%%
+# .. note:: The method ``mutual_info_matrix_v1`` does not work in this example!
 
 
 ######################################################################
@@ -127,45 +142,54 @@ d = np.repeat(x, [63, 22, 15, 25], axis=0)
 d = pd.DataFrame(data=d)
 
 # Create variables
-x = d[0].to_numpy()
-y = d[1].to_numpy()
+x = d[0]
+y = d[1]
 
 # Compute contingency
 #ct = crosstab(d[0], d[1]).count
-ct_pandas = pd.crosstab(d[0], d[1])
+ct = pd.crosstab(x, y)
 
 # Compute MIS
 score0 = mutual_info_score(labels_true=x, labels_pred=y)
 
 # Compute MIS
-m1 = mutual_info_matrix_v3(x=x, y=y)
+m1 = mutual_info_matrix_v1(x=x, y=y)
+m2 = mutual_info_matrix_v2(x=x, y=y)
+m3 = mutual_info_matrix_v3(x=x, y=y)
 
 # Compute MIS
-m2 = mutual_info_matrix_v3(
-    ct=ct_pandas.to_numpy())
+m4 = mutual_info_matrix_v1(ct=ct)
+m5 = mutual_info_matrix_v2(ct=ct)
+m6 = mutual_info_matrix_v3(ct=ct)
 
-# Compute MIS
-m3 = mutual_info_matrix_2d(x=x, y=y)
+# Cumu
+cumu = pd.DataFrame([
+    #['mutual_info_score'] + m1.flatten().tolist(),
+    ['mutual_info_matrix_v1 (x,y)'] + m1.flatten().tolist(),
+    ['mutual_info_matrix_v2 (x,y)'] + m2.flatten().tolist(),
+    ['mutual_info_matrix_v3 (x,y)'] + m3.flatten().tolist(),
+    ['mutual_info_matrix_v1 (ct)'] + m4.flatten().tolist(),
+    ['mutual_info_matrix_v2 (ct)'] + m5.flatten().tolist(),
+    ['mutual_info_matrix_v3 (ct)'] + m6.flatten().tolist(),
+], columns=['method', 'c11', 'c12', 'c21', 'c22'])
 
-# Display
-print("\n" + "="*80)
-print("Example 2")
-print("="*80)
-print('\nData:')
-print(d)
-print('\nContingency:')
-print(ct_pandas)
-print('\nMIS (Scikits):')
-print("MIS: %.5f" % score0)
-print('\nMethod v3:')
-print(m1)
-print("MIS: %.5f" % m1.sum())
-print('\nMethod v3:')
-print(m2)
-print("MIS: %.5f" % m2.sum())
-print('\nMethod 2d:')
-print(m3)
-print("MIS: %.5f" % m3.sum())
+# Compute MIS score
+cumu['mis'] = cumu.sum(axis=1)
+
+#%%
+# Lets see the contingency matrix
+if TERMINAL:
+    print("\n" + "="*80 + "\nExample 2\n" + "="*80)
+    print('\nContingency:')
+    print(ct)
+ct
+
+#%%
+# Lets see the results
+if TERMINAL:
+    print("\nResults:")
+    print(cumu)
+cumu
 
 
 ########################################################################
@@ -176,9 +200,10 @@ print("MIS: %.5f" % m3.sum())
 # material and therefore we can use it to compare that our implementation
 # produces the same result.
 #
-# .. note:: The results provided by our own ``MIS`` implementation dffers
-#           from the results provided in the manuscript for those contingency
-#           matrix in which at least one of the elements is 0.
+# .. note:: The results provided by our own ``MIS`` implementation differs
+#           from the results provided in the manuscript. This discrepancy
+#           occurs for those rows in which the contingency matrix contains
+#           one of more zeros.
 
 def collateral_resistance_index(m):
     """Collateral Resistance Index
@@ -197,45 +222,39 @@ def collateral_resistance_index(m):
     """
     return (m[0, 0] + m[1, 1]) - (m[0, 1] + m[1, 0])
 
-
-def MIS_v3(x):
+def CRI(x, func):
     ct = np.array([[x.S1S2, x.S1R2], [x.R1S2, x.R1R2]])
-    m = mutual_info_matrix_v3(ct=ct)
+    m = func(ct=ct)
     return collateral_resistance_index(m)
 
-def MIS_2d(x):
-    ct = np.array([[x.S1S2, x.S1R2], [x.R1S2, x.R1R2]])
-    m = mutual_info_matrix_2d(ct=ct)
-    return collateral_resistance_index(m)
+def compare(data, x, y):
+    return data[x].round(5).compare(data[y].round(5)).index.values
 
 # Load data
 data = pd.read_excel('./data/mmc2.xlsx')
 
 # Compute MIC score ourselves
-data['MIS_v3'] = data.apply(MIS_v3, axis=1)
-
-# Compute MIC score ourselves
-data['MIS_2d'] = data.apply(MIS_2d, axis=1)
+#data['MIS_v1'] = data.apply(CRI, args=(mutual_info_matrix_v1,), axis=1)
+data['MIS_v2'] = data.apply(CRI, args=(mutual_info_matrix_v2,), axis=1)
+data['MIS_v3'] = data.apply(CRI, args=(mutual_info_matrix_v3,), axis=1)
 
 # Compute indexes of those that do not give same result.
-idxs = data.MIS.round(5).compare(data.round(5).MIS_v3).index.values
-
+idxs1 = compare(data, 'MIS', 'MIS_v3')
 
 #%%
 # Lets see the data
 if TERMINAL:
+    print("\n" + "=" * 80 + "\nExample 3\n" + "=" * 80)
     print("\nData:")
     print(data)
 data.iloc[:, 3:]
-
 
 #%%
 # Lets see where the results are different
 if TERMINAL:
     print("\nAre they equal? Show differences below:")
-    print(data.iloc[idxs, :])
-data.iloc[idxs, 3:]
-
+    print(data.iloc[idxs1, :])
+data.iloc[idxs1, 3:]
 
 
 ########################################################################
@@ -246,25 +265,26 @@ data.iloc[idxs, 3:]
 # have itself some limitations.
 
 # Generate data
-N = 1000
-choices = np.arange(100)
+N = 10000000
+choices = np.arange(2)
 vector1 = np.random.choice(choices, size=N)
 vector2 = np.random.choice(choices, size=N)
 
 # Compute times
 t1 = timer()
-m1 = mutual_info_matrix_v3(x=vector1, y=vector2)
+m1 = mutual_info_matrix_v1(x=vector1, y=vector2)
 t2 = timer()
-m2 = mutual_info_matrix_2d(x=vector1, y=vector2)
+m2 = mutual_info_matrix_v2(x=vector1, y=vector2)
 t3 = timer()
+m3 = mutual_info_matrix_v3(x=vector1, y=vector2)
+t4 = timer()
 
 # Display
-print("\n" + "="*80)
-print("Example 4")
-print("="*80)
+print("\n" + "="*80 + "\nExample 4\n" + "="*80)
 print("Are the results equal? %s" % np.array_equal(m1, m2))
-print("time v3: %.5f" % (t2-t1))
-print("time 2d: %.5f" % (t3-t2))
+print("time v1: %.5f" % (t2-t1))
+print("time v2: %.5f" % (t3-t2))
+print("time v3: %.5f" % (t4-t3))
 
 
 ########################################################################
@@ -277,6 +297,8 @@ print("time 2d: %.5f" % (t3-t2))
 #   - What is the CRI range? (-0.7, 0.7)
 #   - Should we normalize this value? [-1, 1]? [0, 1]?
 #   - How to compute CRI if we have three outcomes R, S and I?
+
+print("\n" + "="*80 + "\nExample 5\n" + "="*80)
 
 # Create cases
 data = [
@@ -299,7 +321,7 @@ for i, (x, y) in enumerate(data):
     misn = normalized_mutual_info_score(x, y)
 
     # Compute mutual information matrix
-    m = mutual_info_matrix_v3(x=x, y=y)
+    m = mutual_info_matrix_v1(x=x, y=y)
 
     # Compute collateral resistance index
     try:
