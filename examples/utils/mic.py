@@ -1,4 +1,12 @@
+"""
+MIC package
+---------------------------
 
+v1 = [R, R, R, R]
+v2 = [R, R, R, R]
+
+
+"""
 # Libraries
 import numpy as np
 import pandas as pd
@@ -7,10 +15,16 @@ from scipy.stats.contingency import crosstab
 from sklearn.metrics import mutual_info_score
 
 
-def component_info_score_v3(x=None, y=None, ct=None):
+def mutual_info_matrix_v3(x=None, y=None, ct=None):
     """Compute the component information score.
 
     .. note: Might be inefficient but good for testing.
+
+    .. note: In order to be able to compute the mutual
+             information score it is necessary to have
+             variation within the variable. Thus, if
+             there is only one class, should we return
+             a result or a warning?
 
     Parameters
     ----------
@@ -22,10 +36,31 @@ def component_info_score_v3(x=None, y=None, ct=None):
     Returns
     -------
     """
+    def _check_nparray(obj, param_name):
+        if obj is not None:
+            if isinstance(obj, pd.Series):
+                return obj.to_numpy()
+            elif isinstance(obj, list):
+                return np.array(obj)
+            if not isinstance(obj, np.ndarray):
+                raise ValueError("""
+                    The input parameter '{0}' is of type '{1} which is 
+                    not supported. Please ensure it is a np.ndarray."""
+                    .format(param_name, type(obj)))
+
+
+    # Ensure they are all np arrays
+    _check_nparray(x, 'x')
+    _check_nparray(y, 'y')
+    _check_nparray(ct, 'ct')
+
     # Compute contingency
     if ct is None:
         c = crosstab(x,y)
-        ct = c.count
+        if isinstance(c, tuple):
+            ct = c[-1]   # older scipy
+        else:
+            ct = c.count # newer scipy
 
     # Variables
     n = ct.sum()
@@ -46,14 +81,11 @@ def component_info_score_v3(x=None, y=None, ct=None):
     # Fill with na (lim x->0 => 0)
     m[np.isnan(m)] = 0
 
-    # Compute score
-    score = (m[0, 0] + m[1, 1]) - (m[0, 1] + m[1, 0])
-
     # Return
-    return score, m
+    return m
 
 
-def component_info_score_2d(x=None, y=None, ct=None):
+def mutual_info_matrix_2d(x=None, y=None, ct=None):
     """Computes the component information.
 
     The component information is calculated as below where X/Y
@@ -104,10 +136,26 @@ def component_info_score_2d(x=None, y=None, ct=None):
     -------
 
     """
+    def _check_nparray(obj, param_name):
+        if obj is not None:
+            if not isinstance(obj, np.ndarray):
+                raise ValueError("""
+                    The input parameter '{0}' is of type '{1} which is 
+                    not supported. Please ensure it is a np.ndarray."""
+                    .format(param_name, type(obj)))
+
+    # Ensure they are all np arrays
+    _check_nparray(x, 'x')
+    _check_nparray(y, 'y')
+    _check_nparray(ct, 'ct')
+
     # Compute contingency
     if ct is None:
-        c = crosstab(x,y)
-        ct = c.count
+        c = crosstab(x, y)
+        if isinstance(c, tuple):
+            ct = c[-1]  # older scipy
+        else:
+            ct = c.count  # newer scipy
 
     with np.errstate(divide='ignore'):
         # Variables
@@ -123,8 +171,83 @@ def component_info_score_2d(x=None, y=None, ct=None):
     # Fill with na (lim x->0 => 0)
     m[np.isnan(m)] = 0
 
-    # Compute score
-    score = (m[0, 0] + m[1, 1]) - (m[0, 1] + m[1, 0])
-
     # Return
-    return score, m
+    return m
+
+
+def component_information_v1(labels_true, labels_pred, *, contingency=None):
+    """Computes the component information.
+
+    The component information is calculated as below where X/Y
+    denotes a state (e.g. RR).
+
+        C(X/Y) = P(XY) * log(P(XY) / P(X)*P(Y))
+               = P(XY) * [log(P(XY)) - log(P(X)*P(Y))]
+               = P(XY) * [log(P(XY)) - (log(P(X)) + log(P(Y)))]
+               = P(XY) * [log(P(XY)) - log(P(X)) - log(P(Y))]
+
+    .. note: It is inspired by the code from sklearn.metrics.mutual_info_score.
+
+
+    Notes
+    -----
+    The logarithm used is the natural logarithm (base-e).
+    """
+    from scipy import sparse as sp
+    from sklearn.metrics.cluster._supervised import check_clusterings
+    from sklearn.metrics.cluster._supervised import check_array
+    from sklearn.metrics.cluster._supervised import contingency_matrix
+
+    if contingency is None:
+        labels_true, labels_pred = check_clusterings(labels_true, labels_pred)
+        contingency = contingency_matrix(labels_true, labels_pred, sparse=True)
+    else:
+        contingency = check_array(
+            contingency,
+            accept_sparse=["csr", "csc", "coo"],
+            dtype=[int, np.int32, np.int64],
+        )
+
+    if isinstance(contingency, np.ndarray):
+        # For an array
+        nzx, nzy = np.nonzero(contingency)
+        nz_val = contingency[nzx, nzy]
+    elif sp.issparse(contingency):
+        # For a sparse matrix
+        nzx, nzy, nz_val = sp.find(contingency)
+    else:
+        raise ValueError("Unsupported type for 'contingency': %s" % type(contingency))
+
+    contingency_sum = contingency.sum()
+    pi = np.ravel(contingency.sum(axis=1))
+    pj = np.ravel(contingency.sum(axis=0))
+
+    print("===> INSIDEEEE")
+    print(nz_val)
+    print(contingency_sum)
+    print(pi)
+    print(pj)
+    # Since MI <= min(H(X), H(Y)), any labelling with zero entropy, i.e. containing a
+    # single cluster, implies MI = 0
+    if pi.size == 1 or pj.size == 1:
+        return 0.0
+
+    log_contingency_nm = np.log(nz_val)
+    contingency_nm = nz_val / contingency_sum
+    # Don't need to calculate the full outer product, just for non-zeroes
+    outer = pi.take(nzx).astype(np.int64, copy=False) * \
+            pj.take(nzy).astype(np.int64, copy=False) # b*c
+    log_outer = -np.log(outer) + np.log(pi.sum()) + np.log(pj.sum())
+
+
+    print(log_contingency_nm)
+    print(contingency_nm)
+    print(outer)
+    print(log_outer)
+    mi = (
+        contingency_nm * (log_contingency_nm - np.log(contingency_sum))
+        + contingency_nm * log_outer
+    )
+    mi = np.where(np.abs(mi) < np.finfo(mi.dtype).eps, 0.0, mi)
+
+    return np.clip(mi.sum(), 0.0, None), mi
