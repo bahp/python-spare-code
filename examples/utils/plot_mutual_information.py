@@ -47,6 +47,9 @@ from mic import mutual_info_matrix_v1
 
 warnings.filterwarnings("ignore")
 
+def print_example_heading(n, t=''):
+    print("\n" + "=" * 80 + "\nExample %s\n"%n + "=" * 80)
+
 try:
     __file__
     TERMINAL = True
@@ -106,7 +109,7 @@ cumu['mis'] = cumu.sum(axis=1)
 #%%
 # Lets see the contingency matrix
 if TERMINAL:
-    print("\n" + "="*80 + "\nExample 1\n" + "="*80)
+    print_example_heading(n=1)
     print('\nContingency:')
     print(ct)
 pd.DataFrame(ct)
@@ -179,7 +182,7 @@ cumu['mis'] = cumu.sum(axis=1)
 #%%
 # Lets see the contingency matrix
 if TERMINAL:
-    print("\n" + "="*80 + "\nExample 2\n" + "="*80)
+    print_example_heading(n=2)
     print('\nContingency:')
     print(ct)
 ct
@@ -233,6 +236,10 @@ def compare(data, x, y):
 # Load data
 data = pd.read_excel('./data/mmc2.xlsx')
 
+# .. note: MIS_v1 is inspired by the implementation in sklearn. For some
+#          reason, when one of the values of the contigency matrix is 0
+#          it returns an array with three values and thus raises an error.
+
 # Compute MIC score ourselves
 #data['MIS_v1'] = data.apply(CRI, args=(mutual_info_matrix_v1,), axis=1)
 data['MIS_v2'] = data.apply(CRI, args=(mutual_info_matrix_v2,), axis=1)
@@ -244,7 +251,7 @@ idxs1 = compare(data, 'MIS', 'MIS_v3')
 #%%
 # Lets see the data
 if TERMINAL:
-    print("\n" + "=" * 80 + "\nExample 3\n" + "=" * 80)
+    print_example_heading(n=3)
     print("\nData:")
     print(data)
 data.iloc[:, 3:]
@@ -264,6 +271,9 @@ data.iloc[idxs1, 3:]
 # more or less efficient between them. Note that the methods
 # have itself some limitations.
 
+# Heading
+print_example_heading(n=4)
+
 # Generate data
 N = 10000000
 choices = np.arange(2)
@@ -280,11 +290,13 @@ m3 = mutual_info_matrix_v3(x=vector1, y=vector2)
 t4 = timer()
 
 # Display
-print("\n" + "="*80 + "\nExample 4\n" + "="*80)
-print("Are the results equal? %s" % np.array_equal(m1, m2))
-print("time v1: %.5f" % (t2-t1))
-print("time v2: %.5f" % (t3-t2))
-print("time v3: %.5f" % (t4-t3))
+if TERMINAL:
+    print_example_heading(n=4)
+    print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
+    print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
+    print("time v1: %.5f" % (t2-t1))
+    print("time v2: %.5f" % (t3-t2))
+    print("time v3: %.5f" % (t4-t3))
 
 
 ########################################################################
@@ -298,7 +310,8 @@ print("time v3: %.5f" % (t4-t3))
 #   - Should we normalize this value? [-1, 1]? [0, 1]?
 #   - How to compute CRI if we have three outcomes R, S and I?
 
-print("\n" + "="*80 + "\nExample 5\n" + "="*80)
+# Heading
+print_example_heading(n=5)
 
 # Create cases
 data = [
@@ -340,12 +353,12 @@ for i, (x, y) in enumerate(data):
 
 # Create the dataframe
 df = pd.DataFrame(cumu,
-    columns=['x', 'y', 'mis', 'misa', 'misn', 'cri'])
+    columns=['x', 'y', 'mis', 'mis_adjusted', 'mis_normalized', 'cri'])
 
 #%%
 # Lets see the summary of edge cases
 if TERMINAL:
-    print("\nSummary:")
+    print("\nSummary of edge scenarios:")
     print(df)
 df
 
@@ -356,3 +369,105 @@ df
 # There are several approaches, one of them is just binning. For more
 # information just check online, there are many good resources and or
 # implementations that might be found out there.
+
+# Heading
+print_example_heading(n=6)
+
+bins = 5 #?
+
+def f(X, Y, bins):
+    c_XY = np.histogram2d(X, Y, bins)[0]
+    c_X = np.histogram(X, bins)[0]
+    c_Y = np.histogram(Y, bins)[0]
+    return 1
+
+########################################################################
+# g) Computing pairwise score
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Let's see how we can compute the mutual information square in a
+# pairwise fashion.
+
+
+def f1(x, y):
+    # Compute mutual information matrix
+    m = mutual_info_matrix_v3(x=x, y=y)
+    # Compute collateral resistance index
+    cri = collateral_resistance_index(m)
+    # Return
+    return cri
+
+# Generate data
+data = np.random.choice(['S', 'R'], size=(100, 4))
+
+# Convert into DataFrame
+df = pd.DataFrame(data,
+    columns=['C%d' % i for i in range(data.shape[1])])
+
+# Option I
+# --------
+# Create empty matrix
+cols = data.shape[1]
+matrix = np.empty((cols, cols))
+matrix[:] = np.nan
+
+# Compute pairwise (square matrix)
+for ix in np.arange(cols):
+    for jx in np.arange(ix+1, cols):
+        matrix[ix,jx] = f1(data[:,ix], data[:,jx])
+
+# Convert to DataFrame for visualisation
+matrix = pd.DataFrame(matrix,
+    index=df.columns, columns=df.columns)
+
+#%%
+# Lets see the summary of pairwise distances
+if TERMINAL:
+    # Heading
+    print_example_heading(n=7)
+    print("\nSummary of pairwise computations:")
+    print(matrix)
+matrix
+
+# Option II
+# ----------
+#for i, j in list(combinations(df.columns, 2)):
+
+########################################################################
+# g) Example with more than 2 classes
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Let's see how it works for more than two classes.
+#
+# .. note:: The computation using mutual_info_matrix_v2 should not work
+#           because it is designed for 2 classes. However, while it does
+#           not work for low number of samples (e.g. 5), it works for
+#           larger values (e.g. 100).
+
+# .. note:: The computation using mutual_info_matrix_v3 which is inspired
+#           by sklearn returns an array of length 5 when the number of
+#           samples is low. However, it works when large number of samples
+#           is used.
+
+# Generate data
+data = np.random.choice(['S', 'R', 'I'], size=(100, 2))
+
+# Convert into DataFrame
+df = pd.DataFrame(data,
+    columns=['C%d' % i for i in range(data.shape[1])])
+
+# Compute
+m1 = mutual_info_matrix_v1(x=df.C0, y=df.C1)
+m2 = mutual_info_matrix_v2(x=df.C0, y=df.C1)
+m3 = mutual_info_matrix_v3(x=df.C0, y=df.C1)
+
+if TERMINAL:
+    print_example_heading(n=8)
+    print("Result m1:")
+    print(m1)
+    print("\nResult m2:")
+    print(m2)
+    print("\nResult m3:")
+    print(m3)
+
+    print("\n")
+    #print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
+    print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
