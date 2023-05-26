@@ -22,6 +22,18 @@ mpl.rcParams['axes.labelsize'] = 8
 mpl.rcParams['xtick.labelsize'] = 8
 mpl.rcParams['ytick.labelsize'] = 8
 
+# Constant
+SNS_HEATMAP_CBAR_ARGS = {
+    'C-Reactive Protein': { 'vmin':-0.4, 'vmax':-0.2, 'center':-0.35 },
+    'Bilirubin': { 'vmin':-0.4, 'vmax':-0.2, 'center':-0.35 },
+    'Alanine Transaminase': {},
+    'Albumin': {},
+    'Alkaline Phosphatase': { 'vmin':-0.6, 'vmax':-0.2 },
+    'Bilirubin': {},
+    'C-Reactive Protein': {},
+    'Chloride': {},
+}
+
 # Load data
 data = pd.read_csv('../../datasets/shap/shap.csv')
 
@@ -34,7 +46,6 @@ data = data[data.features.isin([
     'C-Reactive Protein',
     'Chloride',
     'Creatinine'
-
 ])]
 
 # Show
@@ -104,7 +115,8 @@ for i, (name, df) in enumerate(data.groupby('features')):
                 xticklabels=y_center.astype(int),
                 yticklabels=x_center.round(3)[::-1],  # Because of flip
                 cmap='coolwarm', ax=axs[1], zorder=1,
-                vmin=None, vmax=None, center=None, robust=True,
+                **SNS_HEATMAP_CBAR_ARGS.get(name, {}),
+                #vmin=vmin, vmax=vmax, center=center, robust=False,
                 cbar_kws={
                     #'label': 'value [unit]',
                     'use_gridspec': True,

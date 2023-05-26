@@ -12,7 +12,7 @@
 **/*.html
 **/*.png
 **/*.jpg
-**/*.xlsx
+#**/*.xlsx
 **/*.xls
 **/*.json
 **/*.log
