@@ -1,5 +1,5 @@
 """
-01. DataFrame description (``pandas_profiling``)
+01. ``pandas_profiling``
 ================================================
 """
 # Libraries

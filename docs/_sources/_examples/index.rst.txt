@@ -857,12 +857,12 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="01. DataFrame description (``pandas_profiling``)">
+    <div class="sphx-glr-thumbcontainer" tooltip="01. pandas_profiling">
 
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_profile01_thumb.png
-     :alt: 01. DataFrame description (``pandas_profiling``)
+     :alt: 01. ``pandas_profiling``
 
      :ref:`sphx_glr__examples_pandas_plot_profile01.py`
 
@@ -878,12 +878,12 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="02. DataFrame description dataprep">
+    <div class="sphx-glr-thumbcontainer" tooltip="02. dataprep">
 
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_profile02_thumb.png
-     :alt: 02. DataFrame description ``dataprep``
+     :alt: 02. ``dataprep``
 
      :ref:`sphx_glr__examples_pandas_plot_profile02.py`
 
@@ -896,61 +896,6 @@ Gallery of examples using ``pandas``.
    :hidden:
 
    /_examples/pandas/plot_profile02
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. _sphx_glr__examples_pandas-profile:
-
-Pandas-profile
---------------
-
-Gallery of examples using ``pandas-profile``.
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Pandas Profile - Main 01">
-
-.. only:: html
-
- .. figure:: /_examples/pandas-profile/images/thumb/sphx_glr_main01_thumb.png
-     :alt: Pandas Profile - Main 01
-
-     :ref:`sphx_glr__examples_pandas-profile_main01.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pandas-profile/main01
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Pandas Profile - Main 02">
-
-.. only:: html
-
- .. figure:: /_examples/pandas-profile/images/thumb/sphx_glr_main02_thumb.png
-     :alt: Pandas Profile - Main 02
-
-     :ref:`sphx_glr__examples_pandas-profile_main02.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pandas-profile/main02
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -1770,8 +1715,8 @@ Gallery of examples using ``tableone``.
 
 .. _sphx_glr__examples_tensorflow:
 
-Other
------
+Tensorflow
+----------
 
 Gallery with ``miscellaneous`` examples.
 
