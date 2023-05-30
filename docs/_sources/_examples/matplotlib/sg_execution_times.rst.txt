@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:02.725** total execution time for **_examples_matplotlib** files:
+**00:03.263** total execution time for **_examples_matplotlib** files:
 
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_matplotlib_plot_main07_e_displot.py` (``plot_main07_e_displot.py``)                               | 00:02.725 | 0.0 MB |
+| :ref:`sphx_glr__examples_matplotlib_plot_main06_d_collateral_sensitivity.py` (``plot_main06_d_collateral_sensitivity.py``) | 00:03.263 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main01_imshow.py` (``plot_main01_imshow.py``)                                     | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
@@ -30,8 +30,6 @@ Computation times
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main06_c_collateral_sensitivity.py` (``plot_main06_c_collateral_sensitivity.py``) | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_matplotlib_plot_main06_d_collateral_sensitivity.py` (``plot_main06_d_collateral_sensitivity.py``) | 00:00.000 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main07_a_2dbin_stat.py` (``plot_main07_a_2dbin_stat.py``)                         | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main07_b_2dbin_heatmap.py` (``plot_main07_b_2dbin_heatmap.py``)                   | 00:00.000 | 0.0 MB |
@@ -39,6 +37,8 @@ Computation times
 | :ref:`sphx_glr__examples_matplotlib_plot_main07_c_2dbin_fake.py` (``plot_main07_c_2dbin_fake.py``)                         | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main07_d_2dbin_shap.py` (``plot_main07_d_2dbin_shap.py``)                         | 00:00.000 | 0.0 MB |
++----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_matplotlib_plot_main07_e_displot.py` (``plot_main07_e_displot.py``)                               | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main08_table.py` (``plot_main08_table.py``)                                       | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
