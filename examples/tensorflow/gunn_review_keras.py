@@ -6,6 +6,7 @@ Main
 
 """
 
+"""
 import numpy as np
 
 from keras.callbacks import TensorBoard, ModelCheckpoint
@@ -135,4 +136,4 @@ model = create_model()
 model.fit([data, data_i], np.asarray(y, 'int32'),
           shuffle=False,
           nb_epoch=200, batch_size=32, verbose=0)
-
+"""

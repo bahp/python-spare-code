@@ -1,5 +1,5 @@
 """
-02. DataFrame description ``dataprep``
+02. ``dataprep``
 ======================================
 """
 # Libraries
