@@ -1,6 +1,8 @@
 """
-Main 08 - Plot table with bars
-------------------------------
+08. ``plt.bar`` with ``plt.table``
+----------------------------------
+
+Plot bars and add a table to an Axes.
 
 """
 

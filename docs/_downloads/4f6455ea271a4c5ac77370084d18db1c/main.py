@@ -1,6 +1,6 @@
 """
-Main 01
--------
+01. Basic example
+==================
 
 Description
 """

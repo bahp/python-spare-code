@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_factory-boy_microbiology.py:
 
 
-Factory Boy
------------
+01. Generate microbiology data
+------------------------------
 
 .. GENERATED FROM PYTHON SOURCE LINES 6-130
 

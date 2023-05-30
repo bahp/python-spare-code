@@ -18,12 +18,12 @@
 .. _sphx_glr__examples_shap_plot_main05_stripplot.py:
 
 
-Shap - Main 05 - Stripplot
+05. Stripplot
 ==========================
 
 .. warning:: This method is quite slow.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-125
+.. GENERATED FROM PYTHON SOURCE LINES 8-128
 
 .. code-block:: default
    :lineno-start: 9
@@ -121,7 +121,10 @@ Shap - Main 05 - Stripplot
                  transformation should be taken into account.
 
         """
-        data = pd.read_csv('./data/shap.csv')
+        from pathlib import Path
+        # Load data
+        path = Path('../../datasets/shap/')
+        data = pd.read_csv(path / 'shap.csv')
         data = data.iloc[:, 1:]
         data = data.rename(columns={'timestep': 'indice'})
         data['timestep'] = data.indice - (data.indice.nunique() - 1)
@@ -152,14 +155,14 @@ Shap - Main 05 - Stripplot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-127
+.. GENERATED FROM PYTHON SOURCE LINES 129-130
 
 Let's see how data looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-130
+.. GENERATED FROM PYTHON SOURCE LINES 130-133
 
 .. code-block:: default
-   :lineno-start: 127
+   :lineno-start: 130
 
     data.head(10)
 
@@ -296,7 +299,7 @@ Let's see how data looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-137
+.. GENERATED FROM PYTHON SOURCE LINES 134-140
 
 Let's show using ``sns.stripplot``
 
@@ -305,10 +308,10 @@ Let's show using ``sns.stripplot``
 .. note:: y-axis has been 'normalized'
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-188
+.. GENERATED FROM PYTHON SOURCE LINES 140-191
 
 .. code-block:: default
-   :lineno-start: 138
+   :lineno-start: 141
 
 
     def add_colorbar(fig, cmap, norm):
@@ -423,7 +426,7 @@ Let's show using ``sns.stripplot``
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.573 seconds)
+   **Total running time of the script:** ( 0 minutes  22.993 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_stripplot.py:

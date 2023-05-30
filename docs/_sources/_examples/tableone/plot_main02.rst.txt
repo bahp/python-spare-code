@@ -18,18 +18,21 @@
 .. _sphx_glr__examples_tableone_plot_main02.py:
 
 
-TableOne - Main02
-=================
+02. Basic example
+-----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-33
+Basic usage of the tableone library.
+
+.. GENERATED FROM PYTHON SOURCE LINES 7-37
 
 .. code-block:: default
-   :lineno-start: 5
+   :lineno-start: 7
 
     # Libraries
     import pandas as pd
 
     # Specific
+    from pathlib import Path
     from tableone import TableOne
 
 
@@ -37,7 +40,8 @@ TableOne - Main02
     # Load data
     # ------------------------
     # Load data
-    data = pd.read_csv('./data/dengue.csv')
+    path = Path('../../datasets/dengue-htd-dataset')
+    data = pd.read_csv(path / 'dengue.csv')
 
     # ------------------------
     # Create tableone
@@ -61,15 +65,15 @@ TableOne - Main02
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 Show
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-39
+.. GENERATED FROM PYTHON SOURCE LINES 40-43
 
 .. code-block:: default
-   :lineno-start: 37
+   :lineno-start: 41
 
 
     mytable.tableone
@@ -167,16 +171,16 @@ Show
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-43
+.. GENERATED FROM PYTHON SOURCE LINES 44-47
 
 Show (HTML)
 
 Html
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-47
+.. GENERATED FROM PYTHON SOURCE LINES 47-51
 
 .. code-block:: default
-   :lineno-start: 43
+   :lineno-start: 47
 
     html = mytable.to_html()
 
@@ -265,7 +269,7 @@ Html
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.155 seconds)
+   **Total running time of the script:** ( 0 minutes  0.130 seconds)
 
 
 .. _sphx_glr_download__examples_tableone_plot_main02.py:

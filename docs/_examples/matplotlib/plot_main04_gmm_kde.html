@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main 04 - Plot GMM and KDE &mdash; python-spare-code 0.0.1 documentation</title>
+  <title>04. Plot GMM and KDE &mdash; python-spare-code 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Main 06 - sns.displot" href="plot_main06_displot.html" />
-    <link rel="prev" title="Main 03 - mpl.hist2d" href="plot_main03_hist2d.html" /> 
+    <link rel="next" title="05.a sns.clustermap basic sample" href="plot_main05_a_clustermap.html" />
+    <link rel="prev" title="03. mpl.hist2d" href="plot_main03_hist2d.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,20 +61,27 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">Main 01 - <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">Main 02 - <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">Main 03 - <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Main 04 - Plot GMM and KDE</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main06_displot.html">Main 06 - <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_heatmap.html">Main 07 - 2dbin and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_manual.html">Main 07 - 2dbin with manual data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_shap.html">Main 07 - 2dbin with shap.csv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07_2dbin_stat.html">Main 07 - 2dbin demo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">Main 08 - Plot table with bars</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">Main 09 - <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">Main 10 - <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">Main 20 - Animation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">Main 30 - Sample shap.csv boxplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">04. Plot GMM and KDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_a_clustermap.html">05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_b_clustermap.html">05.b <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> with <code class="docutils literal notranslate"><span class="pre">network.csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_c_clustermap.html">05.c <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> multiple categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_a_heatmap.html">06.a <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> for CRI <code class="docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_b_heatmap.html">06.b <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> for CRI <code class="docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_c_collateral_sensitivity.html">06.c Collateral Sensitivity Index (CRI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_d_collateral_sensitivity.html">06.d Collateral Sensitivity Index (CRI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_a_2dbin_stat.html">07.a <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">mpl.heatmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_b_2dbin_heatmap.html">07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_c_2dbin_fake.html">07.c <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with fake data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_d_2dbin_shap.html">07.d <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with <code class="docutils literal notranslate"><span class="pre">shap.csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code> with <code class="docutils literal notranslate"><span class="pre">plt.table</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">30. Sample shap.csv boxplot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
@@ -85,7 +92,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#sphx-glr-examples-tensorflow">Other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -107,7 +113,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
-      <li class="breadcrumb-item active">Main 04 - Plot GMM and KDE</li>
+      <li class="breadcrumb-item active">04. Plot GMM and KDE</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/matplotlib/plot_main04_gmm_kde.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,8 +128,8 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-matplotlib-plot-main04-gmm-kde-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="main-04-plot-gmm-and-kde">
-<span id="sphx-glr-examples-matplotlib-plot-main04-gmm-kde-py"></span><h1>Main 04 - Plot GMM and KDE<a class="headerlink" href="#main-04-plot-gmm-and-kde" title="Permalink to this heading"></a></h1>
+<section class="sphx-glr-example-title" id="plot-gmm-and-kde">
+<span id="sphx-glr-examples-matplotlib-plot-main04-gmm-kde-py"></span><h1>04. Plot GMM and KDE<a class="headerlink" href="#plot-gmm-and-kde" title="Permalink to this heading"></a></h1>
 <p>This example estimates and displays the Gaussian
 Mixture Model (GMM) and KDE (Kernel Density Estimation)
 for each class.</p>
@@ -449,7 +455,7 @@ for each class.</p>
 <span class="linenos">323</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.545 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.497 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main04-gmm-kde-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8c9bcf3ac43ada9d778d1d36b451ff76/plot_main04_gmm_kde.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main04_gmm_kde.py</span></code></a></p>
@@ -465,8 +471,8 @@ for each class.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_main03_hist2d.html" class="btn btn-neutral float-left" title="Main 03 - mpl.hist2d" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_main06_displot.html" class="btn btn-neutral float-right" title="Main 06 - sns.displot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_main03_hist2d.html" class="btn btn-neutral float-left" title="03. mpl.hist2d" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main05_a_clustermap.html" class="btn btn-neutral float-right" title="05.a sns.clustermap basic sample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

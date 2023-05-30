@@ -1,6 +1,8 @@
 """
-Main 20 - Animation
+20. Animation
 -------------------
+
+Create an animation.
 
 """
 import numpy as np

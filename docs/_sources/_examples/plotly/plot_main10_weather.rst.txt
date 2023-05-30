@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_plotly_plot_main10_weather.py:
 
 
-Main 10 - Plot sparklines with weather
+10. Plot sparklines with weather
 ======================================
 
 .. GENERATED FROM PYTHON SOURCE LINES 6-101
@@ -134,7 +134,7 @@ Main 10 - Plot sparklines with weather
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.408 seconds)
+   **Total running time of the script:** ( 0 minutes  5.412 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main10_weather.py:

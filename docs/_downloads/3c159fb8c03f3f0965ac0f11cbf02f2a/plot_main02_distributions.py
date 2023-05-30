@@ -1,5 +1,5 @@
 """
-Main 02 - Plot Distributions
+02. Plot Distributions
 ============================
 
 This example shows how to plot the probability distributions

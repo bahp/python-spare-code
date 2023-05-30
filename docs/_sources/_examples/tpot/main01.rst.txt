@@ -18,10 +18,10 @@
 .. _sphx_glr__examples_tpot_main01.py:
 
 
-Main
-=============
+01. Basic example
+=================
 
-Example
+Basic example to use tpot.
 
 .. GENERATED FROM PYTHON SOURCE LINES 7-93
 

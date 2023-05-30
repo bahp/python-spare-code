@@ -1,6 +1,8 @@
 """
-Main 09 - ``mpl.tripcolor``
+09. ``mpl.tripcolor``
 ---------------------------
+
+Create a pseudocolor plot of an unstructured triangular grid.
 
 """
 

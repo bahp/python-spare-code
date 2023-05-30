@@ -18,10 +18,10 @@
 .. _sphx_glr__examples_shap_plot_main05_swarmplot.py:
 
 
-Shap - Main 05 - Swarmplot
+05. Swarmplot
 ==========================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-121
+.. GENERATED FROM PYTHON SOURCE LINES 5-124
 
 .. code-block:: default
    :lineno-start: 6
@@ -118,7 +118,10 @@ Shap - Main 05 - Swarmplot
                  transformation should be taken into account.
 
         """
-        data = pd.read_csv('./data/shap.csv')
+        from pathlib import Path
+        # Load data
+        path = Path('../../datasets/shap/')
+        data = pd.read_csv(path / 'shap.csv')
         data = data.iloc[:, 1:]
         data = data.rename(columns={'timestep': 'indice'})
         data['timestep'] = data.indice - (data.indice.nunique() - 1)
@@ -149,14 +152,14 @@ Shap - Main 05 - Swarmplot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-123
+.. GENERATED FROM PYTHON SOURCE LINES 125-126
 
 Let's see how data looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-126
+.. GENERATED FROM PYTHON SOURCE LINES 126-129
 
 .. code-block:: default
-   :lineno-start: 123
+   :lineno-start: 126
 
     data.head(10)
 
@@ -293,7 +296,7 @@ Let's see how data looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-133
+.. GENERATED FROM PYTHON SOURCE LINES 130-136
 
 Display using ``sns.swarmplot`
 
@@ -302,10 +305,10 @@ Display using ``sns.swarmplot`
 .. note:: y-axis has been 'normalized'
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-185
+.. GENERATED FROM PYTHON SOURCE LINES 136-188
 
 .. code-block:: default
-   :lineno-start: 134
+   :lineno-start: 137
 
 
     def add_colorbar(fig, cmap, norm):
@@ -415,13 +418,69 @@ Display using ``sns.swarmplot`
          :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    78.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    82.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    74.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    60.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    56.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    58.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    45.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    93.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    90.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    90.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    74.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    78.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    65.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    52.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    77.5% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    75.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    76.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    76.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    71.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    65.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    67.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    91.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    90.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    81.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    79.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    72.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    55.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    68.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    88.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    89.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    79.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    73.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    58.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    48.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    74.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    92.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    87.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    80.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    85.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    81.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    56.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    74.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    74.1% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    75.9% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    77.3% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    58.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    59.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    60.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+    42.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 15 minutes  36.777 seconds)
+   **Total running time of the script:** ( 15 minutes  56.609 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_swarmplot.py:

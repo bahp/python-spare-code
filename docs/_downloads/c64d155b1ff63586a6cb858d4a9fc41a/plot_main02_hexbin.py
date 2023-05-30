@@ -1,6 +1,8 @@
 """
-Main 02 - ``mpl.hexbin``
+02. ``mpl.hexbin``
 ------------------------
+
+Make a 2D hexagonal binning plot of points x, y.
 
 """
 
@@ -38,7 +40,9 @@ cb.set_label('N=median')
 
 # Display hexagon binning (log)
 ax = axs[1]
-hb = ax.hexbin(x, y, C=z, gridsize=50, bins='log', cmap='coolwarm', reduce_C_function=np.median)
+hb = ax.hexbin(x, y, C=z, gridsize=50,
+    bins='log', cmap='coolwarm',
+    reduce_C_function=np.median)
 ax.axis([xmin, xmax, ymin, ymax])
 ax.set_title("With a log color scale")
 ax.invert_xaxis()

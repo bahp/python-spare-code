@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_matplotlib_plot_main30_sepsis_shap_boxplot.py:
 
 
-Main 30 - Sample shap.csv boxplot
+30. Sample shap.csv boxplot
 ---------------------------------
 
 The aim is to visualise all the features for all the timesteps
@@ -194,7 +194,7 @@ influence more in the result.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.208 seconds)
+   **Total running time of the script:** ( 0 minutes  5.496 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main30_sepsis_shap_boxplot.py:

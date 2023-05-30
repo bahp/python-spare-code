@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_plotly_plot_main06_treemap_v1.py:
 
 
-Main 06 - Plot Treemap with coffee
+06. Plot Treemap with coffee
 ----------------------------------
 
 .. GENERATED FROM PYTHON SOURCE LINES 7-8
@@ -198,7 +198,7 @@ Lets load the dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.566 seconds)
+   **Total running time of the script:** ( 0 minutes  0.525 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main06_treemap_v1.py:

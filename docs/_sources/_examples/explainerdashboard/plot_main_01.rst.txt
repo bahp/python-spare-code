@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_explainerdashboard_plot_main_01.py:
 
 
-Explainer Dash
-----------------
+01. Explainer Dash
+------------------
 
 This example runs an app which an interactive
 user interface to explore the importance of

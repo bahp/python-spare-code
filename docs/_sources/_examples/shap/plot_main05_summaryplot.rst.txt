@@ -18,10 +18,10 @@
 .. _sphx_glr__examples_shap_plot_main05_summaryplot.py:
 
 
-Shap - Main 05 - Summary plot
+05. Summary plot
 =============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-64
+.. GENERATED FROM PYTHON SOURCE LINES 5-67
 
 .. code-block:: default
    :lineno-start: 6
@@ -53,7 +53,10 @@ Shap - Main 05 - Summary plot
                  transformation should be taken into account.
 
         """
-        data = pd.read_csv('./data/shap.csv')
+        from pathlib import Path
+        # Load data
+        path = Path('../../datasets/shap/')
+        data = pd.read_csv(path / 'shap.csv')
         data = data.iloc[:, 1:]
         data = data.rename(columns={'timestep': 'indice'})
         data['timestep'] = data.indice - (data.indice.nunique() - 1)
@@ -92,14 +95,14 @@ Shap - Main 05 - Summary plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-66
+.. GENERATED FROM PYTHON SOURCE LINES 68-69
 
 Let's see how data looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-68
+.. GENERATED FROM PYTHON SOURCE LINES 69-71
 
 .. code-block:: default
-   :lineno-start: 66
+   :lineno-start: 69
 
     data.head(10)
 
@@ -235,14 +238,14 @@ Let's see how data looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-70
+.. GENERATED FROM PYTHON SOURCE LINES 72-73
 
 Let's see how shap_values looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-72
+.. GENERATED FROM PYTHON SOURCE LINES 73-75
 
 .. code-block:: default
-   :lineno-start: 70
+   :lineno-start: 73
 
     shap_values.iloc[:10, :5]
 
@@ -379,14 +382,14 @@ Let's see how shap_values looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-74
+.. GENERATED FROM PYTHON SOURCE LINES 76-77
 
 Let's see how feature_values looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-76
+.. GENERATED FROM PYTHON SOURCE LINES 77-79
 
 .. code-block:: default
-   :lineno-start: 74
+   :lineno-start: 77
 
     feature_values.iloc[:10, :5]
 
@@ -523,17 +526,17 @@ Let's see how feature_values looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-81
+.. GENERATED FROM PYTHON SOURCE LINES 80-84
 
 Display using ``shap.summary_plot``
 -----------------------------------------------
 
 The first option is to use the ``shap`` library to plot the results.
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-90
+.. GENERATED FROM PYTHON SOURCE LINES 84-93
 
 .. code-block:: default
-   :lineno-start: 82
+   :lineno-start: 85
 
 
     # Let's define/extract some useful variables.
@@ -551,14 +554,14 @@ The first option is to use the ``shap`` library to plot the results.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-92
+.. GENERATED FROM PYTHON SOURCE LINES 94-95
 
 Now, let's display the shap values for all features in each timestep.
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-112
+.. GENERATED FROM PYTHON SOURCE LINES 95-115
 
 .. code-block:: default
-   :lineno-start: 95
+   :lineno-start: 98
 
 
 
@@ -639,14 +642,14 @@ Now, let's display the shap values for all features in each timestep.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-114
+.. GENERATED FROM PYTHON SOURCE LINES 116-117
 
 Now, let's display the shap values for all timesteps of each feature.
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-138
+.. GENERATED FROM PYTHON SOURCE LINES 117-141
 
 .. code-block:: default
-   :lineno-start: 115
+   :lineno-start: 118
 
 
     # For each feature (visualise all time-steps)
@@ -755,7 +758,7 @@ Now, let's display the shap values for all timesteps of each feature.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.350 seconds)
+   **Total running time of the script:** ( 0 minutes  6.603 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_summaryplot.py:

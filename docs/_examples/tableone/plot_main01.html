@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TableOne - Main 01 &mdash; python-spare-code 0.0.1 documentation</title>
+  <title>01. Basic example &mdash; python-spare-code 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="TableOne - Main02" href="plot_main02.html" />
-    <link rel="prev" title="Shap - Main 06" href="../shap/temp.html" /> 
+    <link rel="next" title="02. Basic example" href="plot_main02.html" />
+    <link rel="prev" title="06. Basic example" href="../shap/temp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -68,12 +68,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#tableone">TableOne</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">TableOne - Main 01</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main02.html">TableOne - Main02</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">01. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02.html">02. Basic example</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#sphx-glr-examples-tensorflow">Other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -95,7 +94,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
-      <li class="breadcrumb-item active">TableOne - Main 01</li>
+      <li class="breadcrumb-item active">01. Basic example</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/tableone/plot_main01.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,38 +109,39 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-tableone-plot-main01-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="tableone-main-01">
-<span id="sphx-glr-examples-tableone-plot-main01-py"></span><h1>TableOne - Main 01<a class="headerlink" href="#tableone-main-01" title="Permalink to this heading"></a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 6</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span> <span class="kn">from</span> <span class="nn">tableone</span> <span class="kn">import</span> <span class="n">TableOne</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span> <span class="c1"># Load data</span>
-<span class="linenos">11</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/tompollard/data/master/primary-biliary-cirrhosis/pbc.csv&quot;</span>
-<span class="linenos">12</span> <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span> <span class="c1"># List of columns</span>
-<span class="linenos">15</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
-<span class="linenos">16</span>     <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;bili&#39;</span><span class="p">,</span> <span class="s1">&#39;albumin&#39;</span><span class="p">,</span> <span class="s1">&#39;ast&#39;</span><span class="p">,</span>
-<span class="linenos">17</span>     <span class="s1">&#39;platelet&#39;</span><span class="p">,</span> <span class="s1">&#39;protime&#39;</span><span class="p">,</span> <span class="s1">&#39;ascites&#39;</span><span class="p">,</span>
-<span class="linenos">18</span>     <span class="s1">&#39;hepato&#39;</span><span class="p">,</span> <span class="s1">&#39;spiders&#39;</span><span class="p">,</span> <span class="s1">&#39;edema&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">,</span>
-<span class="linenos">19</span>     <span class="s1">&#39;trt&#39;</span>
-<span class="linenos">20</span> <span class="p">]</span>
-<span class="linenos">21</span>
-<span class="linenos">22</span> <span class="c1"># Specify categorical columns</span>
-<span class="linenos">23</span> <span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ascites&#39;</span><span class="p">,</span><span class="s1">&#39;hepato&#39;</span><span class="p">,</span><span class="s1">&#39;edema&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;spiders&#39;</span><span class="p">,</span><span class="s1">&#39;trt&#39;</span><span class="p">]</span>
+<section class="sphx-glr-example-title" id="basic-example">
+<span id="sphx-glr-examples-tableone-plot-main01-py"></span><h1>01. Basic example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
+<p>Basic usage of the tableone library.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 8</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span> <span class="kn">from</span> <span class="nn">tableone</span> <span class="kn">import</span> <span class="n">TableOne</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span> <span class="c1"># Load data</span>
+<span class="linenos">14</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/tompollard/data/master/primary-biliary-cirrhosis/pbc.csv&quot;</span>
+<span class="linenos">15</span> <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span> <span class="c1"># List of columns</span>
+<span class="linenos">18</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">19</span>     <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;bili&#39;</span><span class="p">,</span> <span class="s1">&#39;albumin&#39;</span><span class="p">,</span> <span class="s1">&#39;ast&#39;</span><span class="p">,</span>
+<span class="linenos">20</span>     <span class="s1">&#39;platelet&#39;</span><span class="p">,</span> <span class="s1">&#39;protime&#39;</span><span class="p">,</span> <span class="s1">&#39;ascites&#39;</span><span class="p">,</span>
+<span class="linenos">21</span>     <span class="s1">&#39;hepato&#39;</span><span class="p">,</span> <span class="s1">&#39;spiders&#39;</span><span class="p">,</span> <span class="s1">&#39;edema&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">,</span>
+<span class="linenos">22</span>     <span class="s1">&#39;trt&#39;</span>
+<span class="linenos">23</span> <span class="p">]</span>
 <span class="linenos">24</span>
-<span class="linenos">25</span> <span class="c1"># Define groupby and not normal</span>
-<span class="linenos">26</span> <span class="n">groupby</span> <span class="o">=</span> <span class="s1">&#39;trt&#39;</span>
-<span class="linenos">27</span> <span class="n">nonnormal</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bili&#39;</span><span class="p">]</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span> <span class="c1"># Create descriptive table</span>
-<span class="linenos">30</span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">categorical</span><span class="p">,</span>
-<span class="linenos">31</span>                    <span class="n">groupby</span><span class="p">,</span> <span class="n">nonnormal</span><span class="p">,</span> <span class="n">pval</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">25</span> <span class="c1"># Specify categorical columns</span>
+<span class="linenos">26</span> <span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ascites&#39;</span><span class="p">,</span><span class="s1">&#39;hepato&#39;</span><span class="p">,</span><span class="s1">&#39;edema&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;spiders&#39;</span><span class="p">,</span><span class="s1">&#39;trt&#39;</span><span class="p">]</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span> <span class="c1"># Define groupby and not normal</span>
+<span class="linenos">29</span> <span class="n">groupby</span> <span class="o">=</span> <span class="s1">&#39;trt&#39;</span>
+<span class="linenos">30</span> <span class="n">nonnormal</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bili&#39;</span><span class="p">]</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span> <span class="c1"># Create descriptive table</span>
+<span class="linenos">33</span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">categorical</span><span class="p">,</span>
+<span class="linenos">34</span>                    <span class="n">groupby</span><span class="p">,</span> <span class="n">nonnormal</span><span class="p">,</span> <span class="n">pval</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">35</span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">38</span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -356,8 +356,8 @@ to download the full example code</p>
 </div>
 <br />
 <br /><p>Convert to html</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">39</span> <span class="n">html</span> <span class="o">=</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
-<span class="linenos">40</span> <span class="n">html</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">42</span> <span class="n">html</span> <span class="o">=</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+<span class="linenos">43</span> <span class="n">html</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -365,7 +365,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Lets tabulate for github.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">44</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;github&quot;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">47</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;github&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -394,7 +394,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Lets tabulate for latex.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">48</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;latex&quot;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">51</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;latex&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -427,7 +427,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Lets tabulate for grid.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">52</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;grid&quot;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">55</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;grid&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -477,7 +477,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Lets tabulate for fancy grid.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">56</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;fancy_grid&quot;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">59</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;fancy_grid&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -527,7 +527,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Lets tabulate for markdown</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">60</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;rst&quot;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">63</span> <span class="nb">print</span><span class="p">(</span><span class="n">mytable</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;rst&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -558,14 +558,14 @@ trt, n (%)            1.0  106        158 (50.6)     158 (100.0)                
 </pre></div>
 </div>
 <p>Save as latex file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">64</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="s1">&#39;./outputs/main01-mytable.tex&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">67</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="s1">&#39;./outputs/main01-mytable.tex&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Save as xls file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">68</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;./outputs/main01-mytable.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">71</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;./outputs/main01-mytable.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.255 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.705 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-tableone-plot-main01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b10b2c8aba2ed26a37f820d2dacb7cf7/plot_main01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01.py</span></code></a></p>
@@ -581,8 +581,8 @@ trt, n (%)            1.0  106        158 (50.6)     158 (100.0)                
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../shap/temp.html" class="btn btn-neutral float-left" title="Shap - Main 06" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_main02.html" class="btn btn-neutral float-right" title="TableOne - Main02" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../shap/temp.html" class="btn btn-neutral float-left" title="06. Basic example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main02.html" class="btn btn-neutral float-right" title="02. Basic example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

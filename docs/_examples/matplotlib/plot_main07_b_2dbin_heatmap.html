@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>07.b stats.2dbin and sns.heatmap &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="07.c stats.2dbin with fake data" href="plot_main07_c_2dbin_fake.html" />
+    <link rel="prev" title="07.a stats.2dbin and mpl.heatmap" href="plot_main07_a_2dbin_stat.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">04. Plot GMM and KDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_a_clustermap.html">05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_b_clustermap.html">05.b <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> with <code class="docutils literal notranslate"><span class="pre">network.csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_c_clustermap.html">05.c <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> multiple categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_a_heatmap.html">06.a <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> for CRI <code class="docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_b_heatmap.html">06.b <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> for CRI <code class="docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_c_collateral_sensitivity.html">06.c Collateral Sensitivity Index (CRI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_d_collateral_sensitivity.html">06.d Collateral Sensitivity Index (CRI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_a_2dbin_stat.html">07.a <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">mpl.heatmap</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_c_2dbin_fake.html">07.c <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with fake data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_d_2dbin_shap.html">07.d <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with <code class="docutils literal notranslate"><span class="pre">shap.csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code> with <code class="docutils literal notranslate"><span class="pre">plt.table</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">30. Sample shap.csv boxplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas-profile">Pandas-profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#sphx-glr-examples-tensorflow">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/matplotlib/plot_main07_b_2dbin_heatmap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-matplotlib-plot-main07-b-2dbin-heatmap-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="b-stats-2dbin-and-sns-heatmap">
+<span id="sphx-glr-examples-matplotlib-plot-main07-b-2dbin-heatmap-py"></span><h1>07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code><a class="headerlink" href="#b-stats-2dbin-and-sns-heatmap" title="Permalink to this heading"></a></h1>
+<p>Use binned_statistic_2d and display using heatmap.</p>
+<img src="../../_images/sphx_glr_plot_main07_b_2dbin_heatmap_001.png" srcset="../../_images/sphx_glr_plot_main07_b_2dbin_heatmap_001.png" alt="plot main07 b 2dbin heatmap" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">10</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">11</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="linenos">12</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">15</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span> <span class="c1"># Load data</span>
+<span class="linenos">18</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/shap/&#39;</span><span class="p">)</span>
+<span class="linenos">19</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;shap.csv&#39;</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span> <span class="c1"># Get x, y and z</span>
+<span class="linenos">22</span> <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">timestep</span>
+<span class="linenos">23</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shap_values</span>
+<span class="linenos">24</span> <span class="n">z</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_values</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span> <span class="c1"># Show</span>
+<span class="linenos">27</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;timestep&#39;</span><span class="p">,</span> <span class="s1">&#39;shap_values&#39;</span><span class="p">,</span> <span class="s1">&#39;feature_values&#39;</span><span class="p">]]</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span> <span class="c1"># Binned stats</span>
+<span class="linenos">30</span> <span class="n">statistic</span><span class="p">,</span> <span class="n">x_edge</span><span class="p">,</span> <span class="n">y_edge</span><span class="p">,</span> <span class="n">binnumber</span> <span class="o">=</span> \
+<span class="linenos">31</span>     <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>
+<span class="linenos">32</span>         <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">nunique</span><span class="p">()],</span>
+<span class="linenos">33</span>         <span class="n">expand_binnumbers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span> <span class="c1"># Display</span>
+<span class="linenos">36</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span>
+<span class="linenos">37</span>     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">},</span>
+<span class="linenos">38</span>     <span class="n">square</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span> <span class="c1"># Show</span>
+<span class="linenos">41</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.110 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main07-b-2dbin-heatmap-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/7fd6386a4987f2cbd61e7c93dc90886c/plot_main07_b_2dbin_heatmap.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main07_b_2dbin_heatmap.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/15b8c3c2f473dc4916aa21b7ddb1c897/plot_main07_b_2dbin_heatmap.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main07_b_2dbin_heatmap.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main07_a_2dbin_stat.html" class="btn btn-neutral float-left" title="07.a stats.2dbin and mpl.heatmap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main07_c_2dbin_fake.html" class="btn btn-neutral float-right" title="07.c stats.2dbin with fake data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2023, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

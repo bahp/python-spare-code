@@ -18,12 +18,14 @@
 .. _sphx_glr__examples_matplotlib_plot_main03_hist2d.py:
 
 
-Main 03 - ``mpl.hist2d``
+03. ``mpl.hist2d``
 ------------------------
+
+Make a 2D histogram plot.
 
 See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-78
+.. GENERATED FROM PYTHON SOURCE LINES 10-80
 
 
 
@@ -56,7 +58,7 @@ See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-bi
 
 
 .. code-block:: default
-   :lineno-start: 8
+   :lineno-start: 10
 
     # Libraries
     import numpy as np
@@ -132,7 +134,7 @@ See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-bi
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.499 seconds)
+   **Total running time of the script:** ( 0 minutes  1.511 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main03_hist2d.py:

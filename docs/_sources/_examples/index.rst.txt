@@ -29,7 +29,7 @@ Gallery of examples using ``explainerdashboard``.
 .. only:: html
 
  .. figure:: /_examples/explainerdashboard/images/thumb/sphx_glr_plot_main_01_thumb.png
-     :alt: Explainer Dash
+     :alt: 01. Explainer Dash
 
      :ref:`sphx_glr__examples_explainerdashboard_plot_main_01.py`
 
@@ -58,12 +58,12 @@ Gallery of examples using ``factory-boy``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Factory Boy">
+    <div class="sphx-glr-thumbcontainer" tooltip="01. Generate microbiology data">
 
 .. only:: html
 
  .. figure:: /_examples/factory-boy/images/thumb/sphx_glr_microbiology_thumb.png
-     :alt: Factory Boy
+     :alt: 01. Generate microbiology data
 
      :ref:`sphx_glr__examples_factory-boy_microbiology.py`
 
@@ -96,7 +96,7 @@ jsonpickle
 .. only:: html
 
  .. figure:: /_examples/jsonpickle/images/thumb/sphx_glr_main_thumb.png
-     :alt: Main 01
+     :alt: 01. Basic example
 
      :ref:`sphx_glr__examples_jsonpickle_main.py`
 
@@ -130,7 +130,7 @@ Gallery of examples using ``ldap3``.
 .. only:: html
 
  .. figure:: /_examples/ldap-tests/images/thumb/sphx_glr_script_01_thumb.png
-     :alt: LDAP sample
+     :alt: 01. LDAP sample
 
      :ref:`sphx_glr__examples_ldap-tests_script_01.py`
 
@@ -159,12 +159,12 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 01 - mpl.imshow">
+    <div class="sphx-glr-thumbcontainer" tooltip="Display data as an image, i.e., on a 2D regular raster.">
 
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main01_imshow_thumb.png
-     :alt: Main 01 - ``mpl.imshow``
+     :alt: 01. ``mpl.imshow``
 
      :ref:`sphx_glr__examples_matplotlib_plot_main01_imshow.py`
 
@@ -180,12 +180,12 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 02 - mpl.hexbin">
+    <div class="sphx-glr-thumbcontainer" tooltip="Make a 2D hexagonal binning plot of points x, y.">
 
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main02_hexbin_thumb.png
-     :alt: Main 02 - ``mpl.hexbin``
+     :alt: 02. ``mpl.hexbin``
 
      :ref:`sphx_glr__examples_matplotlib_plot_main02_hexbin.py`
 
@@ -201,12 +201,12 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html">
+    <div class="sphx-glr-thumbcontainer" tooltip="Make a 2D histogram plot.">
 
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main03_hist2d_thumb.png
-     :alt: Main 03 - ``mpl.hist2d``
+     :alt: 03. ``mpl.hist2d``
 
      :ref:`sphx_glr__examples_matplotlib_plot_main03_hist2d.py`
 
@@ -227,7 +227,7 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main04_gmm_kde_thumb.png
-     :alt: Main 04 - Plot GMM and KDE
+     :alt: 04. Plot GMM and KDE
 
      :ref:`sphx_glr__examples_matplotlib_plot_main04_gmm_kde.py`
 
@@ -243,14 +243,14 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 06 - sns.displot">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot a matrix dataset as a hierarchically-clustered heatmap.">
 
 .. only:: html
 
- .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main06_displot_thumb.png
-     :alt: Main 06 - ``sns.displot``
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main05_a_clustermap_thumb.png
+     :alt: 05.a ``sns.clustermap`` basic sample
 
-     :ref:`sphx_glr__examples_matplotlib_plot_main06_displot.py`
+     :ref:`sphx_glr__examples_matplotlib_plot_main05_a_clustermap.py`
 
 .. raw:: html
 
@@ -260,18 +260,18 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. toctree::
    :hidden:
 
-   /_examples/matplotlib/plot_main06_displot
+   /_examples/matplotlib/plot_main05_a_clustermap
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 07 - 2dbin and sns.heatmap">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot a matrix dataset as a hierarchically-clustered heatmap.">
 
 .. only:: html
 
- .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_2dbin_heatmap_thumb.png
-     :alt: Main 07 - 2dbin and ``sns.heatmap``
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main05_b_clustermap_thumb.png
+     :alt: 05.b ``sns.clustermap`` with ``network.csv``
 
-     :ref:`sphx_glr__examples_matplotlib_plot_main07_2dbin_heatmap.py`
+     :ref:`sphx_glr__examples_matplotlib_plot_main05_b_clustermap.py`
 
 .. raw:: html
 
@@ -281,18 +281,18 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. toctree::
    :hidden:
 
-   /_examples/matplotlib/plot_main07_2dbin_heatmap
+   /_examples/matplotlib/plot_main05_b_clustermap
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 07 - 2dbin with manual data">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot a matrix dataset as a hierarchically-clustered heatmap.">
 
 .. only:: html
 
- .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_2dbin_manual_thumb.png
-     :alt: Main 07 - 2dbin with manual data
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main05_c_clustermap_thumb.png
+     :alt: 05.c ``sns.clustermap`` multiple categories
 
-     :ref:`sphx_glr__examples_matplotlib_plot_main07_2dbin_manual.py`
+     :ref:`sphx_glr__examples_matplotlib_plot_main05_c_clustermap.py`
 
 .. raw:: html
 
@@ -302,18 +302,18 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. toctree::
    :hidden:
 
-   /_examples/matplotlib/plot_main07_2dbin_manual
+   /_examples/matplotlib/plot_main05_c_clustermap
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 07 - 2dbin with shap.csv">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot rectangular data as a color-encoded matrix.">
 
 .. only:: html
 
- .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_2dbin_shap_thumb.png
-     :alt: Main 07 - 2dbin with shap.csv
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main06_a_heatmap_thumb.png
+     :alt: 06.a ``sns.heatmap`` for CRI ``v1``
 
-     :ref:`sphx_glr__examples_matplotlib_plot_main07_2dbin_shap.py`
+     :ref:`sphx_glr__examples_matplotlib_plot_main06_a_heatmap.py`
 
 .. raw:: html
 
@@ -323,18 +323,18 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. toctree::
    :hidden:
 
-   /_examples/matplotlib/plot_main07_2dbin_shap
+   /_examples/matplotlib/plot_main06_a_heatmap
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 07 - 2dbin demo">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot rectangular data as a color-encoded matrix.">
 
 .. only:: html
 
- .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_2dbin_stat_thumb.png
-     :alt: Main 07 - 2dbin demo
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main06_b_heatmap_thumb.png
+     :alt: 06.b ``sns.heatmap`` for CRI ``v2``
 
-     :ref:`sphx_glr__examples_matplotlib_plot_main07_2dbin_stat.py`
+     :ref:`sphx_glr__examples_matplotlib_plot_main06_b_heatmap.py`
 
 .. raw:: html
 
@@ -344,16 +344,163 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. toctree::
    :hidden:
 
-   /_examples/matplotlib/plot_main07_2dbin_stat
+   /_examples/matplotlib/plot_main06_b_heatmap
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 08 - Plot table with bars">
+    <div class="sphx-glr-thumbcontainer" tooltip="Since the computation of the Collateral Sensitivity Index is quite computationally expensive, t...">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main06_c_collateral_sensitivity_thumb.png
+     :alt: 06.c Collateral Sensitivity Index (CRI)
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main06_c_collateral_sensitivity.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main06_c_collateral_sensitivity
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Since the computation of the Collateral Sensitivity Index is quite computationally expensive, t...">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main06_d_collateral_sensitivity_thumb.png
+     :alt: 06.d Collateral Sensitivity Index (CRI)
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main06_d_collateral_sensitivity.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main06_d_collateral_sensitivity
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Use binned_statistic_2d and display using heatmap.">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_a_2dbin_stat_thumb.png
+     :alt: 07.a ``stats.2dbin`` and ``mpl.heatmap``
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main07_a_2dbin_stat.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main07_a_2dbin_stat
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Use binned_statistic_2d and display using heatmap.">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_b_2dbin_heatmap_thumb.png
+     :alt: 07.b ``stats.2dbin`` and ``sns.heatmap``
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main07_b_2dbin_heatmap.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main07_b_2dbin_heatmap
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Use binned_statistic_2d and display using heatmap.">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_c_2dbin_fake_thumb.png
+     :alt: 07.c ``stats.2dbin`` with fake data
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main07_c_2dbin_fake.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main07_c_2dbin_fake
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Use binned_statistic_2d and display using heatmap.">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_d_2dbin_shap_thumb.png
+     :alt: 07.d ``stats.2dbin`` with ``shap.csv``
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main07_d_2dbin_shap.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main07_d_2dbin_shap
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure-level interface for drawing distribution plots onto a FacetGrid.">
+
+.. only:: html
+
+ .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main07_e_displot_thumb.png
+     :alt: 07.e ``sns.displot``
+
+     :ref:`sphx_glr__examples_matplotlib_plot_main07_e_displot.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/matplotlib/plot_main07_e_displot
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot bars and add a table to an Axes.">
 
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main08_table_thumb.png
-     :alt: Main 08 - Plot table with bars
+     :alt: 08. ``plt.bar`` with ``plt.table``
 
      :ref:`sphx_glr__examples_matplotlib_plot_main08_table.py`
 
@@ -369,12 +516,12 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 09 - mpl.tripcolor">
+    <div class="sphx-glr-thumbcontainer" tooltip="Create a pseudocolor plot of an unstructured triangular grid.">
 
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main09_tripcolor_thumb.png
-     :alt: Main 09 - ``mpl.tripcolor``
+     :alt: 09. ``mpl.tripcolor``
 
      :ref:`sphx_glr__examples_matplotlib_plot_main09_tripcolor.py`
 
@@ -390,12 +537,12 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 10 - mpl.violin with linear cmap">
+    <div class="sphx-glr-thumbcontainer" tooltip="Make a violin plot with a linear colormap.">
 
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main10_violin_cmap_thumb.png
-     :alt: Main 10 - ``mpl.violin`` with linear cmap
+     :alt: 10. ``mpl.violin`` with linear cmap
 
      :ref:`sphx_glr__examples_matplotlib_plot_main10_violin_cmap.py`
 
@@ -411,12 +558,12 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 20 - Animation">
+    <div class="sphx-glr-thumbcontainer" tooltip="Create an animation.">
 
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main20_animation_thumb.gif
-     :alt: Main 20 - Animation
+     :alt: 20. Animation
 
      :ref:`sphx_glr__examples_matplotlib_plot_main20_animation.py`
 
@@ -437,7 +584,7 @@ Gallery of examples using ``matplotlib`` and/or ``seaborn``.
 .. only:: html
 
  .. figure:: /_examples/matplotlib/images/thumb/sphx_glr_plot_main30_sepsis_shap_boxplot_thumb.png
-     :alt: Main 30 - Sample shap.csv boxplot
+     :alt: 30. Sample shap.csv boxplot
 
      :ref:`sphx_glr__examples_matplotlib_plot_main30_sepsis_shap_boxplot.py`
 
@@ -471,7 +618,7 @@ Gallery with ``miscellaneous`` examples.
 .. only:: html
 
  .. figure:: /_examples/other/images/thumb/sphx_glr_plot_main01_segment_anything_thumb.png
-     :alt: Main 01 - Segment anything
+     :alt: 01. Segment anything
 
      :ref:`sphx_glr__examples_other_plot_main01_segment_anything.py`
 
@@ -484,6 +631,27 @@ Gallery with ``miscellaneous`` examples.
    :hidden:
 
    /_examples/other/plot_main01_segment_anything
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example lists all the libraries installed in the environment using pip, gets their site ur...">
+
+.. only:: html
+
+ .. figure:: /_examples/other/images/thumb/sphx_glr_plot_main02_favicons_thumb.png
+     :alt: 02. Plot favicons
+
+     :ref:`sphx_glr__examples_other_plot_main02_favicons.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/other/plot_main02_favicons
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -500,12 +668,12 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Format 01 -">
+    <div class="sphx-glr-thumbcontainer" tooltip="01. Sliding window">
 
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format01_thumb.png
-     :alt: Format 01 -
+     :alt: 01. Sliding window
 
      :ref:`sphx_glr__examples_pandas_plot_format01.py`
 
@@ -526,7 +694,7 @@ Gallery of examples using ``pandas``.
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format02_thumb.png
-     :alt: Format 02 -
+     :alt: 02. Aggregation
 
      :ref:`sphx_glr__examples_pandas_plot_format02.py`
 
@@ -547,7 +715,7 @@ Gallery of examples using ``pandas``.
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format03_thumb.png
-     :alt: Format 03 -
+     :alt: 03. Empty
 
      :ref:`sphx_glr__examples_pandas_plot_format03.py`
 
@@ -568,7 +736,7 @@ Gallery of examples using ``pandas``.
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format04_therapy_all_thumb.png
-     :alt: Format 04 - MIMIC therapy - all
+     :alt: 04. Format MIMIC therapy (all)
 
      :ref:`sphx_glr__examples_pandas_plot_format04_therapy_all.py`
 
@@ -589,7 +757,7 @@ Gallery of examples using ``pandas``.
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format04_therapy_one_thumb.png
-     :alt: Format 04 - MIMIC therapy - one
+     :alt: 04. Format MIMIC therapy (one)
 
      :ref:`sphx_glr__examples_pandas_plot_format04_therapy_one.py`
 
@@ -610,7 +778,7 @@ Gallery of examples using ``pandas``.
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format05_damien_sepsis_thumb.png
-     :alt: main
+     :alt: 05. Format damien sepsis data
 
      :ref:`sphx_glr__examples_pandas_plot_format05_damien_sepsis.py`
 
@@ -626,12 +794,12 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Clean oucru - main 01">
+    <div class="sphx-glr-thumbcontainer" tooltip="06. Clean OUCRU v1.0">
 
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format06_stacked_oucru_v1_thumb.png
-     :alt: Clean oucru - main 01
+     :alt: 06. Clean OUCRU v1.0
 
      :ref:`sphx_glr__examples_pandas_plot_format06_stacked_oucru_v1.py`
 
@@ -647,12 +815,12 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Clean oucru - main 02">
+    <div class="sphx-glr-thumbcontainer" tooltip="02. Clean OUCRU v2.0">
 
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format06_stacked_oucru_v2_thumb.png
-     :alt: Clean oucru - main 02
+     :alt: 02. Clean OUCRU v2.0
 
      :ref:`sphx_glr__examples_pandas_plot_format06_stacked_oucru_v2.py`
 
@@ -668,12 +836,12 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 01 -">
+    <div class="sphx-glr-thumbcontainer" tooltip="99. Basic Example">
 
 .. only:: html
 
  .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_main01_thumb.png
-     :alt: Main 01 -
+     :alt: 99. Basic Example
 
      :ref:`sphx_glr__examples_pandas_plot_main01.py`
 
@@ -686,6 +854,48 @@ Gallery of examples using ``pandas``.
    :hidden:
 
    /_examples/pandas/plot_main01
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="01. DataFrame description (``pandas_profiling``)">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_profile01_thumb.png
+     :alt: 01. DataFrame description (``pandas_profiling``)
+
+     :ref:`sphx_glr__examples_pandas_plot_profile01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas/plot_profile01
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="02. DataFrame description dataprep">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_profile02_thumb.png
+     :alt: 02. DataFrame description ``dataprep``
+
+     :ref:`sphx_glr__examples_pandas_plot_profile02.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas/plot_profile02
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -762,7 +972,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main01_roc_thumb.png
-     :alt: Main 01 - Plot ROC
+     :alt: 01. Plot ROC
 
      :ref:`sphx_glr__examples_plotly_plot_main01_roc.py`
 
@@ -783,7 +993,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main02_distributions_thumb.png
-     :alt: Main 02 - Plot Distributions
+     :alt: 02. Plot Distributions
 
      :ref:`sphx_glr__examples_plotly_plot_main02_distributions.py`
 
@@ -804,7 +1014,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main03_sparklines_thumb.png
-     :alt: Main 03 - Plot Sparklines
+     :alt: 03. Plot Sparklines
 
      :ref:`sphx_glr__examples_plotly_plot_main03_sparklines.py`
 
@@ -820,12 +1030,12 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 04 - Histogram 2D">
+    <div class="sphx-glr-thumbcontainer" tooltip="04. Histogram 2D">
 
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main04_2dhist_thumb.png
-     :alt: Main 04 - Histogram 2D
+     :alt: 04. Histogram 2D
 
      :ref:`sphx_glr__examples_plotly_plot_main04_2dhist.py`
 
@@ -841,12 +1051,12 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 06 - Plot Treemap with coffee">
+    <div class="sphx-glr-thumbcontainer" tooltip="06. Plot Treemap with coffee">
 
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main06_treemap_v1_thumb.png
-     :alt: Main 06 - Plot Treemap with coffee
+     :alt: 06. Plot Treemap with coffee
 
      :ref:`sphx_glr__examples_plotly_plot_main06_treemap_v1.py`
 
@@ -867,7 +1077,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main06_treemap_v2_thumb.png
-     :alt: Main 06 - Plot Treemap with MIMIC
+     :alt: 06. Plot Treemap with MIMIC
 
      :ref:`sphx_glr__examples_plotly_plot_main06_treemap_v2.py`
 
@@ -888,7 +1098,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main06_treemap_v3_thumb.png
-     :alt: Main 06 - Plot Treemap with NHS
+     :alt: 06. Plot Treemap with NHS
 
      :ref:`sphx_glr__examples_plotly_plot_main06_treemap_v3.py`
 
@@ -909,7 +1119,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main07_parallel_v1_thumb.png
-     :alt: Main 07 - Plot Parallel
+     :alt: 07. Plot Parallel
 
      :ref:`sphx_glr__examples_plotly_plot_main07_parallel_v1.py`
 
@@ -930,7 +1140,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main07_parallel_v2_thumb.png
-     :alt: Main 07 - Plot Parallel with dengue
+     :alt: 07. Plot Parallel with dengue
 
      :ref:`sphx_glr__examples_plotly_plot_main07_parallel_v2.py`
 
@@ -946,12 +1156,12 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 10 - Plot sparklines with weather">
+    <div class="sphx-glr-thumbcontainer" tooltip="10. Plot sparklines with weather">
 
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main10_weather_thumb.png
-     :alt: Main 10 - Plot sparklines with weather
+     :alt: 10. Plot sparklines with weather
 
      :ref:`sphx_glr__examples_plotly_plot_main10_weather.py`
 
@@ -972,7 +1182,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main11_updatemenus_thumb.png
-     :alt: Main 11 - Using updatemenus
+     :alt: 11. Using updatemenus
 
      :ref:`sphx_glr__examples_plotly_plot_main11_updatemenus.py`
 
@@ -993,7 +1203,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main12_mpl2ply_thumb.png
-     :alt: Main 12 - Matplotlib to Plotly
+     :alt: 12. Matplotlib to Plotly
 
      :ref:`sphx_glr__examples_plotly_plot_main12_mpl2ply.py`
 
@@ -1009,12 +1219,12 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 12 - MPL2PLY SHAP summary">
+    <div class="sphx-glr-thumbcontainer" tooltip="12. MPL2PLY SHAP summary">
 
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main12_mpl2ply_shap_thumb.png
-     :alt: Main 12 - MPL2PLY SHAP summary
+     :alt: 12. MPL2PLY SHAP summary
 
      :ref:`sphx_glr__examples_plotly_plot_main12_mpl2ply_shap.py`
 
@@ -1030,12 +1240,12 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 30 - Dash LS (empty)">
+    <div class="sphx-glr-thumbcontainer" tooltip="30. Dash LS (empty)">
 
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main30_dash_LS_thumb.png
-     :alt: Main 30 - Dash LS (empty)
+     :alt: 30. Dash LS (empty)
 
      :ref:`sphx_glr__examples_plotly_plot_main30_dash_LS.py`
 
@@ -1051,12 +1261,12 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Main 30 - Dash Table">
+    <div class="sphx-glr-thumbcontainer" tooltip="30. Dash Table">
 
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main30_dash_table_thumb.png
-     :alt: Main 30 - Dash Table
+     :alt: 30. Dash Table
 
      :ref:`sphx_glr__examples_plotly_plot_main30_dash_table.py`
 
@@ -1077,7 +1287,7 @@ Gallery of examples using ``plotly``.
 .. only:: html
 
  .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main31_sepsis_shap_boxplot_thumb.png
-     :alt: Main 31 - Sample shap.csv boxplot
+     :alt: 30. Sample shap.csv boxplot
 
      :ref:`sphx_glr__examples_plotly_plot_main31_sepsis_shap_boxplot.py`
 
@@ -1111,7 +1321,7 @@ Gallery of examples using ``scikits``.
 .. only:: html
 
  .. figure:: /_examples/scikits/images/thumb/sphx_glr_plot_data_skfold_test_thumb.png
-     :alt: Test Skfold
+     :alt: 01. Test Skfold
 
      :ref:`sphx_glr__examples_scikits_plot_data_skfold_test.py`
 
@@ -1132,7 +1342,7 @@ Gallery of examples using ``scikits``.
 .. only:: html
 
  .. figure:: /_examples/scikits/images/thumb/sphx_glr_plot_data_splitters_thumb.png
-     :alt: Data splitters
+     :alt: 02. Data splitters
 
      :ref:`sphx_glr__examples_scikits_plot_data_splitters.py`
 
@@ -1153,7 +1363,7 @@ Gallery of examples using ``scikits``.
 .. only:: html
 
  .. figure:: /_examples/scikits/images/thumb/sphx_glr_plot_data_wrapper_thumb.png
-     :alt: Dummy Data Wrapper
+     :alt: 03. Dummy Data Wrapper
 
      :ref:`sphx_glr__examples_scikits_plot_data_wrapper.py`
 
@@ -1174,7 +1384,7 @@ Gallery of examples using ``scikits``.
 .. only:: html
 
  .. figure:: /_examples/scikits/images/thumb/sphx_glr_plot_param_grid_thumb.png
-     :alt: ParamGrid
+     :alt: 04. ParamGrid
 
      :ref:`sphx_glr__examples_scikits_plot_param_grid.py`
 
@@ -1195,7 +1405,7 @@ Gallery of examples using ``scikits``.
 .. only:: html
 
  .. figure:: /_examples/scikits/images/thumb/sphx_glr_plot_sklearn_iqr_thumb.png
-     :alt: IQRFilter
+     :alt: 05. IQRFilter
 
      :ref:`sphx_glr__examples_scikits_plot_sklearn_iqr.py`
 
@@ -1208,6 +1418,27 @@ Gallery of examples using ``scikits``.
    :hidden:
 
    /_examples/scikits/plot_sklearn_iqr
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" .. note::  https://en.wikipedia.org/wiki/Sensitivity_and_specificity">
+
+.. only:: html
+
+ .. figure:: /_examples/scikits/images/thumb/sphx_glr_plot_threshold_moving_thumb.png
+     :alt: 06. Threshold moving approaches
+
+     :ref:`sphx_glr__examples_scikits_plot_threshold_moving.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/scikits/plot_threshold_moving
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -1227,12 +1458,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 01">
+    <div class="sphx-glr-thumbcontainer" tooltip="01. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main01_thumb.png
-     :alt: Shap - Main 01
+     :alt: 01. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main01.py`
 
@@ -1253,7 +1484,7 @@ Gallery of examples using ``shap``.
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main02_thumb.png
-     :alt: Shap - Main 02
+     :alt: 02. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main02.py`
 
@@ -1269,12 +1500,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 03">
+    <div class="sphx-glr-thumbcontainer" tooltip="03. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main03_thumb.png
-     :alt: Shap - Main 03
+     :alt: 03. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main03.py`
 
@@ -1290,12 +1521,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 04">
+    <div class="sphx-glr-thumbcontainer" tooltip="04. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main04_thumb.png
-     :alt: Shap - Main 04
+     :alt: 04. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main04.py`
 
@@ -1311,12 +1542,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 05">
+    <div class="sphx-glr-thumbcontainer" tooltip="05. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main05_thumb.png
-     :alt: Shap - Main 05
+     :alt: 05. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main05.py`
 
@@ -1332,12 +1563,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 05 - Stripplot">
+    <div class="sphx-glr-thumbcontainer" tooltip="05. Stripplot">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main05_stripplot_thumb.png
-     :alt: Shap - Main 05 - Stripplot
+     :alt: 05. Stripplot
 
      :ref:`sphx_glr__examples_shap_plot_main05_stripplot.py`
 
@@ -1353,12 +1584,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 05 - Summary plot">
+    <div class="sphx-glr-thumbcontainer" tooltip="05. Summary plot">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main05_summaryplot_thumb.png
-     :alt: Shap - Main 05 - Summary plot
+     :alt: 05. Summary plot
 
      :ref:`sphx_glr__examples_shap_plot_main05_summaryplot.py`
 
@@ -1374,12 +1605,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 05 - Swarmplot">
+    <div class="sphx-glr-thumbcontainer" tooltip="05. Swarmplot">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main05_swarmplot_thumb.png
-     :alt: Shap - Main 05 - Swarmplot
+     :alt: 05. Swarmplot
 
      :ref:`sphx_glr__examples_shap_plot_main05_swarmplot.py`
 
@@ -1395,12 +1626,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 06">
+    <div class="sphx-glr-thumbcontainer" tooltip="06. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main06_thumb.png
-     :alt: Shap - Main 06
+     :alt: 06. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main06.py`
 
@@ -1416,12 +1647,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 07">
+    <div class="sphx-glr-thumbcontainer" tooltip="07. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main07_thumb.png
-     :alt: Shap - Main 07
+     :alt: 07. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main07.py`
 
@@ -1437,12 +1668,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 08">
+    <div class="sphx-glr-thumbcontainer" tooltip="08. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_plot_main08_thumb.png
-     :alt: Shap - Main 08
+     :alt: 08. Basic example
 
      :ref:`sphx_glr__examples_shap_plot_main08.py`
 
@@ -1458,12 +1689,12 @@ Gallery of examples using ``shap``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Shap - Main 06">
+    <div class="sphx-glr-thumbcontainer" tooltip="06. Basic example">
 
 .. only:: html
 
  .. figure:: /_examples/shap/images/thumb/sphx_glr_temp_thumb.png
-     :alt: Shap - Main 06
+     :alt: 06. Basic example
 
      :ref:`sphx_glr__examples_shap_temp.py`
 
@@ -1492,12 +1723,12 @@ Gallery of examples using ``tableone``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="TableOne - Main 01">
+    <div class="sphx-glr-thumbcontainer" tooltip="Basic usage of the tableone library.">
 
 .. only:: html
 
  .. figure:: /_examples/tableone/images/thumb/sphx_glr_plot_main01_thumb.png
-     :alt: TableOne - Main 01
+     :alt: 01. Basic example
 
      :ref:`sphx_glr__examples_tableone_plot_main01.py`
 
@@ -1513,12 +1744,12 @@ Gallery of examples using ``tableone``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="TableOne - Main02">
+    <div class="sphx-glr-thumbcontainer" tooltip="Basic usage of the tableone library.">
 
 .. only:: html
 
  .. figure:: /_examples/tableone/images/thumb/sphx_glr_plot_main02_thumb.png
-     :alt: TableOne - Main02
+     :alt: 02. Basic example
 
      :ref:`sphx_glr__examples_tableone_plot_main02.py`
 
@@ -1571,40 +1802,6 @@ Gallery with ``miscellaneous`` examples.
 
 
 
-.. _sphx_glr__examples_threshold-moving:
-
-Threshold Moving
-----------------
-
-Gallery of examples using ``...``.
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip=" .. note::  https://en.wikipedia.org/wiki/Sensitivity_and_specificity">
-
-.. only:: html
-
- .. figure:: /_examples/threshold-moving/images/thumb/sphx_glr_plot_main01_thumb.png
-     :alt: Threshold moving
-
-     :ref:`sphx_glr__examples_threshold-moving_plot_main01.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/threshold-moving/plot_main01
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
 .. _sphx_glr__examples_tpot:
 
 TPOT
@@ -1615,12 +1812,12 @@ Gallery of examples using ``tpot``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+    <div class="sphx-glr-thumbcontainer" tooltip="Basic example to use tpot.">
 
 .. only:: html
 
  .. figure:: /_examples/tpot/images/thumb/sphx_glr_main01_thumb.png
-     :alt: Main
+     :alt: 01. Basic example
 
      :ref:`sphx_glr__examples_tpot_main01.py`
 
@@ -1650,14 +1847,14 @@ Gallery of examples with useful widgets.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Demonstrate that StratifiedKFold is deterministic and always returns the same splits. The way t...">
+    <div class="sphx-glr-thumbcontainer" tooltip="v1 = [R, R, R, R] v2 = [R, R, R, R]">
 
 .. only:: html
 
- .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_data_skfold_test_thumb.png
-     :alt: Test Skfold
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_mic_thumb.png
+     :alt: MIC package
 
-     :ref:`sphx_glr__examples_utils_plot_data_skfold_test.py`
+     :ref:`sphx_glr__examples_utils_mic.py`
 
 .. raw:: html
 
@@ -1667,18 +1864,18 @@ Gallery of examples with useful widgets.
 .. toctree::
    :hidden:
 
-   /_examples/utils/plot_data_skfold_test
+   /_examples/utils/mic
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Useful methods to split data such as (i) hold out and csv sets or (ii) cross validation folds.">
+    <div class="sphx-glr-thumbcontainer" tooltip="In order to run the script in such a way that we can profile the time used for each method, sta...">
 
 .. only:: html
 
- .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_data_splitters_thumb.png
-     :alt: Data splitters
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_collateral_sensitivity_thumb.png
+     :alt: Collateral Sensitivity Index
 
-     :ref:`sphx_glr__examples_utils_plot_data_splitters.py`
+     :ref:`sphx_glr__examples_utils_plot_collateral_sensitivity.py`
 
 .. raw:: html
 
@@ -1688,18 +1885,18 @@ Gallery of examples with useful widgets.
 .. toctree::
    :hidden:
 
-   /_examples/utils/plot_data_splitters
+   /_examples/utils/plot_collateral_sensitivity
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Dummy data wrapper">
+    <div class="sphx-glr-thumbcontainer" tooltip="See below for a few resources.">
 
 .. only:: html
 
- .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_data_wrapper_thumb.png
-     :alt: Dummy Data Wrapper
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_multi_armed_bandit_thumb.png
+     :alt: Multi-Armed bandit problems
 
-     :ref:`sphx_glr__examples_utils_plot_data_wrapper.py`
+     :ref:`sphx_glr__examples_utils_plot_multi_armed_bandit.py`
 
 .. raw:: html
 
@@ -1709,18 +1906,18 @@ Gallery of examples with useful widgets.
 .. toctree::
    :hidden:
 
-   /_examples/utils/plot_data_wrapper
+   /_examples/utils/plot_multi_armed_bandit
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example lists all the libraries installed in the environment using pip, gets their site ur...">
+    <div class="sphx-glr-thumbcontainer" tooltip="The Mutual Information Score, often denoted as MIS, expresses the extent to which observed freq...">
 
 .. only:: html
 
- .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_favicons_thumb.png
-     :alt: Plot favicons
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_mutual_information_thumb.png
+     :alt: Mutual Information Criteria
 
-     :ref:`sphx_glr__examples_utils_plot_favicons.py`
+     :ref:`sphx_glr__examples_utils_plot_mutual_information.py`
 
 .. raw:: html
 
@@ -1730,18 +1927,18 @@ Gallery of examples with useful widgets.
 .. toctree::
    :hidden:
 
-   /_examples/utils/plot_favicons
+   /_examples/utils/plot_mutual_information
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Example of implementing an IQR filter.">
+    <div class="sphx-glr-thumbcontainer" tooltip="The dummy piece of code included below demonstrates visually that the transformation using the ...">
 
 .. only:: html
 
- .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_sklearn_iqr_thumb.png
-     :alt: IQRFilter
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_scale_colormap_thumb.png
+     :alt: Show colormap for various scalings
 
-     :ref:`sphx_glr__examples_utils_plot_sklearn_iqr.py`
+     :ref:`sphx_glr__examples_utils_plot_scale_colormap.py`
 
 .. raw:: html
 
@@ -1751,7 +1948,7 @@ Gallery of examples with useful widgets.
 .. toctree::
    :hidden:
 
-   /_examples/utils/plot_sklearn_iqr
+   /_examples/utils/plot_scale_colormap
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

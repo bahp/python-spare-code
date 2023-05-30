@@ -1,6 +1,8 @@
 """
-Main 03 - ``mpl.hist2d``
+03. ``mpl.hist2d``
 ------------------------
+
+Make a 2D histogram plot.
 
 See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
 

@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_scikits_plot_data_splitters.py:
 
 
-Data splitters
-==============
+02. Data splitters
+==================
 
 Useful methods to split data such as (i) hold out and
 csv sets or (ii) cross validation folds.
@@ -440,7 +440,7 @@ Lets split in HOS and CVS
           <td>3.1</td>
           <td>1.5</td>
           <td>0.2</td>
-          <td>cvs</td>
+          <td>hos</td>
         </tr>
         <tr>
           <th>4</th>
@@ -448,7 +448,7 @@ Lets split in HOS and CVS
           <td>3.6</td>
           <td>1.4</td>
           <td>0.2</td>
-          <td>hos</td>
+          <td>cvs</td>
         </tr>
         <tr>
           <th>...</th>
@@ -464,7 +464,7 @@ Lets split in HOS and CVS
           <td>3.0</td>
           <td>5.2</td>
           <td>2.3</td>
-          <td>cvs</td>
+          <td>hos</td>
         </tr>
         <tr>
           <th>146</th>
@@ -472,7 +472,7 @@ Lets split in HOS and CVS
           <td>2.5</td>
           <td>5.0</td>
           <td>1.9</td>
-          <td>cvs</td>
+          <td>hos</td>
         </tr>
         <tr>
           <th>147</th>
@@ -488,7 +488,7 @@ Lets split in HOS and CVS
           <td>3.4</td>
           <td>5.4</td>
           <td>2.3</td>
-          <td>hos</td>
+          <td>cvs</td>
         </tr>
         <tr>
           <th>149</th>
@@ -576,8 +576,8 @@ Lets split the CSV in various folds
           <td>cvs</td>
           <td>train</td>
           <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
           <td>train</td>
         </tr>
         <tr>
@@ -590,8 +590,8 @@ Lets split the CSV in various folds
           <td>train</td>
           <td>train</td>
           <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>2</th>
@@ -612,12 +612,12 @@ Lets split the CSV in various folds
           <td>3.1</td>
           <td>1.5</td>
           <td>0.2</td>
-          <td>cvs</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
+          <td>hos</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>4</th>
@@ -625,12 +625,12 @@ Lets split the CSV in various folds
           <td>3.6</td>
           <td>1.4</td>
           <td>0.2</td>
-          <td>hos</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
+          <td>cvs</td>
+          <td>train</td>
+          <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>...</th>
@@ -651,12 +651,12 @@ Lets split the CSV in various folds
           <td>3.0</td>
           <td>5.2</td>
           <td>2.3</td>
-          <td>cvs</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
+          <td>hos</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>146</th>
@@ -664,12 +664,12 @@ Lets split the CSV in various folds
           <td>2.5</td>
           <td>5.0</td>
           <td>1.9</td>
-          <td>cvs</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
+          <td>hos</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>147</th>
@@ -678,11 +678,11 @@ Lets split the CSV in various folds
           <td>5.2</td>
           <td>2.0</td>
           <td>cvs</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>148</th>
@@ -690,12 +690,12 @@ Lets split the CSV in various folds
           <td>3.4</td>
           <td>5.4</td>
           <td>2.3</td>
-          <td>hos</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
+          <td>cvs</td>
+          <td>train</td>
+          <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>149</th>
@@ -785,8 +785,8 @@ Lets split in HOS and CVS using the class
           <td>CVS</td>
           <td>train</td>
           <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
           <td>train</td>
         </tr>
         <tr>
@@ -799,8 +799,8 @@ Lets split in HOS and CVS using the class
           <td>train</td>
           <td>train</td>
           <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>2</th>
@@ -821,12 +821,12 @@ Lets split in HOS and CVS using the class
           <td>3.1</td>
           <td>1.5</td>
           <td>0.2</td>
-          <td>HOS</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
+          <td>CVS</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>4</th>
@@ -835,11 +835,11 @@ Lets split in HOS and CVS using the class
           <td>1.4</td>
           <td>0.2</td>
           <td>CVS</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
+          <td>train</td>
+          <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>...</th>
@@ -860,12 +860,12 @@ Lets split in HOS and CVS using the class
           <td>3.0</td>
           <td>5.2</td>
           <td>2.3</td>
-          <td>HOS</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
+          <td>CVS</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>146</th>
@@ -874,11 +874,11 @@ Lets split in HOS and CVS using the class
           <td>5.0</td>
           <td>1.9</td>
           <td>CVS</td>
-          <td>test</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
+          <td>None</td>
         </tr>
         <tr>
           <th>147</th>
@@ -887,11 +887,11 @@ Lets split in HOS and CVS using the class
           <td>5.2</td>
           <td>2.0</td>
           <td>HOS</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
-          <td>train</td>
           <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>148</th>
@@ -900,11 +900,11 @@ Lets split in HOS and CVS using the class
           <td>5.4</td>
           <td>2.3</td>
           <td>CVS</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
-          <td>None</td>
+          <td>train</td>
+          <td>test</td>
+          <td>train</td>
+          <td>train</td>
+          <td>train</td>
         </tr>
         <tr>
           <th>149</th>
@@ -930,7 +930,7 @@ Lets split in HOS and CVS using the class
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.034 seconds)
+   **Total running time of the script:** ( 0 minutes  0.035 seconds)
 
 
 .. _sphx_glr_download__examples_scikits_plot_data_splitters.py:

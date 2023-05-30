@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_pandas_plot_format04_therapy_all.py:
 
 
-Format 04 - MIMIC therapy - all
+04. Format MIMIC therapy (all)
 ===============================
 
 Description...
@@ -397,7 +397,7 @@ Lets count the number of days
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.470 seconds)
+   **Total running time of the script:** ( 0 minutes  6.716 seconds)
 
 
 .. _sphx_glr_download__examples_pandas_plot_format04_therapy_all.py:

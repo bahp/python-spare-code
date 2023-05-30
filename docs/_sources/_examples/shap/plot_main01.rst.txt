@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_shap_plot_main01.py:
 
 
-Shap - Main 01
-==============
+01. Basic example
+==================
 
 .. GENERATED FROM PYTHON SOURCE LINES 8-200
 
@@ -322,7 +322,7 @@ Shap - Main 01
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.999 seconds)
+   **Total running time of the script:** ( 0 minutes  1.932 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main01.py:

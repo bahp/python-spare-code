@@ -1,11 +1,14 @@
 """
-TableOne - Main02
-=================
+02. Basic example
+-----------------
+
+Basic usage of the tableone library.
 """
 # Libraries
 import pandas as pd
 
 # Specific
+from pathlib import Path
 from tableone import TableOne
 
 
@@ -13,7 +16,8 @@ from tableone import TableOne
 # Load data
 # ------------------------
 # Load data
-data = pd.read_csv('./data/dengue.csv')
+path = Path('../../datasets/dengue-htd-dataset')
+data = pd.read_csv(path / 'dengue.csv')
 
 # ------------------------
 # Create tableone

@@ -1,5 +1,5 @@
 """
-Format 02 -
+02. Aggregation
 ======================
 
 Aggregate patient's data in a single row.

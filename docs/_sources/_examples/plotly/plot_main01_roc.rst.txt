@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_plotly_plot_main01_roc.py:
 
 
-Main 01 - Plot ROC
+01. Plot ROC
 ===================
 
 This example shows how to plot the ROC curves for various splits.
@@ -152,7 +152,7 @@ This example shows how to plot the ROC curves for various splits.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.893 seconds)
+   **Total running time of the script:** ( 0 minutes  1.626 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main01_roc.py:

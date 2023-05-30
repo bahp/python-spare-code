@@ -1,5 +1,5 @@
 """
-Main 06 - Plot Treemap with NHS
+06. Plot Treemap with NHS
 -------------------------------
 
 This example displays a Treemap using a portion of the NHS dataset. This

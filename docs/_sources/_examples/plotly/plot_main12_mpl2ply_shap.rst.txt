@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_plotly_plot_main12_mpl2ply_shap.py:
 
 
-Main 12 - MPL2PLY SHAP summary
+12. MPL2PLY SHAP summary
 ==============================
 
 .. note:: In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py line 368,
@@ -375,7 +375,7 @@ Main 12 - MPL2PLY SHAP summary
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.557 seconds)
+   **Total running time of the script:** ( 0 minutes  1.342 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main12_mpl2ply_shap.py:

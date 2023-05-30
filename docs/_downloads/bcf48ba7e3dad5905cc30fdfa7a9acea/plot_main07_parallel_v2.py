@@ -1,5 +1,5 @@
 """
-Main 07 - Plot Parallel with dengue
+07. Plot Parallel with dengue
 ===================================
 
 This example plots a parallel graph.

@@ -1,5 +1,5 @@
 """
-Main 07 - Plot Parallel
+07. Plot Parallel
 ============================
 
 This example plots a parallel graph.

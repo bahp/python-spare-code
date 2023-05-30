@@ -1,6 +1,6 @@
 """
-ParamGrid
-============
+04. ParamGrid
+=============
 
 This example shows different configurations of ParamGrid.
 """

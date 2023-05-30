@@ -18,10 +18,12 @@
 .. _sphx_glr__examples_matplotlib_plot_main02_hexbin.py:
 
 
-Main 02 - ``mpl.hexbin``
+02. ``mpl.hexbin``
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 6-50
+Make a 2D hexagonal binning plot of points x, y.
+
+.. GENERATED FROM PYTHON SOURCE LINES 8-54
 
 
 
@@ -35,7 +37,7 @@ Main 02 - ``mpl.hexbin``
 
 
 .. code-block:: default
-   :lineno-start: 7
+   :lineno-start: 9
 
 
     import pandas as pd
@@ -72,7 +74,9 @@ Main 02 - ``mpl.hexbin``
 
     # Display hexagon binning (log)
     ax = axs[1]
-    hb = ax.hexbin(x, y, C=z, gridsize=50, bins='log', cmap='coolwarm', reduce_C_function=np.median)
+    hb = ax.hexbin(x, y, C=z, gridsize=50,
+        bins='log', cmap='coolwarm',
+        reduce_C_function=np.median)
     ax.axis([xmin, xmax, ymin, ymax])
     ax.set_title("With a log color scale")
     ax.invert_xaxis()
@@ -85,7 +89,7 @@ Main 02 - ``mpl.hexbin``
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.799 seconds)
+   **Total running time of the script:** ( 0 minutes  0.810 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main02_hexbin.py:

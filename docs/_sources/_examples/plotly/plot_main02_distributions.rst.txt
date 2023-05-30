@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_plotly_plot_main02_distributions.py:
 
 
-Main 02 - Plot Distributions
+02. Plot Distributions
 ============================
 
 This example shows how to plot the probability distributions
@@ -186,7 +186,7 @@ probability values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.284 seconds)
+   **Total running time of the script:** ( 0 minutes  0.308 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main02_distributions.py:

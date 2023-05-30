@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main 01 - &mdash; python-spare-code 0.0.1 documentation</title>
+  <title>99. Basic Example &mdash; python-spare-code 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Pandas Profile - Main 01" href="../pandas-profile/main01.html" />
-    <link rel="prev" title="Clean oucru - main 02" href="plot_format06_stacked_oucru_v2.html" /> 
+    <link rel="next" title="01. DataFrame description (pandas_profiling)" href="plot_profile01.html" />
+    <link rel="prev" title="02. Clean OUCRU v2.0" href="plot_format06_stacked_oucru_v2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,15 +63,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#pandas">Pandas</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_format01.html">Format 01 -</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format02.html">Format 02 -</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format03.html">Format 03 -</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_all.html">Format 04 - MIMIC therapy - all</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_one.html">Format 04 - MIMIC therapy - one</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format05_damien_sepsis.html">main</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format06_stacked_oucru_v1.html">Clean oucru - main 01</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format06_stacked_oucru_v2.html">Clean oucru - main 02</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Main 01 -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format01.html">01. Sliding window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format02.html">02. Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format03.html">03. Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_all.html">04. Format MIMIC therapy (all)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_one.html">04. Format MIMIC therapy (one)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format05_damien_sepsis.html">05. Format damien sepsis data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format06_stacked_oucru_v1.html">06. Clean OUCRU v1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format06_stacked_oucru_v2.html">02. Clean OUCRU v2.0</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">99. Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile01.html">01. DataFrame description (<code class="docutils literal notranslate"><span class="pre">pandas_profiling</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile02.html">02. DataFrame description <code class="docutils literal notranslate"><span class="pre">dataprep</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas-profile">Pandas-profile</a></li>
@@ -80,7 +82,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#sphx-glr-examples-tensorflow">Other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#threshold-moving">Threshold Moving</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -102,7 +103,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
-      <li class="breadcrumb-item active">Main 01 -</li>
+      <li class="breadcrumb-item active">99. Basic Example</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/pandas/plot_main01.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -117,8 +118,8 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-pandas-plot-main01-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="main-01">
-<span id="sphx-glr-examples-pandas-plot-main01-py"></span><h1>Main 01 -<a class="headerlink" href="#main-01" title="Permalink to this heading"></a></h1>
+<section class="sphx-glr-example-title" id="basic-example">
+<span id="sphx-glr-examples-pandas-plot-main01-py"></span><h1>99. Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 6</span> <span class="c1"># Library</span>
 <span class="linenos"> 7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1230,8 +1231,8 @@ to download the full example code</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_format06_stacked_oucru_v2.html" class="btn btn-neutral float-left" title="Clean oucru - main 02" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../pandas-profile/main01.html" class="btn btn-neutral float-right" title="Pandas Profile - Main 01" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_format06_stacked_oucru_v2.html" class="btn btn-neutral float-left" title="02. Clean OUCRU v2.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_profile01.html" class="btn btn-neutral float-right" title="01. DataFrame description (pandas_profiling)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

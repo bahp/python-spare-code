@@ -18,13 +18,15 @@
 .. _sphx_glr__examples_tableone_plot_main01.py:
 
 
-TableOne - Main 01
-------------------
+01. Basic example
+-----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-34
+Basic usage of the tableone library.
+
+.. GENERATED FROM PYTHON SOURCE LINES 8-37
 
 .. code-block:: default
-   :lineno-start: 5
+   :lineno-start: 8
 
     # Libraries
     import pandas as pd
@@ -62,10 +64,10 @@ TableOne - Main 01
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 .. code-block:: default
-   :lineno-start: 35
+   :lineno-start: 38
 
     mytable.tableone
 
@@ -289,14 +291,14 @@ TableOne - Main 01
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-39
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 Convert to html
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-42
+.. GENERATED FROM PYTHON SOURCE LINES 42-45
 
 .. code-block:: default
-   :lineno-start: 39
+   :lineno-start: 42
 
     html = mytable.to_html()
     html
@@ -316,14 +318,14 @@ Convert to html
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 46-47
 
 Lets tabulate for github.
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-46
+.. GENERATED FROM PYTHON SOURCE LINES 47-49
 
 .. code-block:: default
-   :lineno-start: 44
+   :lineno-start: 47
 
     print(mytable.tabulate(tablefmt="github"))
 
@@ -363,14 +365,14 @@ Lets tabulate for github.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-48
+.. GENERATED FROM PYTHON SOURCE LINES 50-51
 
 Lets tabulate for latex.
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 51-53
 
 .. code-block:: default
-   :lineno-start: 48
+   :lineno-start: 51
 
     print(mytable.tabulate(tablefmt="latex"))
 
@@ -414,14 +416,14 @@ Lets tabulate for latex.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-52
+.. GENERATED FROM PYTHON SOURCE LINES 54-55
 
 Lets tabulate for grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-54
+.. GENERATED FROM PYTHON SOURCE LINES 55-57
 
 .. code-block:: default
-   :lineno-start: 52
+   :lineno-start: 55
 
     print(mytable.tabulate(tablefmt="grid"))
 
@@ -482,14 +484,14 @@ Lets tabulate for grid.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-56
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
 
 Lets tabulate for fancy grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-58
+.. GENERATED FROM PYTHON SOURCE LINES 59-61
 
 .. code-block:: default
-   :lineno-start: 56
+   :lineno-start: 59
 
     print(mytable.tabulate(tablefmt="fancy_grid"))
 
@@ -550,14 +552,14 @@ Lets tabulate for fancy grid.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-60
+.. GENERATED FROM PYTHON SOURCE LINES 62-63
 
 Lets tabulate for markdown
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-62
+.. GENERATED FROM PYTHON SOURCE LINES 63-65
 
 .. code-block:: default
-   :lineno-start: 60
+   :lineno-start: 63
 
     print(mytable.tabulate(tablefmt="rst"))
 
@@ -599,14 +601,14 @@ Lets tabulate for markdown
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-64
+.. GENERATED FROM PYTHON SOURCE LINES 66-67
 
 Save as latex file
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 67-69
 
 .. code-block:: default
-   :lineno-start: 64
+   :lineno-start: 67
 
     mytable.to_latex('./outputs/main01-mytable.tex')
 
@@ -617,14 +619,14 @@ Save as latex file
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-68
+.. GENERATED FROM PYTHON SOURCE LINES 70-71
 
 Save as xls file
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-68
+.. GENERATED FROM PYTHON SOURCE LINES 71-71
 
 .. code-block:: default
-   :lineno-start: 68
+   :lineno-start: 71
 
     mytable.to_excel('./outputs/main01-mytable.xlsx')
 
@@ -636,7 +638,7 @@ Save as xls file
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.255 seconds)
+   **Total running time of the script:** ( 0 minutes  0.705 seconds)
 
 
 .. _sphx_glr_download__examples_tableone_plot_main01.py:

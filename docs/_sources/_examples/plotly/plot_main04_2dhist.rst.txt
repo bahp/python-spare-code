@@ -18,7 +18,7 @@
 .. _sphx_glr__examples_plotly_plot_main04_2dhist.py:
 
 
-Main 04 - Histogram 2D
+04. Histogram 2D
 ======================
 
 .. note:: https://plotly.com/python/2d-histogram-contour/
@@ -143,7 +143,7 @@ Main 04 - Histogram 2D
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.668 seconds)
+   **Total running time of the script:** ( 0 minutes  0.489 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main04_2dhist.py:

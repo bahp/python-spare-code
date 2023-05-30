@@ -1,8 +1,8 @@
 """
-Main
-=============
+01. Basic example
+=================
 
-Example
+Basic example to use tpot.
 """
 
 # Import

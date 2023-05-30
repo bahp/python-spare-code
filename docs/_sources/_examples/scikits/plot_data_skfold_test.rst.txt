@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_scikits_plot_data_skfold_test.py:
 
 
-Test Skfold
-=============
+01. Test Skfold
+===============
 
 Demonstrate that ``StratifiedKFold`` is deterministic and
 always returns the same splits. The way to change the splits
@@ -155,7 +155,7 @@ is by changing the random state.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.032 seconds)
+   **Total running time of the script:** ( 0 minutes  0.031 seconds)
 
 
 .. _sphx_glr_download__examples_scikits_plot_data_skfold_test.py:

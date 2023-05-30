@@ -18,8 +18,8 @@
 .. _sphx_glr__examples_shap_temp.py:
 
 
-Shap - Main 06
-==============
+06. Basic example
+=================
 
 .. GENERATED FROM PYTHON SOURCE LINES 6-54
 
