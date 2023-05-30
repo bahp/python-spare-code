@@ -1,5 +1,5 @@
 """
-Main 06 - Plot Treemap with MIMIC
+06. Plot Treemap with MIMIC
 ---------------------------------
 
 This example displays a Treemap using the MIMIC dataset.

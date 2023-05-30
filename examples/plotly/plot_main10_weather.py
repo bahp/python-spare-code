@@ -1,5 +1,5 @@
 """
-Main 10 - Plot sparklines with weather
+10. Plot sparklines with weather
 ======================================
 
 """

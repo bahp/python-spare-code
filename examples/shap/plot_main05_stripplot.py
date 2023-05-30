@@ -1,5 +1,5 @@
 """
-Shap - Main 05 - Stripplot
+05. Stripplot
 ==========================
 
 .. warning:: This method is quite slow.

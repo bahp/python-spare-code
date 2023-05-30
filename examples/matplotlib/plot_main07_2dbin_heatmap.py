@@ -1,6 +1,9 @@
 """
-Main 07 - 2dbin and ``sns.heatmap``
+07. 2dbin and ``sns.heatmap``
 -----------------------------------
+
+Use binned_statistic_2d and display using heatmap.
+
 """
 
 import numpy as np

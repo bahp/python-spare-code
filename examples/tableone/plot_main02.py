@@ -1,6 +1,8 @@
 """
-TableOne - Main02
-=================
+02. Basic example
+-----------------
+
+Basic usage of the tableone library.
 """
 # Libraries
 import pandas as pd

@@ -1,6 +1,6 @@
 """
-Running Hiplot server
-=====================
+01. Running Hiplot server
+=========================
 """
 
 # In order to use high plot, first install the library

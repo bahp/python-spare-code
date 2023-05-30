@@ -1,6 +1,8 @@
 """
-Main 08 - Plot table with bars
+08. Plot table with bars
 ------------------------------
+
+Plot bars and add a table to an Axes.
 
 """
 

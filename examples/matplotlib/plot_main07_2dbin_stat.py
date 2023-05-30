@@ -1,6 +1,8 @@
 """
-Main 07 - 2dbin demo
+07. 2dbin demo
 --------------------
+
+Use binned_statistic_2d and display using heatmap.
 
 """
 

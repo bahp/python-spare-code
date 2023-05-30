@@ -1,5 +1,5 @@
 """
-Main 06 - Plot Treemap with coffee
+06. Plot Treemap with coffee
 ----------------------------------
 
 """

@@ -40,6 +40,12 @@ cases which are similar and show them to the clinicians. By using clinicians fee
 we could see which cases were being clicked and adapt the ones that are being retrieved?
 
 Shouldnt we adapt the model?
+=======
+Multi Armed Bandit
+---------------------------
 
+v1 = [R, R, R, R]
+v2 = [R, R, R, R]
+>
 
 """

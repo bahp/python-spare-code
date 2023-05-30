@@ -1,5 +1,5 @@
 """
-Format 04 - MIMIC therapy - one
+04. Format MIMIC therapy (one)
 ===============================
 
 Description...

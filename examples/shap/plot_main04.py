@@ -1,6 +1,6 @@
 """
-Shap - Main 04
-==============
+04. Basic example
+=================
 
 """
 # coding: utf-8

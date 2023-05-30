@@ -1,6 +1,6 @@
 """
-LDAP sample
-=============
+01. LDAP sample
+===============
 
 It requires ``ldap3`` and ``python-ldap-test`` [2017!].
 

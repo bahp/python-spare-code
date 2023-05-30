@@ -1,6 +1,8 @@
 """
-Main 07 - 2dbin with shap.csv
+07. 2dbin with shap.csv
 -----------------------------
+
+Use binned_statistic_2d and display using heatmap.
 
 """
 

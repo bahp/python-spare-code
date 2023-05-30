@@ -1,6 +1,6 @@
 """
-Data splitters
-==============
+02. Data splitters
+==================
 
 Useful methods to split data such as (i) hold out and
 csv sets or (ii) cross validation folds.

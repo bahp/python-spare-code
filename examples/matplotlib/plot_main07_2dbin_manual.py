@@ -1,6 +1,9 @@
 """
-Main 07 - 2dbin with manual data
+07. 2dbin with manual data
 --------------------------------
+
+Use binned_statistic_2d and display using heatmap.
+
 """
 
 # Libraries

@@ -1,6 +1,8 @@
 """
-Main 02 - ``mpl.hexbin``
+02. ``mpl.hexbin``
 ------------------------
+
+Make a 2D hexagonal binning plot of points x, y.
 
 """
 

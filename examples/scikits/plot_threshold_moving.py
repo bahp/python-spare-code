@@ -1,6 +1,6 @@
 """
-Threshold moving
-----------------
+06. Threshold moving approaches
+-------------------------------
 
  .. note::  https://en.wikipedia.org/wiki/Sensitivity_and_specificity
 """
