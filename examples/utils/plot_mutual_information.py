@@ -271,9 +271,6 @@ data.iloc[idxs1, 3:]
 # more or less efficient between them. Note that the methods
 # have itself some limitations.
 
-# Heading
-print_example_heading(n=4)
-
 # Generate data
 N = 10000000
 choices = np.arange(2)
@@ -290,13 +287,12 @@ m3 = mutual_info_matrix_v3(x=vector1, y=vector2)
 t4 = timer()
 
 # Display
-if TERMINAL:
-    print_example_heading(n=4)
-    print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
-    print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
-    print("time v1: %.5f" % (t2-t1))
-    print("time v2: %.5f" % (t3-t2))
-    print("time v3: %.5f" % (t4-t3))
+print_example_heading(n=4)
+print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
+print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
+print("time v1: %.5f" % (t2-t1))
+print("time v2: %.5f" % (t3-t2))
+print("time v3: %.5f" % (t4-t3))
 
 
 ########################################################################
@@ -459,7 +455,6 @@ m1 = mutual_info_matrix_v1(x=df.C0, y=df.C1)
 m2 = mutual_info_matrix_v2(x=df.C0, y=df.C1)
 m3 = mutual_info_matrix_v3(x=df.C0, y=df.C1)
 
-<<<<<<< HEAD
 # Show
 print_example_heading(n=8)
 print("Result m1:")
@@ -472,17 +467,3 @@ print(m3)
 print("\n")
 #print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
 print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
-=======
-if TERMINAL:
-    print_example_heading(n=8)
-    print("Result m1:")
-    print(m1)
-    print("\nResult m2:")
-    print(m2)
-    print("\nResult m3:")
-    print(m3)
-
-    print("\n")
-    #print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
-    print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
->>>>>>> 5018119e5209658ce94292cad977dadd9e4a87c8

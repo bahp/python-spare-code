@@ -11,10 +11,12 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+from pathlib import Path
 from scipy import stats
 
 # Load data
-data = pd.read_csv('../../datasets/shap/shap.csv')
+path = Path('../../datasets/shap/')
+data = pd.read_csv(path / 'shap.csv')
 
 # Get x, y and z
 x = data.timestep

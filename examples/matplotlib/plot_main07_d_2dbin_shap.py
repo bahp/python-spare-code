@@ -14,6 +14,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 from scipy import stats
+from pathlib import Path
 from matplotlib.colors import LogNorm
 
 #plt.style.use('ggplot') # R ggplot style
@@ -37,7 +38,8 @@ SNS_HEATMAP_CBAR_ARGS = {
 }
 
 # Load data
-data = pd.read_csv('../../datasets/shap/shap.csv')
+path = Path('../../datasets/shap/')
+data = pd.read_csv(path / 'shap.csv')
 
 # Filter
 data = data[data.features.isin([

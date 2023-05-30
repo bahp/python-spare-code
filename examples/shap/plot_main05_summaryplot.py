@@ -29,7 +29,10 @@ def load_shap_file():
              transformation should be taken into account.
 
     """
-    data = pd.read_csv('./data/shap.csv')
+    from pathlib import Path
+    # Load data
+    path = Path('../../datasets/shap/')
+    data = pd.read_csv(path / 'shap.csv')
     data = data.iloc[:, 1:]
     data = data.rename(columns={'timestep': 'indice'})
     data['timestep'] = data.indice - (data.indice.nunique() - 1)
