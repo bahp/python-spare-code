@@ -1,6 +1,6 @@
 """
-Shap - Main 02
-==============
+02. Basic example
+=================
 
 Computing SHAP values for different classifiers to understand which
 type of SHAP explainers can be used with the different algorithms.

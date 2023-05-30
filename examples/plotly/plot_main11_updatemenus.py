@@ -1,5 +1,5 @@
 """
-Main 11 - Using updatemenus
+11. Using updatemenus
 ===========================
 
 This example show how to include buttons in the

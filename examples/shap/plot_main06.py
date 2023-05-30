@@ -1,6 +1,6 @@
 """
-Shap - Main 06
-==============
+06. Basic example
+=================
 
 """
 # Libraries

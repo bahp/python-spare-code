@@ -1,5 +1,5 @@
 """
-Shap - Main 05 - Summary plot
+05. Summary plot
 =============================
 """
 

@@ -1,6 +1,6 @@
 """
-Shap - Main 07
-==============
+07. Basic example
+=================
 
 """
 # Libraries

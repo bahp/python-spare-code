@@ -1,5 +1,5 @@
 """
-Main 04 - Plot GMM and KDE
+04. Plot GMM and KDE
 ---------------------------
 
 This example estimates and displays the Gaussian

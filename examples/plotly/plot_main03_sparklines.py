@@ -1,5 +1,5 @@
 """
-Main 03 - Plot Sparklines
+03. Plot Sparklines
 =========================
 
 This example shows to to plot sparklines style graphs.

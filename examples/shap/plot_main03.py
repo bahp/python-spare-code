@@ -1,6 +1,6 @@
 """
-Shap - Main 03
-==============
+03. Basic example
+=================
 
 """
 # Generic

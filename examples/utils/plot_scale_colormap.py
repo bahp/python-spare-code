@@ -2,18 +2,25 @@
 Show colormap for various scalings
 ----------------------------------
 
-This dummy piece of code is to demonstrate visually that
-the transformation using the MinMaxScaler or StandardScaler
-does not affect the colormap.
+The dummy piece of code included below demonstrates visually
+that the transformation using the MinMaxScaler or StandardScaler
+does not affect the colormap. These transformations compute
+a 'mapping' but do not alter the values and/or their
+distribution. See the formulas below:
 
-These transformations compute a 'mapping' but do not
-alter the values and/or their distribution. See the
-formulas below:
 
-MinMaxScaler = std * (x_max - x_min) / x_max
-where std = (x - x_min) / (x_max - x_min)
+.. math::
 
-StandardScaler = (x - x_mean) / x_std
+    MinMaxScaler (x_{scaled}) = x_{std} * (x_{max} - x_{min}) + x_{min}
+
+.. math::
+
+    where x_{std} = (x - x_{min}) / (x_{max} - x_{min})
+
+.. math::
+
+    StandardScaler (x_{scaled}) = (x - x_{mean}) / x_{std}
+
 
 """
 

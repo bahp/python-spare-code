@@ -1,6 +1,6 @@
 """
-Test Skfold
-=============
+01. Test Skfold
+===============
 
 Demonstrate that ``StratifiedKFold`` is deterministic and
 always returns the same splits. The way to change the splits

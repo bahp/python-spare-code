@@ -1,5 +1,5 @@
 """
-Main 12 - MPL2PLY SHAP summary
+12. MPL2PLY SHAP summary
 ==============================
 
 .. note:: In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py line 368,

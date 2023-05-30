@@ -1,5 +1,5 @@
 """
-Main 01 - Plot ROC
+01. Plot ROC
 ===================
 
 This example shows how to plot the ROC curves for various splits.

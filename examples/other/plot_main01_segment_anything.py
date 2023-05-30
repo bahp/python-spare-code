@@ -1,5 +1,5 @@
 """
-Main 01 - Segment anything
+01. Segment anything
 ==========================
 
 The Segment Anything Model (SAM) produces high quality object masks from input

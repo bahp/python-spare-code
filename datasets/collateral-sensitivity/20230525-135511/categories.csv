@@ -1,0 +1,93 @@
+name,category,acronym,exists_in_registry,antimicrobial_code
+Amikacin,Aminoglycosides,AMIK,True,AAMI
+Amoxycillin,Aminopenicillins,AMOX,True,AAMO
+Amp c markers,,AMP_C,True,AAMPC
+Amphotericin,,AMPH,True,AAMPH
+Anidulafungin,,ANID,True,AAND
+Augmentin,,AUGM,True,AAUG
+Azithromycin,Macrolides,AZIT,True,AAZI
+Aztreonam,Monobactams,AZTR,True,AAZT
+Bacitracin,Polypeptides,BACI,True,ABAC
+Capreomycin,,CAPR,True,A_CAPREOMY
+Caspofungin,,CASP,True,ACAS
+Cefepime,,CEFE,True,A_CEFEPIME
+Cefixime,Cephalosporins,CEFI,True,ACIX
+Cefotaxime,Cephalosporins,CEFO,True,ACTX
+Cefoxitin,Cephalosporins,CEFOX,True,ACXT
+Cefpodoxime,,CEFP,True,A_CEFPODOX
+Ceftazidime,Cephalosporins,CEFT,True,ACAZ
+,,CEFTA,False,ACZA
+,,CEFTO,False,ACLZ
+Ceftriaxone,Cephalosporins,CEFTR,True,ACONE
+Cefuroxime,Cephalosporins,CEFU,True,ACXM
+Cephalexin,Cephalosporins,CEPH,True,ACELX
+Cephazolin,,CEPHA,True,A_CEPHAZOL
+Chloramphenicol,,CHLO,True,ACHL
+Ciprofloxacin,Fluoroquinolones,CIPR,True,ACIP
+Clarithromycin,Macrolides,CLAR,True,ACLA
+Clindamycin,Macrolides,CLIN,True,ACLI
+Clotrimozale,,CLOT,True,A_CLOTRIMO
+,,CO-A,False,AAUG
+Colistin sulphate,Polypeptides,COLI_SULP,True,ACOL
+Cotrimoxazole,Sulfonamides,COTR,True,ACOT
+Cpo marker,,CPO_MARK,True,ACPO
+Cpo markers,,CPO_MARKE,True,ACPO
+Daptomycin,,DAPT,True,ADAP
+Doxycycline,,DOXY,True,A_DOXYCYCL
+Ertapenem,Meropenems,ERTA,True,AERT
+Erythromycin,Macrolides,ERYT,True,AERY
+Esbl markers,,ESBL_MARK,True,AESBL
+Ethambutol,,ETHA,True,A_ETHAMBUT
+Flucloxacillin,Penicillins,FLUC,True,AMET
+Fluconazole,,FLUCO,True,AFLUZ
+Flucytosine,,FLUCY,True,AFLUC
+Fosfomycin,,FOSF,True,AFOS
+Fusidic acid,,FUSI_ACID,True,AFUS
+Gentamicin,Aminoglycosides,GENT,True,AGEN
+Imipenem,Meropenems,IMIP,True,AIMP
+Isoniazid,,ISON,True,A_ISONIAZI
+Itraconazole,,ITRA,True,AITR
+Kanamycin,,KANA,True,A_KANAMYCI
+Ketoconazole,,KETO,True,A_KETOCONA
+Levofloxacin,Fluoroquinolones,LEVO,True,ALEV
+Linezolid,Oxazolidinones,LINE,True,ALIN
+Mecillinam,Penicillins,MECI,True,AMEC
+Meropenem,Meropenems,MERO,True,AMER
+Metronidazole,Nitroimidazoles,METR,True,AMTZ
+Micafungin,,MICA,True,AMF
+Minocycline,,MINO,True,A_MINOCYCL
+Mls markers,,MLS_MARK,True,AMLS
+Moxifloxacin,Fluoroquinolones,MOXI,True,AMOX
+Mupirocin,,MUPI,True,AMUP
+Naladixic acid,Fluoroquinolones,NALA_ACID,True,ANAL
+Neomycin,Aminoglycosides,NEOM,True,ANEO
+Nitrofurantoin,,NITR,True,ANIT
+Novobiocin,Aminocoumarin,NOVO,True,ANOV
+Ofloxacin,Fluoroquinolones,OFLO,True,AOFL
+Optochin,,OPTO,True,AOPT
+Oxacillin,Penicillins,OXAC,True,AOXA
+Pefloxacin,,PEFL,True,APEF
+Penicillin,Penicillins,PENI,True,APEN
+,,PIPE,False,ATAZ
+Posaconazole,,POSA,True,APCZ
+Prothionamide,,PROT,True,A_PROTHION
+Pyrazinamide,,PYRA,True,A_PYRAZINA
+Rifabutin,,RIFA,True,A_RIFABUTI
+Rifampicin,,RIFAM,True,ARIF
+Septrin,,SEPT,True,ASEP
+Spectinomycin,,SPEC,True,ASPE
+Streptomycin,,STRE,True,A_STREPTOM
+Sulbactam,,SULB,True,A_SULBACTA
+Sulphamethoxazole,,SULP,True,A_SULPHAME
+Synercid,,SYNE,True,ASYN
+Tazocin,,TAZO,True,ATAZ
+Teicoplanin,Glycopeptide,TEIC,True,ATEI
+Temocillin,Penicillins,TEMO,True,ATEM
+Terbinafine,,TERB,True,A_TERBINAF
+Tetracycline,Tetracyclines,TETR,True,ATET
+Tigecycline,Tetracyclines,TIGE,True,ATIG
+Timentin,,TIME,True,A_TIMENTIN
+Tobramycin,Aminoglycosides,TOBR,True,ATOB
+Trimethoprim,,TRIM,True,ATRI
+Vancomycin,Glycopeptide,VANC,True,AVAN
+Voriconazole,,VORI,True,AVOR

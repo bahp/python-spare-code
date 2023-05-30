@@ -1,6 +1,6 @@
 """
-Explainer Dash
-----------------
+01. Explainer Dash
+------------------
 
 This example runs an app which an interactive
 user interface to explore the importance of

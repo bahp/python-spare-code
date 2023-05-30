@@ -1,0 +1,22 @@
+,name,category,acronym,exists_in_registry,antimicrobial_code
+0,Amikacin,Aminoglycosides,AMIK,True,AAMI
+2,Amp c markers,,AMP_C,True,AAMPC
+5,Augmentin,,AUGM,True,AAUG
+13,Cefotaxime,Cephalosporins,CEFO,True,ACTX
+14,Cefoxitin,Cephalosporins,CEFOX,True,ACXT
+16,Ceftazidime,Cephalosporins,CEFT,True,ACAZ
+20,Cefuroxime,Cephalosporins,CEFU,True,ACXM
+21,Cephalexin,Cephalosporins,CEPH,True,ACELX
+24,Ciprofloxacin,Fluoroquinolones,CIPR,True,ACIP
+29,Colistin sulphate,Polypeptides,COLI_SULP,True,ACOL
+35,Ertapenem,Meropenems,ERTA,True,AERT
+37,Esbl markers,,ESBL_MARK,True,AESBL
+44,Gentamicin,Aminoglycosides,GENT,True,AGEN
+45,Imipenem,Meropenems,IMIP,True,AIMP
+52,Mecillinam,Penicillins,MECI,True,AMEC
+53,Meropenem,Meropenems,MERO,True,AMER
+62,Nitrofurantoin,,NITR,True,ANIT
+81,Tazocin,,TAZO,True,ATAZ
+83,Temocillin,Penicillins,TEMO,True,ATEM
+88,Tobramycin,Aminoglycosides,TOBR,True,ATOB
+89,Trimethoprim,,TRIM,True,ATRI

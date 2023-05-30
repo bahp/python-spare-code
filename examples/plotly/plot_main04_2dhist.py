@@ -1,5 +1,5 @@
 """
-Main 04 - Histogram 2D
+04. Histogram 2D
 ======================
 
 .. note:: https://plotly.com/python/2d-histogram-contour/

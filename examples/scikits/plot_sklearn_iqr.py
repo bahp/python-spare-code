@@ -1,5 +1,5 @@
 """
-IQRFilter
+05. IQRFilter
 =============
 
 Example of implementing an IQR filter.
