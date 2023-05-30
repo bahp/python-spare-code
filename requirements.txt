@@ -21,3 +21,6 @@ sphinx-rtd-theme
 openpyxl
 kaleido
 pyyaml
+#dataprep
+#pandas-profiling
+#torch

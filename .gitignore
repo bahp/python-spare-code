@@ -7,17 +7,24 @@
 # Temporal files
 **/~*
 
+# Outputs
+**/output/**
+
+
+
 # Data files
 **/*.csv
 **/*.html
 **/*.png
 **/*.jpg
-#**/*.xlsx
+**/*.xlsx
 **/*.xls
 **/*.json
 **/*.log
 **/*.p
 **/*.pth
+**/*.tex
+**/*.h5
 
 # PyCharm folder
 .idea
