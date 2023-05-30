@@ -459,6 +459,7 @@ m1 = mutual_info_matrix_v1(x=df.C0, y=df.C1)
 m2 = mutual_info_matrix_v2(x=df.C0, y=df.C1)
 m3 = mutual_info_matrix_v3(x=df.C0, y=df.C1)
 
+<<<<<<< HEAD
 # Show
 print_example_heading(n=8)
 print("Result m1:")
@@ -471,3 +472,17 @@ print(m3)
 print("\n")
 #print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
 print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
+=======
+if TERMINAL:
+    print_example_heading(n=8)
+    print("Result m1:")
+    print(m1)
+    print("\nResult m2:")
+    print(m2)
+    print("\nResult m3:")
+    print(m3)
+
+    print("\n")
+    #print("Are the results equal (m1, m2)? %s" % np.allclose(m1, m2))
+    print("Are the results equal (m1, m3)? %s" % np.allclose(m1, m3))
+>>>>>>> 5018119e5209658ce94292cad977dadd9e4a87c8

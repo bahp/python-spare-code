@@ -425,5 +425,6 @@ print("\nResult")
 print(r)
 
 # Save collateral sensitivity index file.
+<<<<<<< HEAD
 r.to_csv(path / 'contingency.csv')
 """
