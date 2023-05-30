@@ -55,7 +55,7 @@ def _check_ax_ay_greater(ax, ay):
 # Constants
 # --------------------------------
 # Figure size
-figsize = (8, 5)
+figsize = (10, 5)
 
 #####################################################################
 # Let's load the data
@@ -177,8 +177,8 @@ for i, df in data.groupby(level=[0, 1]):
 
     # Create own colorbar axes
     # Params are [left, bottom, width, height]
-    cbar_ax1 = fig.add_axes([0.76, 0.5, 0.03, 0.38])
-    cbar_ax2 = fig.add_axes([0.90, 0.5, 0.03, 0.38])
+    cbar_ax1 = fig.add_axes([0.66, 0.5, 0.03, 0.38])
+    cbar_ax2 = fig.add_axes([0.76, 0.5, 0.03, 0.38])
 
     # Display
     r1 = sns.heatmap(data=m, cmap=cmapu, mask=masku, ax=axs,
@@ -244,7 +244,7 @@ for i, df in data.groupby(level=[0, 1]):
     # Configure plot
     plt.suptitle('%s - %s' % (i[0], i[1]))
     plt.tight_layout()
-    plt.subplots_adjust(wspace=0.1)
+    plt.subplots_adjust(left=-0.1, wspace=0.1)
 
 
 # Show

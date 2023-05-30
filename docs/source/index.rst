@@ -30,6 +30,12 @@ might offer a valuable resource. So dive in and start exploring!
    <br><br>
 
 
+.. note:: There are several issues in the most recent versions of either ``sphinx``, ``sphinx-gallery``
+          or both in which (i) the sidebar sub-levels do not appear, (ii) the terminal outputs are not
+          displayed properly with several 'Out' labels and (iii) the DataFrame is not properly formatted
+          with colors and hover being disabled. For such reason, the following versions
+          have been used ``sphinx==5.3.0`` and ``sphinx-gallery==0.10.0``.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
