@@ -438,7 +438,7 @@ df3[['freq',
 
 #%%
 # Lets display DRI over time
-# --------------------------
+#
 
 # Libraries
 import matplotlib.pyplot as plt
