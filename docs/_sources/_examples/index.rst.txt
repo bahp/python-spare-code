@@ -1834,6 +1834,27 @@ Gallery of examples with useful widgets.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="The DRI measures changes through time in the proportion of disease-causing pathogens that are r...">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_drug_resistance_index_thumb.png
+     :alt: Drug Resistance Index
+
+     :ref:`sphx_glr__examples_utils_plot_drug_resistance_index.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_drug_resistance_index
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="See below for a few resources.">
 
 .. only:: html
@@ -1873,6 +1894,48 @@ Gallery of examples with useful widgets.
    :hidden:
 
    /_examples/utils/plot_mutual_information
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Wikipedia article describes a method step by step how to calculate the position (in helioce...">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_planet_orbit_v1_thumb.png
+     :alt: Drawing a planet orbit (stackoverflow)
+
+     :ref:`sphx_glr__examples_utils_plot_planet_orbit_v1.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_planet_orbit_v1
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Wikipedia article describes a method step by step how to calculate the position (in helioce...">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_planet_orbit_v2_thumb.png
+     :alt: Drawing a planet orbit (customised)
+
+     :ref:`sphx_glr__examples_utils_plot_planet_orbit_v2.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_planet_orbit_v2
 
 .. raw:: html
 

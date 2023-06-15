@@ -260,7 +260,7 @@ Note that the columns names are the initial for the following
 full names: s=specimen, l=laboratory sample, o=organism,
 a=antimicrobial and r=result
 
-.. GENERATED FROM PYTHON SOURCE LINES 230-300
+.. GENERATED FROM PYTHON SOURCE LINES 230-425
 
 .. code-block:: default
    :lineno-start: 231
@@ -333,95 +333,6 @@ a=antimicrobial and r=result
     plt.tight_layout()
     #plt.show()
 
-
-
-
-
-
-.. image-sg:: /_examples/utils/images/sphx_glr_plot_collateral_sensitivity_001.png
-   :alt: plot collateral sensitivity
-   :srcset: /_examples/utils/images/sphx_glr_plot_collateral_sensitivity_001.png
-   :class: sphx-glr-single-img
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-
-    Data:
-         s   l   o   a  r
-    0   s1  l1  o1  a1  S
-    1   s1  l1  o1  a2  S
-    2   s1  l1  o1  a3  R
-    3   s1  l2  o1  a1  S
-    4   s1  l2  o1  a2  S
-    5   s1  l2  o1  a3  R
-    6   s1  l2  o1  a4  R
-    7   s1  l3  o1  a1  R
-    8   s1  l3  o1  a2  S
-    9   s1  l4  o1  a2  R
-    10  s1  l4  o1  a1  S
-    11  s1  l5  o1  a5  S
-    12  s1  l6  o1  a4  S
-    13  s1  l5  o1  a2  S
-
-    Combinations (within isolates):
-       specimen lab_id   o  ax  ay rx ry class
-    0        s1     l1  o1  a1  a2  S  S    SS
-    1        s1     l1  o1  a1  a3  S  R    SR
-    2        s1     l1  o1  a2  a3  S  R    SR
-    3        s1     l2  o1  a1  a2  S  S    SS
-    4        s1     l2  o1  a1  a3  S  R    SR
-    5        s1     l2  o1  a1  a4  S  R    SR
-    6        s1     l2  o1  a2  a3  S  R    SR
-    7        s1     l2  o1  a2  a4  S  R    SR
-    8        s1     l2  o1  a3  a4  R  R    RR
-    9        s1     l3  o1  a1  a2  R  S    RS
-    10       s1     l4  o1  a1  a2  S  R    SR
-    11       s1     l5  o1  a2  a5  S  S    SS
-
-    Contingency:
-    class   RR   RS   SR   SS
-    ax ay                    
-    a1 a2  NaN  1.0  1.0  2.0
-       a3  NaN  NaN  2.0  NaN
-       a4  NaN  NaN  1.0  NaN
-    a2 a3  NaN  NaN  2.0  NaN
-       a4  NaN  NaN  1.0  NaN
-       a5  NaN  NaN  NaN  1.0
-    a3 a4  1.0  NaN  NaN  NaN
-
-    ================================================================================
-    Example 1
-    ================================================================================
-
-    Result
-    class   RR   RS   SR   SS  MIS
-    ax ay                         
-    a1 a2  NaN  1.0  1.0  2.0  0.0
-       a3  NaN  NaN  2.0  NaN  0.0
-       a4  NaN  NaN  1.0  NaN  0.0
-    a2 a3  NaN  NaN  2.0  NaN  0.0
-       a4  NaN  NaN  1.0  NaN  0.0
-       a5  NaN  NaN  NaN  1.0  0.0
-    a3 a4  1.0  NaN  NaN  NaN  0.0
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 301-304
-
-b) Using NHS data
-~~~~~~~~~~~~~~~~~
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 304-431
-
-.. code-block:: default
-   :lineno-start: 306
 
 
 
@@ -547,11 +458,15 @@ b) Using NHS data
     print(r)
 
     # Save collateral sensitivity index file.
-    <<<<<<< HEAD
     r.to_csv(path / 'contingency.csv')
     """
 
 
+
+.. image-sg:: /_examples/utils/images/sphx_glr_plot_collateral_sensitivity_001.png
+   :alt: plot collateral sensitivity
+   :srcset: /_examples/utils/images/sphx_glr_plot_collateral_sensitivity_001.png
+   :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -561,14 +476,72 @@ b) Using NHS data
  .. code-block:: none
 
 
-    '\n# Load data\n#data = load_susceptibility_mimic()\ndata = load_susceptibility_nhs()\n\n# Create combo\nc = create_combinations_v1(data,\n    col_specimen=\'specimen_code\',\n    col_lab_id=\'laboratory_number\',\n    col_microorganism=\'microorganism_code\',\n    col_antimicrobial=\'antimicrobial_code\',\n    col_result=\'sensitivity\')\n\n# Create folder if it does not exist.\ntoday = datetime.now().strftime("%Y%m%d-%H%M%S")\npath = Path(\'./outputs/cri/\') / today\nPath(path).mkdir(parents=True, exist_ok=True)\n\n# Save combinations file.\nc.to_csv(path / \'combinations.csv\')\n\n# Build contingency\nr = c.groupby([\'specimen\', \'o\', \'ax\', \'ay\', \'class\']).size().unstack()\n\n# Compute CRI\nr[\'MIS\'] = r.fillna(0)     .apply(CRI, args=(mutual_info_matrix_v3,), axis=1)\n\n# Show\nprint("\n" + "="*80 + "\nExample 2\n" + "="*80)\nprint("\nResult")\nprint(r)\n\n# Save collateral sensitivity index file.\n<<<<<<< HEAD\nr.to_csv(path / \'contingency.csv\')\n'
+    Data:
+         s   l   o   a  r
+    0   s1  l1  o1  a1  S
+    1   s1  l1  o1  a2  S
+    2   s1  l1  o1  a3  R
+    3   s1  l2  o1  a1  S
+    4   s1  l2  o1  a2  S
+    5   s1  l2  o1  a3  R
+    6   s1  l2  o1  a4  R
+    7   s1  l3  o1  a1  R
+    8   s1  l3  o1  a2  S
+    9   s1  l4  o1  a2  R
+    10  s1  l4  o1  a1  S
+    11  s1  l5  o1  a5  S
+    12  s1  l6  o1  a4  S
+    13  s1  l5  o1  a2  S
+
+    Combinations (within isolates):
+       specimen lab_id   o  ax  ay rx ry class
+    0        s1     l1  o1  a1  a2  S  S    SS
+    1        s1     l1  o1  a1  a3  S  R    SR
+    2        s1     l1  o1  a2  a3  S  R    SR
+    3        s1     l2  o1  a1  a2  S  S    SS
+    4        s1     l2  o1  a1  a3  S  R    SR
+    5        s1     l2  o1  a1  a4  S  R    SR
+    6        s1     l2  o1  a2  a3  S  R    SR
+    7        s1     l2  o1  a2  a4  S  R    SR
+    8        s1     l2  o1  a3  a4  R  R    RR
+    9        s1     l3  o1  a1  a2  R  S    RS
+    10       s1     l4  o1  a1  a2  S  R    SR
+    11       s1     l5  o1  a2  a5  S  S    SS
+
+    Contingency:
+    class   RR   RS   SR   SS
+    ax ay                    
+    a1 a2  NaN  1.0  1.0  2.0
+       a3  NaN  NaN  2.0  NaN
+       a4  NaN  NaN  1.0  NaN
+    a2 a3  NaN  NaN  2.0  NaN
+       a4  NaN  NaN  1.0  NaN
+       a5  NaN  NaN  NaN  1.0
+    a3 a4  1.0  NaN  NaN  NaN
+
+    ================================================================================
+    Example 1
+    ================================================================================
+
+    Result
+    class   RR   RS   SR   SS  MIS
+    ax ay                         
+    a1 a2  NaN  1.0  1.0  2.0  0.0
+       a3  NaN  NaN  2.0  NaN  0.0
+       a4  NaN  NaN  1.0  NaN  0.0
+    a2 a3  NaN  NaN  2.0  NaN  0.0
+       a4  NaN  NaN  1.0  NaN  0.0
+       a5  NaN  NaN  NaN  1.0  0.0
+    a3 a4  1.0  NaN  NaN  NaN  0.0
+
+    '\n# Load data\n#data = load_susceptibility_mimic()\ndata = load_susceptibility_nhs()\n\n# Create combo\nc = create_combinations_v1(data,\n    col_specimen=\'specimen_code\',\n    col_lab_id=\'laboratory_number\',\n    col_microorganism=\'microorganism_code\',\n    col_antimicrobial=\'antimicrobial_code\',\n    col_result=\'sensitivity\')\n\n# Create folder if it does not exist.\ntoday = datetime.now().strftime("%Y%m%d-%H%M%S")\npath = Path(\'./outputs/cri/\') / today\nPath(path).mkdir(parents=True, exist_ok=True)\n\n# Save combinations file.\nc.to_csv(path / \'combinations.csv\')\n\n# Build contingency\nr = c.groupby([\'specimen\', \'o\', \'ax\', \'ay\', \'class\']).size().unstack()\n\n# Compute CRI\nr[\'MIS\'] = r.fillna(0)     .apply(CRI, args=(mutual_info_matrix_v3,), axis=1)\n\n# Show\nprint("\n" + "="*80 + "\nExample 2\n" + "="*80)\nprint("\nResult")\nprint(r)\n\n# Save collateral sensitivity index file.\nr.to_csv(path / \'contingency.csv\')\n'
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.210 seconds)
+   **Total running time of the script:** ( 0 minutes  0.193 seconds)
 
 
 .. _sphx_glr_download__examples_utils_plot_collateral_sensitivity.py:

@@ -26,7 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Multi-Armed bandit problems" href="plot_multi_armed_bandit.html" />
+    <link rel="next" title="Drug Resistance Index" href="plot_drug_resistance_index.html" />
     <link rel="prev" title="MIC package" href="mic.html" /> 
 </head>
 
@@ -71,12 +71,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#utils">Utils</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mic.html">MIC package</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Collateral Sensitivity Index</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#b-using-nhs-data">b) Using NHS data</a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Collateral Sensitivity Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_drug_resistance_index.html">Drug Resistance Index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_multi_armed_bandit.html">Multi-Armed bandit problems</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mutual_information.html">Mutual Information Criteria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v1.html">Drawing a planet orbit (stackoverflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v2.html">Drawing a planet orbit (customised)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_scale_colormap.html">Show colormap for various scalings</a></li>
 </ul>
 </li>
@@ -408,6 +408,134 @@ a=antimicrobial and r=result</p>
 <span class="linenos">294</span> <span class="c1"># Show</span>
 <span class="linenos">295</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="linenos">296</span> <span class="c1">#plt.show()</span>
+<span class="linenos">297</span>
+<span class="linenos">298</span>
+<span class="linenos">299</span>
+<span class="linenos">300</span>
+<span class="linenos">301</span> <span class="k">def</span> <span class="nf">load_susceptibility_nhs</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">302</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load and format MIMIC microbiology data.</span>
+<span class="linenos">303</span>
+<span class="linenos">304</span><span class="sd">     Parameters</span>
+<span class="linenos">305</span><span class="sd">     ----------</span>
+<span class="linenos">306</span><span class="sd">     **kwargs: dict-like</span>
+<span class="linenos">307</span><span class="sd">         The arguments as used in pandas read_csv function</span>
+<span class="linenos">308</span>
+<span class="linenos">309</span><span class="sd">     Returns</span>
+<span class="linenos">310</span><span class="sd">     --------</span>
+<span class="linenos">311</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">312</span>     <span class="c1"># Load data</span>
+<span class="linenos">313</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/susceptibility-nhs/&#39;</span><span class="p">)</span>
+<span class="linenos">314</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;susceptibility-v0.0.1&#39;</span>
+<span class="linenos">315</span>
+<span class="linenos">316</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+<span class="linenos">317</span>         <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">318</span>             <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;susceptibility-*.csv&#39;</span><span class="p">)])</span>
+<span class="linenos">319</span>
+<span class="linenos">320</span>     <span class="c1"># Format data</span>
+<span class="linenos">321</span>     <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span> \
+<span class="linenos">322</span>         <span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+<span class="linenos">323</span>             <span class="s1">&#39;sensitive&#39;</span><span class="p">:</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span>
+<span class="linenos">324</span>             <span class="s1">&#39;resistant&#39;</span><span class="p">:</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span>
+<span class="linenos">325</span>             <span class="s1">&#39;intermediate&#39;</span><span class="p">:</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span>
+<span class="linenos">326</span>             <span class="s1">&#39;highly resistant&#39;</span><span class="p">:</span> <span class="s1">&#39;HR&#39;</span>
+<span class="linenos">327</span>     <span class="p">})</span>
+<span class="linenos">328</span>
+<span class="linenos">329</span>     <span class="c1"># Select specimen</span>
+<span class="linenos">330</span>     <span class="c1"># data = data[data.specimen_code.isin([&#39;URICUL&#39;])]</span>
+<span class="linenos">331</span>     <span class="c1"># data = data[data.microorganism_code.isin([&#39;SAUR&#39;, &#39;ECOL&#39;, &#39;PAER&#39;])]</span>
+<span class="linenos">332</span>     <span class="c1"># data = data[data.sensitivity.isin([&#39;R&#39;, &#39;S&#39;])]</span>
+<span class="linenos">333</span>     <span class="c1"># data = data[data.laboratory_number.isin([&#39;H1954180&#39;, &#39;M1596362&#39;])]</span>
+<span class="linenos">334</span>
+<span class="linenos">335</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">])]</span>
+<span class="linenos">336</span>
+<span class="linenos">337</span>     <span class="c1"># .. note:: For some reason, for the same specimen and antimicrobial</span>
+<span class="linenos">338</span>     <span class="c1">#           there are sometimes contradictory outcomes (e.g. R and S)</span>
+<span class="linenos">339</span>     <span class="c1">#           so we are removing this by keeping the last.</span>
+<span class="linenos">340</span>
+<span class="linenos">341</span>     <span class="c1"># Keep only last/first specimen (sometimes repeated)</span>
+<span class="linenos">342</span>     <span class="n">subset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="linenos">343</span>     <span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;sensitivity&#39;</span><span class="p">)</span>
+<span class="linenos">344</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">subset</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+<span class="linenos">345</span>
+<span class="linenos">346</span>     <span class="c1"># Further cleaning</span>
+<span class="linenos">347</span>
+<span class="linenos">348</span>     <span class="c1"># Return</span>
+<span class="linenos">349</span>     <span class="k">return</span> <span class="n">data</span>
+<span class="linenos">350</span>
+<span class="linenos">351</span>
+<span class="linenos">352</span> <span class="k">def</span> <span class="nf">load_susceptibility_mimic</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">353</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load and format MIMIC microbiology data.</span>
+<span class="linenos">354</span>
+<span class="linenos">355</span><span class="sd">     Parameters</span>
+<span class="linenos">356</span><span class="sd">     ----------</span>
+<span class="linenos">357</span><span class="sd">     **kwargs: dict-like</span>
+<span class="linenos">358</span><span class="sd">         The arguments as used in pandas read_csv function</span>
+<span class="linenos">359</span>
+<span class="linenos">360</span><span class="sd">     Returns</span>
+<span class="linenos">361</span><span class="sd">     --------</span>
+<span class="linenos">362</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">363</span>     <span class="c1"># Load data</span>
+<span class="linenos">364</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/susceptibility-mimic/&#39;</span><span class="p">)</span>
+<span class="linenos">365</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;microbiologyevents.csv&#39;</span>
+<span class="linenos">366</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">367</span>
+<span class="linenos">368</span>     <span class="c1"># Format data</span>
+<span class="linenos">369</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+<span class="linenos">370</span>         <span class="s1">&#39;micro_specimen_id&#39;</span><span class="p">:</span> <span class="s1">&#39;laboratory_number&#39;</span><span class="p">,</span>
+<span class="linenos">371</span>         <span class="s1">&#39;spec_type_desc&#39;</span><span class="p">:</span> <span class="s1">&#39;specimen_code&#39;</span><span class="p">,</span>
+<span class="linenos">372</span>         <span class="s1">&#39;org_name&#39;</span><span class="p">:</span> <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
+<span class="linenos">373</span>         <span class="s1">&#39;ab_name&#39;</span><span class="p">:</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
+<span class="linenos">374</span>         <span class="s1">&#39;interpretation&#39;</span><span class="p">:</span> <span class="s1">&#39;sensitivity&#39;</span>
+<span class="linenos">375</span>     <span class="p">})</span>
+<span class="linenos">376</span>
+<span class="linenos">377</span>     <span class="c1"># Keep only last/first specimen</span>
+<span class="linenos">378</span>
+<span class="linenos">379</span>     <span class="c1"># Remove inconsistent records, for example if for an specimen there are two</span>
+<span class="linenos">380</span>     <span class="c1"># rows for the same antimicrobial. Or even worse, these two rows are</span>
+<span class="linenos">381</span>     <span class="c1"># contradictory (e.g. R and S)</span>
+<span class="linenos">382</span>
+<span class="linenos">383</span>     <span class="c1"># Other cleaning.</span>
+<span class="linenos">384</span>
+<span class="linenos">385</span>     <span class="c1"># Return</span>
+<span class="linenos">386</span>     <span class="k">return</span> <span class="n">data</span>
+<span class="linenos">387</span>
+<span class="linenos">388</span>
+<span class="linenos">389</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">390</span><span class="sd"> # Load data</span>
+<span class="linenos">391</span><span class="sd"> #data = load_susceptibility_mimic()</span>
+<span class="linenos">392</span><span class="sd"> data = load_susceptibility_nhs()</span>
+<span class="linenos">393</span>
+<span class="linenos">394</span><span class="sd"> # Create combo</span>
+<span class="linenos">395</span><span class="sd"> c = create_combinations_v1(data,</span>
+<span class="linenos">396</span><span class="sd">     col_specimen=&#39;specimen_code&#39;,</span>
+<span class="linenos">397</span><span class="sd">     col_lab_id=&#39;laboratory_number&#39;,</span>
+<span class="linenos">398</span><span class="sd">     col_microorganism=&#39;microorganism_code&#39;,</span>
+<span class="linenos">399</span><span class="sd">     col_antimicrobial=&#39;antimicrobial_code&#39;,</span>
+<span class="linenos">400</span><span class="sd">     col_result=&#39;sensitivity&#39;)</span>
+<span class="linenos">401</span>
+<span class="linenos">402</span><span class="sd"> # Create folder if it does not exist.</span>
+<span class="linenos">403</span><span class="sd"> today = datetime.now().strftime(&quot;%Y%m%d-%H%M%S&quot;)</span>
+<span class="linenos">404</span><span class="sd"> path = Path(&#39;./outputs/cri/&#39;) / today</span>
+<span class="linenos">405</span><span class="sd"> Path(path).mkdir(parents=True, exist_ok=True)</span>
+<span class="linenos">406</span>
+<span class="linenos">407</span><span class="sd"> # Save combinations file.</span>
+<span class="linenos">408</span><span class="sd"> c.to_csv(path / &#39;combinations.csv&#39;)</span>
+<span class="linenos">409</span>
+<span class="linenos">410</span><span class="sd"> # Build contingency</span>
+<span class="linenos">411</span><span class="sd"> r = c.groupby([&#39;specimen&#39;, &#39;o&#39;, &#39;ax&#39;, &#39;ay&#39;, &#39;class&#39;]).size().unstack()</span>
+<span class="linenos">412</span>
+<span class="linenos">413</span><span class="sd"> # Compute CRI</span>
+<span class="linenos">414</span><span class="sd"> r[&#39;MIS&#39;] = r.fillna(0) \</span>
+<span class="linenos">415</span><span class="sd">     .apply(CRI, args=(mutual_info_matrix_v3,), axis=1)</span>
+<span class="linenos">416</span>
+<span class="linenos">417</span><span class="sd"> # Show</span>
+<span class="linenos">418</span><span class="sd"> print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 2\n&quot; + &quot;=&quot;*80)</span>
+<span class="linenos">419</span><span class="sd"> print(&quot;\nResult&quot;)</span>
+<span class="linenos">420</span><span class="sd"> print(r)</span>
+<span class="linenos">421</span>
+<span class="linenos">422</span><span class="sd"> # Save collateral sensitivity index file.</span>
+<span class="linenos">423</span><span class="sd"> r.to_csv(path / &#39;contingency.csv&#39;)</span>
+<span class="linenos">424</span><span class="sd"> &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_collateral_sensitivity_001.png" srcset="../../_images/sphx_glr_plot_collateral_sensitivity_001.png" alt="plot collateral sensitivity" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
@@ -468,142 +596,11 @@ a2 a3  NaN  NaN  2.0  NaN  0.0
    a4  NaN  NaN  1.0  NaN  0.0
    a5  NaN  NaN  NaN  1.0  0.0
 a3 a4  1.0  NaN  NaN  NaN  0.0
+
+&#39;\n# Load data\n#data = load_susceptibility_mimic()\ndata = load_susceptibility_nhs()\n\n# Create combo\nc = create_combinations_v1(data,\n    col_specimen=\&#39;specimen_code\&#39;,\n    col_lab_id=\&#39;laboratory_number\&#39;,\n    col_microorganism=\&#39;microorganism_code\&#39;,\n    col_antimicrobial=\&#39;antimicrobial_code\&#39;,\n    col_result=\&#39;sensitivity\&#39;)\n\n# Create folder if it does not exist.\ntoday = datetime.now().strftime(&quot;%Y%m%d-%H%M%S&quot;)\npath = Path(\&#39;./outputs/cri/\&#39;) / today\nPath(path).mkdir(parents=True, exist_ok=True)\n\n# Save combinations file.\nc.to_csv(path / \&#39;combinations.csv\&#39;)\n\n# Build contingency\nr = c.groupby([\&#39;specimen\&#39;, \&#39;o\&#39;, \&#39;ax\&#39;, \&#39;ay\&#39;, \&#39;class\&#39;]).size().unstack()\n\n# Compute CRI\nr[\&#39;MIS\&#39;] = r.fillna(0)     .apply(CRI, args=(mutual_info_matrix_v3,), axis=1)\n\n# Show\nprint(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 2\n&quot; + &quot;=&quot;*80)\nprint(&quot;\nResult&quot;)\nprint(r)\n\n# Save collateral sensitivity index file.\nr.to_csv(path / \&#39;contingency.csv\&#39;)\n&#39;
 </pre></div>
 </div>
-<section id="b-using-nhs-data">
-<h2>b) Using NHS data<a class="headerlink" href="#b-using-nhs-data" title="Permalink to this heading"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">306</span> <span class="k">def</span> <span class="nf">load_susceptibility_nhs</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="linenos">307</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load and format MIMIC microbiology data.</span>
-<span class="linenos">308</span>
-<span class="linenos">309</span><span class="sd">     Parameters</span>
-<span class="linenos">310</span><span class="sd">     ----------</span>
-<span class="linenos">311</span><span class="sd">     **kwargs: dict-like</span>
-<span class="linenos">312</span><span class="sd">         The arguments as used in pandas read_csv function</span>
-<span class="linenos">313</span>
-<span class="linenos">314</span><span class="sd">     Returns</span>
-<span class="linenos">315</span><span class="sd">     --------</span>
-<span class="linenos">316</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="linenos">317</span>     <span class="c1"># Load data</span>
-<span class="linenos">318</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/susceptibility-nhs/&#39;</span><span class="p">)</span>
-<span class="linenos">319</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;susceptibility-v0.0.1&#39;</span>
-<span class="linenos">320</span>
-<span class="linenos">321</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
-<span class="linenos">322</span>         <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="linenos">323</span>             <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;susceptibility-*.csv&#39;</span><span class="p">)])</span>
-<span class="linenos">324</span>
-<span class="linenos">325</span>     <span class="c1"># Format data</span>
-<span class="linenos">326</span>     <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span> \
-<span class="linenos">327</span>         <span class="o">.</span><span class="n">replace</span><span class="p">({</span>
-<span class="linenos">328</span>             <span class="s1">&#39;sensitive&#39;</span><span class="p">:</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span>
-<span class="linenos">329</span>             <span class="s1">&#39;resistant&#39;</span><span class="p">:</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span>
-<span class="linenos">330</span>             <span class="s1">&#39;intermediate&#39;</span><span class="p">:</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span>
-<span class="linenos">331</span>             <span class="s1">&#39;highly resistant&#39;</span><span class="p">:</span> <span class="s1">&#39;HR&#39;</span>
-<span class="linenos">332</span>     <span class="p">})</span>
-<span class="linenos">333</span>
-<span class="linenos">334</span>     <span class="c1"># Select specimen</span>
-<span class="linenos">335</span>     <span class="c1"># data = data[data.specimen_code.isin([&#39;URICUL&#39;])]</span>
-<span class="linenos">336</span>     <span class="c1"># data = data[data.microorganism_code.isin([&#39;SAUR&#39;, &#39;ECOL&#39;, &#39;PAER&#39;])]</span>
-<span class="linenos">337</span>     <span class="c1"># data = data[data.sensitivity.isin([&#39;R&#39;, &#39;S&#39;])]</span>
-<span class="linenos">338</span>     <span class="c1"># data = data[data.laboratory_number.isin([&#39;H1954180&#39;, &#39;M1596362&#39;])]</span>
-<span class="linenos">339</span>
-<span class="linenos">340</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">])]</span>
-<span class="linenos">341</span>
-<span class="linenos">342</span>     <span class="c1"># .. note:: For some reason, for the same specimen and antimicrobial</span>
-<span class="linenos">343</span>     <span class="c1">#           there are sometimes contradictory outcomes (e.g. R and S)</span>
-<span class="linenos">344</span>     <span class="c1">#           so we are removing this by keeping the last.</span>
-<span class="linenos">345</span>
-<span class="linenos">346</span>     <span class="c1"># Keep only last/first specimen (sometimes repeated)</span>
-<span class="linenos">347</span>     <span class="n">subset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="linenos">348</span>     <span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;sensitivity&#39;</span><span class="p">)</span>
-<span class="linenos">349</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">subset</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
-<span class="linenos">350</span>
-<span class="linenos">351</span>     <span class="c1"># Further cleaning</span>
-<span class="linenos">352</span>
-<span class="linenos">353</span>     <span class="c1"># Return</span>
-<span class="linenos">354</span>     <span class="k">return</span> <span class="n">data</span>
-<span class="linenos">355</span>
-<span class="linenos">356</span>
-<span class="linenos">357</span> <span class="k">def</span> <span class="nf">load_susceptibility_mimic</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="linenos">358</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load and format MIMIC microbiology data.</span>
-<span class="linenos">359</span>
-<span class="linenos">360</span><span class="sd">     Parameters</span>
-<span class="linenos">361</span><span class="sd">     ----------</span>
-<span class="linenos">362</span><span class="sd">     **kwargs: dict-like</span>
-<span class="linenos">363</span><span class="sd">         The arguments as used in pandas read_csv function</span>
-<span class="linenos">364</span>
-<span class="linenos">365</span><span class="sd">     Returns</span>
-<span class="linenos">366</span><span class="sd">     --------</span>
-<span class="linenos">367</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="linenos">368</span>     <span class="c1"># Load data</span>
-<span class="linenos">369</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/susceptibility-mimic/&#39;</span><span class="p">)</span>
-<span class="linenos">370</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;microbiologyevents.csv&#39;</span>
-<span class="linenos">371</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="linenos">372</span>
-<span class="linenos">373</span>     <span class="c1"># Format data</span>
-<span class="linenos">374</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-<span class="linenos">375</span>         <span class="s1">&#39;micro_specimen_id&#39;</span><span class="p">:</span> <span class="s1">&#39;laboratory_number&#39;</span><span class="p">,</span>
-<span class="linenos">376</span>         <span class="s1">&#39;spec_type_desc&#39;</span><span class="p">:</span> <span class="s1">&#39;specimen_code&#39;</span><span class="p">,</span>
-<span class="linenos">377</span>         <span class="s1">&#39;org_name&#39;</span><span class="p">:</span> <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
-<span class="linenos">378</span>         <span class="s1">&#39;ab_name&#39;</span><span class="p">:</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
-<span class="linenos">379</span>         <span class="s1">&#39;interpretation&#39;</span><span class="p">:</span> <span class="s1">&#39;sensitivity&#39;</span>
-<span class="linenos">380</span>     <span class="p">})</span>
-<span class="linenos">381</span>
-<span class="linenos">382</span>     <span class="c1"># Keep only last/first specimen</span>
-<span class="linenos">383</span>
-<span class="linenos">384</span>     <span class="c1"># Remove inconsistent records, for example if for an specimen there are two</span>
-<span class="linenos">385</span>     <span class="c1"># rows for the same antimicrobial. Or even worse, these two rows are</span>
-<span class="linenos">386</span>     <span class="c1"># contradictory (e.g. R and S)</span>
-<span class="linenos">387</span>
-<span class="linenos">388</span>     <span class="c1"># Other cleaning.</span>
-<span class="linenos">389</span>
-<span class="linenos">390</span>     <span class="c1"># Return</span>
-<span class="linenos">391</span>     <span class="k">return</span> <span class="n">data</span>
-<span class="linenos">392</span>
-<span class="linenos">393</span>
-<span class="linenos">394</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">395</span><span class="sd"> # Load data</span>
-<span class="linenos">396</span><span class="sd"> #data = load_susceptibility_mimic()</span>
-<span class="linenos">397</span><span class="sd"> data = load_susceptibility_nhs()</span>
-<span class="linenos">398</span>
-<span class="linenos">399</span><span class="sd"> # Create combo</span>
-<span class="linenos">400</span><span class="sd"> c = create_combinations_v1(data,</span>
-<span class="linenos">401</span><span class="sd">     col_specimen=&#39;specimen_code&#39;,</span>
-<span class="linenos">402</span><span class="sd">     col_lab_id=&#39;laboratory_number&#39;,</span>
-<span class="linenos">403</span><span class="sd">     col_microorganism=&#39;microorganism_code&#39;,</span>
-<span class="linenos">404</span><span class="sd">     col_antimicrobial=&#39;antimicrobial_code&#39;,</span>
-<span class="linenos">405</span><span class="sd">     col_result=&#39;sensitivity&#39;)</span>
-<span class="linenos">406</span>
-<span class="linenos">407</span><span class="sd"> # Create folder if it does not exist.</span>
-<span class="linenos">408</span><span class="sd"> today = datetime.now().strftime(&quot;%Y%m%d-%H%M%S&quot;)</span>
-<span class="linenos">409</span><span class="sd"> path = Path(&#39;./outputs/cri/&#39;) / today</span>
-<span class="linenos">410</span><span class="sd"> Path(path).mkdir(parents=True, exist_ok=True)</span>
-<span class="linenos">411</span>
-<span class="linenos">412</span><span class="sd"> # Save combinations file.</span>
-<span class="linenos">413</span><span class="sd"> c.to_csv(path / &#39;combinations.csv&#39;)</span>
-<span class="linenos">414</span>
-<span class="linenos">415</span><span class="sd"> # Build contingency</span>
-<span class="linenos">416</span><span class="sd"> r = c.groupby([&#39;specimen&#39;, &#39;o&#39;, &#39;ax&#39;, &#39;ay&#39;, &#39;class&#39;]).size().unstack()</span>
-<span class="linenos">417</span>
-<span class="linenos">418</span><span class="sd"> # Compute CRI</span>
-<span class="linenos">419</span><span class="sd"> r[&#39;MIS&#39;] = r.fillna(0) \</span>
-<span class="linenos">420</span><span class="sd">     .apply(CRI, args=(mutual_info_matrix_v3,), axis=1)</span>
-<span class="linenos">421</span>
-<span class="linenos">422</span><span class="sd"> # Show</span>
-<span class="linenos">423</span><span class="sd"> print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 2\n&quot; + &quot;=&quot;*80)</span>
-<span class="linenos">424</span><span class="sd"> print(&quot;\nResult&quot;)</span>
-<span class="linenos">425</span><span class="sd"> print(r)</span>
-<span class="linenos">426</span>
-<span class="linenos">427</span><span class="sd"> # Save collateral sensitivity index file.</span>
-<span class="linenos">428</span><span class="sd"> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
-<span class="linenos">429</span><span class="sd"> r.to_csv(path / &#39;contingency.csv&#39;)</span>
-<span class="linenos">430</span><span class="sd"> &quot;&quot;&quot;</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n# Load data\n#data = load_susceptibility_mimic()\ndata = load_susceptibility_nhs()\n\n# Create combo\nc = create_combinations_v1(data,\n    col_specimen=\&#39;specimen_code\&#39;,\n    col_lab_id=\&#39;laboratory_number\&#39;,\n    col_microorganism=\&#39;microorganism_code\&#39;,\n    col_antimicrobial=\&#39;antimicrobial_code\&#39;,\n    col_result=\&#39;sensitivity\&#39;)\n\n# Create folder if it does not exist.\ntoday = datetime.now().strftime(&quot;%Y%m%d-%H%M%S&quot;)\npath = Path(\&#39;./outputs/cri/\&#39;) / today\nPath(path).mkdir(parents=True, exist_ok=True)\n\n# Save combinations file.\nc.to_csv(path / \&#39;combinations.csv\&#39;)\n\n# Build contingency\nr = c.groupby([\&#39;specimen\&#39;, \&#39;o\&#39;, \&#39;ax\&#39;, \&#39;ay\&#39;, \&#39;class\&#39;]).size().unstack()\n\n# Compute CRI\nr[\&#39;MIS\&#39;] = r.fillna(0)     .apply(CRI, args=(mutual_info_matrix_v3,), axis=1)\n\n# Show\nprint(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 2\n&quot; + &quot;=&quot;*80)\nprint(&quot;\nResult&quot;)\nprint(r)\n\n# Save collateral sensitivity index file.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nr.to_csv(path / \&#39;contingency.csv\&#39;)\n&#39;
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.210 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.193 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-utils-plot-collateral-sensitivity-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/83c329c17ca99a7159018d2522be5a7e/plot_collateral_sensitivity.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_collateral_sensitivity.py</span></code></a></p>
@@ -614,14 +611,13 @@ a3 a4  1.0  NaN  NaN  NaN  0.0
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="mic.html" class="btn btn-neutral float-left" title="MIC package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_multi_armed_bandit.html" class="btn btn-neutral float-right" title="Multi-Armed bandit problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_drug_resistance_index.html" class="btn btn-neutral float-right" title="Drug Resistance Index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

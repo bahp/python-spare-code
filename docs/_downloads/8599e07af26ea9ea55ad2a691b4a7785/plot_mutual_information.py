@@ -13,6 +13,7 @@ See below for a few resources.
   * `R2`_: Detailed tutorial with python code.
   * `R3`_: Possible libraries in python/R and other tools.
   * `R5`_: Efficient pairwise MIS implementation...
+  * `M1`_: Idenetification of antibiotics pairs that evade .... manuscript.
 
 .. _R1: https://www.youtube.com/watch?v=eJIp_mgVLwE
 .. _R2: https://www.blog.trainindata.com/mutual-information-with-python/
@@ -21,6 +22,7 @@ See below for a few resources.
 .. _R5: https://stackoverflow.com/questions/20491028/optimal-way-to-compute-pairwise-mutual-information-using-numpy
 
 .. _M1: https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(21)00118-X/fulltext
+
 
 """
 
@@ -198,7 +200,7 @@ cumu
 ########################################################################
 # c) Collateral Resistance Index
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Now, lets compute the ``MIS`` score as defined in the manuscript (`R5`_).
+# Now, lets compute the ``MIS`` score as defined in the manuscript (`M1`_).
 # Note that the manuscript provided the cumulative data as appendix
 # material and therefore we can use it to compare that our implementation
 # produces the same result.

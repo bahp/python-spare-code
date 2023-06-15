@@ -297,11 +297,6 @@ plt.tight_layout()
 
 
 
-##################################################################
-# b) Using NHS data
-# ~~~~~~~~~~~~~~~~~
-#
-
 
 def load_susceptibility_nhs(**kwargs):
     """Load and format MIMIC microbiology data.
@@ -425,6 +420,5 @@ print("\nResult")
 print(r)
 
 # Save collateral sensitivity index file.
-<<<<<<< HEAD
 r.to_csv(path / 'contingency.csv')
 """

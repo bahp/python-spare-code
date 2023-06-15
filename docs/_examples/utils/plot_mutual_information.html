@@ -26,7 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Show colormap for various scalings" href="plot_scale_colormap.html" />
+    <link rel="next" title="Drawing a planet orbit (stackoverflow)" href="plot_planet_orbit_v1.html" />
     <link rel="prev" title="Multi-Armed bandit problems" href="plot_multi_armed_bandit.html" /> 
 </head>
 
@@ -72,6 +72,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#utils">Utils</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mic.html">MIC package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_collateral_sensitivity.html">Collateral Sensitivity Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_drug_resistance_index.html">Drug Resistance Index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_multi_armed_bandit.html">Multi-Armed bandit problems</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Mutual Information Criteria</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#a-manual-example-youtube">a) Manual example (youtube)</a></li>
@@ -84,6 +85,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#h-example-with-more-than-2-classes">h) Example with more than 2 classes</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v1.html">Drawing a planet orbit (stackoverflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v2.html">Drawing a planet orbit (customised)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_scale_colormap.html">Show colormap for various scalings</a></li>
 </ul>
 </li>
@@ -134,37 +137,38 @@ strength of association between words x and y.</p>
 <li><p><a class="reference external" href="https://www.blog.trainindata.com/mutual-information-with-python/">R2</a>: Detailed tutorial with python code.</p></li>
 <li><p><a class="reference external" href="https://stats.stackexchange.com/questions/531527/mutual-information-and-maximual-infomation-coffecient">R3</a>: Possible libraries in python/R and other tools.</p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/20491028/optimal-way-to-compute-pairwise-mutual-information-using-numpy">R5</a>: Efficient pairwise MIS implementation…</p></li>
+<li><p><a class="reference external" href="https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(21)00118-X/fulltext">M1</a>: Idenetification of antibiotics pairs that evade …. manuscript.</p></li>
 </ul>
 </div></blockquote>
 <p>Lets import the main libraries</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span> <span class="c1"># Generic</span>
-<span class="linenos">31</span> <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="linenos">32</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos">33</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span> <span class="c1"># Specific</span>
-<span class="linenos">36</span> <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
-<span class="linenos">37</span> <span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
-<span class="linenos">38</span> <span class="kn">from</span> <span class="nn">scipy.stats.contingency</span> <span class="kn">import</span> <span class="n">crosstab</span>
-<span class="linenos">39</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mutual_info_score</span>
-<span class="linenos">40</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">adjusted_mutual_info_score</span>
-<span class="linenos">41</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">normalized_mutual_info_score</span>
-<span class="linenos">42</span>
-<span class="linenos">43</span> <span class="c1"># Own</span>
-<span class="linenos">44</span> <span class="kn">from</span> <span class="nn">mic</span> <span class="kn">import</span> <span class="n">mutual_info_matrix_v3</span>
-<span class="linenos">45</span> <span class="kn">from</span> <span class="nn">mic</span> <span class="kn">import</span> <span class="n">mutual_info_matrix_v2</span>
-<span class="linenos">46</span> <span class="kn">from</span> <span class="nn">mic</span> <span class="kn">import</span> <span class="n">mutual_info_matrix_v1</span>
-<span class="linenos">47</span>
-<span class="linenos">48</span> <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">32</span> <span class="c1"># Generic</span>
+<span class="linenos">33</span> <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="linenos">34</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">35</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span> <span class="c1"># Specific</span>
+<span class="linenos">38</span> <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="linenos">39</span> <span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+<span class="linenos">40</span> <span class="kn">from</span> <span class="nn">scipy.stats.contingency</span> <span class="kn">import</span> <span class="n">crosstab</span>
+<span class="linenos">41</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mutual_info_score</span>
+<span class="linenos">42</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">adjusted_mutual_info_score</span>
+<span class="linenos">43</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">normalized_mutual_info_score</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span> <span class="c1"># Own</span>
+<span class="linenos">46</span> <span class="kn">from</span> <span class="nn">mic</span> <span class="kn">import</span> <span class="n">mutual_info_matrix_v3</span>
+<span class="linenos">47</span> <span class="kn">from</span> <span class="nn">mic</span> <span class="kn">import</span> <span class="n">mutual_info_matrix_v2</span>
+<span class="linenos">48</span> <span class="kn">from</span> <span class="nn">mic</span> <span class="kn">import</span> <span class="n">mutual_info_matrix_v1</span>
 <span class="linenos">49</span>
-<span class="linenos">50</span> <span class="k">def</span> <span class="nf">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-<span class="linenos">51</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Example </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">n</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
-<span class="linenos">52</span>
-<span class="linenos">53</span> <span class="k">try</span><span class="p">:</span>
-<span class="linenos">54</span>     <span class="vm">__file__</span>
-<span class="linenos">55</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos">56</span> <span class="k">except</span><span class="p">:</span>
-<span class="linenos">57</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">50</span> <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="linenos">51</span>
+<span class="linenos">52</span> <span class="k">def</span> <span class="nf">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="linenos">53</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Example </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">n</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span> <span class="k">try</span><span class="p">:</span>
+<span class="linenos">56</span>     <span class="vm">__file__</span>
+<span class="linenos">57</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">58</span> <span class="k">except</span><span class="p">:</span>
+<span class="linenos">59</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
 <section id="a-manual-example-youtube">
@@ -182,48 +186,48 @@ when implementing the <code class="docutils literal notranslate"><span class="pr
 <li><p>this np.nan can be filled with 0.</p></li>
 </ul>
 </div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 74</span> <span class="c1"># See: https://www.youtube.com/watch?v=eJIp_mgVLwE</span>
-<span class="linenos"> 75</span>
-<span class="linenos"> 76</span> <span class="c1"># Contingency</span>
-<span class="linenos"> 77</span> <span class="n">ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">]])</span>
-<span class="linenos"> 78</span>
-<span class="linenos"> 79</span> <span class="c1"># Compute MIS manually</span>
-<span class="linenos"> 80</span> <span class="n">mi1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span>
-<span class="linenos"> 81</span> <span class="c1">#mi2 = (0/5)*np.log((0/5) / ((3/5)*(1/5))) # zero division</span>
-<span class="linenos"> 82</span> <span class="n">mi3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span>
-<span class="linenos"> 83</span> <span class="n">mi4</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span>
-<span class="linenos"> 84</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">mi1</span><span class="p">,</span> <span class="n">mi3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">mi4</span><span class="p">]])</span>
-<span class="linenos"> 85</span> <span class="n">score1</span> <span class="o">=</span> <span class="n">mi1</span> <span class="o">+</span> <span class="n">mi3</span> <span class="o">+</span> <span class="n">mi4</span> <span class="c1"># 0.22</span>
-<span class="linenos"> 86</span>
-<span class="linenos"> 87</span> <span class="c1"># Compute component information matrix</span>
-<span class="linenos"> 88</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos"> 89</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos"> 90</span> <span class="n">m4</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos"> 91</span>
-<span class="linenos"> 92</span> <span class="c1"># .. note: Raises a math domain error.</span>
-<span class="linenos"> 93</span> <span class="c1"># Compute MIS scikits</span>
-<span class="linenos"> 94</span> <span class="c1">#score4 = mutual_info_score(labels_true=None,</span>
-<span class="linenos"> 95</span> <span class="c1">#                           labels_pred=None,</span>
-<span class="linenos"> 96</span> <span class="c1">#                           contingency=ct)</span>
-<span class="linenos"> 97</span>
-<span class="linenos"> 98</span> <span class="c1"># Cumu</span>
-<span class="linenos"> 99</span> <span class="n">cumu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-<span class="linenos">100</span>     <span class="p">[</span><span class="s1">&#39;manual&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">101</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v1&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">102</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">103</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v3&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m4</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="linenos">104</span> <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;c11&#39;</span><span class="p">,</span> <span class="s1">&#39;c12&#39;</span><span class="p">,</span> <span class="s1">&#39;c21&#39;</span><span class="p">,</span> <span class="s1">&#39;c22&#39;</span><span class="p">])</span>
-<span class="linenos">105</span>
-<span class="linenos">106</span> <span class="c1"># Compute MIS score</span>
-<span class="linenos">107</span> <span class="n">cumu</span><span class="p">[</span><span class="s1">&#39;mis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumu</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 76</span> <span class="c1"># See: https://www.youtube.com/watch?v=eJIp_mgVLwE</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span> <span class="c1"># Contingency</span>
+<span class="linenos"> 79</span> <span class="n">ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">]])</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span> <span class="c1"># Compute MIS manually</span>
+<span class="linenos"> 82</span> <span class="n">mi1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span>
+<span class="linenos"> 83</span> <span class="c1">#mi2 = (0/5)*np.log((0/5) / ((3/5)*(1/5))) # zero division</span>
+<span class="linenos"> 84</span> <span class="n">mi3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span>
+<span class="linenos"> 85</span> <span class="n">mi4</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span>
+<span class="linenos"> 86</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">mi1</span><span class="p">,</span> <span class="n">mi3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">mi4</span><span class="p">]])</span>
+<span class="linenos"> 87</span> <span class="n">score1</span> <span class="o">=</span> <span class="n">mi1</span> <span class="o">+</span> <span class="n">mi3</span> <span class="o">+</span> <span class="n">mi4</span> <span class="c1"># 0.22</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span> <span class="c1"># Compute component information matrix</span>
+<span class="linenos"> 90</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos"> 91</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos"> 92</span> <span class="n">m4</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos"> 93</span>
+<span class="linenos"> 94</span> <span class="c1"># .. note: Raises a math domain error.</span>
+<span class="linenos"> 95</span> <span class="c1"># Compute MIS scikits</span>
+<span class="linenos"> 96</span> <span class="c1">#score4 = mutual_info_score(labels_true=None,</span>
+<span class="linenos"> 97</span> <span class="c1">#                           labels_pred=None,</span>
+<span class="linenos"> 98</span> <span class="c1">#                           contingency=ct)</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span> <span class="c1"># Cumu</span>
+<span class="linenos">101</span> <span class="n">cumu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+<span class="linenos">102</span>     <span class="p">[</span><span class="s1">&#39;manual&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">103</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v1&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">104</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">105</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v3&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m4</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="linenos">106</span> <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;c11&#39;</span><span class="p">,</span> <span class="s1">&#39;c12&#39;</span><span class="p">,</span> <span class="s1">&#39;c21&#39;</span><span class="p">,</span> <span class="s1">&#39;c22&#39;</span><span class="p">])</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span> <span class="c1"># Compute MIS score</span>
+<span class="linenos">109</span> <span class="n">cumu</span><span class="p">[</span><span class="s1">&#39;mis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumu</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Lets see the contingency matrix</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">111</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">112</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">113</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Contingency:&#39;</span><span class="p">)</span>
-<span class="linenos">114</span>     <span class="nb">print</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos">115</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">113</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">114</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">115</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Contingency:&#39;</span><span class="p">)</span>
+<span class="linenos">116</span>     <span class="nb">print</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos">117</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -266,10 +270,10 @@ when implementing the <code class="docutils literal notranslate"><span class="pr
 </div>
 <br />
 <br /><p>Lets see the results</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">119</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">120</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Results:&quot;</span><span class="p">)</span>
-<span class="linenos">121</span>     <span class="nb">print</span><span class="p">(</span><span class="n">cumu</span><span class="p">)</span>
-<span class="linenos">122</span> <span class="n">cumu</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">121</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">122</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Results:&quot;</span><span class="p">)</span>
+<span class="linenos">123</span>     <span class="nb">print</span><span class="p">(</span><span class="n">cumu</span><span class="p">)</span>
+<span class="linenos">124</span> <span class="n">cumu</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -353,57 +357,57 @@ matrix. However, that is not often the case. In this example we will go
 one step back and show how to compute the contingency matrix from the raw
 vectors using either scipy o pandas. Note that the contingency matrix is
 just a way to display the frequency distribution of the variables.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">138</span> <span class="c1"># Generate the dataset</span>
-<span class="linenos">139</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-<span class="linenos">140</span>     <span class="p">[</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="s1">&#39;S2&#39;</span><span class="p">],</span>
-<span class="linenos">141</span>     <span class="p">[</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">],</span>
-<span class="linenos">142</span>     <span class="p">[</span><span class="s1">&#39;R1&#39;</span><span class="p">,</span> <span class="s1">&#39;S2&#39;</span><span class="p">],</span>
-<span class="linenos">143</span>     <span class="p">[</span><span class="s1">&#39;R1&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">]])</span>
-<span class="linenos">144</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">63</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">145</span> <span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
-<span class="linenos">146</span>
-<span class="linenos">147</span> <span class="c1"># Create variables</span>
-<span class="linenos">148</span> <span class="n">x</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">149</span> <span class="n">y</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos">150</span>
-<span class="linenos">151</span> <span class="c1"># Compute contingency</span>
-<span class="linenos">152</span> <span class="c1">#ct = crosstab(d[0], d[1]).count</span>
-<span class="linenos">153</span> <span class="n">ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="linenos">154</span>
-<span class="linenos">155</span> <span class="c1"># Compute MIS</span>
-<span class="linenos">156</span> <span class="n">score0</span> <span class="o">=</span> <span class="n">mutual_info_score</span><span class="p">(</span><span class="n">labels_true</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">labels_pred</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">157</span>
-<span class="linenos">158</span> <span class="c1"># Compute MIS</span>
-<span class="linenos">159</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">160</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">161</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">162</span>
-<span class="linenos">163</span> <span class="c1"># Compute MIS</span>
-<span class="linenos">164</span> <span class="n">m4</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos">165</span> <span class="n">m5</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos">166</span> <span class="n">m6</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos">167</span>
-<span class="linenos">168</span> <span class="c1"># Cumu</span>
-<span class="linenos">169</span> <span class="n">cumu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-<span class="linenos">170</span>     <span class="c1">#[&#39;mutual_info_score&#39;] + m1.flatten().tolist(),</span>
-<span class="linenos">171</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v1 (x,y)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">172</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v2 (x,y)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">173</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v3 (x,y)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">174</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v1 (ct)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m4</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">175</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v2 (ct)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m5</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">176</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v3 (ct)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m6</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span class="linenos">177</span> <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;c11&#39;</span><span class="p">,</span> <span class="s1">&#39;c12&#39;</span><span class="p">,</span> <span class="s1">&#39;c21&#39;</span><span class="p">,</span> <span class="s1">&#39;c22&#39;</span><span class="p">])</span>
-<span class="linenos">178</span>
-<span class="linenos">179</span> <span class="c1"># Compute MIS score</span>
-<span class="linenos">180</span> <span class="n">cumu</span><span class="p">[</span><span class="s1">&#39;mis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumu</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">140</span> <span class="c1"># Generate the dataset</span>
+<span class="linenos">141</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos">142</span>     <span class="p">[</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="s1">&#39;S2&#39;</span><span class="p">],</span>
+<span class="linenos">143</span>     <span class="p">[</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">],</span>
+<span class="linenos">144</span>     <span class="p">[</span><span class="s1">&#39;R1&#39;</span><span class="p">,</span> <span class="s1">&#39;S2&#39;</span><span class="p">],</span>
+<span class="linenos">145</span>     <span class="p">[</span><span class="s1">&#39;R1&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">]])</span>
+<span class="linenos">146</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">63</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">147</span> <span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="linenos">148</span>
+<span class="linenos">149</span> <span class="c1"># Create variables</span>
+<span class="linenos">150</span> <span class="n">x</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">151</span> <span class="n">y</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">152</span>
+<span class="linenos">153</span> <span class="c1"># Compute contingency</span>
+<span class="linenos">154</span> <span class="c1">#ct = crosstab(d[0], d[1]).count</span>
+<span class="linenos">155</span> <span class="n">ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">156</span>
+<span class="linenos">157</span> <span class="c1"># Compute MIS</span>
+<span class="linenos">158</span> <span class="n">score0</span> <span class="o">=</span> <span class="n">mutual_info_score</span><span class="p">(</span><span class="n">labels_true</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">labels_pred</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">159</span>
+<span class="linenos">160</span> <span class="c1"># Compute MIS</span>
+<span class="linenos">161</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">162</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">163</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">164</span>
+<span class="linenos">165</span> <span class="c1"># Compute MIS</span>
+<span class="linenos">166</span> <span class="n">m4</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos">167</span> <span class="n">m5</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos">168</span> <span class="n">m6</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos">169</span>
+<span class="linenos">170</span> <span class="c1"># Cumu</span>
+<span class="linenos">171</span> <span class="n">cumu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+<span class="linenos">172</span>     <span class="c1">#[&#39;mutual_info_score&#39;] + m1.flatten().tolist(),</span>
+<span class="linenos">173</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v1 (x,y)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">174</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v2 (x,y)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">175</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v3 (x,y)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">176</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v1 (ct)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m4</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">177</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v2 (ct)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m5</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">178</span>     <span class="p">[</span><span class="s1">&#39;mutual_info_matrix_v3 (ct)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">m6</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<span class="linenos">179</span> <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;c11&#39;</span><span class="p">,</span> <span class="s1">&#39;c12&#39;</span><span class="p">,</span> <span class="s1">&#39;c21&#39;</span><span class="p">,</span> <span class="s1">&#39;c22&#39;</span><span class="p">])</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span> <span class="c1"># Compute MIS score</span>
+<span class="linenos">182</span> <span class="n">cumu</span><span class="p">[</span><span class="s1">&#39;mis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumu</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Lets see the contingency matrix</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">184</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">185</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="linenos">186</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Contingency:&#39;</span><span class="p">)</span>
-<span class="linenos">187</span>     <span class="nb">print</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos">188</span> <span class="n">ct</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">186</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">187</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">188</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Contingency:&#39;</span><span class="p">)</span>
+<span class="linenos">189</span>     <span class="nb">print</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos">190</span> <span class="n">ct</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -451,10 +455,10 @@ just a way to display the frequency distribution of the variables.</p>
 </div>
 <br />
 <br /><p>Lets see the results</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">192</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">193</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Results:&quot;</span><span class="p">)</span>
-<span class="linenos">194</span>     <span class="nb">print</span><span class="p">(</span><span class="n">cumu</span><span class="p">)</span>
-<span class="linenos">195</span> <span class="n">cumu</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">194</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">195</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Results:&quot;</span><span class="p">)</span>
+<span class="linenos">196</span>     <span class="nb">print</span><span class="p">(</span><span class="n">cumu</span><span class="p">)</span>
+<span class="linenos">197</span> <span class="n">cumu</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -547,7 +551,7 @@ just a way to display the frequency distribution of the variables.</p>
 <br /></section>
 <section id="c-collateral-resistance-index">
 <h2>c) Collateral Resistance Index<a class="headerlink" href="#c-collateral-resistance-index" title="Permalink to this heading"></a></h2>
-<p>Now, lets compute the <code class="docutils literal notranslate"><span class="pre">MIS</span></code> score as defined in the manuscript (<a class="reference external" href="https://stackoverflow.com/questions/20491028/optimal-way-to-compute-pairwise-mutual-information-using-numpy">R5</a>).
+<p>Now, lets compute the <code class="docutils literal notranslate"><span class="pre">MIS</span></code> score as defined in the manuscript (<a class="reference external" href="https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(21)00118-X/fulltext">M1</a>).
 Note that the manuscript provided the cumulative data as appendix
 material and therefore we can use it to compare that our implementation
 produces the same result.</p>
@@ -558,53 +562,53 @@ from the results provided in the manuscript. This discrepancy
 occurs for those rows in which the contingency matrix contains
 one of more zeros.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">211</span> <span class="k">def</span> <span class="nf">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-<span class="linenos">212</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Collateral Resistance Index</span>
-<span class="linenos">213</span>
-<span class="linenos">214</span><span class="sd">     The collateral resistance index is based on the mutual</span>
-<span class="linenos">215</span><span class="sd">     information matrix. This implementation assumes there</span>
-<span class="linenos">216</span><span class="sd">     are two classes resistant (R) and sensitive (S).</span>
-<span class="linenos">217</span>
-<span class="linenos">218</span><span class="sd">     Parameters</span>
-<span class="linenos">219</span><span class="sd">     ----------</span>
-<span class="linenos">220</span><span class="sd">     m: np.array</span>
-<span class="linenos">221</span><span class="sd">         A numpy array with the mutual information matrix.</span>
-<span class="linenos">222</span>
-<span class="linenos">223</span><span class="sd">     Returns</span>
-<span class="linenos">224</span><span class="sd">     -------</span>
-<span class="linenos">225</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="linenos">226</span>     <span class="k">return</span> <span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="linenos">227</span>
-<span class="linenos">228</span> <span class="k">def</span> <span class="nf">CRI</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-<span class="linenos">229</span>     <span class="n">ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">x</span><span class="o">.</span><span class="n">S1S2</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">S1R2</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">R1S2</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">R1R2</span><span class="p">]])</span>
-<span class="linenos">230</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
-<span class="linenos">231</span>     <span class="k">return</span> <span class="n">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="linenos">232</span>
-<span class="linenos">233</span> <span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="linenos">234</span>     <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-<span class="linenos">235</span>
-<span class="linenos">236</span> <span class="c1"># Load data</span>
-<span class="linenos">237</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./data/mmc2.xlsx&#39;</span><span class="p">)</span>
-<span class="linenos">238</span>
-<span class="linenos">239</span> <span class="c1"># .. note: MIS_v1 is inspired by the implementation in sklearn. For some</span>
-<span class="linenos">240</span> <span class="c1">#          reason, when one of the values of the contigency matrix is 0</span>
-<span class="linenos">241</span> <span class="c1">#          it returns an array with three values and thus raises an error.</span>
-<span class="linenos">242</span>
-<span class="linenos">243</span> <span class="c1"># Compute MIC score ourselves</span>
-<span class="linenos">244</span> <span class="c1">#data[&#39;MIS_v1&#39;] = data.apply(CRI, args=(mutual_info_matrix_v1,), axis=1)</span>
-<span class="linenos">245</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MIS_v2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">CRI</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mutual_info_matrix_v2</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">246</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MIS_v3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">CRI</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mutual_info_matrix_v3</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">247</span>
-<span class="linenos">248</span> <span class="c1"># Compute indexes of those that do not give same result.</span>
-<span class="linenos">249</span> <span class="n">idxs1</span> <span class="o">=</span> <span class="n">compare</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;MIS&#39;</span><span class="p">,</span> <span class="s1">&#39;MIS_v3&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">213</span> <span class="k">def</span> <span class="nf">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="linenos">214</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Collateral Resistance Index</span>
+<span class="linenos">215</span>
+<span class="linenos">216</span><span class="sd">     The collateral resistance index is based on the mutual</span>
+<span class="linenos">217</span><span class="sd">     information matrix. This implementation assumes there</span>
+<span class="linenos">218</span><span class="sd">     are two classes resistant (R) and sensitive (S).</span>
+<span class="linenos">219</span>
+<span class="linenos">220</span><span class="sd">     Parameters</span>
+<span class="linenos">221</span><span class="sd">     ----------</span>
+<span class="linenos">222</span><span class="sd">     m: np.array</span>
+<span class="linenos">223</span><span class="sd">         A numpy array with the mutual information matrix.</span>
+<span class="linenos">224</span>
+<span class="linenos">225</span><span class="sd">     Returns</span>
+<span class="linenos">226</span><span class="sd">     -------</span>
+<span class="linenos">227</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">228</span>     <span class="k">return</span> <span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="linenos">229</span>
+<span class="linenos">230</span> <span class="k">def</span> <span class="nf">CRI</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<span class="linenos">231</span>     <span class="n">ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">x</span><span class="o">.</span><span class="n">S1S2</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">S1R2</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">R1S2</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">R1R2</span><span class="p">]])</span>
+<span class="linenos">232</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos">233</span>     <span class="k">return</span> <span class="n">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="linenos">234</span>
+<span class="linenos">235</span> <span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="linenos">236</span>     <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+<span class="linenos">237</span>
+<span class="linenos">238</span> <span class="c1"># Load data</span>
+<span class="linenos">239</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./data/mmc2.xlsx&#39;</span><span class="p">)</span>
+<span class="linenos">240</span>
+<span class="linenos">241</span> <span class="c1"># .. note: MIS_v1 is inspired by the implementation in sklearn. For some</span>
+<span class="linenos">242</span> <span class="c1">#          reason, when one of the values of the contigency matrix is 0</span>
+<span class="linenos">243</span> <span class="c1">#          it returns an array with three values and thus raises an error.</span>
+<span class="linenos">244</span>
+<span class="linenos">245</span> <span class="c1"># Compute MIC score ourselves</span>
+<span class="linenos">246</span> <span class="c1">#data[&#39;MIS_v1&#39;] = data.apply(CRI, args=(mutual_info_matrix_v1,), axis=1)</span>
+<span class="linenos">247</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MIS_v2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">CRI</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mutual_info_matrix_v2</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">248</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MIS_v3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">CRI</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mutual_info_matrix_v3</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">249</span>
+<span class="linenos">250</span> <span class="c1"># Compute indexes of those that do not give same result.</span>
+<span class="linenos">251</span> <span class="n">idxs1</span> <span class="o">=</span> <span class="n">compare</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;MIS&#39;</span><span class="p">,</span> <span class="s1">&#39;MIS_v3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Lets see the data</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">253</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">254</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="linenos">255</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
-<span class="linenos">256</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="linenos">257</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">255</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">256</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">257</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
+<span class="linenos">258</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">259</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -777,10 +781,10 @@ one of more zeros.</p>
 </div>
 <br />
 <br /><p>Lets see where the results are different</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">261</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">262</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Are they equal? Show differences below:&quot;</span><span class="p">)</span>
-<span class="linenos">263</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idxs1</span><span class="p">,</span> <span class="p">:])</span>
-<span class="linenos">264</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idxs1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">263</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">264</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Are they equal? Show differences below:&quot;</span><span class="p">)</span>
+<span class="linenos">265</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idxs1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="linenos">266</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idxs1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:]</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -1065,28 +1069,28 @@ one of more zeros.</p>
 <p>This code is used to compare whether the implementations are
 more or less efficient between them. Note that the methods
 have itself some limitations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">274</span> <span class="c1"># Generate data</span>
-<span class="linenos">275</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10000000</span>
-<span class="linenos">276</span> <span class="n">choices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="linenos">277</span> <span class="n">vector1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
-<span class="linenos">278</span> <span class="n">vector2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
-<span class="linenos">279</span>
-<span class="linenos">280</span> <span class="c1"># Compute times</span>
-<span class="linenos">281</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
-<span class="linenos">282</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vector2</span><span class="p">)</span>
-<span class="linenos">283</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
-<span class="linenos">284</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vector2</span><span class="p">)</span>
-<span class="linenos">285</span> <span class="n">t3</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
-<span class="linenos">286</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vector2</span><span class="p">)</span>
-<span class="linenos">287</span> <span class="n">t4</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
-<span class="linenos">288</span>
-<span class="linenos">289</span> <span class="c1"># Display</span>
-<span class="linenos">290</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="linenos">291</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are the results equal (m1, m2)? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">))</span>
-<span class="linenos">292</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are the results equal (m1, m3)? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m3</span><span class="p">))</span>
-<span class="linenos">293</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time v1: </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
-<span class="linenos">294</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time v2: </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t3</span><span class="o">-</span><span class="n">t2</span><span class="p">))</span>
-<span class="linenos">295</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time v3: </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t4</span><span class="o">-</span><span class="n">t3</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">276</span> <span class="c1"># Generate data</span>
+<span class="linenos">277</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="linenos">278</span> <span class="n">choices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">279</span> <span class="n">vector1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos">280</span> <span class="n">vector2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos">281</span>
+<span class="linenos">282</span> <span class="c1"># Compute times</span>
+<span class="linenos">283</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="linenos">284</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vector2</span><span class="p">)</span>
+<span class="linenos">285</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="linenos">286</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vector2</span><span class="p">)</span>
+<span class="linenos">287</span> <span class="n">t3</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="linenos">288</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vector2</span><span class="p">)</span>
+<span class="linenos">289</span> <span class="n">t4</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="linenos">290</span>
+<span class="linenos">291</span> <span class="c1"># Display</span>
+<span class="linenos">292</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">293</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are the results equal (m1, m2)? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">))</span>
+<span class="linenos">294</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are the results equal (m1, m3)? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m3</span><span class="p">))</span>
+<span class="linenos">295</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time v1: </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
+<span class="linenos">296</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time v2: </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t3</span><span class="o">-</span><span class="n">t2</span><span class="p">))</span>
+<span class="linenos">297</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time v3: </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t4</span><span class="o">-</span><span class="n">t3</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -1095,9 +1099,9 @@ Example 4
 ================================================================================
 Are the results equal (m1, m2)? True
 Are the results equal (m1, m3)? True
-time v1: 1.65716
-time v2: 1.41612
-time v3: 1.38179
+time v1: 1.63386
+time v2: 1.36471
+time v3: 1.35070
 </pre></div>
 </div>
 </section>
@@ -1113,50 +1117,50 @@ and some interesting questions below.</p>
 <li><p>How to compute CRI if we have three outcomes R, S and I?</p></li>
 </ul>
 </div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">309</span> <span class="c1"># Heading</span>
-<span class="linenos">310</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">311</span>
-<span class="linenos">312</span> <span class="c1"># Create cases</span>
-<span class="linenos">313</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
-<span class="linenos">314</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]),</span>
-<span class="linenos">315</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">]),</span>
-<span class="linenos">316</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">]),</span>
-<span class="linenos">317</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]),</span>
-<span class="linenos">318</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">])</span>
-<span class="linenos">319</span> <span class="p">]</span>
-<span class="linenos">320</span>
-<span class="linenos">321</span> <span class="c1"># Results</span>
-<span class="linenos">322</span> <span class="n">cumu</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="linenos">323</span>
-<span class="linenos">324</span> <span class="c1"># Loop</span>
-<span class="linenos">325</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="linenos">326</span>
-<span class="linenos">327</span>     <span class="c1"># Compute mutual information scores</span>
-<span class="linenos">328</span>     <span class="n">mis</span> <span class="o">=</span> <span class="n">mutual_info_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="linenos">329</span>     <span class="n">misa</span> <span class="o">=</span> <span class="n">adjusted_mutual_info_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="linenos">330</span>     <span class="n">misn</span> <span class="o">=</span> <span class="n">normalized_mutual_info_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="linenos">331</span>
-<span class="linenos">332</span>     <span class="c1"># Compute mutual information matrix</span>
-<span class="linenos">333</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">334</span>
-<span class="linenos">335</span>     <span class="c1"># Compute collateral resistance index</span>
-<span class="linenos">336</span>     <span class="k">try</span><span class="p">:</span>
-<span class="linenos">337</span>         <span class="n">cri</span> <span class="o">=</span> <span class="n">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="linenos">338</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">339</span>         <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="linenos">340</span>         <span class="n">cri</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="linenos">341</span>
-<span class="linenos">342</span>     <span class="c1"># Append</span>
-<span class="linenos">343</span>     <span class="n">cumu</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mis</span><span class="p">,</span> <span class="n">misa</span><span class="p">,</span> <span class="n">misn</span><span class="p">,</span> <span class="n">cri</span><span class="p">])</span>
-<span class="linenos">344</span>
-<span class="linenos">345</span>     <span class="c1"># Show</span>
-<span class="linenos">346</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s2">. Contingency matrix:&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
-<span class="linenos">347</span>     <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="linenos">348</span>
-<span class="linenos">349</span>
-<span class="linenos">350</span> <span class="c1"># Create the dataframe</span>
-<span class="linenos">351</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cumu</span><span class="p">,</span>
-<span class="linenos">352</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;mis&#39;</span><span class="p">,</span> <span class="s1">&#39;mis_adjusted&#39;</span><span class="p">,</span> <span class="s1">&#39;mis_normalized&#39;</span><span class="p">,</span> <span class="s1">&#39;cri&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">311</span> <span class="c1"># Heading</span>
+<span class="linenos">312</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">313</span>
+<span class="linenos">314</span> <span class="c1"># Create cases</span>
+<span class="linenos">315</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">316</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]),</span>
+<span class="linenos">317</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">]),</span>
+<span class="linenos">318</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">]),</span>
+<span class="linenos">319</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]),</span>
+<span class="linenos">320</span>     <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">])</span>
+<span class="linenos">321</span> <span class="p">]</span>
+<span class="linenos">322</span>
+<span class="linenos">323</span> <span class="c1"># Results</span>
+<span class="linenos">324</span> <span class="n">cumu</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">325</span>
+<span class="linenos">326</span> <span class="c1"># Loop</span>
+<span class="linenos">327</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="linenos">328</span>
+<span class="linenos">329</span>     <span class="c1"># Compute mutual information scores</span>
+<span class="linenos">330</span>     <span class="n">mis</span> <span class="o">=</span> <span class="n">mutual_info_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">331</span>     <span class="n">misa</span> <span class="o">=</span> <span class="n">adjusted_mutual_info_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">332</span>     <span class="n">misn</span> <span class="o">=</span> <span class="n">normalized_mutual_info_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">333</span>
+<span class="linenos">334</span>     <span class="c1"># Compute mutual information matrix</span>
+<span class="linenos">335</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">336</span>
+<span class="linenos">337</span>     <span class="c1"># Compute collateral resistance index</span>
+<span class="linenos">338</span>     <span class="k">try</span><span class="p">:</span>
+<span class="linenos">339</span>         <span class="n">cri</span> <span class="o">=</span> <span class="n">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="linenos">340</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">341</span>         <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="linenos">342</span>         <span class="n">cri</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">343</span>
+<span class="linenos">344</span>     <span class="c1"># Append</span>
+<span class="linenos">345</span>     <span class="n">cumu</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mis</span><span class="p">,</span> <span class="n">misa</span><span class="p">,</span> <span class="n">misn</span><span class="p">,</span> <span class="n">cri</span><span class="p">])</span>
+<span class="linenos">346</span>
+<span class="linenos">347</span>     <span class="c1"># Show</span>
+<span class="linenos">348</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s2">. Contingency matrix:&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+<span class="linenos">349</span>     <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="linenos">350</span>
+<span class="linenos">351</span>
+<span class="linenos">352</span> <span class="c1"># Create the dataframe</span>
+<span class="linenos">353</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cumu</span><span class="p">,</span>
+<span class="linenos">354</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;mis&#39;</span><span class="p">,</span> <span class="s1">&#39;mis_adjusted&#39;</span><span class="p">,</span> <span class="s1">&#39;mis_normalized&#39;</span><span class="p">,</span> <span class="s1">&#39;cri&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -1186,10 +1190,10 @@ too many indices for array: array is 1-dimensional, but 2 were indexed
 </pre></div>
 </div>
 <p>Lets see the summary of edge cases</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">356</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">357</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary of edge scenarios:&quot;</span><span class="p">)</span>
-<span class="linenos">358</span>     <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="linenos">359</span> <span class="n">df</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">358</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">359</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary of edge scenarios:&quot;</span><span class="p">)</span>
+<span class="linenos">360</span>     <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">361</span> <span class="n">df</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -1276,16 +1280,16 @@ too many indices for array: array is 1-dimensional, but 2 were indexed
 <p>There are several approaches, one of them is just binning. For more
 information just check online, there are many good resources and or
 implementations that might be found out there.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">369</span> <span class="c1"># Heading</span>
-<span class="linenos">370</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-<span class="linenos">371</span>
-<span class="linenos">372</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#?</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">371</span> <span class="c1"># Heading</span>
+<span class="linenos">372</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="linenos">373</span>
-<span class="linenos">374</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
-<span class="linenos">375</span>     <span class="n">c_XY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">376</span>     <span class="n">c_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">377</span>     <span class="n">c_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">378</span>     <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos">374</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#?</span>
+<span class="linenos">375</span>
+<span class="linenos">376</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+<span class="linenos">377</span>     <span class="n">c_XY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">378</span>     <span class="n">c_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">379</span>     <span class="n">c_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">380</span>     <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -1299,49 +1303,49 @@ Example 6
 <h2>g) Computing pairwise score<a class="headerlink" href="#g-computing-pairwise-score" title="Permalink to this heading"></a></h2>
 <p>Let’s see how we can compute the mutual information square in a
 pairwise fashion.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">387</span> <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="linenos">388</span>     <span class="c1"># Compute mutual information matrix</span>
-<span class="linenos">389</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">390</span>     <span class="c1"># Compute collateral resistance index</span>
-<span class="linenos">391</span>     <span class="n">cri</span> <span class="o">=</span> <span class="n">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="linenos">392</span>     <span class="c1"># Return</span>
-<span class="linenos">393</span>     <span class="k">return</span> <span class="n">cri</span>
-<span class="linenos">394</span>
-<span class="linenos">395</span> <span class="c1"># Generate data</span>
-<span class="linenos">396</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="linenos">397</span>
-<span class="linenos">398</span> <span class="c1"># Convert into DataFrame</span>
-<span class="linenos">399</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
-<span class="linenos">400</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
-<span class="linenos">401</span>
-<span class="linenos">402</span> <span class="c1"># Option I</span>
-<span class="linenos">403</span> <span class="c1"># --------</span>
-<span class="linenos">404</span> <span class="c1"># Create empty matrix</span>
-<span class="linenos">405</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos">406</span> <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">cols</span><span class="p">,</span> <span class="n">cols</span><span class="p">))</span>
-<span class="linenos">407</span> <span class="n">matrix</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-<span class="linenos">408</span>
-<span class="linenos">409</span> <span class="c1"># Compute pairwise (square matrix)</span>
-<span class="linenos">410</span> <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
-<span class="linenos">411</span>     <span class="k">for</span> <span class="n">jx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
-<span class="linenos">412</span>         <span class="n">matrix</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span><span class="n">jx</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="n">jx</span><span class="p">])</span>
-<span class="linenos">413</span>
-<span class="linenos">414</span> <span class="c1"># Convert to DataFrame for visualisation</span>
-<span class="linenos">415</span> <span class="n">matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
-<span class="linenos">416</span>     <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">389</span> <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="linenos">390</span>     <span class="c1"># Compute mutual information matrix</span>
+<span class="linenos">391</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">392</span>     <span class="c1"># Compute collateral resistance index</span>
+<span class="linenos">393</span>     <span class="n">cri</span> <span class="o">=</span> <span class="n">collateral_resistance_index</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="linenos">394</span>     <span class="c1"># Return</span>
+<span class="linenos">395</span>     <span class="k">return</span> <span class="n">cri</span>
+<span class="linenos">396</span>
+<span class="linenos">397</span> <span class="c1"># Generate data</span>
+<span class="linenos">398</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">399</span>
+<span class="linenos">400</span> <span class="c1"># Convert into DataFrame</span>
+<span class="linenos">401</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="linenos">402</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+<span class="linenos">403</span>
+<span class="linenos">404</span> <span class="c1"># Option I</span>
+<span class="linenos">405</span> <span class="c1"># --------</span>
+<span class="linenos">406</span> <span class="c1"># Create empty matrix</span>
+<span class="linenos">407</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">408</span> <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">cols</span><span class="p">,</span> <span class="n">cols</span><span class="p">))</span>
+<span class="linenos">409</span> <span class="n">matrix</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="linenos">410</span>
+<span class="linenos">411</span> <span class="c1"># Compute pairwise (square matrix)</span>
+<span class="linenos">412</span> <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+<span class="linenos">413</span>     <span class="k">for</span> <span class="n">jx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<span class="linenos">414</span>         <span class="n">matrix</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span><span class="n">jx</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="n">jx</span><span class="p">])</span>
+<span class="linenos">415</span>
+<span class="linenos">416</span> <span class="c1"># Convert to DataFrame for visualisation</span>
+<span class="linenos">417</span> <span class="n">matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+<span class="linenos">418</span>     <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Lets see the summary of pairwise distances</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">420</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">421</span>     <span class="c1"># Heading</span>
-<span class="linenos">422</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="linenos">423</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary of pairwise computations:&quot;</span><span class="p">)</span>
-<span class="linenos">424</span>     <span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
-<span class="linenos">425</span> <span class="n">matrix</span>
-<span class="linenos">426</span>
-<span class="linenos">427</span> <span class="c1"># Option II</span>
-<span class="linenos">428</span> <span class="c1"># ----------</span>
-<span class="linenos">429</span> <span class="c1">#for i, j in list(combinations(df.columns, 2)):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">422</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">423</span>     <span class="c1"># Heading</span>
+<span class="linenos">424</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="linenos">425</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary of pairwise computations:&quot;</span><span class="p">)</span>
+<span class="linenos">426</span>     <span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="linenos">427</span> <span class="n">matrix</span>
+<span class="linenos">428</span>
+<span class="linenos">429</span> <span class="c1"># Option II</span>
+<span class="linenos">430</span> <span class="c1"># ----------</span>
+<span class="linenos">431</span> <span class="c1">#for i, j in list(combinations(df.columns, 2)):</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -1373,23 +1377,23 @@ pairwise fashion.</p>
     <tr>
       <th>C0</th>
       <td>NaN</td>
-      <td>0.089829</td>
-      <td>-0.035981</td>
-      <td>0.006000</td>
+      <td>-0.174776</td>
+      <td>-0.177254</td>
+      <td>-0.042402</td>
     </tr>
     <tr>
       <th>C1</th>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-0.004000</td>
-      <td>0.073946</td>
+      <td>-0.014002</td>
+      <td>-0.079167</td>
     </tr>
     <tr>
       <th>C2</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-0.130080</td>
+      <td>-0.067926</td>
     </tr>
     <tr>
       <th>C3</th>
@@ -1414,35 +1418,35 @@ because it is designed for 2 classes. However, while it does
 not work for low number of samples (e.g. 5), it works for
 larger values (e.g. 100).</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">441</span> <span class="c1"># .. note:: The computation using mutual_info_matrix_v3 which is inspired</span>
-<span class="linenos">442</span> <span class="c1">#           by sklearn returns an array of length 5 when the number of</span>
-<span class="linenos">443</span> <span class="c1">#           samples is low. However, it works when large number of samples</span>
-<span class="linenos">444</span> <span class="c1">#           is used.</span>
-<span class="linenos">445</span>
-<span class="linenos">446</span> <span class="c1"># Generate data</span>
-<span class="linenos">447</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="linenos">448</span>
-<span class="linenos">449</span> <span class="c1"># Convert into DataFrame</span>
-<span class="linenos">450</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
-<span class="linenos">451</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
-<span class="linenos">452</span>
-<span class="linenos">453</span> <span class="c1"># Compute</span>
-<span class="linenos">454</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C1</span><span class="p">)</span>
-<span class="linenos">455</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C1</span><span class="p">)</span>
-<span class="linenos">456</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C1</span><span class="p">)</span>
-<span class="linenos">457</span>
-<span class="linenos">458</span> <span class="c1"># Show</span>
-<span class="linenos">459</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="linenos">460</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result m1:&quot;</span><span class="p">)</span>
-<span class="linenos">461</span> <span class="nb">print</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
-<span class="linenos">462</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Result m2:&quot;</span><span class="p">)</span>
-<span class="linenos">463</span> <span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
-<span class="linenos">464</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Result m3:&quot;</span><span class="p">)</span>
-<span class="linenos">465</span> <span class="nb">print</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>
-<span class="linenos">466</span>
-<span class="linenos">467</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="linenos">468</span> <span class="c1">#print(&quot;Are the results equal (m1, m2)? %s&quot; % np.allclose(m1, m2))</span>
-<span class="linenos">469</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are the results equal (m1, m3)? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m3</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">443</span> <span class="c1"># .. note:: The computation using mutual_info_matrix_v3 which is inspired</span>
+<span class="linenos">444</span> <span class="c1">#           by sklearn returns an array of length 5 when the number of</span>
+<span class="linenos">445</span> <span class="c1">#           samples is low. However, it works when large number of samples</span>
+<span class="linenos">446</span> <span class="c1">#           is used.</span>
+<span class="linenos">447</span>
+<span class="linenos">448</span> <span class="c1"># Generate data</span>
+<span class="linenos">449</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos">450</span>
+<span class="linenos">451</span> <span class="c1"># Convert into DataFrame</span>
+<span class="linenos">452</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="linenos">453</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+<span class="linenos">454</span>
+<span class="linenos">455</span> <span class="c1"># Compute</span>
+<span class="linenos">456</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C1</span><span class="p">)</span>
+<span class="linenos">457</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C1</span><span class="p">)</span>
+<span class="linenos">458</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">C1</span><span class="p">)</span>
+<span class="linenos">459</span>
+<span class="linenos">460</span> <span class="c1"># Show</span>
+<span class="linenos">461</span> <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="linenos">462</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result m1:&quot;</span><span class="p">)</span>
+<span class="linenos">463</span> <span class="nb">print</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+<span class="linenos">464</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Result m2:&quot;</span><span class="p">)</span>
+<span class="linenos">465</span> <span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<span class="linenos">466</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Result m3:&quot;</span><span class="p">)</span>
+<span class="linenos">467</span> <span class="nb">print</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>
+<span class="linenos">468</span>
+<span class="linenos">469</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">470</span> <span class="c1">#print(&quot;Are the results equal (m1, m2)? %s&quot; % np.allclose(m1, m2))</span>
+<span class="linenos">471</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are the results equal (m1, m3)? </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m3</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -1450,25 +1454,25 @@ larger values (e.g. 100).</p>
 Example 8
 ================================================================================
 Result m1:
-[[-0.0233392   0.03214553 -0.00217829]
- [ 0.00406819 -0.01597218  0.01531883]
- [ 0.02355965 -0.0093924  -0.0114796 ]]
+[[-0.00906629  0.02379075 -0.01161693]
+ [ 0.04971836  0.         -0.02772589]
+ [-0.02619089 -0.02052888  0.0613079 ]]
 
 Result m2:
-[[-0.0233392   0.03214553 -0.00217829]
- [ 0.00406819 -0.01597218  0.01531883]
- [ 0.02355965 -0.0093924  -0.0114796 ]]
+[[-0.00906629  0.02379075 -0.01161693]
+ [ 0.04971836  0.         -0.02772589]
+ [-0.02619089 -0.02052888  0.0613079 ]]
 
 Result m3:
-[[-0.0233392   0.03214553 -0.00217829]
- [ 0.00406819 -0.01597218  0.01531883]
- [ 0.02355965 -0.0093924  -0.0114796 ]]
+[[-0.00906629  0.02379075 -0.01161693]
+ [ 0.04971836  0.         -0.02772589]
+ [-0.02619089 -0.02052888  0.0613079 ]]
 
 
 Are the results equal (m1, m3)? True
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.061 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.960 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-utils-plot-mutual-information-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8599e07af26ea9ea55ad2a691b4a7785/plot_mutual_information.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mutual_information.py</span></code></a></p>
@@ -1486,7 +1490,7 @@ Are the results equal (m1, m3)? True
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_multi_armed_bandit.html" class="btn btn-neutral float-left" title="Multi-Armed bandit problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_scale_colormap.html" class="btn btn-neutral float-right" title="Show colormap for various scalings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_planet_orbit_v1.html" class="btn btn-neutral float-right" title="Drawing a planet orbit (stackoverflow)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

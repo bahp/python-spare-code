@@ -32,6 +32,7 @@ See below for a few resources.
   * `R2`_: Detailed tutorial with python code.
   * `R3`_: Possible libraries in python/R and other tools.
   * `R5`_: Efficient pairwise MIS implementation...
+  * `M1`_: Idenetification of antibiotics pairs that evade .... manuscript.
 
 .. _R1: https://www.youtube.com/watch?v=eJIp_mgVLwE
 .. _R2: https://www.blog.trainindata.com/mutual-information-with-python/
@@ -41,14 +42,14 @@ See below for a few resources.
 
 .. _M1: https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(21)00118-X/fulltext
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 30-31
 
 Lets import the main libraries
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-59
+.. GENERATED FROM PYTHON SOURCE LINES 31-61
 
 .. code-block:: default
-   :lineno-start: 30
+   :lineno-start: 32
 
 
     # Generic
@@ -87,7 +88,7 @@ Lets import the main libraries
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-73
+.. GENERATED FROM PYTHON SOURCE LINES 62-75
 
 a) Manual example (youtube)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,10 +104,10 @@ when implementing the ``MIS``:
   * this np.nan can be filled with 0.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-109
+.. GENERATED FROM PYTHON SOURCE LINES 75-111
 
 .. code-block:: default
-   :lineno-start: 74
+   :lineno-start: 76
 
 
     # See: https://www.youtube.com/watch?v=eJIp_mgVLwE
@@ -151,14 +152,14 @@ when implementing the ``MIS``:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-111
+.. GENERATED FROM PYTHON SOURCE LINES 112-113
 
 Lets see the contingency matrix
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-117
+.. GENERATED FROM PYTHON SOURCE LINES 113-119
 
 .. code-block:: default
-   :lineno-start: 111
+   :lineno-start: 113
 
     if TERMINAL:
         print_example_heading(n=1)
@@ -214,14 +215,14 @@ Lets see the contingency matrix
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-119
+.. GENERATED FROM PYTHON SOURCE LINES 120-121
 
 Lets see the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-125
+.. GENERATED FROM PYTHON SOURCE LINES 121-127
 
 .. code-block:: default
-   :lineno-start: 119
+   :lineno-start: 121
 
     if TERMINAL:
         print("\nResults:")
@@ -307,11 +308,11 @@ Lets see the results
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-127
+.. GENERATED FROM PYTHON SOURCE LINES 128-129
 
 .. note:: The method ``mutual_info_matrix_v1`` does not work in this example!
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-137
+.. GENERATED FROM PYTHON SOURCE LINES 132-139
 
 b) Another two class example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -321,10 +322,10 @@ one step back and show how to compute the contingency matrix from the raw
 vectors using either scipy o pandas. Note that the contingency matrix is
 just a way to display the frequency distribution of the variables.
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-182
+.. GENERATED FROM PYTHON SOURCE LINES 139-184
 
 .. code-block:: default
-   :lineno-start: 138
+   :lineno-start: 140
 
 
     # Generate the dataset
@@ -378,14 +379,14 @@ just a way to display the frequency distribution of the variables.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-184
+.. GENERATED FROM PYTHON SOURCE LINES 185-186
 
 Lets see the contingency matrix
 
-.. GENERATED FROM PYTHON SOURCE LINES 184-190
+.. GENERATED FROM PYTHON SOURCE LINES 186-192
 
 .. code-block:: default
-   :lineno-start: 184
+   :lineno-start: 186
 
     if TERMINAL:
         print_example_heading(n=2)
@@ -446,14 +447,14 @@ Lets see the contingency matrix
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 191-192
+.. GENERATED FROM PYTHON SOURCE LINES 193-194
 
 Lets see the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-198
+.. GENERATED FROM PYTHON SOURCE LINES 194-200
 
 .. code-block:: default
-   :lineno-start: 192
+   :lineno-start: 194
 
     if TERMINAL:
         print("\nResults:")
@@ -557,11 +558,11 @@ Lets see the results
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-210
+.. GENERATED FROM PYTHON SOURCE LINES 201-212
 
 c) Collateral Resistance Index
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Now, lets compute the ``MIS`` score as defined in the manuscript (`R5`_).
+Now, lets compute the ``MIS`` score as defined in the manuscript (`M1`_).
 Note that the manuscript provided the cumulative data as appendix
 material and therefore we can use it to compare that our implementation
 produces the same result.
@@ -571,10 +572,10 @@ produces the same result.
           occurs for those rows in which the contingency matrix contains
           one of more zeros.
 
-.. GENERATED FROM PYTHON SOURCE LINES 210-251
+.. GENERATED FROM PYTHON SOURCE LINES 212-253
 
 .. code-block:: default
-   :lineno-start: 211
+   :lineno-start: 213
 
 
     def collateral_resistance_index(m):
@@ -624,14 +625,14 @@ produces the same result.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 252-253
+.. GENERATED FROM PYTHON SOURCE LINES 254-255
 
 Lets see the data
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-259
+.. GENERATED FROM PYTHON SOURCE LINES 255-261
 
 .. code-block:: default
-   :lineno-start: 253
+   :lineno-start: 255
 
     if TERMINAL:
         print_example_heading(n=3)
@@ -817,14 +818,14 @@ Lets see the data
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 260-261
+.. GENERATED FROM PYTHON SOURCE LINES 262-263
 
 Lets see where the results are different
 
-.. GENERATED FROM PYTHON SOURCE LINES 261-267
+.. GENERATED FROM PYTHON SOURCE LINES 263-269
 
 .. code-block:: default
-   :lineno-start: 261
+   :lineno-start: 263
 
     if TERMINAL:
         print("\nAre they equal? Show differences below:")
@@ -1117,7 +1118,7 @@ Lets see where the results are different
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 268-273
+.. GENERATED FROM PYTHON SOURCE LINES 270-275
 
 d) Exploring the efficiency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1125,10 +1126,10 @@ This code is used to compare whether the implementations are
 more or less efficient between them. Note that the methods
 have itself some limitations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 273-298
+.. GENERATED FROM PYTHON SOURCE LINES 275-300
 
 .. code-block:: default
-   :lineno-start: 274
+   :lineno-start: 276
 
 
     # Generate data
@@ -1171,14 +1172,14 @@ have itself some limitations.
     ================================================================================
     Are the results equal (m1, m2)? True
     Are the results equal (m1, m3)? True
-    time v1: 1.65716
-    time v2: 1.41612
-    time v3: 1.38179
+    time v1: 1.63386
+    time v2: 1.36471
+    time v3: 1.35070
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 299-308
+.. GENERATED FROM PYTHON SOURCE LINES 301-310
 
 e) Edge scenarios
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1190,10 +1191,10 @@ and some interesting questions below.
   - Should we normalize this value? [-1, 1]? [0, 1]?
   - How to compute CRI if we have three outcomes R, S and I?
 
-.. GENERATED FROM PYTHON SOURCE LINES 308-354
+.. GENERATED FROM PYTHON SOURCE LINES 310-356
 
 .. code-block:: default
-   :lineno-start: 309
+   :lineno-start: 311
 
 
     # Heading
@@ -1279,14 +1280,14 @@ and some interesting questions below.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 355-356
+.. GENERATED FROM PYTHON SOURCE LINES 357-358
 
 Lets see the summary of edge cases
 
-.. GENERATED FROM PYTHON SOURCE LINES 356-362
+.. GENERATED FROM PYTHON SOURCE LINES 358-364
 
 .. code-block:: default
-   :lineno-start: 356
+   :lineno-start: 358
 
     if TERMINAL:
         print("\nSummary of edge scenarios:")
@@ -1381,7 +1382,7 @@ Lets see the summary of edge cases
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 363-368
+.. GENERATED FROM PYTHON SOURCE LINES 365-370
 
 f) For continuous variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1389,10 +1390,10 @@ There are several approaches, one of them is just binning. For more
 information just check online, there are many good resources and or
 implementations that might be found out there.
 
-.. GENERATED FROM PYTHON SOURCE LINES 368-380
+.. GENERATED FROM PYTHON SOURCE LINES 370-382
 
 .. code-block:: default
-   :lineno-start: 369
+   :lineno-start: 371
 
 
     # Heading
@@ -1424,17 +1425,17 @@ implementations that might be found out there.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 381-385
+.. GENERATED FROM PYTHON SOURCE LINES 383-387
 
 g) Computing pairwise score
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Let's see how we can compute the mutual information square in a
 pairwise fashion.
 
-.. GENERATED FROM PYTHON SOURCE LINES 385-418
+.. GENERATED FROM PYTHON SOURCE LINES 387-420
 
 .. code-block:: default
-   :lineno-start: 387
+   :lineno-start: 389
 
 
 
@@ -1476,14 +1477,14 @@ pairwise fashion.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 419-420
+.. GENERATED FROM PYTHON SOURCE LINES 421-422
 
 Lets see the summary of pairwise distances
 
-.. GENERATED FROM PYTHON SOURCE LINES 420-431
+.. GENERATED FROM PYTHON SOURCE LINES 422-433
 
 .. code-block:: default
-   :lineno-start: 420
+   :lineno-start: 422
 
     if TERMINAL:
         # Heading
@@ -1532,23 +1533,23 @@ Lets see the summary of pairwise distances
         <tr>
           <th>C0</th>
           <td>NaN</td>
-          <td>0.089829</td>
-          <td>-0.035981</td>
-          <td>0.006000</td>
+          <td>-0.174776</td>
+          <td>-0.177254</td>
+          <td>-0.042402</td>
         </tr>
         <tr>
           <th>C1</th>
           <td>NaN</td>
           <td>NaN</td>
-          <td>-0.004000</td>
-          <td>0.073946</td>
+          <td>-0.014002</td>
+          <td>-0.079167</td>
         </tr>
         <tr>
           <th>C2</th>
           <td>NaN</td>
           <td>NaN</td>
           <td>NaN</td>
-          <td>-0.130080</td>
+          <td>-0.067926</td>
         </tr>
         <tr>
           <th>C3</th>
@@ -1564,7 +1565,7 @@ Lets see the summary of pairwise distances
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 432-440
+.. GENERATED FROM PYTHON SOURCE LINES 434-442
 
 h) Example with more than 2 classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1575,10 +1576,10 @@ Let's see how it works for more than two classes.
           not work for low number of samples (e.g. 5), it works for
           larger values (e.g. 100).
 
-.. GENERATED FROM PYTHON SOURCE LINES 440-470
+.. GENERATED FROM PYTHON SOURCE LINES 442-472
 
 .. code-block:: default
-   :lineno-start: 441
+   :lineno-start: 443
 
 
     # .. note:: The computation using mutual_info_matrix_v3 which is inspired
@@ -1625,19 +1626,19 @@ Let's see how it works for more than two classes.
     Example 8
     ================================================================================
     Result m1:
-    [[-0.0233392   0.03214553 -0.00217829]
-     [ 0.00406819 -0.01597218  0.01531883]
-     [ 0.02355965 -0.0093924  -0.0114796 ]]
+    [[-0.00906629  0.02379075 -0.01161693]
+     [ 0.04971836  0.         -0.02772589]
+     [-0.02619089 -0.02052888  0.0613079 ]]
 
     Result m2:
-    [[-0.0233392   0.03214553 -0.00217829]
-     [ 0.00406819 -0.01597218  0.01531883]
-     [ 0.02355965 -0.0093924  -0.0114796 ]]
+    [[-0.00906629  0.02379075 -0.01161693]
+     [ 0.04971836  0.         -0.02772589]
+     [-0.02619089 -0.02052888  0.0613079 ]]
 
     Result m3:
-    [[-0.0233392   0.03214553 -0.00217829]
-     [ 0.00406819 -0.01597218  0.01531883]
-     [ 0.02355965 -0.0093924  -0.0114796 ]]
+    [[-0.00906629  0.02379075 -0.01161693]
+     [ 0.04971836  0.         -0.02772589]
+     [-0.02619089 -0.02052888  0.0613079 ]]
 
 
     Are the results equal (m1, m3)? True
@@ -1648,7 +1649,7 @@ Let's see how it works for more than two classes.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.061 seconds)
+   **Total running time of the script:** ( 0 minutes  4.960 seconds)
 
 
 .. _sphx_glr_download__examples_utils_plot_mutual_information.py:
