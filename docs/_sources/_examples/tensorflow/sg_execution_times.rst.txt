@@ -1,0 +1,14 @@
+
+:orphan:
+
+.. _sphx_glr__examples_tensorflow_sg_execution_times:
+
+Computation times
+=================
+**00:17.189** total execution time for **_examples_tensorflow** files:
+
++----------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_tensorflow_plot_main_01_keras_lstm_mlm.py` (``plot_main_01_keras_lstm_mlm.py``) | 00:17.189 | 0.0 MB |
++----------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_tensorflow_gunn_review_keras.py` (``gunn_review_keras.py``)                     | 00:00.000 | 0.0 MB |
++----------------------------------------------------------------------------------------------------------+-----------+--------+

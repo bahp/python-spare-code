@@ -1741,6 +1741,27 @@ Gallery with ``miscellaneous`` examples.
    :hidden:
 
    /_examples/tensorflow/gunn_review_keras
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Serialization...">
+
+.. only:: html
+
+ .. figure:: /_examples/tensorflow/images/thumb/sphx_glr_plot_main_01_keras_lstm_mlm_thumb.png
+     :alt: Serialization...
+
+     :ref:`sphx_glr__examples_tensorflow_plot_main_01_keras_lstm_mlm.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/tensorflow/plot_main_01_keras_lstm_mlm
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -1852,6 +1873,27 @@ Gallery of examples with useful widgets.
    :hidden:
 
    /_examples/utils/plot_drug_resistance_index
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Generate data AST">
+
+.. only:: html
+
+ .. figure:: /_examples/utils/images/thumb/sphx_glr_plot_generate_data_AST_thumb.png
+     :alt: Generate data AST
+
+     :ref:`sphx_glr__examples_utils_plot_generate_data_AST.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/utils/plot_generate_data_AST
 
 .. raw:: html
 

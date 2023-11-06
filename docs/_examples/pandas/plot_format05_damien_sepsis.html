@@ -121,24 +121,22 @@ to download the full example code</p>
 <span id="sphx-glr-examples-pandas-plot-format05-damien-sepsis-py"></span><h1>05. Format damien sepsis data<a class="headerlink" href="#format-damien-sepsis-data" title="Permalink to this heading"></a></h1>
 <p>Example</p>
 <div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\pandas\plot_format05_damien_sepsis.py&quot;</span>, line <span class="m">45</span>, in <span class="n">&lt;module&gt;</span>
-<span class="w">    </span><span class="s1">&#39;date_outcome&#39;</span><span class="p">])</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\util\_decorators.py&quot;</span>, line <span class="m">311</span>, in <span class="n">wrapper</span>
+  File <span class="nb">&quot;C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\pandas\plot_format05_damien_sepsis.py&quot;</span>, line <span class="m">42</span>, in <span class="n">&lt;module&gt;</span>
+<span class="w">    </span><span class="n">bio</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path_bio</span><span class="p">,</span>
+  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\pandas\util\_decorators.py&quot;</span>, line <span class="m">211</span>, in <span class="n">wrapper</span>
 <span class="w">    </span><span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">586</span>, in <span class="n">read_csv</span>
+  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\pandas\util\_decorators.py&quot;</span>, line <span class="m">331</span>, in <span class="n">wrapper</span>
+<span class="w">    </span><span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">950</span>, in <span class="n">read_csv</span>
 <span class="w">    </span><span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">482</span>, in <span class="n">_read</span>
+  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">605</span>, in <span class="n">_read</span>
 <span class="w">    </span><span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">811</span>, in <span class="n">__init__</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">1040</span>, in <span class="n">_make_engine</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py&quot;</span>, line <span class="m">51</span>, in <span class="n">__init__</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\io\parsers\base_parser.py&quot;</span>, line <span class="m">229</span>, in <span class="n">_open_handles</span>
-<span class="w">    </span><span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\io\common.py&quot;</span>, line <span class="m">707</span>, in <span class="n">get_handle</span>
-<span class="w">    </span><span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">1442</span>, in <span class="n">__init__</span>
+<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\pandas\io\parsers\readers.py&quot;</span>, line <span class="m">1735</span>, in <span class="n">_make_engine</span>
+<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+  File <span class="nb">&quot;c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\pandas\io\common.py&quot;</span>, line <span class="m">856</span>, in <span class="n">get_handle</span>
+<span class="w">    </span><span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
 <span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: &#39;.\\datasets\\damien-sepsis-biomarkers.csv&#39;</span>
 </pre></div>
 </div>
@@ -300,7 +298,7 @@ to download the full example code</p>
 <span class="linenos">159</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.688 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.552 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pandas-plot-format05-damien-sepsis-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ea2a69adb118847f5174223ee0788f1f/plot_format05_damien_sepsis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_format05_damien_sepsis.py</span></code></a></p>
