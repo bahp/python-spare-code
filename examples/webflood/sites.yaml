@@ -1,0 +1,15 @@
+---
+# A sample yaml file
+company: spacelift
+domain:
+ - devops
+ - devsecops
+sites:
+  - bmcmidm2017:
+      name: "YAML Ain't Markup Language"
+      type: awesome
+      born: 2001
+      url: https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-017-0550-1"
+
+author: omkarbirade
+published: true
