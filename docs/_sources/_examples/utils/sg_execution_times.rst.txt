@@ -5,24 +5,24 @@
 
 Computation times
 =================
-**00:00.064** total execution time for **_examples_utils** files:
+**00:08.219** total execution time for **_examples_utils** files:
 
 +-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_drug_resistance_index.py` (``plot_drug_resistance_index.py``)   | 00:00.064 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_mutual_information.py` (``plot_mutual_information.py``)         | 00:04.830 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_mic.py` (``mic.py``)                                                 | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_generate_data_AST.py` (``plot_generate_data_AST.py``)           | 00:01.913 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_collateral_sensitivity.py` (``plot_collateral_sensitivity.py``) | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_scale_colormap.py` (``plot_scale_colormap.py``)                 | 00:00.976 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_generate_data_AST.py` (``plot_generate_data_AST.py``)           | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_plot_collateral_sensitivity.py` (``plot_collateral_sensitivity.py``) | 00:00.194 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_utils_plot_planet_orbit_v1.py` (``plot_planet_orbit_v1.py``)               | 00:00.128 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_utils_plot_planet_orbit_v2.py` (``plot_planet_orbit_v2.py``)               | 00:00.127 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_utils_plot_drug_resistance_index.py` (``plot_drug_resistance_index.py``)   | 00:00.051 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_utils_plot_multi_armed_bandit.py` (``plot_multi_armed_bandit.py``)         | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_mutual_information.py` (``plot_mutual_information.py``)         | 00:00.000 | 0.0 MB |
-+-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_planet_orbit_v1.py` (``plot_planet_orbit_v1.py``)               | 00:00.000 | 0.0 MB |
-+-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_planet_orbit_v2.py` (``plot_planet_orbit_v2.py``)               | 00:00.000 | 0.0 MB |
-+-----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_utils_plot_scale_colormap.py` (``plot_scale_colormap.py``)                 | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_utils_mic.py` (``mic.py``)                                                 | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------+-----------+--------+

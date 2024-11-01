@@ -1172,9 +1172,9 @@ have itself some limitations.
     ================================================================================
     Are the results equal (m1, m2)? True
     Are the results equal (m1, m3)? True
-    time v1: 1.68496
-    time v2: 1.47595
-    time v3: 1.61094
+    time v1: 1.60590
+    time v2: 1.37441
+    time v3: 1.35685
 
 
 
@@ -1267,15 +1267,15 @@ and some interesting questions below.
     too many indices for array: array is 1-dimensional, but 2 were indexed
 
     2. Contingency matrix:
-    [0.34657359 0.34657359]
+    [0.35 0.35]
     too many indices for array: array is 1-dimensional, but 2 were indexed
 
     3. Contingency matrix:
-    [0.34657359 0.34657359]
+    [0.35 0.35]
     too many indices for array: array is 1-dimensional, but 2 were indexed
 
     4. Contingency matrix:
-    [0.34657359 0.34657359 0.34657359]
+    [0.35 0.35 0.35]
 
 
 
@@ -1626,19 +1626,19 @@ Let's see how it works for more than two classes.
     Example 8
     ================================================================================
     Result m1:
-    [[ 0.0152618   0.00830583 -0.02021242]
-     [ 0.00830583 -0.02938933  0.03633157]
-     [-0.02021242  0.03633157 -0.00923532]]
+    [[ 0.02  0.01 -0.02]
+     [ 0.01 -0.03  0.04]
+     [-0.02  0.04 -0.01]]
 
     Result m2:
-    [[ 0.0152618   0.00830583 -0.02021242]
-     [ 0.00830583 -0.02938933  0.03633157]
-     [-0.02021242  0.03633157 -0.00923532]]
+    [[ 0.02  0.01 -0.02]
+     [ 0.01 -0.03  0.04]
+     [-0.02  0.04 -0.01]]
 
     Result m3:
-    [[ 0.0152618   0.00830583 -0.02021242]
-     [ 0.00830583 -0.02938933  0.03633157]
-     [-0.02021242  0.03633157 -0.00923532]]
+    [[ 0.02  0.01 -0.02]
+     [ 0.01 -0.03  0.04]
+     [-0.02  0.04 -0.01]]
 
 
     Are the results equal (m1, m3)? True
@@ -1649,7 +1649,7 @@ Let's see how it works for more than two classes.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.315 seconds)
+   **Total running time of the script:** ( 0 minutes  4.830 seconds)
 
 
 .. _sphx_glr_download__examples_utils_plot_mutual_information.py:

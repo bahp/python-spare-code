@@ -1,18 +1,16 @@
 """
 UKVI trips visualisation
------------------------------
+------------------------
 
 """
 
 import pdfplumber
 import re
-import json
 import pandas as pd
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 from matplotlib.dates import DateFormatter
-from datetime import datetime
 from pathlib import Path
 
 

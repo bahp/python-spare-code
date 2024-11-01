@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:01.829** total execution time for **_examples_ukvi-trips** files:
+**00:01.785** total execution time for **_examples_ukvi-trips** files:
 
 +--------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_ukvi-trips_plot_main01.py` (``plot_main01.py``) | 00:01.829 | 0.0 MB |
+| :ref:`sphx_glr__examples_ukvi-trips_plot_main01.py` (``plot_main01.py``) | 00:01.785 | 0.0 MB |
 +--------------------------------------------------------------------------+-----------+--------+

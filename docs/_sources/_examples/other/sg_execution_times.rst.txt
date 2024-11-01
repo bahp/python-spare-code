@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**02:27.093** total execution time for **_examples_other** files:
+**04:09.037** total execution time for **_examples_other** files:
 
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_other_plot_main02_favicons.py` (``plot_main02_favicons.py``)                 | 02:27.093 | 0.0 MB |
+| :ref:`sphx_glr__examples_other_plot_main02_favicons.py` (``plot_main02_favicons.py``)                 | 02:39.772 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_other_plot_main01_segment_anything.py` (``plot_main01_segment_anything.py``) | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_other_plot_main01_segment_anything.py` (``plot_main01_segment_anything.py``) | 01:29.265 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+

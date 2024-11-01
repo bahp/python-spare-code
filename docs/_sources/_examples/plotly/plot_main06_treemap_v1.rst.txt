@@ -198,7 +198,7 @@ Lets load the dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.480 seconds)
+   **Total running time of the script:** ( 0 minutes  0.450 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main06_treemap_v1.py:

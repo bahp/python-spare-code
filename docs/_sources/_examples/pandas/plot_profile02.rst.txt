@@ -32,7 +32,7 @@
 
  .. code-block:: none
 
-      0%|          | 0/799 [00:00<?, ?it/s]    Computing series-max-agg-6872b64db055aab01d14d515991a5d7f:   0%|          | 0/799 [00:00<?, ?it/s]    Computing series-max-agg-6872b64db055aab01d14d515991a5d7f:   0%|          | 0/799 [00:00<?, ?it/s]    Computing sum-c8f59dca0645ebccc497cc8257ecc896:  67%|######7   | 537/799 [00:00<00:00, 5341.59it/s]                                                                                                       Report has been saved to outputs/profile02-report.html!
+      0%|          | 0/799 [00:00<?, ?it/s]    Computing series-max-agg-01366a2de6ffbca6d1e9ef985b4cf59f:   0%|          | 0/799 [00:00<?, ?it/s]    Computing series-max-agg-01366a2de6ffbca6d1e9ef985b4cf59f:   0%|          | 0/799 [00:00<?, ?it/s]    Computing series-min-agg-b5e434e390e46a13d2dc9b111720eefc: 100%|##########| 799/799 [00:00<00:00, 4762.67it/s]                                                                                                                  Report has been saved to outputs/profile02-report.html!
 
 
 
@@ -68,7 +68,7 @@
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.101 seconds)
+   **Total running time of the script:** ( 0 minutes  3.988 seconds)
 
 
 .. _sphx_glr_download__examples_pandas_plot_profile02.py:

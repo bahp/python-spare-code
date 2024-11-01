@@ -312,304 +312,307 @@ subset = [
 # -----------------------------
 # Load data
 path = Path('./data/mimic')
-data = pd.read_csv(path / 'microbiologyevents.csv')
-
-# Rename columns
-data = data.rename(columns={
-    'chartdate': 'time',
-    'micro_specimen_id': 'laboratory_number',
-    'spec_type_desc': 'specimen_code',
-    'org_name': 'microorganism_code',
-    'ab_name': 'antimicrobial_code',
-    'interpretation': 'sensitivity'
-})
-
-# Format data
-data = data[subset]
-data = data.dropna(subset=subset, how='any')
-data.time = pd.to_datetime(data.time)
-data.sensitivity = data.sensitivity.replace({
-    'S': 'sensitive',
-    'R': 'resistant',
-    'I': 'intermediate',
-    'P': 'pass'
-})
-
-
-# ------------------
-# Load prescriptions
-# ------------------
-# Load prescription data (limited to first nrows).
-use = pd.read_csv(path / 'prescriptions.csv', nrows=100000)
-
-# Keep prescriptions which have also been tested
-aux = use.copy(deep=True)
-aux.drug = aux.drug.str.upper()
-aux.starttime = pd.to_datetime(aux.starttime)
-aux = aux[aux.drug.isin(data.antimicrobial_code.unique())]
-
-# Rename variables
-susceptibility, prescription = data, aux
-
-#%%
-# Lets visualise microbiology data
-if TERMINAL:
-    print_example_heading(n=3)
-    print('\nSusceptibility:')
-    print(susceptibility)
-susceptibility.head(5)
-
-#%%
-# Lets visualise the prescription data
-if TERMINAL:
-    print('\nPrescription:')
-    print(prescription)
-prescription.head(5)
-
-
-# %%
-# Lets compute the DRI
-
-# -------------------------------------------
-# Compute SARI
-# -------------------------------------------
-
-# .. note:: These are some possible options to group
-#           data by a datetime column.
-#
-#             by year:    data.time.dt.year
-#             by quarter: data.time.dt.to_period('Q')
-#             by decade:  pd.Grouper(key='time', freq='10AS')
-#             by century: data.time.dt.year // 100
-
-
-# Libraries
-from pyamr.core.sari import SARI
-
-# Create sari instance
-sari = SARI(groupby=[data.time.dt.year,
-                     #'specimen_code',
-                     'microorganism_code',
-                     'antimicrobial_code',
-                     'sensitivity'])
-
-# Compute SARI
-df3 = sari.compute(susceptibility, return_frequencies=True)
-
-# .. note: Uncomment this line to create random use if the
-#          prescription data is not available and we want
-#          to simulate it.
-
-# Create random use
-#df3['use'] = np.random.randint(10, 600, df3.shape[0])
-
-# Compute the number of prescriptions
-aux = prescription \
-    .groupby(by=[aux.starttime.dt.year, 'drug']) \
-    .drug.count().rename('use')
-aux.index.names = ['time', 'antimicrobial_code']
-
-# Merge susceptibility and prescription data
-df3 = df3.reset_index().merge(aux.reset_index(),
-    how='inner',
-    left_on=['time', 'antimicrobial_code'],
-    right_on=['time', 'antimicrobial_code'])
-
-# Format the summary DataFrame
-df3 = df3.set_index(['time', 'microorganism_code', 'antimicrobial_code'])
-
-# Compute drug resistance index
-df3 = compute_drug_resistance_index(df3, groupby=0)
-
-#%%
-# Lets see the results
-if TERMINAL:
-    print('\nResult (MIMIC):')
-    print(df1)
-df3[['freq',
-     'sari',
-     'use',
-     'use_period',
-     'u_weight',
-     'w_rate',
-     'dri']].round(decimals=3)
-
-
-
-#%%
-# Lets display DRI over time
-#
-
-# Libraries
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Get first element by level.
-df4 = df3.groupby(level=[0]).first().reset_index()
-
-# Display using lineplot
-#sns.lineplot(data=df4.dri)
-
-# Display using plt.plot.
-#plt.plot(df4.index, df4.dri, linewidth=0.75, markersize=3, marker='o')
-
-# Display using relplot
-sns.relplot(data=df4.reset_index(), x='time', y='dri',
-    #hue='event', style='event', col='region, palette='palette',
-    height=4, aspect=3.0, kind='line',
-    linewidth=0.75, markersize=3, marker='o'
-)
-
-# Show
-plt.show()
-
-#%%
-# .. note:: In ``MIMIC``, the deidentification process for structured data required
-#           the removal of dates. In particular, dates were shifted into the future
-#           by a random offset for each individual patient in a consistent manner to
-#           preserve intervals, resulting in stays which occur sometime between the
-#           years 2100 and 2200. Time of day, day of the week, and approximate
-#           seasonality were conserved during date shifting.
-
-########################################################################
-# d) Extra code
-
-
-"""
-# Define data
-data = [
-
-    ['o1', 'a1', 2000, 0, 100, 10],
-    ['o1', 'a2', 2000, 0, 100, 9],
-    ['o1', 'a3', 2000, 0, 100, 8],
-
-    ['o1', 'a1', 2001, 50, 50, 10],
-    ['o1', 'a2', 2001, 60, 40, 9],
-    ['o1', 'a3', 2001, 70, 30, 8],
-
-    ['o1', 'a1', 2002, 50, 50, 10],
-    ['o1', 'a2', 2002, 60, 40, 10],
-    ['o1', 'a3', 2002, 70, 30, 10],
-
-    ['o1', 'a1', 2003, 50, 50, 10],
-    ['o1', 'a2', 2003, 60, 40, 11],
-    ['o1', 'a3', 2003, 70, 30, 12],
-
-    ['o1', 'a1', 2004, 50, 50, 16],
-    ['o1', 'a2', 2004, 60, 40, 22],
-    ['o1', 'a3', 2004, 70, 30, 30],
-
-    ['o1', 'a1', 2005, 30, 70, 16],
-    ['o1', 'a2', 2005, 30, 70, 22],
-    ['o1', 'a3', 2005, 30, 70, 30],
-
-    ['o1', 'a1', 2006, 50, 50, 16],
-    ['o1', 'a2', 2006, 60, 40, 22],
-    ['o1', 'a3', 2006, 70, 30, 22],
-
-    ['o1', 'a1', 2007, 100, 0, 10],
-    ['o1', 'a2', 2007, 100, 0, 9],
-    ['o1', 'a3', 2007, 100, 0, 8],
-
-    ['o2', 'a1', 2001, 50, 50, 16],
-    ['o2', 'a2', 2001, 60, 40, 22],
-    ['o2', 'a3', 2001, 70, 30, 22],
-]
-
-
-# Create DataFrame
-df = pd.DataFrame(data,
-    columns=['o', 'a', 'year', 'R', 'S', 'dose'])
-
-# Format DataFrame
-df.year = pd.to_datetime(df.year, format='%Y')
-df['r_prop'] = df.R / (df.R + df.S)                                         # resistance proportion
-df['d_prop'] = df.dose / df.groupby(by=['o', 'year']).dose.transform('sum') # dose proportion
-
-# Show
-print("Data:")
-print(df)
-
-# Example 1: Fixed
-# ----------------
-
-# Define p and q
-p = df.r_prop
-q = df.d_prop
-
-# Compute
-r0 = (p * q).sum()
-r1 = np.dot(p, q)
-r2 = np.matmul(p, q)
-
-# Show
-print("\n" + "="*80 + "\nExample 1\n" + "="*80)
-print(r0)
-print(r1)
-print(r2)
-
-
-
-# Example 2: Manual
-# -----------------
-
-# Initialize
-qik0 = None
-v_fixed = []
-v_evolv = []
-
-# Loop
-for i,g in df.groupby(by=['o', 'year']):
-    if qik0 is None:
-        qik0 = list(g.groupby(by='year'))[0][1].d_prop
-
-    v_fixed.append({'o': i[0], 't': i[1], 'v': np.dot(g.r_prop, qik0.T)})
-    v_evolv.append({'o': i[0], 't': i[1], 'v': np.dot(g.r_prop, g.d_prop)})
-
-# Format
-v_fixed = pd.DataFrame(v_fixed)
-v_evolv = pd.DataFrame(v_evolv)
-v_combn = v_evolv.merge(v_fixed, how='outer',
-    on=['o', 't'], suffixes=('_evolv', '_fixed'))
-
-# Show
-print("\n" + "="*80 + "\nExample 2\n" + "="*80)
-print(v_combn)
-
-
-
-
-# Example 3: Matrix
-# -----------------
-#
-
-print("\n" + "="*80 + "\nExample 3\n" + "="*80)
-
-
-m1 = pd.pivot_table(df, index='o', columns='a', values='r_prop')
-m2 = pd.pivot_table(df, index='o', columns='a', values='d_prop')
-print(m1)
-print(m2)
-print(m1*m2)
-
-# Loop
-for i,g in df.groupby(by='year'):
-    m1 = pd.pivot_table(g, index='o', columns='a', values='r_prop')
-    m2 = pd.pivot_table(g, index='o', columns='a', values='d_prop')
-    dri = np.dot(m1, m2.T)
-    print(i, dri)
+filename = 'microbiologyevents.csv'
+
+if (path / filename).exists():
+    data = pd.read_csv(path / 'microbiologyevents.csv')
+
+    # Rename columns
+    data = data.rename(columns={
+        'chartdate': 'time',
+        'micro_specimen_id': 'laboratory_number',
+        'spec_type_desc': 'specimen_code',
+        'org_name': 'microorganism_code',
+        'ab_name': 'antimicrobial_code',
+        'interpretation': 'sensitivity'
+    })
+
+    # Format data
+    data = data[subset]
+    data = data.dropna(subset=subset, how='any')
+    data.time = pd.to_datetime(data.time)
+    data.sensitivity = data.sensitivity.replace({
+        'S': 'sensitive',
+        'R': 'resistant',
+        'I': 'intermediate',
+        'P': 'pass'
+    })
+
+
+    # ------------------
+    # Load prescriptions
+    # ------------------
+    # Load prescription data (limited to first nrows).
+    use = pd.read_csv(path / 'prescriptions.csv', nrows=100000)
+
+    # Keep prescriptions which have also been tested
+    aux = use.copy(deep=True)
+    aux.drug = aux.drug.str.upper()
+    aux.starttime = pd.to_datetime(aux.starttime)
+    aux = aux[aux.drug.isin(data.antimicrobial_code.unique())]
+
+    # Rename variables
+    susceptibility, prescription = data, aux
+
+    #%%
+    # Lets visualise microbiology data
+    if TERMINAL:
+        print_example_heading(n=3)
+        print('\nSusceptibility:')
+        print(susceptibility)
+    susceptibility.head(5)
+
+    #%%
+    # Lets visualise the prescription data
+    if TERMINAL:
+        print('\nPrescription:')
+        print(prescription)
+    prescription.head(5)
+
+
+    # %%
+    # Lets compute the DRI
+
+    # -------------------------------------------
+    # Compute SARI
+    # -------------------------------------------
+
+    # .. note:: These are some possible options to group
+    #           data by a datetime column.
+    #
+    #             by year:    data.time.dt.year
+    #             by quarter: data.time.dt.to_period('Q')
+    #             by decade:  pd.Grouper(key='time', freq='10AS')
+    #             by century: data.time.dt.year // 100
+
+
+    # Libraries
+    from pyamr.core.sari import SARI
+
+    # Create sari instance
+    sari = SARI(groupby=[data.time.dt.year,
+                         #'specimen_code',
+                         'microorganism_code',
+                         'antimicrobial_code',
+                         'sensitivity'])
+
+    # Compute SARI
+    df3 = sari.compute(susceptibility, return_frequencies=True)
+
+    # .. note: Uncomment this line to create random use if the
+    #          prescription data is not available and we want
+    #          to simulate it.
+
+    # Create random use
+    #df3['use'] = np.random.randint(10, 600, df3.shape[0])
+
+    # Compute the number of prescriptions
+    aux = prescription \
+        .groupby(by=[aux.starttime.dt.year, 'drug']) \
+        .drug.count().rename('use')
+    aux.index.names = ['time', 'antimicrobial_code']
+
+    # Merge susceptibility and prescription data
+    df3 = df3.reset_index().merge(aux.reset_index(),
+        how='inner',
+        left_on=['time', 'antimicrobial_code'],
+        right_on=['time', 'antimicrobial_code'])
+
+    # Format the summary DataFrame
+    df3 = df3.set_index(['time', 'microorganism_code', 'antimicrobial_code'])
+
+    # Compute drug resistance index
+    df3 = compute_drug_resistance_index(df3, groupby=0)
+
+    #%%
+    # Lets see the results
+    if TERMINAL:
+        print('\nResult (MIMIC):')
+        print(df1)
+    df3[['freq',
+         'sari',
+         'use',
+         'use_period',
+         'u_weight',
+         'w_rate',
+         'dri']].round(decimals=3)
+
+
+
+    #%%
+    # Lets display DRI over time
+    #
+
+    # Libraries
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    # Get first element by level.
+    df4 = df3.groupby(level=[0]).first().reset_index()
+
+    # Display using lineplot
+    #sns.lineplot(data=df4.dri)
+
+    # Display using plt.plot.
+    #plt.plot(df4.index, df4.dri, linewidth=0.75, markersize=3, marker='o')
+
+    # Display using relplot
+    sns.relplot(data=df4.reset_index(), x='time', y='dri',
+        #hue='event', style='event', col='region, palette='palette',
+        height=4, aspect=3.0, kind='line',
+        linewidth=0.75, markersize=3, marker='o'
+    )
+
+    # Show
+    plt.show()
+
+    #%%
+    # .. note:: In ``MIMIC``, the deidentification process for structured data required
+    #           the removal of dates. In particular, dates were shifted into the future
+    #           by a random offset for each individual patient in a consistent manner to
+    #           preserve intervals, resulting in stays which occur sometime between the
+    #           years 2100 and 2200. Time of day, day of the week, and approximate
+    #           seasonality were conserved during date shifting.
+
+    ########################################################################
+    # d) Extra code
+
+
+    """
+    # Define data
+    data = [
+    
+        ['o1', 'a1', 2000, 0, 100, 10],
+        ['o1', 'a2', 2000, 0, 100, 9],
+        ['o1', 'a3', 2000, 0, 100, 8],
+    
+        ['o1', 'a1', 2001, 50, 50, 10],
+        ['o1', 'a2', 2001, 60, 40, 9],
+        ['o1', 'a3', 2001, 70, 30, 8],
+    
+        ['o1', 'a1', 2002, 50, 50, 10],
+        ['o1', 'a2', 2002, 60, 40, 10],
+        ['o1', 'a3', 2002, 70, 30, 10],
+    
+        ['o1', 'a1', 2003, 50, 50, 10],
+        ['o1', 'a2', 2003, 60, 40, 11],
+        ['o1', 'a3', 2003, 70, 30, 12],
+    
+        ['o1', 'a1', 2004, 50, 50, 16],
+        ['o1', 'a2', 2004, 60, 40, 22],
+        ['o1', 'a3', 2004, 70, 30, 30],
+    
+        ['o1', 'a1', 2005, 30, 70, 16],
+        ['o1', 'a2', 2005, 30, 70, 22],
+        ['o1', 'a3', 2005, 30, 70, 30],
+    
+        ['o1', 'a1', 2006, 50, 50, 16],
+        ['o1', 'a2', 2006, 60, 40, 22],
+        ['o1', 'a3', 2006, 70, 30, 22],
+    
+        ['o1', 'a1', 2007, 100, 0, 10],
+        ['o1', 'a2', 2007, 100, 0, 9],
+        ['o1', 'a3', 2007, 100, 0, 8],
+    
+        ['o2', 'a1', 2001, 50, 50, 16],
+        ['o2', 'a2', 2001, 60, 40, 22],
+        ['o2', 'a3', 2001, 70, 30, 22],
+    ]
     
     
-"""
+    # Create DataFrame
+    df = pd.DataFrame(data,
+        columns=['o', 'a', 'year', 'R', 'S', 'dose'])
+    
+    # Format DataFrame
+    df.year = pd.to_datetime(df.year, format='%Y')
+    df['r_prop'] = df.R / (df.R + df.S)                                         # resistance proportion
+    df['d_prop'] = df.dose / df.groupby(by=['o', 'year']).dose.transform('sum') # dose proportion
+    
+    # Show
+    print("Data:")
+    print(df)
+    
+    # Example 1: Fixed
+    # ----------------
+    
+    # Define p and q
+    p = df.r_prop
+    q = df.d_prop
+    
+    # Compute
+    r0 = (p * q).sum()
+    r1 = np.dot(p, q)
+    r2 = np.matmul(p, q)
+    
+    # Show
+    print("\n" + "="*80 + "\nExample 1\n" + "="*80)
+    print(r0)
+    print(r1)
+    print(r2)
+    
+    
+    
+    # Example 2: Manual
+    # -----------------
+    
+    # Initialize
+    qik0 = None
+    v_fixed = []
+    v_evolv = []
+    
+    # Loop
+    for i,g in df.groupby(by=['o', 'year']):
+        if qik0 is None:
+            qik0 = list(g.groupby(by='year'))[0][1].d_prop
+    
+        v_fixed.append({'o': i[0], 't': i[1], 'v': np.dot(g.r_prop, qik0.T)})
+        v_evolv.append({'o': i[0], 't': i[1], 'v': np.dot(g.r_prop, g.d_prop)})
+    
+    # Format
+    v_fixed = pd.DataFrame(v_fixed)
+    v_evolv = pd.DataFrame(v_evolv)
+    v_combn = v_evolv.merge(v_fixed, how='outer',
+        on=['o', 't'], suffixes=('_evolv', '_fixed'))
+    
+    # Show
+    print("\n" + "="*80 + "\nExample 2\n" + "="*80)
+    print(v_combn)
+    
+    
+    
+    
+    # Example 3: Matrix
+    # -----------------
+    #
+    
+    print("\n" + "="*80 + "\nExample 3\n" + "="*80)
+    
+    
+    m1 = pd.pivot_table(df, index='o', columns='a', values='r_prop')
+    m2 = pd.pivot_table(df, index='o', columns='a', values='d_prop')
+    print(m1)
+    print(m2)
+    print(m1*m2)
+    
+    # Loop
+    for i,g in df.groupby(by='year'):
+        m1 = pd.pivot_table(g, index='o', columns='a', values='r_prop')
+        m2 = pd.pivot_table(g, index='o', columns='a', values='d_prop')
+        dri = np.dot(m1, m2.T)
+        print(i, dri)
+        
+        
+    """
 
-"""
-# Compute
-df3['use_period'] = df3 \
-    .groupby(level=0).use \
-    .transform(lambda x: x.sum())
-df3['u_weight'] = (df3.use / df3.use_period) #.round(decimals=2)
-df3['w_rate'] = (df3.sari * df3.u_weight)  #.round(decimals=3)
-df3['dri'] = df3 \
-    .groupby(by='time').w_rate \
-    .transform(lambda x: x.sum())
-"""
+    """
+    # Compute
+    df3['use_period'] = df3 \
+        .groupby(level=0).use \
+        .transform(lambda x: x.sum())
+    df3['u_weight'] = (df3.use / df3.use_period) #.round(decimals=2)
+    df3['w_rate'] = (df3.sari * df3.u_weight)  #.round(decimals=3)
+    df3['dri'] = df3 \
+        .groupby(by='time').w_rate \
+        .transform(lambda x: x.sum())
+    """

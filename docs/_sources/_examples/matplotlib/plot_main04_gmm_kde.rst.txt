@@ -400,7 +400,7 @@ for each class.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.543 seconds)
+   **Total running time of the script:** ( 0 minutes  0.964 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main04_gmm_kde.py:

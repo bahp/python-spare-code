@@ -906,325 +906,313 @@ for example the complete dosage.</p>
 <span class="linenos">312</span> <span class="c1"># -----------------------------</span>
 <span class="linenos">313</span> <span class="c1"># Load data</span>
 <span class="linenos">314</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/mimic&#39;</span><span class="p">)</span>
-<span class="linenos">315</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;microbiologyevents.csv&#39;</span><span class="p">)</span>
+<span class="linenos">315</span> <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;microbiologyevents.csv&#39;</span>
 <span class="linenos">316</span>
-<span class="linenos">317</span> <span class="c1"># Rename columns</span>
-<span class="linenos">318</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-<span class="linenos">319</span>     <span class="s1">&#39;chartdate&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span>
-<span class="linenos">320</span>     <span class="s1">&#39;micro_specimen_id&#39;</span><span class="p">:</span> <span class="s1">&#39;laboratory_number&#39;</span><span class="p">,</span>
-<span class="linenos">321</span>     <span class="s1">&#39;spec_type_desc&#39;</span><span class="p">:</span> <span class="s1">&#39;specimen_code&#39;</span><span class="p">,</span>
-<span class="linenos">322</span>     <span class="s1">&#39;org_name&#39;</span><span class="p">:</span> <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
-<span class="linenos">323</span>     <span class="s1">&#39;ab_name&#39;</span><span class="p">:</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
-<span class="linenos">324</span>     <span class="s1">&#39;interpretation&#39;</span><span class="p">:</span> <span class="s1">&#39;sensitivity&#39;</span>
-<span class="linenos">325</span> <span class="p">})</span>
-<span class="linenos">326</span>
-<span class="linenos">327</span> <span class="c1"># Format data</span>
-<span class="linenos">328</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">subset</span><span class="p">]</span>
-<span class="linenos">329</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">subset</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
-<span class="linenos">330</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
-<span class="linenos">331</span> <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
-<span class="linenos">332</span>     <span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="s1">&#39;sensitive&#39;</span><span class="p">,</span>
-<span class="linenos">333</span>     <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="s1">&#39;resistant&#39;</span><span class="p">,</span>
-<span class="linenos">334</span>     <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="s1">&#39;intermediate&#39;</span><span class="p">,</span>
-<span class="linenos">335</span>     <span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span>
-<span class="linenos">336</span> <span class="p">})</span>
-<span class="linenos">337</span>
-<span class="linenos">338</span>
-<span class="linenos">339</span> <span class="c1"># ------------------</span>
-<span class="linenos">340</span> <span class="c1"># Load prescriptions</span>
-<span class="linenos">341</span> <span class="c1"># ------------------</span>
-<span class="linenos">342</span> <span class="c1"># Load prescription data (limited to first nrows).</span>
-<span class="linenos">343</span> <span class="n">use</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;prescriptions.csv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
-<span class="linenos">344</span>
-<span class="linenos">345</span> <span class="c1"># Keep prescriptions which have also been tested</span>
-<span class="linenos">346</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">use</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">347</span> <span class="n">aux</span><span class="o">.</span><span class="n">drug</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">drug</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="linenos">348</span> <span class="n">aux</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span>
-<span class="linenos">349</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">aux</span><span class="o">.</span><span class="n">drug</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">antimicrobial_code</span><span class="o">.</span><span class="n">unique</span><span class="p">())]</span>
-<span class="linenos">350</span>
-<span class="linenos">351</span> <span class="c1"># Rename variables</span>
-<span class="linenos">352</span> <span class="n">susceptibility</span><span class="p">,</span> <span class="n">prescription</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">aux</span>
-</pre></div>
-</div>
-<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/github/python-spare-code/main/examples/utils/plot_drug_resistance_index.py&quot;</span>, line <span class="m">315</span>, in <span class="n">&lt;module&gt;</span>
-<span class="w">    </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;microbiologyevents.csv&#39;</span><span class="p">)</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/environments/venv-py3109-python-spare-code/lib/python3.10/site-packages/pandas/util/_decorators.py&quot;</span>, line <span class="m">211</span>, in <span class="n">wrapper</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/environments/venv-py3109-python-spare-code/lib/python3.10/site-packages/pandas/util/_decorators.py&quot;</span>, line <span class="m">331</span>, in <span class="n">wrapper</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/environments/venv-py3109-python-spare-code/lib/python3.10/site-packages/pandas/io/parsers/readers.py&quot;</span>, line <span class="m">950</span>, in <span class="n">read_csv</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/environments/venv-py3109-python-spare-code/lib/python3.10/site-packages/pandas/io/parsers/readers.py&quot;</span>, line <span class="m">605</span>, in <span class="n">_read</span>
-<span class="w">    </span><span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/environments/venv-py3109-python-spare-code/lib/python3.10/site-packages/pandas/io/parsers/readers.py&quot;</span>, line <span class="m">1442</span>, in <span class="n">__init__</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/environments/venv-py3109-python-spare-code/lib/python3.10/site-packages/pandas/io/parsers/readers.py&quot;</span>, line <span class="m">1735</span>, in <span class="n">_make_engine</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-  File <span class="nb">&quot;/Users/cbit/Desktop/repositories/environments/venv-py3109-python-spare-code/lib/python3.10/site-packages/pandas/io/common.py&quot;</span>, line <span class="m">856</span>, in <span class="n">get_handle</span>
-<span class="w">    </span><span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: &#39;data/mimic/microbiologyevents.csv&#39;</span>
-</pre></div>
-</div>
-<p>Lets visualise microbiology data</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">356</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">357</span>     <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="linenos">358</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Susceptibility:&#39;</span><span class="p">)</span>
-<span class="linenos">359</span>     <span class="nb">print</span><span class="p">(</span><span class="n">susceptibility</span><span class="p">)</span>
-<span class="linenos">360</span> <span class="n">susceptibility</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Lets visualise the prescription data</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">364</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">365</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Prescription:&#39;</span><span class="p">)</span>
-<span class="linenos">366</span>     <span class="nb">print</span><span class="p">(</span><span class="n">prescription</span><span class="p">)</span>
-<span class="linenos">367</span> <span class="n">prescription</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Lets compute the DRI</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">373</span> <span class="c1"># -------------------------------------------</span>
-<span class="linenos">374</span> <span class="c1"># Compute SARI</span>
-<span class="linenos">375</span> <span class="c1"># -------------------------------------------</span>
-<span class="linenos">376</span>
-<span class="linenos">377</span> <span class="c1"># .. note:: These are some possible options to group</span>
-<span class="linenos">378</span> <span class="c1">#           data by a datetime column.</span>
-<span class="linenos">379</span> <span class="c1">#</span>
-<span class="linenos">380</span> <span class="c1">#             by year:    data.time.dt.year</span>
-<span class="linenos">381</span> <span class="c1">#             by quarter: data.time.dt.to_period(&#39;Q&#39;)</span>
-<span class="linenos">382</span> <span class="c1">#             by decade:  pd.Grouper(key=&#39;time&#39;, freq=&#39;10AS&#39;)</span>
-<span class="linenos">383</span> <span class="c1">#             by century: data.time.dt.year // 100</span>
-<span class="linenos">384</span>
-<span class="linenos">385</span>
-<span class="linenos">386</span> <span class="c1"># Libraries</span>
-<span class="linenos">387</span> <span class="kn">from</span> <span class="nn">pyamr.core.sari</span> <span class="kn">import</span> <span class="n">SARI</span>
+<span class="linenos">317</span> <span class="k">if</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span class="linenos">318</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;microbiologyevents.csv&#39;</span><span class="p">)</span>
+<span class="linenos">319</span>
+<span class="linenos">320</span>     <span class="c1"># Rename columns</span>
+<span class="linenos">321</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+<span class="linenos">322</span>         <span class="s1">&#39;chartdate&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span>
+<span class="linenos">323</span>         <span class="s1">&#39;micro_specimen_id&#39;</span><span class="p">:</span> <span class="s1">&#39;laboratory_number&#39;</span><span class="p">,</span>
+<span class="linenos">324</span>         <span class="s1">&#39;spec_type_desc&#39;</span><span class="p">:</span> <span class="s1">&#39;specimen_code&#39;</span><span class="p">,</span>
+<span class="linenos">325</span>         <span class="s1">&#39;org_name&#39;</span><span class="p">:</span> <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
+<span class="linenos">326</span>         <span class="s1">&#39;ab_name&#39;</span><span class="p">:</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
+<span class="linenos">327</span>         <span class="s1">&#39;interpretation&#39;</span><span class="p">:</span> <span class="s1">&#39;sensitivity&#39;</span>
+<span class="linenos">328</span>     <span class="p">})</span>
+<span class="linenos">329</span>
+<span class="linenos">330</span>     <span class="c1"># Format data</span>
+<span class="linenos">331</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">subset</span><span class="p">]</span>
+<span class="linenos">332</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">subset</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
+<span class="linenos">333</span>     <span class="n">data</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="linenos">334</span>     <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sensitivity</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+<span class="linenos">335</span>         <span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="s1">&#39;sensitive&#39;</span><span class="p">,</span>
+<span class="linenos">336</span>         <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="s1">&#39;resistant&#39;</span><span class="p">,</span>
+<span class="linenos">337</span>         <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="s1">&#39;intermediate&#39;</span><span class="p">,</span>
+<span class="linenos">338</span>         <span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span>
+<span class="linenos">339</span>     <span class="p">})</span>
+<span class="linenos">340</span>
+<span class="linenos">341</span>
+<span class="linenos">342</span>     <span class="c1"># ------------------</span>
+<span class="linenos">343</span>     <span class="c1"># Load prescriptions</span>
+<span class="linenos">344</span>     <span class="c1"># ------------------</span>
+<span class="linenos">345</span>     <span class="c1"># Load prescription data (limited to first nrows).</span>
+<span class="linenos">346</span>     <span class="n">use</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;prescriptions.csv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="linenos">347</span>
+<span class="linenos">348</span>     <span class="c1"># Keep prescriptions which have also been tested</span>
+<span class="linenos">349</span>     <span class="n">aux</span> <span class="o">=</span> <span class="n">use</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">350</span>     <span class="n">aux</span><span class="o">.</span><span class="n">drug</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">drug</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="linenos">351</span>     <span class="n">aux</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span>
+<span class="linenos">352</span>     <span class="n">aux</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">aux</span><span class="o">.</span><span class="n">drug</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">antimicrobial_code</span><span class="o">.</span><span class="n">unique</span><span class="p">())]</span>
+<span class="linenos">353</span>
+<span class="linenos">354</span>     <span class="c1"># Rename variables</span>
+<span class="linenos">355</span>     <span class="n">susceptibility</span><span class="p">,</span> <span class="n">prescription</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">aux</span>
+<span class="linenos">356</span>
+<span class="linenos">357</span>     <span class="c1">#%%</span>
+<span class="linenos">358</span>     <span class="c1"># Lets visualise microbiology data</span>
+<span class="linenos">359</span>     <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">360</span>         <span class="n">print_example_heading</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">361</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Susceptibility:&#39;</span><span class="p">)</span>
+<span class="linenos">362</span>         <span class="nb">print</span><span class="p">(</span><span class="n">susceptibility</span><span class="p">)</span>
+<span class="linenos">363</span>     <span class="n">susceptibility</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">364</span>
+<span class="linenos">365</span>     <span class="c1">#%%</span>
+<span class="linenos">366</span>     <span class="c1"># Lets visualise the prescription data</span>
+<span class="linenos">367</span>     <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">368</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Prescription:&#39;</span><span class="p">)</span>
+<span class="linenos">369</span>         <span class="nb">print</span><span class="p">(</span><span class="n">prescription</span><span class="p">)</span>
+<span class="linenos">370</span>     <span class="n">prescription</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">371</span>
+<span class="linenos">372</span>
+<span class="linenos">373</span>     <span class="c1"># %%</span>
+<span class="linenos">374</span>     <span class="c1"># Lets compute the DRI</span>
+<span class="linenos">375</span>
+<span class="linenos">376</span>     <span class="c1"># -------------------------------------------</span>
+<span class="linenos">377</span>     <span class="c1"># Compute SARI</span>
+<span class="linenos">378</span>     <span class="c1"># -------------------------------------------</span>
+<span class="linenos">379</span>
+<span class="linenos">380</span>     <span class="c1"># .. note:: These are some possible options to group</span>
+<span class="linenos">381</span>     <span class="c1">#           data by a datetime column.</span>
+<span class="linenos">382</span>     <span class="c1">#</span>
+<span class="linenos">383</span>     <span class="c1">#             by year:    data.time.dt.year</span>
+<span class="linenos">384</span>     <span class="c1">#             by quarter: data.time.dt.to_period(&#39;Q&#39;)</span>
+<span class="linenos">385</span>     <span class="c1">#             by decade:  pd.Grouper(key=&#39;time&#39;, freq=&#39;10AS&#39;)</span>
+<span class="linenos">386</span>     <span class="c1">#             by century: data.time.dt.year // 100</span>
+<span class="linenos">387</span>
 <span class="linenos">388</span>
-<span class="linenos">389</span> <span class="c1"># Create sari instance</span>
-<span class="linenos">390</span> <span class="n">sari</span> <span class="o">=</span> <span class="n">SARI</span><span class="p">(</span><span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
-<span class="linenos">391</span>                      <span class="c1">#&#39;specimen_code&#39;,</span>
-<span class="linenos">392</span>                      <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
-<span class="linenos">393</span>                      <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
-<span class="linenos">394</span>                      <span class="s1">&#39;sensitivity&#39;</span><span class="p">])</span>
-<span class="linenos">395</span>
-<span class="linenos">396</span> <span class="c1"># Compute SARI</span>
-<span class="linenos">397</span> <span class="n">df3</span> <span class="o">=</span> <span class="n">sari</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">susceptibility</span><span class="p">,</span> <span class="n">return_frequencies</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">389</span>     <span class="c1"># Libraries</span>
+<span class="linenos">390</span>     <span class="kn">from</span> <span class="nn">pyamr.core.sari</span> <span class="kn">import</span> <span class="n">SARI</span>
+<span class="linenos">391</span>
+<span class="linenos">392</span>     <span class="c1"># Create sari instance</span>
+<span class="linenos">393</span>     <span class="n">sari</span> <span class="o">=</span> <span class="n">SARI</span><span class="p">(</span><span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
+<span class="linenos">394</span>                          <span class="c1">#&#39;specimen_code&#39;,</span>
+<span class="linenos">395</span>                          <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span>
+<span class="linenos">396</span>                          <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">,</span>
+<span class="linenos">397</span>                          <span class="s1">&#39;sensitivity&#39;</span><span class="p">])</span>
 <span class="linenos">398</span>
-<span class="linenos">399</span> <span class="c1"># .. note: Uncomment this line to create random use if the</span>
-<span class="linenos">400</span> <span class="c1">#          prescription data is not available and we want</span>
-<span class="linenos">401</span> <span class="c1">#          to simulate it.</span>
-<span class="linenos">402</span>
-<span class="linenos">403</span> <span class="c1"># Create random use</span>
-<span class="linenos">404</span> <span class="c1">#df3[&#39;use&#39;] = np.random.randint(10, 600, df3.shape[0])</span>
+<span class="linenos">399</span>     <span class="c1"># Compute SARI</span>
+<span class="linenos">400</span>     <span class="n">df3</span> <span class="o">=</span> <span class="n">sari</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">susceptibility</span><span class="p">,</span> <span class="n">return_frequencies</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">401</span>
+<span class="linenos">402</span>     <span class="c1"># .. note: Uncomment this line to create random use if the</span>
+<span class="linenos">403</span>     <span class="c1">#          prescription data is not available and we want</span>
+<span class="linenos">404</span>     <span class="c1">#          to simulate it.</span>
 <span class="linenos">405</span>
-<span class="linenos">406</span> <span class="c1"># Compute the number of prescriptions</span>
-<span class="linenos">407</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">prescription</span> \
-<span class="linenos">408</span>     <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">aux</span><span class="o">.</span><span class="n">starttime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s1">&#39;drug&#39;</span><span class="p">])</span> \
-<span class="linenos">409</span>     <span class="o">.</span><span class="n">drug</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;use&#39;</span><span class="p">)</span>
-<span class="linenos">410</span> <span class="n">aux</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">]</span>
-<span class="linenos">411</span>
-<span class="linenos">412</span> <span class="c1"># Merge susceptibility and prescription data</span>
-<span class="linenos">413</span> <span class="n">df3</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span>
-<span class="linenos">414</span>     <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span>
-<span class="linenos">415</span>     <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">],</span>
-<span class="linenos">416</span>     <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">])</span>
-<span class="linenos">417</span>
-<span class="linenos">418</span> <span class="c1"># Format the summary DataFrame</span>
-<span class="linenos">419</span> <span class="n">df3</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">])</span>
+<span class="linenos">406</span>     <span class="c1"># Create random use</span>
+<span class="linenos">407</span>     <span class="c1">#df3[&#39;use&#39;] = np.random.randint(10, 600, df3.shape[0])</span>
+<span class="linenos">408</span>
+<span class="linenos">409</span>     <span class="c1"># Compute the number of prescriptions</span>
+<span class="linenos">410</span>     <span class="n">aux</span> <span class="o">=</span> <span class="n">prescription</span> \
+<span class="linenos">411</span>         <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">aux</span><span class="o">.</span><span class="n">starttime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s1">&#39;drug&#39;</span><span class="p">])</span> \
+<span class="linenos">412</span>         <span class="o">.</span><span class="n">drug</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;use&#39;</span><span class="p">)</span>
+<span class="linenos">413</span>     <span class="n">aux</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">]</span>
+<span class="linenos">414</span>
+<span class="linenos">415</span>     <span class="c1"># Merge susceptibility and prescription data</span>
+<span class="linenos">416</span>     <span class="n">df3</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span>
+<span class="linenos">417</span>         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span>
+<span class="linenos">418</span>         <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">],</span>
+<span class="linenos">419</span>         <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">])</span>
 <span class="linenos">420</span>
-<span class="linenos">421</span> <span class="c1"># Compute drug resistance index</span>
-<span class="linenos">422</span> <span class="n">df3</span> <span class="o">=</span> <span class="n">compute_drug_resistance_index</span><span class="p">(</span><span class="n">df3</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Lets see the results</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">426</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
-<span class="linenos">427</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Result (MIMIC):&#39;</span><span class="p">)</span>
-<span class="linenos">428</span>     <span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
-<span class="linenos">429</span> <span class="n">df3</span><span class="p">[[</span><span class="s1">&#39;freq&#39;</span><span class="p">,</span>
-<span class="linenos">430</span>      <span class="s1">&#39;sari&#39;</span><span class="p">,</span>
-<span class="linenos">431</span>      <span class="s1">&#39;use&#39;</span><span class="p">,</span>
-<span class="linenos">432</span>      <span class="s1">&#39;use_period&#39;</span><span class="p">,</span>
-<span class="linenos">433</span>      <span class="s1">&#39;u_weight&#39;</span><span class="p">,</span>
-<span class="linenos">434</span>      <span class="s1">&#39;w_rate&#39;</span><span class="p">,</span>
-<span class="linenos">435</span>      <span class="s1">&#39;dri&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Lets display DRI over time</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">443</span> <span class="c1"># Libraries</span>
-<span class="linenos">444</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos">445</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="linenos">446</span>
-<span class="linenos">447</span> <span class="c1"># Get first element by level.</span>
-<span class="linenos">448</span> <span class="n">df4</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="linenos">421</span>     <span class="c1"># Format the summary DataFrame</span>
+<span class="linenos">422</span>     <span class="n">df3</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;microorganism_code&#39;</span><span class="p">,</span> <span class="s1">&#39;antimicrobial_code&#39;</span><span class="p">])</span>
+<span class="linenos">423</span>
+<span class="linenos">424</span>     <span class="c1"># Compute drug resistance index</span>
+<span class="linenos">425</span>     <span class="n">df3</span> <span class="o">=</span> <span class="n">compute_drug_resistance_index</span><span class="p">(</span><span class="n">df3</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">426</span>
+<span class="linenos">427</span>     <span class="c1">#%%</span>
+<span class="linenos">428</span>     <span class="c1"># Lets see the results</span>
+<span class="linenos">429</span>     <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">430</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Result (MIMIC):&#39;</span><span class="p">)</span>
+<span class="linenos">431</span>         <span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="linenos">432</span>     <span class="n">df3</span><span class="p">[[</span><span class="s1">&#39;freq&#39;</span><span class="p">,</span>
+<span class="linenos">433</span>          <span class="s1">&#39;sari&#39;</span><span class="p">,</span>
+<span class="linenos">434</span>          <span class="s1">&#39;use&#39;</span><span class="p">,</span>
+<span class="linenos">435</span>          <span class="s1">&#39;use_period&#39;</span><span class="p">,</span>
+<span class="linenos">436</span>          <span class="s1">&#39;u_weight&#39;</span><span class="p">,</span>
+<span class="linenos">437</span>          <span class="s1">&#39;w_rate&#39;</span><span class="p">,</span>
+<span class="linenos">438</span>          <span class="s1">&#39;dri&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">439</span>
+<span class="linenos">440</span>
+<span class="linenos">441</span>
+<span class="linenos">442</span>     <span class="c1">#%%</span>
+<span class="linenos">443</span>     <span class="c1"># Lets display DRI over time</span>
+<span class="linenos">444</span>     <span class="c1">#</span>
+<span class="linenos">445</span>
+<span class="linenos">446</span>     <span class="c1"># Libraries</span>
+<span class="linenos">447</span>     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos">448</span>     <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="linenos">449</span>
-<span class="linenos">450</span> <span class="c1"># Display using lineplot</span>
-<span class="linenos">451</span> <span class="c1">#sns.lineplot(data=df4.dri)</span>
+<span class="linenos">450</span>     <span class="c1"># Get first element by level.</span>
+<span class="linenos">451</span>     <span class="n">df4</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="linenos">452</span>
-<span class="linenos">453</span> <span class="c1"># Display using plt.plot.</span>
-<span class="linenos">454</span> <span class="c1">#plt.plot(df4.index, df4.dri, linewidth=0.75, markersize=3, marker=&#39;o&#39;)</span>
+<span class="linenos">453</span>     <span class="c1"># Display using lineplot</span>
+<span class="linenos">454</span>     <span class="c1">#sns.lineplot(data=df4.dri)</span>
 <span class="linenos">455</span>
-<span class="linenos">456</span> <span class="c1"># Display using relplot</span>
-<span class="linenos">457</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df4</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;dri&#39;</span><span class="p">,</span>
-<span class="linenos">458</span>     <span class="c1">#hue=&#39;event&#39;, style=&#39;event&#39;, col=&#39;region, palette=&#39;palette&#39;,</span>
-<span class="linenos">459</span>     <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
-<span class="linenos">460</span>     <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span>
-<span class="linenos">461</span> <span class="p">)</span>
-<span class="linenos">462</span>
-<span class="linenos">463</span> <span class="c1"># Show</span>
-<span class="linenos">464</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">MIMIC</span></code>, the deidentification process for structured data required
-the removal of dates. In particular, dates were shifted into the future
-by a random offset for each individual patient in a consistent manner to
-preserve intervals, resulting in stays which occur sometime between the
-years 2100 and 2200. Time of day, day of the week, and approximate
-seasonality were conserved during date shifting.</p>
-</div>
-<ol class="loweralpha simple" start="4">
-<li><p>Extra code</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">478</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">479</span><span class="sd"> # Define data</span>
-<span class="linenos">480</span><span class="sd"> data = [</span>
-<span class="linenos">481</span>
-<span class="linenos">482</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2000, 0, 100, 10],</span>
-<span class="linenos">483</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2000, 0, 100, 9],</span>
-<span class="linenos">484</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2000, 0, 100, 8],</span>
-<span class="linenos">485</span>
-<span class="linenos">486</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2001, 50, 50, 10],</span>
-<span class="linenos">487</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2001, 60, 40, 9],</span>
-<span class="linenos">488</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2001, 70, 30, 8],</span>
-<span class="linenos">489</span>
-<span class="linenos">490</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2002, 50, 50, 10],</span>
-<span class="linenos">491</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2002, 60, 40, 10],</span>
-<span class="linenos">492</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2002, 70, 30, 10],</span>
-<span class="linenos">493</span>
-<span class="linenos">494</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2003, 50, 50, 10],</span>
-<span class="linenos">495</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2003, 60, 40, 11],</span>
-<span class="linenos">496</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2003, 70, 30, 12],</span>
-<span class="linenos">497</span>
-<span class="linenos">498</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2004, 50, 50, 16],</span>
-<span class="linenos">499</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2004, 60, 40, 22],</span>
-<span class="linenos">500</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2004, 70, 30, 30],</span>
-<span class="linenos">501</span>
-<span class="linenos">502</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2005, 30, 70, 16],</span>
-<span class="linenos">503</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2005, 30, 70, 22],</span>
-<span class="linenos">504</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2005, 30, 70, 30],</span>
-<span class="linenos">505</span>
-<span class="linenos">506</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2006, 50, 50, 16],</span>
-<span class="linenos">507</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2006, 60, 40, 22],</span>
-<span class="linenos">508</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2006, 70, 30, 22],</span>
-<span class="linenos">509</span>
-<span class="linenos">510</span><span class="sd">     [&#39;o1&#39;, &#39;a1&#39;, 2007, 100, 0, 10],</span>
-<span class="linenos">511</span><span class="sd">     [&#39;o1&#39;, &#39;a2&#39;, 2007, 100, 0, 9],</span>
-<span class="linenos">512</span><span class="sd">     [&#39;o1&#39;, &#39;a3&#39;, 2007, 100, 0, 8],</span>
-<span class="linenos">513</span>
-<span class="linenos">514</span><span class="sd">     [&#39;o2&#39;, &#39;a1&#39;, 2001, 50, 50, 16],</span>
-<span class="linenos">515</span><span class="sd">     [&#39;o2&#39;, &#39;a2&#39;, 2001, 60, 40, 22],</span>
-<span class="linenos">516</span><span class="sd">     [&#39;o2&#39;, &#39;a3&#39;, 2001, 70, 30, 22],</span>
-<span class="linenos">517</span><span class="sd"> ]</span>
-<span class="linenos">518</span>
-<span class="linenos">519</span>
-<span class="linenos">520</span><span class="sd"> # Create DataFrame</span>
-<span class="linenos">521</span><span class="sd"> df = pd.DataFrame(data,</span>
-<span class="linenos">522</span><span class="sd">     columns=[&#39;o&#39;, &#39;a&#39;, &#39;year&#39;, &#39;R&#39;, &#39;S&#39;, &#39;dose&#39;])</span>
-<span class="linenos">523</span>
-<span class="linenos">524</span><span class="sd"> # Format DataFrame</span>
-<span class="linenos">525</span><span class="sd"> df.year = pd.to_datetime(df.year, format=&#39;%Y&#39;)</span>
-<span class="linenos">526</span><span class="sd"> df[&#39;r_prop&#39;] = df.R / (df.R + df.S)                                         # resistance proportion</span>
-<span class="linenos">527</span><span class="sd"> df[&#39;d_prop&#39;] = df.dose / df.groupby(by=[&#39;o&#39;, &#39;year&#39;]).dose.transform(&#39;sum&#39;) # dose proportion</span>
-<span class="linenos">528</span>
-<span class="linenos">529</span><span class="sd"> # Show</span>
-<span class="linenos">530</span><span class="sd"> print(&quot;Data:&quot;)</span>
-<span class="linenos">531</span><span class="sd"> print(df)</span>
-<span class="linenos">532</span>
-<span class="linenos">533</span><span class="sd"> # Example 1: Fixed</span>
-<span class="linenos">534</span><span class="sd"> # ----------------</span>
+<span class="linenos">456</span>     <span class="c1"># Display using plt.plot.</span>
+<span class="linenos">457</span>     <span class="c1">#plt.plot(df4.index, df4.dri, linewidth=0.75, markersize=3, marker=&#39;o&#39;)</span>
+<span class="linenos">458</span>
+<span class="linenos">459</span>     <span class="c1"># Display using relplot</span>
+<span class="linenos">460</span>     <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df4</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;dri&#39;</span><span class="p">,</span>
+<span class="linenos">461</span>         <span class="c1">#hue=&#39;event&#39;, style=&#39;event&#39;, col=&#39;region, palette=&#39;palette&#39;,</span>
+<span class="linenos">462</span>         <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
+<span class="linenos">463</span>         <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span>
+<span class="linenos">464</span>     <span class="p">)</span>
+<span class="linenos">465</span>
+<span class="linenos">466</span>     <span class="c1"># Show</span>
+<span class="linenos">467</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">468</span>
+<span class="linenos">469</span>     <span class="c1">#%%</span>
+<span class="linenos">470</span>     <span class="c1"># .. note:: In ``MIMIC``, the deidentification process for structured data required</span>
+<span class="linenos">471</span>     <span class="c1">#           the removal of dates. In particular, dates were shifted into the future</span>
+<span class="linenos">472</span>     <span class="c1">#           by a random offset for each individual patient in a consistent manner to</span>
+<span class="linenos">473</span>     <span class="c1">#           preserve intervals, resulting in stays which occur sometime between the</span>
+<span class="linenos">474</span>     <span class="c1">#           years 2100 and 2200. Time of day, day of the week, and approximate</span>
+<span class="linenos">475</span>     <span class="c1">#           seasonality were conserved during date shifting.</span>
+<span class="linenos">476</span>
+<span class="linenos">477</span>     <span class="c1">########################################################################</span>
+<span class="linenos">478</span>     <span class="c1"># d) Extra code</span>
+<span class="linenos">479</span>
+<span class="linenos">480</span>
+<span class="linenos">481</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">482</span><span class="sd">     # Define data</span>
+<span class="linenos">483</span><span class="sd">     data = [</span>
+<span class="linenos">484</span>
+<span class="linenos">485</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2000, 0, 100, 10],</span>
+<span class="linenos">486</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2000, 0, 100, 9],</span>
+<span class="linenos">487</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2000, 0, 100, 8],</span>
+<span class="linenos">488</span>
+<span class="linenos">489</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2001, 50, 50, 10],</span>
+<span class="linenos">490</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2001, 60, 40, 9],</span>
+<span class="linenos">491</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2001, 70, 30, 8],</span>
+<span class="linenos">492</span>
+<span class="linenos">493</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2002, 50, 50, 10],</span>
+<span class="linenos">494</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2002, 60, 40, 10],</span>
+<span class="linenos">495</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2002, 70, 30, 10],</span>
+<span class="linenos">496</span>
+<span class="linenos">497</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2003, 50, 50, 10],</span>
+<span class="linenos">498</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2003, 60, 40, 11],</span>
+<span class="linenos">499</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2003, 70, 30, 12],</span>
+<span class="linenos">500</span>
+<span class="linenos">501</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2004, 50, 50, 16],</span>
+<span class="linenos">502</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2004, 60, 40, 22],</span>
+<span class="linenos">503</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2004, 70, 30, 30],</span>
+<span class="linenos">504</span>
+<span class="linenos">505</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2005, 30, 70, 16],</span>
+<span class="linenos">506</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2005, 30, 70, 22],</span>
+<span class="linenos">507</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2005, 30, 70, 30],</span>
+<span class="linenos">508</span>
+<span class="linenos">509</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2006, 50, 50, 16],</span>
+<span class="linenos">510</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2006, 60, 40, 22],</span>
+<span class="linenos">511</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2006, 70, 30, 22],</span>
+<span class="linenos">512</span>
+<span class="linenos">513</span><span class="sd">         [&#39;o1&#39;, &#39;a1&#39;, 2007, 100, 0, 10],</span>
+<span class="linenos">514</span><span class="sd">         [&#39;o1&#39;, &#39;a2&#39;, 2007, 100, 0, 9],</span>
+<span class="linenos">515</span><span class="sd">         [&#39;o1&#39;, &#39;a3&#39;, 2007, 100, 0, 8],</span>
+<span class="linenos">516</span>
+<span class="linenos">517</span><span class="sd">         [&#39;o2&#39;, &#39;a1&#39;, 2001, 50, 50, 16],</span>
+<span class="linenos">518</span><span class="sd">         [&#39;o2&#39;, &#39;a2&#39;, 2001, 60, 40, 22],</span>
+<span class="linenos">519</span><span class="sd">         [&#39;o2&#39;, &#39;a3&#39;, 2001, 70, 30, 22],</span>
+<span class="linenos">520</span><span class="sd">     ]</span>
+<span class="linenos">521</span>
+<span class="linenos">522</span>
+<span class="linenos">523</span><span class="sd">     # Create DataFrame</span>
+<span class="linenos">524</span><span class="sd">     df = pd.DataFrame(data,</span>
+<span class="linenos">525</span><span class="sd">         columns=[&#39;o&#39;, &#39;a&#39;, &#39;year&#39;, &#39;R&#39;, &#39;S&#39;, &#39;dose&#39;])</span>
+<span class="linenos">526</span>
+<span class="linenos">527</span><span class="sd">     # Format DataFrame</span>
+<span class="linenos">528</span><span class="sd">     df.year = pd.to_datetime(df.year, format=&#39;%Y&#39;)</span>
+<span class="linenos">529</span><span class="sd">     df[&#39;r_prop&#39;] = df.R / (df.R + df.S)                                         # resistance proportion</span>
+<span class="linenos">530</span><span class="sd">     df[&#39;d_prop&#39;] = df.dose / df.groupby(by=[&#39;o&#39;, &#39;year&#39;]).dose.transform(&#39;sum&#39;) # dose proportion</span>
+<span class="linenos">531</span>
+<span class="linenos">532</span><span class="sd">     # Show</span>
+<span class="linenos">533</span><span class="sd">     print(&quot;Data:&quot;)</span>
+<span class="linenos">534</span><span class="sd">     print(df)</span>
 <span class="linenos">535</span>
-<span class="linenos">536</span><span class="sd"> # Define p and q</span>
-<span class="linenos">537</span><span class="sd"> p = df.r_prop</span>
-<span class="linenos">538</span><span class="sd"> q = df.d_prop</span>
-<span class="linenos">539</span>
-<span class="linenos">540</span><span class="sd"> # Compute</span>
-<span class="linenos">541</span><span class="sd"> r0 = (p * q).sum()</span>
-<span class="linenos">542</span><span class="sd"> r1 = np.dot(p, q)</span>
-<span class="linenos">543</span><span class="sd"> r2 = np.matmul(p, q)</span>
-<span class="linenos">544</span>
-<span class="linenos">545</span><span class="sd"> # Show</span>
-<span class="linenos">546</span><span class="sd"> print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 1\n&quot; + &quot;=&quot;*80)</span>
-<span class="linenos">547</span><span class="sd"> print(r0)</span>
-<span class="linenos">548</span><span class="sd"> print(r1)</span>
-<span class="linenos">549</span><span class="sd"> print(r2)</span>
-<span class="linenos">550</span>
-<span class="linenos">551</span>
-<span class="linenos">552</span>
-<span class="linenos">553</span><span class="sd"> # Example 2: Manual</span>
-<span class="linenos">554</span><span class="sd"> # -----------------</span>
+<span class="linenos">536</span><span class="sd">     # Example 1: Fixed</span>
+<span class="linenos">537</span><span class="sd">     # ----------------</span>
+<span class="linenos">538</span>
+<span class="linenos">539</span><span class="sd">     # Define p and q</span>
+<span class="linenos">540</span><span class="sd">     p = df.r_prop</span>
+<span class="linenos">541</span><span class="sd">     q = df.d_prop</span>
+<span class="linenos">542</span>
+<span class="linenos">543</span><span class="sd">     # Compute</span>
+<span class="linenos">544</span><span class="sd">     r0 = (p * q).sum()</span>
+<span class="linenos">545</span><span class="sd">     r1 = np.dot(p, q)</span>
+<span class="linenos">546</span><span class="sd">     r2 = np.matmul(p, q)</span>
+<span class="linenos">547</span>
+<span class="linenos">548</span><span class="sd">     # Show</span>
+<span class="linenos">549</span><span class="sd">     print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 1\n&quot; + &quot;=&quot;*80)</span>
+<span class="linenos">550</span><span class="sd">     print(r0)</span>
+<span class="linenos">551</span><span class="sd">     print(r1)</span>
+<span class="linenos">552</span><span class="sd">     print(r2)</span>
+<span class="linenos">553</span>
+<span class="linenos">554</span>
 <span class="linenos">555</span>
-<span class="linenos">556</span><span class="sd"> # Initialize</span>
-<span class="linenos">557</span><span class="sd"> qik0 = None</span>
-<span class="linenos">558</span><span class="sd"> v_fixed = []</span>
-<span class="linenos">559</span><span class="sd"> v_evolv = []</span>
-<span class="linenos">560</span>
-<span class="linenos">561</span><span class="sd"> # Loop</span>
-<span class="linenos">562</span><span class="sd"> for i,g in df.groupby(by=[&#39;o&#39;, &#39;year&#39;]):</span>
-<span class="linenos">563</span><span class="sd">     if qik0 is None:</span>
-<span class="linenos">564</span><span class="sd">         qik0 = list(g.groupby(by=&#39;year&#39;))[0][1].d_prop</span>
-<span class="linenos">565</span>
-<span class="linenos">566</span><span class="sd">     v_fixed.append({&#39;o&#39;: i[0], &#39;t&#39;: i[1], &#39;v&#39;: np.dot(g.r_prop, qik0.T)})</span>
-<span class="linenos">567</span><span class="sd">     v_evolv.append({&#39;o&#39;: i[0], &#39;t&#39;: i[1], &#39;v&#39;: np.dot(g.r_prop, g.d_prop)})</span>
+<span class="linenos">556</span><span class="sd">     # Example 2: Manual</span>
+<span class="linenos">557</span><span class="sd">     # -----------------</span>
+<span class="linenos">558</span>
+<span class="linenos">559</span><span class="sd">     # Initialize</span>
+<span class="linenos">560</span><span class="sd">     qik0 = None</span>
+<span class="linenos">561</span><span class="sd">     v_fixed = []</span>
+<span class="linenos">562</span><span class="sd">     v_evolv = []</span>
+<span class="linenos">563</span>
+<span class="linenos">564</span><span class="sd">     # Loop</span>
+<span class="linenos">565</span><span class="sd">     for i,g in df.groupby(by=[&#39;o&#39;, &#39;year&#39;]):</span>
+<span class="linenos">566</span><span class="sd">         if qik0 is None:</span>
+<span class="linenos">567</span><span class="sd">             qik0 = list(g.groupby(by=&#39;year&#39;))[0][1].d_prop</span>
 <span class="linenos">568</span>
-<span class="linenos">569</span><span class="sd"> # Format</span>
-<span class="linenos">570</span><span class="sd"> v_fixed = pd.DataFrame(v_fixed)</span>
-<span class="linenos">571</span><span class="sd"> v_evolv = pd.DataFrame(v_evolv)</span>
-<span class="linenos">572</span><span class="sd"> v_combn = v_evolv.merge(v_fixed, how=&#39;outer&#39;,</span>
-<span class="linenos">573</span><span class="sd">     on=[&#39;o&#39;, &#39;t&#39;], suffixes=(&#39;_evolv&#39;, &#39;_fixed&#39;))</span>
-<span class="linenos">574</span>
-<span class="linenos">575</span><span class="sd"> # Show</span>
-<span class="linenos">576</span><span class="sd"> print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 2\n&quot; + &quot;=&quot;*80)</span>
-<span class="linenos">577</span><span class="sd"> print(v_combn)</span>
-<span class="linenos">578</span>
-<span class="linenos">579</span>
-<span class="linenos">580</span>
+<span class="linenos">569</span><span class="sd">         v_fixed.append({&#39;o&#39;: i[0], &#39;t&#39;: i[1], &#39;v&#39;: np.dot(g.r_prop, qik0.T)})</span>
+<span class="linenos">570</span><span class="sd">         v_evolv.append({&#39;o&#39;: i[0], &#39;t&#39;: i[1], &#39;v&#39;: np.dot(g.r_prop, g.d_prop)})</span>
+<span class="linenos">571</span>
+<span class="linenos">572</span><span class="sd">     # Format</span>
+<span class="linenos">573</span><span class="sd">     v_fixed = pd.DataFrame(v_fixed)</span>
+<span class="linenos">574</span><span class="sd">     v_evolv = pd.DataFrame(v_evolv)</span>
+<span class="linenos">575</span><span class="sd">     v_combn = v_evolv.merge(v_fixed, how=&#39;outer&#39;,</span>
+<span class="linenos">576</span><span class="sd">         on=[&#39;o&#39;, &#39;t&#39;], suffixes=(&#39;_evolv&#39;, &#39;_fixed&#39;))</span>
+<span class="linenos">577</span>
+<span class="linenos">578</span><span class="sd">     # Show</span>
+<span class="linenos">579</span><span class="sd">     print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 2\n&quot; + &quot;=&quot;*80)</span>
+<span class="linenos">580</span><span class="sd">     print(v_combn)</span>
 <span class="linenos">581</span>
-<span class="linenos">582</span><span class="sd"> # Example 3: Matrix</span>
-<span class="linenos">583</span><span class="sd"> # -----------------</span>
-<span class="linenos">584</span><span class="sd"> #</span>
-<span class="linenos">585</span>
-<span class="linenos">586</span><span class="sd"> print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 3\n&quot; + &quot;=&quot;*80)</span>
-<span class="linenos">587</span>
+<span class="linenos">582</span>
+<span class="linenos">583</span>
+<span class="linenos">584</span>
+<span class="linenos">585</span><span class="sd">     # Example 3: Matrix</span>
+<span class="linenos">586</span><span class="sd">     # -----------------</span>
+<span class="linenos">587</span><span class="sd">     #</span>
 <span class="linenos">588</span>
-<span class="linenos">589</span><span class="sd"> m1 = pd.pivot_table(df, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;r_prop&#39;)</span>
-<span class="linenos">590</span><span class="sd"> m2 = pd.pivot_table(df, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;d_prop&#39;)</span>
-<span class="linenos">591</span><span class="sd"> print(m1)</span>
-<span class="linenos">592</span><span class="sd"> print(m2)</span>
-<span class="linenos">593</span><span class="sd"> print(m1*m2)</span>
-<span class="linenos">594</span>
-<span class="linenos">595</span><span class="sd"> # Loop</span>
-<span class="linenos">596</span><span class="sd"> for i,g in df.groupby(by=&#39;year&#39;):</span>
-<span class="linenos">597</span><span class="sd">     m1 = pd.pivot_table(g, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;r_prop&#39;)</span>
-<span class="linenos">598</span><span class="sd">     m2 = pd.pivot_table(g, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;d_prop&#39;)</span>
-<span class="linenos">599</span><span class="sd">     dri = np.dot(m1, m2.T)</span>
-<span class="linenos">600</span><span class="sd">     print(i, dri)</span>
-<span class="linenos">601</span>
-<span class="linenos">602</span>
-<span class="linenos">603</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">589</span><span class="sd">     print(&quot;\n&quot; + &quot;=&quot;*80 + &quot;\nExample 3\n&quot; + &quot;=&quot;*80)</span>
+<span class="linenos">590</span>
+<span class="linenos">591</span>
+<span class="linenos">592</span><span class="sd">     m1 = pd.pivot_table(df, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;r_prop&#39;)</span>
+<span class="linenos">593</span><span class="sd">     m2 = pd.pivot_table(df, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;d_prop&#39;)</span>
+<span class="linenos">594</span><span class="sd">     print(m1)</span>
+<span class="linenos">595</span><span class="sd">     print(m2)</span>
+<span class="linenos">596</span><span class="sd">     print(m1*m2)</span>
+<span class="linenos">597</span>
+<span class="linenos">598</span><span class="sd">     # Loop</span>
+<span class="linenos">599</span><span class="sd">     for i,g in df.groupby(by=&#39;year&#39;):</span>
+<span class="linenos">600</span><span class="sd">         m1 = pd.pivot_table(g, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;r_prop&#39;)</span>
+<span class="linenos">601</span><span class="sd">         m2 = pd.pivot_table(g, index=&#39;o&#39;, columns=&#39;a&#39;, values=&#39;d_prop&#39;)</span>
+<span class="linenos">602</span><span class="sd">         dri = np.dot(m1, m2.T)</span>
+<span class="linenos">603</span><span class="sd">         print(i, dri)</span>
 <span class="linenos">604</span>
-<span class="linenos">605</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">606</span><span class="sd"> # Compute</span>
-<span class="linenos">607</span><span class="sd"> df3[&#39;use_period&#39;] = df3 \</span>
-<span class="linenos">608</span><span class="sd">     .groupby(level=0).use \</span>
-<span class="linenos">609</span><span class="sd">     .transform(lambda x: x.sum())</span>
-<span class="linenos">610</span><span class="sd"> df3[&#39;u_weight&#39;] = (df3.use / df3.use_period) #.round(decimals=2)</span>
-<span class="linenos">611</span><span class="sd"> df3[&#39;w_rate&#39;] = (df3.sari * df3.u_weight)  #.round(decimals=3)</span>
-<span class="linenos">612</span><span class="sd"> df3[&#39;dri&#39;] = df3 \</span>
-<span class="linenos">613</span><span class="sd">     .groupby(by=&#39;time&#39;).w_rate \</span>
-<span class="linenos">614</span><span class="sd">     .transform(lambda x: x.sum())</span>
-<span class="linenos">615</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">605</span>
+<span class="linenos">606</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">607</span>
+<span class="linenos">608</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">609</span><span class="sd">     # Compute</span>
+<span class="linenos">610</span><span class="sd">     df3[&#39;use_period&#39;] = df3 \</span>
+<span class="linenos">611</span><span class="sd">         .groupby(level=0).use \</span>
+<span class="linenos">612</span><span class="sd">         .transform(lambda x: x.sum())</span>
+<span class="linenos">613</span><span class="sd">     df3[&#39;u_weight&#39;] = (df3.use / df3.use_period) #.round(decimals=2)</span>
+<span class="linenos">614</span><span class="sd">     df3[&#39;w_rate&#39;] = (df3.sari * df3.u_weight)  #.round(decimals=3)</span>
+<span class="linenos">615</span><span class="sd">     df3[&#39;dri&#39;] = df3 \</span>
+<span class="linenos">616</span><span class="sd">         .groupby(by=&#39;time&#39;).w_rate \</span>
+<span class="linenos">617</span><span class="sd">         .transform(lambda x: x.sum())</span>
+<span class="linenos">618</span><span class="sd">     &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.064 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.051 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-utils-plot-drug-resistance-index-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3c3e16e74e7eea45cc5de0ac62d27fcf/plot_drug_resistance_index.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_drug_resistance_index.py</span></code></a></p>

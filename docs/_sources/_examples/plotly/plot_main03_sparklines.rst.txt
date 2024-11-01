@@ -167,7 +167,7 @@ This example shows to to plot sparklines style graphs.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.269 seconds)
+   **Total running time of the script:** ( 0 minutes  0.270 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main03_sparklines.py:

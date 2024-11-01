@@ -420,44 +420,13 @@ Display using ``sns.swarmplot``
          :class: sphx-glr-multi-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-    59.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    37.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    53.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    21.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    19.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-    53.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    49.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    21.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    8.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-    30.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    34.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    8.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-    32.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    18.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    8.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    17.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-    6.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  16.140 seconds)
+   **Total running time of the script:** ( 0 minutes  13.999 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_swarmplot.py:

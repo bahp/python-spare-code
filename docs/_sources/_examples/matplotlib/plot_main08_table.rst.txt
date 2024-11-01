@@ -95,7 +95,7 @@ Plot bars and add a table to an Axes.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.134 seconds)
+   **Total running time of the script:** ( 0 minutes  0.132 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main08_table.py:
