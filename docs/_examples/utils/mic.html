@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIC package &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Collateral Sensitivity Index" href="plot_collateral_sensitivity.html" />
+    <link rel="prev" title="UKVI trips visualisation" href="../ukvi-trips/plot_main01.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#utils">Utils</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MIC package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_collateral_sensitivity.html">Collateral Sensitivity Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_drug_resistance_index.html">Drug Resistance Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_generate_data_AST.html">Generate data AST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_multi_armed_bandit.html">Multi-Armed bandit problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mutual_information.html">Mutual Information Criteria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v1.html">Drawing a planet orbit (stackoverflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v2.html">Drawing a planet orbit (customised)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_scale_colormap.html">Show colormap for various scalings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">MIC package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/utils/mic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-utils-mic-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="mic-package">
+<span id="sphx-glr-examples-utils-mic-py"></span><h1>MIC package<a class="headerlink" href="#mic-package" title="Permalink to this heading"></a></h1>
+<p>v1 = [R, R, R, R]
+v2 = [R, R, R, R]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 10</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 12</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span> <span class="kn">from</span> <span class="nn">scipy.stats.contingency</span> <span class="kn">import</span> <span class="n">crosstab</span>
+<span class="linenos"> 15</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mutual_info_score</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span> <span class="k">def</span> <span class="nf">mutual_info_matrix_v3</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ct</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos"> 19</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Compute the component information score.</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span><span class="sd">     .. note: Might be inefficient but good for testing.</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span><span class="sd">     .. note: In order to be able to compute the mutual</span>
+<span class="linenos"> 24</span><span class="sd">              information score it is necessary to have</span>
+<span class="linenos"> 25</span><span class="sd">              variation within the variable. Thus, if</span>
+<span class="linenos"> 26</span><span class="sd">              there is only one class, should we return</span>
+<span class="linenos"> 27</span><span class="sd">              a result or a warning?</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="sd">     Parameters</span>
+<span class="linenos"> 30</span><span class="sd">     ----------</span>
+<span class="linenos"> 31</span><span class="sd">     x: list</span>
+<span class="linenos"> 32</span><span class="sd">         List with the classes</span>
+<span class="linenos"> 33</span><span class="sd">     y: list</span>
+<span class="linenos"> 34</span><span class="sd">         List with the classes</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="sd">     Returns</span>
+<span class="linenos"> 37</span><span class="sd">     -------</span>
+<span class="linenos"> 38</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span>     <span class="k">def</span> <span class="nf">_check_nparray</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">param_name</span><span class="p">):</span>
+<span class="linenos"> 41</span>         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 42</span>             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="linenos"> 43</span>                 <span class="k">return</span> <span class="n">obj</span>
+<span class="linenos"> 44</span>             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+<span class="linenos"> 45</span>                 <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="linenos"> 46</span>             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="linenos"> 47</span>                 <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="linenos"> 48</span>             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="linenos"> 49</span>                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="linenos"> 50</span>             <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 51</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos"> 52</span><span class="s2">                        The input parameter &#39;</span><span class="si">{0}</span><span class="s2">&#39; is of type &#39;</span><span class="si">{1}</span><span class="s2"> which is</span>
+<span class="linenos"> 53</span><span class="s2">                        not supported. Please ensure it is a np.ndarray.&quot;&quot;&quot;</span>
+<span class="linenos"> 54</span>                                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param_name</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)))</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span>         <span class="c1"># Ensure they are all np arrays</span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">_check_nparray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="linenos"> 59</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">_check_nparray</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="linenos"> 60</span>     <span class="n">ct</span> <span class="o">=</span> <span class="n">_check_nparray</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">)</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span>     <span class="c1"># Compute contingency</span>
+<span class="linenos"> 63</span>     <span class="k">if</span> <span class="n">ct</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 64</span>         <span class="n">c</span> <span class="o">=</span> <span class="n">crosstab</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos"> 65</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="linenos"> 66</span>             <span class="n">ct</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># older scipy</span>
+<span class="linenos"> 67</span>         <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 68</span>             <span class="n">ct</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">count</span> <span class="c1"># newer scipy</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span>     <span class="c1"># Variables</span>
+<span class="linenos"> 71</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="linenos"> 72</span>     <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">n</span>
+<span class="linenos"> 73</span>     <span class="n">pj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="n">n</span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span>     <span class="c1"># Create empty matrix</span>
+<span class="linenos"> 76</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="linenos"> 77</span>     <span class="n">m</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="linenos"> 78</span>
+<span class="linenos"> 79</span>     <span class="c1"># Fill with component information score</span>
+<span class="linenos"> 80</span>     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+<span class="linenos"> 81</span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<span class="linenos"> 82</span>             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+<span class="linenos"> 83</span>                 <span class="n">pxy</span> <span class="o">=</span> <span class="n">ct</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">n</span>
+<span class="linenos"> 84</span>                 <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">pxy</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pxy</span> <span class="o">/</span> <span class="p">(</span><span class="n">pi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">pj</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span>     <span class="c1"># Fill with na (lim x-&gt;0 =&gt; 0)</span>
+<span class="linenos"> 87</span>     <span class="n">m</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span>     <span class="c1"># Return</span>
+<span class="linenos"> 90</span>     <span class="k">return</span> <span class="n">m</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span> <span class="k">def</span> <span class="nf">mutual_info_matrix_v2</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ct</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos"> 94</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Computes the component information.</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span><span class="sd">     The component information is calculated as below where X/Y</span>
+<span class="linenos"> 97</span><span class="sd">     denotes a state (e.g. RR).</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span><span class="sd">         C(X/Y) = P(X/Y) * log(P(X/Y) / P(X)*P(Y))</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="sd">           c11 c12</span>
+<span class="linenos">102</span><span class="sd">     C =   c21 c22</span>
+<span class="linenos">103</span>
+<span class="linenos">104</span><span class="sd">     pi = [pi1, pi2]</span>
+<span class="linenos">105</span><span class="sd">     pj = [pj1, pj2]</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span><span class="sd">     ci11 = c11/n * np.log(c11/n / pi1*pj1)</span>
+<span class="linenos">108</span><span class="sd">     ci12 = c12/n * np.log(c12/n / pi1*pj2)</span>
+<span class="linenos">109</span><span class="sd">     ci21 = c21/n * np.log(c21/n / pi2*pj1)</span>
+<span class="linenos">110</span><span class="sd">     ci22 = c22/n * np.log(c22/n / pi2*pj2)</span>
+<span class="linenos">111</span>
+<span class="linenos">112</span><span class="sd">     .. warning: It only works for square contingency matrices; that is, the</span>
+<span class="linenos">113</span><span class="sd">                 number of different classes appearing in the vectors x and y</span>
+<span class="linenos">114</span><span class="sd">                 must be the same.</span>
+<span class="linenos">115</span>
+<span class="linenos">116</span><span class="sd">                 Enough for susceptibility test with only R and S. Will</span>
+<span class="linenos">117</span><span class="sd">                 fail if only one is present or I is introduced.</span>
+<span class="linenos">118</span>
+<span class="linenos">119</span><span class="sd">     Example</span>
+<span class="linenos">120</span><span class="sd">     -------</span>
+<span class="linenos">121</span><span class="sd">     sex           Female  Male  Total</span>
+<span class="linenos">122</span><span class="sd">     lbl</span>
+<span class="linenos">123</span><span class="sd">     Not Survived      89   483    572</span>
+<span class="linenos">124</span><span class="sd">     Survived         230   112    342</span>
+<span class="linenos">125</span><span class="sd">     Total            319   595    914</span>
+<span class="linenos">126</span>
+<span class="linenos">127</span><span class="sd">     # Manual example.</span>
+<span class="linenos">128</span><span class="sd">     ci11 = (89  / 914) * np.log((89  / 914) / (572 / 914) * (319 / 914))</span>
+<span class="linenos">129</span><span class="sd">     ci12 = (483 / 914) * np.log((483 / 914) / (572 / 914) * (595 / 914))</span>
+<span class="linenos">130</span><span class="sd">     ci21 = (230 / 914) * np.log((230 / 914) / (342 / 914) * (319 / 914))</span>
+<span class="linenos">131</span><span class="sd">     ci22 = (112 / 914) * np.log((112 / 914) / (342 / 914) * (595 / 914))</span>
+<span class="linenos">132</span><span class="sd">     m = np.array([[ci11, ci12], [ci21, ci22]])</span>
+<span class="linenos">133</span>
+<span class="linenos">134</span><span class="sd">     # Compute</span>
+<span class="linenos">135</span><span class="sd">     m = component_information_v0(x=data.lbl, y=d.sex)</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span><span class="sd">     Parameters</span>
+<span class="linenos">138</span><span class="sd">     ----------</span>
+<span class="linenos">139</span>
+<span class="linenos">140</span><span class="sd">     Returns</span>
+<span class="linenos">141</span><span class="sd">     -------</span>
+<span class="linenos">142</span>
+<span class="linenos">143</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">144</span>
+<span class="linenos">145</span>     <span class="k">def</span> <span class="nf">_check_nparray</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">param_name</span><span class="p">):</span>
+<span class="linenos">146</span>         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">147</span>             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="linenos">148</span>                 <span class="k">return</span> <span class="n">obj</span>
+<span class="linenos">149</span>             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+<span class="linenos">150</span>                 <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="linenos">151</span>             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="linenos">152</span>                 <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="linenos">153</span>             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="linenos">154</span>                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="linenos">155</span>             <span class="k">else</span><span class="p">:</span>
+<span class="linenos">156</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos">157</span><span class="s2">                        The input parameter &#39;</span><span class="si">{0}</span><span class="s2">&#39; is of type &#39;</span><span class="si">{1}</span><span class="s2"> which is</span>
+<span class="linenos">158</span><span class="s2">                        not supported. Please ensure it is a np.ndarray.&quot;&quot;&quot;</span>
+<span class="linenos">159</span>                                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param_name</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)))</span>
+<span class="linenos">160</span>
+<span class="linenos">161</span>         <span class="c1"># Ensure they are all np arrays</span>
+<span class="linenos">162</span>
+<span class="linenos">163</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">_check_nparray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="linenos">164</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">_check_nparray</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="linenos">165</span>     <span class="n">ct</span> <span class="o">=</span> <span class="n">_check_nparray</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">)</span>
+<span class="linenos">166</span>
+<span class="linenos">167</span>     <span class="c1"># Compute contingency</span>
+<span class="linenos">168</span>     <span class="k">if</span> <span class="n">ct</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">169</span>         <span class="n">c</span> <span class="o">=</span> <span class="n">crosstab</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">170</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="linenos">171</span>             <span class="n">ct</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># older scipy</span>
+<span class="linenos">172</span>         <span class="k">else</span><span class="p">:</span>
+<span class="linenos">173</span>             <span class="n">ct</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">count</span>  <span class="c1"># newer scipy</span>
+<span class="linenos">174</span>
+<span class="linenos">175</span>     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+<span class="linenos">176</span>         <span class="c1"># Variables</span>
+<span class="linenos">177</span>         <span class="n">n</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="linenos">178</span>         <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">179</span>         <span class="n">pj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span>         <span class="c1"># Compute matrix</span>
+<span class="linenos">182</span>         <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">183</span>         <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">pj</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">pj</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">184</span>         <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">ct</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">ct</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">b</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="n">n</span><span class="p">)))</span>
+<span class="linenos">185</span>
+<span class="linenos">186</span>     <span class="c1"># Fill with na (lim x-&gt;0 =&gt; 0)</span>
+<span class="linenos">187</span>     <span class="n">m</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">188</span>
+<span class="linenos">189</span>     <span class="c1"># Return</span>
+<span class="linenos">190</span>     <span class="k">return</span> <span class="n">m</span>
+<span class="linenos">191</span>
+<span class="linenos">192</span>
+<span class="linenos">193</span> <span class="k">def</span> <span class="nf">mutual_info_matrix_v1</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">ct</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos">194</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Computes the mutual information matrix</span>
+<span class="linenos">195</span>
+<span class="linenos">196</span><span class="sd">     The component information is calculated as below where X/Y</span>
+<span class="linenos">197</span><span class="sd">     denotes a state (e.g. RR).</span>
+<span class="linenos">198</span>
+<span class="linenos">199</span><span class="sd">         C(X/Y) = P(XY) * log(P(XY) / P(X)*P(Y))</span>
+<span class="linenos">200</span><span class="sd">                = P(XY) * [log(P(XY)) - log(P(X)*P(Y))]</span>
+<span class="linenos">201</span><span class="sd">                = P(XY) * [log(P(XY)) - (log(P(X)) + log(P(Y)))]</span>
+<span class="linenos">202</span><span class="sd">                = P(XY) * [log(P(XY)) - log(P(X)) - log(P(Y))]</span>
+<span class="linenos">203</span>
+<span class="linenos">204</span><span class="sd">     .. note:: It is inspired by the code from sklearn.metrics.mutual_info_score.</span>
+<span class="linenos">205</span>
+<span class="linenos">206</span><span class="sd">     Notes</span>
+<span class="linenos">207</span><span class="sd">     -----</span>
+<span class="linenos">208</span><span class="sd">     The logarithm used is the natural logarithm (base-e).</span>
+<span class="linenos">209</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">210</span>     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+<span class="linenos">211</span>     <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span> <span class="k">as</span> <span class="n">sp</span>
+<span class="linenos">212</span>     <span class="kn">from</span> <span class="nn">sklearn.metrics.cluster._supervised</span> <span class="kn">import</span> <span class="n">check_clusterings</span>
+<span class="linenos">213</span>     <span class="kn">from</span> <span class="nn">sklearn.metrics.cluster._supervised</span> <span class="kn">import</span> <span class="n">check_array</span>
+<span class="linenos">214</span>     <span class="kn">from</span> <span class="nn">sklearn.metrics.cluster._supervised</span> <span class="kn">import</span> <span class="n">contingency_matrix</span>
+<span class="linenos">215</span>
+<span class="linenos">216</span>     <span class="n">labels_true</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">,</span> <span class="n">contingency</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ct</span>
+<span class="linenos">217</span>
+<span class="linenos">218</span>     <span class="k">if</span> <span class="n">contingency</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">219</span>         <span class="n">labels_true</span><span class="p">,</span> <span class="n">labels_pred</span> <span class="o">=</span> <span class="n">check_clusterings</span><span class="p">(</span><span class="n">labels_true</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span>
+<span class="linenos">220</span>         <span class="n">contingency</span> <span class="o">=</span> <span class="n">contingency_matrix</span><span class="p">(</span><span class="n">labels_true</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">221</span>     <span class="k">else</span><span class="p">:</span>
+<span class="linenos">222</span>         <span class="n">contingency</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span>
+<span class="linenos">223</span>             <span class="n">contingency</span><span class="p">,</span>
+<span class="linenos">224</span>             <span class="n">accept_sparse</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span> <span class="s2">&quot;csc&quot;</span><span class="p">,</span> <span class="s2">&quot;coo&quot;</span><span class="p">],</span>
+<span class="linenos">225</span>             <span class="n">dtype</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">],</span>
+<span class="linenos">226</span>         <span class="p">)</span>
+<span class="linenos">227</span>
+<span class="linenos">228</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">contingency</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="linenos">229</span>         <span class="c1"># For an array</span>
+<span class="linenos">230</span>         <span class="n">nzx</span><span class="p">,</span> <span class="n">nzy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">contingency</span><span class="p">)</span>
+<span class="linenos">231</span>         <span class="n">nz_val</span> <span class="o">=</span> <span class="n">contingency</span><span class="p">[</span><span class="n">nzx</span><span class="p">,</span> <span class="n">nzy</span><span class="p">]</span>
+<span class="linenos">232</span>     <span class="k">elif</span> <span class="n">sp</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">contingency</span><span class="p">):</span>
+<span class="linenos">233</span>         <span class="c1"># For a sparse matrix</span>
+<span class="linenos">234</span>         <span class="n">nzx</span><span class="p">,</span> <span class="n">nzy</span><span class="p">,</span> <span class="n">nz_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">contingency</span><span class="p">)</span>
+<span class="linenos">235</span>     <span class="k">else</span><span class="p">:</span>
+<span class="linenos">236</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported type for &#39;contingency&#39;: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">contingency</span><span class="p">))</span>
+<span class="linenos">237</span>
+<span class="linenos">238</span>     <span class="n">contingency_sum</span> <span class="o">=</span> <span class="n">contingency</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="linenos">239</span>     <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">contingency</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">240</span>     <span class="n">pj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">contingency</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="linenos">241</span>
+<span class="linenos">242</span>     <span class="c1"># Since MI &lt;= min(H(X), H(Y)), any labelling with zero entropy, i.e. containing a</span>
+<span class="linenos">243</span>     <span class="c1"># single cluster, implies MI = 0</span>
+<span class="linenos">244</span>     <span class="k">if</span> <span class="n">pi</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">pj</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">245</span>         <span class="k">return</span> <span class="mf">0.0</span>
+<span class="linenos">246</span>
+<span class="linenos">247</span>     <span class="n">log_contingency_nm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">nz_val</span><span class="p">)</span>
+<span class="linenos">248</span>     <span class="n">contingency_nm</span> <span class="o">=</span> <span class="n">nz_val</span> <span class="o">/</span> <span class="n">contingency_sum</span>
+<span class="linenos">249</span>     <span class="c1"># Don&#39;t need to calculate the full outer product, just for non-zeroes</span>
+<span class="linenos">250</span>     <span class="n">outer</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">nzx</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">*</span> \
+<span class="linenos">251</span>             <span class="n">pj</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">nzy</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># b*c</span>
+<span class="linenos">252</span>     <span class="n">log_outer</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">outer</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pj</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="linenos">253</span>
+<span class="linenos">254</span>     <span class="n">mi</span> <span class="o">=</span> <span class="p">(</span>
+<span class="linenos">255</span>         <span class="n">contingency_nm</span> <span class="o">*</span> <span class="p">(</span><span class="n">log_contingency_nm</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">contingency_sum</span><span class="p">))</span>
+<span class="linenos">256</span>         <span class="o">+</span> <span class="n">contingency_nm</span> <span class="o">*</span> <span class="n">log_outer</span>
+<span class="linenos">257</span>     <span class="p">)</span>
+<span class="linenos">258</span>     <span class="n">mi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">mi</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">mi</span><span class="p">)</span>
+<span class="linenos">259</span>
+<span class="linenos">260</span>     <span class="c1">#return np.clip(mi.sum(), 0.0, None), mi</span>
+<span class="linenos">261</span>     <span class="k">try</span><span class="p">:</span>
+<span class="linenos">262</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">contingency</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="linenos">263</span>     <span class="k">except</span><span class="p">:</span>
+<span class="linenos">264</span>         <span class="k">return</span> <span class="n">mi</span>
+<span class="linenos">265</span>         <span class="c1">#return mutual_info_matrix_v3(x=x, y=y, ct=ct)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-utils-mic-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/b9ac40dfffd8e392e878859a4338d1c6/mic.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mic.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/ab9483384231983ea51a8055ca387fc4/mic.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">mic.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../ukvi-trips/plot_main01.html" class="btn btn-neutral float-left" title="UKVI trips visualisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_collateral_sensitivity.html" class="btn btn-neutral float-right" title="Collateral Sensitivity Index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

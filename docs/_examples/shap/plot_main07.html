@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>07. Basic example &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="08. Basic example" href="plot_main08.html" />
+    <link rel="prev" title="06. Basic example" href="plot_main06.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#shap">Shap</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01.html">01. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02.html">02. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03.html">03. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04.html">04. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05.html">05. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_stripplot.html">05. Stripplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_summaryplot.html">05. Summary plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_swarmplot.html">05. Swarmplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06.html">06. Basic example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">07. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08.html">08. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="temp.html">06. Basic example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">07. Basic example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/shap/plot_main07.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-shap-plot-main07-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="basic-example">
+<span id="sphx-glr-examples-shap-plot-main07-py"></span><h1>07. Basic example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
+<img src="../../_images/sphx_glr_plot_main07_001.png" srcset="../../_images/sphx_glr_plot_main07_001.png" alt="plot main07" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>11%|==                  | 3498/32561 [00:11&lt;01:31]
+12%|==                  | 4021/32561 [00:12&lt;01:25]
+14%|===                 | 4547/32561 [00:13&lt;01:20]
+16%|===                 | 5067/32561 [00:14&lt;01:15]
+17%|===                 | 5580/32561 [00:15&lt;01:12]
+19%|====                | 6091/32561 [00:16&lt;01:09]
+20%|====                | 6613/32561 [00:17&lt;01:06]
+22%|====                | 7118/32561 [00:18&lt;01:04]
+23%|=====               | 7629/32561 [00:19&lt;01:02]
+25%|=====               | 8142/32561 [00:20&lt;00:59]
+27%|=====               | 8671/32561 [00:21&lt;00:57]
+28%|======              | 9197/32561 [00:22&lt;00:55]
+30%|======              | 9727/32561 [00:23&lt;00:53]
+32%|======              | 10257/32561 [00:24&lt;00:52]
+33%|=======             | 10778/32561 [00:25&lt;00:50]
+35%|=======             | 11297/32561 [00:26&lt;00:48]
+36%|=======             | 11812/32561 [00:27&lt;00:47]
+38%|========            | 12334/32561 [00:28&lt;00:45]
+39%|========            | 12844/32561 [00:29&lt;00:44]
+41%|========            | 13349/32561 [00:30&lt;00:43]
+43%|=========           | 13877/32561 [00:31&lt;00:41]
+44%|=========           | 14400/32561 [00:32&lt;00:40]
+46%|=========           | 14915/32561 [00:33&lt;00:39]
+47%|=========           | 15441/32561 [00:34&lt;00:37]
+49%|==========          | 15966/32561 [00:35&lt;00:36]
+51%|==========          | 16487/32561 [00:36&lt;00:35]
+52%|==========          | 17004/32561 [00:37&lt;00:33]
+54%|===========         | 17524/32561 [00:38&lt;00:32]
+55%|===========         | 18029/32561 [00:39&lt;00:31]
+57%|===========         | 18544/32561 [00:40&lt;00:30]
+59%|============        | 19053/32561 [00:41&lt;00:29]
+60%|============        | 19576/32561 [00:42&lt;00:27]
+62%|============        | 20097/32561 [00:43&lt;00:26]
+63%|=============       | 20621/32561 [00:44&lt;00:25]
+65%|=============       | 21147/32561 [00:45&lt;00:24]
+67%|=============       | 21662/32561 [00:46&lt;00:23]
+68%|==============      | 22182/32561 [00:47&lt;00:21]
+70%|==============      | 22702/32561 [00:48&lt;00:20]
+71%|==============      | 23220/32561 [00:49&lt;00:19]
+73%|===============     | 23725/32561 [00:50&lt;00:18]
+74%|===============     | 24229/32561 [00:51&lt;00:17]
+76%|===============     | 24755/32561 [00:52&lt;00:16]
+78%|================    | 25283/32561 [00:53&lt;00:15]
+79%|================    | 25806/32561 [00:54&lt;00:14]
+81%|================    | 26331/32561 [00:55&lt;00:13]
+82%|================    | 26862/32561 [00:56&lt;00:11]
+84%|=================   | 27374/32561 [00:57&lt;00:10]
+86%|=================   | 27895/32561 [00:58&lt;00:09]
+87%|=================   | 28418/32561 [00:59&lt;00:08]
+89%|==================  | 28927/32561 [01:00&lt;00:07]
+90%|==================  | 29437/32561 [01:01&lt;00:06]
+92%|==================  | 29940/32561 [01:02&lt;00:05]
+94%|=================== | 30470/32561 [01:03&lt;00:04]
+95%|=================== | 30997/32561 [01:04&lt;00:03]
+97%|=================== | 31524/32561 [01:05&lt;00:02]
+98%|===================| 32053/32561 [01:06&lt;00:01]       No data for colormapping provided via &#39;c&#39;. Parameters &#39;vmin&#39;, &#39;vmax&#39; will be ignored
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 6</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 7</span> <span class="kn">import</span> <span class="nn">xgboost</span>
+<span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">shap</span>
+<span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span> <span class="c1"># Load shap dataset</span>
+<span class="linenos">12</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">adult</span><span class="p">()</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span> <span class="c1"># Train model</span>
+<span class="linenos">15</span> <span class="n">model</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span> <span class="c1"># Create shap explainer</span>
+<span class="linenos">18</span> <span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">Explainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="linenos">19</span> <span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span> <span class="c1"># Create beeswarm plot using explainer</span>
+<span class="linenos">23</span> <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">beeswarm</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span>
+<span class="linenos">24</span>     <span class="n">max_display</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+<span class="linenos">25</span>     <span class="n">order</span><span class="o">=</span><span class="n">shap</span><span class="o">.</span><span class="n">Explanation</span><span class="o">.</span><span class="n">abs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span> <span class="c1"># Adjust</span>
+<span class="linenos">28</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  9.865 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-shap-plot-main07-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/91b32df94d37dd7194958bff3cd8b8c7/plot_main07.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main07.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/5e85d23cf4924310eb03d213fa76f99b/plot_main07.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main07.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main06.html" class="btn btn-neutral float-left" title="06. Basic example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main08.html" class="btn btn-neutral float-right" title="08. Basic example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
