@@ -1,0 +1,12 @@
+
+:orphan:
+
+.. _sphx_glr__examples_ukvi-trips_sg_execution_times:
+
+Computation times
+=================
+**00:01.829** total execution time for **_examples_ukvi-trips** files:
+
++--------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_ukvi-trips_plot_main01.py` (``plot_main01.py``) | 00:01.829 | 0.0 MB |
++--------------------------------------------------------------------------+-----------+--------+

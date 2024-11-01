@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>05. Basic example &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="05. Stripplot" href="plot_main05_stripplot.html" />
+    <link rel="prev" title="04. Basic example" href="plot_main04.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#shap">Shap</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01.html">01. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02.html">02. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03.html">03. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04.html">04. Basic example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">05. Basic example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#display-using-shap-summary-plot">Display using <code class="docutils literal notranslate"><span class="pre">shap.summary_plot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-using-sns-stripplot">Display using <code class="docutils literal notranslate"><span class="pre">sns.stripplot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-using-sns-swarmplot">Display using <code class="docutils literal notranslate"><span class="pre">sns.swarmplot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-using-sns-facetgrid">Display using <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-using-shap-beeswarm">Display using <code class="docutils literal notranslate"><span class="pre">shap.beeswarm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_stripplot.html">05. Stripplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_summaryplot.html">05. Summary plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_swarmplot.html">05. Swarmplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06.html">06. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07.html">07. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08.html">08. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="temp.html">06. Basic example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">05. Basic example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/shap/plot_main05.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-shap-plot-main05-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="basic-example">
+<span id="sphx-glr-examples-shap-plot-main05-py"></span><h1>05. Basic example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  6</span> <span class="c1"># Libraries</span>
+<span class="linenos">  7</span> <span class="kn">import</span> <span class="nn">shap</span>
+<span class="linenos">  8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">  9</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="linenos"> 11</span>
+<span class="linenos"> 12</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos"> 13</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="linenos"> 14</span> <span class="kn">import</span> <span class="nn">matplotlib.colorbar</span>
+<span class="linenos"> 15</span> <span class="kn">import</span> <span class="nn">matplotlib.colors</span>
+<span class="linenos"> 16</span> <span class="kn">import</span> <span class="nn">matplotlib.cm</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span> <span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span> <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 21</span>     <span class="vm">__file__</span>
+<span class="linenos"> 22</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos"> 23</span> <span class="k">except</span><span class="p">:</span>
+<span class="linenos"> 24</span>     <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span> <span class="c1"># ------------------------</span>
+<span class="linenos"> 27</span> <span class="c1"># Methods</span>
+<span class="linenos"> 28</span> <span class="c1"># ------------------------</span>
+<span class="linenos"> 29</span> <span class="k">def</span> <span class="nf">scalar_colormap</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
+<span class="linenos"> 30</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;This method creates a colormap based on values.</span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span><span class="sd">     Parameters</span>
+<span class="linenos"> 33</span><span class="sd">     ----------</span>
+<span class="linenos"> 34</span><span class="sd">     values : array-like</span>
+<span class="linenos"> 35</span><span class="sd">     The values to create the corresponding colors</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span><span class="sd">     cmap : str</span>
+<span class="linenos"> 38</span><span class="sd">     The colormap</span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span><span class="sd">     vmin, vmax : float</span>
+<span class="linenos"> 41</span><span class="sd">     The minimum and maximum possible values</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span><span class="sd">     Returns</span>
+<span class="linenos"> 44</span><span class="sd">     -------</span>
+<span class="linenos"> 45</span><span class="sd">     scalar colormap</span>
+<span class="linenos"> 46</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 47</span>     <span class="c1"># Create scalar mappable</span>
+<span class="linenos"> 48</span>     <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 49</span>     <span class="n">mapper</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="linenos"> 50</span>     <span class="c1"># Get color map</span>
+<span class="linenos"> 51</span>     <span class="n">colormap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">([</span><span class="n">mapper</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values</span><span class="p">])</span>
+<span class="linenos"> 52</span>     <span class="c1"># Return</span>
+<span class="linenos"> 53</span>     <span class="k">return</span> <span class="n">colormap</span><span class="p">,</span> <span class="n">norm</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span> <span class="k">def</span> <span class="nf">scalar_palette</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
+<span class="linenos"> 57</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;This method creates a colorpalette based on values.</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span><span class="sd">     Parameters</span>
+<span class="linenos"> 60</span><span class="sd">     ----------</span>
+<span class="linenos"> 61</span><span class="sd">     values : array-like</span>
+<span class="linenos"> 62</span><span class="sd">     The values to create the corresponding colors</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span><span class="sd">     cmap : str</span>
+<span class="linenos"> 65</span><span class="sd">     The colormap</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span><span class="sd">     vmin, vmax : float</span>
+<span class="linenos"> 68</span><span class="sd">     The minimum and maximum possible values</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span><span class="sd">     Returns</span>
+<span class="linenos"> 71</span><span class="sd">     -------</span>
+<span class="linenos"> 72</span><span class="sd">     scalar colormap</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 75</span>     <span class="c1"># Create a matplotlib colormap from name</span>
+<span class="linenos"> 76</span>     <span class="c1">#cmap = sns.light_palette(cmap, reverse=False, as_cmap=True)</span>
+<span class="linenos"> 77</span>     <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 78</span>     <span class="c1"># Normalize to the range of possible values from df[&quot;c&quot;]</span>
+<span class="linenos"> 79</span>     <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+<span class="linenos"> 80</span>     <span class="c1"># Create a color dictionary (value in c : color from colormap)</span>
+<span class="linenos"> 81</span>     <span class="n">colors</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos"> 82</span>     <span class="k">for</span> <span class="n">cval</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+<span class="linenos"> 83</span>         <span class="n">colors</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">cval</span> <span class="p">:</span> <span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">cval</span><span class="p">))})</span>
+<span class="linenos"> 84</span>     <span class="c1"># Return</span>
+<span class="linenos"> 85</span>     <span class="k">return</span> <span class="n">colors</span><span class="p">,</span> <span class="n">norm</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span> <span class="k">def</span> <span class="nf">create_random_shap</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
+<span class="linenos"> 89</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Create random LSTM data.</span>
+<span class="linenos"> 90</span>
+<span class="linenos"> 91</span><span class="sd">     .. note: No need to create the 3D matrix and then reshape to</span>
+<span class="linenos"> 92</span><span class="sd">              2D. It would be possible to create directly the 2D</span>
+<span class="linenos"> 93</span><span class="sd">              matrix.</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span><span class="sd">     Parameters</span>
+<span class="linenos"> 96</span><span class="sd">     ----------</span>
+<span class="linenos"> 97</span><span class="sd">     samples: int</span>
+<span class="linenos"> 98</span><span class="sd">         The number of observations</span>
+<span class="linenos"> 99</span><span class="sd">     timesteps: int</span>
+<span class="linenos">100</span><span class="sd">         The number of time steps</span>
+<span class="linenos">101</span><span class="sd">     features: int</span>
+<span class="linenos">102</span><span class="sd">         The number of features</span>
+<span class="linenos">103</span>
+<span class="linenos">104</span><span class="sd">     Returns</span>
+<span class="linenos">105</span><span class="sd">     -------</span>
+<span class="linenos">106</span><span class="sd">     Stacked matrix with the data.</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">109</span>     <span class="c1"># .. note: Either perform a pre-processing step such as</span>
+<span class="linenos">110</span>     <span class="c1">#          normalization or generate the features within</span>
+<span class="linenos">111</span>     <span class="c1">#          the appropriate interval.</span>
+<span class="linenos">112</span>     <span class="c1"># Create dataset</span>
+<span class="linenos">113</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="linenos">114</span>         <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">features</span><span class="p">))</span>
+<span class="linenos">115</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">samples</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="linenos">116</span>     <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="n">samples</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">))))</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span>     <span class="c1"># Create DataFrame</span>
+<span class="linenos">119</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="linenos">120</span>         <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">features</span><span class="p">)))),</span>
+<span class="linenos">121</span>         <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;timestep&#39;</span><span class="p">]</span> <span class="o">+</span> \
+<span class="linenos">122</span>                 <span class="p">[</span><span class="s1">&#39;f</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features</span><span class="p">)]</span>
+<span class="linenos">123</span>     <span class="p">)</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span>     <span class="n">df_stack</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;timestep&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<span class="linenos">126</span>     <span class="n">df_stack</span> <span class="o">=</span> <span class="n">df_stack</span>
+<span class="linenos">127</span>     <span class="n">df_stack</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;shap_values&#39;</span>
+<span class="linenos">128</span>     <span class="n">df_stack</span> <span class="o">=</span> <span class="n">df_stack</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="linenos">129</span>     <span class="n">df_stack</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;timestep&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">]</span>
+<span class="linenos">130</span>     <span class="n">df_stack</span> <span class="o">=</span> <span class="n">df_stack</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span>     <span class="n">df_stack</span><span class="p">[</span><span class="s1">&#39;feature_values&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span>
+<span class="linenos">133</span>         <span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">df_stack</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">134</span>
+<span class="linenos">135</span>     <span class="k">return</span> <span class="n">df_stack</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span> <span class="k">def</span> <span class="nf">load_shap_file</span><span class="p">():</span>
+<span class="linenos">139</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/shap.csv&#39;</span><span class="p">)</span>
+<span class="linenos">140</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="linenos">141</span>     <span class="c1">#data.timestep = data.timestep - (data.timestep.nunique() - 1)</span>
+<span class="linenos">142</span>     <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>Lets generate and/or load the shap values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">147</span> <span class="c1"># .. note: The right format to use for plotting depends</span>
+<span class="linenos">148</span> <span class="c1">#          on the library we use. The data structure is</span>
+<span class="linenos">149</span> <span class="c1">#          good when using seaborn</span>
+<span class="linenos">150</span> <span class="c1"># Load data</span>
+<span class="linenos">151</span> <span class="n">data</span> <span class="o">=</span> <span class="n">create_random_shap</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">152</span> <span class="c1">#data = load_shap_file()</span>
+<span class="linenos">153</span> <span class="c1">#data = data[data[&#39;sample&#39;] &lt; 100]</span>
+<span class="linenos">154</span>
+<span class="linenos">155</span> <span class="n">shap_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="linenos">156</span>         <span class="n">values</span><span class="o">=</span><span class="s1">&#39;shap_values&#39;</span><span class="p">,</span>
+<span class="linenos">157</span>         <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;timestep&#39;</span><span class="p">],</span>
+<span class="linenos">158</span>         <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">])</span>
+<span class="linenos">159</span>
+<span class="linenos">160</span> <span class="n">feature_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="linenos">161</span>         <span class="n">values</span><span class="o">=</span><span class="s1">&#39;feature_values&#39;</span><span class="p">,</span>
+<span class="linenos">162</span>         <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;timestep&#39;</span><span class="p">],</span>
+<span class="linenos">163</span>         <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">])</span>
+<span class="linenos">164</span>
+<span class="linenos">165</span> <span class="c1"># Show</span>
+<span class="linenos">166</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">167</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Show:&quot;</span><span class="p">)</span>
+<span class="linenos">168</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">169</span>     <span class="nb">print</span><span class="p">(</span><span class="n">shap_values</span><span class="p">)</span>
+<span class="linenos">170</span>     <span class="nb">print</span><span class="p">(</span><span class="n">feature_values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s see how data looks like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">174</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample</th>
+      <th>timestep</th>
+      <th>features</th>
+      <th>shap_values</th>
+      <th>feature_values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>f0</td>
+      <td>51</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>f1</td>
+      <td>39</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>f2</td>
+      <td>73</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>f3</td>
+      <td>41</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>f0</td>
+      <td>28</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>1</td>
+      <td>f1</td>
+      <td>30</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>1</td>
+      <td>f2</td>
+      <td>32</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>1</td>
+      <td>f3</td>
+      <td>91</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0</td>
+      <td>2</td>
+      <td>f0</td>
+      <td>26</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0</td>
+      <td>2</td>
+      <td>f1</td>
+      <td>60</td>
+      <td>73</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Let’s see how shap_values looks like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">178</span> <span class="n">shap_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>features</th>
+      <th>f0</th>
+      <th>f1</th>
+      <th>f2</th>
+      <th>f3</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th>timestep</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="6" valign="top">0</th>
+      <th>0</th>
+      <td>51</td>
+      <td>39</td>
+      <td>73</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>28</td>
+      <td>30</td>
+      <td>32</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>26</td>
+      <td>60</td>
+      <td>6</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>80</td>
+      <td>42</td>
+      <td>59</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25</td>
+      <td>40</td>
+      <td>64</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>58</td>
+      <td>19</td>
+      <td>84</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">1</th>
+      <th>0</th>
+      <td>68</td>
+      <td>92</td>
+      <td>75</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>94</td>
+      <td>60</td>
+      <td>29</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12</td>
+      <td>13</td>
+      <td>58</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>84</td>
+      <td>15</td>
+      <td>80</td>
+      <td>55</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Let’s see how feature_values looks like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">182</span> <span class="n">feature_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>features</th>
+      <th>f0</th>
+      <th>f1</th>
+      <th>f2</th>
+      <th>f3</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th>timestep</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="6" valign="top">0</th>
+      <th>0</th>
+      <td>25</td>
+      <td>44</td>
+      <td>58</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>91</td>
+      <td>50</td>
+      <td>29</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>54</td>
+      <td>73</td>
+      <td>56</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>93</td>
+      <td>17</td>
+      <td>45</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>34</td>
+      <td>60</td>
+      <td>40</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>89</td>
+      <td>12</td>
+      <td>55</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">1</th>
+      <th>0</th>
+      <td>52</td>
+      <td>9</td>
+      <td>80</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>24</td>
+      <td>47</td>
+      <td>5</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11</td>
+      <td>53</td>
+      <td>29</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>36</td>
+      <td>60</td>
+      <td>57</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><section id="display-using-shap-summary-plot">
+<h2>Display using <code class="docutils literal notranslate"><span class="pre">shap.summary_plot</span></code><a class="headerlink" href="#display-using-shap-summary-plot" title="Permalink to this heading"></a></h2>
+<p>The first option is to use the <code class="docutils literal notranslate"><span class="pre">shap</span></code> library to plot the results.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">191</span> <span class="c1"># Let&#39;s define/extract some useful variables.</span>
+<span class="linenos">192</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>                                                       <span class="c1"># max loops filter</span>
+<span class="linenos">193</span> <span class="n">TIMESTEPS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shap_values</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;timestep&#39;</span><span class="p">))</span> <span class="c1"># number of timesteps</span>
+<span class="linenos">194</span> <span class="n">SAMPLES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shap_values</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;sample&#39;</span><span class="p">))</span>     <span class="c1"># number of samples</span>
+<span class="linenos">195</span>
+<span class="linenos">196</span> <span class="n">shap_min</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shap_values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="linenos">197</span> <span class="n">shap_max</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shap_values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, let’s display the shap values for all features in each timestep.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">202</span> <span class="c1"># For each timestep (visualise all features)</span>
+<span class="linenos">203</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">TIMESTEPS</span><span class="p">)[:</span><span class="n">N</span><span class="p">]):</span>
+<span class="linenos">204</span>     <span class="c1"># Show</span>
+<span class="linenos">205</span>     <span class="c1">#print(&#39;%2d. %s&#39; % (i, step))</span>
+<span class="linenos">206</span>
+<span class="linenos">207</span>     <span class="c1"># .. note: First option (commented) is only necessary if we work</span>
+<span class="linenos">208</span>     <span class="c1">#          with a numpy array. However, since we are using a DataFrame</span>
+<span class="linenos">209</span>     <span class="c1">#          with the timestep, we can index by that index level.</span>
+<span class="linenos">210</span>     <span class="c1"># Compute indices</span>
+<span class="linenos">211</span>     <span class="c1">#indice = np.arange(SAMPLES)*TIMESTEPS + step</span>
+<span class="linenos">212</span>     <span class="n">indice</span> <span class="o">=</span> <span class="n">shap_values</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;timestep&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">i</span>
+<span class="linenos">213</span>
+<span class="linenos">214</span>     <span class="c1"># Create auxiliary matrices</span>
+<span class="linenos">215</span>     <span class="n">shap_aux</span> <span class="o">=</span> <span class="n">shap_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span>
+<span class="linenos">216</span>     <span class="n">feat_aux</span> <span class="o">=</span> <span class="n">feature_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span>
+<span class="linenos">217</span>
+<span class="linenos">218</span>     <span class="c1"># Display</span>
+<span class="linenos">219</span>     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="linenos">220</span>     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Timestep: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+<span class="linenos">221</span>     <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_aux</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">feat_aux</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">222</span>     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">shap_min</span><span class="p">,</span> <span class="n">shap_max</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_main05_001.png" srcset="../../_images/sphx_glr_plot_main05_001.png" alt="Timestep: 0" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_002.png" srcset="../../_images/sphx_glr_plot_main05_002.png" alt="Timestep: 1" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_003.png" srcset="../../_images/sphx_glr_plot_main05_003.png" alt="Timestep: 2" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_004.png" srcset="../../_images/sphx_glr_plot_main05_004.png" alt="Timestep: 3" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p>Now, let’s display the shap values for all timesteps of each feature.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">227</span> <span class="c1"># For each feature (visualise all time-steps)</span>
+<span class="linenos">228</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shap_values</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="n">N</span><span class="p">]):</span>
+<span class="linenos">229</span>     <span class="c1"># Show</span>
+<span class="linenos">230</span>     <span class="c1">#print(&#39;%2d. %s&#39; % (i, f))</span>
+<span class="linenos">231</span>
+<span class="linenos">232</span>     <span class="c1"># Create auxiliary matrices (select feature and reshape)</span>
+<span class="linenos">233</span>     <span class="n">shap_aux</span> <span class="o">=</span> <span class="n">shap_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> \
+<span class="linenos">234</span>         <span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">TIMESTEPS</span><span class="p">)</span>
+<span class="linenos">235</span>     <span class="n">feat_aux</span> <span class="o">=</span> <span class="n">feature_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> \
+<span class="linenos">236</span>         <span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">TIMESTEPS</span><span class="p">)</span>
+<span class="linenos">237</span>     <span class="n">feat_aux</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">feat_aux</span><span class="p">,</span>
+<span class="linenos">238</span>         <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;timestep </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TIMESTEPS</span><span class="p">)]</span>
+<span class="linenos">239</span>     <span class="p">)</span>
+<span class="linenos">240</span>
+<span class="linenos">241</span>     <span class="c1"># Show</span>
+<span class="linenos">242</span>     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="linenos">243</span>     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Feature: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
+<span class="linenos">244</span>     <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_aux</span><span class="p">,</span> <span class="n">feat_aux</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">245</span>     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">shap_min</span><span class="p">,</span> <span class="n">shap_max</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_main05_005.png" srcset="../../_images/sphx_glr_plot_main05_005.png" alt="Feature: f0" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_006.png" srcset="../../_images/sphx_glr_plot_main05_006.png" alt="Feature: f1" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_007.png" srcset="../../_images/sphx_glr_plot_main05_007.png" alt="Feature: f2" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_008.png" srcset="../../_images/sphx_glr_plot_main05_008.png" alt="Feature: f3" class = "sphx-glr-multi-img"/></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If y-axis represents timesteps the <code class="docutils literal notranslate"><span class="pre">sort</span></code> parameter
+in the <code class="docutils literal notranslate"><span class="pre">summary_plot</span></code> function is set to False.</p>
+</div>
+</section>
+<section id="display-using-sns-stripplot">
+<h2>Display using <code class="docutils literal notranslate"><span class="pre">sns.stripplot</span></code><a class="headerlink" href="#display-using-sns-stripplot" title="Permalink to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This method seems to be quite slow.</p>
+</div>
+<p>Let’s display the shap values for each feature and all time steps.
+In contrast to the previous example, the timesteps are now displayed
+on the x-axis and the y-axis contains the shap values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">262</span> <span class="k">def</span> <span class="nf">add_colorbar</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="p">):</span>
+<span class="linenos">263</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="linenos">264</span>     <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+<span class="linenos">265</span>     <span class="n">ax_cb</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">new_horizontal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="s2">&quot;5%&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="linenos">266</span>     <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">ax_cb</span><span class="p">)</span>
+<span class="linenos">267</span>     <span class="n">cb1</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span><span class="n">ax_cb</span><span class="p">,</span>
+<span class="linenos">268</span>          <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="linenos">269</span>
+<span class="linenos">270</span>
+<span class="linenos">271</span> <span class="c1"># Loop</span>
+<span class="linenos">272</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;features&#39;</span><span class="p">)):</span>
+<span class="linenos">273</span>
+<span class="linenos">274</span>     <span class="c1"># Get colormap</span>
+<span class="linenos">275</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">feature_values</span>
+<span class="linenos">276</span>     <span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="n">scalar_palette</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span>
+<span class="linenos">277</span>         <span class="n">vmin</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="linenos">278</span>
+<span class="linenos">279</span>     <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">280</span>
+<span class="linenos">281</span>     <span class="c1"># Display</span>
+<span class="linenos">282</span>     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="linenos">283</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;timestep&#39;</span><span class="p">,</span>
+<span class="linenos">284</span>                        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;shap_values&#39;</span><span class="p">,</span>
+<span class="linenos">285</span>                        <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;feature_values&#39;</span><span class="p">,</span>
+<span class="linenos">286</span>                        <span class="n">palette</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+<span class="linenos">287</span>                        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<span class="linenos">288</span>                        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="linenos">289</span>
+<span class="linenos">290</span>     <span class="c1"># Needed for older matplotlib versions</span>
+<span class="linenos">291</span>     <span class="n">cmap</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+<span class="linenos">292</span>
+<span class="linenos">293</span>     <span class="c1"># Configure axes</span>
+<span class="linenos">294</span>     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">295</span>     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">296</span>     <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+<span class="linenos">297</span>     <span class="n">add_colorbar</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">(),</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="p">)</span>
+<span class="linenos">298</span>
+<span class="linenos">299</span>     <span class="c1"># End</span>
+<span class="linenos">300</span>     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">:</span>
+<span class="linenos">301</span>         <span class="k">break</span>
+<span class="linenos">302</span>
+<span class="linenos">303</span> <span class="c1"># Show</span>
+<span class="linenos">304</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_main05_009.png" srcset="../../_images/sphx_glr_plot_main05_009.png" alt="f0" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_010.png" srcset="../../_images/sphx_glr_plot_main05_010.png" alt="f1" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_011.png" srcset="../../_images/sphx_glr_plot_main05_011.png" alt="f2" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_012.png" srcset="../../_images/sphx_glr_plot_main05_012.png" alt="f3" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>     sample  timestep features  shap_values  feature_values
+0         0         0       f0           51              25
+4         0         1       f0           28              91
+8         0         2       f0           26              54
+12        0         3       f0           80              93
+16        0         4       f0           25              34
+20        0         5       f0           58              89
+24        1         0       f0           68              52
+28        1         1       f0           94              24
+32        1         2       f0           12              11
+36        1         3       f0           84              36
+40        1         4       f0           23              65
+44        1         5       f0           65              40
+48        2         0       f0           40              23
+52        2         1       f0           44               7
+56        2         2       f0           55              61
+60        2         3       f0           91              96
+64        2         4       f0            6              77
+68        2         5       f0           90              18
+72        3         0       f0           32              55
+76        3         1       f0           86              78
+80        3         2       f0           49              75
+84        3         3       f0           91              48
+88        3         4       f0           19              69
+92        3         5       f0           82               1
+96        4         0       f0           56              13
+100       4         1       f0           50              93
+104       4         2       f0           76              62
+108       4         3       f0           56               8
+112       4         4       f0           86              86
+116       4         5       f0           86               5
+120       5         0       f0           26              59
+124       5         1       f0           97              49
+128       5         2       f0           13              99
+132       5         3       f0            9              14
+136       5         4       f0           10              60
+140       5         5       f0           96              85
+144       6         0       f0           31              81
+148       6         1       f0           38              89
+152       6         2       f0           29              63
+156       6         3       f0           87              32
+160       6         4       f0           68              51
+164       6         5       f0           56              68
+168       7         0       f0           86              66
+172       7         1       f0           67              20
+176       7         2       f0           20              33
+180       7         3       f0           53              61
+184       7         4       f0           82              55
+188       7         5       f0           16              97
+192       8         0       f0           63              38
+196       8         1       f0           63              47
+200       8         2       f0           94              99
+204       8         3       f0           89              50
+208       8         4       f0           62              79
+212       8         5       f0            1              41
+216       9         0       f0            1              16
+220       9         1       f0           87              71
+224       9         2       f0           83              31
+228       9         3       f0           45              86
+232       9         4       f0           24              38
+236       9         5       f0           57               7
+     sample  timestep features  shap_values  feature_values
+1         0         0       f1           39              44
+5         0         1       f1           30              50
+9         0         2       f1           60              73
+13        0         3       f1           42              17
+17        0         4       f1           40              60
+21        0         5       f1           19              12
+25        1         0       f1           92               9
+29        1         1       f1           60              47
+33        1         2       f1           13              53
+37        1         3       f1           15              60
+41        1         4       f1           34              48
+45        1         5       f1           93              79
+49        2         0       f1           38               6
+53        2         1       f1           37              29
+57        2         2       f1           58              27
+61        2         3       f1           96              64
+65        2         4       f1           77              95
+69        2         5       f1           37              11
+73        3         0       f1           39              36
+77        3         1       f1           54              28
+81        3         2       f1           86              41
+85        3         3       f1           62              18
+89        3         4       f1           43              33
+93        3         5       f1           36              92
+97        4         0       f1           44              63
+101       4         1       f1           70              82
+105       4         2       f1           78              48
+109       4         3       f1           33              95
+113       4         4       f1           71              49
+117       4         5       f1           41               5
+121       5         0       f1           81              46
+125       5         1       f1           43              40
+129       5         2       f1           50              45
+133       5         3       f1           79              21
+137       5         4       f1           49              56
+141       5         5       f1           45              73
+145       6         0       f1           44              96
+149       6         1       f1            7              19
+153       6         2       f1           44              49
+157       6         3       f1           14              51
+161       6         4       f1           82              25
+165       6         5       f1           28              48
+169       7         0       f1           89              51
+173       7         1       f1           33              59
+177       7         2       f1           24               2
+181       7         3       f1           79              39
+185       7         4       f1           65              42
+189       7         5       f1           60              78
+193       8         0       f1           81              44
+197       8         1       f1           90              69
+201       8         2       f1           88              79
+205       8         3       f1           65              41
+209       8         4       f1           96              71
+213       8         5       f1           24              29
+217       9         0       f1           78              12
+221       9         1       f1           54               4
+225       9         2       f1           81               7
+229       9         3       f1           13              53
+233       9         4       f1           81              87
+237       9         5       f1           86              29
+     sample  timestep features  shap_values  feature_values
+2         0         0       f2           73              58
+6         0         1       f2           32              29
+10        0         2       f2            6              56
+14        0         3       f2           59              45
+18        0         4       f2           64              40
+22        0         5       f2           84              55
+26        1         0       f2           75              80
+30        1         1       f2           29               5
+34        1         2       f2           58              29
+38        1         3       f2           80              57
+42        1         4       f2           77              83
+46        1         5       f2           60              65
+50        2         0       f2           89              24
+54        2         1       f2            5              91
+58        2         2       f2           58              62
+62        2         3       f2           16              43
+66        2         4       f2           59              35
+70        2         5       f2           59              19
+74        3         0       f2           55               0
+78        3         1       f2           55              49
+82        3         2       f2           33              63
+86        3         3       f2           94              52
+90        3         4       f2           24              78
+94        3         5       f2           93              29
+98        4         0       f2           46              24
+102       4         1       f2           98              50
+106       4         2       f2           12              60
+110       4         3       f2           44              35
+114       4         4       f2           34              74
+118       4         5       f2           40              37
+122       5         0       f2           88              75
+126       5         1       f2           65               3
+130       5         2       f2           68              96
+134       5         3       f2           14              59
+138       5         4       f2           82              71
+142       5         5       f2           75              83
+146       6         0       f2           27              96
+150       6         1       f2           53              51
+154       6         2       f2           98              72
+158       6         3       f2           34              17
+162       6         4       f2           14              62
+166       6         5       f2           96              41
+170       7         0       f2           22              10
+174       7         1       f2           64               8
+178       7         2       f2           59              88
+182       7         3       f2           37              95
+186       7         4       f2           51              82
+190       7         5       f2           15              19
+194       8         0       f2           29               5
+198       8         1       f2           41              68
+202       8         2       f2           52              48
+206       8         3       f2            1              31
+210       8         4       f2           38              84
+214       8         5       f2           54              69
+218       9         0       f2           89              93
+222       9         1       f2           94              78
+226       9         2       f2           18              58
+230       9         3       f2           48              74
+234       9         4       f2           24              97
+238       9         5       f2           91              89
+     sample  timestep features  shap_values  feature_values
+3         0         0       f3           41              52
+7         0         1       f3           91              32
+11        0         2       f3           25              30
+15        0         3       f3           29              44
+19        0         4       f3            6              58
+23        0         5       f3           91              82
+27        1         0       f3           12              58
+31        1         1       f3           92              28
+35        1         2       f3           18              25
+39        1         3       f3           55               2
+43        1         4       f3           23              71
+47        1         5       f3           20              90
+51        2         0       f3           45              95
+55        2         1       f3           25              35
+59        2         2       f3           30              75
+63        2         3       f3           42              37
+67        2         4       f3           24              89
+71        2         5       f3           23              72
+75        3         0       f3           93              49
+79        3         1       f3           54              10
+83        3         2       f3           58              36
+87        3         3       f3           39              10
+91        3         4       f3           10              25
+95        3         5       f3           33              67
+99        4         0       f3           85              64
+103       4         1       f3            7              40
+107       4         2       f3           49              27
+111       4         3       f3           60              37
+115       4         4       f3           86              68
+119       4         5       f3           71              41
+123       5         0       f3           15              60
+127       5         1       f3           44               0
+131       5         2       f3           53              53
+135       5         3       f3           56              69
+139       5         4       f3           45              94
+143       5         5       f3           19              15
+147       6         0       f3           70              41
+151       6         1       f3           73              42
+155       6         2       f3           91              87
+159       6         3       f3           20              92
+163       6         4       f3           40              54
+167       6         5       f3           90              11
+171       7         0       f3           92              77
+175       7         1       f3           84              19
+179       7         2       f3           76              14
+183       7         3       f3           69              69
+187       7         4       f3           97              99
+191       7         5       f3           13              56
+195       8         0       f3           12              41
+199       8         1       f3           51              56
+203       8         2       f3           85              14
+207       8         3       f3           59              93
+211       8         4       f3           74              62
+215       8         5       f3           32               0
+219       9         0       f3           32              81
+223       9         1       f3           43              56
+227       9         2       f3           57              31
+231       9         3       f3            6              46
+235       9         4       f3           87              31
+239       9         5       f3           40              98
+</pre></div>
+</div>
+</section>
+<section id="display-using-sns-swarmplot">
+<h2>Display using <code class="docutils literal notranslate"><span class="pre">sns.swarmplot</span></code><a class="headerlink" href="#display-using-sns-swarmplot" title="Permalink to this heading"></a></h2>
+<p>Let’s display the shap values for each timestep.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">318</span> <span class="c1"># Loop</span>
+<span class="linenos">319</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;features&#39;</span><span class="p">)):</span>
+<span class="linenos">320</span>
+<span class="linenos">321</span>     <span class="c1"># Get colormap</span>
+<span class="linenos">322</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">feature_values</span>
+<span class="linenos">323</span>     <span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="n">scalar_palette</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span>
+<span class="linenos">324</span>         <span class="n">vmin</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="linenos">325</span>
+<span class="linenos">326</span>     <span class="c1"># Display</span>
+<span class="linenos">327</span>     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="linenos">328</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;timestep&#39;</span><span class="p">,</span>
+<span class="linenos">329</span>                        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;shap_values&#39;</span><span class="p">,</span>
+<span class="linenos">330</span>                        <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;feature_values&#39;</span><span class="p">,</span>
+<span class="linenos">331</span>                        <span class="n">palette</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+<span class="linenos">332</span>                        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<span class="linenos">333</span>                        <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">334</span>                        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="linenos">335</span>
+<span class="linenos">336</span>     <span class="c1"># Needed for older matplotlib versions</span>
+<span class="linenos">337</span>     <span class="n">cmap</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+<span class="linenos">338</span>
+<span class="linenos">339</span>     <span class="c1"># Configure axes</span>
+<span class="linenos">340</span>     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">341</span>     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">342</span>     <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+<span class="linenos">343</span>     <span class="n">add_colorbar</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">(),</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="p">)</span>
+<span class="linenos">344</span>
+<span class="linenos">345</span>     <span class="c1"># End</span>
+<span class="linenos">346</span>     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">:</span>
+<span class="linenos">347</span>         <span class="k">break</span>
+<span class="linenos">348</span>
+<span class="linenos">349</span> <span class="c1"># Show</span>
+<span class="linenos">350</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">351</span>
+<span class="linenos">352</span>
+<span class="linenos">353</span>
+<span class="linenos">354</span>
+<span class="linenos">355</span>
+<span class="linenos">356</span>
+<span class="linenos">357</span>
+<span class="linenos">358</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">359</span><span class="sd"> sns.set_theme(style=&quot;ticks&quot;)</span>
+<span class="linenos">360</span>
+<span class="linenos">361</span><span class="sd"> # Create a dataset with many short random walks</span>
+<span class="linenos">362</span><span class="sd"> rs = np.random.RandomState(4)</span>
+<span class="linenos">363</span><span class="sd"> pos = rs.randint(-1, 2, (20, 5)).cumsum(axis=1)</span>
+<span class="linenos">364</span><span class="sd"> pos -= pos[:, 0, np.newaxis]</span>
+<span class="linenos">365</span><span class="sd"> step = np.tile(range(5), 20)</span>
+<span class="linenos">366</span><span class="sd"> walk = np.repeat(range(20), 5)</span>
+<span class="linenos">367</span><span class="sd"> df = pd.DataFrame(np.c_[pos.flat, step, walk],</span>
+<span class="linenos">368</span><span class="sd">                   columns=[&quot;position&quot;, &quot;step&quot;, &quot;walk&quot;])</span>
+<span class="linenos">369</span><span class="sd"> # Initialize a grid of plots with an Axes for each walk</span>
+<span class="linenos">370</span><span class="sd"> #grid = sns.FacetGrid(df_stack, col=&quot;walk&quot;, hue=&quot;f&quot;, palette=&quot;tab20c&quot;,</span>
+<span class="linenos">371</span><span class="sd"> #                     col_wrap=4, height=1.5)</span>
+<span class="linenos">372</span>
+<span class="linenos">373</span><span class="sd"> grid = sns.FacetGrid(df_stack, hue=&quot;f&quot;,</span>
+<span class="linenos">374</span><span class="sd">     palette=&quot;tab20c&quot;, height=1.5)</span>
+<span class="linenos">375</span>
+<span class="linenos">376</span><span class="sd"> # Draw a horizontal line to show the starting point</span>
+<span class="linenos">377</span><span class="sd"> grid.refline(y=0, linestyle=&quot;:&quot;)</span>
+<span class="linenos">378</span>
+<span class="linenos">379</span><span class="sd"> # Draw a line plot to show the trajectory of each random walk</span>
+<span class="linenos">380</span><span class="sd"> grid.map(plt.plot, &quot;t&quot;, &quot;value&quot;, marker=&quot;o&quot;)</span>
+<span class="linenos">381</span>
+<span class="linenos">382</span><span class="sd"> # Adjust the tick positions and labels</span>
+<span class="linenos">383</span><span class="sd"> grid.set(xticks=np.arange(5), yticks=[-3, 3],</span>
+<span class="linenos">384</span><span class="sd">          xlim=(-.5, 4.5), ylim=(-3.5, 3.5))</span>
+<span class="linenos">385</span>
+<span class="linenos">386</span><span class="sd"> # Adjust the arrangement of the plots</span>
+<span class="linenos">387</span><span class="sd"> grid.fig.tight_layout(w_pad=1)</span>
+<span class="linenos">388</span>
+<span class="linenos">389</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">390</span>
+<span class="linenos">391</span>
+<span class="linenos">392</span> <span class="c1">#plt.show()</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_main05_013.png" srcset="../../_images/sphx_glr_plot_main05_013.png" alt="f0" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_014.png" srcset="../../_images/sphx_glr_plot_main05_014.png" alt="f1" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_015.png" srcset="../../_images/sphx_glr_plot_main05_015.png" alt="f2" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_016.png" srcset="../../_images/sphx_glr_plot_main05_016.png" alt="f3" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\nsns.set_theme(style=&quot;ticks&quot;)\n\n# Create a dataset with many short random walks\nrs = np.random.RandomState(4)\npos = rs.randint(-1, 2, (20, 5)).cumsum(axis=1)\npos -= pos[:, 0, np.newaxis]\nstep = np.tile(range(5), 20)\nwalk = np.repeat(range(20), 5)\ndf = pd.DataFrame(np.c_[pos.flat, step, walk],\n                  columns=[&quot;position&quot;, &quot;step&quot;, &quot;walk&quot;])\n# Initialize a grid of plots with an Axes for each walk\n#grid = sns.FacetGrid(df_stack, col=&quot;walk&quot;, hue=&quot;f&quot;, palette=&quot;tab20c&quot;,\n#                     col_wrap=4, height=1.5)\n\ngrid = sns.FacetGrid(df_stack, hue=&quot;f&quot;,\n    palette=&quot;tab20c&quot;, height=1.5)\n\n# Draw a horizontal line to show the starting point\ngrid.refline(y=0, linestyle=&quot;:&quot;)\n\n# Draw a line plot to show the trajectory of each random walk\ngrid.map(plt.plot, &quot;t&quot;, &quot;value&quot;, marker=&quot;o&quot;)\n\n# Adjust the tick positions and labels\ngrid.set(xticks=np.arange(5), yticks=[-3, 3],\n         xlim=(-.5, 4.5), ylim=(-3.5, 3.5))\n\n# Adjust the arrangement of the plots\ngrid.fig.tight_layout(w_pad=1)\n\n&#39;
+</pre></div>
+</div>
+</section>
+<section id="display-using-sns-facetgrid">
+<h2>Display using <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code><a class="headerlink" href="#display-using-sns-facetgrid" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">399</span> <span class="c1">#g = sns.FacetGrid(df_stack, col=&quot;f&quot;, hue=&#39;original&#39;)</span>
+<span class="linenos">400</span> <span class="c1">#g.map(sns.swarmplot, &quot;t&quot;, &quot;value&quot;, alpha=.7)</span>
+<span class="linenos">401</span> <span class="c1">#g.add_legend()</span>
+</pre></div>
+</div>
+</section>
+<section id="display-using-shap-beeswarm">
+<h2>Display using <code class="docutils literal notranslate"><span class="pre">shap.beeswarm</span></code><a class="headerlink" href="#display-using-shap-beeswarm" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">409</span> <span class="c1"># REF: https://github.com/slundberg/shap/blob/master/shap/plots/_beeswarm.py</span>
+<span class="linenos">410</span> <span class="c1">#</span>
+<span class="linenos">411</span> <span class="c1"># .. note: It needs a kernel explainer, and while it works with</span>
+<span class="linenos">412</span> <span class="c1">#          common kernels (plot_main07.py) it does not work with</span>
+<span class="linenos">413</span> <span class="c1">#          the DeepKernel for some reason (mask related).</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.985 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-shap-plot-main05-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/02b2e1f4d2e949a038fd632a1dc4dcbc/plot_main05.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main05.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/4b2a745b8e1b8ccbcf3a79f272e4052c/plot_main05.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main05.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main04.html" class="btn btn-neutral float-left" title="04. Basic example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main05_stripplot.html" class="btn btn-neutral float-right" title="05. Stripplot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

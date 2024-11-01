@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawing a planet orbit (stackoverflow) &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Drawing a planet orbit (customised)" href="plot_planet_orbit_v2.html" />
+    <link rel="prev" title="Mutual Information Criteria" href="plot_mutual_information.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#utils">Utils</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mic.html">MIC package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_collateral_sensitivity.html">Collateral Sensitivity Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_drug_resistance_index.html">Drug Resistance Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_generate_data_AST.html">Generate data AST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_multi_armed_bandit.html">Multi-Armed bandit problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mutual_information.html">Mutual Information Criteria</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Drawing a planet orbit (stackoverflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v2.html">Drawing a planet orbit (customised)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_scale_colormap.html">Show colormap for various scalings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">Drawing a planet orbit (stackoverflow)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/utils/plot_planet_orbit_v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-utils-plot-planet-orbit-v1-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="drawing-a-planet-orbit-stackoverflow">
+<span id="sphx-glr-examples-utils-plot-planet-orbit-v1-py"></span><h1>Drawing a planet orbit (stackoverflow)<a class="headerlink" href="#drawing-a-planet-orbit-stackoverflow" title="Permalink to this heading"></a></h1>
+<p>The Wikipedia article describes a method step by step how to calculate the
+position (in heliocentric polar coordinates) as a function of time. The equations
+contain Newton’s gravitational constant and the mass of the Sun. Some of them are
+only solveable by numeric methods.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/34560620/how-do-i-plot-a-planets-orbit-as-a-function-of-time-on-an-already-plotted-ellip">R1</a>: Stack Overflow Reference.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Kepler%27s_laws_of_planetary_motion#Position_as_a_function_of_time">R2</a>: Wikipedia article.</p></li>
+</ul>
+</div></blockquote>
+<img src="../../_images/sphx_glr_plot_planet_orbit_v1_001.png" srcset="../../_images/sphx_glr_plot_planet_orbit_v1_001.png" alt="Inner Planetary Orbits at[user input date]" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>57.9
+56.66392150213397
+108.2
+108.197735650983
+149.6
+149.57910950396783
+227.89999999999998
+226.911811063241
+22994.0
+2009.7761069332971
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 18</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 19</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span> <span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span><span class="p">,</span> <span class="n">Circle</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span> <span class="c1"># Implementing ellipse equations to generate the values needed to plot an ellipse</span>
+<span class="linenos"> 25</span> <span class="c1"># Using only the planet&#39;s min (m) and max (M) distances from the sun</span>
+<span class="linenos"> 26</span> <span class="c1"># Equations return &#39;2a&#39; (the ellipses width) and &#39;2b&#39; (the ellipses height)</span>
+<span class="linenos"> 27</span> <span class="k">def</span> <span class="nf">OrbitLength</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="linenos"> 28</span>     <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="n">m</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="linenos"> 29</span>     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">m</span>
+<span class="linenos"> 30</span>     <span class="n">e</span> <span class="o">=</span> <span class="n">c</span> <span class="o">/</span> <span class="n">a</span>
+<span class="linenos"> 31</span>     <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="linenos"> 32</span>     <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos"> 33</span>     <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="linenos"> 34</span>     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">b</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span> <span class="c1"># This function uses the returned 2a and 2b for the ellipse function&#39;s variables</span>
+<span class="linenos"> 38</span> <span class="c1"># Also generating the orbit offset (putting the sun at a focal point) using M and m</span>
+<span class="linenos"> 39</span> <span class="k">def</span> <span class="nf">PlanetOrbit</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="linenos"> 40</span>     <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">OrbitLength</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<span class="linenos"> 41</span>     <span class="n">Xoffset</span> <span class="o">=</span> <span class="p">((</span><span class="n">M</span> <span class="o">+</span> <span class="n">m</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span>
+<span class="linenos"> 42</span>     <span class="n">Name</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">((</span><span class="n">Xoffset</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 43</span>     <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span> <span class="n">EPSILON</span> <span class="o">=</span> <span class="mf">1e-12</span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span> <span class="k">def</span> <span class="nf">solve_bisection</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">EPSILON</span><span class="p">):</span>
+<span class="linenos"> 52</span>     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos"> 53</span>         <span class="n">xmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span> <span class="o">+</span> <span class="n">xmax</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
+<span class="linenos"> 54</span>         <span class="k">if</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">):</span>
+<span class="linenos"> 55</span>             <span class="k">return</span> <span class="n">xmid</span>
+<span class="linenos"> 56</span>         <span class="n">fn_mid</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">xmid</span><span class="p">)</span>
+<span class="linenos"> 57</span>         <span class="n">fn_min</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">xmin</span><span class="p">)</span>
+<span class="linenos"> 58</span>         <span class="k">if</span> <span class="n">fn_min</span> <span class="o">*</span> <span class="n">fn_mid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 59</span>             <span class="n">xmax</span> <span class="o">=</span> <span class="n">xmid</span>
+<span class="linenos"> 60</span>         <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 61</span>             <span class="n">xmin</span> <span class="o">=</span> <span class="n">xmid</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span><span class="w"> </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="linenos"> 65</span><span class="sd"> Found something similar at this gamedev question:</span>
+<span class="linenos"> 66</span><span class="sd"> https://gamedev.stackexchange.com/questions/11116/kepler-orbit-get-position-on-the-orbit-over-time?newreg=e895c2a71651407d8e18915c38024d50</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span><span class="sd"> Equations taken from:</span>
+<span class="linenos"> 69</span><span class="sd"> https://en.wikipedia.org/wiki/Kepler%27s_laws_of_planetary_motion#Position_as_a_function_of_time</span>
+<span class="linenos"> 70</span><span class="sd"> &#39;&#39;&#39;</span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span> <span class="k">def</span> <span class="nf">SolveOrbit</span><span class="p">(</span><span class="n">rmax</span><span class="p">,</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="linenos"> 74</span>     <span class="c1"># calculation precision</span>
+<span class="linenos"> 75</span>     <span class="n">epsilon</span> <span class="o">=</span> <span class="n">EPSILON</span>
+<span class="linenos"> 76</span>     <span class="c1"># mass of the sun [kg]</span>
+<span class="linenos"> 77</span>     <span class="n">Msun</span> <span class="o">=</span> <span class="mf">1.9891e30</span>
+<span class="linenos"> 78</span>     <span class="c1"># Newton&#39;s gravitational constant [N*m**2/kg**2]</span>
+<span class="linenos"> 79</span>     <span class="n">G</span> <span class="o">=</span> <span class="mf">6.6740831e-11</span>
+<span class="linenos"> 80</span>     <span class="c1"># standard gravitational parameter</span>
+<span class="linenos"> 81</span>     <span class="n">mu</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">Msun</span>
+<span class="linenos"> 82</span>     <span class="c1"># eccentricity</span>
+<span class="linenos"> 83</span>     <span class="n">eps</span> <span class="o">=</span> <span class="p">(</span><span class="n">rmax</span> <span class="o">-</span> <span class="n">rmin</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">rmax</span> <span class="o">+</span> <span class="n">rmin</span><span class="p">)</span>
+<span class="linenos"> 84</span>     <span class="c1"># semi-latus rectum</span>
+<span class="linenos"> 85</span>     <span class="n">p</span> <span class="o">=</span> <span class="n">rmin</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
+<span class="linenos"> 86</span>     <span class="c1"># semi/half major axis</span>
+<span class="linenos"> 87</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eps</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 88</span>     <span class="c1"># period</span>
+<span class="linenos"> 89</span>     <span class="n">P</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">mu</span><span class="p">)</span>
+<span class="linenos"> 90</span>     <span class="c1"># mean anomaly</span>
+<span class="linenos"> 91</span>     <span class="n">M</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="n">P</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span>     <span class="c1"># eccentric anomaly</span>
+<span class="linenos"> 94</span>     <span class="k">def</span> <span class="nf">fn_E</span><span class="p">(</span><span class="n">E</span><span class="p">):</span>
+<span class="linenos"> 95</span>         <span class="k">return</span> <span class="n">M</span> <span class="o">-</span> <span class="p">(</span><span class="n">E</span> <span class="o">-</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span>     <span class="n">E</span> <span class="o">=</span> <span class="n">solve_bisection</span><span class="p">(</span><span class="n">fn_E</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span>
+<span class="linenos"> 98</span>     <span class="c1"># true anomaly</span>
+<span class="linenos"> 99</span>     <span class="c1"># TODO: what if E == pi?</span>
+<span class="linenos">100</span>     <span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">atan</span><span class="p">(</span><span class="n">sqrt</span><span class="p">((((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span> <span class="o">*</span> <span class="n">tan</span><span class="p">(</span><span class="n">E</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eps</span><span class="p">))))</span>
+<span class="linenos">101</span>     <span class="c1"># if we are at the second half of the orbit</span>
+<span class="linenos">102</span>     <span class="k">if</span> <span class="p">(</span><span class="n">E</span> <span class="o">&gt;</span> <span class="n">pi</span><span class="p">):</span>
+<span class="linenos">103</span>         <span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">-</span> <span class="n">theta</span>
+<span class="linenos">104</span>     <span class="c1"># heliocentric distance</span>
+<span class="linenos">105</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
+<span class="linenos">106</span>     <span class="k">return</span> <span class="n">theta</span><span class="p">,</span> <span class="n">r</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span> <span class="k">def</span> <span class="nf">DrawPlanet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="linenos">110</span>     <span class="n">SCALE</span> <span class="o">=</span> <span class="mf">1e9</span>
+<span class="linenos">111</span>     <span class="n">theta</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">SolveOrbit</span><span class="p">(</span><span class="n">rmax</span> <span class="o">*</span> <span class="n">SCALE</span><span class="p">,</span> <span class="n">rmin</span> <span class="o">*</span> <span class="n">SCALE</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="linenos">112</span>     <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="n">SCALE</span>
+<span class="linenos">113</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="n">SCALE</span>
+<span class="linenos">114</span>     <span class="n">planet</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mi">8</span><span class="p">)</span>
+<span class="linenos">115</span>     <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span> <span class="c1"># -------------------------------------</span>
+<span class="linenos">119</span> <span class="c1"># Display</span>
+<span class="linenos">120</span> <span class="c1"># -------------------------------------</span>
+<span class="linenos">121</span> <span class="c1"># Create figure. Set axes aspect to equal as orbits are</span>
+<span class="linenos">122</span> <span class="c1"># almost circular; hence square is needed</span>
+<span class="linenos">123</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span> <span class="c1"># Axis configuration</span>
+<span class="linenos">126</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inner Planetary Orbits at[user input date]&#39;</span><span class="p">)</span>
+<span class="linenos">127</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x10^6 km&#39;</span><span class="p">)</span>
+<span class="linenos">128</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x10^6 km&#39;</span><span class="p">)</span>
+<span class="linenos">129</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="linenos">130</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="linenos">131</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="linenos">132</span>
+<span class="linenos">133</span> <span class="c1"># Creating the point to represent the sun at the origin (not to scale),</span>
+<span class="linenos">134</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="linenos">135</span> <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Sun&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">))</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span> <span class="c1"># These are the arguments taken from hyperphysics.phy-astr.gsu.edu/hbase/solar/soldata2.html</span>
+<span class="linenos">138</span> <span class="c1"># They are the planet names, max and min distances, and their longitudinal angle</span>
+<span class="linenos">139</span> <span class="c1"># Also included is Halley&#39;s Comet, used to show different scale  and eccentricity</span>
+<span class="linenos">140</span> <span class="n">PlanetOrbit</span><span class="p">(</span><span class="s1">&#39;Mercury&#39;</span><span class="p">,</span> <span class="mf">69.8</span><span class="p">,</span> <span class="mf">46.0</span><span class="p">)</span>
+<span class="linenos">141</span> <span class="n">PlanetOrbit</span><span class="p">(</span><span class="s1">&#39;Venus&#39;</span><span class="p">,</span> <span class="mf">108.9</span><span class="p">,</span> <span class="mf">107.5</span><span class="p">)</span>
+<span class="linenos">142</span> <span class="n">PlanetOrbit</span><span class="p">(</span><span class="s1">&#39;Earth&#39;</span><span class="p">,</span> <span class="mf">152.1</span><span class="p">,</span> <span class="mf">147.1</span><span class="p">)</span>
+<span class="linenos">143</span> <span class="n">PlanetOrbit</span><span class="p">(</span><span class="s1">&#39;Mars&#39;</span><span class="p">,</span> <span class="mf">249.1</span><span class="p">,</span> <span class="mf">206.7</span><span class="p">)</span>
+<span class="linenos">144</span> <span class="n">PlanetOrbit</span><span class="p">(</span><span class="s2">&quot;Halley&#39;s Comet&quot;</span><span class="p">,</span> <span class="mi">45900</span><span class="p">,</span> <span class="mi">88</span><span class="p">)</span>
+<span class="linenos">145</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">52</span><span class="p">):</span>
+<span class="linenos">146</span>     <span class="n">DrawPlanet</span><span class="p">(</span><span class="s1">&#39;Earth&#39;</span><span class="p">,</span> <span class="mf">152.1</span><span class="p">,</span> <span class="mf">147.1</span><span class="p">,</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">52</span> <span class="o">*</span> <span class="mf">365.25</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span><span class="p">)</span>
+<span class="linenos">147</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+<span class="linenos">148</span>     <span class="n">DrawPlanet</span><span class="p">(</span><span class="s2">&quot;Halley&#39;s Comet&quot;</span><span class="p">,</span> <span class="mi">45900</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span><span class="p">)</span>
+<span class="linenos">149</span>
+<span class="linenos">150</span> <span class="c1"># Show</span>
+<span class="linenos">151</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.144 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-utils-plot-planet-orbit-v1-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/b949e78858718a53ecc30e4d4e5d3a0f/plot_planet_orbit_v1.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_planet_orbit_v1.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/789b3031cbcd048fac88d7bd4cec558f/plot_planet_orbit_v1.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_planet_orbit_v1.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_mutual_information.html" class="btn btn-neutral float-left" title="Mutual Information Criteria" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_planet_orbit_v2.html" class="btn btn-neutral float-right" title="Drawing a planet orbit (customised)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

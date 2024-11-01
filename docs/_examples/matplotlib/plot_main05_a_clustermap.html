@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>05.a sns.clustermap basic sample &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="05.b sns.clustermap with network.csv" href="plot_main05_b_clustermap.html" />
+    <link rel="prev" title="04. Plot GMM and KDE" href="plot_main04_gmm_kde.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">04. Plot GMM and KDE</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_b_clustermap.html">05.b <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> with <code class="docutils literal notranslate"><span class="pre">network.csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_c_clustermap.html">05.c <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> multiple categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_a_heatmap.html">06.a <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> for CRI <code class="docutils literal notranslate"><span class="pre">v1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_b_heatmap.html">06.b <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> for CRI <code class="docutils literal notranslate"><span class="pre">v2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_c_collateral_sensitivity.html">06.c Collateral Sensitivity Index (CRI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_d_collateral_sensitivity.html">06.d Collateral Sensitivity Index (CRI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_a_2dbin_stat.html">07.a <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">mpl.heatmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_b_2dbin_heatmap.html">07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_c_2dbin_fake.html">07.c <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with fake data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_d_2dbin_shap.html">07.d <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with <code class="docutils literal notranslate"><span class="pre">shap.csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code> with <code class="docutils literal notranslate"><span class="pre">plt.table</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">30. Sample shap.csv boxplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/matplotlib/plot_main05_a_clustermap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-matplotlib-plot-main05-a-clustermap-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="a-sns-clustermap-basic-sample">
+<span id="sphx-glr-examples-matplotlib-plot-main05-a-clustermap-py"></span><h1>05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample<a class="headerlink" href="#a-sns-clustermap-basic-sample" title="Permalink to this heading"></a></h1>
+<p>Plot a matrix dataset as a hierarchically-clustered heatmap.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The hierarchical clustering has been deactivated.</p>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_main05_a_clustermap_001.png" srcset="../../_images/sphx_glr_plot_main05_a_clustermap_001.png" alt="plot main05 a clustermap" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_main05_a_clustermap_002.png" srcset="../../_images/sphx_glr_plot_main05_a_clustermap_002.png" alt="plot main05 a clustermap" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>     A0  A1  A2  A3  A4  A5  A6  A7  A8  A9  A10  A11  A12  A13  A14  A15  A16  A17  A18  A19
+A0    3   0   0   0   2   2   2   0   8   4    1    5    3    8    2    3    7    3    3    9
+A1    2   4   6   4   2   1   4   8   2   7    3    7    3    4    8    9    1    8    1    9
+A2    0   0   3   1   7   6   6   2   5   9    8    0    7    0    0    6    9    2    7    8
+A3    4   5   4   2   1   9   0   9   7   1    1    3    2    0    7    2    1    1    1    9
+A4    0   1   0   1   6   4   2   2   6   8    8    7    5    9    2    0    2    4    8    9
+A5    5   3   8   5   4   2   4   7   3   3    2    9    9    1    0    5    6    3    0    2
+A6    5   8   7   9   6   6   1   4   3   9    8    4    4    8    1    8    0    6    1    3
+A7    2   8   2   8   8   1   5   9   9   7    0    6    3    9    2    0    4    4    6    3
+A8    1   5   6   1   5   7   7   3   3   2    1    9    8    1    0    8    8    7    9    2
+A9    1   9   8   4   0   8   2   4   0   4    2    2    2    3    3    5    2    8    1    0
+A10   8   6   7   8   0   7   5   9   9   4    0    0    3    0    1    4    1    3    6    9
+A11   3   7   8   6   4   4   8   7   0   3    1    8    8    0    0    2    5    9    8    9
+A12   8   4   6   0   3   2   9   3   6   5    9    0    3    6    1    5    1    3    1    3
+A13   5   8   8   4   6   5   8   4   4   8    8    2    5    2    2    2    3    5    1    6
+A14   0   0   4   6   1   8   9   4   3   1    3    3    7    3    3    4    6    4    0    5
+A15   8   2   4   7   8   0   7   8   3   4    0    9    8    7    3    4    5    1    2    2
+A16   4   6   7   6   8   8   5   2   6   9    1    2    1    6    8    2    2    3    6    3
+A17   2   2   8   7   5   7   7   3   5   7    0    0    3    1    7    5    4    2    3    8
+A18   4   5   0   4   5   3   1   0   7   5    3    2    7    4    1    7    6    9    4    7
+A19   5   5   3   9   0   3   7   8   8   2    6    3    1    2    0    5    2    6    1    8
+[&#39;g&#39;, &#39;r&#39;, &#39;r&#39;, &#39;b&#39;, &#39;b&#39;, &#39;g&#39;, &#39;b&#39;, &#39;g&#39;, &#39;r&#39;, &#39;r&#39;, &#39;r&#39;, &#39;b&#39;, &#39;b&#39;, &#39;r&#39;, &#39;g&#39;, &#39;g&#39;, &#39;b&#39;, &#39;r&#39;, &#39;g&#39;, &#39;g&#39;]
+A0     Group g
+A1     Group r
+A2     Group r
+A3     Group b
+A4     Group b
+A5     Group g
+A6     Group b
+A7     Group g
+A8     Group r
+A9     Group r
+A10    Group r
+A11    Group b
+A12    Group b
+A13    Group r
+A14    Group g
+A15    Group g
+A16    Group b
+A17    Group r
+A18    Group g
+A19    Group g
+dtype: object
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">11</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">12</span><span class="sd"> # Display 0</span>
+<span class="linenos">13</span><span class="sd"> iris = sns.load_dataset(&quot;iris&quot;)</span>
+<span class="linenos">14</span><span class="sd"> species = iris.pop(&quot;species&quot;)</span>
+<span class="linenos">15</span><span class="sd"> lut = dict(zip(species.unique(), &quot;rbg&quot;))</span>
+<span class="linenos">16</span><span class="sd"> row_colors = species.map(lut)</span>
+<span class="linenos">17</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span> <span class="c1"># Libraries</span>
+<span class="linenos">20</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">21</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">22</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="linenos">23</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span> <span class="c1"># Constants</span>
+<span class="linenos">26</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="linenos">27</span> <span class="n">C</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Spectral&quot;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span> <span class="c1"># Create data</span>
+<span class="linenos">30</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+<span class="linenos">31</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="linenos">32</span> <span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;A</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">i</span><span class="p">:</span><span class="s1">&#39;Group </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">c</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">)})</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span> <span class="c1"># Create DataFrame</span>
+<span class="linenos">35</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="linenos">36</span>     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)],</span>
+<span class="linenos">37</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="linenos">38</span> <span class="p">)</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span> <span class="c1"># Show</span>
+<span class="linenos">41</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">42</span> <span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+<span class="linenos">43</span> <span class="nb">print</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span> <span class="c1"># Display 1</span>
+<span class="linenos">46</span> <span class="c1"># ---------</span>
+<span class="linenos">47</span> <span class="c1"># Create colors dictionary</span>
+<span class="linenos">48</span> <span class="n">col_colors</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">colors</span><span class="p">))</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span> <span class="c1"># Show</span>
+<span class="linenos">51</span> <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+<span class="linenos">52</span>     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<span class="linenos">53</span>     <span class="n">row_cluster</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_cluster</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">54</span>     <span class="c1">#row_colors=col_colors,</span>
+<span class="linenos">55</span>     <span class="n">col_colors</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">col_colors</span><span class="p">),</span>
+<span class="linenos">56</span>     <span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos">57</span>     <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">58</span>     <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;vlag&quot;</span>
+<span class="linenos">59</span> <span class="p">)</span>
+<span class="linenos">60</span>
+<span class="linenos">61</span> <span class="c1"># Display 2</span>
+<span class="linenos">62</span> <span class="c1"># ---------</span>
+<span class="linenos">63</span> <span class="c1"># Create colors dictionary</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span> <span class="n">col_colors</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">map</span><span class="p">({</span>
+<span class="linenos">66</span>     <span class="s1">&#39;Group g&#39;</span><span class="p">:</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span>
+<span class="linenos">67</span>     <span class="s1">&#39;Group b&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>
+<span class="linenos">68</span>     <span class="s1">&#39;Group r&#39;</span><span class="p">:</span> <span class="s1">&#39;r&#39;</span>
+<span class="linenos">69</span> <span class="p">})</span>
+<span class="linenos">70</span>
+<span class="linenos">71</span> <span class="c1"># Show</span>
+<span class="linenos">72</span> <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+<span class="linenos">73</span>     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<span class="linenos">74</span>     <span class="n">row_cluster</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_cluster</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">75</span>     <span class="c1">#row_colors=col_colors,</span>
+<span class="linenos">76</span>     <span class="n">col_colors</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">col_colors</span><span class="p">),</span>
+<span class="linenos">77</span>     <span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos">78</span>     <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">79</span>     <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;vlag&quot;</span>
+<span class="linenos">80</span> <span class="p">)</span>
+<span class="linenos">81</span>
+<span class="linenos">82</span> <span class="c1"># Show</span>
+<span class="linenos">83</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.548 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main05-a-clustermap-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/3f04811fa9293705f1b69998c5b306d1/plot_main05_a_clustermap.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main05_a_clustermap.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/690d36d710e2ee3590dfca5eea9297ea/plot_main05_a_clustermap.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main05_a_clustermap.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main04_gmm_kde.html" class="btn btn-neutral float-left" title="04. Plot GMM and KDE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main05_b_clustermap.html" class="btn btn-neutral float-right" title="05.b sns.clustermap with network.csv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

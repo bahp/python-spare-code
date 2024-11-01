@@ -1,0 +1,12 @@
+
+:orphan:
+
+.. _sphx_glr__examples_explainerdashboard_sg_execution_times:
+
+Computation times
+=================
+**00:00.005** total execution time for **_examples_explainerdashboard** files:
+
++------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_explainerdashboard_plot_main_01.py` (``plot_main_01.py``) | 00:00.005 | 0.0 MB |
++------------------------------------------------------------------------------------+-----------+--------+
