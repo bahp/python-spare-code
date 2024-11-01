@@ -50,7 +50,7 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
-    '../examples/pandas/plot_format05_damien_sepsis.py',        # Does not work
+    '../examples/pandas/plot_format05_damien_sepsis.py',     # Does not work
     '../examples/pandas/plot_format06_stacked_oucru_v1.py',  # Does not work
     '../examples/pandas/plot_format06_stacked_oucru_v2.py',  # Does not work
     '../examples/plotly/plot_main06_treemap_v3.py',          # Does not work
