@@ -22,9 +22,9 @@ moves = moves.split("\n")
 board = np.array([list(l) for l in crates])
 
 print(board)
-import sys
-sys.exit()
 
+
+"""
 # Build stacks
 stacks = []
 for l in crates[:-1]:
@@ -47,6 +47,5 @@ for m in moves:
         e = stacks[int(q)-1].pop()
         stacks[int(t)-1].append(e)
 
-
-
 print(stacks)
+"""

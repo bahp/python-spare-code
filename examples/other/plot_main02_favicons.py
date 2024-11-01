@@ -6,15 +6,9 @@ This example lists all the libraries installed in the environment
 using pip, gets their site url, downloads the icon and displays it
 in the example.
 
-<<<<<<< HEAD
 .. note:: The command ``cut`` is not available in windows! Thus, the
           code will not run in te standard Windows Command Prompt. However,
           it might be available on Cygwin o Git for windows.
-=======
-.. note:: The command ``cut`` is not available in windows! It might
-          be available on Cygwin o Git for windows.
->>>>>>> 5018119e5209658ce94292cad977dadd9e4a87c8
-
 """
 
 # Libraries

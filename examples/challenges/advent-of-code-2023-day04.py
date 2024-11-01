@@ -72,11 +72,9 @@ for a,b,c in cards:
 print(sums)
 
 
-import sys
-sys.exit()
 
 
-
+"""
 # ---------------------------
 # Part 2
 # ---------------------------
@@ -88,11 +86,9 @@ sys.exit()
 from collections import deque
 
 def get_card_id(txt):
-    """Extract id number from line"""
     return int(re.search(r'\d+', txt.split(":")[0]).group(0))
 
 def get_matches(txt):
-    """Extract set with matching numbers"""
     aux = txt.split(":")[1]
     numbers_win = re_number_list(aux.split("|")[0])
     numbers_own = re_number_list(aux.split("|")[1])
@@ -116,6 +112,7 @@ while len(q):
 
 # Answer
 print(c)
+"""
 
 
 
