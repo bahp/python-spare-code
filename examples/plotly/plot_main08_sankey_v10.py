@@ -1,7 +1,32 @@
+"""
+08. Patient therapy flow (sankey)
+===================================
+
+This Sankey diagram visualizes treatment pathways by showing the flow of therapies
+between consecutive days. The width of each path is proportional to the volume of
+these transitions, which should be interpreted based on the input data's structure.
+If the data contains a single entry for a given therapy per subject per day, the
+flow represents the number of patients. However, if the data includes multiple
+entries for the same therapy on a given day, such as for each dose, then the flow
+represents the total number of applications.
+
+It should be noted that the visualization's level of detail can be modified directly
+in the code. This allows the trajectories to be displayed by specific drug, broader
+drug category, or the WHO AWaRe classification (Access, Watch, Reserve).
+
+"""
+
+# Libraries
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import matplotlib.cm as cm
+
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
 # =============================================================================
 # LOOKUP TABLES & CONSTANTS
@@ -24,7 +49,8 @@ def drug_to_aware_default():
         "vancomycin": "Watch", "aztreonam": "Reserve", "cefiderocol": "Reserve",
         "ceftazidime/avibactam": "Reserve", "ceftolozane/tazobactam": "Reserve",
         "colistin": "Reserve", "daptomycin": "Reserve", "linezolid": "Reserve",
-        "tazocin": "Watch"
+        "tazocin": "Watch",
+        'no therapy': 'No Therapy'
     }
 
 def drug_to_aware_class_winnie():
@@ -64,9 +90,15 @@ def drug_to_aware_class_winnie():
     d = {drug.lower(): "Access" for drug in ACCESS_LIST}
     d.update({drug.lower(): "Watch" for drug in WATCH_LIST})
     d.update({drug.lower(): "Reserve" for drug in RESERVE_LIST})
+    d.update({'No therapy'.lower(): 'No Therapy'})
     return d
 
 DRUG_TO_AWARE_CLASS = drug_to_aware_default()
+
+# .. note:: Please be aware that this list is not exhaustive. Any antibiotics not assigned
+#           to a specific category are currently labeled as 'Unknown'. To ensure complete
+#           coverage, please expand the list to encompass all items.
+# .. note:: Ensure keys are lowercase.
 
 DRUG_TO_CLASS = {
     "amoxicillin": "Penicillin", "flucloxacillin": "Penicillin", "pivmecillinam": "Penicillin",
@@ -78,7 +110,8 @@ DRUG_TO_CLASS = {
     "clarithromycin": "Macrolide", "erythromycin": "Macrolide", "vancomycin": "Glycopeptide",
     "teicoplanin": "Glycopeptide", "linezolid": "Oxazolidinone", "metronidazole": "Nitroimidazole",
     "doxycycline": "Tetracycline", "fosfomycin": "Phosphonic acid", "co-trimoxazole": "Folate pathway inhibitor",
-    "chloramphenicol": "Amphenicol", "temocillin": "Penicillin"
+    "chloramphenicol": "Amphenicol", "temocillin": "Penicillin",
+    "no therapy": "No Therapy" # To keep no therapy (otherwise will be set to Unkown)
 }
 
 COLUMN_FOR_ANALYSIS = {
@@ -110,6 +143,8 @@ def create_validation_data():
         {'SUBJECT': 101, 'DAY_NUM': 3, 'drug_norm': 'vancomycin'},
         {'SUBJECT': 101, 'DAY_NUM': 4, 'drug_norm': 'No Therapy'},
         {'SUBJECT': 101, 'DAY_NUM': 5, 'drug_norm': 'No Therapy'},
+        {'SUBJECT': 101, 'DAY_NUM': 7, 'drug_norm': 'vancomycin'},
+        {'SUBJECT': 101, 'DAY_NUM': 8, 'drug_norm': 'vancomycin'},
 
         # --- Patient 102: Shorter journey, merges into the combo on Day 2 ---
         {'SUBJECT': 102, 'DAY_NUM': 1, 'drug_norm': 'ciprofloxacin'},
@@ -121,15 +156,33 @@ def create_validation_data():
     ]
     return pd.DataFrame(records)
 
+
+def remove_days_randomly(df, missing_day_fraction=0.01):
+    """Remove some days randomly."""
+    if missing_day_fraction > 0:
+        # Identify the indices of rows that are NOT the first day for any patient.
+        droppable_indices = df[df['DAY_NUM'] != 1].index
+        # Calculate how many of these rows to drop
+        num_to_drop = int(len(droppable_indices) * missing_day_fraction)
+        # Randomly choose the indices to drop from the droppable list
+        indices_to_drop = np.random.choice(droppable_indices, size=num_to_drop, replace=False)
+        # Drop the selected rows to create the final DataFrame
+        df = df.drop(indices_to_drop)
+    return df
+
+
 def create_synthetic_data(num_patients=50, max_los=7):
     """
     Creates synthetic patient antibiotic data with variable lengths of stay.
+
+    .. note:: It adds combined therapies to first 5.
+    .. note:: It removes some days with no therapy information.
 
     Args:
         num_patients: The number of patients to simulate.
         max_los: The maximum possible length of stay for any patient.
     """
-    antibiotics = list(DRUG_TO_AWARE_CLASS.keys()) + ['No Therapy']
+    antibiotics = list(DRUG_TO_AWARE_CLASS.keys()) # + ['No Therapy']
     records = []
     for pid in range(num_patients):
         los = np.random.randint(2, max_los + 1)
@@ -145,10 +198,35 @@ def create_synthetic_data(num_patients=50, max_los=7):
                     p=[0.6, 0.1] + [0.3/len(other_abs)]*len(other_abs))
             records.append({'SUBJECT': pid, 'DAY_NUM': day, 'drug_norm': new_therapy})
             current_therapy = new_therapy
-    for pid in range(5): # Add combination therapies for testing
+    # Add combination therapies for testing.
+    for pid in range(5):
         records.append({'SUBJECT': pid, 'DAY_NUM': 2, 'drug_norm': 'amoxicillin'})
         records.append({'SUBJECT': pid, 'DAY_NUM': 2, 'drug_norm': 'linezolid'})
-    return pd.DataFrame(records)
+    # Remove days randomly for testing
+    df = remove_days_randomly(pd.DataFrame(records), missing_day_fraction=0.1)
+    # Return
+    return df
+
+
+def find_missing_days(group: pd.DataFrame,
+                      subject_col: str,
+                      day_col: str):
+    """For a subject's data, return a DataFrame of missing days."""
+    min_day, max_day = group[day_col].min(), group[day_col].max()
+
+    # Use sets for a fast way to find what's missing
+    all_possible_days = set(range(min_day, max_day + 1))
+    existing_days = set(group[day_col])
+    missing_days = sorted(list(all_possible_days - existing_days))
+
+    # Return a new DataFrame containing just the missing rows
+    if missing_days:
+        return pd.DataFrame({
+            subject_col: group.name,
+            day_col: missing_days,
+            'drug_norm': 'No Therapy'
+        })
+    return None  # Return nothing if no days are missing
 
 
 def process_patient_data(df: pd.DataFrame,
@@ -162,6 +240,14 @@ def process_patient_data(df: pd.DataFrame,
     """
     df_copy = df.copy()
 
+    # Create data with missing days and 'No Therapy'
+    df_missing = df_copy.groupby(subject_col) \
+        .apply(find_missing_days, subject_col=subject_col, day_col=day_col) \
+        .reset_index(drop=True)
+
+    # Concatenate original data and missing data
+    df_copy = pd.concat([df_copy, df_missing]).reset_index(drop=True)
+
     if level == 'class':
         df_copy[therapy_col] = df_copy['drug_norm'].str.lower() \
             .map(DRUG_TO_CLASS).fillna('Unknown')
@@ -174,7 +260,7 @@ def process_patient_data(df: pd.DataFrame,
         df_copy[therapy_col] = df_copy['drug_norm'].str.lower() \
             .map(DRUG_TO_AWARE_CLASS).fillna('Unknown')
         # For combinations, resolve by picking the highest-order class
-        aware_order = {'Access': 0, 'Watch': 1, 'Reserve': 2, 'Unknown': -1}
+        aware_order = {'Access': 0, 'Watch': 1, 'Reserve': 2, 'Unknown': -1, 'No Therapy': -2}
         df_copy['aware_ordinal'] = df_copy[therapy_col].map(aware_order)
         idx = df_copy.groupby([subject_col, day_col])['aware_ordinal'].idxmax()
         return df_copy.loc[idx].drop(columns='aware_ordinal')
@@ -191,7 +277,9 @@ def process_patient_data(df: pd.DataFrame,
 def limit_therapies_to_top_n(df: pd.DataFrame, therapy_col: str, n: int) -> pd.DataFrame:
     """Keeps the top N most frequent therapies and groups the rest into 'Other'."""
     if n is None: return df
-    top_n = df[therapy_col].value_counts().nlargest(n).index
+    top_n = df[therapy_col].value_counts().nlargest(n).index.tolist()
+    if 'No Therapy' not in top_n:
+        top_n.append('No Therapy')
     df[therapy_col] = df[therapy_col].where(df[therapy_col].isin(top_n), 'Other')
     return df
 
@@ -227,16 +315,21 @@ def create_comprehensive_color_map(df: pd.DataFrame) -> dict:
             therapies.remove(category)
     if not therapies: return color_map
     colormap = cm.get_cmap('tab20b', len(therapies))
-    hex_colors = ['#%02x%02x%02x' % (int(r*255), int(g*255), int(b*255)) for r, g, b, a in colormap(np.linspace(0, 1, len(therapies)))]
+    hex_colors = ['#%02x%02x%02x' % (int(r*255), int(g*255), int(b*255)) \
+        for r, g, b, a in colormap(np.linspace(0, 1, len(therapies)))]
     for therapy, color in zip(therapies, hex_colors): color_map[therapy] = color
     return color_map
 
 
 def plot_sankey_robust(flow_df: pd.DataFrame, therapy_colors: dict, title: str):
     """Generates a Sankey diagram using a structural method that prevents backward links."""
-    source_nodes = flow_df[['day_from', 'item_from']].rename(columns={'day_from': 'day', 'item_from': 'label'})
-    target_nodes = flow_df[['day_to', 'item_to']].rename(columns={'day_to': 'day', 'item_to': 'label'})
-    nodes_df = pd.concat([source_nodes, target_nodes]).drop_duplicates().sort_values(['day', 'label']).reset_index(drop=True)
+    source_nodes = flow_df[['day_from', 'item_from']] \
+        .rename(columns={'day_from': 'day', 'item_from': 'label'})
+    target_nodes = flow_df[['day_to', 'item_to']] \
+        .rename(columns={'day_to': 'day', 'item_to': 'label'})
+    nodes_df = pd.concat([source_nodes, target_nodes]) \
+        .drop_duplicates().sort_values(['day', 'label']) \
+        .reset_index(drop=True)
     nodes_df['id'] = nodes_df.index
     node_map = pd.Series(nodes_df.id.values, index=nodes_df['label'] + '_day_' + nodes_df['day'].astype(str))
     flow_df['source_id'] = (flow_df['item_from'] + '_day_' + flow_df['day_from'].astype(str)).map(node_map)
@@ -245,7 +338,8 @@ def plot_sankey_robust(flow_df: pd.DataFrame, therapy_colors: dict, title: str):
     day_x_map = {day: i / (len(unique_days) - 1) if len(unique_days) > 1 else 0.5 for i, day in enumerate(unique_days)}
     node_x = nodes_df['day'].map(day_x_map)
     node_colors = nodes_df['label'].map(therapy_colors).fillna('#CCCCCC')
-    link_colors = flow_df['item_from'].map(therapy_colors).fillna('#CCCCCC').apply(lambda h: f"rgba({int(h[1:3],16)},{int(h[3:5],16)},{int(h[5:7],16)},0.4)")
+    link_colors = flow_df['item_from'].map(therapy_colors).fillna('#CCCCCC') \
+        .apply(lambda h: f"rgba({int(h[1:3],16)},{int(h[3:5],16)},{int(h[5:7],16)},0.4)")
     fig = go.Figure(data=[go.Sankey(
         arrangement="snap",
         node=dict(pad=20, thickness=25, line=dict(color="black", width=0.5),
@@ -253,22 +347,30 @@ def plot_sankey_robust(flow_df: pd.DataFrame, therapy_colors: dict, title: str):
         link=dict(source=flow_df['source_id'], target=flow_df['target_id'],
                   value=flow_df['count'], color=link_colors)
     )])
+    y = -0.05 if TERMINAL else -0.17
     annotations = [
-        dict(x=x, y=-0.07, text=f"<b>Day {d}</b>", showarrow=False,
-             font=dict(size=14), xref="paper", yref="paper", xanchor="center")
-            for d, x in day_x_map.items()]
-    fig.update_layout(title_text=f"<b>{title}</b>",
+        dict(x=x, y=y, text=f"<b>Day {d}</b>", showarrow=False,
+            font=dict(size=14), xref="paper", yref="paper", xanchor="center")
+                for d, x in day_x_map.items()]
+    fig.update_layout(
+        title_text=f"<b>{title}</b>",
+        title_x=0.5,
         font=dict(size=12),
         annotations=annotations,
-        margin=dict(b=100))
-    fig.show()
+        margin=dict(b=100)
+    )
+
+    if not TERMINAL:
+        fig.update_layout(margin=dict(l=30, r=30, t=60, b=100))
+
+    return fig
 
 
 
 
 
 # =============================================================================
-# MAIN EXECUTION
+#                                   MAIN
 # =============================================================================
 if __name__ == '__main__':
 
@@ -279,9 +381,9 @@ if __name__ == '__main__':
 
     # Constants
     N_PATIENTS = 200          # Number of patients
-    MAX_LOS = 6               # Maximum length of stay.
-    TOP_N_THERAPIES = 8       # Filter by top most common therapies
-    ANALYSIS_LEVEL = 'drug'   # Options ('drug', 'class' and 'aware')
+    MAX_LOS = 6                 # Maximum length of stay.
+    TOP_N_THERAPIES = 10       # Filter by top most common therapies
+    ANALYSIS_LEVEL = 'aware'   # Options ('drug', 'class' and 'aware')
 
     # Define variables
     therapy_col = COLUMN_FOR_ANALYSIS[ANALYSIS_LEVEL]
@@ -323,6 +425,10 @@ if __name__ == '__main__':
         colors = create_comprehensive_color_map(flow_data)
         plot_title = f"Antimicrobial Therapy Transitions ({ANALYSIS_LEVEL.title()} View)"
         if TOP_N_THERAPIES: plot_title += f" - Top {TOP_N_THERAPIES}"
-        plot_sankey_robust(flow_data, colors, title=plot_title)
+        fig = plot_sankey_robust(flow_data, colors, title=plot_title)
+
+        # Show
+        from plotly.io import show
+        show(fig)
     else:
         print("No flow data to plot. The dataset might be too small or filtered.")

@@ -107,6 +107,7 @@ sphinx_gallery_conf = {
         '../source/_examples',
     ],
     # Other
+    'ignore_pattern': '/_|ignore_',
     'line_numbers': True,
     'download_all_examples': False,
     'within_subsection_order': FileNameSortKey,

@@ -27,3 +27,8 @@ pyyaml
 #pandas-profiling
 #torch
 torch
+jsonpickle
+pdfplumber
+pdf2image
+pytesseract
+opencv-python
