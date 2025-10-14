@@ -1,18 +1,16 @@
 """
 UKVI trips visualisation
------------------------------
+------------------------
 
 """
 
 import pdfplumber
 import re
-import json
 import pandas as pd
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 from matplotlib.dates import DateFormatter
-from datetime import datetime
 from pathlib import Path
 
 
@@ -173,7 +171,7 @@ def display(df, cmap=None):
         month += 1
 
     # Add horizontal lines for each year
-    years = pd.date_range(start=start_date, end=end_date+pd.DateOffset(years=1), freq='Y')
+    years = pd.date_range(start=start_date, end=end_date+pd.DateOffset(years=1), freq='YE')
     for year in years:
         ax.axvline(year, color='black', linestyle='--', lw=1)  # Vertical line for each year
         ax.text(year - pd.Timedelta(days=90), len(df) + 0.5, year.year, 
@@ -257,12 +255,175 @@ COLORMAP = {
 
 
 # Define the PDF file path and page range to extract
-pdf_path = Path('./data/775243 Final Bundle.pdf')
+pdf_path = Path('./data/1085721-final-bundle.pdf')
+#pdf_path = Path('./data/775243-final-bundle.pdf')
 start_page = 6  # Page number where the tables start
 end_page = 8    # Page number where the tables end
 
 # Define the JSON file
 #pdf_path = Path('./data/bernard-2024.json')
+
+
+
+
+""""""
+
+from pdf2image import convert_from_path
+import pytesseract
+import re
+import json
+import numpy as np
+import cv2
+from PIL import Image
+
+# Convert the PDF into images (one per page)
+#images = convert_from_path(pdf_path, dpi=300)
+
+# Regex pattern to extract table rows
+row_pattern = re.compile(
+    r"(\d{2}/\d{2}/\d{4}\s+\d{2}:\d{2})\s+(\d{2}/\d{2}/\d{4}\s+\d{2}:\d{2})\s+([\w\d]+)\s+(Outbound|Inbound)\s+([\w\d]+)\s+([\w\d]+)"
+)
+
+# Store results
+table_data = []
+
+images = [Image.open('page_6_table.png')]
+
+
+cont = 0
+# Process each page
+for page_index, page_image in enumerate(images):
+    print("Page ", page_index)
+    # Convert to OpenCV format and preprocess
+    image_cv = np.array(page_image)
+    gray = cv2.cvtColor(image_cv, cv2.COLOR_BGR2GRAY)
+    _, binary = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
+
+    # Perform OCR
+    raw_text = pytesseract.image_to_string(Image.fromarray(binary))
+
+    # Parse rows using regex
+    for row in raw_text.split("\n"):
+        match = row_pattern.match(row)
+        if match:
+            table_data.append({
+                "Departure Date/Time": match.group(1),
+                "Arrival Date/Time": match.group(2),
+                "Voyage Code": match.group(3),
+                "In/Out": match.group(4),
+                "Dep Port": match.group(5),
+                "Arrival Port": match.group(6)
+            })
+            cont += 1
+            print(cont)
+
+# Save to JSON
+output_path = "extracted_table_data.json"
+with open(output_path, "w") as json_file:
+    json.dump(table_data, json_file, indent=4)
+
+print(f"Data has been saved to {output_path}")
+
+
+import sys
+sys.exit()
+import pdfplumber
+
+# Path to your PDF file
+pdf_path = "data/1085721-final-bundle.pdf"
+
+table_settings = {
+    "vertical_strategy": "lines",       # Try "text" or "lines"
+    "horizontal_strategy": "lines",    # Try "text" or "lines"
+    "snap_tolerance": 3,               # Adjust for alignment issues
+}
+
+# Open the PDF using pdfplumber
+with pdfplumber.open(pdf_path) as pdf:
+    # Specify the page index (Page 6 is index 5 because pages are zero-indexed)
+    page = pdf.pages[5]
+    # Extract tables
+    tables = page.extract_tables(table_settings)
+
+    # Print extracted table data
+    for table_index, table in enumerate(tables):
+        print(f"Table {table_index + 1}:\n")
+        for row in table:
+            print(row)
+        print("\n" + "=" * 50 + "\n")
+
+from pdf2image import convert_from_path
+import pytesseract
+from PIL import Image
+
+# Convert page 6 to an image
+#images = convert_from_path(pdf_path, dpi=300)
+#table_image = images[5]  # Page 6 is index 5
+
+# Save the image (optional, for debugging)
+#table_image.save("page_6_table.png")
+
+from PIL import Image
+
+# Open the image
+image = Image.open('page_6_table.png')
+
+# Use OCR to extract text
+text = pytesseract.image_to_string(image)
+print("Extracted Text via OCR:\n", text)
+# Clean OCR noise
+cleaned_text = text.replace("O", "0").replace("l", "1").replace("I", "1")
+
+# Define regex for parsing
+row_pattern = re.compile(
+    r"(\d{2}/\d{2}/\d{4}\s+\d{2}:\d{2})\s+(\d{2}/\d{2}/\d{4}\s+\d{2}:\d{2})\s+([\w\d]+)\s+([\w\d]+)\s+([\w\d]+)\s+([\w\d]+)"
+)
+
+# Parse rows into structured data
+parsed_data = []
+for row in cleaned_text.split("\n"):
+    match = row_pattern.match(row)
+    if match:
+        parsed_data.append(match.groups())
+
+# Create DataFrame
+headers = [
+    "Departure Date/Time", "Arrival Date/Time", "Voyage Code", "In/Out",
+    "Dep Port", "Arrival Port"
+]
+df = pd.DataFrame(parsed_data, columns=headers)
+
+# Display DataFrame
+print("Extracted DataFrame:\n", df)
+import sys
+sys.exit()
+
+from pdf2image import convert_from_path
+import pytesseract
+#import easyocr
+
+# Initialize EasyOCR reader
+#reader = easyocr.Reader(['en'])  # Specify language(s)
+
+# Convert pages to images
+images = convert_from_path(pdf_path, dpi=300)
+
+"""
+# Process each page
+for i, image in enumerate(images):
+    print(f"Processing page {i + 1}...")
+    text = reader.readtext(image, detail=0)  # detail=0 returns only text, no bounding boxes
+    print("\n".join(text))
+    print("\n" + "=" * 50 + "\n")
+"""
+
+for i, image in enumerate(images):
+    if i == 5:  # Page 6
+        text = pytesseract.image_to_string(image)
+        print(text)
+
+import sys
+sys.exit()
 
 # Load DataFrame
 if pdf_path.suffix == '.pdf':

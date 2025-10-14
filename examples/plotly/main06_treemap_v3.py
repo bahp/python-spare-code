@@ -60,6 +60,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
 
 TERMINAL = True
 
+"""
 # --------------------------------------------------------------------
 #                               Main
 # --------------------------------------------------------------------
@@ -153,6 +154,7 @@ fig = px.treemap(dataframe,
 
 # Show current template
 print(fig.data[0].hovertemplate)
+"""
 
 """
 The default hover template looks as follows:
@@ -169,6 +171,7 @@ The default hover template looks as follows:
     <extra></extra>
 """
 
+"""
 # Set custom data (not needed and inconsistent)
 #fig.data[0].customdata = dataframe.to_numpy()
 #fig.data[0].hovertemplate = htmp
@@ -215,3 +218,4 @@ fig.write_html("%s/%s" % (path, filename))
 
 # Show
 show(fig)
+"""
