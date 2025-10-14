@@ -26,7 +26,9 @@ tf.random.set_seed(7)
 # ---------------------------------------------------
 # Main example
 # ---------------------------------------------------
-# Copied from machine learning mastery
+# This is an example of training and LSM copied from
+# the machine learning mastery blog. It is just to
+# have a simple working model to work from.
 
 # Path
 path = './data/passengers.csv'
@@ -279,6 +281,8 @@ txt_model = create_model(look_back=1)
 txt_model.set_weights(weights)
 txt_model_pred_test = txt_model.predict(testX)
 
+print(txt_model_pred_test)
+
 # Are the predictions equal?
 print("==> [manualtxt] Are test set predictions equal? %s" %
     np.array_equal(testPredict, txt_model_pred_test))
@@ -286,11 +290,10 @@ print("==> [manualtxt] Are test set predictions equal? %s" %
 
 
 # ---------------------------------------
-#
+# Example III: Using skljson
 # ---------------------------------------
-# It seems that it does not work for the
-# scalers, only for a handful of models so
-# might need to do it manually too.
+# It seems that it does not work for the scalers, only for a handful
+# of models so might need to do it manually too.
 
 """
 import sklearn_json as skljson

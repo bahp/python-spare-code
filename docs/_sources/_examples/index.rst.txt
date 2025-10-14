@@ -668,6 +668,69 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Example">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas/images/thumb/sphx_glr_format05_damien_sepsis_thumb.png
+     :alt: 05. Format damien sepsis data
+
+     :ref:`sphx_glr__examples_pandas_format05_damien_sepsis.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas/format05_damien_sepsis
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="06. Clean OUCRU v1.0">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas/images/thumb/sphx_glr_format06_stacked_oucru_v1_thumb.png
+     :alt: 06. Clean OUCRU v1.0
+
+     :ref:`sphx_glr__examples_pandas_format06_stacked_oucru_v1.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas/format06_stacked_oucru_v1
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="02. Clean OUCRU v2.0">
+
+.. only:: html
+
+ .. figure:: /_examples/pandas/images/thumb/sphx_glr_format06_stacked_oucru_v2_thumb.png
+     :alt: 02. Clean OUCRU v2.0
+
+     :ref:`sphx_glr__examples_pandas_format06_stacked_oucru_v2.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/pandas/format06_stacked_oucru_v2
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="01. Sliding window">
 
 .. only:: html
@@ -773,69 +836,6 @@ Gallery of examples using ``pandas``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Example">
-
-.. only:: html
-
- .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format05_damien_sepsis_thumb.png
-     :alt: 05. Format damien sepsis data
-
-     :ref:`sphx_glr__examples_pandas_plot_format05_damien_sepsis.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pandas/plot_format05_damien_sepsis
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="06. Clean OUCRU v1.0">
-
-.. only:: html
-
- .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format06_stacked_oucru_v1_thumb.png
-     :alt: 06. Clean OUCRU v1.0
-
-     :ref:`sphx_glr__examples_pandas_plot_format06_stacked_oucru_v1.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pandas/plot_format06_stacked_oucru_v1
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="02. Clean OUCRU v2.0">
-
-.. only:: html
-
- .. figure:: /_examples/pandas/images/thumb/sphx_glr_plot_format06_stacked_oucru_v2_thumb.png
-     :alt: 02. Clean OUCRU v2.0
-
-     :ref:`sphx_glr__examples_pandas_plot_format06_stacked_oucru_v2.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/pandas/plot_format06_stacked_oucru_v2
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="99. Basic Example">
 
 .. only:: html
@@ -909,6 +909,28 @@ Plotly
 
 Gallery of examples using ``plotly``.
 
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example displays a Treemap using a portion of the NHS dataset. This example needs pyAMR to...">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly/images/thumb/sphx_glr_main06_treemap_v3_thumb.png
+     :alt: 06. Plot Treemap with NHS
+
+     :ref:`sphx_glr__examples_plotly_main06_treemap_v3.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly/main06_treemap_v3
 
 .. raw:: html
 
@@ -1038,27 +1060,6 @@ Gallery of examples using ``plotly``.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example displays a Treemap using a portion of the NHS dataset. This example needs pyAMR to...">
-
-.. only:: html
-
- .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main06_treemap_v3_thumb.png
-     :alt: 06. Plot Treemap with NHS
-
-     :ref:`sphx_glr__examples_plotly_plot_main06_treemap_v3.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /_examples/plotly/plot_main06_treemap_v3
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="This example plots a parallel graph.">
 
 .. only:: html
@@ -1098,6 +1099,27 @@ Gallery of examples using ``plotly``.
    :hidden:
 
    /_examples/plotly/plot_main07_parallel_v2
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This Sankey diagram visualizes treatment pathways by showing the flow of therapies between cons...">
+
+.. only:: html
+
+ .. figure:: /_examples/plotly/images/thumb/sphx_glr_plot_main08_sankey_v10_thumb.png
+     :alt: 8. Sankey (patient treatment pathway)
+
+     :ref:`sphx_glr__examples_plotly_plot_main08_sankey_v10.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/plotly/plot_main08_sankey_v10
 
 .. raw:: html
 
@@ -1796,6 +1818,20 @@ Gallery of examples using ``tpot``.
    :hidden:
 
    /_examples/tpot/main01
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_ukvi-trips:
+
+UKVI Trips
+----------
+
+Script to display outbound/inbound flights provided by UKVI.
+
+
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

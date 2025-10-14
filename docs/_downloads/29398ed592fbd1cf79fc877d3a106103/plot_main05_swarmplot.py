@@ -114,7 +114,9 @@ norm_shap = True
 
 # Load data
 data = load_shap_file()
-#data = data[data['sample'] < 100]
+
+# Filter so that it is less computationally expensive
+data = data[data['sample'] < 100]
 
 # Show
 if TERMINAL:
@@ -127,7 +129,7 @@ data.head(10)
 
 
 #%%
-# Display using ``sns.swarmplot`
+# Display using ``sns.swarmplot``
 #
 # .. warning:: This method seems to be quite slow.
 #
