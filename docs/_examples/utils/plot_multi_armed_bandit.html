@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Armed bandit problems &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mutual Information Criteria" href="plot_mutual_information.html" />
+    <link rel="prev" title="Generate data AST" href="plot_generate_data_AST.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#utils">Utils</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mic.html">MIC package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_collateral_sensitivity.html">Collateral Sensitivity Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_drug_resistance_index.html">Drug Resistance Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_generate_data_AST.html">Generate data AST</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multi-Armed bandit problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mutual_information.html">Mutual Information Criteria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v1.html">Drawing a planet orbit (stackoverflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_planet_orbit_v2.html">Drawing a planet orbit (customised)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_scale_colormap.html">Show colormap for various scalings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">Multi-Armed bandit problems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/utils/plot_multi_armed_bandit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-utils-plot-multi-armed-bandit-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="multi-armed-bandit-problems">
+<span id="sphx-glr-examples-utils-plot-multi-armed-bandit-py"></span><h1>Multi-Armed bandit problems<a class="headerlink" href="#multi-armed-bandit-problems" title="Permalink to this heading"></a></h1>
+<p>See below for a few resources.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://www.kaggle.com/getting-started/131811">R1</a>: List of useful multi-armed bandit resources</p></li>
+<li><p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2018/09/reinforcement-multi-armed-bandit-scratch-python/">R2</a>: Tutorial - Reinforcement multi-armed banding (python)</p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/solving-multi-armed-bandit-problems-53c73940244a">R3</a>: Tutorial - Solving multi-armed bandit problems</p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/building-a-recommender-system-using-machine-learning-2eefba9a692e">R4</a>: Building a recommender system using ML</p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41746-023-00755-5#code-availability">R5</a>: Nature article</p></li>
+<li><p><a class="reference external" href="https://github.com/CaryLi666/ID3QNE-algorithm">R6</a>: GitHub Code</p></li>
+<li><p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2019/04/introduction-deep-q-learning-python/">R7</a>: Introduction to Deep Q-Learning</p></li>
+</ul>
+</div></blockquote>
+<p>Explore the applicability of multi-armed bandit problems for recommender systems.</p>
+<ol class="upperalpha simple">
+<li><p>Could it be used a strategy to define which antimicrobials suggestions to be shown?</p></li>
+</ol>
+<p>The data considered would be susceptibility test data. Once we know the resistances
+of the microorganisms to the available antimicrobials we have to display which
+antimicrobials would be recommended. Without any patient related information, this
+could be seen as “advertising” narrower spectrum antimicrobials while exploring
+how these are being “clicked”.</p>
+<ol class="upperalpha simple" start="2">
+<li><p>Recommender Systems</p></li>
+</ol>
+<p>We have our CBR system which measures similarities between patients. For example,
+by using an unsupervised (or self-supervised) approach with a neural network we
+can compute the similarity metrics (e.g. demographics, clinical, biomarkers,
+radiology, …). Anyways, based on these we have to retrieve from the database
+cases which are similar and show them to the clinicians. By using clinicians feedback
+we could see which cases were being clicked and adapt the ones that are being retrieved?</p>
+<p>Shouldn’t we adapt the model?</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-utils-plot-multi-armed-bandit-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/abc5d40614bba3252d38df3ca6dcde7f/plot_multi_armed_bandit.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_multi_armed_bandit.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/156a903381bcf815f080005874037113/plot_multi_armed_bandit.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_multi_armed_bandit.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_generate_data_AST.html" class="btn btn-neutral float-left" title="Generate data AST" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_mutual_information.html" class="btn btn-neutral float-right" title="Mutual Information Criteria" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2025, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

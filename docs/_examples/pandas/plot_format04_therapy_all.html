@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>04. Format MIMIC therapy (all) &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="04. Format MIMIC therapy (one)" href="plot_format04_therapy_one.html" />
+    <link rel="prev" title="03. Empty" href="plot_format03.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#pandas">Pandas</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="format05_damien_sepsis.html">05. Format damien sepsis data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="format06_stacked_oucru_v1.html">06. Clean OUCRU v1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="format06_stacked_oucru_v2.html">02. Clean OUCRU v2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format01.html">01. Sliding window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format02.html">02. Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format03.html">03. Empty</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">04. Format MIMIC therapy (all)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_one.html">04. Format MIMIC therapy (one)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main01.html">99. Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile01.html">01. <code class="docutils literal notranslate"><span class="pre">pandas_profiling</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile02.html">02. <code class="docutils literal notranslate"><span class="pre">dataprep</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">04. Format MIMIC therapy (all)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/pandas/plot_format04_therapy_all.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-pandas-plot-format04-therapy-all-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="format-mimic-therapy-all">
+<span id="sphx-glr-examples-pandas-plot-format04-therapy-all-py"></span><h1>04. Format MIMIC therapy (all)<a class="headerlink" href="#format-mimic-therapy-all" title="Permalink to this heading"></a></h1>
+<p>Description…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span> <span class="c1"># Generic libraries</span>
+<span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span> <span class="c1"># Show in terminal</span>
+<span class="linenos">11</span> <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>First, lets load and do some basic formatting on the data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">16</span> <span class="c1"># -----------------------------</span>
+<span class="linenos">17</span> <span class="c1"># Constants</span>
+<span class="linenos">18</span> <span class="c1"># -----------------------------</span>
+<span class="linenos">19</span> <span class="c1"># Path</span>
+<span class="linenos">20</span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./data/mimic-therapy/ICU_diagnoses_antibiotics.csv&#39;</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span> <span class="c1"># -----------------------------</span>
+<span class="linenos">23</span> <span class="c1"># Load data</span>
+<span class="linenos">24</span> <span class="c1"># -----------------------------</span>
+<span class="linenos">25</span> <span class="c1"># Read data</span>
+<span class="linenos">26</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span>
+<span class="linenos">27</span>     <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">28</span>     <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">,</span>
+<span class="linenos">29</span>                  <span class="s1">&#39;stoptime&#39;</span><span class="p">])</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span> <span class="c1"># Keep only useful columns</span>
+<span class="linenos">32</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
+<span class="linenos">33</span>              <span class="s1">&#39;hadm_id&#39;</span><span class="p">,</span>
+<span class="linenos">34</span>              <span class="s1">&#39;stay_id&#39;</span><span class="p">,</span>
+<span class="linenos">35</span>              <span class="s1">&#39;icd_code&#39;</span><span class="p">,</span>
+<span class="linenos">36</span>              <span class="s1">&#39;antibiotic&#39;</span><span class="p">,</span>
+<span class="linenos">37</span>              <span class="s1">&#39;route&#39;</span><span class="p">,</span>
+<span class="linenos">38</span>              <span class="s1">&#39;starttime&#39;</span><span class="p">,</span>
+<span class="linenos">39</span>              <span class="s1">&#39;stoptime&#39;</span><span class="p">]]</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span> <span class="c1"># Reformat (time info and str)</span>
+<span class="linenos">42</span> <span class="n">data</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">starttime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="linenos">43</span> <span class="n">data</span><span class="o">.</span><span class="n">stoptime</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">stoptime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="linenos">44</span> <span class="n">data</span><span class="o">.</span><span class="n">antibiotic</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">antibiotic</span> \
+<span class="linenos">45</span>     <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> \
+<span class="linenos">46</span>     <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span> <span class="c1"># Show</span>
+<span class="linenos">49</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">50</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
+<span class="linenos">51</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">52</span> <span class="n">data</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>hadm_id</th>
+      <th>stay_id</th>
+      <th>icd_code</th>
+      <th>antibiotic</th>
+      <th>route</th>
+      <th>starttime</th>
+      <th>stoptime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10656173</td>
+      <td>25778760</td>
+      <td>30001555</td>
+      <td>J95851</td>
+      <td>ceftriaxone</td>
+      <td>IV</td>
+      <td>2177-09-27</td>
+      <td>2177-10-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10656173</td>
+      <td>25778760</td>
+      <td>37985659</td>
+      <td>J95851</td>
+      <td>cefepime</td>
+      <td>IV</td>
+      <td>2177-09-19</td>
+      <td>2177-09-23</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10656173</td>
+      <td>25778760</td>
+      <td>37985659</td>
+      <td>J95851</td>
+      <td>cefepime</td>
+      <td>IV</td>
+      <td>2177-09-11</td>
+      <td>2177-09-12</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10656173</td>
+      <td>25778760</td>
+      <td>37985659</td>
+      <td>J95851</td>
+      <td>cefepime</td>
+      <td>IV</td>
+      <td>2177-09-10</td>
+      <td>2177-09-11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10656173</td>
+      <td>25778760</td>
+      <td>37985659</td>
+      <td>J95851</td>
+      <td>cefepime</td>
+      <td>IV</td>
+      <td>2177-09-12</td>
+      <td>2177-09-12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>21541</th>
+      <td>15689523</td>
+      <td>23914765</td>
+      <td>39918058</td>
+      <td>99731</td>
+      <td>metronidazole (flagyl)</td>
+      <td>IV</td>
+      <td>2159-07-13</td>
+      <td>2159-07-25</td>
+    </tr>
+    <tr>
+      <th>21542</th>
+      <td>15689523</td>
+      <td>23914765</td>
+      <td>39918058</td>
+      <td>99731</td>
+      <td>metronidazole (flagyl)</td>
+      <td>IV</td>
+      <td>2159-06-27</td>
+      <td>2159-06-27</td>
+    </tr>
+    <tr>
+      <th>21543</th>
+      <td>15689523</td>
+      <td>23914765</td>
+      <td>39918058</td>
+      <td>99731</td>
+      <td>sulfamethoxazole-trimethoprim</td>
+      <td>IV</td>
+      <td>2159-06-25</td>
+      <td>2159-06-26</td>
+    </tr>
+    <tr>
+      <th>21544</th>
+      <td>15689523</td>
+      <td>23914765</td>
+      <td>39918058</td>
+      <td>99731</td>
+      <td>sulfamethoxazole-trimethoprim</td>
+      <td>IV</td>
+      <td>2159-06-26</td>
+      <td>2159-07-02</td>
+    </tr>
+    <tr>
+      <th>21545</th>
+      <td>15689523</td>
+      <td>23914765</td>
+      <td>39918058</td>
+      <td>99731</td>
+      <td>sulfamethoxazole-trimethoprim</td>
+      <td>IV</td>
+      <td>2159-06-29</td>
+      <td>2159-06-29</td>
+    </tr>
+  </tbody>
+</table>
+<p>21546 rows × 8 columns</p>
+</div>
+</div>
+<br />
+<br /><p>Lets transform the data</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to add <code class="docutils literal notranslate"><span class="pre">NaNs</span></code> for missing days per patient.
+The other sample included in this repository for a single patient
+<a class="reference internal" href="plot_format04_therapy_one.html#sphx-glr-examples-pandas-plot-format04-therapy-one-py"><span class="std std-ref">04. Format MIMIC therapy (one)</span></a>
+achieves this by using the following code: <code class="docutils literal notranslate"><span class="pre">aux</span> <span class="pre">=</span> <span class="pre">aux.asfreq('1D')</span></code></p>
+<p>Note it needs to be applied per patient!</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">64</span> <span class="c1"># -----------------------------</span>
+<span class="linenos">65</span> <span class="c1"># Transform data</span>
+<span class="linenos">66</span> <span class="c1"># -----------------------------</span>
+<span class="linenos">67</span> <span class="c1"># .. note: The closed parameter indicates whether to include</span>
+<span class="linenos">68</span> <span class="c1">#          the first and/or last samples. None will keep both,</span>
+<span class="linenos">69</span> <span class="c1">#          left will keep only start date and right will keep</span>
+<span class="linenos">70</span> <span class="c1">#          also the right date.</span>
+<span class="linenos">71</span> <span class="c1"># Create column with date range</span>
+<span class="linenos">72</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;startdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<span class="linenos">73</span>     <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">],</span>
+<span class="linenos">74</span>                   <span class="n">end</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;stoptime&#39;</span><span class="p">],</span>
+<span class="linenos">75</span>                   <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>         <span class="c1"># ignoring right</span>
+<span class="linenos">76</span>                   <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">77</span>
+<span class="linenos">78</span> <span class="c1"># Explode such column</span>
+<span class="linenos">79</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;startdate&#39;</span><span class="p">)</span>
+<span class="linenos">80</span>
+<span class="linenos">81</span> <span class="c1"># Groupby</span>
+<span class="linenos">82</span> <span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
+<span class="linenos">83</span>            <span class="s1">&#39;hadm_id&#39;</span><span class="p">,</span>
+<span class="linenos">84</span>            <span class="s1">&#39;stay_id&#39;</span><span class="p">,</span>
+<span class="linenos">85</span>            <span class="s1">&#39;startdate&#39;</span><span class="p">]</span>
+<span class="linenos">86</span>
+<span class="linenos">87</span> <span class="c1"># Create daily therapies</span>
+<span class="linenos">88</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupby</span><span class="p">)</span> \
+<span class="linenos">89</span>     <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">antibiotic</span> \
+<span class="linenos">90</span>         <span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>Lets see the formatted data</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">95</span> <span class="c1"># Show</span>
+<span class="linenos">96</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">97</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Formatted:&quot;</span><span class="p">)</span>
+<span class="linenos">98</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">99</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>subject_id  hadm_id   stay_id   startdate
+10004733    27411876  39635619  2174-12-04    [piperacillin-tazobactam, vancomycin]
+                                2174-12-05    [piperacillin-tazobactam, vancomycin]
+                                2174-12-06    [piperacillin-tazobactam, vancomycin]
+                                2174-12-07                [piperacillin-tazobactam]
+                                2174-12-08    [piperacillin-tazobactam, vancomycin]
+                                                              ...
+19997367    20617667  35616526  2126-05-06                            [ceftriaxone]
+                                2126-05-07                            [ceftriaxone]
+                                2126-05-08                            [ceftriaxone]
+                                2126-05-09                            [ceftriaxone]
+                                2126-05-10                            [ceftriaxone]
+Length: 22453, dtype: object
+</pre></div>
+</div>
+<p>Lets count the number of days</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">105</span> <span class="c1"># Show</span>
+<span class="linenos">106</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">107</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Therapies (number of days)&quot;</span><span class="p">)</span>
+<span class="linenos">108</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="linenos">109</span> <span class="n">aux</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[cefepime, vancomycin]                                              2534
+[cefepime]                                                          1905
+[vancomycin]                                                        1667
+[piperacillin-tazobactam, vancomycin]                               1448
+[meropenem]                                                         1439
+                                                                    ...
+[aztreonam, cefepime, tobramycin sulfate]                              1
+[ceftazidime, levofloxacin, piperacillin-tazobactam, vancomycin]       1
+[tobramycin]                                                           1
+[cefepime, ciprofloxacin iv, nafcillin]                                1
+[gentamicin sulfate, linezolid, piperacillin-tazobactam]               1
+Length: 561, dtype: int64
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.716 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pandas-plot-format04-therapy-all-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/6c8f1e6c7bedb49ad58950f8e4bd2ad0/plot_format04_therapy_all.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_format04_therapy_all.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/2e69294d9cae15dec0ab4a9c53ec02ad/plot_format04_therapy_all.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_format04_therapy_all.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_format03.html" class="btn btn-neutral float-left" title="03. Empty" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_format04_therapy_one.html" class="btn btn-neutral float-right" title="04. Format MIMIC therapy (one)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2025, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>99. Basic Example &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="01. pandas_profiling" href="plot_profile01.html" />
+    <link rel="prev" title="04. Format MIMIC therapy (one)" href="plot_format04_therapy_one.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#pandas">Pandas</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="format05_damien_sepsis.html">05. Format damien sepsis data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="format06_stacked_oucru_v1.html">06. Clean OUCRU v1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="format06_stacked_oucru_v2.html">02. Clean OUCRU v2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format01.html">01. Sliding window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format02.html">02. Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format03.html">03. Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_all.html">04. Format MIMIC therapy (all)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_one.html">04. Format MIMIC therapy (one)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">99. Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile01.html">01. <code class="docutils literal notranslate"><span class="pre">pandas_profiling</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile02.html">02. <code class="docutils literal notranslate"><span class="pre">dataprep</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">99. Basic Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/pandas/plot_main01.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-pandas-plot-main01-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="basic-example">
+<span id="sphx-glr-examples-pandas-plot-main01-py"></span><h1>99. Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 6</span> <span class="c1"># Library</span>
+<span class="linenos"> 7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span> <span class="c1"># Show in terminal</span>
+<span class="linenos">11</span> <span class="n">TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span> <span class="c1"># Create data</span>
+<span class="linenos">14</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">15</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;1/5/2021&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="linenos">16</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;2/5/2021&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="linenos">17</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;3/5/2021&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="linenos">18</span>     <span class="p">[</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="s1">&#39;5/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;11/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="linenos">21</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;12/5/2021&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+<span class="linenos">22</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;16/5/2021&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="c1"># unordered</span>
+<span class="linenos">23</span>     <span class="p">[</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="s1">&#39;15/5/2021&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="linenos">24</span> <span class="p">]</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span> <span class="c1"># Load DataFrame</span>
+<span class="linenos">27</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="linenos">28</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;hct&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">])</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span> <span class="c1"># Format datetime</span>
+<span class="linenos">31</span> <span class="c1"># Date will be a datetime64[ns] instead of string</span>
+<span class="linenos">32</span> <span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">33</span> <span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span> <span class="c1"># Show</span>
+<span class="linenos">36</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">37</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data:&quot;</span><span class="p">)</span>
+<span class="linenos">38</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">39</span> <span class="n">data</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>date</th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>p1</td>
+      <td>2021-05-01</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>p1</td>
+      <td>2021-05-02</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>p1</td>
+      <td>2021-05-03</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>p1</td>
+      <td>2021-05-05</td>
+      <td>5.0</td>
+      <td>5</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>p2</td>
+      <td>2021-05-11</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>p2</td>
+      <td>2021-05-12</td>
+      <td>4.0</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>p2</td>
+      <td>2021-05-16</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>p2</td>
+      <td>2021-05-15</td>
+      <td>5.0</td>
+      <td>2</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets sort values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">44</span> <span class="c1"># Note that if you set columns as indexes (e.g. the</span>
+<span class="linenos">45</span> <span class="c1"># datetime) they will be sorted by default.</span>
+<span class="linenos">46</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;hct&#39;</span><span class="p">])</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span> <span class="c1"># Show</span>
+<span class="linenos">49</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">50</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">51</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">52</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>date</th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>p1</td>
+      <td>2021-05-01</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>p1</td>
+      <td>2021-05-02</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>p2</td>
+      <td>2021-05-12</td>
+      <td>4.0</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>p1</td>
+      <td>2021-05-03</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>p2</td>
+      <td>2021-05-15</td>
+      <td>5.0</td>
+      <td>2</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>p2</td>
+      <td>2021-05-11</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>p1</td>
+      <td>2021-05-05</td>
+      <td>5.0</td>
+      <td>5</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>p2</td>
+      <td>2021-05-16</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets select columns</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">57</span> <span class="c1"># Select columns from DataFrame</span>
+<span class="linenos">58</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]]</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span> <span class="c1"># Show</span>
+<span class="linenos">61</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">62</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">63</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">64</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>date</th>
+      <th>plt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>p1</td>
+      <td>2021-05-01</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>p1</td>
+      <td>2021-05-02</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>p1</td>
+      <td>2021-05-03</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>p1</td>
+      <td>2021-05-05</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>p2</td>
+      <td>2021-05-11</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>p2</td>
+      <td>2021-05-12</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>p2</td>
+      <td>2021-05-16</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>p2</td>
+      <td>2021-05-15</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets do indexing (not nan)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">70</span> <span class="c1"># Keep rows where plt is not nan</span>
+<span class="linenos">71</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+<span class="linenos">72</span>
+<span class="linenos">73</span> <span class="c1"># Show</span>
+<span class="linenos">74</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">75</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">76</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">77</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>date</th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>p1</td>
+      <td>2021-05-01</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>p1</td>
+      <td>2021-05-02</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>p1</td>
+      <td>2021-05-03</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>p1</td>
+      <td>2021-05-05</td>
+      <td>5.0</td>
+      <td>5</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>p2</td>
+      <td>2021-05-11</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>p2</td>
+      <td>2021-05-12</td>
+      <td>4.0</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>p2</td>
+      <td>2021-05-15</td>
+      <td>5.0</td>
+      <td>2</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets drop nan (in subset)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">84</span> <span class="c1"># Keep rows without any nan in subset</span>
+<span class="linenos">85</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;bil&#39;</span><span class="p">])</span>
+<span class="linenos">86</span>
+<span class="linenos">87</span> <span class="c1"># Show</span>
+<span class="linenos">88</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">89</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">90</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">91</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>date</th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>p1</td>
+      <td>2021-05-01</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>p1</td>
+      <td>2021-05-02</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>p1</td>
+      <td>2021-05-03</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>p1</td>
+      <td>2021-05-05</td>
+      <td>5.0</td>
+      <td>5</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>p2</td>
+      <td>2021-05-11</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>p2</td>
+      <td>2021-05-15</td>
+      <td>5.0</td>
+      <td>2</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets drop nan (all)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 98</span> <span class="c1"># Keep rows without any nan at all</span>
+<span class="linenos"> 99</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span> <span class="c1"># Show</span>
+<span class="linenos">102</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">103</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">104</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">105</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>date</th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>p1</td>
+      <td>2021-05-01</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>p1</td>
+      <td>2021-05-02</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>p1</td>
+      <td>2021-05-03</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>p1</td>
+      <td>2021-05-05</td>
+      <td>5.0</td>
+      <td>5</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>p2</td>
+      <td>2021-05-11</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>p2</td>
+      <td>2021-05-15</td>
+      <td>5.0</td>
+      <td>2</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets resample daily</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">111</span> <span class="c1"># Resample</span>
+<span class="linenos">112</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span> <span class="c1"># Show</span>
+<span class="linenos">115</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">116</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">117</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">118</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-05-01</th>
+      <td>p1</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-02</th>
+      <td>p1</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-03</th>
+      <td>p1</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-04</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-05</th>
+      <td>p1</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-06</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-07</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-08</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-09</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-10</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-11</th>
+      <td>p2</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-12</th>
+      <td>p2</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-13</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-14</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-05-15</th>
+      <td>p2</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-16</th>
+      <td>p2</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets fill missing values (pad)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">124</span> <span class="c1"># Pad is synonym of DataFrame.fillna() with method=&#39;ffill&#39;.</span>
+<span class="linenos">125</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span><span class="o">.</span><span class="n">pad</span><span class="p">()</span>
+<span class="linenos">126</span>
+<span class="linenos">127</span> <span class="c1"># Show</span>
+<span class="linenos">128</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">129</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">130</span>     <span class="nb">print</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+<span class="linenos">131</span> <span class="n">aux</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-05-01</th>
+      <td>p1</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-02</th>
+      <td>p1</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-03</th>
+      <td>p1</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-04</th>
+      <td>p1</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-05</th>
+      <td>p1</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-06</th>
+      <td>p1</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-07</th>
+      <td>p1</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-08</th>
+      <td>p1</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-09</th>
+      <td>p1</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-10</th>
+      <td>p1</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-11</th>
+      <td>p2</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-12</th>
+      <td>p2</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-13</th>
+      <td>p2</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-14</th>
+      <td>p2</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-15</th>
+      <td>p2</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-16</th>
+      <td>p2</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets group by patient and sum</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">136</span> <span class="c1"># Group by patient and sum</span>
+<span class="linenos">137</span> <span class="n">agg</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;patient&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="linenos">138</span>
+<span class="linenos">139</span> <span class="c1"># Show</span>
+<span class="linenos">140</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">141</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">142</span>     <span class="nb">print</span><span class="p">(</span><span class="n">agg</span><span class="p">)</span>
+<span class="linenos">143</span> <span class="n">agg</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+    <tr>
+      <th>patient</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>p1</th>
+      <td>42.0</td>
+      <td>43.0</td>
+      <td>44.0</td>
+    </tr>
+    <tr>
+      <th>p2</th>
+      <td>27.0</td>
+      <td>15.0</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Lets group by patient per 2 days and compute mean and max.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">148</span> <span class="n">agg</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;2D&#39;</span><span class="p">)])</span> \
+<span class="linenos">149</span>     <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">)</span>
+<span class="linenos">150</span>     <span class="c1">#.agg({&#39;idx&#39;: [&#39;first&#39;, &#39;last&#39;],</span>
+<span class="linenos">151</span>     <span class="c1">#      0: [skew, kurtosis, own],</span>
+<span class="linenos">152</span>     <span class="c1">#      1: [skew, kurtosis, own],</span>
+<span class="linenos">153</span>     <span class="c1">#      &#39;0_hr&#39;: [own],</span>
+<span class="linenos">154</span>     <span class="c1">#      &#39;0_rr&#39;: [own]})</span>
+<span class="linenos">155</span>
+<span class="linenos">156</span> <span class="c1"># Show</span>
+<span class="linenos">157</span> <span class="k">if</span> <span class="n">TERMINAL</span><span class="p">:</span>
+<span class="linenos">158</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Out:&quot;</span><span class="p">)</span>
+<span class="linenos">159</span>     <span class="nb">print</span><span class="p">(</span><span class="n">agg</span><span class="p">)</span>
+<span class="linenos">160</span> <span class="n">agg</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>plt</th>
+      <th>hct</th>
+      <th>bil</th>
+    </tr>
+    <tr>
+      <th>patient</th>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">p1</th>
+      <th>2021-05-01</th>
+      <td>2.0</td>
+      <td>2.5</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-03</th>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-05</th>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-07</th>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-09</th>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">p2</th>
+      <th>2021-05-11</th>
+      <td>4.5</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-13</th>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2021-05-15</th>
+      <td>5.0</td>
+      <td>1.5</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.043 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pandas-plot-main01-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/a55f39eda64cca7a71c85387ba8514bd/plot_main01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/fa772fcdb50b2ba77e295358e3e69dc6/plot_main01.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main01.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_format04_therapy_one.html" class="btn btn-neutral float-left" title="04. Format MIMIC therapy (one)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_profile01.html" class="btn btn-neutral float-right" title="01. pandas_profiling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2025, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

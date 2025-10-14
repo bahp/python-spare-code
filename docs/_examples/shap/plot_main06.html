@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>06. Basic example &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="07. Basic example" href="plot_main07.html" />
+    <link rel="prev" title="05. Swarmplot" href="plot_main05_swarmplot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#shap">Shap</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01.html">01. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02.html">02. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03.html">03. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04.html">04. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05.html">05. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_stripplot.html">05. Stripplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_summaryplot.html">05. Summary plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_swarmplot.html">05. Swarmplot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">06. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07.html">07. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08.html">08. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="temp.html">06. Basic example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">06. Basic example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/shap/plot_main06.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-shap-plot-main06-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="basic-example">
+<span id="sphx-glr-examples-shap-plot-main06-py"></span><h1>06. Basic example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
+<img src="../../_images/sphx_glr_plot_main06_001.png" srcset="../../_images/sphx_glr_plot_main06_001.png" alt="plot main06" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\tensorflow\python\compat\v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+Shapes:
+i: (100, 2)
+y: (10,)
+x: (10, 10, 5)
+
+Data ((10, 10, 5)):
+[[[21 38 14 27 59]
+  [25 78 77  5 27]
+  [ 4 70 61 17 82]
+  [89 77 12 47 30]
+  [20 33 20  6  2]
+  [92 31 52 96 53]
+  [94 51 56 79 57]
+  [70 33 85 35 94]
+  [59 59  9  0 54]
+  [33  8 13 63 27]]
+
+ [[17 16 48 31 28]
+  [52 89 61 60 60]
+  [88 61 52 46 86]
+  [24 65 18  0 54]
+  [99 21 37 73 95]
+  [22 63 73 70 36]
+  [85 90 25 14  9]
+  [23 50 80 74 79]
+  [84 49 59  3 96]
+  [89 57 76 62 34]]
+
+ [[26 29 78  4 92]
+  [38 91 17  6 30]
+  [ 7 32 73 47 72]
+  [47 70 15 90 68]
+  [43 19 28 44 69]
+  [65  6 55 87 21]
+  [90 58 89 24 26]
+  [32 92 54 21 25]
+  [62 60 89 68 67]
+  [17 18 76 87 42]]
+
+ [[18 82 92 17 63]
+  [61  7 31 73 13]
+  [21 44 84 90 30]
+  [28  2 11 83 96]
+  [15 78 15 89 81]
+  [18 46 24 81 98]
+  [28  6 44 89  9]
+  [ 7 81 42 24 52]
+  [28 90 88 99 74]
+  [73 79 65 61 63]]
+
+ [[84 89 11 76 80]
+  [15 67  5 42 91]
+  [11 48 33 15 69]
+  [41 37 23 52 59]
+  [50 34 65 37 45]
+  [61 50 55 79 25]
+  [49 58 85 62 82]
+  [ 4 82 24  9 61]
+  [ 9 50 36 93 85]
+  [36 62 56 90 77]]
+
+ [[51 51  7 94 73]
+  [38 77 83 76 44]
+  [59 80 94 97 50]
+  [85 39 41 86 62]
+  [28 11 95 72 98]
+  [87 34 11 40 82]
+  [59 55 84 47 84]
+  [30 34 98 10 17]
+  [35 74 92 17 12]
+  [14 77 63 96 10]]
+
+ [[41 37 94 64 96]
+  [79 95 34 39 84]
+  [94 36 29 71 96]
+  [43 37 67 25 34]
+  [49 56 82 62 46]
+  [45  1 60  0  9]
+  [77 50 74 16 23]
+  [82 74  5 80 37]
+  [ 0 81 16 64 89]
+  [24 69 41 14 74]]
+
+ [[23 32 37 59 11]
+  [60 23 79 77 30]
+  [14 80 39 64 75]
+  [50 54 58 12 57]
+  [51  0 71  2 76]
+  [47 95 36 68 62]
+  [25 89 52 99  8]
+  [18 62 31 60 72]
+  [23 62 86 31  3]
+  [46 17 17  2 84]]
+
+ [[41 66 35 86 23]
+  [28 31 31 21 64]
+  [96 43 66 49  0]
+  [32 28  2  5 74]
+  [21 18  7  8 89]
+  [19 29 61 35 95]
+  [63 78 81 63 73]
+  [57 99 86 25 84]
+  [78 79 71 50 54]
+  [29 63 30 44 73]]
+
+ [[34  5 27 47 81]
+  [24 85 68 32 12]
+  [16 56 69 73 81]
+  [81 18 73 90 97]
+  [68 85 61 83 99]
+  [ 0 83  9 18 37]
+  [80 43 50 17 36]
+  [28 55 60 51 98]
+  [94 75 43 75 88]
+  [38  6 74 48 95]]]
+
+DataFrame (2D)
+    id  t  f0  f1  f2  f3  f4
+0    0  0  21  38  14  27  59
+1    0  1  25  78  77   5  27
+2    0  2   4  70  61  17  82
+3    0  3  89  77  12  47  30
+4    0  4  20  33  20   6   2
+..  .. ..  ..  ..  ..  ..  ..
+95   9  5   0  83   9  18  37
+96   9  6  80  43  50  17  36
+97   9  7  28  55  60  51  98
+98   9  8  94  75  43  75  88
+99   9  9  38   6  74  48  95
+
+[100 rows x 7 columns]
+Model: &quot;sequential&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ lstm (LSTM)                 (None, 64)                17920
+
+ dense (Dense)               (None, 64)                4160
+
+ dense_1 (Dense)             (None, 1)                 65
+
+=================================================================
+Total params: 22,145
+Trainable params: 22,145
+Non-trainable params: 0
+_________________________________________________________________
+None
+Train on 10 samples
+Epoch 1/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.7662 - acc: 0.3000
+10/10 [==============================] - 0s 23ms/sample - loss: 0.7662 - acc: 0.3000
+Epoch 2/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.7112 - acc: 0.5000
+10/10 [==============================] - 0s 499us/sample - loss: 0.7112 - acc: 0.5000
+Epoch 3/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.6604 - acc: 0.7000
+10/10 [==============================] - 0s 399us/sample - loss: 0.6604 - acc: 0.7000
+Epoch 4/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.6192 - acc: 0.8000
+10/10 [==============================] - 0s 497us/sample - loss: 0.6192 - acc: 0.8000
+Epoch 5/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.5858 - acc: 0.8000
+10/10 [==============================] - 0s 401us/sample - loss: 0.5858 - acc: 0.8000
+Epoch 6/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.5564 - acc: 0.9000
+10/10 [==============================] - 0s 400us/sample - loss: 0.5564 - acc: 0.9000
+Epoch 7/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.5292 - acc: 1.0000
+10/10 [==============================] - 0s 302us/sample - loss: 0.5292 - acc: 1.0000
+Epoch 8/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.5044 - acc: 1.0000
+10/10 [==============================] - 0s 500us/sample - loss: 0.5044 - acc: 1.0000
+Epoch 9/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.4811 - acc: 1.0000
+10/10 [==============================] - 0s 401us/sample - loss: 0.4811 - acc: 1.0000
+Epoch 10/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.4603 - acc: 1.0000
+10/10 [==============================] - 0s 502us/sample - loss: 0.4603 - acc: 1.0000
+Epoch 11/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.4405 - acc: 1.0000
+10/10 [==============================] - 0s 498us/sample - loss: 0.4405 - acc: 1.0000
+Epoch 12/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.4200 - acc: 1.0000
+10/10 [==============================] - 0s 500us/sample - loss: 0.4200 - acc: 1.0000
+Epoch 13/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.3995 - acc: 1.0000
+10/10 [==============================] - 0s 501us/sample - loss: 0.3995 - acc: 1.0000
+Epoch 14/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.3787 - acc: 1.0000
+10/10 [==============================] - 0s 504us/sample - loss: 0.3787 - acc: 1.0000
+Epoch 15/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.3582 - acc: 1.0000
+10/10 [==============================] - 0s 403us/sample - loss: 0.3582 - acc: 1.0000
+Epoch 16/16
+
+10/10 [==============================] - ETA: 0s - loss: 0.3384 - acc: 1.0000
+10/10 [==============================] - 0s 404us/sample - loss: 0.3384 - acc: 1.0000
+WARNING:tensorflow:From c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\shap\explainers\tf_utils.py:28: The name tf.keras.backend.get_session is deprecated. Please use tf.compat.v1.keras.backend.get_session instead.
+
+&lt;IPython.core.display.HTML object&gt;
+(10, 10, 5)
+   timestep 0  timestep 1  timestep 2  timestep 3  timestep 4  timestep 5  timestep 6  timestep 7  timestep 8  timestep 9
+0          38          78          70          77          33          31          51          33          59           8
+1          16          89          61          65          21          63          90          50          49          57
+2          29          91          32          70          19           6          58          92          60          18
+3          82           7          44           2          78          46           6          81          90          79
+4          89          67          48          37          34          50          58          82          50          62
+5          51          77          80          39          11          34          55          34          74          77
+6          37          95          36          37          56           1          50          74          81          69
+7          32          23          80          54           0          95          89          62          62          17
+8          66          31          43          28          18          29          78          99          79          63
+9           5          85          56          18          85          83          43          55          75           6
+
+&#39;\n#y_pred = model.predict(x[:3, :, :])\n#print(y_pred)\n\n#background = x[np.random.choice(x.shape[0], 10, replace=False)]\nmasker = shap.maskers.Independent(data=x)\n# Get generic explainer\n#explainer = shap.KernelExplainer(model, background)\nexplainer = shap.KernelExplainer(model.predict, x, masker=masker)\n\n# Show kernel type\nprint(&quot;\nKernel type: %s&quot; % type(explainer))\n\n# Get shap values\nshap_values = explainer.shap_values(x)\n\nprint(shap_values)\n&#39;
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  6</span> <span class="c1"># Libraries</span>
+<span class="linenos">  7</span> <span class="kn">import</span> <span class="nn">shap</span>
+<span class="linenos">  8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">  9</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="linenos"> 12</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">disable_eager_execution</span><span class="p">()</span>
+<span class="linenos"> 13</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">disable_v2_behavior</span><span class="p">()</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span> <span class="c1"># --------------------------------------------</span>
+<span class="linenos"> 16</span> <span class="c1"># Create data</span>
+<span class="linenos"> 17</span> <span class="c1"># --------------------------------------------</span>
+<span class="linenos"> 18</span> <span class="c1"># Constants</span>
+<span class="linenos"> 19</span> <span class="n">SAMPLES</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos"> 20</span> <span class="n">TIMESTEPS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos"> 21</span> <span class="n">FEATURES</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span> <span class="c1"># .. note: Either perform a pre-processing step such as</span>
+<span class="linenos"> 24</span> <span class="c1">#          normalization or generate the features within</span>
+<span class="linenos"> 25</span> <span class="c1">#          the appropriate interval.</span>
+<span class="linenos"> 26</span> <span class="c1"># Create dataset</span>
+<span class="linenos"> 27</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="linenos"> 28</span>     <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">SAMPLES</span><span class="p">,</span> <span class="n">TIMESTEPS</span><span class="p">,</span> <span class="n">FEATURES</span><span class="p">))</span>
+<span class="linenos"> 29</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SAMPLES</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="linenos"> 30</span> <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="n">SAMPLES</span><span class="p">,</span> <span class="n">TIMESTEPS</span><span class="p">))))</span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span> <span class="c1"># Create DataFrame</span>
+<span class="linenos"> 33</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="linenos"> 34</span>     <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">FEATURES</span><span class="p">)))),</span>
+<span class="linenos"> 35</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;f</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">)]</span>
+<span class="linenos"> 36</span> <span class="p">)</span>
+<span class="linenos"> 37</span>
+<span class="linenos"> 38</span> <span class="c1"># Show</span>
+<span class="linenos"> 39</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shapes:&quot;</span><span class="p">)</span>
+<span class="linenos"> 40</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="linenos"> 41</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="linenos"> 42</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="linenos"> 43</span>
+<span class="linenos"> 44</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data (</span><span class="si">%s</span><span class="s2">):&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="linenos"> 45</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DataFrame (2D)&quot;</span><span class="p">)</span>
+<span class="linenos"> 48</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span> <span class="c1"># --------------------------------------------</span>
+<span class="linenos"> 52</span> <span class="c1"># Model</span>
+<span class="linenos"> 53</span> <span class="c1"># --------------------------------------------</span>
+<span class="linenos"> 54</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 55</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Input</span>
+<span class="linenos"> 56</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dropout</span>
+<span class="linenos"> 57</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="linenos"> 58</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="linenos"> 59</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">LSTM</span>
+<span class="linenos"> 60</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span>
+<span class="linenos"> 61</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing</span> <span class="kn">import</span> <span class="n">sequence</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span> <span class="c1"># Create model</span>
+<span class="linenos"> 64</span> <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="linenos"> 65</span> <span class="c1">#model.add(Input(shape=(None, FEATURES)))</span>
+<span class="linenos"> 66</span> <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+<span class="linenos"> 67</span>     <span class="n">LSTM</span><span class="p">(</span>
+<span class="linenos"> 68</span>         <span class="n">units</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+<span class="linenos"> 69</span>         <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 70</span>         <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">TIMESTEPS</span><span class="p">,</span> <span class="n">FEATURES</span><span class="p">)</span>
+<span class="linenos"> 71</span>     <span class="p">))</span>
+<span class="linenos"> 72</span> <span class="c1">#model.add(Dropout(0.2))</span>
+<span class="linenos"> 73</span> <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="linenos"> 74</span> <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="linenos"> 75</span> <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="linenos"> 76</span>     <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span>
+<span class="linenos"> 77</span>     <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+<span class="linenos"> 78</span>     <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span>
+<span class="linenos"> 79</span> <span class="p">)</span>
+<span class="linenos"> 80</span> <span class="n">model</span><span class="o">.</span><span class="n">run_eagerly</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span> <span class="c1"># Load pre-trained weights</span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span> <span class="c1"># Display model summary</span>
+<span class="linenos"> 85</span> <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span> <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;outputs/model.h5&#39;</span><span class="p">)</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span> <span class="c1"># Fit</span>
+<span class="linenos"> 90</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span>
+<span class="linenos"> 94</span> <span class="c1"># --------------------------------------------</span>
+<span class="linenos"> 95</span> <span class="c1"># Compute and display SHAP values</span>
+<span class="linenos"> 96</span> <span class="c1"># --------------------------------------------</span>
+<span class="linenos"> 97</span> <span class="c1"># https://github.com/slundberg/shap/blob/master/shap/plots/_beeswarm.py</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span> <span class="c1"># Use the training data for deep explainer =&gt; can use fewer instances</span>
+<span class="linenos">100</span> <span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">DeepExplainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos">101</span> <span class="c1"># explain the the testing instances (can use fewer instanaces)</span>
+<span class="linenos">102</span> <span class="c1"># explaining each prediction requires 2 * background dataset size runs</span>
+<span class="linenos">103</span> <span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">104</span> <span class="c1"># init the JS visualization code</span>
+<span class="linenos">105</span> <span class="n">shap</span><span class="o">.</span><span class="n">initjs</span><span class="p">()</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span> <span class="nb">print</span><span class="p">(</span><span class="n">shap_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span> <span class="c1">#shap_values = explainer(x)</span>
+<span class="linenos">110</span>
+<span class="linenos">111</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">112</span><span class="sd"> shap.plots.beeswarm(shap_values,</span>
+<span class="linenos">113</span><span class="sd">     max_display=12, order=shap.Explanation.abs.mean(0))</span>
+<span class="linenos">114</span>
+<span class="linenos">115</span><span class="sd"> import matplotlib.pyplot as plt</span>
+<span class="linenos">116</span><span class="sd"> plt.show()</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span>
+<span class="linenos">121</span><span class="sd"> import sys</span>
+<span class="linenos">122</span><span class="sd"> sys.exit()</span>
+<span class="linenos">123</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span> <span class="n">shap_values_2D</span> <span class="o">=</span> <span class="n">shap_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">126</span> <span class="n">x_2D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="linenos">127</span>     <span class="n">data</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
+<span class="linenos">128</span>     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;f</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span>
+<span class="linenos">129</span> <span class="p">)</span>
+<span class="linenos">130</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span> <span class="c1">## SHAP for each time step</span>
+<span class="linenos">133</span> <span class="n">NUM_STEPS</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">134</span> <span class="n">NUM_FEATURES</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">135</span> <span class="n">len_test_set</span> <span class="o">=</span> <span class="n">x_2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">138</span><span class="sd"> # step = 0</span>
+<span class="linenos">139</span><span class="sd"> for step in range(NUM_STEPS):</span>
+<span class="linenos">140</span><span class="sd">     indice = [i for i in list(range(len_test_set)) if i%NUM_STEPS == step]</span>
+<span class="linenos">141</span><span class="sd">     shap_values_2D_step = shap_values_2D[indice]</span>
+<span class="linenos">142</span><span class="sd">     x_test_2d_step = x_2D.iloc[indice]</span>
+<span class="linenos">143</span><span class="sd">     print(&quot;_______ time step {} ___________&quot;.format(step))</span>
+<span class="linenos">144</span><span class="sd">     #shap.summary_plot(shap_values_2D_step, x_test_2d_step, plot_type=&quot;bar&quot;)</span>
+<span class="linenos">145</span><span class="sd">     shap.summary_plot(shap_values_2D_step, x_test_2d_step)</span>
+<span class="linenos">146</span><span class="sd">     print(&quot;\n&quot;)</span>
+<span class="linenos">147</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">148</span>
+<span class="linenos">149</span>
+<span class="linenos">150</span> <span class="n">shap_values_2D_step</span> <span class="o">=</span> <span class="n">shap_values_2D</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">151</span> <span class="n">x_test_2d_step</span> <span class="o">=</span> <span class="n">x_2D</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">152</span> <span class="n">x_test_2d_step</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="linenos">153</span>     <span class="n">x_test_2d_step</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;timestep </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="linenos">154</span> <span class="p">)</span>
+<span class="linenos">155</span>
+<span class="linenos">156</span> <span class="nb">print</span><span class="p">(</span><span class="n">x_test_2d_step</span><span class="p">)</span>
+<span class="linenos">157</span>
+<span class="linenos">158</span> <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values_2D_step</span><span class="p">,</span> <span class="n">x_test_2d_step</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">159</span>
+<span class="linenos">160</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">161</span><span class="sd"> for step in range(NUM_STEPS):</span>
+<span class="linenos">162</span><span class="sd">     indice = [i for i in list(range(len_test_set)) if i%NUM_STEPS == step]</span>
+<span class="linenos">163</span><span class="sd">     shap_values_2D_step = shap_values_2D[indice]</span>
+<span class="linenos">164</span><span class="sd">     x_test_2d_step = x_2D.iloc[indice]</span>
+<span class="linenos">165</span><span class="sd">     print(&quot;_______ time step {} ___________&quot;.format(step))</span>
+<span class="linenos">166</span><span class="sd">     #shap.summary_plot(shap_values_2D_step, x_test_2d_step, plot_type=&quot;bar&quot;)</span>
+<span class="linenos">167</span><span class="sd">     shap.summary_plot(shap_values_2D_step, x_test_2d_step)</span>
+<span class="linenos">168</span><span class="sd">     print(&quot;\n&quot;)</span>
+<span class="linenos">169</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">170</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos">171</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">172</span>
+<span class="linenos">173</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">174</span><span class="sd"> #y_pred = model.predict(x[:3, :, :])</span>
+<span class="linenos">175</span><span class="sd"> #print(y_pred)</span>
+<span class="linenos">176</span>
+<span class="linenos">177</span><span class="sd"> #background = x[np.random.choice(x.shape[0], 10, replace=False)]</span>
+<span class="linenos">178</span><span class="sd"> masker = shap.maskers.Independent(data=x)</span>
+<span class="linenos">179</span><span class="sd"> # Get generic explainer</span>
+<span class="linenos">180</span><span class="sd"> #explainer = shap.KernelExplainer(model, background)</span>
+<span class="linenos">181</span><span class="sd"> explainer = shap.KernelExplainer(model.predict, x, masker=masker)</span>
+<span class="linenos">182</span>
+<span class="linenos">183</span><span class="sd"> # Show kernel type</span>
+<span class="linenos">184</span><span class="sd"> print(&quot;\nKernel type: %s&quot; % type(explainer))</span>
+<span class="linenos">185</span>
+<span class="linenos">186</span><span class="sd"> # Get shap values</span>
+<span class="linenos">187</span><span class="sd"> shap_values = explainer.shap_values(x)</span>
+<span class="linenos">188</span>
+<span class="linenos">189</span><span class="sd"> print(shap_values)</span>
+<span class="linenos">190</span><span class="sd"> &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.233 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-shap-plot-main06-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/10f68ecba2660f269b282ef705b96038/plot_main06.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main06.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d07adabba3ff4409f666689941363302/plot_main06.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main06.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main05_swarmplot.html" class="btn btn-neutral float-left" title="05. Swarmplot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main07.html" class="btn btn-neutral float-right" title="07. Basic example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2025, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
