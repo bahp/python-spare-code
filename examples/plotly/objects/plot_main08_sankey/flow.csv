@@ -1,0 +1,432 @@
+,day_from,item_from,day_to,item_to,count
+0,0,2nd Generation Cephalosporin,1,3rd Generation Cephalosporin,1
+1,0,2nd Generation Cephalosporin,1,Aminoglycoside,1
+2,0,2nd Generation Cephalosporin,1,Fluoroquinolone,2
+3,0,2nd Generation Cephalosporin,1,Oxazolidinone,2
+4,0,2nd Generation Cephalosporin,1,Tetracycline,1
+5,0,3rd Generation Cephalosporin,1,2nd Generation Cephalosporin,3
+6,0,3rd Generation Cephalosporin,1,3rd Generation Cephalosporin,1
+7,0,3rd Generation Cephalosporin,1,4th Generation Cephalosporin,2
+8,0,3rd Generation Cephalosporin,1,Aminoglycoside,2
+9,0,3rd Generation Cephalosporin,1,Amphenicol,2
+10,0,3rd Generation Cephalosporin,1,Fluoroquinolone,2
+11,0,3rd Generation Cephalosporin,1,Glycopeptide,1
+12,0,3rd Generation Cephalosporin,1,Nitroimidazole,1
+13,0,3rd Generation Cephalosporin,1,Penicillin,5
+14,0,3rd Generation Cephalosporin,1,Penicillin and beta-lactamase inhibitor,2
+15,0,3rd Generation Cephalosporin,1,Phosphonic acid,1
+16,0,3rd Generation Cephalosporin,1,Sulfonamides and trimethoprim,1
+17,0,4th Generation Cephalosporin,1,Penicillin,1
+18,0,Aminoglycoside,1,Aminoglycoside,2
+19,0,Aminoglycoside,1,Carbapenem,1
+20,0,Aminoglycoside,1,Macrolide,3
+21,0,Aminoglycoside,1,Monobactam,1
+22,0,Aminoglycoside,1,Penicillin,3
+23,0,Aminoglycoside,1,Penicillin and beta-lactamase inhibitor,3
+24,0,Aminoglycoside,1,Phosphonic acid,1
+25,0,Aminoglycoside,1,Sulfonamides and trimethoprim,1
+26,0,Aminoglycoside+Fluoroquinolone,1,Fluoroquinolone,1
+27,0,Aminoglycoside+Fluoroquinolone,1,Nitroimidazole,1
+28,0,Aminoglycoside+Glycopeptide,1,Aminoglycoside,1
+29,0,Aminoglycoside+Glycopeptide,1,Macrolide,1
+30,0,Aminoglycoside+Penicillin and beta-lactamase inhibitor,1,3rd Generation Cephalosporin+Aminoglycoside,1
+31,0,Aminoglycoside+Penicillin and beta-lactamase inhibitor,1,Glycopeptide,1
+32,0,Aminoglycoside+Penicillin and beta-lactamase inhibitor,1,Oxazolidinone,1
+33,0,Aminoglycoside+Penicillin and beta-lactamase inhibitor,1,Penicillin,1
+34,0,Amphenicol,1,Aminoglycoside,1
+35,0,Amphenicol,1,Amphenicol,1
+36,0,Amphenicol,1,Fluoroquinolone,1
+37,0,Amphenicol,1,Monobactam,1
+38,0,Amphenicol,1,Penicillin,2
+39,0,Carbapenem,1,4th Generation Cephalosporin,1
+40,0,Carbapenem,1,Aminoglycoside,3
+41,0,Carbapenem,1,Glycopeptide,1
+42,0,Carbapenem,1,Nitroimidazole,1
+43,0,Carbapenem+Glycopeptide,1,Penicillin,1
+44,0,Carbapenem+Glycopeptide,1,Penicillin and beta-lactamase inhibitor,1
+45,0,Fluoroquinolone,1,3rd Generation Cephalosporin,1
+46,0,Fluoroquinolone,1,4th Generation Cephalosporin,1
+47,0,Fluoroquinolone,1,Aminoglycoside,2
+48,0,Fluoroquinolone,1,Glycopeptide,1
+49,0,Fluoroquinolone,1,Macrolide,1
+50,0,Fluoroquinolone,1,Monobactam,1
+51,0,Fluoroquinolone,1,Penicillin,3
+52,0,Fluoroquinolone,1,Sulfonamides and trimethoprim,1
+53,0,Glycopeptide,1,3rd Generation Cephalosporin,1
+54,0,Glycopeptide,1,Glycopeptide,1
+55,0,Glycopeptide,1,Macrolide,1
+56,0,Glycopeptide,1,Penicillin,2
+57,0,Glycopeptide,1,Sulfonamides and trimethoprim,1
+58,0,Macrolide,1,Aminoglycoside,1
+59,0,Macrolide,1,Glycopeptide,3
+60,0,Macrolide,1,Macrolide,1
+61,0,Macrolide,1,Monobactam,1
+62,0,Macrolide,1,Oxazolidinone,1
+63,0,Macrolide,1,Penicillin,4
+64,0,Macrolide,1,Penicillin and beta-lactamase inhibitor+Aminoglycoside,1
+65,0,Macrolide,1,Phosphonic acid,1
+66,0,Macrolide,1,Sulfonamides and trimethoprim,1
+67,0,Macrolide+Penicillin and beta-lactamase inhibitor,1,Aminoglycoside+3rd Generation Cephalosporin,1
+68,0,Monobactam,1,3rd Generation Cephalosporin,3
+69,0,Monobactam,1,Aminoglycoside,1
+70,0,Monobactam,1,Amphenicol,1
+71,0,Monobactam,1,Monobactam,1
+72,0,Monobactam,1,Penicillin,2
+73,0,Monobactam,1,Phosphonic acid,2
+74,0,Monobactam,1,Sulfonamides and trimethoprim,1
+75,0,Nitroimidazole,1,Fluoroquinolone,1
+76,0,Nitroimidazole,1,Penicillin,2
+77,0,Nitroimidazole,1,Phosphonic acid,1
+78,0,Nitroimidazole,1,Sulfonamides and trimethoprim,1
+79,0,Oxazolidinone,1,3rd Generation Cephalosporin,1
+80,0,Oxazolidinone,1,3rd Generation Cephalosporin+Aminoglycoside,1
+81,0,Oxazolidinone,1,Aminoglycoside,1
+82,0,Oxazolidinone,1,Fluoroquinolone,1
+83,0,Oxazolidinone,1,Penicillin,2
+84,0,Oxazolidinone,1,Sulfonamides and trimethoprim,2
+85,0,Penicillin,1,2nd Generation Cephalosporin,1
+86,0,Penicillin,1,3rd Generation Cephalosporin,3
+87,0,Penicillin,1,3rd Generation Cephalosporin+Aminoglycoside,1
+88,0,Penicillin,1,Aminoglycoside,5
+89,0,Penicillin,1,Carbapenem,1
+90,0,Penicillin,1,Fluoroquinolone,3
+91,0,Penicillin,1,Glycopeptide,2
+92,0,Penicillin,1,Macrolide,5
+93,0,Penicillin,1,Monobactam,2
+94,0,Penicillin,1,Oxazolidinone,2
+95,0,Penicillin,1,Penicillin,6
+96,0,Penicillin,1,Penicillin and beta-lactamase inhibitor,3
+97,0,Penicillin,1,Phosphonic acid,2
+98,0,Penicillin,1,Sulfonamides and trimethoprim,2
+99,0,Penicillin,1,Tetracycline,1
+100,0,Penicillin and beta-lactamase inhibitor,1,Amphenicol,2
+101,0,Penicillin and beta-lactamase inhibitor,1,Glycopeptide,1
+102,0,Penicillin and beta-lactamase inhibitor,1,Nitroimidazole,1
+103,0,Penicillin and beta-lactamase inhibitor,1,Oxazolidinone,1
+104,0,Penicillin and beta-lactamase inhibitor,1,Penicillin,3
+105,0,Penicillin and beta-lactamase inhibitor,1,Phosphonic acid,1
+106,0,Penicillin and beta-lactamase inhibitor,1,Sulfonamides and trimethoprim,2
+107,0,Penicillin+Glycopeptide,1,2nd Generation Cephalosporin,1
+108,0,Penicillin+Glycopeptide,1,Fluoroquinolone,1
+109,0,Phosphonic acid,1,Carbapenem,1
+110,0,Phosphonic acid,1,Glycopeptide,1
+111,0,Phosphonic acid,1,Monobactam,3
+112,0,Phosphonic acid,1,Penicillin and beta-lactamase inhibitor,1
+113,0,Sulfonamides and trimethoprim,1,3rd Generation Cephalosporin,2
+114,0,Sulfonamides and trimethoprim,1,Glycopeptide,2
+115,0,Sulfonamides and trimethoprim,1,Macrolide,1
+116,0,Sulfonamides and trimethoprim,1,Monobactam,1
+117,0,Sulfonamides and trimethoprim,1,Penicillin,2
+118,0,Sulfonamides and trimethoprim,1,Penicillin and beta-lactamase inhibitor,1
+119,0,Tetracycline,1,Glycopeptide,1
+120,0,Tetracycline,1,Macrolide,1
+121,0,Tetracycline,1,Monobactam,1
+122,0,Tetracycline,1,Penicillin and beta-lactamase inhibitor,2
+123,0,Tetracycline,1,Phosphonic acid,1
+124,1,2nd Generation Cephalosporin,2,2nd Generation Cephalosporin,1
+125,1,2nd Generation Cephalosporin,2,Macrolide,1
+126,1,2nd Generation Cephalosporin,2,Nitroimidazole,1
+127,1,2nd Generation Cephalosporin,2,Sulfonamides and trimethoprim,1
+128,1,3rd Generation Cephalosporin,2,2nd Generation Cephalosporin,1
+129,1,3rd Generation Cephalosporin,2,4th Generation Cephalosporin,1
+130,1,3rd Generation Cephalosporin,2,Aminoglycoside,2
+131,1,3rd Generation Cephalosporin,2,Fluoroquinolone,2
+132,1,3rd Generation Cephalosporin,2,Macrolide,1
+133,1,3rd Generation Cephalosporin,2,Monobactam,1
+134,1,3rd Generation Cephalosporin,2,Penicillin,3
+135,1,3rd Generation Cephalosporin,2,Penicillin and beta-lactamase inhibitor,1
+136,1,3rd Generation Cephalosporin,2,Sulfonamides and trimethoprim,1
+137,1,3rd Generation Cephalosporin+Aminoglycoside,2,Fluoroquinolone,1
+138,1,4th Generation Cephalosporin,2,4th Generation Cephalosporin,1
+139,1,4th Generation Cephalosporin,2,Macrolide,2
+140,1,4th Generation Cephalosporin,2,Nitroimidazole,2
+141,1,4th Generation Cephalosporin,2,Penicillin,1
+142,1,Aminoglycoside,2,3rd Generation Cephalosporin,1
+143,1,Aminoglycoside,2,4th Generation Cephalosporin,1
+144,1,Aminoglycoside,2,Penicillin,2
+145,1,Amphenicol,2,3rd Generation Cephalosporin,1
+146,1,Amphenicol,2,4th Generation Cephalosporin,1
+147,1,Amphenicol,2,Penicillin,1
+148,1,Carbapenem,2,Nitroimidazole,1
+149,1,Carbapenem,2,Penicillin,1
+150,1,Carbapenem,2,Phosphonic acid,1
+151,1,Fluoroquinolone,2,3rd Generation Cephalosporin,1
+152,1,Fluoroquinolone,2,Glycopeptide,1
+153,1,Glycopeptide,2,3rd Generation Cephalosporin,1
+154,1,Glycopeptide,2,Glycopeptide,2
+155,1,Glycopeptide,2,Tetracycline,1
+156,1,Macrolide,2,2nd Generation Cephalosporin,1
+157,1,Macrolide,2,Fluoroquinolone,1
+158,1,Macrolide,2,Penicillin,3
+159,1,Macrolide,2,Sulfonamides and trimethoprim,2
+160,1,Macrolide,2,Tetracycline,1
+161,1,Monobactam,2,Carbapenem,1
+162,1,Monobactam,2,Oxazolidinone,1
+163,1,Monobactam,2,Penicillin and beta-lactamase inhibitor,1
+164,1,Nitroimidazole,2,Carbapenem,1
+165,1,Nitroimidazole,2,Macrolide,1
+166,1,Nitroimidazole,2,Monobactam,1
+167,1,Nitroimidazole,2,Penicillin,2
+168,1,Oxazolidinone,2,Carbapenem,1
+169,1,Oxazolidinone,2,Fluoroquinolone,1
+170,1,Oxazolidinone,2,Sulfonamides and trimethoprim,1
+171,1,Penicillin,2,2nd Generation Cephalosporin,1
+172,1,Penicillin,2,Fluoroquinolone,1
+173,1,Penicillin,2,Glycopeptide,1
+174,1,Penicillin,2,Macrolide,2
+175,1,Penicillin,2,Nitroimidazole,1
+176,1,Penicillin,2,Penicillin,2
+177,1,Penicillin,2,Phosphonic acid,1
+178,1,Penicillin,2,Sulfonamides and trimethoprim,1
+179,1,Penicillin and beta-lactamase inhibitor,2,2nd Generation Cephalosporin,1
+180,1,Penicillin and beta-lactamase inhibitor,2,Fluoroquinolone,1
+181,1,Penicillin and beta-lactamase inhibitor,2,Glycopeptide,1
+182,1,Penicillin and beta-lactamase inhibitor,2,Nitroimidazole,1
+183,1,Phosphonic acid,2,4th Generation Cephalosporin,1
+184,1,Phosphonic acid,2,Amphenicol,1
+185,1,Phosphonic acid,2,Nitroimidazole,1
+186,1,Sulfonamides and trimethoprim,2,Carbapenem,1
+187,1,Sulfonamides and trimethoprim,2,Penicillin,1
+188,1,Sulfonamides and trimethoprim,2,Penicillin and beta-lactamase inhibitor,1
+189,1,Tetracycline,2,3rd Generation Cephalosporin,1
+190,1,Tetracycline,2,Glycopeptide,1
+191,1,Tetracycline,2,Penicillin,1
+192,2,2nd Generation Cephalosporin,3,Penicillin,1
+193,2,3rd Generation Cephalosporin,3,3rd Generation Cephalosporin,1
+194,2,3rd Generation Cephalosporin,3,Aminoglycoside,2
+195,2,3rd Generation Cephalosporin,3,Amphenicol,1
+196,2,3rd Generation Cephalosporin,3,Fluoroquinolone,2
+197,2,3rd Generation Cephalosporin,3,Glycopeptide,1
+198,2,3rd Generation Cephalosporin,3,Penicillin,1
+199,2,4th Generation Cephalosporin,3,3rd Generation Cephalosporin,1
+200,2,4th Generation Cephalosporin,3,Penicillin,1
+201,2,Aminoglycoside,3,3rd Generation Cephalosporin,2
+202,2,Aminoglycoside,3,Aminoglycoside,2
+203,2,Aminoglycoside,3,Amphenicol,1
+204,2,Aminoglycoside,3,Macrolide,1
+205,2,Aminoglycoside,3,Nitroimidazole,1
+206,2,Aminoglycoside,3,Penicillin,2
+207,2,Aminoglycoside,3,Phosphonic acid,1
+208,2,Aminoglycoside+Fluoroquinolone,3,3rd Generation Cephalosporin,1
+209,2,Aminoglycoside+Fluoroquinolone,3,Tetracycline,1
+210,2,Carbapenem,3,3rd Generation Cephalosporin,1
+211,2,Carbapenem,3,Macrolide,1
+212,2,Carbapenem,3,Penicillin,1
+213,2,Fluoroquinolone,3,3rd Generation Cephalosporin,1
+214,2,Fluoroquinolone,3,4th Generation Cephalosporin,2
+215,2,Fluoroquinolone,3,Fluoroquinolone,1
+216,2,Fluoroquinolone,3,Glycopeptide,1
+217,2,Fluoroquinolone,3,Macrolide,1
+218,2,Fluoroquinolone,3,Nitroimidazole,1
+219,2,Fluoroquinolone,3,Penicillin,1
+220,2,Glycopeptide,3,Fluoroquinolone,3
+221,2,Glycopeptide,3,Macrolide,1
+222,2,Glycopeptide,3,Penicillin,1
+223,2,Macrolide,3,Aminoglycoside,1
+224,2,Macrolide,3,Macrolide,1
+225,2,Macrolide,3,Monobactam,1
+226,2,Macrolide,3,Penicillin,1
+227,2,Nitroimidazole,3,4th Generation Cephalosporin,1
+228,2,Nitroimidazole,3,Aminoglycoside,2
+229,2,Nitroimidazole,3,Penicillin and beta-lactamase inhibitor,1
+230,2,Nitroimidazole,3,Phosphonic acid,1
+231,2,Oxazolidinone,3,3rd Generation Cephalosporin,1
+232,2,Oxazolidinone,3,Aminoglycoside,1
+233,2,Oxazolidinone,3,Carbapenem,1
+234,2,Penicillin,3,3rd Generation Cephalosporin,1
+235,2,Penicillin,3,Aminoglycoside,2
+236,2,Penicillin,3,Nitroimidazole,1
+237,2,Penicillin,3,Oxazolidinone,1
+238,2,Penicillin,3,Penicillin,3
+239,2,Penicillin,3,Phosphonic acid,1
+240,2,Penicillin,3,Tetracycline,3
+241,2,Penicillin and beta-lactamase inhibitor,3,3rd Generation Cephalosporin,2
+242,2,Penicillin and beta-lactamase inhibitor,3,4th Generation Cephalosporin,1
+243,2,Penicillin and beta-lactamase inhibitor,3,Aminoglycoside,1
+244,2,Penicillin and beta-lactamase inhibitor,3,Penicillin,1
+245,2,Penicillin and beta-lactamase inhibitor,3,Sulfonamides and trimethoprim,1
+246,2,Penicillin+Glycopeptide,3,Fluoroquinolone,1
+247,2,Phosphonic acid,3,2nd Generation Cephalosporin,1
+248,2,Phosphonic acid,3,4th Generation Cephalosporin,1
+249,2,Phosphonic acid,3,Glycopeptide,1
+250,2,Phosphonic acid,3,Penicillin,1
+251,2,Sulfonamides and trimethoprim,3,Aminoglycoside,1
+252,2,Sulfonamides and trimethoprim,3,Nitroimidazole,1
+253,2,Sulfonamides and trimethoprim,3,Oxazolidinone,1
+254,2,Sulfonamides and trimethoprim,3,Tetracycline,1
+255,2,Tetracycline,3,Macrolide,1
+256,2,Tetracycline,3,Phosphonic acid,1
+257,3,2nd Generation Cephalosporin,4,Oxazolidinone,1
+258,3,2nd Generation Cephalosporin,4,Penicillin and beta-lactamase inhibitor+Nitroimidazole,1
+259,3,3rd Generation Cephalosporin,4,4th Generation Cephalosporin,1
+260,3,3rd Generation Cephalosporin,4,Macrolide,1
+261,3,3rd Generation Cephalosporin,4,Monobactam,1
+262,3,3rd Generation Cephalosporin,4,Penicillin and beta-lactamase inhibitor,1
+263,3,3rd Generation Cephalosporin,4,Phosphonic acid,1
+264,3,3rd Generation Cephalosporin+Glycopeptide,4,3rd Generation Cephalosporin,1
+265,3,4th Generation Cephalosporin,4,4th Generation Cephalosporin,2
+266,3,4th Generation Cephalosporin,4,Glycopeptide,1
+267,3,4th Generation Cephalosporin,4,Monobactam,1
+268,3,Aminoglycoside,4,Amphenicol,1
+269,3,Aminoglycoside,4,Macrolide,1
+270,3,Aminoglycoside,4,Nitroimidazole,1
+271,3,Aminoglycoside,4,Penicillin,2
+272,3,Aminoglycoside,4,Tetracycline,1
+273,3,Amphenicol,4,Macrolide,1
+274,3,Carbapenem,4,Phosphonic acid,1
+275,3,Fluoroquinolone,4,Fluoroquinolone,1
+276,3,Fluoroquinolone,4,Penicillin,1
+277,3,Glycopeptide,4,Aminoglycoside,1
+278,3,Glycopeptide,4,Fluoroquinolone,1
+279,3,Glycopeptide,4,Glycopeptide,1
+280,3,Glycopeptide,4,Phosphonic acid,1
+281,3,Macrolide,4,Aminoglycoside,1
+282,3,Macrolide,4,Fluoroquinolone,3
+283,3,Macrolide,4,Macrolide,1
+284,3,Macrolide,4,Penicillin,1
+285,3,Macrolide,4,Penicillin and beta-lactamase inhibitor,1
+286,3,Macrolide,4,Phosphonic acid,1
+287,3,Macrolide,4,Tetracycline,1
+288,3,Monobactam,4,Aminoglycoside,1
+289,3,Monobactam,4,Penicillin and beta-lactamase inhibitor+Aminoglycoside,1
+290,3,Nitroimidazole,4,Aminoglycoside,1
+291,3,Nitroimidazole,4,Nitroimidazole,1
+292,3,Oxazolidinone,4,3rd Generation Cephalosporin,1
+293,3,Oxazolidinone,4,Glycopeptide,1
+294,3,Oxazolidinone,4,Monobactam,1
+295,3,Oxazolidinone,4,Tetracycline,1
+296,3,Penicillin,4,3rd Generation Cephalosporin,2
+297,3,Penicillin,4,Aminoglycoside,1
+298,3,Penicillin,4,Fluoroquinolone,1
+299,3,Penicillin,4,Glycopeptide,1
+300,3,Penicillin,4,Macrolide,1
+301,3,Penicillin,4,Nitroimidazole,1
+302,3,Penicillin,4,Oxazolidinone,2
+303,3,Penicillin,4,Penicillin,2
+304,3,Penicillin,4,Penicillin and beta-lactamase inhibitor,1
+305,3,Penicillin,4,Tetracycline,1
+306,3,Penicillin and beta-lactamase inhibitor,4,4th Generation Cephalosporin,1
+307,3,Penicillin and beta-lactamase inhibitor,4,Glycopeptide,1
+308,3,Penicillin and beta-lactamase inhibitor,4,Oxazolidinone,1
+309,3,Phosphonic acid,4,3rd Generation Cephalosporin,1
+310,3,Phosphonic acid,4,Macrolide,1
+311,3,Phosphonic acid,4,Oxazolidinone,1
+312,3,Phosphonic acid,4,Phosphonic acid,1
+313,3,Tetracycline,4,Nitroimidazole,1
+314,4,2nd Generation Cephalosporin,5,Aminoglycoside,1
+315,4,2nd Generation Cephalosporin,5,Fluoroquinolone,1
+316,4,3rd Generation Cephalosporin,5,Macrolide,1
+317,4,4th Generation Cephalosporin,5,2nd Generation Cephalosporin,3
+318,4,4th Generation Cephalosporin,5,Aminoglycoside,1
+319,4,4th Generation Cephalosporin,5,Macrolide,2
+320,4,4th Generation Cephalosporin,5,Penicillin,1
+321,4,Aminoglycoside,5,3rd Generation Cephalosporin,2
+322,4,Aminoglycoside,5,4th Generation Cephalosporin,1
+323,4,Aminoglycoside,5,Aminoglycoside,1
+324,4,Aminoglycoside,5,Monobactam,1
+325,4,Aminoglycoside,5,Nitroimidazole,1
+326,4,Aminoglycoside,5,Penicillin,2
+327,4,Aminoglycoside,5,Sulfonamides and trimethoprim,1
+328,4,Amphenicol,5,Sulfonamides and trimethoprim,1
+329,4,Carbapenem,5,Macrolide,1
+330,4,Carbapenem,5,Nitroimidazole,1
+331,4,Carbapenem,5,Penicillin and beta-lactamase inhibitor,1
+332,4,Carbapenem,5,Phosphonic acid,1
+333,4,Carbapenem,5,Tetracycline,1
+334,4,Fluoroquinolone,5,3rd Generation Cephalosporin,2
+335,4,Glycopeptide,5,2nd Generation Cephalosporin,1
+336,4,Glycopeptide,5,3rd Generation Cephalosporin,3
+337,4,Glycopeptide,5,4th Generation Cephalosporin,1
+338,4,Glycopeptide,5,Monobactam,1
+339,4,Glycopeptide,5,Penicillin,1
+340,4,Macrolide,5,Aminoglycoside,1
+341,4,Macrolide,5,Amphenicol,1
+342,4,Macrolide,5,Macrolide,1
+343,4,Macrolide,5,Nitroimidazole,1
+344,4,Macrolide,5,Phosphonic acid,1
+345,4,Macrolide,5,Sulfonamides and trimethoprim,1
+346,4,Monobactam,5,3rd Generation Cephalosporin,2
+347,4,Monobactam,5,Fluoroquinolone,1
+348,4,Monobactam,5,Sulfonamides and trimethoprim,2
+349,4,Nitroimidazole,5,2nd Generation Cephalosporin,1
+350,4,Nitroimidazole,5,3rd Generation Cephalosporin,2
+351,4,Nitroimidazole,5,4th Generation Cephalosporin,2
+352,4,Nitroimidazole,5,Aminoglycoside,1
+353,4,Penicillin,5,3rd Generation Cephalosporin,1
+354,4,Penicillin,5,Macrolide,1
+355,4,Penicillin,5,Oxazolidinone,1
+356,4,Penicillin,5,Penicillin,1
+357,4,Penicillin,5,Penicillin and beta-lactamase inhibitor,1
+358,4,Penicillin,5,Sulfonamides and trimethoprim,2
+359,4,Penicillin and beta-lactamase inhibitor,5,2nd Generation Cephalosporin,1
+360,4,Penicillin and beta-lactamase inhibitor,5,3rd Generation Cephalosporin,1
+361,4,Penicillin and beta-lactamase inhibitor,5,Macrolide,1
+362,4,Phosphonic acid,5,Penicillin,1
+363,4,Sulfonamides and trimethoprim,5,Fluoroquinolone,1
+364,4,Sulfonamides and trimethoprim,5,Nitroimidazole,1
+365,4,Tetracycline,5,2nd Generation Cephalosporin,1
+366,4,Tetracycline,5,Fluoroquinolone,1
+367,4,Tetracycline,5,Penicillin,1
+368,5,2nd Generation Cephalosporin,6,3rd Generation Cephalosporin,1
+369,5,2nd Generation Cephalosporin,6,Penicillin,1
+370,5,3rd Generation Cephalosporin,6,3rd Generation Cephalosporin,4
+371,5,3rd Generation Cephalosporin,6,Glycopeptide,2
+372,5,3rd Generation Cephalosporin,6,Monobactam,1
+373,5,3rd Generation Cephalosporin,6,Oxazolidinone,1
+374,5,3rd Generation Cephalosporin,6,Penicillin,1
+375,5,3rd Generation Cephalosporin,6,Tetracycline,1
+376,5,4th Generation Cephalosporin,6,3rd Generation Cephalosporin,1
+377,5,4th Generation Cephalosporin,6,4th Generation Cephalosporin,1
+378,5,4th Generation Cephalosporin,6,Glycopeptide,1
+379,5,4th Generation Cephalosporin,6,Tetracycline,1
+380,5,Aminoglycoside,6,4th Generation Cephalosporin,1
+381,5,Aminoglycoside,6,Monobactam,1
+382,5,Aminoglycoside,6,Penicillin,1
+383,5,Aminoglycoside,6,Penicillin and beta-lactamase inhibitor,1
+384,5,Amphenicol,6,4th Generation Cephalosporin,1
+385,5,Amphenicol,6,Fluoroquinolone,1
+386,5,Amphenicol,6,Glycopeptide,1
+387,5,Amphenicol,6,Nitroimidazole,1
+388,5,Carbapenem,6,Aminoglycoside,1
+389,5,Carbapenem,6,Glycopeptide,1
+390,5,Carbapenem,6,Penicillin,1
+391,5,Carbapenem,6,Sulfonamides and trimethoprim,1
+392,5,Fluoroquinolone,6,Fluoroquinolone,1
+393,5,Fluoroquinolone,6,Penicillin and beta-lactamase inhibitor,1
+394,5,Glycopeptide,6,2nd Generation Cephalosporin,1
+395,5,Glycopeptide,6,Aminoglycoside,1
+396,5,Glycopeptide,6,Fluoroquinolone,1
+397,5,Glycopeptide,6,Nitroimidazole,1
+398,5,Glycopeptide,6,Penicillin and beta-lactamase inhibitor,1
+399,5,Macrolide,6,3rd Generation Cephalosporin,1
+400,5,Macrolide,6,Fluoroquinolone,1
+401,5,Macrolide,6,Glycopeptide,1
+402,5,Macrolide,6,Penicillin,1
+403,5,Macrolide,6,Sulfonamides and trimethoprim,1
+404,5,Monobactam,6,Carbapenem+Glycopeptide,1
+405,5,Nitroimidazole,6,Aminoglycoside,1
+406,5,Oxazolidinone,6,Amphenicol,1
+407,5,Oxazolidinone,6,Monobactam,1
+408,5,Oxazolidinone,6,Penicillin,1
+409,5,Oxazolidinone,6,Tetracycline,1
+410,5,Penicillin,6,4th Generation Cephalosporin,1
+411,5,Penicillin,6,Aminoglycoside,1
+412,5,Penicillin,6,Carbapenem,1
+413,5,Penicillin,6,Fluoroquinolone,1
+414,5,Penicillin,6,Glycopeptide,2
+415,5,Penicillin,6,Macrolide,1
+416,5,Penicillin,6,Nitroimidazole,1
+417,5,Penicillin,6,Penicillin and beta-lactamase inhibitor,1
+418,5,Penicillin,6,Sulfonamides and trimethoprim,1
+419,5,Penicillin and beta-lactamase inhibitor,6,3rd Generation Cephalosporin,1
+420,5,Penicillin and beta-lactamase inhibitor,6,Glycopeptide,2
+421,5,Penicillin and beta-lactamase inhibitor,6,Penicillin,1
+422,5,Phosphonic acid,6,Carbapenem+Glycopeptide,1
+423,5,Phosphonic acid,6,Penicillin,1
+424,5,Sulfonamides and trimethoprim,6,3rd Generation Cephalosporin,1
+425,5,Sulfonamides and trimethoprim,6,4th Generation Cephalosporin,1
+426,5,Sulfonamides and trimethoprim,6,Carbapenem,1
+427,5,Tetracycline,6,Glycopeptide,1
+428,5,Tetracycline,6,Oxazolidinone,1
+429,5,Tetracycline,6,Sulfonamides and trimethoprim,1
+430,5,Tetracycline,6,Tetracycline,1

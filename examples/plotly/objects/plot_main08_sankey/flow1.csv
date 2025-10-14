@@ -1,0 +1,138 @@
+,day_from,item_from,day_to,item_to,count
+0,1,amikacin,2,amikacin,1
+1,1,amikacin,2,flucloxacillin,1
+2,1,amoxicillin,2,amoxicillin,2
+3,1,aztreonam,2,ceftazidime,1
+4,1,aztreonam,2,fosfomycin,1
+5,1,cefepime,2,cefepime,2
+6,1,ceftriaxone,2,No Therapy,1
+7,1,ceftriaxone,2,ceftriaxone,4
+8,1,cefuroxime,2,aztreonam,2
+9,1,cefuroxime,2,cefuroxime,1
+10,1,ciprofloxacin,2,No Therapy,1
+11,1,clarithromycin,2,amikacin,1
+12,1,clarithromycin,2,cefepime,1
+13,1,co-amoxiclav,2,amoxicillin,1
+14,1,co-amoxiclav,2,"amoxicillin, co-amoxiclav, linezolid",1
+15,1,co-amoxiclav,2,co-amoxiclav,2
+16,1,doxycycline,2,"amoxicillin, doxycycline, linezolid",1
+17,1,doxycycline,2,doxycycline,1
+18,1,doxycycline,2,teicoplanin,1
+19,1,erythromycin,2,flucloxacillin,1
+20,1,flucloxacillin,2,doxycycline,1
+21,1,flucloxacillin,2,flucloxacillin,1
+22,1,fosfomycin,2,co-amoxiclav,1
+23,1,fosfomycin,2,fosfomycin,1
+24,1,gentamicin,2,gentamicin,1
+25,1,linezolid,2,linezolid,2
+26,1,linezolid,2,metronidazole,1
+27,1,meropenem,2,ceftriaxone,1
+28,1,meropenem,2,meropenem,3
+29,1,metronidazole,2,pivmecillinam,1
+30,1,pivmecillinam,2,No Therapy,2
+31,1,pivmecillinam,2,"amoxicillin, linezolid, pivmecillinam",1
+32,1,tazocin,2,"amoxicillin, linezolid, tazocin",1
+33,1,tazocin,2,fosfomycin,1
+34,1,tazocin,2,tazocin,1
+35,1,temocillin,2,cefepime,1
+36,1,temocillin,2,meropenem,1
+37,1,vancomycin,2,"amoxicillin, linezolid, vancomycin",1
+38,1,vancomycin,2,vancomycin,1
+39,2,No Therapy,3,No Therapy,2
+40,2,No Therapy,3,meropenem,1
+41,2,amikacin,3,metronidazole,1
+42,2,amikacin,3,vancomycin,1
+43,2,amoxicillin,3,amoxicillin,1
+44,2,"amoxicillin, co-amoxiclav, linezolid",3,co-amoxiclav,1
+45,2,"amoxicillin, doxycycline, linezolid",3,doxycycline,1
+46,2,"amoxicillin, linezolid, pivmecillinam",3,pivmecillinam,1
+47,2,"amoxicillin, linezolid, vancomycin",3,vancomycin,1
+48,2,aztreonam,3,No Therapy,1
+49,2,aztreonam,3,aztreonam,1
+50,2,cefepime,3,cefepime,2
+51,2,cefepime,3,doxycycline,1
+52,2,ceftazidime,3,ceftazidime,1
+53,2,ceftriaxone,3,ceftriaxone,3
+54,2,cefuroxime,3,cefuroxime,1
+55,2,co-amoxiclav,3,co-amoxiclav,3
+56,2,doxycycline,3,doxycycline,2
+57,2,flucloxacillin,3,No Therapy,1
+58,2,flucloxacillin,3,flucloxacillin,1
+59,2,fosfomycin,3,fosfomycin,2
+60,2,gentamicin,3,No Therapy,1
+61,2,linezolid,3,No Therapy,1
+62,2,linezolid,3,linezolid,1
+63,2,meropenem,3,amikacin,1
+64,2,meropenem,3,meropenem,2
+65,2,meropenem,3,vancomycin,1
+66,2,metronidazole,3,aztreonam,1
+67,2,pivmecillinam,3,pivmecillinam,1
+68,2,tazocin,3,tazocin,1
+69,2,teicoplanin,3,co-amoxiclav,1
+70,2,vancomycin,3,vancomycin,1
+71,3,No Therapy,4,No Therapy,6
+72,3,amikacin,4,cefepime,1
+73,3,amoxicillin,4,amoxicillin,1
+74,3,aztreonam,4,aztreonam,2
+75,3,cefepime,4,cefepime,1
+76,3,cefepime,4,co-trimoxazole,1
+77,3,ceftazidime,4,ceftazidime,1
+78,3,ceftriaxone,4,ceftriaxone,2
+79,3,cefuroxime,4,cefuroxime,1
+80,3,co-amoxiclav,4,ceftazidime,1
+81,3,co-amoxiclav,4,chloramphenicol,1
+82,3,co-amoxiclav,4,co-amoxiclav,3
+83,3,doxycycline,4,co-trimoxazole,1
+84,3,doxycycline,4,doxycycline,2
+85,3,flucloxacillin,4,erythromycin,1
+86,3,fosfomycin,4,fosfomycin,1
+87,3,fosfomycin,4,pivmecillinam,1
+88,3,linezolid,4,linezolid,1
+89,3,meropenem,4,meropenem,2
+90,3,metronidazole,4,metronidazole,1
+91,3,pivmecillinam,4,metronidazole,1
+92,3,pivmecillinam,4,pivmecillinam,1
+93,3,vancomycin,4,No Therapy,1
+94,3,vancomycin,4,chloramphenicol,1
+95,3,vancomycin,4,vancomycin,2
+96,4,No Therapy,5,No Therapy,5
+97,4,No Therapy,5,flucloxacillin,1
+98,4,No Therapy,5,fosfomycin,1
+99,4,amoxicillin,5,amoxicillin,1
+100,4,cefepime,5,No Therapy,1
+101,4,cefepime,5,chloramphenicol,1
+102,4,ceftazidime,5,ceftazidime,1
+103,4,ceftazidime,5,meropenem,1
+104,4,ceftriaxone,5,ceftriaxone,1
+105,4,ceftriaxone,5,pivmecillinam,1
+106,4,cefuroxime,5,No Therapy,1
+107,4,chloramphenicol,5,chloramphenicol,1
+108,4,co-amoxiclav,5,ceftriaxone,1
+109,4,co-amoxiclav,5,co-amoxiclav,1
+110,4,erythromycin,5,temocillin,1
+111,4,fosfomycin,5,ciprofloxacin,1
+112,4,meropenem,5,co-trimoxazole,1
+113,4,meropenem,5,meropenem,1
+114,4,metronidazole,5,ciprofloxacin,1
+115,4,metronidazole,5,metronidazole,1
+116,4,pivmecillinam,5,pivmecillinam,2
+117,4,vancomycin,5,vancomycin,1
+118,5,No Therapy,6,No Therapy,4
+119,5,No Therapy,6,meropenem,1
+120,5,amoxicillin,6,piperacillin-tazobactam,1
+121,5,chloramphenicol,6,chloramphenicol,1
+122,5,co-trimoxazole,6,co-trimoxazole,1
+123,5,fosfomycin,6,fosfomycin,1
+124,5,meropenem,6,meropenem,1
+125,5,meropenem,6,tazocin,1
+126,5,metronidazole,6,metronidazole,1
+127,5,pivmecillinam,6,pivmecillinam,1
+128,5,temocillin,6,temocillin,1
+129,6,No Therapy,7,No Therapy,1
+130,6,No Therapy,7,clarithromycin,1
+131,6,No Therapy,7,vancomycin,1
+132,6,chloramphenicol,7,chloramphenicol,1
+133,6,meropenem,7,meropenem,2
+134,6,piperacillin-tazobactam,7,piperacillin-tazobactam,1
+135,6,tazocin,7,tazocin,1
+136,6,temocillin,7,temocillin,1
