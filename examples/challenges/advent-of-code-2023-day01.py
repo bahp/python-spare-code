@@ -4,7 +4,7 @@ import numpy as np
 from pathlib import Path
 
 # Path
-path = Path('./data/day01/')
+path = Path('./data/2023/day01/')
 
 # -----------------------------
 # Part 1

@@ -2,7 +2,7 @@
 import re
 from pathlib import Path
 
-path = Path('data/day04')
+path = Path('data/2023/day04')
 
 with open(path / 'sample02.txt', 'r') as f:
     lines  = f.readlines()

@@ -70,7 +70,7 @@ def list_to_dataframe(results):
 # Part 1
 # -----------------------------
 # Path
-path = Path('./data/day02/')
+path = Path('./data/2023/day02/')
 
 # Read document
 with open(path / 'sample02.txt', 'r') as f:
