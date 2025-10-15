@@ -1,6 +1,6 @@
 """
 07.c ``stats.2dbin`` with fake data
------------------------------------
+============================================
 
 Use binned_statistic_2d and display using heatmap.
 

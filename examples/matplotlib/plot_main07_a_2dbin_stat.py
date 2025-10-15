@@ -1,6 +1,6 @@
 """
 07.a ``stats.2dbin`` and ``mpl.heatmap``
-----------------------------------------
+============================================
 
 Use binned_statistic_2d and display using heatmap.
 

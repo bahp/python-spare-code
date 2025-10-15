@@ -1,6 +1,6 @@
 """
 05.a ``sns.clustermap`` basic sample
--------------------------------------
+============================================
 
 Plot a matrix dataset as a hierarchically-clustered heatmap.
 

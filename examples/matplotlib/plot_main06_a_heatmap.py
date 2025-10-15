@@ -1,6 +1,6 @@
 """
 06.a ``sns.heatmap`` for CRI ``v1``
--------------------------------------------
+============================================
 
 Plot rectangular data as a color-encoded matrix.
 

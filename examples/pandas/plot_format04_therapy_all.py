@@ -1,6 +1,6 @@
 """
 04. Daily Aggregation of MIMIC-III ICU Antibiotic Therapy Data
-==========================================================
+===============================================================
 04. Format MIMIC therapy (all)
 
 This Python script processes and transforms antibiotic treatment data from the

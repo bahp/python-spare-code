@@ -1,6 +1,6 @@
 """
 06. Plot Treemap with MIMIC
----------------------------------
+====================================================
 
 This example uses the pandas and Plotly libraries to create
 and display an interactive treemap visualization of microbiology

@@ -1,6 +1,6 @@
 """
 04. Transforming Patient Therapy Intervals to a Daily Summary
-==========================================================
+=============================================================
 
 Previous title: 04. Format MIMIC therapy (one)
 

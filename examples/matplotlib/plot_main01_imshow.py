@@ -1,6 +1,6 @@
 """
 01. ``mpl.imshow``
--------------------
+========================
 
 Display data as an image, i.e., on a 2D regular raster.
 """

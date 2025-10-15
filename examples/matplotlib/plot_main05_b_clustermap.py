@@ -1,6 +1,6 @@
 """
 05.b ``sns.clustermap`` with ``network.csv``
---------------------------------------------
+============================================
 
 Plot a matrix dataset as a hierarchically-clustered heatmap.
 

@@ -1,6 +1,6 @@
 """
 10. ``mpl.violin`` with linear cmap
------------------------------------------
+============================================
 
 Make a violin plot with a linear colormap.
 

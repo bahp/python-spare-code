@@ -1,6 +1,6 @@
 """
 07.d ``stats.2dbin`` with ``shap.csv``
----------------------------------------
+============================================
 
 Use binned_statistic_2d and display using heatmap.
 

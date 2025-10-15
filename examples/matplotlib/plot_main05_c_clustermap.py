@@ -1,6 +1,6 @@
 """
 05.c ``sns.clustermap`` multiple categories
--------------------------------------------
+============================================
 
 Plot a matrix dataset as a hierarchically-clustered heatmap.
 

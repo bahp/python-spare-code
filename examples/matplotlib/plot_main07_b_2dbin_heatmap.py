@@ -1,6 +1,6 @@
 """
 07.b ``stats.2dbin`` and ``sns.heatmap``
-----------------------------------------
+============================================
 
 Use binned_statistic_2d and display using heatmap.
 

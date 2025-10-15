@@ -1,6 +1,6 @@
 """
 07.e ``sns.displot``
--------------------------
+============================================
 
 Figure-level interface for drawing distribution plots onto a FacetGrid.
 

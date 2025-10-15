@@ -1,6 +1,6 @@
 """
 06. Plot Treemap with NHS
--------------------------------
+====================================================
 
 This example displays a Treemap using a portion of the NHS dataset. This
 example needs ``pyAMR`` to load the corresponding data.
