@@ -1,0 +1,43 @@
+
+# Main data science and ML libraries
+pandas
+scikit-learn
+tensorflow
+torch
+torchvision
+xgboost
+shap
+tpot
+explainerdashboard
+ydata-profiling
+
+# Visualization and plotting
+seaborn
+plotly
+hiplot
+dash
+
+# Document and image processing
+pdfplumber
+pdf2image
+pytesseract
+opencv-python
+segment-anything
+
+# Sphinx and documentation
+sphinx
+sphinx-gallery
+sphinx-rtd-theme
+
+# Utility libraries
+tableone
+factory-boy
+favicon
+pybaobabdt
+openpyxl
+kaleido
+pyyaml
+jsonpickle
+
+# NOTE: Install Graphviz software separately before installing this package
+# pygraphviz
