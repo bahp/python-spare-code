@@ -1,6 +1,13 @@
 """
-03. Basic example
-=================
+03. Basic SHAP Explanation for a Classifier
+=======================================
+
+This script demonstrates the fundamental workflow for explaining a model's
+prediction using the SHAP (SHapley Additive exPlanations) library. It involves:
+1. Loading the breast cancer dataset.
+2. Training a standard classifier (e.g., RandomForest).
+3. Using a SHAP explainer to calculate the feature contributions for a single prediction.
+4. Visualizing the explanation with a SHAP force plot.
 
 """
 # Generic
@@ -69,6 +76,57 @@ clf = rfc
 # Fit
 clf.fit(X_train, y_train)
 
+"""
+# ----------------------------------------
+# Find shap values
+# ----------------------------------------
+# Import
+import shap
+
+# Initialise JS for plotting
+shap.initjs()
+
+# Create the explainer
+explainer = shap.Explainer(clf, X_train)
+
+# Calculate SHAP values for the entire training set
+# For this explainer, it returns a single array for the positive class
+shap_values = explainer.shap_values(X_train)
+
+# The base value is also a single float, not a list
+expected_value = explainer.expected_value
+
+print(f"SHAP values shape: {shap_values.shape}")
+print(f"Expected value: {expected_value}")
+
+# ----------------------------------------
+# Visualize a single prediction with a force plot
+# ----------------------------------------
+# We will explain the 5th sample's prediction
+
+# Get the SHAP values for the 5th sample (index 5)
+shap_values_instance5 = shap_values[5, :]
+
+# Get the feature values for the 5th sample
+features_instance5 = X_train.iloc[5, :]
+
+# Create the force plot using the single base value and the correct SHAP values
+print("\nGenerating force plot for a single instance...")
+shap.plots.force(
+    base_value=expected_value[0],
+    shap_values=shap_values_instance5,
+    features=features_instance5,
+    #matplotlib=True,
+    show=True
+)
+
+plt.tight_layout()
+plt.show()
+
+import sys
+sys.exit()
+"""
+
 # ----------------------------------------
 # Find shap values
 # ----------------------------------------
@@ -94,11 +152,19 @@ shap_values = explainer.shap_values(X_train.iloc[5, :])
 
 print(shap_values)
 
+print(shap_values)
+print(X_train)
+print(X_train.iloc[5, :].values)
+print(X_train.columns.tolist())
 # Force plot
-# .. note: not working!
-plot_force = shap.plots.force(explainer.expected_value[1],
-    shap_values[1], X_train.iloc[5, :],
-    matplotlib=True, show=True)
+plot_force = shap.plots.force(
+    base_value=explainer.expected_value,
+    shap_values=shap_values[5, :],
+    features=X_train.iloc[5, :].values,  # Use .values to pass a NumPy array
+    feature_names=X_train.columns.tolist(),  # Explicitly pass feature names
+    #matplotlib=True,
+    show=True
+)
 
 plt.tight_layout()
 plt.show()

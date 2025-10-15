@@ -1,12 +1,21 @@
 """
-30. Sample shap.csv boxplot
----------------------------------
+11. Visualizing SHAP Value Distributions Across Timesteps
+=========================================================
 
-The aim is to visualise all the features for all the timesteps
-to quickly see which shap values are higher and therefore
-influence more in the result.
+This script analyzes the feature importance from a time-series model
+by visualizing pre-computed SHAP values.
 
-.. note:: Using plotly we could interact with the outcome!
+This script loads SHAP (SHapley Additive exPlanations) values from a CSV
+file to explore feature importance in a temporal context. After filtering
+for a predefined list of medical features, it generates three distinct
+Seaborn plots: a boxenplot, a violin plot, and a standard boxplot. Each
+plot visualizes the distribution of SHAP values for every feature across
+multiple timesteps. The main objective is to identify which features have
+the most significant impact on the model's predictions (indicated by higher
+SHAP values) and to observe how this influence evolves over time.
+
+
+.. note:: See plotly example, were interaction with data is possible!
 
 """
 
@@ -101,8 +110,7 @@ configure_ax(ax)
 # Violinplot
 plt.figure(figsize=(12, 4))
 ax = sns.violinplot(data, x='timestep', y='shap_values',
-    hue='features', saturation=0.5, showfliers=False,
-    whis=1.0)
+    hue='features', saturation=0.5)
 configure_ax(ax)
 
 # Boxplot

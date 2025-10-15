@@ -1,8 +1,8 @@
 """
-03. Plot Sparklines
+03. Sparklines (scatter)
 =========================
 
-This example shows to to plot sparklines style graphs.
+This example shows to plot sparklines style graphs.
 """
 # -------------------
 # Main

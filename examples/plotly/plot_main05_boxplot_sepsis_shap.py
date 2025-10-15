@@ -1,19 +1,24 @@
 """
-30. Sample shap.csv boxplot
----------------------------------
+05. Sepsis shap  by timestep (boxplot)
+======================================
 
-The aim is to visualise all the features for all the timesteps
-to quickly see which shap values are higher and therefore
-influence more in the result.
+This script visualizes SHAP (SHapley Additive exPlanations) values to
+analyze feature importance across different time periods. It loads a
+pre-computed shap.csv file obtained for sepsis patients and a LSTM
+predictive model and uses Plotly to generate a comprehensive boxplot.
+
+The resulting plot displays the distribution of SHAP values on the y-axis
+for each feature at every timestep on the x-axis. This makes it easy to
+quickly identify which features have the most significant impact on the
+model's predictions (those with SHAP values of higher magnitude) and
+to see how that influence changes over time.
 
 """
 
 # Libraries
-import seaborn as sns
 import pandas as pd
 import numpy as np
 import matplotlib as mpl
-import matplotlib.pyplot as plt
 import plotly.express as px
 
 from plotly.io import show

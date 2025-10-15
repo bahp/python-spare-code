@@ -1,8 +1,17 @@
 """
+04. Daily Aggregation of MIMIC-III ICU Antibiotic Therapy Data
+==========================================================
 04. Format MIMIC therapy (all)
-===============================
 
-Description...
+This Python script processes and transforms antibiotic treatment data from the
+ICU_diagnoses_antibiotics.csv file, likely derived from the MIMIC-III dataset.
+It begins by loading the data, parsing starttime and stoptime columns, and
+cleaning antibiotic names. The core of the script reshapes the data from a
+record of treatment intervals into a daily summary. It achieves this by creating
+a date range for each antibiotic administration and then "exploding" these
+ranges into individual daily records. Finally, it groups the data by patient
+stay and date to produce a final series showing the unique list of antibiotics
+administered each day.
 """
 # Generic libraries
 import pandas as pd
@@ -23,10 +32,7 @@ path = './data/mimic-therapy/ICU_diagnoses_antibiotics.csv'
 # Load data
 # -----------------------------
 # Read data
-data = pd.read_csv(path,
-    dayfirst=True,
-    parse_dates=['starttime',
-                 'stoptime'])
+data = pd.read_csv(path)
 
 # Keep only useful columns
 data = data[['subject_id',
@@ -37,6 +43,17 @@ data = data[['subject_id',
              'route',
              'starttime',
              'stoptime']]
+
+# .. note::  Converting datetime manually because the parse_dates
+#            value in read_csv returns the value unaltered as an object
+#            type when the the conversion is not possible, and this
+#            triggers errors while accessing using .dt.
+# Explicitly convert columns to datetime, coercing errors to NaT
+data['starttime'] = pd.to_datetime(data['starttime'], dayfirst=True, errors='coerce')
+data['stoptime'] = pd.to_datetime(data['stoptime'], dayfirst=True, errors='coerce')
+
+# Handle any rows where dates could not be parsed (Optional)
+data.dropna(subset=['starttime', 'stoptime'], inplace=True)
 
 # Reformat (time info and str)
 data.starttime = data.starttime.dt.date
@@ -72,7 +89,7 @@ data
 data['startdate'] = data.apply(lambda x:
     pd.date_range(start=x['starttime'],
                   end=x['stoptime'],
-                  closed='left',         # ignoring right
+                  inclusive='left',         # ignoring right
                   freq='D') ,axis=1)
 
 # Explode such column

@@ -2,7 +2,16 @@
 01. Basic example
 -----------------
 
-Basic usage of the tableone library.
+his script provides a practical demonstration of the tableone
+Python library, a tool designed to easily create the table
+of descriptive statistics commonly found in medical and scientific
+research papers. Using the well-known primary biliary cirrhosis
+(pbc) dataset, it walks through the essential steps of data preparation,
+including specifying continuous, categorical, and non-normally
+distributed variables. The script then generates a summary table,
+grouped by a treatment variable, and showcases the library's versatility
+by exporting the table to various formats, including HTML, GitHub-flavored
+Markdown, LaTeX, and Microsoft Excel.
 
 """
 # Libraries
@@ -30,8 +39,8 @@ groupby = 'trt'
 nonnormal = ['bili']
 
 # Create descriptive table
-mytable = TableOne(data, columns, categorical,
-                   groupby, nonnormal, pval=True)
+mytable = TableOne(data, columns=columns, categorical=categorical,
+    groupby=groupby, nonnormal=nonnormal, pval=True)
 
 
 #%%

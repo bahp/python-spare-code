@@ -3,14 +3,25 @@
 =================
 
 """
+
+import os
+os.environ['TF_USE_LEGACY_KERAS'] = 'True' # MUST be before tensorflow import
+
 # Libraries
 import shap
 import numpy as np
 import pandas as pd
 
+from tensorflow.keras.optimizers.legacy import Adam
+
 import tensorflow as tf
-tf.compat.v1.disable_eager_execution()
-tf.compat.v1.disable_v2_behavior()
+
+# .. note:: When using old version of Tensorflow, this line
+#           makes it compatible. However, shap it is now
+#           compatible with v2.
+# Make it compatible with TensorFlow 1.x
+#tf.compat.v1.disable_eager_execution()
+#tf.compat.v1.disable_v2_behavior()
 
 # --------------------------------------------
 # Create data
@@ -60,6 +71,7 @@ from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Embedding
 from tensorflow.keras.preprocessing import sequence
 
+
 # Create model
 model = Sequential()
 #model.add(Input(shape=(None, FEATURES)))
@@ -74,10 +86,10 @@ model.add(Dense(64, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(
     loss='binary_crossentropy',
-    optimizer='adam',
+    optimizer=Adam(), #'adam', # Using keras because 'adam' fails
     metrics=['accuracy']
 )
-model.run_eagerly = False
+# model.run_eagerly = False # note necessary
 
 # Load pre-trained weights
 
@@ -96,8 +108,10 @@ model.fit(x, y, epochs=16, batch_size=64)
 # --------------------------------------------
 # https://github.com/slundberg/shap/blob/master/shap/plots/_beeswarm.py
 
+# .. note:: IDeally Deep but gives issues. Need to configure legacy.
 # Use the training data for deep explainer => can use fewer instances
-explainer = shap.DeepExplainer(model, x)
+explainer = shap.DeepExplainer((model.inputs[0], model.outputs[0]), x)
+#explainer = shap.KernelExplainer(model.predict, x)
 # explain the the testing instances (can use fewer instanaces)
 # explaining each prediction requires 2 * background dataset size runs
 shap_values = explainer.shap_values(x)

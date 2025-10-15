@@ -1,8 +1,14 @@
 """
-04. Histogram 2D
-======================
+04. 2D Contour & marginal histograms
+====================================
 
-.. note:: https://plotly.com/python/2d-histogram-contour/
+This script demonstrates how to create a combined visualization using Plotly.
+It displays the relationship between two variables using a 2D density contour
+plot overlaid with a scatter plot of the individual data points. To show the
+distribution of each variable independently, marginal histograms are added to
+the top and right axes.
+
+.. note:: Example from Plotly: https://plotly.com/python/2d-histogram-contour/
 
 """
 

@@ -1,3 +1,18 @@
+"""
+Explaining Time-Series Predictions with TimeSHAP and LSTMs
+==========================================================
+
+This script demonstrates how to use the TimeSHAP library to
+interpret the predictions of a Long Short-Term Memory (LSTM)
+model. It begins by generating a synthetic time-series dataset
+for a binary classification task. Subsequently, a simple LSTM
+model is built and trained using TensorFlow/Keras. The core of
+the script then applies TimeSHAP to generate a local explanation
+for a single prediction, calculating the necessary baselines
+and producing a detailed visual report. This report breaks down
+the model's decision-making process by showing the contribution
+of each feature at every timestep.
+"""
 # Libraries
 import numpy as np
 import pandas as pd

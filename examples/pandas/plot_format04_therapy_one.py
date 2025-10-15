@@ -1,8 +1,19 @@
 """
-04. Format MIMIC therapy (one)
-===============================
+04. Transforming Patient Therapy Intervals to a Daily Summary
+==========================================================
 
-Description...
+Previous title: 04. Format MIMIC therapy (one)
+
+This script demonstrates how to process time-interval data, a common format in
+medical records like the MIMIC-III dataset. It starts with a table where each
+row represents an antibiotic therapy with a specific start and end date.
+
+The main goal is to transform this interval-based data into a daily summary.
+This is achieved by using `pd.date_range` to generate all dates within each
+therapy period and then using the `explode()` method to create a distinct row
+for each day. The final output is a count of how many days each unique
+combination of therapies was administered to the patient.
+
 """
 # Generic libraries
 import pandas as pd
@@ -60,7 +71,7 @@ data
 data['startdate'] = data.apply(lambda x:
     pd.date_range(start=x['starttime'],
                   end=x['stoptime'],
-                  closed='left',         # ignoring right
+                  inclusive='left',         # ignoring right
                   freq='D') ,axis=1)
 
 # Explode such column

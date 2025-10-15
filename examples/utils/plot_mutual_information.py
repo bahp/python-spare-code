@@ -1,11 +1,37 @@
 """
-Mutual Information Criteria
----------------------------
+Exploring Mutual Information Criteria in Python
+===============================================
 
-The ``Mutual Information Score``, often denoted as ``MIS``, expresses the extent
-to which observed frequency of co-occurrence differs from what we would expect
-(statistically speaking). In statistically pure terms this is a measure of the
-strength of association between words x and y.
+This script provides a comprehensive exploration of the Mutual Information Score
+(MIS). It covers everything from manual, step-by-step calculations to comparing
+the performance of various custom implementations. The script also demonstrates a
+practical application by computing the Collateral Resistance Index (CRI) from a
+real-world dataset and investigates the behavior of these functions in several
+edge-case scenarios.
+
+The ``Mutual Information Score``, often denoted as ``MIS``, is a measure of the
+statistical dependence between two random variables. It quantifies how much
+information about one variable is obtained by observing another. In simple terms,
+MI answers the question: "How much does knowing the value of variable X reduce
+my uncertainty about the value of variable Y?"
+
+Unlike correlation, which only measures linear relationships, Mutual Information
+Crriteria can capture any kind of statistical dependency, including non-linear ones.
+
+MIC is calculated using the concept of entropy, which is a measure of uncertainty
+or randomness. Essentially, it measures the difference between the observed
+co-occurrence of values and what would be expected if they were independent.
+
+Because the raw MI score can be difficult to interpret on its own, several normalized
+versions exist:
+
+    - Adjusted Mutual Information (AMI): This version is adjusted for chance, meaning
+      it accounts for the fact that even two random variables can have a non-zero MI
+      score just by coincidence. It's particularly useful when comparing clusterings.
+
+    - Normalized Mutual Information (NMI): This score scales the MI value to a range
+      between 0 (no mutual information) and 1 (perfect correlation), making it easier
+      to compare across different datasets.
 
 See below for a few resources.
 
@@ -106,7 +132,7 @@ cumu = pd.DataFrame([
 ], columns=['method', 'c11', 'c12', 'c21', 'c22'])
 
 # Compute MIS score
-cumu['mis'] = cumu.sum(axis=1)
+cumu['mis'] = cumu[['c11', 'c12', 'c21', 'c22']].sum(axis=1)
 
 #%%
 # Lets see the contingency matrix
@@ -179,7 +205,7 @@ cumu = pd.DataFrame([
 ], columns=['method', 'c11', 'c12', 'c21', 'c22'])
 
 # Compute MIS score
-cumu['mis'] = cumu.sum(axis=1)
+cumu['mis'] = cumu[['c11', 'c12', 'c21', 'c22']].sum(axis=1)
 
 #%%
 # Lets see the contingency matrix

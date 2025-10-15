@@ -1,6 +1,17 @@
 """
-UKVI trips visualisation
-------------------------
+UKVI Travel History Visualizer
+==============================
+
+This Python script is designed to automate the tracking and visualization
+of international travel for UK immigration purposes. It extracts travel
+data directly from a PDF report (such as a UKVI travel history record),
+calculates the duration in days for each trip abroad, and generates a
+ clear timeline chart using Matplotlib. The resulting plot provides
+ an at-a-glance overview of all absences, making it easier to monitor
+ compliance with the continuous residence requirements for Indefinite
+ Leave to Remain (ILR) or citizenship applications. The script also
+ supports manual entry for trips not captured in the PDF and allows
+ for custom color-coding of destinations.
 
 """
 

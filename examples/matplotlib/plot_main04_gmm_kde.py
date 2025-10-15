@@ -1,13 +1,24 @@
 """
-04. Plot GMM and KDE
----------------------------
+0.4 Visualizing GMM and KDE
+============================
 
-This example estimates and displays the Gaussian
-Mixture Model (GMM) and KDE (Kernel Density Estimation)
-for each class.
+This script demonstrates and contrasts two common density estimation techniques
+on synthetic, clustered data.
+
+This script first generates a synthetic 2D dataset with three distinct
+clusters using sklearn.datasets.make_blobs. It then fits a Gaussian
+Mixture Model (GMM) to the entire dataset to parametrically model the
+underlying distributions of the clusters. The initial visualization
+displays the raw data points as a scatter plot, with ellipses overlaid
+to represent the mean and covariance of each learned Gaussian component.
+Subsequently, the script isolates the data for each class and calculates
+its non-parametric Kernel Density Estimation (KDE). It generates a
+separate contour plot for each class, visually representing the probability
+density of the data points within that specific group.
+
+.. note:: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
 
 """
-# https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
 
 # Libraries
 import numpy as np
@@ -146,7 +157,7 @@ def plot_ellipses(gmm, ax, color, n=None):
 
     # Plot
     ell = mpl.patches.Ellipse(gmm.means_[n, :2],
-        v[0], v[1], 180 + angle, color=color)
+        v[0], v[1], angle=180 + angle, color=color)
     ell.set_clip_box(ax.bbox)
     ell.set_alpha(0.25)
     ax.add_artist(ell)

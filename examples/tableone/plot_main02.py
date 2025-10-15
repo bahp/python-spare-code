@@ -1,8 +1,15 @@
 """
-02. Basic example
------------------
+02. Generating a Summary of Dengue Patient Data
+=========================================================
 
-Basic usage of the tableone library.
+This script demonstrates a fundamental application of the tableone
+Python library for creating a clinical summary table, often referred
+to as 'Table 1' in medical research. Using a dengue patient dataset,
+it showcases the process of summarizing patient characteristics. The
+script loads the data, selects key demographic and clinical variables
+(like age, gender, and platelet count), and defines a grouping
+variable to compare these characteristics across different patient
+subgroups. Finally, it generates and displays the formatted summary table.
 """
 # Libraries
 import pandas as pd
@@ -19,6 +26,8 @@ from tableone import TableOne
 path = Path('../../datasets/dengue-htd-dataset')
 data = pd.read_csv(path / 'dengue.csv')
 
+print(data)
+print(data.columns)
 # ------------------------
 # Create tableone
 # ------------------------
@@ -29,10 +38,11 @@ columns = ['age', 'gender', 'haematocrit_percent', 'plt']
 categorical = ['gender']
 
 # Groupby
-groupby = ['cvs_hos_split']
+groupby = 'cvs_hos_split'
 
 #
-mytable = TableOne(data, columns, categorical, groupby)
+mytable = TableOne(data, columns=columns, categorical=categorical,
+                   groupby=groupby)
 
 ########################################################
 # Show

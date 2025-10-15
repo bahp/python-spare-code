@@ -2,7 +2,9 @@
 06. Plot Treemap with MIMIC
 ---------------------------------
 
-This example displays a Treemap using the MIMIC dataset.
+This example uses the pandas and Plotly libraries to create
+and display an interactive treemap visualization of microbiology
+test results.
 
 .. warning:: It is not completed!
 """
@@ -109,7 +111,6 @@ def load_microbiology_nhs(n=10000):
 
     aux2 = dataframe.groupby(LEVELS).agg('sum').reset_index()
 
-
     # Return
     aux = build_hierarchical_dataframe(aux2, LEVELS, COLORS, VALUE)
 
@@ -158,12 +159,14 @@ fig.update_layout(
 )
 
 
+fig.show()
+
 # -----------------------------------
 # Display NHS
 # -----------------------------------
 # Load data
-#df = load_microbiology_nhs()
-#df = df.drop_duplicates(subset=['id', 'parent'])
+df = load_microbiology_nhs()
+df = df.drop_duplicates(subset=['id', 'parent'])
 
 # Show
 print("DF:")
