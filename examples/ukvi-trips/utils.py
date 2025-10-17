@@ -228,7 +228,7 @@ def display_flights(df, cmap=None):
 
         # Adjust the text position to be further right
         ax.text(row["Inbound Date"] + pd.Timedelta(days=10), i - 0.05,  # Increased offset to 10 days
-                f"{row['Outbound Ports']} ({outbound_str}) to {row['Inbound Ports']} ({inbound_str}) | {row['Days Difference']} days",
+                f"{row['Outbound Ports']} ({outbound_str}) → {row['Inbound Ports']} ({inbound_str}) | {row['Days Difference']} days",
                 va='center', ha='left', fontsize=9, color="black")
 
     # Alternate month shading

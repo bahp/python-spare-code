@@ -23,6 +23,12 @@ from sklearn.metrics import mean_squared_error
 # fix random seed for reproducibility
 tf.random.set_seed(7)
 
+
+# --------------------------------------------------------------
+# Helper methods
+# --------------------------------------------------------------
+def train
+
 # ---------------------------------------------------
 # Main example
 # ---------------------------------------------------

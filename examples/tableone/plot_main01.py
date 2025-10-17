@@ -1,8 +1,8 @@
 """
-01. Basic example
------------------
+01. A basic TableOne demonstration
+-----------------------------------------------
 
-his script provides a practical demonstration of the tableone
+This script provides a practical demonstration of the tableone
 Python library, a tool designed to easily create the table
 of descriptive statistics commonly found in medical and scientific
 research papers. Using the well-known primary biliary cirrhosis

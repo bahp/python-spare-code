@@ -1,9 +1,30 @@
 """
-05. Stripplot
-==========================
+05a. Custom using stripplot
+=====================================
 
-.. warning:: This method is quite slow.
+This script demonstrates how to create a custom visualization for
+sequential or time-series SHAP values using ``seaborn.stripplot``.
+This approach provides a granular, per-feature view of how SHAP
+values are distributed across different timesteps, offering an
+alternative to the standard SHAP library plots.
 
+The script's workflow focuses on:
+
+    - **Loading Pre-computed Data:** It ingests a tidy DataFrame of SHAP
+      and feature values, structured for time-series analysis.
+    - **Per-Feature Visualization:*8 It iterates through each feature,
+      generating a dedicated stripplot to isolate its impact over
+      time without the influence of other features.
+    - **Advanced Coloring:** A key feature is the custom implementation
+      of coloring each data point by its original feature value,
+      complete with a color bar, to replicate the rich context
+      provided in native SHAP plots.
+    - *8Plot Customization:** It shows how to control axes, legends,
+      and other plot aesthetics for a polished final visualization.
+
+While noted to be slower than other methods, this example is ideal
+for creating detailed, publication-quality plots that reveal the
+dynamics of feature contributions over a sequence.
 """
 
 # Libraries

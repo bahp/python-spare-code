@@ -3,10 +3,7 @@
 =======================
 
 This example demonstrates how to plot the ROC for different splits.
-
 """
-
-# sphinx_gallery_thumbnail_path = '_static/images/icon-github.svg'
 
 # Libraries
 import plotly.graph_objects as go

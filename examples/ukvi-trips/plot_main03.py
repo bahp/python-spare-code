@@ -13,11 +13,26 @@ Leave to Remain (ILR) or citizenship applications. The script also
 supports manual entry for trips not captured in the PDF and allows
 for custom color-coding of destinations.
 
+.. note:: An Optical Character Recognition (OCR) approach was chosen for data
+          extraction. This is because the source PDFs contain tables as non-selectable
+          images (rather than text), which cannot be read by standard text-extraction
+          libraries like pdfplumber.
+
+.. warning:: **Pytesseract Requires a Separate Installation**
+
+             Please be aware that pytesseract is just a Python "wrapper." It needs the
+             Tesseract-OCR engine to be installed on your system to do the real work of
+             reading text from images. You must install this engine separately:
+                - On Windows, download the installer from the Tesseract at UB Mannheim page.
+                - On macOS, use Homebrew: brew install tesseract.
+                - On Linux, use your package manager: sudo apt install tesseract-ocr.
+
+             After installing on Windows, you must explicitly tell pytesseract where to find
+             the executable, as is done in the extract_basic_travel_data function.
 """
 
-import pytesseract
+# Libraries
 import pandas as pd
-import json
 import re
 
 from PIL import Image
@@ -27,7 +42,6 @@ from pathlib import Path
 pd.set_option('display.max_rows', None)
 #pd.set_option('display.max_columns', None)
 #pd.set_option('display.max_colwidth', None) # No truncation of cell content
-
 
 def pdf2png(pdf_path, out_path, start_page=0, end_page=None, flag_save=True):
     """Converts the pdf to images and saves them in memory.
@@ -102,6 +116,13 @@ def extract_basic_travel_data(image_path):
     Returns
     -------
     """
+    # Libraries
+    import pytesseract
+    import platform
+    # Tell the Python remote where the exe is (Windows)
+    if platform.system() == 'Windows':
+        pytesseract.pytesseract.tesseract_cmd = \
+            r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     # Perform OCR on the image
     image = Image.open(image_path)
     custom_config = r'--psm 6'  # Assume uniform alignment for table
@@ -173,8 +194,8 @@ def perform_validation(df):
 #           or not registered, or other methods of entry to the ountry"
 
 # Flags
-RUN_PDF2PNG = False  # Extract pdf pages to png images
-RUN_OCR = False      # Extract data from png and save to json
+RUN_PDF2PNG = False   # Extract pdf pages to png images
+RUN_OCR = False       # Extract data from png and save to json
 
 # Define the desired headers for the DataFrame
 headers = [

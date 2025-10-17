@@ -1,6 +1,6 @@
 """
-12. Matplotlib to Plotly (errorbar)
-===================================
+12a. Matplotlib to Plotly (errorbar)
+=====================================
 
 This example converts a matplotlib figure to Plotly.
 

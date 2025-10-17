@@ -1,6 +1,6 @@
 """
-12. Matplotlib to Plotly (shap)
-===============================
+12b. Matplotlib to Plotly (shap)
+================================
 
 This example converts a matplotlib figure to Plotly.
 

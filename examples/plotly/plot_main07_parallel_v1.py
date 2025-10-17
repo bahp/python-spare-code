@@ -1,6 +1,6 @@
 """
-07. Manufacturing features (parallel)
-=====================================
+07a. Manufacturing features (parallel)
+=======================================
 
 This Python script uses the pandas and Plotly libraries to create
 an interactive parallel coordinates plot. This type of plot is excellent
