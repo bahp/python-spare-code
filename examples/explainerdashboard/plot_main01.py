@@ -15,13 +15,6 @@ the features using SHAP values.
 """
 # Libraries
 import sys
-from sklearn.ensemble import RandomForestClassifier
-from explainerdashboard import ClassifierExplainer
-from explainerdashboard import ExplainerDashboard
-from explainerdashboard.datasets import titanic_survive
-from explainerdashboard.datasets import titanic_names
-from explainerdashboard.datasets import feature_descriptions
-
 
 try:
     __file__
@@ -54,6 +47,14 @@ def check_version(name):
 if __name__ == '__main__':
 
     if check_version('plotly') < '6':
+
+        # Libraries
+        from sklearn.ensemble import RandomForestClassifier
+        from explainerdashboard import ClassifierExplainer
+        from explainerdashboard import ExplainerDashboard
+        from explainerdashboard.datasets import titanic_survive
+        from explainerdashboard.datasets import titanic_names
+        from explainerdashboard.datasets import feature_descriptions
 
         # Get data
         X_train, y_train, X_test, y_test = titanic_survive()

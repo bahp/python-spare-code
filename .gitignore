@@ -10,8 +10,6 @@
 # Outputs
 **/output/**
 
-
-
 # Data files
 **/*.csv
 **/*.html

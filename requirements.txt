@@ -9,6 +9,8 @@ absl-py==2.3.1
     #   keras
     #   tensorboard
     #   tensorflow
+accessible-pygments==0.0.5
+    # via furo
 alabaster==1.0.0
     # via sphinx
 alembic==1.17.0
@@ -17,6 +19,8 @@ annotated-types==0.7.0
     # via pydantic
 ansi2html==1.9.2
     # via jupyter-dash
+appnope==0.1.4
+    # via ipykernel
 asttokens==3.0.0
     # via stack-data
 astunparse==1.6.3
@@ -28,6 +32,7 @@ babel==2.17.0
 beautifulsoup4==4.14.2
     # via
     #   favicon
+    #   furo
     #   hiplot
 blinker==1.9.0
     # via flask
@@ -55,14 +60,6 @@ cloudpickle==3.1.1
     #   dask
     #   distributed
     #   shap
-colorama==0.4.6
-    # via
-    #   click
-    #   colorlog
-    #   ipython
-    #   pytest
-    #   sphinx
-    #   tqdm
 colorlog==6.9.0
     # via optuna
 colour==0.1.5
@@ -165,6 +162,8 @@ fsspec==2025.9.0
     #   torch
 func-timeout==4.3.5
     # via tpot
+furo==2025.9.25
+    # via -r requirements.in
 gast==0.6.0
     # via tensorflow
 google-pasta==0.2.0
@@ -286,7 +285,7 @@ mdurl==0.1.2
     # via markdown-it-py
 minify-html==0.16.4
     # via ydata-profiling
-ml-dtypes==0.5.3
+ml-dtypes==0.3.2
     # via
     #   keras
     #   tensorflow
@@ -380,7 +379,6 @@ packaging==25.0
     #   shap
     #   sphinx
     #   statsmodels
-    #   tensorboard
     #   tensorflow
 pandas==2.3.3
     # via
@@ -407,6 +405,8 @@ pdfminer-six==20250506
     # via pdfplumber
 pdfplumber==0.11.7
     # via -r requirements.in
+pexpect==4.9.0
+    # via ipython
 phik==0.12.5
     # via ydata-profiling
 pillow==11.3.0
@@ -417,7 +417,6 @@ pillow==11.3.0
     #   pdfplumber
     #   pytesseract
     #   sphinx-gallery
-    #   tensorboard
     #   torchvision
     #   visions
     #   wordcloud
@@ -432,7 +431,7 @@ pluggy==1.6.0
     # via pytest
 prompt-toolkit==3.0.52
     # via ipython
-protobuf==6.32.1
+protobuf==4.25.8
     # via
     #   tensorboard
     #   tensorflow
@@ -440,6 +439,8 @@ psutil==7.1.0
     # via
     #   distributed
     #   ipykernel
+ptyprocess==0.7.0
+    # via pexpect
 pure-eval==0.2.3
     # via stack-data
 puremagic==1.30
@@ -454,6 +455,8 @@ pydantic-core==2.41.4
     # via pydantic
 pygments==2.19.2
     # via
+    #   accessible-pygments
+    #   furo
     #   ipython
     #   ipython-pygments-lexers
     #   pytest
@@ -482,8 +485,6 @@ pytz==2025.2
     # via pandas
 pywavelets==1.9.0
     # via imagehash
-pywin32==311
-    # via jupyter-core
 pyyaml==6.0.3
     # via
     #   -r requirements.in
@@ -553,6 +554,7 @@ six==1.17.0
     #   astunparse
     #   google-pasta
     #   python-dateutil
+    #   tensorboard
     #   tensorflow
 slicer==0.0.8
     # via shap
@@ -565,9 +567,13 @@ soupsieve==2.8
 sphinx==8.2.3
     # via
     #   -r requirements.in
+    #   furo
+    #   sphinx-basic-ng
     #   sphinx-gallery
     #   sphinx-rtd-theme
     #   sphinxcontrib-jquery
+sphinx-basic-ng==1.0.0b2
+    # via furo
 sphinx-gallery==0.19.0
     # via -r requirements.in
 sphinx-rtd-theme==3.0.2
@@ -608,12 +614,14 @@ tblib==3.1.0
     # via distributed
 tenacity==9.1.2
     # via plotly
-tensorboard==2.20.0
+tensorboard==2.16.2
     # via tensorflow
 tensorboard-data-server==0.7.2
     # via tensorboard
-tensorflow==2.20.0
+tensorflow==2.16.2
     # via -r requirements.in
+tensorflow-io-gcs-filesystem==0.37.1
+    # via tensorflow
 termcolor==3.1.0
     # via tensorflow
 threadpoolctl==3.6.0
@@ -623,11 +631,11 @@ toolz==1.0.0
     #   dask
     #   distributed
     #   partd
-torch==2.8.0
+torch==2.2.2
     # via
     #   -r requirements.in
     #   torchvision
-torchvision==0.23.0
+torchvision==0.17.2
     # via -r requirements.in
 tornado==6.5.2
     # via

@@ -72,9 +72,15 @@ print(mytable.tabulate(tablefmt="fancy_grid"))
 print(mytable.tabulate(tablefmt="rst"))
 
 #%%
+# Lets create the outputs folder
+from pathlib import Path
+folder_path = Path("./outputs")
+folder_path.mkdir(parents=True, exist_ok=True)
+print(f"Folder '{folder_path}' is ready.")
+
 # Save as latex file
-mytable.to_latex('./outputs/main01-mytable.tex')
+mytable.to_latex(folder_path / 'main01-mytable.tex')
 
 #%%
 # Save as xls file
-mytable.to_excel('./outputs/main01-mytable.xlsx')
+mytable.to_excel(folder_path / 'main01-mytable.xlsx')

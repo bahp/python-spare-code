@@ -1,4 +1,3 @@
-
 # Main data science and ML libraries
 pandas
 scikit-learn
@@ -28,6 +27,7 @@ segment-anything
 sphinx
 sphinx-gallery
 sphinx-rtd-theme
+furo
 
 # Utility libraries
 tableone
