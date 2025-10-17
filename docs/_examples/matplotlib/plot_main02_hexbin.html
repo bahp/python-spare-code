@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>02. mpl.hexbin &mdash; python-spare-code 0.0.1 documentation</title>
+  <title>02. Point density with matplotlib.hexbin &mdash; python-spare-code 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="03. mpl.hist2d" href="plot_main03_hist2d.html" />
-    <link rel="prev" title="01. mpl.imshow" href="plot_main01_imshow.html" /> 
+    <link rel="next" title="03. 2D histograms and density plots" href="plot_main03_hist2d.html" />
+    <link rel="prev" title="01. 2D array with mpl.imshow" href="plot_main01_imshow.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,10 +61,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">04. Plot GMM and KDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. 2D array with <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">02. Point density with <code class="docutils literal notranslate"><span class="pre">matplotlib.hexbin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">03. 2D histograms and density plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">0.4 Visualizing GMM and KDE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_a_clustermap.html">05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_b_clustermap.html">05.b <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> with <code class="docutils literal notranslate"><span class="pre">network.csv</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_c_clustermap.html">05.c <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> multiple categories</a></li>
@@ -76,12 +76,12 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_b_2dbin_heatmap.html">07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_c_2dbin_fake.html">07.c <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with fake data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_d_2dbin_shap.html">07.d <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with <code class="docutils literal notranslate"><span class="pre">shap.csv</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code> with <code class="docutils literal notranslate"><span class="pre">plt.table</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Animation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">30. Sample shap.csv boxplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e 3D Data with <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. Stacked bar chart with data table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. Triangular grids with <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. Violin plot with linear colormap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Basic animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_boxplot_sepsis_shap.html">11. Visualizing SHAP across timesteps</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
@@ -91,7 +91,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -113,7 +112,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
-      <li class="breadcrumb-item active">02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></li>
+      <li class="breadcrumb-item active">02. Point density with <code class="docutils literal notranslate"><span class="pre">matplotlib.hexbin</span></code></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/matplotlib/plot_main02_hexbin.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -128,58 +127,72 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-matplotlib-plot-main02-hexbin-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="mpl-hexbin">
-<span id="sphx-glr-examples-matplotlib-plot-main02-hexbin-py"></span><h1>02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code><a class="headerlink" href="#mpl-hexbin" title="Permalink to this heading"></a></h1>
-<p>Make a 2D hexagonal binning plot of points x, y.</p>
-<img src="../../_images/sphx_glr_plot_main02_hexbin_001.png" srcset="../../_images/sphx_glr_plot_main02_hexbin_001.png" alt="Hexagon binning, With a log color scale" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos">10</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos">11</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span> <span class="c1"># constant</span>
-<span class="linenos">14</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span> <span class="c1"># Fixing random state for reproducibility</span>
-<span class="linenos">17</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
-<span class="linenos">18</span>
-<span class="linenos">19</span> <span class="c1"># Generate data</span>
-<span class="linenos">20</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="linenos">21</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="linenos">22</span> <span class="n">z</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="linenos">23</span>
-<span class="linenos">24</span> <span class="c1"># Compute limits</span>
-<span class="linenos">25</span> <span class="n">xmin</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="linenos">26</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="linenos">27</span> <span class="n">ymin</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="linenos">28</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="linenos">29</span>
-<span class="linenos">30</span> <span class="c1"># Display hexagon binning (linear)</span>
-<span class="linenos">31</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="linenos">32</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.93</span><span class="p">)</span>
-<span class="linenos">33</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">34</span> <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">reduce_C_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
-<span class="linenos">35</span> <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
-<span class="linenos">36</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hexagon binning&quot;</span><span class="p">)</span>
-<span class="linenos">37</span> <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
-<span class="linenos">38</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="linenos">39</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;N=median&#39;</span><span class="p">)</span>
-<span class="linenos">40</span>
-<span class="linenos">41</span> <span class="c1"># Display hexagon binning (log)</span>
-<span class="linenos">42</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos">43</span> <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-<span class="linenos">44</span>     <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span>
-<span class="linenos">45</span>     <span class="n">reduce_C_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
-<span class="linenos">46</span> <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
-<span class="linenos">47</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;With a log color scale&quot;</span><span class="p">)</span>
-<span class="linenos">48</span> <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
-<span class="linenos">49</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="linenos">50</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;log10(N)&#39;</span><span class="p">)</span>
-<span class="linenos">51</span>
-<span class="linenos">52</span> <span class="c1"># Show</span>
-<span class="linenos">53</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="linenos">54</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<section class="sphx-glr-example-title" id="point-density-with-matplotlib-hexbin">
+<span id="sphx-glr-examples-matplotlib-plot-main02-hexbin-py"></span><h1>02. Point density with <code class="docutils literal notranslate"><span class="pre">matplotlib.hexbin</span></code><a class="headerlink" href="#point-density-with-matplotlib-hexbin" title="Permalink to this heading"></a></h1>
+<p>This script demonstrates how to create a 2D hexagonal binning
+plot with <code class="docutils literal notranslate"><span class="pre">matplotlib.hexbin</span></code>. 🐝 This type of plot is an
+excellent alternative to a scatter plot for visualizing the
+density of a large number of points. The example generates
+random data and displays it using both linear and logarithmic
+color scales to represent point concentration.</p>
+<img src="../../_images/sphx_glr_plot_main02_hexbin_001.png" srcset="../../_images/sphx_glr_plot_main02_hexbin_001.png" alt="Hexagon binning, With a log color scale" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main02_hexbin.py:59: UserWarning:
+
+FigureCanvasAgg is non-interactive, and thus cannot be shown
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.810 seconds)</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos">15</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">16</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span> <span class="c1"># constant</span>
+<span class="linenos">19</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span> <span class="c1"># Fixing random state for reproducibility</span>
+<span class="linenos">22</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span> <span class="c1"># Generate data</span>
+<span class="linenos">25</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos">26</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos">27</span> <span class="n">z</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span> <span class="c1"># Compute limits</span>
+<span class="linenos">30</span> <span class="n">xmin</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="linenos">31</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="linenos">32</span> <span class="n">ymin</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="linenos">33</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span> <span class="c1"># Display hexagon binning (linear)</span>
+<span class="linenos">36</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">37</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.93</span><span class="p">)</span>
+<span class="linenos">38</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">39</span> <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">reduce_C_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
+<span class="linenos">40</span> <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="linenos">41</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hexagon binning&quot;</span><span class="p">)</span>
+<span class="linenos">42</span> <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+<span class="linenos">43</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="linenos">44</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;N=median&#39;</span><span class="p">)</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span> <span class="c1"># Display hexagon binning (log)</span>
+<span class="linenos">47</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">48</span> <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<span class="linenos">49</span>     <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span>
+<span class="linenos">50</span>     <span class="n">reduce_C_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
+<span class="linenos">51</span> <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="linenos">52</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;With a log color scale&quot;</span><span class="p">)</span>
+<span class="linenos">53</span> <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+<span class="linenos">54</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="linenos">55</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;log10(N)&#39;</span><span class="p">)</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span> <span class="c1"># Show</span>
+<span class="linenos">58</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos">59</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.188 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main02-hexbin-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/c64d155b1ff63586a6cb858d4a9fc41a/plot_main02_hexbin.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main02_hexbin.py</span></code></a></p>
@@ -195,8 +208,8 @@ to download the full example code</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_main01_imshow.html" class="btn btn-neutral float-left" title="01. mpl.imshow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_main03_hist2d.html" class="btn btn-neutral float-right" title="03. mpl.hist2d" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_main01_imshow.html" class="btn btn-neutral float-left" title="01. 2D array with mpl.imshow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main03_hist2d.html" class="btn btn-neutral float-right" title="03. 2D histograms and density plots" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

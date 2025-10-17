@@ -1,8 +1,19 @@
 """
 07.a ``stats.2dbin`` and ``mpl.heatmap``
-----------------------------------------
+============================================
 
-Use binned_statistic_2d and display using heatmap.
+This script demonstrates how to aggregate 2D data using
+``scipy.stats.binned_statistic_2d`` and then visualize the
+result as a detailed, annotated heatmap.
+
+It provides a comprehensive workflow that includes:
+
+    - Binning Data: It groups scattered 2D points into a grid
+      and computes statistics like count, median, and mean for
+      the values within each bin.
+    - Custom Heatmap Function: It uses custom helper functions
+      to build a polished heatmap from scratch using ``matplotlib``,
+      complete with annotations for each cell.
 
 """
 

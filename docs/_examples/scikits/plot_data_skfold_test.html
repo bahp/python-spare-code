@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>01. Test Skfold &mdash; python-spare-code 0.0.1 documentation</title>
@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="02. Data splitters" href="plot_data_splitters.html" />
-    <link rel="prev" title="30. Sample shap.csv boxplot" href="../plotly/plot_main31_sepsis_shap_boxplot.html" /> 
+    <link rel="prev" title="30. Dash Table app" href="../plotly/plot_main30_dash_table.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -76,7 +76,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -136,17 +135,17 @@ Example II:
 <div class="line"><br /></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span> <span class="c1"># General</span>
-<span class="linenos">10</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos">11</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">10</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">11</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span> <span class="c1"># Specific</span>
-<span class="linenos">14</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<span class="linenos">14</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">StratifiedKFold</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span>
 <span class="linenos">17</span> <span class="c1"># ---------------------------------------------------</span>
 <span class="linenos">18</span> <span class="c1">#</span>
 <span class="linenos">19</span> <span class="c1"># ---------------------------------------------------</span>
-<span class="linenos">20</span> <span class="k">def</span> <span class="nf">repeated_splits</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_loops</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="linenos">20</span> <span class="k">def</span><span class="w"> </span><span class="nf">repeated_splits</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_loops</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="linenos">21</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;This method creates several times the</span>
 <span class="linenos">22</span><span class="sd">        splits using the same function. Then</span>
 <span class="linenos">23</span><span class="sd">        it is used to check that the splitting</span>
@@ -200,7 +199,7 @@ Example II:
 <span class="linenos">71</span> <span class="c1"># Real example</span>
 <span class="linenos">72</span> <span class="c1"># ---------------------------------------------------</span>
 <span class="linenos">73</span> <span class="c1"># Libraries</span>
-<span class="linenos">74</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="linenos">74</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
 <span class="linenos">75</span>
 <span class="linenos">76</span> <span class="c1"># Load data</span>
 <span class="linenos">77</span> <span class="n">bunch</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -228,7 +227,7 @@ Example II:
 <span class="linenos">99</span>         <span class="n">records</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">records</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.031 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.026 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-scikits-plot-data-skfold-test-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/9d5efdfc30d30dd7c7a4d0239796cb09/plot_data_skfold_test.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_data_skfold_test.py</span></code></a></p>
@@ -244,7 +243,7 @@ Example II:
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../plotly/plot_main31_sepsis_shap_boxplot.html" class="btn btn-neutral float-left" title="30. Sample shap.csv boxplot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plotly/plot_main30_dash_table.html" class="btn btn-neutral float-left" title="30. Dash Table app" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="plot_data_splitters.html" class="btn btn-neutral float-right" title="02. Data splitters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

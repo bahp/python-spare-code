@@ -18,45 +18,24 @@
 .. _sphx_glr__examples_pandas_plot_profile01.py:
 
 
-01. ``pandas_profiling``
+01. Generate an EDA Report with Pandas Profiling
 ================================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-23
+This script demonstrates how to generate a detailed Exploratory Data Analysis
+(EDA) report with a single line of code using the `pandas-profiling` library.
+It loads the standard Iris dataset, creates a comprehensive and interactive
+data profile, and saves the final report as a self-contained HTML file.
 
+.. note::
+   The `pandas-profiling` library has been renamed to `ydata-profiling`.
+   While the old import may still work for backward compatibility, it is
+   recommended to install and import `ydata-profiling` in new projects.
 
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\pandas\plot_profile01.py:9: DeprecationWarning:
-
-    `import pandas_profiling` is going to be deprecated by April 1st. Please use `import ydata_profiling` instead.
-
-    c:\users\kelda\desktop\repositories\virtualenvs\venv-py3790-psc\lib\site-packages\pandas\core\frame.py:5047: SettingWithCopyWarning:
-
-
-    A value is trying to be set on a copy of a slice from a DataFrame
-
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-
-    Summarize dataset:   0%|                                                                                                                                                           | 0/5 [00:00<?, ?it/s]    Summarize dataset:   0%|                                                                                                                      | 0/9 [00:00<?, ?it/s, Describe variable:sepal length (cm)]    Summarize dataset:  11%|############3                                                                                                  | 1/9 [00:00<00:00, 54.76it/s, Describe variable:sepal width (cm)]    Summarize dataset:  22%|########################2                                                                                    | 2/9 [00:00<00:00, 103.83it/s, Describe variable:petal length (cm)]    Summarize dataset:  33%|####################################6                                                                         | 3/9 [00:00<00:00, 141.09it/s, Describe variable:petal width (cm)]    Summarize dataset:  44%|########################################################4                                                                      | 4/9 [00:00<00:00, 34.12it/s, Get variable types]    Summarize dataset:  50%|###############################################################                                                               | 5/10 [00:00<00:00, 42.30it/s, Get variable types]    Summarize dataset:  45%|#####################################################6                                                                | 5/11 [00:00<00:00, 42.30it/s, Calculate auto correlation]    Summarize dataset:  55%|####################################################################7                                                         | 6/11 [00:00<00:00, 42.30it/s, Get scatter matrix]    Summarize dataset:  22%|######################2                                                                             | 6/27 [00:00<00:00, 42.30it/s, scatter sepal length (cm), sepal length (cm)]    Summarize dataset:  26%|##########################1                                                                          | 7/27 [00:00<00:00, 42.30it/s, scatter sepal width (cm), sepal length (cm)]    Summarize dataset:  30%|#############################6                                                                      | 8/27 [00:00<00:00, 42.30it/s, scatter petal length (cm), sepal length (cm)]    Summarize dataset:  33%|#################################6                                                                   | 9/27 [00:00<00:00, 42.30it/s, scatter petal width (cm), sepal length (cm)]    Summarize dataset:  37%|#####################################                                                               | 10/27 [00:00<00:00, 18.94it/s, scatter petal width (cm), sepal length (cm)]    Summarize dataset:  37%|#####################################                                                               | 10/27 [00:00<00:00, 18.94it/s, scatter sepal length (cm), sepal width (cm)]    Summarize dataset:  41%|#########################################1                                                           | 11/27 [00:00<00:00, 18.94it/s, scatter sepal width (cm), sepal width (cm)]    Summarize dataset:  44%|############################################4                                                       | 12/27 [00:00<00:00, 18.94it/s, scatter petal length (cm), sepal width (cm)]    Summarize dataset:  48%|################################################1                                                   | 13/27 [00:00<00:00, 16.33it/s, scatter petal length (cm), sepal width (cm)]    Summarize dataset:  48%|################################################6                                                    | 13/27 [00:00<00:00, 16.33it/s, scatter petal width (cm), sepal width (cm)]    Summarize dataset:  52%|###################################################3                                               | 14/27 [00:00<00:00, 16.33it/s, scatter sepal length (cm), petal length (cm)]    Summarize dataset:  56%|#######################################################                                            | 15/27 [00:00<00:00, 15.28it/s, scatter sepal length (cm), petal length (cm)]    Summarize dataset:  56%|#######################################################5                                            | 15/27 [00:00<00:00, 15.28it/s, scatter sepal width (cm), petal length (cm)]    Summarize dataset:  59%|##########################################################6                                        | 16/27 [00:00<00:00, 15.28it/s, scatter petal length (cm), petal length (cm)]    Summarize dataset:  63%|##############################################################3                                    | 17/27 [00:01<00:00, 14.68it/s, scatter petal length (cm), petal length (cm)]    Summarize dataset:  63%|##############################################################9                                     | 17/27 [00:01<00:00, 14.68it/s, scatter petal width (cm), petal length (cm)]    Summarize dataset:  67%|##################################################################6                                 | 18/27 [00:01<00:00, 14.68it/s, scatter sepal length (cm), petal width (cm)]    Summarize dataset:  70%|######################################################################3                             | 19/27 [00:01<00:00, 14.05it/s, scatter sepal length (cm), petal width (cm)]    Summarize dataset:  70%|#######################################################################                              | 19/27 [00:01<00:00, 14.05it/s, scatter sepal width (cm), petal width (cm)]    Summarize dataset:  74%|##########################################################################                          | 20/27 [00:01<00:00, 14.05it/s, scatter petal length (cm), petal width (cm)]    Summarize dataset:  78%|#############################################################################7                      | 21/27 [00:01<00:00, 12.09it/s, scatter petal length (cm), petal width (cm)]    Summarize dataset:  78%|##############################################################################5                      | 21/27 [00:01<00:00, 12.09it/s, scatter petal width (cm), petal width (cm)]    Summarize dataset:  81%|################################################################################################9                      | 22/27 [00:01<00:00, 12.09it/s, Get dataframe statistics]    Summarize dataset:  79%|##################################################################################################3                         | 23/29 [00:01<00:00, 12.09it/s, Missing diagram bar]    Summarize dataset:  83%|######################################################################################################6                     | 24/29 [00:01<00:00, 13.49it/s, Missing diagram bar]    Summarize dataset:  83%|####################################################################################################1                    | 24/29 [00:01<00:00, 13.49it/s, Missing diagram matrix]    Summarize dataset:  86%|#################################################################################################################7                  | 25/29 [00:01<00:00, 13.49it/s, Take sample]    Summarize dataset:  90%|##############################################################################################################2            | 26/29 [00:01<00:00, 13.49it/s, Detecting duplicates]    Summarize dataset:  93%|###########################################################################################################################8         | 27/29 [00:01<00:00, 13.49it/s, Get alerts]    Summarize dataset:  97%|##################################################################################################################8    | 28/29 [00:01<00:00, 13.49it/s, Get reproduction details]    Summarize dataset: 100%|######################################################################################################################################| 29/29 [00:01<00:00, 13.49it/s, Completed]    Summarize dataset: 100%|######################################################################################################################################| 29/29 [00:01<00:00, 17.58it/s, Completed]
-    Generate report structure:   0%|                                                                                                                                                   | 0/1 [00:00<?, ?it/s]    Generate report structure: 100%|###########################################################################################################################################| 1/1 [00:00<00:00,  1.17it/s]    Generate report structure: 100%|###########################################################################################################################################| 1/1 [00:00<00:00,  1.17it/s]
-    Render HTML:   0%|                                                                                                                                                                 | 0/1 [00:00<?, ?it/s]    Render HTML: 100%|#########################################################################################################################################################| 1/1 [00:00<00:00,  2.63it/s]    Render HTML: 100%|#########################################################################################################################################################| 1/1 [00:00<00:00,  2.62it/s]
-    Export report to file:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]    Export report to file: 100%|##############################################################################################################################################| 1/1 [00:00<00:00, 507.66it/s]
-
-
-
-
-
-
-|
+.. GENERATED FROM PYTHON SOURCE LINES 15-36
 
 .. code-block:: default
-   :lineno-start: 5
+   :lineno-start: 16
+
 
     # Libraries
     import pandas as pd
@@ -78,9 +57,50 @@
     Path('./outputs').mkdir(parents=True, exist_ok=True)
     profile.to_file("./outputs/profile01-report.html")
 
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    Upgrade to ydata-sdk
+    Improve your data and profiling with ydata-sdk, featuring data quality scoring, redundancy detection, outlier identification, text validation, and synthetic data generation.
+    Register at https://ydata.ai/register
+    Summarize dataset:   0%|                                                                                                                  | 0/5 [00:00<?, ?it/s]    Summarize dataset:   0%|                                                                            | 0/9 [00:00<?, ?it/s, Describe variable: sepal length (cm)]    Summarize dataset:   0%|                                                                             | 0/9 [00:00<?, ?it/s, Describe variable: sepal width (cm)]    Summarize dataset:   0%|                                                                            | 0/9 [00:00<?, ?it/s, Describe variable: petal length (cm)]    Summarize dataset:   0%|                                                                             | 0/9 [00:00<?, ?it/s, Describe variable: petal width (cm)]
+      0%|                                                                                                                                     | 0/4 [00:00<?, ?it/s]    100%|###########################################################################################################################| 4/4 [00:00<00:00, 2000.14it/s]
+    Summarize dataset:  44%|#####################################7                                               | 4/9 [00:00<00:00, 200.25it/s, Get variable types]    Summarize dataset:  50%|#######################################                                       | 5/10 [00:00<00:00, 238.37it/s, Get dataframe statistics]    Summarize dataset:  55%|#########################################4                                  | 6/11 [00:00<00:00, 273.02it/s, Calculate auto correlation]    Summarize dataset:  64%|#####################################################4                              | 7/11 [00:00<00:00, 241.35it/s, Get scatter matrix]    Summarize dataset:  26%|###############                                           | 7/27 [00:00<00:00, 241.35it/s, scatter sepal length (cm), sepal length (cm)]    Summarize dataset:  30%|#################4                                         | 8/27 [00:00<00:00, 68.22it/s, scatter sepal length (cm), sepal length (cm)]    Summarize dataset:  30%|#################7                                          | 8/27 [00:00<00:00, 68.22it/s, scatter sepal width (cm), sepal length (cm)]    Summarize dataset:  33%|###################6                                       | 9/27 [00:00<00:00, 68.22it/s, scatter petal length (cm), sepal length (cm)]    Summarize dataset:  37%|#####################8                                     | 10/27 [00:00<00:00, 68.22it/s, scatter petal width (cm), sepal length (cm)]    Summarize dataset:  41%|########################                                   | 11/27 [00:00<00:00, 68.22it/s, scatter sepal length (cm), sepal width (cm)]    Summarize dataset:  44%|##########################6                                 | 12/27 [00:00<00:00, 68.22it/s, scatter sepal width (cm), sepal width (cm)]    Summarize dataset:  48%|############################4                              | 13/27 [00:00<00:00, 68.22it/s, scatter petal length (cm), sepal width (cm)]    Summarize dataset:  52%|###############################1                            | 14/27 [00:00<00:00, 68.22it/s, scatter petal width (cm), sepal width (cm)]    Summarize dataset:  56%|#################################3                          | 15/27 [00:00<00:00, 17.56it/s, scatter petal width (cm), sepal width (cm)]    Summarize dataset:  56%|################################2                         | 15/27 [00:00<00:00, 17.56it/s, scatter sepal length (cm), petal length (cm)]    Summarize dataset:  59%|##################################9                        | 16/27 [00:00<00:00, 17.56it/s, scatter sepal width (cm), petal length (cm)]    Summarize dataset:  63%|####################################5                     | 17/27 [00:00<00:00, 17.56it/s, scatter petal length (cm), petal length (cm)]    Summarize dataset:  67%|#######################################3                   | 18/27 [00:00<00:00, 17.56it/s, scatter petal width (cm), petal length (cm)]    Summarize dataset:  70%|#########################################5                 | 19/27 [00:01<00:00, 16.67it/s, scatter petal width (cm), petal length (cm)]    Summarize dataset:  70%|#########################################5                 | 19/27 [00:01<00:00, 16.67it/s, scatter sepal length (cm), petal width (cm)]    Summarize dataset:  74%|############################################4               | 20/27 [00:01<00:00, 16.67it/s, scatter sepal width (cm), petal width (cm)]    Summarize dataset:  78%|#############################################8             | 21/27 [00:01<00:00, 16.67it/s, scatter petal length (cm), petal width (cm)]    Summarize dataset:  81%|################################################           | 22/27 [00:01<00:00, 16.02it/s, scatter petal length (cm), petal width (cm)]    Summarize dataset:  81%|################################################8           | 22/27 [00:01<00:00, 16.02it/s, scatter petal width (cm), petal width (cm)]    Summarize dataset:  79%|#################################################################8                 | 23/29 [00:01<00:00, 16.02it/s, Missing diagram bar]    Summarize dataset:  83%|##################################################################2             | 24/29 [00:01<00:00, 16.02it/s, Missing diagram matrix]    Summarize dataset:  86%|####################################################################9           | 25/29 [00:01<00:00, 16.00it/s, Missing diagram matrix]    Summarize dataset:  86%|##############################################################################4            | 25/29 [00:01<00:00, 16.00it/s, Take sample]    Summarize dataset:  90%|#########################################################################5        | 26/29 [00:01<00:00, 16.00it/s, Detecting duplicates]    Summarize dataset:  93%|#####################################################################################6      | 27/29 [00:01<00:00, 16.00it/s, Get alerts]    Summarize dataset:  97%|###########################################################################3  | 28/29 [00:01<00:00, 16.00it/s, Get reproduction details]    Summarize dataset: 100%|#############################################################################################| 29/29 [00:01<00:00, 16.00it/s, Completed]    Summarize dataset: 100%|#############################################################################################| 29/29 [00:01<00:00, 20.40it/s, Completed]
+    Generate report structure:   0%|                                                                                                          | 0/1 [00:00<?, ?it/s]    Generate report structure: 100%|##################################################################################################| 1/1 [00:00<00:00,  1.27it/s]    Generate report structure: 100%|##################################################################################################| 1/1 [00:00<00:00,  1.27it/s]
+    Render HTML:   0%|                                                                                                                        | 0/1 [00:00<?, ?it/s]    Render HTML: 100%|################################################################################################################| 1/1 [00:00<00:00,  1.25it/s]    Render HTML: 100%|################################################################################################################| 1/1 [00:00<00:00,  1.25it/s]
+    Export report to file:   0%|                                                                                                              | 0/1 [00:00<?, ?it/s]    Export report to file: 100%|#####################################################################################################| 1/1 [00:00<00:00, 249.74it/s]
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 37-38
+
+Show
+
+.. GENERATED FROM PYTHON SOURCE LINES 38-39
+
+.. code-block:: default
+   :lineno-start: 39
+
+
+    profile
+
+
+
+
+
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.755 seconds)
+   **Total running time of the script:** ( 0 minutes  4.612 seconds)
 
 
 .. _sphx_glr_download__examples_pandas_plot_profile01.py:

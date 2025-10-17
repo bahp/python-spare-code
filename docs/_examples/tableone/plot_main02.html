@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>02. Basic example &mdash; python-spare-code 0.0.1 documentation</title>
+  <title>02. Summary statistic for Dengue data &mdash; python-spare-code 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Main" href="../tensorflow/gunn_review_keras.html" />
-    <link rel="prev" title="01. Basic example" href="plot_main01.html" /> 
+    <link rel="next" title="02. Saving &amp; Loading keras models" href="../tensorflow/plot_main02.html" />
+    <link rel="prev" title="01. A basic TableOne demonstration" href="plot_main01.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -67,12 +67,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#tableone">TableOne</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_main01.html">01. Basic example</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">02. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main01.html">01. A basic TableOne demonstration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">02. Summary statistic for Dengue data</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -94,7 +93,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
-      <li class="breadcrumb-item active">02. Basic example</li>
+      <li class="breadcrumb-item active">02. Summary statistic for Dengue data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/tableone/plot_main02.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,42 +108,74 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-tableone-plot-main02-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="basic-example">
-<span id="sphx-glr-examples-tableone-plot-main02-py"></span><h1>02. Basic example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
-<p>Basic usage of the tableone library.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span> <span class="c1"># Specific</span>
-<span class="linenos">11</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="linenos">12</span> <span class="kn">from</span> <span class="nn">tableone</span> <span class="kn">import</span> <span class="n">TableOne</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span> <span class="c1"># ------------------------</span>
-<span class="linenos">16</span> <span class="c1"># Load data</span>
-<span class="linenos">17</span> <span class="c1"># ------------------------</span>
-<span class="linenos">18</span> <span class="c1"># Load data</span>
-<span class="linenos">19</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/dengue-htd-dataset&#39;</span><span class="p">)</span>
-<span class="linenos">20</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;dengue.csv&#39;</span><span class="p">)</span>
+<section class="sphx-glr-example-title" id="summary-statistic-for-dengue-data">
+<span id="sphx-glr-examples-tableone-plot-main02-py"></span><h1>02. Summary statistic for Dengue data<a class="headerlink" href="#summary-statistic-for-dengue-data" title="Permalink to this heading"></a></h1>
+<p>This script demonstrates a fundamental application of the tableone
+Python library for creating a clinical summary table. Using a dengue
+patient dataset, it showcases the process of summarizing patient
+characteristics. The script loads the data, selects key demographic
+and clinical variables (like age, gender, and platelet count), and
+defines a grouping variable to compare these characteristics across
+different patient subgroups. Finally, it generates and displays the
+formatted summary table.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span> <span class="c1"># Libraries</span>
+<span class="linenos">15</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span> <span class="c1"># Specific</span>
+<span class="linenos">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tableone</span><span class="w"> </span><span class="kn">import</span> <span class="n">TableOne</span>
+<span class="linenos">20</span>
 <span class="linenos">21</span>
 <span class="linenos">22</span> <span class="c1"># ------------------------</span>
-<span class="linenos">23</span> <span class="c1"># Create tableone</span>
+<span class="linenos">23</span> <span class="c1"># Load data</span>
 <span class="linenos">24</span> <span class="c1"># ------------------------</span>
-<span class="linenos">25</span> <span class="c1"># Columns</span>
-<span class="linenos">26</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;haematocrit_percent&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]</span>
-<span class="linenos">27</span>
-<span class="linenos">28</span> <span class="c1"># Categorical</span>
-<span class="linenos">29</span> <span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span>
-<span class="linenos">30</span>
-<span class="linenos">31</span> <span class="c1"># Groupby</span>
-<span class="linenos">32</span> <span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cvs_hos_split&#39;</span><span class="p">]</span>
-<span class="linenos">33</span>
-<span class="linenos">34</span> <span class="c1">#</span>
-<span class="linenos">35</span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">categorical</span><span class="p">,</span> <span class="n">groupby</span><span class="p">)</span>
+<span class="linenos">25</span> <span class="c1"># Load data</span>
+<span class="linenos">26</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/dengue-htd-dataset&#39;</span><span class="p">)</span>
+<span class="linenos">27</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;dengue.csv&#39;</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span> <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">30</span> <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="linenos">31</span> <span class="c1"># ------------------------</span>
+<span class="linenos">32</span> <span class="c1"># Create tableone</span>
+<span class="linenos">33</span> <span class="c1"># ------------------------</span>
+<span class="linenos">34</span> <span class="c1"># Columns</span>
+<span class="linenos">35</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;haematocrit_percent&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">]</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span> <span class="c1"># Categorical</span>
+<span class="linenos">38</span> <span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span> <span class="c1"># Groupby</span>
+<span class="linenos">41</span> <span class="n">groupby</span> <span class="o">=</span> <span class="s1">&#39;cvs_hos_split&#39;</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span> <span class="c1">#</span>
+<span class="linenos">44</span> <span class="n">mytable</span> <span class="o">=</span> <span class="n">TableOne</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+<span class="linenos">45</span>     <span class="n">categorical</span><span class="o">=</span><span class="n">categorical</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">groupby</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Show</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">41</span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>     Unnamed: 0  index   age  gender  haematocrit_percent    plt  outcome  missing  ... split_2 split_3 split_4 split_5 split_6 split_7 split_8 split_9
+0             0      0  84.0       1                 42.0   20.0        0        0  ...   train   train   train   train   train   train   train   train
+1             1      1  84.0       1                 36.0  107.0        0        0  ...     NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+2             2      2  39.0       1                 32.0  145.0        0        0  ...   train   train   train   train   train   train   train   train
+3             3      3  39.0       1                 35.5  120.0        0        0  ...     NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+4             4      4  39.0       1                 29.0   93.0        0        0  ...     NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+..          ...    ...   ...     ...                  ...    ...      ...      ...  ...     ...     ...     ...     ...     ...     ...     ...     ...
+520         520    520  30.0       1                 35.7   61.0        0        0  ...   train   train   train   train   train   train   train    test
+521         521    521  30.0       1                 38.5   93.0        0        0  ...     NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+522         522    522  30.0       1                 42.1   61.0        0        0  ...   train   train   train   train   train   train   train    test
+523         523    523  30.0       1                 39.3   63.0        0        0  ...   train   train   train   train   train   train   train    test
+524         524    524  30.0       1                 37.8   78.0        0        0  ...   train   train   train   train   train   train   train    test
+
+[525 rows x 19 columns]
+Index([&#39;Unnamed: 0&#39;, &#39;index&#39;, &#39;age&#39;, &#39;gender&#39;, &#39;haematocrit_percent&#39;, &#39;plt&#39;,
+       &#39;outcome&#39;, &#39;missing&#39;, &#39;cvs_hos_split&#39;, &#39;split_0&#39;, &#39;split_1&#39;, &#39;split_2&#39;,
+       &#39;split_3&#39;, &#39;split_4&#39;, &#39;split_5&#39;, &#39;split_6&#39;, &#39;split_7&#39;, &#39;split_8&#39;,
+       &#39;split_9&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+<p>Lets see the table</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">51</span> <span class="n">mytable</span><span class="o">.</span><span class="n">tableone</span>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -198,7 +229,7 @@ to download the full example code</p>
     <tr>
       <th rowspan="2" valign="top">gender, n (%)</th>
       <th>0</th>
-      <td>0</td>
+      <td></td>
       <td>249 (47.4)</td>
       <td>190 (48.3)</td>
       <td>59 (44.7)</td>
@@ -231,12 +262,12 @@ to download the full example code</p>
 </div>
 </div>
 <br />
-<br /><p>Show (HTML)</p>
+<br /><p>Lets show the raw HTML</p>
 <p>Html</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">47</span> <span class="n">html</span> <span class="o">=</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
-<span class="linenos">48</span>
-<span class="linenos">49</span> <span class="c1"># show</span>
-<span class="linenos">50</span> <span class="nb">print</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">57</span> <span class="n">html</span> <span class="o">=</span> <span class="n">mytable</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span> <span class="c1"># show</span>
+<span class="linenos">60</span> <span class="nb">print</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -276,7 +307,7 @@ to download the full example code</p>
     &lt;tr&gt;
       &lt;th rowspan=&quot;2&quot; valign=&quot;top&quot;&gt;gender, n (%)&lt;/th&gt;
       &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;&lt;/td&gt;
       &lt;td&gt;249 (47.4)&lt;/td&gt;
       &lt;td&gt;190 (48.3)&lt;/td&gt;
       &lt;td&gt;59 (44.7)&lt;/td&gt;
@@ -308,7 +339,7 @@ to download the full example code</p>
 &lt;/table&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.130 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.135 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-tableone-plot-main02-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ce21434609a4f3db840ac12b1b72273a/plot_main02.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main02.py</span></code></a></p>
@@ -324,8 +355,8 @@ to download the full example code</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_main01.html" class="btn btn-neutral float-left" title="01. Basic example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../tensorflow/gunn_review_keras.html" class="btn btn-neutral float-right" title="Main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_main01.html" class="btn btn-neutral float-left" title="01. A basic TableOne demonstration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tensorflow/plot_main02.html" class="btn btn-neutral float-right" title="02. Saving &amp; Loading keras models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

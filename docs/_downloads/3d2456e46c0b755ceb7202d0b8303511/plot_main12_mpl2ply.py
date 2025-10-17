@@ -1,12 +1,17 @@
 """
-12. Matplotlib to Plotly
-==============================
+12a. Matplotlib to Plotly (errorbar)
+=====================================
 
-[REF] https://github.com/plotly/plotly.py/issues/3624#issuecomment-1161805210
+This example converts a matplotlib figure to Plotly.
 
-.. note:: In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py line 368,
-          it still calls is_frame_like() function. There is already an issue tracking this. You may need
-          choose to downgrade Matplotlib if you still want to use mpl_to_plotly() function.
+.. warning:: A known bug in Plotly (see GitHub issue) causes the mpl_to_plotly() function
+             to fail because it references an outdated function from Matplotlib.
+             The current fix is to downgrade to an older version of Matplotlib or to
+             recreate your figure in Plotly manually.
+
+             [ISSUE]: https://github.com/plotly/plotly.py/issues/3624#issuecomment-1161805210
+             In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py
+             line 368, it still calls is_frame_like() function.
 
 """
 
@@ -42,7 +47,12 @@ plt.errorbar(x, y, yerr=yerr, uplims=upperlimits, lolims=lowerlimits,
 # add legent
 plt.legend(loc='lower right')
 
+
 """
+.. note:: This section has been commented as it does not work
+          with recent versions of matplotlib. Downgrade an
+          remove quotes to run it.
+          
 # Convert to plotly
 import plotly.tools as tls
 

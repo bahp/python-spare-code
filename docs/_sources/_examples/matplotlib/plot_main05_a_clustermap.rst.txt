@@ -19,13 +19,18 @@
 
 
 05.a ``sns.clustermap`` basic sample
--------------------------------------
+============================================
 
-Plot a matrix dataset as a hierarchically-clustered heatmap.
+This script shows how to use ``seaborn.clustermap`` to plot a
+heatmap with a colored bar annotating the columns. While
+``clustermap`` is designed for hierarchical clustering, this
+example deactivates that feature to maintain the original data
+order. Its main purpose is to demonstrate how to visually group
+columns by passing a color mapping to the ``col_colors`` parameter.
 
 .. note:: The hierarchical clustering has been deactivated.
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-83
+.. GENERATED FROM PYTHON SOURCE LINES 15-88
 
 
 
@@ -54,48 +59,52 @@ Plot a matrix dataset as a hierarchically-clustered heatmap.
  .. code-block:: none
 
          A0  A1  A2  A3  A4  A5  A6  A7  A8  A9  A10  A11  A12  A13  A14  A15  A16  A17  A18  A19
-    A0    3   0   0   0   2   2   2   0   8   4    1    5    3    8    2    3    7    3    3    9
-    A1    2   4   6   4   2   1   4   8   2   7    3    7    3    4    8    9    1    8    1    9
-    A2    0   0   3   1   7   6   6   2   5   9    8    0    7    0    0    6    9    2    7    8
-    A3    4   5   4   2   1   9   0   9   7   1    1    3    2    0    7    2    1    1    1    9
-    A4    0   1   0   1   6   4   2   2   6   8    8    7    5    9    2    0    2    4    8    9
-    A5    5   3   8   5   4   2   4   7   3   3    2    9    9    1    0    5    6    3    0    2
-    A6    5   8   7   9   6   6   1   4   3   9    8    4    4    8    1    8    0    6    1    3
-    A7    2   8   2   8   8   1   5   9   9   7    0    6    3    9    2    0    4    4    6    3
-    A8    1   5   6   1   5   7   7   3   3   2    1    9    8    1    0    8    8    7    9    2
-    A9    1   9   8   4   0   8   2   4   0   4    2    2    2    3    3    5    2    8    1    0
-    A10   8   6   7   8   0   7   5   9   9   4    0    0    3    0    1    4    1    3    6    9
-    A11   3   7   8   6   4   4   8   7   0   3    1    8    8    0    0    2    5    9    8    9
-    A12   8   4   6   0   3   2   9   3   6   5    9    0    3    6    1    5    1    3    1    3
-    A13   5   8   8   4   6   5   8   4   4   8    8    2    5    2    2    2    3    5    1    6
-    A14   0   0   4   6   1   8   9   4   3   1    3    3    7    3    3    4    6    4    0    5
-    A15   8   2   4   7   8   0   7   8   3   4    0    9    8    7    3    4    5    1    2    2
-    A16   4   6   7   6   8   8   5   2   6   9    1    2    1    6    8    2    2    3    6    3
-    A17   2   2   8   7   5   7   7   3   5   7    0    0    3    1    7    5    4    2    3    8
-    A18   4   5   0   4   5   3   1   0   7   5    3    2    7    4    1    7    6    9    4    7
-    A19   5   5   3   9   0   3   7   8   8   2    6    3    1    2    0    5    2    6    1    8
-    ['g', 'r', 'r', 'b', 'b', 'g', 'b', 'g', 'r', 'r', 'r', 'b', 'b', 'r', 'g', 'g', 'b', 'r', 'g', 'g']
-    A0     Group g
-    A1     Group r
-    A2     Group r
-    A3     Group b
-    A4     Group b
+    A0    1   1   0   8   1   8   0   9   3   2    3    2    9    3    5    7    2    5    5    6
+    A1    7   4   6   9   4   9   2   7   8   9    7    6    3    0    3    5    1    8    6    3
+    A2    8   1   3   5   2   9   6   4   2   9    2    4    4    0    9    4    0    1    7    6
+    A3    5   7   4   1   1   2   9   3   8   5    1    3    0    3    3    1    7    2    2    3
+    A4    1   8   4   7   9   6   5   9   4   2    4    9    3    4    3    5    5    6    0    0
+    A5    0   2   1   6   7   7   0   9   4   6    2    0    0    7    4    0    4    1    9    2
+    A6    2   5   5   6   6   8   1   8   6   9    0    2    3    5    7    8    9    9    6    4
+    A7    9   3   9   8   0   2   7   4   9   3    7    0    9    3    7    2    5    8    4    8
+    A8    3   9   9   1   8   6   7   0   2   9    8    7    2    0    2    3    9    9    7    2
+    A9    5   1   3   5   4   1   9   2   8   5    9    5    3    3    8    0    8    3    9    7
+    A10   8   0   7   9   9   2   2   6   9   9    1    5    3    2    9    2    4    7    5    4
+    A11   0   8   8   6   6   3   8   5   5   2    1    4    8    6    5    5    7    9    6    7
+    A12   7   6   0   7   9   1   3   9   7   0    3    7    1    7    9    8    2    4    8    6
+    A13   0   7   0   8   2   4   4   2   3   0    7    9    2    7    6    7    5    8    3    3
+    A14   5   1   6   6   9   1   9   3   5   8    4    4    5    5    5    4    3    5    7    4
+    A15   8   2   1   3   7   0   0   8   8   9    6    0    5    9    2    5    6    9    8    4
+    A16   9   3   0   6   9   3   6   3   7   4    1    3    9    5    1    9    5    4    3    1
+    A17   5   0   5   0   5   3   1   7   7   4    9    7    8    3    1    6    0    8    2    0
+    A18   9   2   8   1   9   8   5   3   2   9    5    9    6    6    1    3    4    0    9    9
+    A19   2   6   9   9   5   6   8   2   2   8    1    8    7    8    2    6    4    0    6    9
+    ['b', 'g', 'b', 'r', 'g', 'g', 'b', 'r', 'r', 'b', 'b', 'b', 'g', 'r', 'g', 'g', 'g', 'g', 'r', 'r']
+    A0     Group b
+    A1     Group g
+    A2     Group b
+    A3     Group r
+    A4     Group g
     A5     Group g
     A6     Group b
-    A7     Group g
+    A7     Group r
     A8     Group r
-    A9     Group r
-    A10    Group r
+    A9     Group b
+    A10    Group b
     A11    Group b
-    A12    Group b
+    A12    Group g
     A13    Group r
     A14    Group g
     A15    Group g
-    A16    Group b
-    A17    Group r
-    A18    Group g
-    A19    Group g
+    A16    Group g
+    A17    Group g
+    A18    Group r
+    A19    Group r
     dtype: object
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main05_a_clustermap.py:88: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 
 
 
@@ -105,7 +114,7 @@ Plot a matrix dataset as a hierarchically-clustered heatmap.
 |
 
 .. code-block:: default
-   :lineno-start: 11
+   :lineno-start: 16
 
 
     """
@@ -184,7 +193,7 @@ Plot a matrix dataset as a hierarchically-clustered heatmap.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.319 seconds)
+   **Total running time of the script:** ( 0 minutes  0.298 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main05_a_clustermap.py:

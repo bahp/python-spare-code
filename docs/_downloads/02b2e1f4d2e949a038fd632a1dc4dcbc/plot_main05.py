@@ -1,6 +1,30 @@
 """
-05. Basic example
-=================
+05. Display SHAP for Sequential Data
+=================================================
+
+This script provides an in-depth guide on visualizing SHAP
+values for sequential or time-series data, a common challenge
+when interpreting models like LSTMs or other RNNs. It explores
+various techniques to break down and display the complex,
+three-dimensional SHAP output (samples, timesteps, features).
+
+The script demonstrates several approaches:
+
+    - **Slicing SHAP Data:** It shows how to use the standard
+      ``shap.summary_plot`` by systematically slicing the data,
+      visualizing feature importances either per-timestep or
+      across all timesteps for a single feature.
+    - **Custom Seaborn Plots:** It implements custom visualizations
+      using ``seaborn.stripplot`` and ``seaborn.swarmplot`` to
+      offer more granular control over the plot's appearance
+      and layout.
+    - **Advanced Coloring:** Helper functions are created to replicate
+      SHAP's signature feature—coloring data points by their original
+      feature value—allowing for richer interpretation in custom plots.
+
+This example is a valuable resource for anyone looking to move
+beyond default plots and create tailored, insightful SHAP
+visualizations for models that handle sequential data.
 """
 
 # Libraries

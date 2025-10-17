@@ -18,13 +18,37 @@
 .. _sphx_glr__examples_shap_plot_main05.py:
 
 
-05. Basic example
-=================
+05. Display SHAP for Sequential Data
+=================================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-144
+This script provides an in-depth guide on visualizing SHAP
+values for sequential or time-series data, a common challenge
+when interpreting models like LSTMs or other RNNs. It explores
+various techniques to break down and display the complex,
+three-dimensional SHAP output (samples, timesteps, features).
+
+The script demonstrates several approaches:
+
+    - **Slicing SHAP Data:** It shows how to use the standard
+      ``shap.summary_plot`` by systematically slicing the data,
+      visualizing feature importances either per-timestep or
+      across all timesteps for a single feature.
+    - **Custom Seaborn Plots:** It implements custom visualizations
+      using ``seaborn.stripplot`` and ``seaborn.swarmplot`` to
+      offer more granular control over the plot's appearance
+      and layout.
+    - **Advanced Coloring:** Helper functions are created to replicate
+      SHAP's signature feature—coloring data points by their original
+      feature value—allowing for richer interpretation in custom plots.
+
+This example is a valuable resource for anyone looking to move
+beyond default plots and create tailored, insightful SHAP
+visualizations for models that handle sequential data.
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-168
 
 .. code-block:: default
-   :lineno-start: 6
+   :lineno-start: 30
 
 
     # Libraries
@@ -172,14 +196,14 @@
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-146
+.. GENERATED FROM PYTHON SOURCE LINES 169-170
 
 Lets generate and/or load the shap values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-172
+.. GENERATED FROM PYTHON SOURCE LINES 170-196
 
 .. code-block:: default
-   :lineno-start: 147
+   :lineno-start: 171
 
 
     # .. note: The right format to use for plotting depends
@@ -214,14 +238,14 @@ Lets generate and/or load the shap values.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 173-174
+.. GENERATED FROM PYTHON SOURCE LINES 197-198
 
 Let's see how data looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-176
+.. GENERATED FROM PYTHON SOURCE LINES 198-200
 
 .. code-block:: default
-   :lineno-start: 174
+   :lineno-start: 198
 
     data.head(10)
 
@@ -264,80 +288,80 @@ Let's see how data looks like
           <td>0</td>
           <td>0</td>
           <td>f0</td>
-          <td>56</td>
-          <td>16</td>
+          <td>61</td>
+          <td>65</td>
         </tr>
         <tr>
           <th>1</th>
           <td>0</td>
           <td>0</td>
           <td>f1</td>
-          <td>55</td>
-          <td>15</td>
+          <td>79</td>
+          <td>9</td>
         </tr>
         <tr>
           <th>2</th>
           <td>0</td>
           <td>0</td>
           <td>f2</td>
-          <td>71</td>
-          <td>13</td>
+          <td>10</td>
+          <td>46</td>
         </tr>
         <tr>
           <th>3</th>
           <td>0</td>
           <td>0</td>
           <td>f3</td>
-          <td>20</td>
-          <td>38</td>
+          <td>76</td>
+          <td>68</td>
         </tr>
         <tr>
           <th>4</th>
           <td>0</td>
           <td>1</td>
           <td>f0</td>
-          <td>85</td>
-          <td>80</td>
+          <td>49</td>
+          <td>4</td>
         </tr>
         <tr>
           <th>5</th>
           <td>0</td>
           <td>1</td>
           <td>f1</td>
-          <td>92</td>
-          <td>97</td>
+          <td>66</td>
+          <td>71</td>
         </tr>
         <tr>
           <th>6</th>
           <td>0</td>
           <td>1</td>
           <td>f2</td>
-          <td>68</td>
-          <td>94</td>
+          <td>24</td>
+          <td>86</td>
         </tr>
         <tr>
           <th>7</th>
           <td>0</td>
           <td>1</td>
           <td>f3</td>
-          <td>30</td>
-          <td>24</td>
+          <td>38</td>
+          <td>32</td>
         </tr>
         <tr>
           <th>8</th>
           <td>0</td>
           <td>2</td>
           <td>f0</td>
-          <td>21</td>
-          <td>43</td>
+          <td>68</td>
+          <td>0</td>
         </tr>
         <tr>
           <th>9</th>
           <td>0</td>
           <td>2</td>
           <td>f1</td>
-          <td>25</td>
-          <td>73</td>
+          <td>59</td>
+          <td>67</td>
         </tr>
       </tbody>
     </table>
@@ -346,14 +370,14 @@ Let's see how data looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 177-178
+.. GENERATED FROM PYTHON SOURCE LINES 201-202
 
 Let's see how shap_values looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-180
+.. GENERATED FROM PYTHON SOURCE LINES 202-204
 
 .. code-block:: default
-   :lineno-start: 178
+   :lineno-start: 202
 
     shap_values.iloc[:10, :5]
 
@@ -402,74 +426,74 @@ Let's see how shap_values looks like
         <tr>
           <th rowspan="6" valign="top">0</th>
           <th>0</th>
-          <td>56</td>
-          <td>55</td>
-          <td>71</td>
-          <td>20</td>
+          <td>61.0</td>
+          <td>79.0</td>
+          <td>10.0</td>
+          <td>76.0</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>85</td>
-          <td>92</td>
-          <td>68</td>
-          <td>30</td>
+          <td>49.0</td>
+          <td>66.0</td>
+          <td>24.0</td>
+          <td>38.0</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>21</td>
-          <td>25</td>
-          <td>39</td>
-          <td>61</td>
+          <td>68.0</td>
+          <td>59.0</td>
+          <td>34.0</td>
+          <td>89.0</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>50</td>
-          <td>76</td>
-          <td>72</td>
-          <td>20</td>
+          <td>10.0</td>
+          <td>7.0</td>
+          <td>13.0</td>
+          <td>68.0</td>
         </tr>
         <tr>
           <th>4</th>
-          <td>8</td>
-          <td>68</td>
-          <td>1</td>
-          <td>93</td>
+          <td>11.0</td>
+          <td>35.0</td>
+          <td>3.0</td>
+          <td>30.0</td>
         </tr>
         <tr>
           <th>5</th>
-          <td>41</td>
-          <td>83</td>
-          <td>91</td>
-          <td>70</td>
+          <td>32.0</td>
+          <td>62.0</td>
+          <td>90.0</td>
+          <td>89.0</td>
         </tr>
         <tr>
           <th rowspan="4" valign="top">1</th>
           <th>0</th>
-          <td>49</td>
-          <td>50</td>
-          <td>52</td>
-          <td>10</td>
+          <td>53.0</td>
+          <td>70.0</td>
+          <td>92.0</td>
+          <td>51.0</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>54</td>
-          <td>68</td>
-          <td>55</td>
-          <td>88</td>
+          <td>71.0</td>
+          <td>31.0</td>
+          <td>45.0</td>
+          <td>27.0</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>32</td>
-          <td>65</td>
-          <td>72</td>
-          <td>56</td>
+          <td>74.0</td>
+          <td>68.0</td>
+          <td>72.0</td>
+          <td>27.0</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>29</td>
-          <td>29</td>
-          <td>86</td>
-          <td>56</td>
+          <td>15.0</td>
+          <td>99.0</td>
+          <td>65.0</td>
+          <td>82.0</td>
         </tr>
       </tbody>
     </table>
@@ -478,14 +502,14 @@ Let's see how shap_values looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 181-182
+.. GENERATED FROM PYTHON SOURCE LINES 205-206
 
 Let's see how feature_values looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 182-185
+.. GENERATED FROM PYTHON SOURCE LINES 206-209
 
 .. code-block:: default
-   :lineno-start: 182
+   :lineno-start: 206
 
     feature_values.iloc[:10, :5]
 
@@ -535,74 +559,74 @@ Let's see how feature_values looks like
         <tr>
           <th rowspan="6" valign="top">0</th>
           <th>0</th>
-          <td>16</td>
-          <td>15</td>
-          <td>13</td>
-          <td>38</td>
+          <td>65.0</td>
+          <td>9.0</td>
+          <td>46.0</td>
+          <td>68.0</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>80</td>
-          <td>97</td>
-          <td>94</td>
-          <td>24</td>
+          <td>4.0</td>
+          <td>71.0</td>
+          <td>86.0</td>
+          <td>32.0</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>43</td>
-          <td>73</td>
-          <td>96</td>
-          <td>71</td>
+          <td>0.0</td>
+          <td>67.0</td>
+          <td>50.0</td>
+          <td>41.0</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>95</td>
-          <td>84</td>
-          <td>15</td>
-          <td>28</td>
+          <td>60.0</td>
+          <td>85.0</td>
+          <td>49.0</td>
+          <td>82.0</td>
         </tr>
         <tr>
           <th>4</th>
-          <td>83</td>
-          <td>0</td>
-          <td>97</td>
-          <td>18</td>
+          <td>61.0</td>
+          <td>1.0</td>
+          <td>59.0</td>
+          <td>12.0</td>
         </tr>
         <tr>
           <th>5</th>
-          <td>39</td>
-          <td>80</td>
-          <td>91</td>
-          <td>83</td>
+          <td>39.0</td>
+          <td>94.0</td>
+          <td>19.0</td>
+          <td>8.0</td>
         </tr>
         <tr>
           <th rowspan="4" valign="top">1</th>
           <th>0</th>
-          <td>18</td>
-          <td>18</td>
-          <td>33</td>
-          <td>89</td>
+          <td>36.0</td>
+          <td>54.0</td>
+          <td>90.0</td>
+          <td>6.0</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>78</td>
-          <td>15</td>
-          <td>92</td>
-          <td>31</td>
+          <td>36.0</td>
+          <td>40.0</td>
+          <td>52.0</td>
+          <td>74.0</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>33</td>
-          <td>33</td>
-          <td>28</td>
-          <td>54</td>
+          <td>6.0</td>
+          <td>25.0</td>
+          <td>79.0</td>
+          <td>17.0</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>51</td>
-          <td>39</td>
-          <td>73</td>
-          <td>41</td>
+          <td>51.0</td>
+          <td>6.0</td>
+          <td>13.0</td>
+          <td>70.0</td>
         </tr>
       </tbody>
     </table>
@@ -611,17 +635,17 @@ Let's see how feature_values looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-190
+.. GENERATED FROM PYTHON SOURCE LINES 210-214
 
 Display using ``shap.summary_plot``
 -----------------------------------------------
 
 The first option is to use the ``shap`` library to plot the results.
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-199
+.. GENERATED FROM PYTHON SOURCE LINES 214-223
 
 .. code-block:: default
-   :lineno-start: 191
+   :lineno-start: 215
 
 
     # Let's define/extract some useful variables.
@@ -639,14 +663,14 @@ The first option is to use the ``shap`` library to plot the results.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-201
+.. GENERATED FROM PYTHON SOURCE LINES 224-225
 
 Now, let's display the shap values for all features in each timestep.
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-224
+.. GENERATED FROM PYTHON SOURCE LINES 225-248
 
 .. code-block:: default
-   :lineno-start: 202
+   :lineno-start: 226
 
 
     # For each timestep (visualise all features)
@@ -709,14 +733,14 @@ Now, let's display the shap values for all features in each timestep.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 225-226
+.. GENERATED FROM PYTHON SOURCE LINES 249-250
 
 Now, let's display the shap values for all timesteps of each feature.
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-247
+.. GENERATED FROM PYTHON SOURCE LINES 250-271
 
 .. code-block:: default
-   :lineno-start: 227
+   :lineno-start: 251
 
 
     # For each feature (visualise all time-steps)
@@ -777,12 +801,12 @@ Now, let's display the shap values for all timesteps of each feature.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 248-250
+.. GENERATED FROM PYTHON SOURCE LINES 272-274
 
 .. note:: If y-axis represents timesteps the ``sort`` parameter
           in the ``summary_plot`` function is set to False.
 
-.. GENERATED FROM PYTHON SOURCE LINES 252-260
+.. GENERATED FROM PYTHON SOURCE LINES 276-284
 
 Display using ``sns.stripplot``
 -------------------------------
@@ -793,10 +817,10 @@ Let's display the shap values for each feature and all time steps.
 In contrast to the previous example, the timesteps are now displayed
 on the x-axis and the y-axis contains the shap values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 260-307
+.. GENERATED FROM PYTHON SOURCE LINES 284-331
 
 .. code-block:: default
-   :lineno-start: 262
+   :lineno-start: 286
 
 
 
@@ -887,254 +911,274 @@ on the x-axis and the y-axis contains the shap values.
  .. code-block:: none
 
          sample  timestep features  shap_values  feature_values
-    0         0         0       f0           56              16
-    4         0         1       f0           85              80
-    8         0         2       f0           21              43
-    12        0         3       f0           50              95
-    16        0         4       f0            8              83
-    20        0         5       f0           41              39
-    24        1         0       f0           49              18
-    28        1         1       f0           54              78
-    32        1         2       f0           32              33
-    36        1         3       f0           29              51
-    40        1         4       f0           55              28
-    44        1         5       f0           72              26
-    48        2         0       f0           34              80
-    52        2         1       f0           10              25
-    56        2         2       f0           80              58
-    60        2         3       f0            3              68
-    64        2         4       f0           12              94
-    68        2         5       f0           10              12
-    72        3         0       f0           53              84
-    76        3         1       f0           47              23
-    80        3         2       f0           68              65
-    84        3         3       f0           74              40
-    88        3         4       f0           29              44
-    92        3         5       f0           25              55
-    96        4         0       f0           68              91
-    100       4         1       f0           37               6
-    104       4         2       f0           73              90
-    108       4         3       f0           15              32
-    112       4         4       f0           38              86
-    116       4         5       f0           70              49
-    120       5         0       f0           23              91
-    124       5         1       f0           80              19
-    128       5         2       f0           98              82
-    132       5         3       f0           47              56
-    136       5         4       f0           79              50
-    140       5         5       f0           46              76
-    144       6         0       f0           43              56
-    148       6         1       f0           77              86
-    152       6         2       f0           72              86
-    156       6         3       f0           10              26
-    160       6         4       f0           26              97
-    164       6         5       f0           89              13
-    168       7         0       f0           31               9
-    172       7         1       f0           93              10
-    176       7         2       f0           41              96
-    180       7         3       f0           45              31
-    184       7         4       f0           10              38
-    188       7         5       f0           67              29
-    192       8         0       f0           18              87
-    196       8         1       f0           55              68
-    200       8         2       f0           49              56
-    204       8         3       f0           47              86
-    208       8         4       f0           16              67
-    212       8         5       f0           42              20
-    216       9         0       f0            7              53
-    220       9         1       f0           10              82
-    224       9         2       f0           84              16
-    228       9         3       f0           40              63
-    232       9         4       f0           25              63
-    236       9         5       f0           34              94
+    0         0         0       f0           61              65
+    4         0         1       f0           49               4
+    8         0         2       f0           68               0
+    12        0         3       f0           10              60
+    16        0         4       f0           11              61
+    20        0         5       f0           32              39
+    24        1         0       f0           53              36
+    28        1         1       f0           71              36
+    32        1         2       f0           74               6
+    36        1         3       f0           15              51
+    40        1         4       f0           56              13
+    44        1         5       f0            0              65
+    48        2         0       f0           24              66
+    52        2         1       f0           92              92
+    56        2         2       f0           50              15
+    60        2         3       f0            6              62
+    64        2         4       f0           43              45
+    68        2         5       f0           30              52
+    72        3         0       f0           28              36
+    76        3         1       f0           60              31
+    80        3         2       f0           26              64
+    84        3         3       f0           28              93
+    88        3         4       f0           82              29
+    92        3         5       f0           56              71
+    96        4         0       f0           37              68
+    100       4         1       f0           31               3
+    104       4         2       f0           57              95
+    108       4         3       f0           47              44
+    112       4         4       f0           89              52
+    116       4         5       f0           63              75
+    120       5         0       f0           30              86
+    124       5         1       f0           72              49
+    128       5         2       f0           20              40
+    132       5         3       f0           56              58
+    136       5         4       f0           64              26
+    140       5         5       f0            4              23
+    144       6         0       f0           20              85
+    148       6         1       f0            8              75
+    152       6         2       f0           50              93
+    156       6         3       f0           73               5
+    160       6         4       f0           98              98
+    164       6         5       f0           41              20
+    168       7         0       f0           45              80
+    172       7         1       f0           48              89
+    176       7         2       f0           31              51
+    180       7         3       f0           98              69
+    184       7         4       f0            3               5
+    188       7         5       f0           58              77
+    192       8         0       f0           26              18
+    196       8         1       f0           30              24
+    200       8         2       f0           92              72
+    204       8         3       f0           47              96
+    208       8         4       f0            9              45
+    212       8         5       f0           94               7
+    216       9         0       f0           64              86
+    220       9         1       f0           39              86
+    224       9         2       f0           27              13
+    228       9         3       f0           54              32
+    232       9         4       f0            4              54
+    236       9         5       f0           59              41
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:315: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
          sample  timestep features  shap_values  feature_values
-    1         0         0       f1           55              15
-    5         0         1       f1           92              97
-    9         0         2       f1           25              73
-    13        0         3       f1           76              84
-    17        0         4       f1           68               0
-    21        0         5       f1           83              80
-    25        1         0       f1           50              18
-    29        1         1       f1           68              15
-    33        1         2       f1           65              33
-    37        1         3       f1           29              39
-    41        1         4       f1           34              30
-    45        1         5       f1           21              60
-    49        2         0       f1           99              42
-    53        2         1       f1           82              40
-    57        2         2       f1           38              19
-    61        2         3       f1           36              92
-    65        2         4       f1           82              60
-    69        2         5       f1           36              13
-    73        3         0       f1           27              15
-    77        3         1       f1           64              34
-    81        3         2       f1           17              93
-    85        3         3       f1            7              38
-    89        3         4       f1           47              37
-    93        3         5       f1            2              58
-    97        4         0       f1           97              96
-    101       4         1       f1           52              77
-    105       4         2       f1           81              37
-    109       4         3       f1           91              39
-    113       4         4       f1           87              54
-    117       4         5       f1           91              86
-    121       5         0       f1           14              62
-    125       5         1       f1           21              43
-    129       5         2       f1           84              36
-    133       5         3       f1           41              44
-    137       5         4       f1           10              70
-    141       5         5       f1           46              78
-    145       6         0       f1           42              33
-    149       6         1       f1           55              71
-    153       6         2       f1           18              41
-    157       6         3       f1           63              81
-    161       6         4       f1           52              43
-    165       6         5       f1           39              50
-    169       7         0       f1           99              79
-    173       7         1       f1           33              49
-    177       7         2       f1           19              45
-    181       7         3       f1           82              44
-    185       7         4       f1           13               7
-    189       7         5       f1           55              44
-    193       8         0       f1           45              14
-    197       8         1       f1           71              82
-    201       8         2       f1           19              28
-    205       8         3       f1           78              89
-    209       8         4       f1           31              33
-    213       8         5       f1           44              24
-    217       9         0       f1           56              79
-    221       9         1       f1           56              65
-    225       9         2       f1           91              60
-    229       9         3       f1           25              81
-    233       9         4       f1           46              90
-    237       9         5       f1           62              88
+    1         0         0       f1           79               9
+    5         0         1       f1           66              71
+    9         0         2       f1           59              67
+    13        0         3       f1            7              85
+    17        0         4       f1           35               1
+    21        0         5       f1           62              94
+    25        1         0       f1           70              54
+    29        1         1       f1           31              40
+    33        1         2       f1           68              25
+    37        1         3       f1           99               6
+    41        1         4       f1           68              10
+    45        1         5       f1           66               4
+    49        2         0       f1           27              43
+    53        2         1       f1           64              69
+    57        2         2       f1           46              22
+    61        2         3       f1           92              38
+    65        2         4       f1           76              74
+    69        2         5       f1           92              11
+    73        3         0       f1           51              27
+    77        3         1       f1           99              52
+    81        3         2       f1           60              83
+    85        3         3       f1           34              65
+    89        3         4       f1           45              46
+    93        3         5       f1           86              88
+    97        4         0       f1           98              11
+    101       4         1       f1            2              46
+    105       4         2       f1           69              77
+    109       4         3       f1           14              55
+    113       4         4       f1           17              86
+    117       4         5       f1           90               0
+    121       5         0       f1           40              22
+    125       5         1       f1           65              93
+    129       5         2       f1           62              42
+    133       5         3       f1           67              50
+    137       5         4       f1           54              17
+    141       5         5       f1           45              69
+    145       6         0       f1           31              22
+    149       6         1       f1           44              45
+    153       6         2       f1           47              52
+    157       6         3       f1            1               8
+    161       6         4       f1            8              56
+    165       6         5       f1           27              79
+    169       7         0       f1           38               3
+    173       7         1       f1           53               7
+    177       7         2       f1           21              62
+    181       7         3       f1           34              62
+    185       7         4       f1            6               7
+    189       7         5       f1           12              41
+    193       8         0       f1           71              90
+    197       8         1       f1           81              82
+    201       8         2       f1           71              50
+    205       8         3       f1           41              12
+    209       8         4       f1           62              34
+    213       8         5       f1           96              93
+    217       9         0       f1           42              30
+    221       9         1       f1           35              52
+    225       9         2       f1           35              44
+    229       9         3       f1           51              56
+    233       9         4       f1           15              88
+    237       9         5       f1            4              19
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:315: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
          sample  timestep features  shap_values  feature_values
-    2         0         0       f2           71              13
-    6         0         1       f2           68              94
-    10        0         2       f2           39              96
-    14        0         3       f2           72              15
-    18        0         4       f2            1              97
-    22        0         5       f2           91              91
-    26        1         0       f2           52              33
-    30        1         1       f2           55              92
-    34        1         2       f2           72              28
-    38        1         3       f2           86              73
-    42        1         4       f2           37              32
-    46        1         5       f2           81               6
-    50        2         0       f2           90              59
-    54        2         1       f2           63              64
-    58        2         2       f2           46              84
-    62        2         3       f2           90              75
-    66        2         4       f2           91              29
-    70        2         5       f2           13              58
-    74        3         0       f2           57              80
-    78        3         1       f2           94              77
-    82        3         2       f2            8              60
-    86        3         3       f2           89              89
-    90        3         4       f2           20               5
-    94        3         5       f2           69              58
-    98        4         0       f2           29              16
-    102       4         1       f2           70              59
-    106       4         2       f2           68              59
-    110       4         3       f2           94              55
-    114       4         4       f2           47              55
-    118       4         5       f2           91              33
-    122       5         0       f2           47              94
-    126       5         1       f2           72              24
-    130       5         2       f2           68              93
-    134       5         3       f2           61              46
-    138       5         4       f2           91              98
-    142       5         5       f2           76              12
-    146       6         0       f2           41              44
-    150       6         1       f2           79              34
-    154       6         2       f2           99              40
-    158       6         3       f2           33              88
-    162       6         4       f2           39              65
-    166       6         5       f2           85              68
-    170       7         0       f2           75              14
-    174       7         1       f2           80              82
-    178       7         2       f2           69              75
-    182       7         3       f2           21              27
-    186       7         4       f2           45              53
-    190       7         5       f2           96              98
-    194       8         0       f2           60              34
-    198       8         1       f2           32              14
-    202       8         2       f2           16              96
-    206       8         3       f2           85              22
-    210       8         4       f2           72              64
-    214       8         5       f2           78              59
-    218       9         0       f2           15              37
-    222       9         1       f2           30              51
-    226       9         2       f2           58              15
-    230       9         3       f2           14              29
-    234       9         4       f2           43              41
-    238       9         5       f2           38              52
+    2         0         0       f2           10              46
+    6         0         1       f2           24              86
+    10        0         2       f2           34              50
+    14        0         3       f2           13              49
+    18        0         4       f2            3              59
+    22        0         5       f2           90              19
+    26        1         0       f2           92              90
+    30        1         1       f2           45              52
+    34        1         2       f2           72              79
+    38        1         3       f2           65              13
+    42        1         4       f2           38              74
+    46        1         5       f2           24              97
+    50        2         0       f2           75               1
+    54        2         1       f2           40              38
+    58        2         2       f2           34               7
+    62        2         3       f2           34              73
+    66        2         4       f2            1              65
+    70        2         5       f2           41               9
+    74        3         0       f2            5              12
+    78        3         1       f2           10              48
+    82        3         2       f2           64              97
+    86        3         3       f2           14               5
+    90        3         4       f2           51              32
+    94        3         5       f2           83              95
+    98        4         0       f2           82              88
+    102       4         1       f2           85              55
+    106       4         2       f2           12              68
+    110       4         3       f2            5               0
+    114       4         4       f2           34              60
+    118       4         5       f2           95              23
+    122       5         0       f2           52               1
+    126       5         1       f2            0              12
+    130       5         2       f2           46              39
+    134       5         3       f2           74              36
+    138       5         4       f2            8               6
+    142       5         5       f2           67               1
+    146       6         0       f2            2              41
+    150       6         1       f2           17              34
+    154       6         2       f2           25              62
+    158       6         3       f2           23              70
+    162       6         4       f2           19              52
+    166       6         5       f2           74               7
+    170       7         0       f2           18              66
+    174       7         1       f2           81              66
+    178       7         2       f2           87              98
+    182       7         3       f2           24              10
+    186       7         4       f2           76              28
+    190       7         5       f2           54               7
+    194       8         0       f2           88              85
+    198       8         1       f2           47               1
+    202       8         2       f2           76              87
+    206       8         3       f2           73              98
+    210       8         4       f2           82              97
+    214       8         5       f2           11              98
+    218       9         0       f2           57              39
+    222       9         1       f2           96              20
+    226       9         2       f2           86              45
+    230       9         3       f2           61              42
+    234       9         4       f2           32               3
+    238       9         5       f2           91               2
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:315: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
          sample  timestep features  shap_values  feature_values
-    3         0         0       f3           20              38
-    7         0         1       f3           30              24
-    11        0         2       f3           61              71
-    15        0         3       f3           20              28
-    19        0         4       f3           93              18
-    23        0         5       f3           70              83
-    27        1         0       f3           10              89
-    31        1         1       f3           88              31
-    35        1         2       f3           56              54
-    39        1         3       f3           56              41
-    43        1         4       f3           90              91
-    47        1         5       f3            5              25
-    51        2         0       f3            4              29
-    55        2         1       f3           62               6
-    59        2         2       f3           92              91
-    63        2         3       f3           84              12
-    67        2         4       f3           57              92
-    71        2         5       f3           10              18
-    75        3         0       f3            2              55
-    79        3         1       f3           22              23
-    83        3         2       f3           66              20
-    87        3         3       f3           40              45
-    91        3         4       f3           96              25
-    95        3         5       f3           31              30
-    99        4         0       f3           69              42
-    103       4         1       f3           24              24
-    107       4         2       f3           31              23
-    111       4         3       f3           37              93
-    115       4         4       f3           99              54
-    119       4         5       f3           28              58
-    123       5         0       f3           52              39
-    127       5         1       f3            7              10
-    131       5         2       f3           14              33
-    135       5         3       f3           57              85
-    139       5         4       f3           43               7
-    143       5         5       f3           36              49
-    147       6         0       f3           80              60
-    151       6         1       f3           86              86
-    155       6         2       f3           73              71
-    159       6         3       f3           64              15
-    163       6         4       f3           54              44
-    167       6         5       f3            6              53
-    171       7         0       f3           35              56
-    175       7         1       f3            8              45
-    179       7         2       f3           69              19
-    183       7         3       f3           70              70
-    187       7         4       f3           10              73
-    191       7         5       f3           85              91
-    195       8         0       f3           23              20
-    199       8         1       f3           23              40
-    203       8         2       f3           32              90
-    207       8         3       f3           43              92
-    211       8         4       f3           82              84
-    215       8         5       f3           34              76
-    219       9         0       f3           30              69
-    223       9         1       f3           31              97
-    227       9         2       f3            6              13
-    231       9         3       f3            4              12
-    235       9         4       f3           97              51
-    239       9         5       f3           88              85
+    3         0         0       f3           76              68
+    7         0         1       f3           38              32
+    11        0         2       f3           89              41
+    15        0         3       f3           68              82
+    19        0         4       f3           30              12
+    23        0         5       f3           89               8
+    27        1         0       f3           51               6
+    31        1         1       f3           27              74
+    35        1         2       f3           27              17
+    39        1         3       f3           82              70
+    43        1         4       f3           89               8
+    47        1         5       f3           42              74
+    51        2         0       f3           32              29
+    55        2         1       f3           87              64
+    59        2         2       f3           75              48
+    63        2         3       f3           99              94
+    67        2         4       f3           79              80
+    71        2         5       f3           51              66
+    75        3         0       f3           38              94
+    79        3         1       f3           54              56
+    83        3         2       f3           74              84
+    87        3         3       f3           46              22
+    91        3         4       f3           59              45
+    95        3         5       f3           59              82
+    99        4         0       f3           41              32
+    103       4         1       f3           76              46
+    107       4         2       f3           80              65
+    111       4         3       f3           87              61
+    115       4         4       f3           95              64
+    119       4         5       f3           49              46
+    123       5         0       f3           98              38
+    127       5         1       f3           55              50
+    131       5         2       f3           70              48
+    135       5         3       f3           74              47
+    139       5         4       f3           13              83
+    143       5         5       f3           59              52
+    147       6         0       f3           18              51
+    151       6         1       f3            9               5
+    155       6         2       f3           79              31
+    159       6         3       f3           67              48
+    163       6         4       f3           31              21
+    167       6         5       f3           43              44
+    171       7         0       f3           19              99
+    175       7         1       f3           77              10
+    179       7         2       f3           71              64
+    183       7         3       f3           80              37
+    187       7         4       f3           17              24
+    191       7         5       f3           30              95
+    195       8         0       f3           34              74
+    199       8         1       f3           45               6
+    203       8         2       f3           95              77
+    207       8         3       f3           84              30
+    211       8         4       f3           18              46
+    215       8         5       f3           40              90
+    219       9         0       f3           99              66
+    223       9         1       f3           29              23
+    227       9         2       f3           78              71
+    231       9         3       f3           95              59
+    235       9         4       f3           87              36
+    239       9         5       f3           27               4
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:315: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:328: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 308-317
+
+.. GENERATED FROM PYTHON SOURCE LINES 332-341
 
 Display using ``sns.swarmplot``
 -------------------------------
@@ -1146,10 +1190,10 @@ Display using ``sns.swarmplot``
 
 Let's display the shap values for each timestep.
 
-.. GENERATED FROM PYTHON SOURCE LINES 317-394
+.. GENERATED FROM PYTHON SOURCE LINES 341-418
 
 .. code-block:: default
-   :lineno-start: 318
+   :lineno-start: 342
 
 
     # Loop
@@ -1269,21 +1313,41 @@ Let's display the shap values for each timestep.
 
  .. code-block:: none
 
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:361: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:361: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:361: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:361: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05.py:374: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 
     '\nsns.set_theme(style="ticks")\n\n# Create a dataset with many short random walks\nrs = np.random.RandomState(4)\npos = rs.randint(-1, 2, (20, 5)).cumsum(axis=1)\npos -= pos[:, 0, np.newaxis]\nstep = np.tile(range(5), 20)\nwalk = np.repeat(range(20), 5)\ndf = pd.DataFrame(np.c_[pos.flat, step, walk],\n                  columns=["position", "step", "walk"])\n# Initialize a grid of plots with an Axes for each walk\n#grid = sns.FacetGrid(df_stack, col="walk", hue="f", palette="tab20c",\n#                     col_wrap=4, height=1.5)\n\ngrid = sns.FacetGrid(df_stack, hue="f",\n    palette="tab20c", height=1.5)\n\n# Draw a horizontal line to show the starting point\ngrid.refline(y=0, linestyle=":")\n\n# Draw a line plot to show the trajectory of each random walk\ngrid.map(plt.plot, "t", "value", marker="o")\n\n# Adjust the tick positions and labels\ngrid.set(xticks=np.arange(5), yticks=[-3, 3],\n         xlim=(-.5, 4.5), ylim=(-3.5, 3.5))\n\n# Adjust the arrangement of the plots\ngrid.fig.tight_layout(w_pad=1)\n\n'
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 395-398
+.. GENERATED FROM PYTHON SOURCE LINES 419-422
 
 Display using ``sns.FacetGrid``
 -------------------------------
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 398-404
+.. GENERATED FROM PYTHON SOURCE LINES 422-428
 
 .. code-block:: default
-   :lineno-start: 399
+   :lineno-start: 423
 
 
     #g = sns.FacetGrid(df_stack, col="f", hue='original')
@@ -1298,16 +1362,16 @@ Display using ``sns.FacetGrid``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 405-408
+.. GENERATED FROM PYTHON SOURCE LINES 429-432
 
 Display using ``shap.beeswarm``
 -------------------------------
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 408-413
+.. GENERATED FROM PYTHON SOURCE LINES 432-437
 
 .. code-block:: default
-   :lineno-start: 409
+   :lineno-start: 433
 
 
     # REF: https://github.com/slundberg/shap/blob/master/shap/plots/_beeswarm.py
@@ -1324,7 +1388,7 @@ Display using ``shap.beeswarm``
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.108 seconds)
+   **Total running time of the script:** ( 0 minutes  3.032 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05.py:

@@ -18,15 +18,24 @@
 .. _sphx_glr__examples_pandas_plot_format04_therapy_all.py:
 
 
+04. Daily Aggregation of MIMIC-III ICU Antibiotic Therapy Data
+===============================================================
 04. Format MIMIC therapy (all)
-===============================
 
-Description...
+This Python script processes and transforms antibiotic treatment data from the
+ICU_diagnoses_antibiotics.csv file, likely derived from the MIMIC-III dataset.
+It begins by loading the data, parsing starttime and stoptime columns, and
+cleaning antibiotic names. The core of the script reshapes the data from a
+record of treatment intervals into a daily summary. It achieves this by creating
+a date range for each antibiotic administration and then "exploding" these
+ranges into individual daily records. Finally, it groups the data by patient
+stay and date to produce a final series showing the unique list of antibiotics
+administered each day.
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-13
+.. GENERATED FROM PYTHON SOURCE LINES 16-22
 
 .. code-block:: default
-   :lineno-start: 7
+   :lineno-start: 16
 
     # Generic libraries
     import pandas as pd
@@ -41,14 +50,14 @@ Description...
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-15
+.. GENERATED FROM PYTHON SOURCE LINES 23-24
 
 First, lets load and do some basic formatting on the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-54
+.. GENERATED FROM PYTHON SOURCE LINES 24-71
 
 .. code-block:: default
-   :lineno-start: 16
+   :lineno-start: 25
 
 
     # -----------------------------
@@ -61,10 +70,7 @@ First, lets load and do some basic formatting on the data.
     # Load data
     # -----------------------------
     # Read data
-    data = pd.read_csv(path,
-        dayfirst=True,
-        parse_dates=['starttime',
-                     'stoptime'])
+    data = pd.read_csv(path)
 
     # Keep only useful columns
     data = data[['subject_id',
@@ -75,6 +81,17 @@ First, lets load and do some basic formatting on the data.
                  'route',
                  'starttime',
                  'stoptime']]
+
+    # .. note::  Converting datetime manually because the parse_dates
+    #            value in read_csv returns the value unaltered as an object
+    #            type when the the conversion is not possible, and this
+    #            triggers errors while accessing using .dt.
+    # Explicitly convert columns to datetime, coercing errors to NaT
+    data['starttime'] = pd.to_datetime(data['starttime'], dayfirst=True, errors='coerce')
+    data['stoptime'] = pd.to_datetime(data['stoptime'], dayfirst=True, errors='coerce')
+
+    # Handle any rows where dates could not be parsed (Optional)
+    data.dropna(subset=['starttime', 'stoptime'], inplace=True)
 
     # Reformat (time info and str)
     data.starttime = data.starttime.dt.date
@@ -135,18 +152,7 @@ First, lets load and do some basic formatting on the data.
           <td>ceftriaxone</td>
           <td>IV</td>
           <td>2177-09-27</td>
-          <td>2177-10-02</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>10656173</td>
-          <td>25778760</td>
-          <td>37985659</td>
-          <td>J95851</td>
-          <td>cefepime</td>
-          <td>IV</td>
-          <td>2177-09-19</td>
-          <td>2177-09-23</td>
+          <td>2177-02-10</td>
         </tr>
         <tr>
           <th>2</th>
@@ -157,7 +163,7 @@ First, lets load and do some basic formatting on the data.
           <td>cefepime</td>
           <td>IV</td>
           <td>2177-09-11</td>
-          <td>2177-09-12</td>
+          <td>2177-12-09</td>
         </tr>
         <tr>
           <th>3</th>
@@ -168,7 +174,7 @@ First, lets load and do some basic formatting on the data.
           <td>cefepime</td>
           <td>IV</td>
           <td>2177-09-10</td>
-          <td>2177-09-11</td>
+          <td>2177-11-09</td>
         </tr>
         <tr>
           <th>4</th>
@@ -179,7 +185,18 @@ First, lets load and do some basic formatting on the data.
           <td>cefepime</td>
           <td>IV</td>
           <td>2177-09-12</td>
-          <td>2177-09-12</td>
+          <td>2177-12-09</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td>10656173</td>
+          <td>25778760</td>
+          <td>37985659</td>
+          <td>J95851</td>
+          <td>vancomycin</td>
+          <td>IV</td>
+          <td>2177-09-11</td>
+          <td>2177-12-09</td>
         </tr>
         <tr>
           <th>...</th>
@@ -193,37 +210,48 @@ First, lets load and do some basic formatting on the data.
           <td>...</td>
         </tr>
         <tr>
-          <th>21541</th>
+          <th>21526</th>
           <td>15689523</td>
           <td>23914765</td>
           <td>39918058</td>
           <td>99731</td>
-          <td>metronidazole (flagyl)</td>
+          <td>meropenem</td>
           <td>IV</td>
-          <td>2159-07-13</td>
-          <td>2159-07-25</td>
+          <td>2159-07-04</td>
+          <td>2159-05-07</td>
         </tr>
         <tr>
-          <th>21542</th>
+          <th>21528</th>
           <td>15689523</td>
           <td>23914765</td>
           <td>39918058</td>
           <td>99731</td>
-          <td>metronidazole (flagyl)</td>
+          <td>meropenem</td>
           <td>IV</td>
-          <td>2159-06-27</td>
-          <td>2159-06-27</td>
+          <td>2159-07-03</td>
+          <td>2159-04-07</td>
         </tr>
         <tr>
-          <th>21543</th>
+          <th>21532</th>
           <td>15689523</td>
           <td>23914765</td>
           <td>39918058</td>
           <td>99731</td>
-          <td>sulfamethoxazole-trimethoprim</td>
+          <td>vancomycin</td>
           <td>IV</td>
-          <td>2159-06-25</td>
-          <td>2159-06-26</td>
+          <td>2159-07-03</td>
+          <td>2159-04-07</td>
+        </tr>
+        <tr>
+          <th>21540</th>
+          <td>15689523</td>
+          <td>23914765</td>
+          <td>39918058</td>
+          <td>99731</td>
+          <td>levofloxacin</td>
+          <td>IV</td>
+          <td>2159-06-29</td>
+          <td>2159-02-07</td>
         </tr>
         <tr>
           <th>21544</th>
@@ -234,28 +262,17 @@ First, lets load and do some basic formatting on the data.
           <td>sulfamethoxazole-trimethoprim</td>
           <td>IV</td>
           <td>2159-06-26</td>
-          <td>2159-07-02</td>
-        </tr>
-        <tr>
-          <th>21545</th>
-          <td>15689523</td>
-          <td>23914765</td>
-          <td>39918058</td>
-          <td>99731</td>
-          <td>sulfamethoxazole-trimethoprim</td>
-          <td>IV</td>
-          <td>2159-06-29</td>
-          <td>2159-06-29</td>
+          <td>2159-02-07</td>
         </tr>
       </tbody>
     </table>
-    <p>21546 rows × 8 columns</p>
+    <p>8474 rows × 8 columns</p>
     </div>
     </div>
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-63
+.. GENERATED FROM PYTHON SOURCE LINES 72-80
 
 Lets transform the data
 
@@ -266,10 +283,10 @@ Lets transform the data
 
           Note it needs to be applied per patient!
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-92
+.. GENERATED FROM PYTHON SOURCE LINES 80-109
 
 .. code-block:: default
-   :lineno-start: 64
+   :lineno-start: 81
 
 
     # -----------------------------
@@ -283,7 +300,7 @@ Lets transform the data
     data['startdate'] = data.apply(lambda x:
         pd.date_range(start=x['starttime'],
                       end=x['stoptime'],
-                      closed='left',         # ignoring right
+                      inclusive='left',         # ignoring right
                       freq='D') ,axis=1)
 
     # Explode such column
@@ -307,14 +324,14 @@ Lets transform the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-94
+.. GENERATED FROM PYTHON SOURCE LINES 110-111
 
 Lets see the formatted data
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-102
+.. GENERATED FROM PYTHON SOURCE LINES 111-119
 
 .. code-block:: default
-   :lineno-start: 95
+   :lineno-start: 112
 
 
     # Show
@@ -336,29 +353,29 @@ Lets see the formatted data
 
 
     subject_id  hadm_id   stay_id   startdate 
-    10004733    27411876  39635619  2174-12-04    [piperacillin-tazobactam, vancomycin]
-                                    2174-12-05    [piperacillin-tazobactam, vancomycin]
-                                    2174-12-06    [piperacillin-tazobactam, vancomycin]
-                                    2174-12-07                [piperacillin-tazobactam]
-                                    2174-12-08    [piperacillin-tazobactam, vancomycin]
-                                                                  ...                  
-    19997367    20617667  35616526  2126-05-06                            [ceftriaxone]
-                                    2126-05-07                            [ceftriaxone]
-                                    2126-05-08                            [ceftriaxone]
-                                    2126-05-09                            [ceftriaxone]
-                                    2126-05-10                            [ceftriaxone]
-    Length: 22453, dtype: object
+    10007818    22987108  32359580  2146-06-30                [meropenem]
+                                    2146-07-01                [meropenem]
+                                    2146-07-02    [meropenem, vancomycin]
+                                    2146-07-03    [meropenem, vancomycin]
+                                    2146-07-04    [meropenem, vancomycin]
+                                                           ...           
+    19997367    20617667  35616526  2126-10-31              [ceftriaxone]
+                                    2126-11-01              [ceftriaxone]
+                                    2126-11-02              [ceftriaxone]
+                                    2126-11-03              [ceftriaxone]
+                                    2126-11-04              [ceftriaxone]
+    Length: 143037, dtype: object
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-104
+.. GENERATED FROM PYTHON SOURCE LINES 120-121
 
 Lets count the number of days
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-112
+.. GENERATED FROM PYTHON SOURCE LINES 121-129
 
 .. code-block:: default
-   :lineno-start: 105
+   :lineno-start: 122
 
 
     # Show
@@ -379,25 +396,25 @@ Lets count the number of days
  .. code-block:: none
 
 
-    [cefepime, vancomycin]                                              2534
-    [cefepime]                                                          1905
-    [vancomycin]                                                        1667
-    [piperacillin-tazobactam, vancomycin]                               1448
-    [meropenem]                                                         1439
-                                                                        ... 
-    [aztreonam, cefepime, tobramycin sulfate]                              1
-    [ceftazidime, levofloxacin, piperacillin-tazobactam, vancomycin]       1
-    [tobramycin]                                                           1
-    [cefepime, ciprofloxacin iv, nafcillin]                                1
-    [gentamicin sulfate, linezolid, piperacillin-tazobactam]               1
-    Length: 561, dtype: int64
+    [vancomycin]                                                               15480
+    [cefepime, vancomycin]                                                     14006
+    [piperacillin-tazobactam, vancomycin]                                       8398
+    [cefepime]                                                                  7935
+    [meropenem]                                                                 5345
+                                                                               ...  
+    [sulfameth/trimethoprim]                                                       1
+    [cefepime, ceftriaxone, metronidazole (flagyl)]                                1
+    [linezolid, meropenem, metronidazole (flagyl), piperacillin-tazobactam]        1
+    [ceftaroline, meropenem, vancomycin]                                           1
+    [gentamicin, linezolid, meropenem]                                             1
+    Name: count, Length: 477, dtype: int64
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.716 seconds)
+   **Total running time of the script:** ( 0 minutes  13.875 seconds)
 
 
 .. _sphx_glr_download__examples_pandas_plot_format04_therapy_all.py:

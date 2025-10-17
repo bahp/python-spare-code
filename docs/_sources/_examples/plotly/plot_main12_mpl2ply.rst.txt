@@ -18,16 +18,21 @@
 .. _sphx_glr__examples_plotly_plot_main12_mpl2ply.py:
 
 
-12. Matplotlib to Plotly
-==============================
+12a. Matplotlib to Plotly (errorbar)
+=====================================
 
-[REF] https://github.com/plotly/plotly.py/issues/3624#issuecomment-1161805210
+This example converts a matplotlib figure to Plotly.
 
-.. note:: In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py line 368,
-          it still calls is_frame_like() function. There is already an issue tracking this. You may need
-          choose to downgrade Matplotlib if you still want to use mpl_to_plotly() function.
+.. warning:: A known bug in Plotly (see GitHub issue) causes the mpl_to_plotly() function
+             to fail because it references an outdated function from Matplotlib.
+             The current fix is to downgrade to an older version of Matplotlib or to
+             recreate your figure in Plotly manually.
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-58
+             [ISSUE]: https://github.com/plotly/plotly.py/issues/3624#issuecomment-1161805210
+             In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py
+             line 368, it still calls is_frame_like() function.
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-68
 
 
 
@@ -44,7 +49,7 @@
  .. code-block:: none
 
 
-    '\n# Convert to plotly\nimport plotly.tools as tls\n\n# Convert to plotly\nfig = tls.mpl_to_plotly(fig)\n\nprint(fig.data)\n\n# Show\n#fig.show()\nfig\n'
+    '\n.. note:: This section has been commented as it does not work\n          with recent versions of matplotlib. Downgrade an\n          remove quotes to run it.\n          \n# Convert to plotly\nimport plotly.tools as tls\n\n# Convert to plotly\nfig = tls.mpl_to_plotly(fig)\n\nprint(fig.data)\n\n# Show\n#fig.show()\nfig\n'
 
 
 
@@ -53,7 +58,7 @@
 |
 
 .. code-block:: default
-   :lineno-start: 13
+   :lineno-start: 18
 
 
     # Libraries
@@ -88,7 +93,12 @@
     # add legent
     plt.legend(loc='lower right')
 
+
     """
+    .. note:: This section has been commented as it does not work
+              with recent versions of matplotlib. Downgrade an
+              remove quotes to run it.
+          
     # Convert to plotly
     import plotly.tools as tls
 
@@ -105,7 +115,7 @@
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.079 seconds)
+   **Total running time of the script:** ( 0 minutes  0.078 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main12_mpl2ply.py:

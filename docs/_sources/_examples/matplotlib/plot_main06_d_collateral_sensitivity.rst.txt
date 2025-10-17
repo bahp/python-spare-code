@@ -19,7 +19,7 @@
 
 
 06.d Collateral Sensitivity Index (CRI)
----------------------------------------
+============================================
 
 Since the computation of the Collateral Sensitivity Index is quite
 computationally expensive, the results are saved into a .csv file
@@ -494,16 +494,17 @@ Let's display the information
  .. code-block:: none
 
            ('URICUL', 'ECOL'). ax==ay =>    18 | ax>ay =>     0
-    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_d_collateral_sensitivity.py:246: UserWarning:
-
-    This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
-
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_d_collateral_sensitivity.py:246: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
            ('URICUL', 'SAUR'). ax==ay =>     0 | ax>ay =>     0
     ATET Invalid RGBA argument: nan
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_d_collateral_sensitivity.py:246: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
            ('WOUCUL', 'ECOL'). ax==ay =>     0 | ax>ay =>     0
     ATIG Invalid RGBA argument: nan
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_d_collateral_sensitivity.py:246: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
            ('WOUCUL', 'SAUR'). ax==ay =>    13 | ax>ay =>     0
     ATET Invalid RGBA argument: nan
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_d_collateral_sensitivity.py:246: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_d_collateral_sensitivity.py:251: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
 
@@ -511,7 +512,7 @@ Let's display the information
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.263 seconds)
+   **Total running time of the script:** ( 0 minutes  2.266 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main06_d_collateral_sensitivity.py:

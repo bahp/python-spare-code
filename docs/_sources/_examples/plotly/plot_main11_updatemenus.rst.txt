@@ -18,18 +18,16 @@
 .. _sphx_glr__examples_plotly_plot_main11_updatemenus.py:
 
 
-11. Using updatemenus
-===========================
+11. Graph interaction (updatemenus)
+========================================
 
-This example show how to include buttons in the
-plotly graph by using update menus. Work should
-be put on control their placement and how to
-avoid them to be missaligned when resizing the
-window!
+This Python script creates an interactive Plotly scatter plot
+with buttons that allow a user to dynamically change the colors
+of the plotted points.
 
-.. warning:: It is not finished!
+.. note:: How to include buttons in the graph using update menus
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-95
+.. GENERATED FROM PYTHON SOURCE LINES 12-93
 
 
 
@@ -41,7 +39,7 @@ window!
 
 
 .. code-block:: default
-   :lineno-start: 15
+   :lineno-start: 13
 
 
     import plotly
@@ -128,7 +126,7 @@ window!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.141 seconds)
+   **Total running time of the script:** ( 0 minutes  1.710 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main11_updatemenus.py:

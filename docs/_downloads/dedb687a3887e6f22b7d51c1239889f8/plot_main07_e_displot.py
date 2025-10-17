@@ -1,8 +1,21 @@
 """
-07.e ``sns.displot``
--------------------------
+07.e 3D Data with ``sns.displot``
+============================================
 
 Figure-level interface for drawing distribution plots onto a FacetGrid.
+
+This script demonstrates how to use the figure-level function
+``seaborn.displot`` to create a 2D histogram where the bins are
+colored by the values of a third, continuous variable. 🎨
+
+The core technique involves:
+    - Plotting two variables on the x and y axes to show their
+      joint distribution (in this case, `timestep` and `shap_values`).
+    - Using the `hue` parameter to map a third variable
+      (`feature_values`) to the color of each bin, effectively
+      visualizing a third dimension on a 2D plot.
+    - Leveraging Seaborn's `hue_norm` to correctly scale the
+      colormap to the range of the third variable.
 
 """
 

@@ -18,12 +18,17 @@
 .. _sphx_glr__examples_plotly_plot_main07_parallel_v1.py:
 
 
-07. Plot Parallel
-============================
+07a. Manufacturing features (parallel)
+=======================================
 
-This example plots a parallel graph.
+This Python script uses the pandas and Plotly libraries to create
+an interactive parallel coordinates plot. This type of plot is excellent
+for visualizing and exploring relationships in datasets with many variables
+(high-dimensional data). Each vertical line represents a different variable
+(a column from the dataset), and each colored line that snakes across the
+plot represents a single data point (a row from the dataset).
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-61
+.. GENERATED FROM PYTHON SOURCE LINES 13-66
 
 
 
@@ -35,7 +40,7 @@ This example plots a parallel graph.
 
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 14
 
 
     import plotly.graph_objects as go
@@ -94,7 +99,7 @@ This example plots a parallel graph.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.595 seconds)
+   **Total running time of the script:** ( 0 minutes  3.521 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main07_parallel_v1.py:

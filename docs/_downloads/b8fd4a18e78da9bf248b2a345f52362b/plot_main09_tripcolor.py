@@ -1,8 +1,17 @@
 """
-09. ``mpl.tripcolor``
----------------------------
+09. Triangular grids with ``mpl.tripcolor``
+============================================
 
-Create a pseudocolor plot of an unstructured triangular grid.
+This script demonstrates how to visualize data on an unstructured
+triangular grid using ``matplotlib.tripcolor``.  This is useful
+for plotting data that is not arranged in a regular grid.
+
+The example covers two main scenarios:
+
+    - Automatically creating a Delaunay triangulation from a set
+      of 2D points.
+    - Plotting data on a pre-defined, user-specified mesh of triangles.
+    - It also compares `flat` and `gouraud` shading methods.
 
 """
 

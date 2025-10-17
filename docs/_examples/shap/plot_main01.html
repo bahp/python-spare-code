@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>01. Basic example &mdash; python-spare-code 0.0.1 documentation</title>
+  <title>01. A practical example &mdash; python-spare-code 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="02. Basic example" href="plot_main02.html" />
+    <link rel="next" title="02. Explainers Across ML Classifiers" href="plot_main02.html" />
     <link rel="prev" title="06. Threshold moving approaches" href="../scikits/plot_threshold_moving.html" /> 
 </head>
 
@@ -66,23 +66,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#shap">Shap</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">01. Basic example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main02.html">02. Basic example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main03.html">03. Basic example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">01. A practical example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02.html">02. Explainers Across ML Classifiers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main04.html">04. Basic example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main05.html">05. Basic example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main05_stripplot.html">05. Stripplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main05_summaryplot.html">05. Summary plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main05_swarmplot.html">05. Swarmplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main06.html">06. Basic example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07.html">07. Basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05.html">05. Display SHAP for Sequential Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_stripplot.html">05a. Custom using stripplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_summaryplot.html">05b. Custom using summary_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_swarmplot.html">05c. Custom using swarmplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07.html">07. SHAP Beeswarm Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main08.html">08. Basic example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="temp.html">06. Basic example</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -104,7 +101,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
-      <li class="breadcrumb-item active">01. Basic example</li>
+      <li class="breadcrumb-item active">01. A practical example</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/shap/plot_main01.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -119,66 +116,139 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-shap-plot-main01-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="basic-example">
-<span id="sphx-glr-examples-shap-plot-main01-py"></span><h1>01. Basic example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
+<section class="sphx-glr-example-title" id="a-practical-example">
+<span id="sphx-glr-examples-shap-plot-main01-py"></span><h1>01. A practical example<a class="headerlink" href="#a-practical-example" title="Permalink to this heading"></a></h1>
+<p>This script provides a practical, hands-on introduction to the SHAP
+(SHapley Additive exPlanations) library, a leading tool for machine
+learning model interpretability.</p>
+<p>It demonstrates a complete workflow for understanding the predictions
+of a “black box” model:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Data Preparation:</strong> Loads the standard breast cancer dataset and splits it for training.</p></li>
+<li><p><strong>Model Training:</strong> Trains an XGBoost classifier, a powerful gradient boosting model.</p></li>
+<li><p><strong>Explainability:</strong> Uses a shap.Explainer to compute SHAP values, which quantify
+the contribution of each feature to a model’s prediction.</p></li>
+<li><p><strong>Visualization:</strong> Generates a SHAP summary plot (beeswarm plot) to elegantly
+visualize global feature importance and the impact of feature values on the
+model’s output.</p></li>
+</ul>
+</div></blockquote>
+<p>The primary goal is to illustrate how to move beyond simple accuracy
+metrics and gain deeper insights into why a model makes the decisions
+it does.</p>
 <img src="../../_images/sphx_glr_plot_main01_001.png" srcset="../../_images/sphx_glr_plot_main01_001.png" alt="plot main01" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Kernel type: &lt;class &#39;shap.explainers._tree.Tree&#39;&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Kernel type: &lt;class &#39;shap.explainers._tree.TreeExplainer&#39;&gt;
 .values =
-array([[ 0.01,  1.37, -4.46],
-       [-0.04, -0.05, -4.71],
-       [-0.04, -0.67, -4.25],
+array([[-0.07339976,  1.23534454, -4.69448856],
+       [-0.28925516, -0.13902985, -4.83976683],
+       [-0.23044579, -0.75952114, -4.40960412],
        ...,
-       [ 0.35,  0.36,  2.19],
-       [-0.03, -0.06, -4.72],
-       [-0.04, -0.67, -4.25]])
+       [ 0.41172362,  0.30341838,  1.756622  ],
+       [-0.28925516, -0.13902985, -4.83976683],
+       [-0.23044579, -0.75952114, -4.40960412]])
 
 .base_values =
-array([0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35,
-       0.35, 0.35, 0.35, 0.35, 0.35])
+array([0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342,
+       0.80274342, 0.80274342, 0.80274342, 0.80274342, 0.80274342])
 
 .data =
 array([[ 17.99,  10.38, 122.8 ],
@@ -190,13 +260,21 @@ array([[ 17.99,  10.38, 122.8 ],
        [ 20.59,  21.24, 137.8 ]])
 shap_values (shape): (500, 3)
 &lt;IPython.core.display.HTML object&gt;
-[[-0.09 -0.58 -4.2 ]
- [-0.57  0.93  3.57]
- [ 0.33  2.81 -2.97]
+[[-0.26615972 -0.68707205 -4.41828418]
+ [-0.48923345  0.89701019  3.28383803]
+ [ 0.25992588  2.43031889 -3.09868905]
  ...
- [ 0.78 -0.04 -2.36]
- [ 0.25 -0.04  0.63]
- [ 0.22  1.57 -3.67]]
+ [ 0.73170752 -0.09166955 -2.45801772]
+ [ 0.14106127 -0.04692391  0.63537647]
+ [ 0.07274038  1.37873462 -3.73005894]]
+C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main01.py:155: FutureWarning:
+
+The NumPy global RNG was seeded by calling `np.random.seed`. In a future version this function will no longer use the global RNG. Pass `rng` explicitly to opt-in to the new behaviour and silence this warning.
+
+C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main01.py:161: UserWarning:
+
+FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 None
 
 &#39;\nprint(sv)\n#sns.swarmplot(data=sv, x=0, y=\&#39;level_1\&#39;, color=\&#39;viridis\&#39;, palette=\&#39;viridis\&#39;)\n#sns.stripplot(data=sv, x=0, y=\&#39;level_1\&#39;, color=\&#39;viridis\&#39;, palette=\&#39;viridis\&#39;)\n#plt.show()\nimport sys\nsys.exit()\n#sns.swarmplot(x=)\n\nimport sys\nsys.exit()\n\n#html = f&quot;&lt;head&gt;{shap.getjs()}&lt;/head&gt;&lt;body&gt;&quot;\n# Bee swarm\n# .. note: unexpected algorithm matplotlib!\n# .. note: does not return an object!\nplot_bee = shap.plots.beeswarm(shap_values, show=False)\n\n# Sow\nprint(&quot;\nBEE&quot;)\nprint(plot_bee)\n\n#print(f)\n# Waterfall\n# .. note: not working!\n#shap.plots.waterfall(shap_values[0], max_display=14)\n\n# Force plot\n# .. note: not working!\nplot_force = shap.plots.force(explainer.expected_value,\n    explainer.shap_values(X_train), X_train,\n    matplotlib=False, show=False)\n\n# Show\nprint(&quot;\nFORCE:&quot;)\nprint(plot_force)\nprint(plot_force.html())\nprint(shap.save_html(\&#39;e.html\&#39;, plot_force))\n&#39;
@@ -205,202 +283,201 @@ None
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  8</span> <span class="c1"># Generic</span>
-<span class="linenos">  9</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 10</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos"> 12</span>
-<span class="linenos"> 13</span> <span class="c1"># Sklearn</span>
-<span class="linenos"> 14</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="linenos"> 15</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="linenos"> 16</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
-<span class="linenos"> 17</span> <span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
-<span class="linenos"> 18</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="linenos"> 19</span> <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-<span class="linenos"> 20</span> <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="linenos"> 21</span>
-<span class="linenos"> 22</span> <span class="c1"># Xgboost</span>
-<span class="linenos"> 23</span> <span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
-<span class="linenos"> 24</span>
-<span class="linenos"> 25</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos"> 26</span> <span class="c1"># Load data</span>
-<span class="linenos"> 27</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos"> 28</span> <span class="c1"># Seed</span>
-<span class="linenos"> 29</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos"> 30</span>
-<span class="linenos"> 31</span> <span class="c1"># Load dataset</span>
-<span class="linenos"> 32</span> <span class="n">bunch</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
-<span class="linenos"> 33</span> <span class="n">bunch</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
-<span class="linenos"> 34</span> <span class="n">features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">])</span>
-<span class="linenos"> 35</span>
-<span class="linenos"> 36</span> <span class="c1"># Create DataFrame</span>
-<span class="linenos"> 37</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]],</span>
-<span class="linenos"> 38</span>                     <span class="n">columns</span><span class="o">=</span><span class="n">features</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span>
-<span class="linenos"> 39</span>
-<span class="linenos"> 40</span> <span class="c1"># Create X, y</span>
-<span class="linenos"> 41</span> <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]]</span>
-<span class="linenos"> 42</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span> <span class="c1"># Filter</span>
-<span class="linenos"> 45</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">500</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="linenos"> 46</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">500</span><span class="p">]</span>
-<span class="linenos"> 47</span>
-<span class="linenos"> 48</span>
-<span class="linenos"> 49</span> <span class="c1"># Split dataset</span>
-<span class="linenos"> 50</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> \
-<span class="linenos"> 51</span>     <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<span class="linenos"> 52</span>
-<span class="linenos"> 53</span>
-<span class="linenos"> 54</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos"> 55</span> <span class="c1"># Classifiers</span>
-<span class="linenos"> 56</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos"> 57</span> <span class="c1"># Train classifier</span>
-<span class="linenos"> 58</span> <span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="linenos"> 59</span> <span class="n">llr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="linenos"> 60</span> <span class="n">dtc</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<span class="linenos"> 61</span> <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<span class="linenos"> 62</span> <span class="n">xgb</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span>
-<span class="linenos"> 63</span>     <span class="n">min_child_weight</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
-<span class="linenos"> 64</span>     <span class="n">eta</span><span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
-<span class="linenos"> 65</span>     <span class="n">max_depth</span><span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-<span class="linenos"> 66</span>     <span class="n">n_estimators</span><span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 24</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 25</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 26</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos"> 27</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span> <span class="c1"># Sklearn</span>
+<span class="linenos"> 30</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="linenos"> 31</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<span class="linenos"> 32</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="linenos"> 33</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="linenos"> 34</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="linenos"> 35</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="linenos"> 36</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="linenos"> 37</span>
+<span class="linenos"> 38</span> <span class="c1"># Xgboost</span>
+<span class="linenos"> 39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">xgboost</span><span class="w"> </span><span class="kn">import</span> <span class="n">XGBClassifier</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos"> 42</span> <span class="c1"># Load data</span>
+<span class="linenos"> 43</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos"> 44</span> <span class="c1"># Seed</span>
+<span class="linenos"> 45</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span> <span class="c1"># Load dataset</span>
+<span class="linenos"> 48</span> <span class="n">bunch</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="linenos"> 49</span> <span class="n">bunch</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="linenos"> 50</span> <span class="n">features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">])</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span> <span class="c1"># Create DataFrame</span>
+<span class="linenos"> 53</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]],</span>
+<span class="linenos"> 54</span>                     <span class="n">columns</span><span class="o">=</span><span class="n">features</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span> <span class="c1"># Create X, y</span>
+<span class="linenos"> 57</span> <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]]</span>
+<span class="linenos"> 58</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span> <span class="c1"># Filter</span>
+<span class="linenos"> 61</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">500</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="linenos"> 62</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">500</span><span class="p">]</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span> <span class="c1"># Split dataset</span>
+<span class="linenos"> 65</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> \
+<span class="linenos"> 66</span>     <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 <span class="linenos"> 67</span>
-<span class="linenos"> 68</span> <span class="c1"># Select one</span>
-<span class="linenos"> 69</span> <span class="n">clf</span> <span class="o">=</span> <span class="n">xgb</span>
-<span class="linenos"> 70</span>
-<span class="linenos"> 71</span> <span class="c1"># Fit</span>
-<span class="linenos"> 72</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="linenos"> 73</span>
-<span class="linenos"> 74</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos"> 75</span> <span class="c1"># Find shap values</span>
-<span class="linenos"> 76</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos"> 77</span> <span class="c1"># Import</span>
-<span class="linenos"> 78</span> <span class="kn">import</span> <span class="nn">shap</span>
-<span class="linenos"> 79</span>
-<span class="linenos"> 80</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos"> 81</span><span class="sd"> # Create shap explainer</span>
-<span class="linenos"> 82</span><span class="sd"> if isinstance(clf,</span>
-<span class="linenos"> 83</span><span class="sd">     (DecisionTreeClassifier,</span>
-<span class="linenos"> 84</span><span class="sd">      RandomForestClassifier,</span>
-<span class="linenos"> 85</span><span class="sd">      XGBClassifier)):</span>
-<span class="linenos"> 86</span><span class="sd">     # Set Tree explainer</span>
-<span class="linenos"> 87</span><span class="sd">     explainer = shap.TreeExplainer(clf)</span>
-<span class="linenos"> 88</span><span class="sd"> elif isinstance(clf, int):</span>
-<span class="linenos"> 89</span><span class="sd">     # Set NN explainer</span>
-<span class="linenos"> 90</span><span class="sd">     explainer = shap.DeepExplainer(clf)</span>
-<span class="linenos"> 91</span><span class="sd"> else:</span>
-<span class="linenos"> 92</span><span class="sd">     # Set generic kernel explainer</span>
-<span class="linenos"> 93</span><span class="sd">     explainer = shap.KernelExplainer(clf.predict_proba, X_train)</span>
-<span class="linenos"> 94</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="linenos"> 95</span>
-<span class="linenos"> 96</span> <span class="c1"># Get generic explainer</span>
-<span class="linenos"> 97</span> <span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">Explainer</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
-<span class="linenos"> 98</span>
-<span class="linenos"> 99</span> <span class="c1"># Show kernel type</span>
-<span class="linenos">100</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kernel type: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">explainer</span><span class="p">))</span>
-<span class="linenos">101</span>
-<span class="linenos">102</span> <span class="c1"># Get shap values</span>
-<span class="linenos">103</span> <span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="linenos">104</span>
-<span class="linenos">105</span> <span class="nb">print</span><span class="p">(</span><span class="n">shap_values</span><span class="p">)</span>
-<span class="linenos">106</span>
-<span class="linenos">107</span> <span class="c1"># For interactions!!</span>
-<span class="linenos">108</span> <span class="c1"># https://github.com/slundberg/shap/issues/501</span>
-<span class="linenos">109</span>
-<span class="linenos">110</span> <span class="c1"># Get shap values</span>
-<span class="linenos">111</span> <span class="c1">#shap_values = \</span>
-<span class="linenos">112</span> <span class="c1">#    explainer.shap_values(X_train)</span>
-<span class="linenos">113</span> <span class="c1">#shap_interaction_values = \</span>
-<span class="linenos">114</span> <span class="c1">#    explainer.shap_interaction_values(X_train)</span>
-<span class="linenos">115</span>
-<span class="linenos">116</span> <span class="c1"># Show information</span>
-<span class="linenos">117</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shap_values (shape): </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> \
-<span class="linenos">118</span>       <span class="nb">str</span><span class="p">(</span><span class="n">shap_values</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="linenos">119</span> <span class="c1">#print(&quot;shap_values_interaction (shape): %s&quot; % \</span>
-<span class="linenos">120</span> <span class="c1">#      str(shap_interaction_values.shape))</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos"> 70</span> <span class="c1"># Classifiers</span>
+<span class="linenos"> 71</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos"> 72</span> <span class="c1"># Train classifier</span>
+<span class="linenos"> 73</span> <span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="linenos"> 74</span> <span class="n">llr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="linenos"> 75</span> <span class="n">dtc</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<span class="linenos"> 76</span> <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<span class="linenos"> 77</span> <span class="n">xgb</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span>
+<span class="linenos"> 78</span>     <span class="n">min_child_weight</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
+<span class="linenos"> 79</span>     <span class="n">eta</span><span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
+<span class="linenos"> 80</span>     <span class="n">max_depth</span><span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 81</span>     <span class="n">n_estimators</span><span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span> <span class="c1"># Select one</span>
+<span class="linenos"> 84</span> <span class="n">clf</span> <span class="o">=</span> <span class="n">xgb</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span> <span class="c1"># Fit</span>
+<span class="linenos"> 87</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos"> 90</span> <span class="c1"># Find shap values</span>
+<span class="linenos"> 91</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos"> 92</span> <span class="c1"># Import</span>
+<span class="linenos"> 93</span> <span class="kn">import</span><span class="w"> </span><span class="nn">shap</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 96</span><span class="sd"> # Create shap explainer</span>
+<span class="linenos"> 97</span><span class="sd"> if isinstance(clf,</span>
+<span class="linenos"> 98</span><span class="sd">     (DecisionTreeClassifier,</span>
+<span class="linenos"> 99</span><span class="sd">      RandomForestClassifier,</span>
+<span class="linenos">100</span><span class="sd">      XGBClassifier)):</span>
+<span class="linenos">101</span><span class="sd">     # Set Tree explainer</span>
+<span class="linenos">102</span><span class="sd">     explainer = shap.TreeExplainer(clf)</span>
+<span class="linenos">103</span><span class="sd"> elif isinstance(clf, int):</span>
+<span class="linenos">104</span><span class="sd">     # Set NN explainer</span>
+<span class="linenos">105</span><span class="sd">     explainer = shap.DeepExplainer(clf)</span>
+<span class="linenos">106</span><span class="sd"> else:</span>
+<span class="linenos">107</span><span class="sd">     # Set generic kernel explainer</span>
+<span class="linenos">108</span><span class="sd">     explainer = shap.KernelExplainer(clf.predict_proba, X_train)</span>
+<span class="linenos">109</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">110</span>
+<span class="linenos">111</span> <span class="c1"># Get generic explainer</span>
+<span class="linenos">112</span> <span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">Explainer</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span> <span class="c1"># Show kernel type</span>
+<span class="linenos">115</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kernel type: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">explainer</span><span class="p">))</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span> <span class="c1"># Get shap values</span>
+<span class="linenos">118</span> <span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span> <span class="nb">print</span><span class="p">(</span><span class="n">shap_values</span><span class="p">)</span>
 <span class="linenos">121</span>
-<span class="linenos">122</span>
-<span class="linenos">123</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos">124</span> <span class="c1"># Visualize</span>
-<span class="linenos">125</span> <span class="c1"># ----------------------------------------</span>
-<span class="linenos">126</span> <span class="c1"># Initialise</span>
-<span class="linenos">127</span> <span class="n">shap</span><span class="o">.</span><span class="n">initjs</span><span class="p">()</span>
-<span class="linenos">128</span>
-<span class="linenos">129</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">130</span><span class="sd"> # Dependence plot</span>
-<span class="linenos">131</span><span class="sd"> shap.dependence_plot(0, shap_values,</span>
-<span class="linenos">132</span><span class="sd">     X_train, interaction_index=None, dot_size=5,</span>
-<span class="linenos">133</span><span class="sd">     alpha=0.5, color=&#39;#3F75BC&#39;, show=False)</span>
-<span class="linenos">134</span><span class="sd"> plt.tight_layout()</span>
-<span class="linenos">135</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">122</span> <span class="c1"># For interactions!!</span>
+<span class="linenos">123</span> <span class="c1"># https://github.com/slundberg/shap/issues/501</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span> <span class="c1"># Get shap values</span>
+<span class="linenos">126</span> <span class="c1">#shap_values = \</span>
+<span class="linenos">127</span> <span class="c1">#    explainer.shap_values(X_train)</span>
+<span class="linenos">128</span> <span class="c1">#shap_interaction_values = \</span>
+<span class="linenos">129</span> <span class="c1">#    explainer.shap_interaction_values(X_train)</span>
+<span class="linenos">130</span>
+<span class="linenos">131</span> <span class="c1"># Show information</span>
+<span class="linenos">132</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shap_values (shape): </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> \
+<span class="linenos">133</span>       <span class="nb">str</span><span class="p">(</span><span class="n">shap_values</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="linenos">134</span> <span class="c1">#print(&quot;shap_values_interaction (shape): %s&quot; % \</span>
+<span class="linenos">135</span> <span class="c1">#      str(shap_interaction_values.shape))</span>
 <span class="linenos">136</span>
-<span class="linenos">137</span> <span class="nb">print</span><span class="p">(</span><span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
-<span class="linenos">138</span>
-<span class="linenos">139</span> <span class="c1"># Summary plot</span>
-<span class="linenos">140</span> <span class="n">plot_summary</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span> \
-<span class="linenos">141</span>     <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span>
-<span class="linenos">142</span>     <span class="n">X_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
-<span class="linenos">143</span>     <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="linenos">144</span>
-<span class="linenos">145</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="linenos">146</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="linenos">147</span>
-<span class="linenos">148</span> <span class="nb">print</span><span class="p">(</span><span class="n">plot_summary</span><span class="p">)</span>
-<span class="linenos">149</span>
-<span class="linenos">150</span>
-<span class="linenos">151</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="linenos">152</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="linenos">153</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="linenos">154</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="linenos">155</span> <span class="n">sv</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">156</span>
-<span class="linenos">157</span> <span class="c1">#import plotly.express as px</span>
-<span class="linenos">158</span>
-<span class="linenos">159</span> <span class="c1">#f = px.strip(data_frame=sv, x=0, y=&#39;level_1&#39;, color=&#39;val&#39;)</span>
-<span class="linenos">160</span> <span class="c1">#f.show()</span>
-<span class="linenos">161</span>
-<span class="linenos">162</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">163</span><span class="sd"> print(sv)</span>
-<span class="linenos">164</span><span class="sd"> #sns.swarmplot(data=sv, x=0, y=&#39;level_1&#39;, color=&#39;viridis&#39;, palette=&#39;viridis&#39;)</span>
-<span class="linenos">165</span><span class="sd"> #sns.stripplot(data=sv, x=0, y=&#39;level_1&#39;, color=&#39;viridis&#39;, palette=&#39;viridis&#39;)</span>
-<span class="linenos">166</span><span class="sd"> #plt.show()</span>
-<span class="linenos">167</span><span class="sd"> import sys</span>
-<span class="linenos">168</span><span class="sd"> sys.exit()</span>
-<span class="linenos">169</span><span class="sd"> #sns.swarmplot(x=)</span>
-<span class="linenos">170</span>
-<span class="linenos">171</span><span class="sd"> import sys</span>
-<span class="linenos">172</span><span class="sd"> sys.exit()</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos">139</span> <span class="c1"># Visualize</span>
+<span class="linenos">140</span> <span class="c1"># ----------------------------------------</span>
+<span class="linenos">141</span> <span class="c1"># Initialise</span>
+<span class="linenos">142</span> <span class="n">shap</span><span class="o">.</span><span class="n">initjs</span><span class="p">()</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">145</span><span class="sd"> # Dependence plot</span>
+<span class="linenos">146</span><span class="sd"> shap.dependence_plot(0, shap_values,</span>
+<span class="linenos">147</span><span class="sd">     X_train, interaction_index=None, dot_size=5,</span>
+<span class="linenos">148</span><span class="sd">     alpha=0.5, color=&#39;#3F75BC&#39;, show=False)</span>
+<span class="linenos">149</span><span class="sd"> plt.tight_layout()</span>
+<span class="linenos">150</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">151</span>
+<span class="linenos">152</span> <span class="nb">print</span><span class="p">(</span><span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+<span class="linenos">153</span>
+<span class="linenos">154</span> <span class="c1"># Summary plot</span>
+<span class="linenos">155</span> <span class="n">plot_summary</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span> \
+<span class="linenos">156</span>     <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span>
+<span class="linenos">157</span>     <span class="n">X_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+<span class="linenos">158</span>     <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">159</span>
+<span class="linenos">160</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos">161</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">162</span>
+<span class="linenos">163</span> <span class="nb">print</span><span class="p">(</span><span class="n">plot_summary</span><span class="p">)</span>
+<span class="linenos">164</span>
+<span class="linenos">165</span>
+<span class="linenos">166</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="linenos">167</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="linenos">168</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sv</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="linenos">169</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="linenos">170</span> <span class="n">sv</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">171</span>
+<span class="linenos">172</span> <span class="c1">#import plotly.express as px</span>
 <span class="linenos">173</span>
-<span class="linenos">174</span><span class="sd"> #html = f&quot;&lt;head&gt;{shap.getjs()}&lt;/head&gt;&lt;body&gt;&quot;</span>
-<span class="linenos">175</span><span class="sd"> # Bee swarm</span>
-<span class="linenos">176</span><span class="sd"> # .. note: unexpected algorithm matplotlib!</span>
-<span class="linenos">177</span><span class="sd"> # .. note: does not return an object!</span>
-<span class="linenos">178</span><span class="sd"> plot_bee = shap.plots.beeswarm(shap_values, show=False)</span>
-<span class="linenos">179</span>
-<span class="linenos">180</span><span class="sd"> # Sow</span>
-<span class="linenos">181</span><span class="sd"> print(&quot;\nBEE&quot;)</span>
-<span class="linenos">182</span><span class="sd"> print(plot_bee)</span>
-<span class="linenos">183</span>
-<span class="linenos">184</span><span class="sd"> #print(f)</span>
-<span class="linenos">185</span><span class="sd"> # Waterfall</span>
-<span class="linenos">186</span><span class="sd"> # .. note: not working!</span>
-<span class="linenos">187</span><span class="sd"> #shap.plots.waterfall(shap_values[0], max_display=14)</span>
+<span class="linenos">174</span> <span class="c1">#f = px.strip(data_frame=sv, x=0, y=&#39;level_1&#39;, color=&#39;val&#39;)</span>
+<span class="linenos">175</span> <span class="c1">#f.show()</span>
+<span class="linenos">176</span>
+<span class="linenos">177</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">178</span><span class="sd"> print(sv)</span>
+<span class="linenos">179</span><span class="sd"> #sns.swarmplot(data=sv, x=0, y=&#39;level_1&#39;, color=&#39;viridis&#39;, palette=&#39;viridis&#39;)</span>
+<span class="linenos">180</span><span class="sd"> #sns.stripplot(data=sv, x=0, y=&#39;level_1&#39;, color=&#39;viridis&#39;, palette=&#39;viridis&#39;)</span>
+<span class="linenos">181</span><span class="sd"> #plt.show()</span>
+<span class="linenos">182</span><span class="sd"> import sys</span>
+<span class="linenos">183</span><span class="sd"> sys.exit()</span>
+<span class="linenos">184</span><span class="sd"> #sns.swarmplot(x=)</span>
+<span class="linenos">185</span>
+<span class="linenos">186</span><span class="sd"> import sys</span>
+<span class="linenos">187</span><span class="sd"> sys.exit()</span>
 <span class="linenos">188</span>
-<span class="linenos">189</span><span class="sd"> # Force plot</span>
-<span class="linenos">190</span><span class="sd"> # .. note: not working!</span>
-<span class="linenos">191</span><span class="sd"> plot_force = shap.plots.force(explainer.expected_value,</span>
-<span class="linenos">192</span><span class="sd">     explainer.shap_values(X_train), X_train,</span>
-<span class="linenos">193</span><span class="sd">     matplotlib=False, show=False)</span>
+<span class="linenos">189</span><span class="sd"> #html = f&quot;&lt;head&gt;{shap.getjs()}&lt;/head&gt;&lt;body&gt;&quot;</span>
+<span class="linenos">190</span><span class="sd"> # Bee swarm</span>
+<span class="linenos">191</span><span class="sd"> # .. note: unexpected algorithm matplotlib!</span>
+<span class="linenos">192</span><span class="sd"> # .. note: does not return an object!</span>
+<span class="linenos">193</span><span class="sd"> plot_bee = shap.plots.beeswarm(shap_values, show=False)</span>
 <span class="linenos">194</span>
-<span class="linenos">195</span><span class="sd"> # Show</span>
-<span class="linenos">196</span><span class="sd"> print(&quot;\nFORCE:&quot;)</span>
-<span class="linenos">197</span><span class="sd"> print(plot_force)</span>
-<span class="linenos">198</span><span class="sd"> print(plot_force.html())</span>
-<span class="linenos">199</span><span class="sd"> print(shap.save_html(&#39;e.html&#39;, plot_force))</span>
-<span class="linenos">200</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">195</span><span class="sd"> # Sow</span>
+<span class="linenos">196</span><span class="sd"> print(&quot;\nBEE&quot;)</span>
+<span class="linenos">197</span><span class="sd"> print(plot_bee)</span>
+<span class="linenos">198</span>
+<span class="linenos">199</span><span class="sd"> #print(f)</span>
+<span class="linenos">200</span><span class="sd"> # Waterfall</span>
+<span class="linenos">201</span><span class="sd"> # .. note: not working!</span>
+<span class="linenos">202</span><span class="sd"> #shap.plots.waterfall(shap_values[0], max_display=14)</span>
+<span class="linenos">203</span>
+<span class="linenos">204</span><span class="sd"> # Force plot</span>
+<span class="linenos">205</span><span class="sd"> # .. note: not working!</span>
+<span class="linenos">206</span><span class="sd"> plot_force = shap.plots.force(explainer.expected_value,</span>
+<span class="linenos">207</span><span class="sd">     explainer.shap_values(X_train), X_train,</span>
+<span class="linenos">208</span><span class="sd">     matplotlib=False, show=False)</span>
+<span class="linenos">209</span>
+<span class="linenos">210</span><span class="sd"> # Show</span>
+<span class="linenos">211</span><span class="sd"> print(&quot;\nFORCE:&quot;)</span>
+<span class="linenos">212</span><span class="sd"> print(plot_force)</span>
+<span class="linenos">213</span><span class="sd"> print(plot_force.html())</span>
+<span class="linenos">214</span><span class="sd"> print(shap.save_html(&#39;e.html&#39;, plot_force))</span>
+<span class="linenos">215</span><span class="sd"> &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.932 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.036 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-shap-plot-main01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0a115c434525ea3dcfbb0b79393e8252/plot_main01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01.py</span></code></a></p>
@@ -417,7 +494,7 @@ None
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../scikits/plot_threshold_moving.html" class="btn btn-neutral float-left" title="06. Threshold moving approaches" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_main02.html" class="btn btn-neutral float-right" title="02. Basic example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_main02.html" class="btn btn-neutral float-right" title="02. Explainers Across ML Classifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

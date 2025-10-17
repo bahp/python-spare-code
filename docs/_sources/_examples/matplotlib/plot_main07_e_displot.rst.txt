@@ -18,12 +18,25 @@
 .. _sphx_glr__examples_matplotlib_plot_main07_e_displot.py:
 
 
-07.e ``sns.displot``
--------------------------
+07.e 3D Data with ``sns.displot``
+============================================
 
 Figure-level interface for drawing distribution plots onto a FacetGrid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-142
+This script demonstrates how to use the figure-level function
+``seaborn.displot`` to create a 2D histogram where the bins are
+colored by the values of a third, continuous variable. 🎨
+
+The core technique involves:
+    - Plotting two variables on the x and y axes to show their
+      joint distribution (in this case, `timestep` and `shap_values`).
+    - Using the `hue` parameter to map a third variable
+      (`feature_values`) to the color of each bin, effectively
+      visualizing a third dimension on a 2D plot.
+    - Leveraging Seaborn's `hue_norm` to correctly scale the
+      colormap to the range of the third variable.
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-155
 
 
 
@@ -49,6 +62,10 @@ Figure-level interface for drawing distribution plots onto a FacetGrid.
     75%    188994.000000   749.250000     5.000000        0.000000     0.012057
     max    251985.000000   999.000000     6.000000        0.600000     0.789859
      0. Computing... C-Reactive Protein
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main07_e_displot.py:155: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 
 
 
@@ -58,7 +75,7 @@ Figure-level interface for drawing distribution plots onto a FacetGrid.
 |
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 22
 
 
     import pandas as pd
@@ -198,7 +215,7 @@ Figure-level interface for drawing distribution plots onto a FacetGrid.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.725 seconds)
+   **Total running time of the script:** ( 0 minutes  2.860 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main07_e_displot.py:

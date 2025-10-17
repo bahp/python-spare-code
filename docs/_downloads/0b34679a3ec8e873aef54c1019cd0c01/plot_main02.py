@@ -1,9 +1,28 @@
 """
-02. Basic example
-=================
+02. Explainers Across ML Classifiers
+=========================================================
+This script serves as a practical guide to applying the SHAP
+library across a diverse set of machine learning algorithms.
+It highlights a critical concept in model interpretability:
+different model architectures require specific types of SHAP
+explainers for accurate and efficient computation. 🤖
 
-Computing SHAP values for different classifiers to understand which
-type of SHAP explainers can be used with the different algorithms.
+The workflow includes:
+
+    - **Training Various Models:** A suite of classifiers from scikit-learn
+      and XGBoost are trained, including LogisticRegression, RandomForestClassifier,
+      SVC, and XGBClassifier.
+    - **Applying Appropriate Explainers:** The script demonstrates how to select
+      and use different explainers, primarily contrasting the model-agnostic
+      shap.KernelExplainer with the highly optimized explainer for tree-based
+      models.
+    - **Visual Comparison:** For each classifier, a SHAP summary plot is generated,
+      allowing for a side-by-side comparison of feature importances as interpreted
+      by each model.
+
+This example is invaluable for understanding the practical nuances
+of using SHAP and for choosing the correct approach to explain the
+predictions of your specific machine learning model.
 
 """
 # Generic
@@ -156,17 +175,15 @@ for clf in clfs:
 
 
         # Show information
-        print("base value: %s" % \
-              explainer.expected_value)
-        #print("shap_values: %s" % \
-        #      str(shap_values.shape))
+        print("base value: %s" % explainer.expected_value)
+        #print("shap_values: %s" % str(shap_values.shape))
 
         # Summary plot
         plt.figure()
-        plot_summary = shap.summary_plot( \
+        plot_summary = shap.summary_plot(
             explainer.shap_values(X_train),
-            X_train, cmap='viridis',
-            show=False)
+            X_train, cmap='viridis', show=False
+        )
 
         # Format
         plt.title(clf.__class__.__name__)

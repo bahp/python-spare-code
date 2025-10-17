@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>06. Threshold moving approaches &mdash; python-spare-code 0.0.1 documentation</title>
@@ -26,7 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="01. Basic example" href="../shap/plot_main01.html" />
+    <link rel="next" title="01. A practical example" href="../shap/plot_main01.html" />
     <link rel="prev" title="05. IQRFilter" href="plot_sklearn_iqr.html" /> 
 </head>
 
@@ -76,7 +76,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -124,40 +123,40 @@ to download the full example code</p>
 <ul class="sphx-glr-horizontal">
 <li><img src="../../_images/sphx_glr_plot_threshold_moving_001.png" srcset="../../_images/sphx_glr_plot_threshold_moving_001.png" alt="plot threshold moving" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_threshold_moving_002.png" srcset="../../_images/sphx_glr_plot_threshold_moving_002.png" alt="plot threshold moving" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_threshold_moving_003.png" srcset="../../_images/sphx_glr_plot_threshold_moving_003.png" alt="From 'roc_curve', th=0.03, npv=0.12, ppv=0.964" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_threshold_moving_004.png" srcset="../../_images/sphx_glr_plot_threshold_moving_004.png" alt="From 'manual thresholds', th=0.596, npv=0.8, ppv=0.481" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_threshold_moving_003.png" srcset="../../_images/sphx_glr_plot_threshold_moving_003.png" alt="From 'roc_curve', th=0.04, npv=0.093, ppv=0.966" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_threshold_moving_004.png" srcset="../../_images/sphx_glr_plot_threshold_moving_004.png" alt="From 'manual thresholds', th=0.495, npv=0.8, ppv=0.406" class = "sphx-glr-multi-img"/></li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Results from &#39;roc_curve&#39;
-          th       ppv       npv      sens      spec     gmean
-60  0.000000  0.951872       NaN  1.000000  0.000000  0.000000
-59  0.003333  0.960158  0.098686  0.866667  0.288732  0.326215
-58  0.010000  0.960536  0.100850  0.866667  0.295775  0.357351
-57  0.015000  0.962436  0.111517  0.866667  0.330986  0.356034
-56  0.020000  0.962816  0.113620  0.866667  0.338028  0.384561
-..       ...       ...       ...       ...       ...       ...
-4   0.920000  0.984230  0.053858  0.155556  0.950704  0.541256
-3   0.950000  0.981649  0.052550  0.133333  0.950704  0.535588
-2   0.960000  0.984230  0.052919  0.133333  0.957746  0.506298
-1   1.000000  0.981135  0.051664  0.111111  0.957746  0.500235
-0   2.000000       NaN  0.048128  0.000000  1.000000  0.000000
+       th       ppv       npv      sens      spec     gmean
+69  0.000  0.951872       NaN  1.000000  0.000000  0.000000
+68  0.010  0.961945  0.085375  0.795455  0.377622  0.256511
+67  0.015  0.962139  0.081454  0.772727  0.398601  0.296193
+66  0.020  0.963411  0.085375  0.772727  0.419580  0.295118
+65  0.030  0.963836  0.086675  0.772727  0.426573  0.292956
+..    ...       ...       ...       ...       ...       ...
+4   0.970  0.969824  0.049887  0.090909  0.944056  0.574130
+3   0.980  0.977196  0.050589  0.090909  0.958042  0.569404
+2   0.990  0.980924  0.050939  0.090909  0.965035  0.554987
+1   1.000  0.974726  0.049759  0.068182  0.965035  0.548071
+0     inf       NaN  0.048128  0.000000  1.000000  0.000000
 
-[61 rows x 6 columns]
+[70 rows x 6 columns]
 
 
 Results from manual
           th       ppv       npv      sens      spec
-0   0.000000  0.278571  0.872340  0.866667  0.288732
-1   0.010101  0.291045  0.886792  0.866667  0.330986
-2   0.020202  0.300000  0.894737  0.866667  0.359155
-3   0.030303  0.296000  0.870968  0.822222  0.380282
-4   0.040404  0.300813  0.875000  0.822222  0.394366
+0   0.000000  0.282258  0.857143  0.795455  0.377622
+1   0.010101  0.283333  0.850746  0.772727  0.398601
+2   0.020202  0.293103  0.859155  0.772727  0.426573
+3   0.030303  0.303571  0.866667  0.772727  0.454545
+4   0.040404  0.305556  0.860759  0.750000  0.475524
 ..       ...       ...       ...       ...       ...
-95  0.959596  0.500000  0.777143  0.133333  0.957746
-96  0.969697  0.454545  0.772727  0.111111  0.957746
-97  0.979798  0.454545  0.772727  0.111111  0.957746
-98  0.989899  0.454545  0.772727  0.111111  0.957746
-99  1.000000       NaN  0.759358  0.000000  1.000000
+95  0.959596  0.333333  0.771429  0.090909  0.944056
+96  0.969697  0.333333  0.771429  0.090909  0.944056
+97  0.979798  0.400000  0.774011  0.090909  0.958042
+98  0.989899  0.444444  0.775281  0.090909  0.965035
+99  1.000000       NaN  0.764706  0.000000  1.000000
 
 [100 rows x 5 columns]
 </pre></div>
@@ -166,22 +165,22 @@ Results from manual
 <div class="line"><br /></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  8</span> <span class="c1"># Libraries</span>
-<span class="linenos">  9</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 10</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos"> 11</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos">  9</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 10</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos"> 11</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="linenos"> 12</span>
 <span class="linenos"> 13</span> <span class="c1"># Libraries scikits</span>
-<span class="linenos"> 14</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-<span class="linenos"> 15</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="linenos"> 16</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
-<span class="linenos"> 17</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="linenos"> 18</span> <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
-<span class="linenos"> 19</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="linenos"> 20</span> <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
-<span class="linenos"> 21</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="linenos"> 14</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="linenos"> 15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<span class="linenos"> 16</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="linenos"> 17</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="linenos"> 18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="linenos"> 19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="linenos"> 20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
+<span class="linenos"> 21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="linenos"> 22</span>
 <span class="linenos"> 23</span>
-<span class="linenos"> 24</span> <span class="k">def</span> <span class="nf">display_npv_ppv_curve</span><span class="p">(</span><span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ths</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+<span class="linenos"> 24</span> <span class="k">def</span><span class="w"> </span><span class="nf">display_npv_ppv_curve</span><span class="p">(</span><span class="n">ppv</span><span class="p">,</span> <span class="n">npv</span><span class="p">,</span> <span class="n">ths</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
 <span class="linenos"> 25</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;This method plots the curve</span>
 <span class="linenos"> 26</span>
 <span class="linenos"> 27</span><span class="sd">     Parameters</span>
@@ -203,7 +202,7 @@ Results from manual
 <span class="linenos"> 43</span>     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="linenos"> 44</span>
 <span class="linenos"> 45</span>
-<span class="linenos"> 46</span> <span class="k">def</span> <span class="nf">npv_ppv_from_sens_spec</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prev</span><span class="p">):</span>
+<span class="linenos"> 46</span> <span class="k">def</span><span class="w"> </span><span class="nf">npv_ppv_from_sens_spec</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prev</span><span class="p">):</span>
 <span class="linenos"> 47</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Compute npv and ppv.</span>
 <span class="linenos"> 48</span>
 <span class="linenos"> 49</span><span class="sd">     Parameters</span>
@@ -269,12 +268,12 @@ Results from manual
 <span class="linenos">109</span> <span class="c1"># plot_det_curve(clf, X_test, y_test, ax=ax_roc, name=name)</span>
 <span class="linenos">110</span>
 <span class="linenos">111</span> <span class="c1"># Libraries</span>
-<span class="linenos">112</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="linenos">113</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
-<span class="linenos">114</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
-<span class="linenos">115</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">RocCurveDisplay</span>
-<span class="linenos">116</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_recall_curve</span>
-<span class="linenos">117</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">PrecisionRecallDisplay</span>
+<span class="linenos">112</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="linenos">113</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="linenos">114</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_curve</span>
+<span class="linenos">115</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">RocCurveDisplay</span>
+<span class="linenos">116</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">precision_recall_curve</span>
+<span class="linenos">117</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrecisionRecallDisplay</span>
 <span class="linenos">118</span>
 <span class="linenos">119</span> <span class="c1"># Value counts</span>
 <span class="linenos">120</span> <span class="n">value_counts</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -415,9 +414,9 @@ Results from manual
 <span class="linenos">255</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="linenos">256</span>
 <span class="linenos">257</span> <span class="c1"># Metrics</span>
-<span class="linenos">258</span> <span class="k">def</span> <span class="nf">metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">258</span> <span class="k">def</span><span class="w"> </span><span class="nf">metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">259</span>     <span class="c1"># Libraries</span>
-<span class="linenos">260</span>     <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="linenos">260</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span>
 <span class="linenos">261</span>     <span class="c1"># Compute confusion matrix</span>
 <span class="linenos">262</span>     <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="o">&gt;</span><span class="n">th</span><span class="p">)</span>
 <span class="linenos">263</span>     <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -456,7 +455,7 @@ Results from manual
 <span class="linenos">296</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.457 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.506 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-scikits-plot-threshold-moving-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d667b45103fcd4a645410ba823a9c1ef/plot_threshold_moving.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_threshold_moving.py</span></code></a></p>
@@ -473,7 +472,7 @@ Results from manual
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_sklearn_iqr.html" class="btn btn-neutral float-left" title="05. IQRFilter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../shap/plot_main01.html" class="btn btn-neutral float-right" title="01. Basic example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../shap/plot_main01.html" class="btn btn-neutral float-right" title="01. A practical example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

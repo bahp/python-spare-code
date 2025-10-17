@@ -1,20 +1,43 @@
 """
-30. Dash Table
+30. Dash Table app
 ====================
 
-.. note:: https://plotly.com/python/2d-histogram-contour/
+This script creates a Dash web application that demonstrates the interactive
+capabilities of the dash_table.DataTable component. The application features
+a table that is fully editable, allowing users to modify cell values directly.
+Users can also dynamically add new rows with a button click and add new, named
+columns using an input field.
+
+The core feature of this example is the real-time link between the data table a
+nd a dcc.Graph component. Any modification to the table's data or structure—such
+as adding a row, deleting a column, or editing a cell's value—automatically
+triggers an update to a heatmap below. This provides an immediate visual
+representation of the table's data, showcasing how to build a fully interactive
+dashboard where data manipulation and visualization are seamlessly connected.
+
+.. note:: Open your browser and go to http://127.0.0.1:8050
 
 """
 
+# sphinx_gallery_thumbnail_path = '_static/images/thumbnails/thumbnail-plotly-main30-dash-table.png'
+
+# Libraries
 import dash
 from dash.dependencies import Input, Output, State
-import dash_table
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dash_table
+from dash import dcc
+from dash import html
 
-"""
-app = dash.Dash(__name__)
+try:
+    __file__
+    TERMINAL = True
+except:
+    TERMINAL = False
 
+# Create app
+app = dash.Dash('table-app')
+
+# Define layout
 app.layout = html.Div([
     html.Div([
         dcc.Input(
@@ -88,5 +111,6 @@ def display_output(rows, columns):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
-"""
+
+    if TERMINAL:
+        app.run_server(debug=True)

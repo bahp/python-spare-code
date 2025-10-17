@@ -19,25 +19,33 @@
 
 
 06.c Collateral Sensitivity Index (CRI)
-----------------------------------------------
+============================================
 
-Since the computation of the Collateral Sensitivity Index is quite
-computationally expensive, the results are saved into a .csv file
-so that can be easily loaded and displayed. This script shows a
-very basic graph of such information.
+This script creates a sophisticated, multi-panel visualization
+for pre-computed Collateral Sensitivity Index (CRI) data, designed
+for in-depth analysis of drug interactions.
 
-The generates a heatmap visualization for a dataset related to collateral
-sensitivity. It uses the Seaborn library to plot the rectangular data as
-a color-encoded matrix. The code loads the data from a CSV file, creates
-mappings for categories and colors, and then plots the heatmap using the
-loaded data and color maps. It also includes annotations, colorbar axes,
-category patches, legend elements, and formatting options to enhance the
-visualization.
+The workflow includes:
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-74
+    - Data Loading: It ingests pre-processed CRI and sample
+      frequency data from CSV files.
+    - Multi-Heatmap Layout: It generates several ``seaborn`` heatmaps:
+      one for the CRI (using a diverging colormap), another for
+      sample counts (with a log scale), and a composite heatmap
+      combining both metrics in its upper and lower triangles.
+    - Categorical Annotation: It enhances the final plot by adding
+      color-coded labels to the axes based on antibiotic categories,
+      creating a dense, information-rich figure.
+
+.. note:: Since the computation of the Collateral Sensitivity Index is quite
+          computationally expensive, the results are saved into a .csv file
+          so that can be easily loaded and displayed. This script shows a
+          very basic graph of such information.
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-82
 
 .. code-block:: default
-   :lineno-start: 19
+   :lineno-start: 27
 
     # Libraries
     import numpy as np
@@ -101,14 +109,14 @@ visualization.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-76
+.. GENERATED FROM PYTHON SOURCE LINES 83-84
 
 Let's load the data
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-112
+.. GENERATED FROM PYTHON SOURCE LINES 84-120
 
 .. code-block:: default
-   :lineno-start: 77
+   :lineno-start: 85
 
 
     # Load data
@@ -153,14 +161,14 @@ Let's load the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-114
+.. GENERATED FROM PYTHON SOURCE LINES 121-122
 
 Lets see the data
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-123
+.. GENERATED FROM PYTHON SOURCE LINES 122-131
 
 .. code-block:: default
-   :lineno-start: 114
+   :lineno-start: 122
 
     if TERMINAL:
         print("\n")
@@ -303,14 +311,14 @@ Lets see the data
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-125
+.. GENERATED FROM PYTHON SOURCE LINES 132-133
 
 Lets load the antimicrobial data and create color mapping variables
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-137
+.. GENERATED FROM PYTHON SOURCE LINES 133-145
 
 .. code-block:: default
-   :lineno-start: 126
+   :lineno-start: 134
 
 
     # Create dictionary to map category to color
@@ -331,14 +339,14 @@ Lets load the antimicrobial data and create color mapping variables
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-139
+.. GENERATED FROM PYTHON SOURCE LINES 146-147
 
 Let's display the information
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-276
+.. GENERATED FROM PYTHON SOURCE LINES 147-284
 
 .. code-block:: default
-   :lineno-start: 140
+   :lineno-start: 148
 
 
     # Loop
@@ -493,6 +501,10 @@ Let's display the information
  .. code-block:: none
 
            ('URICUL', 'ECOL'). ax==ay =>    18 | ax>ay =>     0
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_c_collateral_sensitivity.py:284: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 
 
 
@@ -500,7 +512,7 @@ Let's display the information
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.353 seconds)
+   **Total running time of the script:** ( 0 minutes  3.236 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main06_c_collateral_sensitivity.py:

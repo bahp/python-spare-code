@@ -1,8 +1,13 @@
 """
 05.a ``sns.clustermap`` basic sample
--------------------------------------
+============================================
 
-Plot a matrix dataset as a hierarchically-clustered heatmap.
+This script shows how to use ``seaborn.clustermap`` to plot a
+heatmap with a colored bar annotating the columns. While
+``clustermap`` is designed for hierarchical clustering, this
+example deactivates that feature to maintain the original data
+order. Its main purpose is to demonstrate how to visually group
+columns by passing a color mapping to the ``col_colors`` parameter.
 
 .. note:: The hierarchical clustering has been deactivated.
 

@@ -1,8 +1,13 @@
 """
-07. Plot Parallel with dengue
+07b. Dengue features (parallel)
 ===================================
 
-This example plots a parallel graph.
+This Python script uses the pandas and Plotly libraries to create
+an interactive parallel coordinates plot. This type of plot is excellent
+for visualizing and exploring relationships in datasets with many variables
+(high-dimensional data). Each vertical line represents a different variable
+(a column from the dataset), and each colored line that snakes across the
+plot represents a single data point (a row from the dataset).
 
 """
 

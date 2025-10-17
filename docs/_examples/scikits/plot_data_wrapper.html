@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>03. Dummy Data Wrapper &mdash; python-spare-code 0.0.1 documentation</title>
@@ -76,7 +76,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -122,98 +121,98 @@ to download the full example code</p>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Features:
-             0         1         2   3         4         5         6
-0          NaN       NaN       NaN NaN       NaN       NaN       NaN
-1     1.347296       NaN  0.515670 NaN       NaN       NaN       NaN
-2          NaN       NaN  0.291399 NaN       NaN       NaN       NaN
-3    -0.642526 -1.235474       NaN NaN       NaN       NaN       NaN
-4          NaN       NaN       NaN NaN       NaN  0.557416       NaN
-...        ...       ...       ...  ..       ...       ...       ...
-1995  1.635247       NaN       NaN NaN       NaN       NaN       NaN
-1996       NaN       NaN       NaN NaN       NaN -0.624596 -0.061913
-1997       NaN       NaN       NaN NaN       NaN  0.009890  0.616868
-1998       NaN       NaN       NaN NaN       NaN  1.190867  1.741777
-1999       NaN       NaN       NaN NaN  0.355378       NaN       NaN
+             0   1         2         3         4         5         6
+0          NaN NaN       NaN       NaN       NaN       NaN  0.015180
+1     0.580734 NaN       NaN  1.564946       NaN       NaN  0.779736
+2          NaN NaN  0.396652       NaN  0.776439       NaN       NaN
+3          NaN NaN       NaN -0.585224 -0.640082       NaN       NaN
+4          NaN NaN       NaN       NaN       NaN -0.506054       NaN
+...        ...  ..       ...       ...       ...       ...       ...
+1995       NaN NaN       NaN       NaN       NaN       NaN -0.135976
+1996  1.094169 NaN -0.267562 -0.422022  0.369266 -0.326363       NaN
+1997  0.092511 NaN       NaN       NaN       NaN  0.516817       NaN
+1998       NaN NaN -1.935702       NaN       NaN       NaN       NaN
+1999       NaN NaN       NaN       NaN -0.419821 -1.231021       NaN
 
 [2000 rows x 7 columns]
 
 SimpleImputer()
-             0         1         2        3         4         5         6
-0     0.041357 -0.068216 -0.031749  0.04785  0.102545 -0.036927 -0.026349
-1     1.347296 -0.068216  0.515670  0.04785  0.102545 -0.036927 -0.026349
-2     0.041357 -0.068216  0.291399  0.04785  0.102545 -0.036927 -0.026349
-3    -0.642526 -1.235474 -0.031749  0.04785  0.102545 -0.036927 -0.026349
-4     0.041357 -0.068216 -0.031749  0.04785  0.102545  0.557416 -0.026349
-...        ...       ...       ...      ...       ...       ...       ...
-1995  1.635247 -0.068216 -0.031749  0.04785  0.102545 -0.036927 -0.026349
-1996  0.041357 -0.068216 -0.031749  0.04785  0.102545 -0.624596 -0.061913
-1997  0.041357 -0.068216 -0.031749  0.04785  0.102545  0.009890  0.616868
-1998  0.041357 -0.068216 -0.031749  0.04785  0.102545  1.190867  1.741777
-1999  0.041357 -0.068216 -0.031749  0.04785  0.355378 -0.036927 -0.026349
+             0         1         2         3         4         5         6
+0     0.108353  0.041668 -0.073210  0.008829  0.031561  0.004044  0.015180
+1     0.580734  0.041668 -0.073210  1.564946  0.031561  0.004044  0.779736
+2     0.108353  0.041668  0.396652  0.008829  0.776439  0.004044  0.022744
+3     0.108353  0.041668 -0.073210 -0.585224 -0.640082  0.004044  0.022744
+4     0.108353  0.041668 -0.073210  0.008829  0.031561 -0.506054  0.022744
+...        ...       ...       ...       ...       ...       ...       ...
+1995  0.108353  0.041668 -0.073210  0.008829  0.031561  0.004044 -0.135976
+1996  1.094169  0.041668 -0.267562 -0.422022  0.369266 -0.326363  0.022744
+1997  0.092511  0.041668 -0.073210  0.008829  0.031561  0.516817  0.022744
+1998  0.108353  0.041668 -1.935702  0.008829  0.031561  0.004044  0.022744
+1999  0.108353  0.041668 -0.073210  0.008829 -0.419821 -1.231021  0.022744
 
 [2000 rows x 7 columns]
 
 SimpleImputer(strategy=&#39;median&#39;)
              0         1         2         3         4         5         6
-0     0.076763 -0.136706 -0.046341  0.083521  0.095111 -0.043407 -0.052291
-1     1.347296 -0.136706  0.515670  0.083521  0.095111 -0.043407 -0.052291
-2     0.076763 -0.136706  0.291399  0.083521  0.095111 -0.043407 -0.052291
-3    -0.642526 -1.235474 -0.046341  0.083521  0.095111 -0.043407 -0.052291
-4     0.076763 -0.136706 -0.046341  0.083521  0.095111  0.557416 -0.052291
+0     0.082040  0.001391 -0.048016  0.028946  0.034275  0.030538  0.015180
+1     0.580734  0.001391 -0.048016  1.564946  0.034275  0.030538  0.779736
+2     0.082040  0.001391  0.396652  0.028946  0.776439  0.030538  0.070572
+3     0.082040  0.001391 -0.048016 -0.585224 -0.640082  0.030538  0.070572
+4     0.082040  0.001391 -0.048016  0.028946  0.034275 -0.506054  0.070572
 ...        ...       ...       ...       ...       ...       ...       ...
-1995  1.635247 -0.136706 -0.046341  0.083521  0.095111 -0.043407 -0.052291
-1996  0.076763 -0.136706 -0.046341  0.083521  0.095111 -0.624596 -0.061913
-1997  0.076763 -0.136706 -0.046341  0.083521  0.095111  0.009890  0.616868
-1998  0.076763 -0.136706 -0.046341  0.083521  0.095111  1.190867  1.741777
-1999  0.076763 -0.136706 -0.046341  0.083521  0.355378 -0.043407 -0.052291
+1995  0.082040  0.001391 -0.048016  0.028946  0.034275  0.030538 -0.135976
+1996  1.094169  0.001391 -0.267562 -0.422022  0.369266 -0.326363  0.070572
+1997  0.092511  0.001391 -0.048016  0.028946  0.034275  0.516817  0.070572
+1998  0.082040  0.001391 -1.935702  0.028946  0.034275  0.030538  0.070572
+1999  0.082040  0.001391 -0.048016  0.028946 -0.419821 -1.231021  0.070572
 
 [2000 rows x 7 columns]
 
 StandardScaler()
-             0         1         2   3         4         5         6
-0          NaN       NaN       NaN NaN       NaN       NaN       NaN
-1     1.324088       NaN  0.519687 NaN       NaN       NaN       NaN
-2          NaN       NaN  0.306777 NaN       NaN       NaN       NaN
-3    -0.693387 -1.144427       NaN NaN       NaN       NaN       NaN
-4          NaN       NaN       NaN NaN       NaN  0.592394       NaN
-...        ...       ...       ...  ..       ...       ...       ...
-1995  1.616041       NaN       NaN NaN       NaN       NaN       NaN
-1996       NaN       NaN       NaN NaN       NaN -0.585742 -0.034735
-1997       NaN       NaN       NaN NaN       NaN  0.046663  0.628226
-1998       NaN       NaN       NaN NaN       NaN  1.223768  1.726916
-1999       NaN       NaN       NaN NaN  0.263044       NaN       NaN
+             0   1         2         3         4         5         6
+0          NaN NaN       NaN       NaN       NaN       NaN -0.007728
+1     0.484713 NaN       NaN  1.541448       NaN       NaN  0.773445
+2          NaN NaN  0.467491       NaN  0.761388       NaN       NaN
+3          NaN NaN       NaN -0.588452 -0.686530       NaN       NaN
+4          NaN NaN       NaN       NaN       NaN -0.535019       NaN
+...        ...  ..       ...       ...       ...       ...       ...
+1995       NaN NaN       NaN       NaN       NaN       NaN -0.162170
+1996  1.011552 NaN -0.193371 -0.426789  0.345191 -0.346549       NaN
+1997 -0.016255 NaN       NaN       NaN       NaN  0.537824       NaN
+1998       NaN NaN -1.853094       NaN       NaN       NaN       NaN
+1999       NaN NaN       NaN       NaN -0.461387 -1.295403       NaN
 
 [2000 rows x 7 columns]
 
 MinMaxScaler()
-             0        1         2   3         4         5         6
-0          NaN      NaN       NaN NaN       NaN       NaN       NaN
-1     0.754064      NaN  0.613530 NaN       NaN       NaN       NaN
-2          NaN      NaN  0.580622 NaN       NaN       NaN       NaN
-3     0.455813  0.27735       NaN NaN       NaN       NaN       NaN
-4          NaN      NaN       NaN NaN       NaN  0.677600       NaN
-...        ...      ...       ...  ..       ...       ...       ...
-1995  0.797225      NaN       NaN NaN       NaN       NaN       NaN
-1996       NaN      NaN       NaN NaN       NaN  0.500614  0.484694
-1997       NaN      NaN       NaN NaN       NaN  0.595618  0.599129
-1998       NaN      NaN       NaN NaN       NaN  0.772449  0.788776
-1999       NaN      NaN       NaN NaN  0.510224       NaN       NaN
+             0   1         2         3         4         5         6
+0          NaN NaN       NaN       NaN       NaN       NaN  0.506827
+1     0.487361 NaN       NaN  0.774370       NaN       NaN  0.637657
+2          NaN NaN  0.654644       NaN  0.597190       NaN       NaN
+3          NaN NaN       NaN  0.418625  0.346324       NaN       NaN
+4          NaN NaN       NaN       NaN       NaN  0.355317       NaN
+...        ...  ..       ...       ...       ...       ...       ...
+1995       NaN NaN       NaN       NaN       NaN       NaN  0.480962
+1996  0.564685 NaN  0.562043  0.445627  0.525080  0.380377       NaN
+1997  0.413834 NaN       NaN       NaN       NaN  0.497968       NaN
+1998       NaN NaN  0.329481       NaN       NaN       NaN       NaN
+1999       NaN NaN       NaN       NaN  0.385333  0.254212       NaN
 
 [2000 rows x 7 columns]
 
 RobustScaler()
-             0        1         2   3        4         5         6
-0          NaN      NaN       NaN NaN      NaN       NaN       NaN
-1     0.939936      NaN  0.391849 NaN      NaN       NaN       NaN
-2          NaN      NaN  0.235481 NaN      NaN       NaN       NaN
-3    -0.532128 -0.78906       NaN NaN      NaN       NaN       NaN
-4          NaN      NaN       NaN NaN      NaN  0.446464       NaN
-...        ...      ...       ...  ..      ...       ...       ...
-1995  1.152961      NaN       NaN NaN      NaN       NaN       NaN
-1996       NaN      NaN       NaN NaN      NaN -0.431874 -0.006734
-1997       NaN      NaN       NaN NaN      NaN  0.039604  0.468265
-1998       NaN      NaN       NaN NaN      NaN  0.917173  1.255456
-1999       NaN      NaN       NaN NaN  0.19609       NaN       NaN
+             0   1         2         3         4         5         6
+0          NaN NaN       NaN       NaN       NaN       NaN -0.041746
+1     0.399006 NaN       NaN  1.160497       NaN       NaN  0.534462
+2          NaN NaN  0.329547       NaN  0.566090       NaN       NaN
+3          NaN NaN       NaN -0.464025 -0.514371       NaN       NaN
+4          NaN NaN       NaN       NaN       NaN -0.430930       NaN
+...        ...  ..       ...       ...       ...       ...       ...
+1995       NaN NaN       NaN       NaN       NaN       NaN -0.155665
+1996  0.809806 NaN -0.162707 -0.340721  0.255517 -0.286623       NaN
+1997  0.008378 NaN       NaN       NaN       NaN  0.390524       NaN
+1998       NaN NaN -1.398980       NaN       NaN       NaN       NaN
+1999       NaN NaN       NaN       NaN -0.346365 -1.013141       NaN
 
 [2000 rows x 7 columns]
 </pre></div>
@@ -222,39 +221,39 @@ RobustScaler()
 <div class="line"><br /></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 11</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 12</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 12</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="linenos"> 13</span>
 <span class="linenos"> 14</span> <span class="c1"># Libraries specific</span>
-<span class="linenos"> 15</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="linenos"> 16</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
-<span class="linenos"> 17</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
-<span class="linenos"> 18</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Normalizer</span>
-<span class="linenos"> 19</span> <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="linenos"> 15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="linenos"> 16</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="linenos"> 17</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">RobustScaler</span>
+<span class="linenos"> 18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Normalizer</span>
+<span class="linenos"> 19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleImputer</span>
 <span class="linenos"> 20</span>
 <span class="linenos"> 21</span>
-<span class="linenos"> 22</span> <span class="k">class</span> <span class="nc">DataframeXYWrapper</span><span class="p">():</span>
+<span class="linenos"> 22</span> <span class="k">class</span><span class="w"> </span><span class="nc">DataframeXYWrapper</span><span class="p">():</span>
 <span class="linenos"> 23</span>
-<span class="linenos"> 24</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">X_columns</span><span class="p">,</span> <span class="n">y_columns</span><span class="p">):</span>
+<span class="linenos"> 24</span>     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">X_columns</span><span class="p">,</span> <span class="n">y_columns</span><span class="p">):</span>
 <span class="linenos"> 25</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos"> 26</span><span class="sd">         &quot;&quot;&quot;</span>
 <span class="linenos"> 27</span>         <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span>
 <span class="linenos"> 28</span>         <span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">=</span> <span class="n">X_columns</span>
 <span class="linenos"> 29</span>         <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span> <span class="o">=</span> <span class="n">y_columns</span>
 <span class="linenos"> 30</span>
-<span class="linenos"> 31</span>     <span class="k">def</span> <span class="nf">get_X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 31</span>     <span class="k">def</span><span class="w"> </span><span class="nf">get_X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos"> 32</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
 <span class="linenos"> 33</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span><span class="p">]</span>
 <span class="linenos"> 34</span>
-<span class="linenos"> 35</span>     <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 35</span>     <span class="k">def</span><span class="w"> </span><span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos"> 36</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;Return...&quot;&quot;&quot;</span>
 <span class="linenos"> 37</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
 <span class="linenos"> 38</span>
-<span class="linenos"> 39</span>     <span class="k">def</span> <span class="nf">get_X_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 39</span>     <span class="k">def</span><span class="w"> </span><span class="nf">get_X_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos"> 40</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;Return...</span>
 <span class="linenos"> 41</span><span class="sd">         &quot;&quot;&quot;</span>
 <span class="linenos"> 42</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_cols</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_cols</span><span class="p">]</span>
 <span class="linenos"> 43</span>
-<span class="linenos"> 44</span>     <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 44</span>     <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">requires_X</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="linenos"> 45</span>                                <span class="n">requires_y</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="linenos"> 46</span>                                <span class="n">argname_X</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
 <span class="linenos"> 47</span>                                <span class="n">argname_y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
@@ -286,7 +285,7 @@ RobustScaler()
 <span class="linenos"> 73</span> <span class="c1"># Main</span>
 <span class="linenos"> 74</span> <span class="c1"># --------------------------------------------------</span>
 <span class="linenos"> 75</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 76</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 76</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="linenos"> 77</span>
 <span class="linenos"> 78</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># number of observations</span>
 <span class="linenos"> 79</span> <span class="n">F</span> <span class="o">=</span> <span class="mi">7</span>    <span class="c1"># number of features</span>
@@ -342,7 +341,7 @@ RobustScaler()
 <span class="linenos">129</span>     <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.076 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.063 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-scikits-plot-data-wrapper-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0db5207dc88dfdbd599ca1fe23bf02a5/plot_data_wrapper.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_data_wrapper.py</span></code></a></p>

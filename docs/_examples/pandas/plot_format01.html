@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>01. Sliding window &mdash; python-spare-code 0.0.1 documentation</title>
@@ -69,11 +69,11 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">01. Sliding window</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_format02.html">02. Aggregation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_format03.html">03. Empty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_all.html">04. Format MIMIC therapy (all)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_one.html">04. Format MIMIC therapy (one)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_all.html">04. Daily Aggregation of MIMIC-III ICU Antibiotic Therapy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_format04_therapy_one.html">04. Transforming Patient Therapy Intervals to a Daily Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main01.html">99. Basic Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_profile01.html">01. <code class="docutils literal notranslate"><span class="pre">pandas_profiling</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_profile02.html">02. <code class="docutils literal notranslate"><span class="pre">dataprep</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile01.html">01. Generate an EDA Report with Pandas Profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_profile02.html">02. Generate an EDA Report with Dataprep</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
@@ -81,7 +81,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -123,34 +122,38 @@ to download the full example code</p>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Data:
       feature_0  feature_1  feature_2  feature_3  feature_4  feature_5  feature_6  feature_7  feature_8  feature_9  patient  day
-0      0.089311   0.669843   0.636815   0.691866   0.438045   0.670048   0.647059   0.497548   0.132073   0.064704        0  -16
-1      0.623224   0.100191   0.283330   0.066976   0.857515   0.064504   0.488081   0.188542   0.935137   0.399247        0  -15
-2      0.267652   0.650595   0.954580   0.596319   0.656430   0.402114   0.682637   0.800231   0.439874   0.132753        0  -14
-3      0.115091   0.043677   0.184747   0.912493   0.917703   0.712375   0.027196   0.315069   0.217029   0.985370        0  -13
-4      0.463474   0.822237   0.095631   0.567447   0.096011   0.676549   0.013525   0.840770   0.524598   0.781150        0  -12
+0      0.782839   0.579171   0.875666   0.896433   0.522666   0.424833   0.019499   0.843256   0.508497   0.023651        0  -15
+1      0.938406   0.686556   0.716277   0.474455   0.839579   0.552715   0.597967   0.308887   0.613897   0.567229        0  -14
+2      0.917493   0.842386   0.728984   0.522605   0.850795   0.407061   0.984394   0.082715   0.594869   0.059661        0  -13
+3      0.722237   0.947399   0.549326   0.725588   0.976665   0.596684   0.882883   0.594011   0.760227   0.505716        0  -12
+4      0.680577   0.052478   0.142805   0.977845   0.755283   0.091267   0.700849   0.692678   0.687108   0.046146        0  -11
 ...         ...        ...        ...        ...        ...        ...        ...        ...        ...        ...      ...  ...
-1495   0.644658   0.758443   0.591858   0.916131   0.765378   0.127884   0.800184   0.587909   0.180938   0.664073       99   -5
-1496   0.844910   0.702561   0.366853   0.425155   0.324503   0.809659   0.159465   0.539452   0.753092   0.523524       99   -4
-1497   0.024136   0.754523   0.429183   0.917456   0.971045   0.790479   0.403902   0.017655   0.146382   0.338187       99   -3
-1498   0.018974   0.699461   0.258756   0.544835   0.256932   0.162095   0.980543   0.010086   0.950997   0.523899       99   -2
-1499   0.266844   0.339369   0.333165   0.636019   0.217694   0.624248   0.679772   0.384634   0.203819   0.520705       99   -1
+1495   0.668256   0.162212   0.051996   0.768991   0.126166   0.594980   0.606882   0.973683   0.444446   0.438552       99   -5
+1496   0.074663   0.669059   0.815666   0.425611   0.900212   0.069323   0.597965   0.300225   0.087881   0.892852       99   -4
+1497   0.572242   0.856386   0.745518   0.044273   0.610881   0.320131   0.804878   0.652734   0.014684   0.986622       99   -3
+1498   0.266470   0.857181   0.888199   0.421400   0.169874   0.498681   0.395948   0.240385   0.194971   0.757166       99   -2
+1499   0.131035   0.197843   0.184269   0.605561   0.850481   0.687066   0.508127   0.683124   0.304230   0.779854       99   -1
 
 [1500 rows x 12 columns]
+C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\pandas\plot_format01.py:50: FutureWarning:
+
+DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+
 
 Result:
               feature_0  feature_1  feature_2  feature_3  feature_4  feature_5  feature_6  feature_7  feature_8  feature_9  patient  day  window
 patient
-0       0      0.089311   0.669843   0.636815   0.691866   0.438045   0.670048   0.647059   0.497548   0.132073   0.064704        0  -16       0
-        1      0.623224   0.100191   0.283330   0.066976   0.857515   0.064504   0.488081   0.188542   0.935137   0.399247        0  -15       0
-        2      0.267652   0.650595   0.954580   0.596319   0.656430   0.402114   0.682637   0.800231   0.439874   0.132753        0  -14       0
-        1      0.623224   0.100191   0.283330   0.066976   0.857515   0.064504   0.488081   0.188542   0.935137   0.399247        0  -15       1
-        2      0.267652   0.650595   0.954580   0.596319   0.656430   0.402114   0.682637   0.800231   0.439874   0.132753        0  -14       1
+0       0      0.782839   0.579171   0.875666   0.896433   0.522666   0.424833   0.019499   0.843256   0.508497   0.023651        0  -15       0
+        1      0.938406   0.686556   0.716277   0.474455   0.839579   0.552715   0.597967   0.308887   0.613897   0.567229        0  -14       0
+        2      0.917493   0.842386   0.728984   0.522605   0.850795   0.407061   0.984394   0.082715   0.594869   0.059661        0  -13       0
+        1      0.938406   0.686556   0.716277   0.474455   0.839579   0.552715   0.597967   0.308887   0.613897   0.567229        0  -14       1
+        2      0.917493   0.842386   0.728984   0.522605   0.850795   0.407061   0.984394   0.082715   0.594869   0.059661        0  -13       1
 ...                 ...        ...        ...        ...        ...        ...        ...        ...        ...        ...      ...  ...     ...
-99      1497   0.024136   0.754523   0.429183   0.917456   0.971045   0.790479   0.403902   0.017655   0.146382   0.338187       99   -3      14
-        1498   0.018974   0.699461   0.258756   0.544835   0.256932   0.162095   0.980543   0.010086   0.950997   0.523899       99   -2      14
-        1497   0.024136   0.754523   0.429183   0.917456   0.971045   0.790479   0.403902   0.017655   0.146382   0.338187       99   -3      15
-        1498   0.018974   0.699461   0.258756   0.544835   0.256932   0.162095   0.980543   0.010086   0.950997   0.523899       99   -2      15
-        1499   0.266844   0.339369   0.333165   0.636019   0.217694   0.624248   0.679772   0.384634   0.203819   0.520705       99   -1      15
+99      1497   0.572242   0.856386   0.745518   0.044273   0.610881   0.320131   0.804878   0.652734   0.014684   0.986622       99   -3      13
+        1498   0.266470   0.857181   0.888199   0.421400   0.169874   0.498681   0.395948   0.240385   0.194971   0.757166       99   -2      13
+        1497   0.572242   0.856386   0.745518   0.044273   0.610881   0.320131   0.804878   0.652734   0.014684   0.986622       99   -3      14
+        1498   0.266470   0.857181   0.888199   0.421400   0.169874   0.498681   0.395948   0.240385   0.194971   0.757166       99   -2      14
+        1499   0.131035   0.197843   0.184269   0.605561   0.850481   0.687066   0.508127   0.683124   0.304230   0.779854       99   -1      14
 
 [3900 rows x 13 columns]
 </pre></div>
@@ -162,8 +165,8 @@ patient
 <span class="linenos"> 7</span> <span class="c1"># np.lib.stride_tricks.sliding_window_view(df.index, 3)</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span> <span class="c1"># Libraries</span>
-<span class="linenos">10</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos">11</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos">10</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">11</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span> <span class="c1"># Configuration</span>
 <span class="linenos">14</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span> <span class="o">=</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">10</span>
@@ -188,7 +191,7 @@ patient
 <span class="linenos">33</span> <span class="c1"># ----------------------------------</span>
 <span class="linenos">34</span> <span class="c1"># Method I: Own method</span>
 <span class="linenos">35</span> <span class="c1"># ----------------------------------</span>
-<span class="linenos">36</span> <span class="k">def</span> <span class="nf">sliding_window_iter</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">include_id</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="linenos">36</span> <span class="k">def</span><span class="w"> </span><span class="nf">sliding_window_iter</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">include_id</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="linenos">37</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;series is a column of a DataFrame.</span>
 <span class="linenos">38</span>
 <span class="linenos">39</span><span class="sd">     .. note: The DataFrame should be pre-ordered to ensure</span>
@@ -218,7 +221,7 @@ patient
 <span class="linenos">63</span> <span class="c1">#print(c)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.531 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.276 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-pandas-plot-format01-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/4b652c73a3b81eb96a004b331dd44fa5/plot_format01.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_format01.py</span></code></a></p>

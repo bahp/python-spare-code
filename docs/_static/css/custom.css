@@ -193,3 +193,69 @@ code.literal {
 	top:1px;
 }
 
+
+/* Thumbnails de Sphinx-Gallery en todas las secciones */
+.sphx-glr-thumbcontainer {
+  display: inline-block;
+  vertical-align: top;
+  width: 18%;              /* más estrechos: 4–5 por fila */
+  min-width: 160px;
+  border-radius: 6px;      /* esquinas suaves */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  padding: 6px;
+  background: #fff;
+  margin: 0.8%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Hover */
+.sphx-glr-thumbcontainer:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Figure */
+.sphx-glr-thumbcontainer figure {
+  margin: 0;
+}
+
+/* Imagen adaptada */
+.sphx-glr-thumbcontainer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-bottom: 3px;      /* menos espacio entre imagen y texto */
+}
+
+/* Caption: texto alineado a la izquierda, no justificado */
+.sphx-glr-thumbcontainer figcaption {
+  margin-top: 2px;
+  font-size: 0.9em;
+  color: #333;
+  line-height: 1.25;
+  max-width: 90%;
+  padding-left: 4px;
+  text-align: left;
+}
+
+/* 🔹 Sobrescribe <p> heredado con texto justificado */
+.sphx-glr-thumbcontainer figcaption p {
+  text-align: left !important;
+  margin: 0;               /* elimina márgenes extra del tema */
+}
+
+/* Enlaces del caption */
+.sphx-glr-thumbcontainer .caption-text a {
+  text-decoration: none;
+  color: #0055aa;
+}
+
+/* 🔹 Extra top margin for sections inside #general within .document */
+.document > div > section#general > section {
+  margin-top: 50px;
+}
+

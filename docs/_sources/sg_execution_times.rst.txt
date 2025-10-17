@@ -1,0 +1,274 @@
+
+:orphan:
+
+.. _sphx_glr_sg_execution_times:
+
+
+Computation times
+=================
+**00:49.260** total execution time for 80 files **from all galleries**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr__examples_plotly_plot_main11_updatemenus.py` (``..\..\examples\plotly\plot_main11_updatemenus.py``)
+     - 00:09.798
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_drug_resistance_index.py` (``..\..\examples\utils\plot_drug_resistance_index.py``)
+     - 00:07.283
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main07_parallel_v2.py` (``..\..\examples\plotly\plot_main07_parallel_v2.py``)
+     - 00:06.705
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main05_boxplot_sepsis_shap.py` (``..\..\examples\plotly\plot_main05_boxplot_sepsis_shap.py``)
+     - 00:04.260
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main07_parallel_v1.py` (``..\..\examples\plotly\plot_main07_parallel_v1.py``)
+     - 00:03.609
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main01_roc.py` (``..\..\examples\plotly\plot_main01_roc.py``)
+     - 00:03.311
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main10_weather.py` (``..\..\examples\plotly\plot_main10_weather.py``)
+     - 00:02.419
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main02_distributions.py` (``..\..\examples\plotly\plot_main02_distributions.py``)
+     - 00:02.315
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main04_2dhist.py` (``..\..\examples\plotly\plot_main04_2dhist.py``)
+     - 00:02.050
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main03_sparklines.py` (``..\..\examples\plotly\plot_main03_sparklines.py``)
+     - 00:01.969
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main06_treemap_v1.py` (``..\..\examples\plotly\plot_main06_treemap_v1.py``)
+     - 00:01.924
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main08_sankey_v1.py` (``..\..\examples\plotly\plot_main08_sankey_v1.py``)
+     - 00:01.901
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_generate_data_AST.py` (``..\..\examples\utils\plot_generate_data_AST.py``)
+     - 00:01.714
+     - 0.0
+   * - :ref:`sphx_glr__examples_factory-boy_microbiology.py` (``..\..\examples\factory-boy\microbiology.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_jsonpickle_main.py` (``..\..\examples\jsonpickle\main.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_ldap-tests_script_01.py` (``..\..\examples\ldap-tests\script_01.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main01_imshow.py` (``..\..\examples\matplotlib\plot_main01_imshow.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main02_hexbin.py` (``..\..\examples\matplotlib\plot_main02_hexbin.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main03_hist2d.py` (``..\..\examples\matplotlib\plot_main03_hist2d.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main04_gmm_kde.py` (``..\..\examples\matplotlib\plot_main04_gmm_kde.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main05_a_clustermap.py` (``..\..\examples\matplotlib\plot_main05_a_clustermap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main05_b_clustermap.py` (``..\..\examples\matplotlib\plot_main05_b_clustermap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main05_c_clustermap.py` (``..\..\examples\matplotlib\plot_main05_c_clustermap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main06_a_heatmap.py` (``..\..\examples\matplotlib\plot_main06_a_heatmap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main06_b_heatmap.py` (``..\..\examples\matplotlib\plot_main06_b_heatmap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main06_c_collateral_sensitivity.py` (``..\..\examples\matplotlib\plot_main06_c_collateral_sensitivity.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main06_d_collateral_sensitivity.py` (``..\..\examples\matplotlib\plot_main06_d_collateral_sensitivity.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main07_a_2dbin_stat.py` (``..\..\examples\matplotlib\plot_main07_a_2dbin_stat.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main07_b_2dbin_heatmap.py` (``..\..\examples\matplotlib\plot_main07_b_2dbin_heatmap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main07_c_2dbin_fake.py` (``..\..\examples\matplotlib\plot_main07_c_2dbin_fake.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main07_d_2dbin_shap.py` (``..\..\examples\matplotlib\plot_main07_d_2dbin_shap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main07_e_displot.py` (``..\..\examples\matplotlib\plot_main07_e_displot.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main08_table.py` (``..\..\examples\matplotlib\plot_main08_table.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main09_tripcolor.py` (``..\..\examples\matplotlib\plot_main09_tripcolor.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main10_violin_cmap.py` (``..\..\examples\matplotlib\plot_main10_violin_cmap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main20_animation.py` (``..\..\examples\matplotlib\plot_main20_animation.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_matplotlib_plot_main30_boxplot_sepsis_shap.py` (``..\..\examples\matplotlib\plot_main30_boxplot_sepsis_shap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_other_plot_main01_segment_anything.py` (``..\..\examples\other\plot_main01_segment_anything.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_other_plot_main02_favicons.py` (``..\..\examples\other\plot_main02_favicons.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_format05_damien_sepsis.py` (``..\..\examples\pandas\format05_damien_sepsis.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_format06_stacked_oucru_v1.py` (``..\..\examples\pandas\format06_stacked_oucru_v1.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_format06_stacked_oucru_v2.py` (``..\..\examples\pandas\format06_stacked_oucru_v2.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_format01.py` (``..\..\examples\pandas\plot_format01.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_format02.py` (``..\..\examples\pandas\plot_format02.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_format03.py` (``..\..\examples\pandas\plot_format03.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_format04_therapy_all.py` (``..\..\examples\pandas\plot_format04_therapy_all.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_format04_therapy_one.py` (``..\..\examples\pandas\plot_format04_therapy_one.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_main01.py` (``..\..\examples\pandas\plot_main01.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_profile01.py` (``..\..\examples\pandas\plot_profile01.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_pandas_plot_profile02.py` (``..\..\examples\pandas\plot_profile02.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main12_mpl2ply.py` (``..\..\examples\plotly\plot_main12_mpl2ply.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main12_mpl2ply_shap.py` (``..\..\examples\plotly\plot_main12_mpl2ply_shap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_plotly_plot_main30_dash_table.py` (``..\..\examples\plotly\plot_main30_dash_table.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_scikits_plot_data_skfold_test.py` (``..\..\examples\scikits\plot_data_skfold_test.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_scikits_plot_data_splitters.py` (``..\..\examples\scikits\plot_data_splitters.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_scikits_plot_data_wrapper.py` (``..\..\examples\scikits\plot_data_wrapper.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_scikits_plot_param_grid.py` (``..\..\examples\scikits\plot_param_grid.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_scikits_plot_sklearn_iqr.py` (``..\..\examples\scikits\plot_sklearn_iqr.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_scikits_plot_threshold_moving.py` (``..\..\examples\scikits\plot_threshold_moving.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main01.py` (``..\..\examples\shap\plot_main01.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main02.py` (``..\..\examples\shap\plot_main02.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main04.py` (``..\..\examples\shap\plot_main04.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main05.py` (``..\..\examples\shap\plot_main05.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main05_stripplot.py` (``..\..\examples\shap\plot_main05_stripplot.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main05_summaryplot.py` (``..\..\examples\shap\plot_main05_summaryplot.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main05_swarmplot.py` (``..\..\examples\shap\plot_main05_swarmplot.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main07.py` (``..\..\examples\shap\plot_main07.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_plot_main08.py` (``..\..\examples\shap\plot_main08.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_shap_temp.py` (``..\..\examples\shap\temp.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_tableone_plot_main01.py` (``..\..\examples\tableone\plot_main01.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_tableone_plot_main02.py` (``..\..\examples\tableone\plot_main02.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_tensorflow_gunn_review_keras.py` (``..\..\examples\tensorflow\gunn_review_keras.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_tpot_main01.py` (``..\..\examples\tpot\main01.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_mic.py` (``..\..\examples\utils\mic.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_collateral_sensitivity.py` (``..\..\examples\utils\plot_collateral_sensitivity.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_multi_armed_bandit.py` (``..\..\examples\utils\plot_multi_armed_bandit.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_mutual_information.py` (``..\..\examples\utils\plot_mutual_information.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_planet_orbit_v1.py` (``..\..\examples\utils\plot_planet_orbit_v1.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_planet_orbit_v2.py` (``..\..\examples\utils\plot_planet_orbit_v2.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr__examples_utils_plot_scale_colormap.py` (``..\..\examples\utils\plot_scale_colormap.py``)
+     - 00:00.000
+     - 0.0

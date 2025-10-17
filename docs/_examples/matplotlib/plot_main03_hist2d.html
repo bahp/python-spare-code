@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>03. mpl.hist2d &mdash; python-spare-code 0.0.1 documentation</title>
+  <title>03. 2D histograms and density plots &mdash; python-spare-code 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="04. Plot GMM and KDE" href="plot_main04_gmm_kde.html" />
-    <link rel="prev" title="02. mpl.hexbin" href="plot_main02_hexbin.html" /> 
+    <link rel="next" title="0.4 Visualizing GMM and KDE" href="plot_main04_gmm_kde.html" />
+    <link rel="prev" title="02. Point density with matplotlib.hexbin" href="plot_main02_hexbin.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,10 +61,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">04. Plot GMM and KDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. 2D array with <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">02. Point density with <code class="docutils literal notranslate"><span class="pre">matplotlib.hexbin</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">03. 2D histograms and density plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">0.4 Visualizing GMM and KDE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_a_clustermap.html">05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_b_clustermap.html">05.b <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> with <code class="docutils literal notranslate"><span class="pre">network.csv</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_c_clustermap.html">05.c <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> multiple categories</a></li>
@@ -76,12 +76,12 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_b_2dbin_heatmap.html">07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_c_2dbin_fake.html">07.c <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with fake data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_d_2dbin_shap.html">07.d <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with <code class="docutils literal notranslate"><span class="pre">shap.csv</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code> with <code class="docutils literal notranslate"><span class="pre">plt.table</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Animation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">30. Sample shap.csv boxplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e 3D Data with <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. Stacked bar chart with data table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. Triangular grids with <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. Violin plot with linear colormap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Basic animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_boxplot_sepsis_shap.html">11. Visualizing SHAP across timesteps</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
@@ -91,7 +91,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -113,7 +112,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
-      <li class="breadcrumb-item active">03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></li>
+      <li class="breadcrumb-item active">03. 2D histograms and density plots</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/matplotlib/plot_main03_hist2d.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -128,89 +127,107 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-examples-matplotlib-plot-main03-hist2d-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="mpl-hist2d">
-<span id="sphx-glr-examples-matplotlib-plot-main03-hist2d-py"></span><h1>03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code><a class="headerlink" href="#mpl-hist2d" title="Permalink to this heading"></a></h1>
-<p>Make a 2D histogram plot.</p>
+<section class="sphx-glr-example-title" id="d-histograms-and-density-plots">
+<span id="sphx-glr-examples-matplotlib-plot-main03-hist2d-py"></span><h1>03. 2D histograms and density plots<a class="headerlink" href="#d-histograms-and-density-plots" title="Permalink to this heading"></a></h1>
+<p>This script demonstrates three techniques for visualizing the
+density of a large 2D dataset, which helps to avoid overplotting
+in standard scatter plots. It compares:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.hist2d</span></code> for square binning.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.hexbin</span></code> for hexagonal binning.</p></li>
+<li><p>A smooth density plot using Kernel Density Estimation (KDE).</p></li>
+</ul>
+</div></blockquote>
 <p>See: <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html">https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html</a></p>
 <ul class="sphx-glr-horizontal">
 <li><img src="../../_images/sphx_glr_plot_main03_hist2d_001.png" srcset="../../_images/sphx_glr_plot_main03_hist2d_001.png" alt="Counts (square bin)" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_main03_hist2d_002.png" srcset="../../_images/sphx_glr_plot_main03_hist2d_002.png" alt="Counts (hexagonal bin)" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_main03_hist2d_003.png" srcset="../../_images/sphx_glr_plot_main03_hist2d_003.png" alt="KDE estimation" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">10</span> <span class="c1"># Libraries</span>
-<span class="linenos">11</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos">12</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span> <span class="c1"># Specific library</span>
-<span class="linenos">15</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="linenos">16</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
-<span class="linenos">17</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
-<span class="linenos">18</span>
-<span class="linenos">19</span> <span class="c1"># ----------------------------</span>
-<span class="linenos">20</span> <span class="c1"># Load data</span>
-<span class="linenos">21</span> <span class="c1"># ----------------------------</span>
-<span class="linenos">22</span> <span class="c1"># Create data</span>
-<span class="linenos">23</span> <span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="linenos">24</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
-<span class="linenos">25</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="linenos">26</span>
-<span class="linenos">27</span> <span class="c1"># Create data</span>
-<span class="linenos">28</span> <span class="n">data</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">8000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<span class="linenos">29</span>     <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_repeated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<span class="linenos">30</span>     <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flip_y</span><span class="o">=</span><span class="mf">0.00</span><span class="p">,</span>
-<span class="linenos">31</span>     <span class="n">class_sep</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">hypercube</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-<span class="linenos">32</span>     <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
-<span class="linenos">33</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span>
-<span class="linenos">36</span> <span class="c1"># ----------------------------</span>
-<span class="linenos">37</span> <span class="c1"># Visualize</span>
-<span class="linenos">38</span> <span class="c1"># ----------------------------</span>
-<span class="linenos">39</span> <span class="c1"># Plot hist</span>
-<span class="linenos">40</span> <span class="n">f1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
-<span class="linenos">41</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-<span class="linenos">42</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;counts in bin&#39;</span><span class="p">)</span>
-<span class="linenos">43</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Counts (square bin)&#39;</span><span class="p">)</span>
-<span class="linenos">44</span>
-<span class="linenos">45</span> <span class="c1"># Plot hex</span>
-<span class="linenos">46</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="linenos">47</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
-<span class="linenos">48</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-<span class="linenos">49</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;counts in bin&#39;</span><span class="p">)</span>
-<span class="linenos">50</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Counts (hexagonal bin)&#39;</span><span class="p">)</span>
-<span class="linenos">51</span>
-<span class="linenos">52</span> <span class="c1"># Plot density</span>
-<span class="linenos">53</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
-<span class="linenos">54</span> <span class="n">kde</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="linenos">55</span>
-<span class="linenos">56</span> <span class="c1"># Parameters</span>
-<span class="linenos">57</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="linenos">58</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">59</span>
-<span class="linenos">60</span> <span class="c1"># evaluate on a regular grid</span>
-<span class="linenos">61</span> <span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="linenos">62</span> <span class="n">ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="linenos">63</span> <span class="n">Xgrid</span><span class="p">,</span> <span class="n">Ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
-<span class="linenos">64</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">kde</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
-<span class="linenos">65</span>     <span class="n">Xgrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
-<span class="linenos">66</span>     <span class="n">Ygrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="linenos">67</span> <span class="p">]))</span>
-<span class="linenos">68</span>
-<span class="linenos">69</span> <span class="c1"># Plot the result as an image</span>
-<span class="linenos">70</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="linenos">71</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Xgrid</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
-<span class="linenos">72</span>            <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-<span class="linenos">73</span>            <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">],</span>
-<span class="linenos">74</span>            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
-<span class="linenos">75</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-<span class="linenos">76</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;density&quot;</span><span class="p">)</span>
-<span class="linenos">77</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;KDE estimation&quot;</span><span class="p">)</span>
-<span class="linenos">78</span>
-<span class="linenos">79</span> <span class="c1"># Show</span>
-<span class="linenos">80</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main03_hist2d.py:86: UserWarning:
+
+FigureCanvasAgg is non-interactive, and thus cannot be shown
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.511 seconds)</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">16</span> <span class="c1"># Libraries</span>
+<span class="linenos">17</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">18</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span> <span class="c1"># Specific library</span>
+<span class="linenos">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="linenos">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+<span class="linenos">23</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussian_kde</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span> <span class="c1"># ----------------------------</span>
+<span class="linenos">26</span> <span class="c1"># Load data</span>
+<span class="linenos">27</span> <span class="c1"># ----------------------------</span>
+<span class="linenos">28</span> <span class="c1"># Create data</span>
+<span class="linenos">29</span> <span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="linenos">30</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="linenos">31</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span> <span class="c1"># Create data</span>
+<span class="linenos">34</span> <span class="n">data</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">8000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">35</span>     <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_repeated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">36</span>     <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flip_y</span><span class="o">=</span><span class="mf">0.00</span><span class="p">,</span>
+<span class="linenos">37</span>     <span class="n">class_sep</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">hypercube</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="linenos">38</span>     <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="linenos">39</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span> <span class="c1"># ----------------------------</span>
+<span class="linenos">43</span> <span class="c1"># Visualize</span>
+<span class="linenos">44</span> <span class="c1"># ----------------------------</span>
+<span class="linenos">45</span> <span class="c1"># Plot hist</span>
+<span class="linenos">46</span> <span class="n">f1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
+<span class="linenos">47</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="linenos">48</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;counts in bin&#39;</span><span class="p">)</span>
+<span class="linenos">49</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Counts (square bin)&#39;</span><span class="p">)</span>
+<span class="linenos">50</span>
+<span class="linenos">51</span> <span class="c1"># Plot hex</span>
+<span class="linenos">52</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="linenos">53</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
+<span class="linenos">54</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="linenos">55</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;counts in bin&#39;</span><span class="p">)</span>
+<span class="linenos">56</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Counts (hexagonal bin)&#39;</span><span class="p">)</span>
+<span class="linenos">57</span>
+<span class="linenos">58</span> <span class="c1"># Plot density</span>
+<span class="linenos">59</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+<span class="linenos">60</span> <span class="n">kde</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">61</span>
+<span class="linenos">62</span> <span class="c1"># Parameters</span>
+<span class="linenos">63</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">64</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span> <span class="c1"># evaluate on a regular grid</span>
+<span class="linenos">67</span> <span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos">68</span> <span class="n">ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos">69</span> <span class="n">Xgrid</span><span class="p">,</span> <span class="n">Ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
+<span class="linenos">70</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">kde</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+<span class="linenos">71</span>     <span class="n">Xgrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
+<span class="linenos">72</span>     <span class="n">Ygrid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="linenos">73</span> <span class="p">]))</span>
+<span class="linenos">74</span>
+<span class="linenos">75</span> <span class="c1"># Plot the result as an image</span>
+<span class="linenos">76</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="linenos">77</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Xgrid</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+<span class="linenos">78</span>            <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+<span class="linenos">79</span>            <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">],</span>
+<span class="linenos">80</span>            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
+<span class="linenos">81</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="linenos">82</span> <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;density&quot;</span><span class="p">)</span>
+<span class="linenos">83</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;KDE estimation&quot;</span><span class="p">)</span>
+<span class="linenos">84</span>
+<span class="linenos">85</span> <span class="c1"># Show</span>
+<span class="linenos">86</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.202 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main03-hist2d-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/1eb342fb3bef11f9a8a715f8bb115515/plot_main03_hist2d.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main03_hist2d.py</span></code></a></p>
@@ -226,8 +243,8 @@ to download the full example code</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_main02_hexbin.html" class="btn btn-neutral float-left" title="02. mpl.hexbin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_main04_gmm_kde.html" class="btn btn-neutral float-right" title="04. Plot GMM and KDE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_main02_hexbin.html" class="btn btn-neutral float-left" title="02. Point density with matplotlib.hexbin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main04_gmm_kde.html" class="btn btn-neutral float-right" title="0.4 Visualizing GMM and KDE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

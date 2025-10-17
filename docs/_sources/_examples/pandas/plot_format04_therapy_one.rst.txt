@@ -18,15 +18,25 @@
 .. _sphx_glr__examples_pandas_plot_format04_therapy_one.py:
 
 
-04. Format MIMIC therapy (one)
-===============================
+04. Transforming Patient Therapy Intervals to a Daily Summary
+=============================================================
 
-Description...
+Previous title: 04. Format MIMIC therapy (one)
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-13
+This script demonstrates how to process time-interval data, a common format in
+medical records like the MIMIC-III dataset. It starts with a table where each
+row represents an antibiotic therapy with a specific start and end date.
+
+The main goal is to transform this interval-based data into a daily summary.
+This is achieved by using `pd.date_range` to generate all dates within each
+therapy period and then using the `explode()` method to create a distinct row
+for each day. The final output is a count of how many days each unique
+combination of therapies was administered to the patient.
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-24
 
 .. code-block:: default
-   :lineno-start: 7
+   :lineno-start: 18
 
     # Generic libraries
     import pandas as pd
@@ -41,14 +51,14 @@ Description...
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-15
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 First, lets load and do some basic formatting on the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-49
+.. GENERATED FROM PYTHON SOURCE LINES 26-60
 
 .. code-block:: default
-   :lineno-start: 16
+   :lineno-start: 27
 
 
     # -----------------------------
@@ -301,14 +311,14 @@ First, lets load and do some basic formatting on the data.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
+.. GENERATED FROM PYTHON SOURCE LINES 61-62
 
 Lets transform the data
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-77
+.. GENERATED FROM PYTHON SOURCE LINES 62-88
 
 .. code-block:: default
-   :lineno-start: 52
+   :lineno-start: 63
 
 
     # -----------------------------
@@ -322,7 +332,7 @@ Lets transform the data
     data['startdate'] = data.apply(lambda x:
         pd.date_range(start=x['starttime'],
                       end=x['stoptime'],
-                      closed='left',         # ignoring right
+                      inclusive='left',         # ignoring right
                       freq='D') ,axis=1)
 
     # Explode such column
@@ -343,14 +353,14 @@ Lets transform the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-79
+.. GENERATED FROM PYTHON SOURCE LINES 89-90
 
 Lets see the formatted data
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-86
+.. GENERATED FROM PYTHON SOURCE LINES 90-97
 
 .. code-block:: default
-   :lineno-start: 80
+   :lineno-start: 91
 
 
     # Show
@@ -371,10 +381,10 @@ Lets see the formatted data
 
 
     startdate
-    2159-01-20                            [piperacillin-tazobactam]
+    2159-01-20                [piperacillin-tazobactam, vancomycin]
     2159-01-21                [piperacillin-tazobactam, vancomycin]
     2159-01-22                [piperacillin-tazobactam, vancomycin]
-    2159-01-23                            [piperacillin-tazobactam]
+    2159-01-23                [piperacillin-tazobactam, vancomycin]
     2159-01-24                            [piperacillin-tazobactam]
     2159-01-25                                          [meropenem]
     2159-01-26                              [meropenem, vancomycin]
@@ -390,14 +400,14 @@ Lets see the formatted data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-88
+.. GENERATED FROM PYTHON SOURCE LINES 98-99
 
 Lets count the number of days
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-94
+.. GENERATED FROM PYTHON SOURCE LINES 99-105
 
 .. code-block:: default
-   :lineno-start: 89
+   :lineno-start: 100
 
 
     # Show
@@ -416,22 +426,22 @@ Lets count the number of days
  .. code-block:: none
 
 
+    [piperacillin-tazobactam, vancomycin]                        4
     [meropenem, vancomycin]                                      4
-    [piperacillin-tazobactam]                                    3
-    [piperacillin-tazobactam, vancomycin]                        2
+    [piperacillin-tazobactam]                                    1
     [meropenem]                                                  1
     [azithromycin, meropenem, tobramycin sulfate, vancomycin]    1
     [azithromycin, meropenem, metronidazole (flagyl)]            1
     [meropenem, metronidazole (flagyl), vancomycin]              1
     [meropenem, metronidazole (flagyl)]                          1
-    dtype: int64
+    Name: count, dtype: int64
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.043 seconds)
+   **Total running time of the script:** ( 0 minutes  0.027 seconds)
 
 
 .. _sphx_glr_download__examples_pandas_plot_format04_therapy_one.py:

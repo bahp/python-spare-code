@@ -19,11 +19,23 @@
 
 
 07.b ``stats.2dbin`` and ``sns.heatmap``
-----------------------------------------
+============================================
 
-Use binned_statistic_2d and display using heatmap.
+This script offers a streamlined approach for visualizing 2D data
+density by combining ``scipy`` for aggregation and ``seaborn`` for
+plotting. 📊 It demonstrates a powerful and common data science
+pattern for handling large, scattered datasets.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-41
+The workflow involves:
+
+    - Binning Data: It uses ``scipy.stats.binned_statistic_2d``
+      to group scattered 2D points into a grid and count the
+      number of occurrences in each cell.
+    - Seaborn Visualization: The resulting 2D count matrix is
+      then directly plotted using ``seaborn.heatmap``, providing a
+      quick and effective way to see data concentration.
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-53
 
 
 
@@ -33,11 +45,26 @@ Use binned_statistic_2d and display using heatmap.
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main07_b_2dbin_heatmap.py:53: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
+
+
+
+
+
+|
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 21
 
 
     import numpy as np
@@ -76,7 +103,7 @@ Use binned_statistic_2d and display using heatmap.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.110 seconds)
+   **Total running time of the script:** ( 0 minutes  0.406 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main07_b_2dbin_heatmap.py:

@@ -1,11 +1,12 @@
 """
-02. Plot Distributions
-============================
+02. Confusion matrix dist. (violin)
+====================================
 
-This example shows how to plot the probability distributions
-for each of the components of the confusion matrix. Note that
-data is created artificially. If necessary, it is possible
-to limit the axis to the range [0, 1] to keep only those true
+This example displays the probability distributions for each component
+of a confusion matrix: True Positives (TP), True Negatives (TN), False
+Positives (FP), and False Negatives (FN). The script uses synthetically
+generated data for illustration. It is possible and recommended to
+constrain the plot's axis to the [0, 1] range to focus strictly on valid
 probability values.
 """
 

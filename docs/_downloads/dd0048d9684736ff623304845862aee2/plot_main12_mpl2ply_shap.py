@@ -1,6 +1,18 @@
 """
-12. MPL2PLY SHAP summary
-==============================
+12b. Matplotlib to Plotly (shap)
+================================
+
+This example converts a matplotlib figure to Plotly.
+
+.. warning:: A known bug in Plotly (see GitHub issue) causes the mpl_to_plotly() function
+             to fail because it references an outdated function from Matplotlib.
+             The current fix is to downgrade to an older version of Matplotlib or to
+             recreate your figure in Plotly manually.
+
+             [ISSUE]: https://github.com/plotly/plotly.py/issues/3624#issuecomment-1161805210
+             In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py
+             line 368, it still calls is_frame_like() function.
+
 
 .. note:: In the latest commit of plotly packages/python/plotly/plotly/matplotlylib/mpltools.py line 368,
           it still calls is_frame_like() function. There is already an issue tracking this. You may need

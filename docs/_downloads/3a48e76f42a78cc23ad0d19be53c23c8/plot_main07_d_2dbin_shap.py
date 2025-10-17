@@ -1,8 +1,22 @@
 """
 07.d ``stats.2dbin`` with ``shap.csv``
----------------------------------------
+============================================
 
-Use binned_statistic_2d and display using heatmap.
+This script provides an advanced, per-feature analysis of time-series
+SHAP data, creating a dual-heatmap visualization to reveal complex
+interactions between feature values, their SHAP importance, and time. 📊
+
+The workflow includes:
+
+    - Per-Feature Processing: It iterates through individual features
+      from a pre-computed SHAP dataset.
+    - Statistical Binning: For each feature, it uses ``scipy.stats.binned_statistic_2d``
+      to compute both the ``count`` of data points and the ``median`` of
+      the original feature values for each cell in a 2D grid.
+    - Dual Heatmap Visualization: It plots two heatmaps side-by-side:
+      one showing data density (with a log scale) and the other showing
+      the median feature value (with a diverging colormap), allowing
+      for direct comparison.
 
 """
 

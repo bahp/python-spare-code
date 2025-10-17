@@ -18,12 +18,20 @@
 .. _sphx_glr__examples_matplotlib_plot_main10_violin_cmap.py:
 
 
-10. ``mpl.violin`` with linear cmap
------------------------------------------
+10. Violin plot with linear colormap
+============================================
 
-Make a violin plot with a linear colormap.
+This script demonstrates a clever technique for creating a violin
+plot where the fill color is a continuous, linear colormap mapped
+to the y-axis values. 🎻
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-46
+Instead of using a simple solid fill, it uses the paths of the
+violin bodies as clipping masks. An ``imshow`` gradient is then
+displayed underneath, making it visible only within the violin
+shapes. A corresponding colorbar is added to complete the
+visualization.
+
+.. GENERATED FROM PYTHON SOURCE LINES 16-56
 
 
 
@@ -33,12 +41,33 @@ Make a violin plot with a linear colormap.
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main10_violin_cmap.py:52: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main10_violin_cmap.py:56: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
+
+
+
+
+
+|
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 17
 
+
+    # ``mpl.violin``
 
     import matplotlib
     import numpy as np
@@ -81,7 +110,7 @@ Make a violin plot with a linear colormap.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.244 seconds)
+   **Total running time of the script:** ( 0 minutes  0.246 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main10_violin_cmap.py:

@@ -18,12 +18,21 @@
 .. _sphx_glr__examples_matplotlib_plot_main09_tripcolor.py:
 
 
-09. ``mpl.tripcolor``
----------------------------
+09. Triangular grids with ``mpl.tripcolor``
+============================================
 
-Create a pseudocolor plot of an unstructured triangular grid.
+This script demonstrates how to visualize data on an unstructured
+triangular grid using ``matplotlib.tripcolor``.  This is useful
+for plotting data that is not arranged in a regular grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-103
+The example covers two main scenarios:
+
+    - Automatically creating a Delaunay triangulation from a set
+      of 2D points.
+    - Plotting data on a pre-defined, user-specified mesh of triangles.
+    - It also compares `flat` and `gouraud` shading methods.
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-112
 
 
 
@@ -52,11 +61,26 @@ Create a pseudocolor plot of an unstructured triangular grid.
          :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main09_tripcolor.py:112: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
+
+
+
+
+
+|
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 18
 
 
     import matplotlib.pyplot as plt
@@ -157,7 +181,7 @@ Create a pseudocolor plot of an unstructured triangular grid.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.287 seconds)
+   **Total running time of the script:** ( 0 minutes  0.284 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main09_tripcolor.py:

@@ -19,7 +19,7 @@
 
 
 01. Segment anything
-==========================
+====================
 
 The Segment Anything Model (SAM) produces high quality object masks from input
 prompts such as points or boxes, and it can be used to generate masks for all
@@ -79,6 +79,10 @@ segmentation tasks.
  .. code-block:: none
 
     Computing masks....
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\other\plot_main01_segment_anything.py:113: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 
 
 
@@ -160,7 +164,7 @@ segmentation tasks.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  24.378 seconds)
+   **Total running time of the script:** ( 1 minutes  30.980 seconds)
 
 
 .. _sphx_glr_download__examples_other_plot_main01_segment_anything.py:

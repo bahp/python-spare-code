@@ -1,14 +1,21 @@
 """
-02. Plot favicons
-=================
+02. Visualizing Python Library Favicons
+=======================================
 
-This example lists all the libraries installed in the environment
-using pip, gets their site url, downloads the icon and displays it
-in the example.
+This script identifies installed Python packages, fetches their homepage
+URLs, and downloads their favicons. It then uses a custom HTML
+representation to display these icons in a grid.
 
 .. note:: The command ``cut`` is not available in windows! Thus, the
           code will not run in te standard Windows Command Prompt. However,
           it might be available on Cygwin o Git for windows.
+
+.. note:: The visual output of this script is generated via a special
+          _repr_html_() method. This method is automatically detected
+          and rendered in rich display environments (Jupyter Notebook/Lab &
+          IPython). If you run this as a regular .py file, no images will
+          appear in your terminal. To see the output, you must manually get
+           the HTML content and save it to a file:
 """
 
 # Libraries
@@ -75,20 +82,61 @@ INCLUDE = [
     'future'
 ]
 
-# Define command to list packages and urls
-COMMAND = "pip list --format=freeze | cut -d= -f1 | xargs pip show | "
-COMMAND+= "awk '/^Name/{printf $2} /^Home-page/{print \": \"$2}'"
+def list_packages_command():
+    """List packages using linux <cut>."""
+    # Define command to list packages and urls
+    COMMAND = "pip list --format=freeze | cut -d= -f1 | xargs pip show | "
+    COMMAND+= "awk '/^Name/{printf $2} /^Home-page/{print \": \"$2}'"
+    # List of package name and url.
+    output = sp.getoutput(COMMAND)
+    # Return
+    return output.split("\n")[2:]
 
-# List of package name and url.
-output = sp.getoutput(COMMAND)
+
+def list_packages_importlib():
+    """List packages using importlib."""
+    # --- ADD THIS NEW BLOCK ---
+    import importlib.metadata
+
+    lines = []
+    # Iterate through all installed packages
+    for dist in importlib.metadata.distributions():
+        # Get package metadata
+        meta = dist.metadata
+        name = meta['Name']
+        url = meta.get('Home-page', '')  # Use .get() for safety
+
+        # Check if the package is in our include list and has a valid URL
+        if name in INCLUDE and url.startswith('https'):
+            lines.append(f"{name}: {url}")
+
+    return lines
+
+
+
+import platform
+
+system = platform.system()
+
+if system == 'Windows':
+    print("This is a Windows system.")
+elif system == 'Darwin':
+    print("This is a macOS system.")
+elif system == 'Linux':
+    print("This is a Linux system.")
+else:
+    print(f"This is a different system: {system}")
+
+# Get packages
+packages = list_packages_importlib()
 
 # Show
 print("\nCommand output:")
-print(output)
+print(packages)
 
 # Create dictionary
 d = {}
-for line in output.split("\n")[2:]:
+for line in packages:
     # Find name and url
     name, url = line.split(': ')
     if not url.startswith('https:'):
@@ -116,7 +164,7 @@ aux
 
 # Create dictionary
 d = {}
-for line in output.split("\n")[2:]:
+for line in packages:
     # Find name and url
     name, url = line.split(': ')
     if not url.startswith('https:'):
@@ -130,3 +178,14 @@ for line in output.split("\n")[2:]:
 #
 aux = IconHTML(d, verbose=1)
 aux
+
+# %%
+# Write the string to a file
+
+#
+from pathlib import Path
+output_dir = Path('./objects/main02')
+output_dir.mkdir(parents=True, exist_ok=True)
+
+with open("%s/icons.html" % output_dir, "w") as f:
+    f.write(aux._repr_html_())

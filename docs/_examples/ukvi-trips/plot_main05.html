@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UKVI Travel History Calculator &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="UKVI Travel History Visualizer (plotly)" href="plot_main04.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main03.html">UKVI Travel History Visualizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04.html">UKVI Travel History Visualizer (plotly)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">UKVI Travel History Calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">UKVI Travel History Calculator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/ukvi-trips/plot_main05.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-ukvi-trips-plot-main05-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="ukvi-travel-history-calculator">
+<span id="sphx-glr-examples-ukvi-trips-plot-main05-py"></span><h1>UKVI Travel History Calculator<a class="headerlink" href="#ukvi-travel-history-calculator" title="Permalink to this heading"></a></h1>
+<p>This Python script is designed to calculate the total number
+of days spent outside the UK from a flight history log, which
+is particularly useful for UK Visa and Immigration (UKVI)
+applications like Indefinite Leave to Remain (ILR) that have
+limits on absences.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Generated with Google Gemini</p>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>--- Processing Flight Log ---
+⚠️ Warning: Ignoring Inbound flight on 2019-12-02 06:15:00 as there was no preceding Outbound flight.
+⚠️ Warning: Consecutive Outbound flight on 2022-08-06 05:50:00. Using this as the new departure.
+⚠️ Warning: Consecutive Outbound flight on 2023-09-04 08:50:00. Using this as the new departure.
+⚠️ Warning: Consecutive Outbound flight on 2024-04-24 16:30:00. Using this as the new departure.
+
+⚠️ Note: Log ends while abroad. The last trip starting 2024-07-20 19:15:00 is not included.
+
+--- Final Summary ---
+✅ Total time spent abroad: 543 days (exact duration)
+✅ Total time spent abroad: 535 days (full days only)
+
+--- Valid Round Trips ---
+         Outbound Date        Inbound Date  Duration (days)                           Route
+0  2019-12-04 20:05:00 2020-01-13 00:20:00               39  Out: STN → MAD | In: SGN → LHR
+1  2020-09-15 10:00:00 2021-02-08 15:35:00              146  Out: STN → RMI | In: MAD → LHR
+2  2021-06-17 08:25:00 2021-10-05 07:05:00              109  Out: STN → MAD | In: MAD → STN
+3  2021-11-19 08:05:00 2021-12-02 20:45:00               13  Out: STN → BLO | In: RMU → LGW
+4  2022-01-20 17:20:00 2022-02-15 12:35:00               25  Out: LGW → MAD | In: MAD → STN
+5  2022-03-24 09:50:00 2022-03-30 14:50:00                6  Out: STN → TFS | In: TFS → LGW
+6  2022-04-22 11:40:00 2022-04-27 15:10:00                5  Out: STN → LIS | In: LIS → STN
+7  2022-06-03 12:55:00 2022-06-14 15:35:00               11  Out: STN → MAD | In: MAD → STN
+8  2022-08-06 05:50:00 2022-09-21 06:45:00               46  Out: LTN → CDT | In: MAD → STN
+9  2022-10-26 13:05:00 2022-11-15 15:50:00               20  Out: STN → MAD | In: MAD → LHR
+10 2022-11-16 21:25:00 2022-12-26 09:05:00               39  Out: LHR → KUL | In: KUL → LHR
+11 2023-02-04 06:45:00 2023-02-06 14:10:00                2  Out: LTN → ATH | In: ATH → LGW
+12 2023-02-21 16:05:00 2023-03-01 10:15:00                7  Out: LTN → BLQ | In: PEG → STN
+13 2023-04-28 14:45:00 2023-05-09 12:20:00               10  Out: STN → LPA | In: LPA → STN
+14 2023-09-04 08:50:00 2023-09-11 07:10:00                6  Out: LGW → MXP | In: MXP → LGW
+15 2023-10-04 18:15:00 2023-10-17 15:35:00               12  Out: STN → MAD | In: MAD → STN
+16 2023-12-15 06:15:00 2024-01-10 10:45:00               26  Out: STN → PEG | In: MAD → STN
+17 2024-04-24 16:30:00 2024-05-02 20:50:00                8  Out: LHR → MAD | In: MAD → LHR
+18 2024-06-26 15:50:00 2024-07-01 18:40:00                5  Out: LHR → MAD | In: MAD → LGW
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 14</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 15</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span> <span class="k">def</span><span class="w"> </span><span class="nf">calculate_time_abroad_from_df</span><span class="p">(</span>
+<span class="linenos"> 19</span>         <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+<span class="linenos"> 20</span>         <span class="n">date_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="linenos"> 21</span>         <span class="n">status_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="linenos"> 22</span>         <span class="n">dep_port_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="linenos"> 23</span>         <span class="n">arr_port_col</span><span class="p">:</span> <span class="nb">str</span>
+<span class="linenos"> 24</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="linenos"> 25</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 26</span><span class="sd">     Calculates total time spent abroad from a flight log in a pandas DataFrame,</span>
+<span class="linenos"> 27</span><span class="sd">     handling multi-airport routes.</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="sd">     Args:</span>
+<span class="linenos"> 30</span><span class="sd">         df: The DataFrame containing the flight log.</span>
+<span class="linenos"> 31</span><span class="sd">         date_col: The name of the column with the flight timestamps.</span>
+<span class="linenos"> 32</span><span class="sd">         status_col: The name of the column with the &#39;Inbound&#39;/&#39;Outbound&#39; status.</span>
+<span class="linenos"> 33</span><span class="sd">         dep_port_col: The name of the departure port column.</span>
+<span class="linenos"> 34</span><span class="sd">         arr_port_col: The name of the arrival port column.</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="sd">     Returns:</span>
+<span class="linenos"> 37</span><span class="sd">         A tuple containing:</span>
+<span class="linenos"> 38</span><span class="sd">         - The total duration abroad (pandas.Timedelta).</span>
+<span class="linenos"> 39</span><span class="sd">         - A new DataFrame with details of the valid round trips, including routes.</span>
+<span class="linenos"> 40</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span>     <span class="c1"># --- 1. Prepare the DataFrame ---</span>
+<span class="linenos"> 43</span>     <span class="n">df_processed</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="linenos"> 44</span>     <span class="n">df_processed</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+<span class="linenos"> 45</span>         <span class="n">df_processed</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="linenos"> 46</span>     <span class="n">df_processed</span> <span class="o">=</span> <span class="n">df_processed</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span> \
+<span class="linenos"> 47</span>         <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">date_col</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span>     <span class="c1"># --- 2. Calculate Time Abroad with State Machine Logic ---</span>
+<span class="linenos"> 50</span>     <span class="n">total_duration_abroad</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 51</span>     <span class="n">last_outbound_leg</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Stores the entire row of the last outbound flight</span>
+<span class="linenos"> 52</span>     <span class="n">valid_trips</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Processing Flight Log ---&quot;</span><span class="p">)</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span>     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_processed</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<span class="linenos"> 57</span>         <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">status_col</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Outbound&#39;</span><span class="p">:</span>
+<span class="linenos"> 58</span>             <span class="k">if</span> <span class="n">last_outbound_leg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 59</span>                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ Warning: Consecutive Outbound flight on </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="si">}</span><span class="s2">. Using this as the new departure.&quot;</span><span class="p">)</span>
+<span class="linenos"> 60</span>             <span class="n">last_outbound_leg</span> <span class="o">=</span> <span class="n">row</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span>         <span class="k">elif</span> <span class="n">row</span><span class="p">[</span><span class="n">status_col</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Inbound&#39;</span><span class="p">:</span>
+<span class="linenos"> 63</span>             <span class="k">if</span> <span class="n">last_outbound_leg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 64</span>                 <span class="c1"># A valid return trip is found</span>
+<span class="linenos"> 65</span>                 <span class="n">duration</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">-</span> <span class="n">last_outbound_leg</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span>
+<span class="linenos"> 66</span>                 <span class="n">total_duration_abroad</span> <span class="o">+=</span> <span class="n">duration</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span>                 <span class="c1"># Capture the outbound and inbound journeys separately</span>
+<span class="linenos"> 70</span>                 <span class="n">outbound_route</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">last_outbound_leg</span><span class="p">[</span><span class="n">dep_port_col</span><span class="p">]</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="n">last_outbound_leg</span><span class="p">[</span><span class="n">arr_port_col</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos"> 71</span>                 <span class="n">inbound_route</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">dep_port_col</span><span class="p">]</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">arr_port_col</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span>                 <span class="c1"># Combine them for a full description</span>
+<span class="linenos"> 74</span>                 <span class="n">full_route_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Out: </span><span class="si">{</span><span class="n">outbound_route</span><span class="si">}</span><span class="s2"> | In: </span><span class="si">{</span><span class="n">inbound_route</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span>                 <span class="n">valid_trips</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+<span class="linenos"> 77</span>                     <span class="s1">&#39;Outbound Date&#39;</span><span class="p">:</span> <span class="n">last_outbound_leg</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span>
+<span class="linenos"> 78</span>                     <span class="s1">&#39;Inbound Date&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span>
+<span class="linenos"> 79</span>                     <span class="s1">&#39;Duration (days)&#39;</span><span class="p">:</span> <span class="n">duration</span><span class="o">.</span><span class="n">days</span><span class="p">,</span>
+<span class="linenos"> 80</span>                     <span class="s1">&#39;Route&#39;</span><span class="p">:</span> <span class="n">full_route_str</span>
+<span class="linenos"> 81</span>                 <span class="p">})</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span>                 <span class="c1"># Reset state to &quot;Home&quot;</span>
+<span class="linenos"> 84</span>                 <span class="n">last_outbound_leg</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos"> 85</span>             <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 86</span>                 <span class="nb">print</span><span class="p">(</span>
+<span class="linenos"> 87</span>                     <span class="sa">f</span><span class="s2">&quot;⚠️ Warning: Ignoring Inbound flight on </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="si">}</span><span class="s2"> as there was no preceding Outbound flight.&quot;</span><span class="p">)</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span>     <span class="k">if</span> <span class="n">last_outbound_leg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 90</span>         <span class="nb">print</span><span class="p">(</span>
+<span class="linenos"> 91</span>             <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">⚠️ Note: Log ends while abroad. The last trip starting </span><span class="si">{</span><span class="n">last_outbound_leg</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="si">}</span><span class="s2"> is not included.&quot;</span><span class="p">)</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span>     <span class="n">trips_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">valid_trips</span><span class="p">)</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span>     <span class="k">return</span> <span class="n">total_duration_abroad</span><span class="p">,</span> <span class="n">trips_df</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span> <span class="c1"># ------------------------------------------</span>
+<span class="linenos">104</span> <span class="c1"># Main</span>
+<span class="linenos">105</span> <span class="c1"># ------------------------------------------</span>
+<span class="linenos">106</span> <span class="c1"># Libraries</span>
+<span class="linenos">107</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span> <span class="c1"># Configuration</span>
+<span class="linenos">110</span> <span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;775243&#39;</span>
+<span class="linenos">111</span> <span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;1085721&#39;</span>
+<span class="linenos">112</span> <span class="n">out_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./outputs/</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span> <span class="c1"># Load data</span>
+<span class="linenos">115</span> <span class="n">flight_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="s1">&#39;flights.json&#39;</span><span class="p">)</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span> <span class="c1"># 2. Call the function with all the required column names</span>
+<span class="linenos">118</span> <span class="n">total_time</span><span class="p">,</span> <span class="n">valid_trips_df</span> <span class="o">=</span> <span class="n">calculate_time_abroad_from_df</span><span class="p">(</span>
+<span class="linenos">119</span>     <span class="n">df</span><span class="o">=</span><span class="n">flight_df</span><span class="p">,</span>
+<span class="linenos">120</span>     <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;Departure Date/Time&#39;</span><span class="p">,</span>
+<span class="linenos">121</span>     <span class="n">status_col</span><span class="o">=</span><span class="s1">&#39;In/Out&#39;</span><span class="p">,</span>
+<span class="linenos">122</span>     <span class="n">dep_port_col</span><span class="o">=</span><span class="s1">&#39;Dep Port&#39;</span><span class="p">,</span>
+<span class="linenos">123</span>     <span class="n">arr_port_col</span><span class="o">=</span><span class="s1">&#39;Arrival Port&#39;</span>
+<span class="linenos">124</span> <span class="p">)</span>
+<span class="linenos">125</span>
+<span class="linenos">126</span> <span class="c1"># 3. Print the final results</span>
+<span class="linenos">127</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Final Summary ---&quot;</span><span class="p">)</span>
+<span class="linenos">128</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Total time spent abroad: </span><span class="si">{</span><span class="n">total_time</span><span class="o">.</span><span class="n">days</span><span class="si">}</span><span class="s2"> days (exact duration)&quot;</span><span class="p">)</span>
+<span class="linenos">129</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Total time spent abroad: %s days (full days only)&quot;</span> <span class="o">%</span> \
+<span class="linenos">130</span>     <span class="n">valid_trips_df</span><span class="p">[</span><span class="s1">&#39;Duration (days)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Valid Round Trips ---&quot;</span><span class="p">)</span>
+<span class="linenos">133</span> <span class="nb">print</span><span class="p">(</span><span class="n">valid_trips_df</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.015 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-ukvi-trips-plot-main05-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f119031adcb8b994caec6fae7e5e4553/plot_main05.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main05.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/6d8e9e1fa5a5a33937259a9f550f4e4b/plot_main05.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main05.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main04.html" class="btn btn-neutral float-left" title="UKVI Travel History Visualizer (plotly)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2025, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

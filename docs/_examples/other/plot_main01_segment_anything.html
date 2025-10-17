@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>01. Segment anything &mdash; python-spare-code 0.0.1 documentation</title>
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="02. Plot favicons" href="plot_main02_favicons.html" />
-    <link rel="prev" title="30. Sample shap.csv boxplot" href="../matplotlib/plot_main30_sepsis_shap_boxplot.html" /> 
+    <link rel="next" title="02. Visualizing Python Library Favicons" href="plot_main02_favicons.html" />
+    <link rel="prev" title="11. Visualizing SHAP across timesteps" href="../matplotlib/plot_main30_boxplot_sepsis_shap.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,7 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#other">Other</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">01. Segment anything</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main02_favicons.html">02. Plot favicons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_favicons.html">02. Visualizing Python Library Favicons</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
@@ -72,7 +72,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -151,6 +150,9 @@ segmentation tasks.</p>
 </div>
 <img src="../../_images/sphx_glr_plot_main01_segment_anything_001.png" srcset="../../_images/sphx_glr_plot_main01_segment_anything_001.png" alt="plot main01 segment anything" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing masks....
+C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\other\plot_main01_segment_anything.py:113: UserWarning:
+
+FigureCanvasAgg is non-interactive, and thus cannot be shown
 </pre></div>
 </div>
 <div class="line-block">
@@ -159,19 +161,19 @@ segmentation tasks.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 47</span> <span class="c1"># https://pypi.org/project/segment-anything-py/</span>
 <span class="linenos"> 48</span>
 <span class="linenos"> 49</span> <span class="c1"># Libraries</span>
-<span class="linenos"> 50</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 51</span> <span class="kn">import</span> <span class="nn">torch</span>
-<span class="linenos"> 52</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos"> 50</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 51</span> <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="linenos"> 52</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="linenos"> 53</span>
 <span class="linenos"> 54</span> <span class="c1"># .. note: The notebook uses cv2 and does some alteration to the image.</span>
 <span class="linenos"> 55</span> <span class="c1"># import cv2</span>
 <span class="linenos"> 56</span>
 <span class="linenos"> 57</span> <span class="c1"># Library</span>
-<span class="linenos"> 58</span> <span class="kn">from</span> <span class="nn">segment_anything</span> <span class="kn">import</span> <span class="n">SamAutomaticMaskGenerator</span>
-<span class="linenos"> 59</span> <span class="kn">from</span> <span class="nn">segment_anything</span> <span class="kn">import</span> <span class="n">sam_model_registry</span>
+<span class="linenos"> 58</span> <span class="kn">from</span><span class="w"> </span><span class="nn">segment_anything</span><span class="w"> </span><span class="kn">import</span> <span class="n">SamAutomaticMaskGenerator</span>
+<span class="linenos"> 59</span> <span class="kn">from</span><span class="w"> </span><span class="nn">segment_anything</span><span class="w"> </span><span class="kn">import</span> <span class="n">sam_model_registry</span>
 <span class="linenos"> 60</span>
 <span class="linenos"> 61</span>
-<span class="linenos"> 62</span> <span class="k">def</span> <span class="nf">show_anns</span><span class="p">(</span><span class="n">anns</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos"> 62</span> <span class="k">def</span><span class="w"> </span><span class="nf">show_anns</span><span class="p">(</span><span class="n">anns</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="linenos"> 63</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">anns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span class="linenos"> 64</span>         <span class="k">return</span>
 <span class="linenos"> 65</span>     <span class="n">sorted_anns</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">anns</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -225,7 +227,7 @@ segmentation tasks.</p>
 <span class="linenos">113</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  24.378 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  30.980 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-other-plot-main01-segment-anything-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/040b5e44b53be649ed066bf071fbd387/plot_main01_segment_anything.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main01_segment_anything.py</span></code></a></p>
@@ -241,8 +243,8 @@ segmentation tasks.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../matplotlib/plot_main30_sepsis_shap_boxplot.html" class="btn btn-neutral float-left" title="30. Sample shap.csv boxplot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_main02_favicons.html" class="btn btn-neutral float-right" title="02. Plot favicons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../matplotlib/plot_main30_boxplot_sepsis_shap.html" class="btn btn-neutral float-left" title="11. Visualizing SHAP across timesteps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main02_favicons.html" class="btn btn-neutral float-right" title="02. Visualizing Python Library Favicons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

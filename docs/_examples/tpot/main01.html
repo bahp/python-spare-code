@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>01. Basic example &mdash; python-spare-code 0.0.1 documentation</title>
@@ -25,9 +25,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="MIC package" href="../utils/mic.html" />
-    <link rel="prev" title="Serialization…" href="../tensorflow/plot_main_01_keras_lstm_mlm.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,28 +52,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#tpot">TPOT</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">01. Basic example</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">General</a></li>
 </ul>
 
         </div>
@@ -92,7 +70,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
       <li class="breadcrumb-item active">01. Basic example</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/_examples/tpot/main01.rst.txt" rel="nofollow"> View page source</a>
@@ -112,15 +89,15 @@ to download the full example code</p>
 <span id="sphx-glr-examples-tpot-main01-py"></span><h1>01. Basic example<a class="headerlink" href="#basic-example" title="Permalink to this heading"></a></h1>
 <p>Basic example to use tpot.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 8</span> <span class="c1"># Import</span>
-<span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos">10</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 9</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">10</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="linenos">11</span>
 <span class="linenos">12</span> <span class="c1"># Specific</span>
-<span class="linenos">13</span> <span class="kn">from</span> <span class="nn">tpot</span> <span class="kn">import</span> <span class="n">TPOTClassifier</span>
+<span class="linenos">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tpot</span><span class="w"> </span><span class="kn">import</span> <span class="n">TPOTClassifier</span>
 <span class="linenos">14</span>
 <span class="linenos">15</span> <span class="c1"># Import own</span>
-<span class="linenos">16</span> <span class="kn">from</span> <span class="nn">pySML2.preprocessing.splitters</span> <span class="kn">import</span> <span class="n">cvs_hos_split</span>
-<span class="linenos">17</span> <span class="kn">from</span> <span class="nn">pySML2.preprocessing.splitters</span> <span class="kn">import</span> <span class="n">kfolds_split</span>
+<span class="linenos">16</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pySML2.preprocessing.splitters</span><span class="w"> </span><span class="kn">import</span> <span class="n">cvs_hos_split</span>
+<span class="linenos">17</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pySML2.preprocessing.splitters</span><span class="w"> </span><span class="kn">import</span> <span class="n">kfolds_split</span>
 <span class="linenos">18</span>
 <span class="linenos">19</span>
 <span class="linenos">20</span> <span class="c1"># ---------------------------------------------</span>
@@ -214,10 +191,7 @@ to download the full example code</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../tensorflow/plot_main_01_keras_lstm_mlm.html" class="btn btn-neutral float-left" title="Serialization…" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../utils/mic.html" class="btn btn-neutral float-right" title="MIC package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

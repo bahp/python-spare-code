@@ -1,14 +1,12 @@
 """
-11. Using updatemenus
-===========================
+11. Graph interaction (updatemenus)
+========================================
 
-This example show how to include buttons in the
-plotly graph by using update menus. Work should
-be put on control their placement and how to
-avoid them to be missaligned when resizing the
-window!
+This Python script creates an interactive Plotly scatter plot
+with buttons that allow a user to dynamically change the colors
+of the plotted points.
 
-.. warning:: It is not finished!
+.. note:: How to include buttons in the graph using update menus
 
 """
 

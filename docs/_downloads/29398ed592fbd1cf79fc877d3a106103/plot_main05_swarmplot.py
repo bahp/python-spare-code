@@ -1,6 +1,33 @@
 """
-05. Swarmplot
-==========================
+05c. Custom using swarmplot
+=====================================
+
+This script demonstrates how to build a custom SHAP visualization
+for sequential data using ``seaborn.swarmplot``. This technique
+creates a detailed, per-feature view that shows the distribution
+of SHAP values at each timestep, offering a high-density
+alternative to standard summary plots.
+
+The script's workflow includes:
+
+    - **Loading & Subsetting Data:** It loads a pre-computed, tidy
+      DataFrame of SHAP values and subsets it to ensure the
+      computationally intensive swarmplot runs efficiently.
+    - **Per-Feature Visualization:** The script iterates through each
+      feature, generating a separate swarmplot to clearly display
+      its specific impact across the entire time sequence.
+    - **Custom Value-Based Coloring:** It implements a custom coloring
+      function to tint each point based on its original feature
+      value, adding a color bar to provide the rich context found
+      in native SHAP plots.
+    - **Plot Customization:** It showcases how to fine-tune the plot's
+      appearance, including normalizing the y-axis and managing legends
+      for a polished final output.
+
+This example is perfect for users who need to visualize the precise
+distribution of feature impacts over time, though it is best suited
+for smaller datasets where the swarmplot can arrange points without
+significant overlap.
 """
 
 # Libraries

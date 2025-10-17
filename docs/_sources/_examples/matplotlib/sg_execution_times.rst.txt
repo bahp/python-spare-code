@@ -5,14 +5,12 @@
 
 Computation times
 =================
-**00:03.263** total execution time for **_examples_matplotlib** files:
+**00:01.188** total execution time for **_examples_matplotlib** files:
 
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_matplotlib_plot_main06_d_collateral_sensitivity.py` (``plot_main06_d_collateral_sensitivity.py``) | 00:03.263 | 0.0 MB |
+| :ref:`sphx_glr__examples_matplotlib_plot_main02_hexbin.py` (``plot_main02_hexbin.py``)                                     | 00:01.188 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main01_imshow.py` (``plot_main01_imshow.py``)                                     | 00:00.000 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_matplotlib_plot_main02_hexbin.py` (``plot_main02_hexbin.py``)                                     | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main03_hist2d.py` (``plot_main03_hist2d.py``)                                     | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
@@ -29,6 +27,8 @@ Computation times
 | :ref:`sphx_glr__examples_matplotlib_plot_main06_b_heatmap.py` (``plot_main06_b_heatmap.py``)                               | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main06_c_collateral_sensitivity.py` (``plot_main06_c_collateral_sensitivity.py``) | 00:00.000 | 0.0 MB |
++----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_matplotlib_plot_main06_d_collateral_sensitivity.py` (``plot_main06_d_collateral_sensitivity.py``) | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main07_a_2dbin_stat.py` (``plot_main07_a_2dbin_stat.py``)                         | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
@@ -48,5 +48,5 @@ Computation times
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__examples_matplotlib_plot_main20_animation.py` (``plot_main20_animation.py``)                               | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_matplotlib_plot_main30_sepsis_shap_boxplot.py` (``plot_main30_sepsis_shap_boxplot.py``)           | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr__examples_matplotlib_plot_main30_boxplot_sepsis_shap.py` (``plot_main30_boxplot_sepsis_shap.py``)           | 00:00.000 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------------------+-----------+--------+

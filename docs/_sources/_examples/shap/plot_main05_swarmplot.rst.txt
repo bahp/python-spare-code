@@ -18,13 +18,40 @@
 .. _sphx_glr__examples_shap_plot_main05_swarmplot.py:
 
 
-05. Swarmplot
-==========================
+05c. Custom using swarmplot
+=====================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-126
+This script demonstrates how to build a custom SHAP visualization
+for sequential data using ``seaborn.swarmplot``. This technique
+creates a detailed, per-feature view that shows the distribution
+of SHAP values at each timestep, offering a high-density
+alternative to standard summary plots.
+
+The script's workflow includes:
+
+    - **Loading & Subsetting Data:** It loads a pre-computed, tidy
+      DataFrame of SHAP values and subsets it to ensure the
+      computationally intensive swarmplot runs efficiently.
+    - **Per-Feature Visualization:** The script iterates through each
+      feature, generating a separate swarmplot to clearly display
+      its specific impact across the entire time sequence.
+    - **Custom Value-Based Coloring:** It implements a custom coloring
+      function to tint each point based on its original feature
+      value, adding a color bar to provide the rich context found
+      in native SHAP plots.
+    - **Plot Customization:** It showcases how to fine-tune the plot's
+      appearance, including normalizing the y-axis and managing legends
+      for a polished final output.
+
+This example is perfect for users who need to visualize the precise
+distribution of feature impacts over time, though it is best suited
+for smaller datasets where the swarmplot can arrange points without
+significant overlap.
+
+.. GENERATED FROM PYTHON SOURCE LINES 32-153
 
 .. code-block:: default
-   :lineno-start: 6
+   :lineno-start: 33
 
 
     # Libraries
@@ -154,14 +181,14 @@
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-128
+.. GENERATED FROM PYTHON SOURCE LINES 154-155
 
 Let's see how data looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-131
+.. GENERATED FROM PYTHON SOURCE LINES 155-158
 
 .. code-block:: default
-   :lineno-start: 128
+   :lineno-start: 155
 
     data.head(10)
 
@@ -298,7 +325,7 @@ Let's see how data looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-138
+.. GENERATED FROM PYTHON SOURCE LINES 159-165
 
 Display using ``sns.swarmplot``
 
@@ -307,10 +334,10 @@ Display using ``sns.swarmplot``
 .. note:: y-axis has been 'normalized'
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-190
+.. GENERATED FROM PYTHON SOURCE LINES 165-217
 
 .. code-block:: default
-   :lineno-start: 139
+   :lineno-start: 166
 
 
     def add_colorbar(fig, cmap, norm):
@@ -426,23 +453,106 @@ Display using ``sns.swarmplot``
 
  .. code-block:: none
 
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:206: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     59.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     37.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     53.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     21.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     19.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:206: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:206: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     53.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     49.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     21.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     8.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:206: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     30.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     34.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     8.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:206: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     32.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     18.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     8.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     17.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:206: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\seaborn\categorical.py:3399: UserWarning:
+
     6.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:206: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_swarmplot.py:216: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 
 
 
@@ -450,7 +560,7 @@ Display using ``sns.swarmplot``
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.814 seconds)
+   **Total running time of the script:** ( 0 minutes  11.309 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_swarmplot.py:

@@ -1,6 +1,10 @@
 """
-06. Plot Treemap with coffee
-----------------------------------
+06. Coffee flavours (treemap)
+====================================
+
+This example uses the pandas and Plotly libraries to create
+and display an interactive treemap visualization of coffee
+flavors.
 
 """
 # %%
@@ -22,12 +26,12 @@ except:
 # Define URL
 URL = 'https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-flavors-complete.csv'
 
-# Load dataframe
+# Load DataFrame
 df = pd.read_csv(URL)
 
 # Show
 if TERMINAL:
-    print("\nDF:")
+    print("\nDataFrame:")
     print(df)
 df
 

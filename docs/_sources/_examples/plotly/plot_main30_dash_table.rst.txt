@@ -18,44 +18,55 @@
 .. _sphx_glr__examples_plotly_plot_main30_dash_table.py:
 
 
-30. Dash Table
+30. Dash Table app
 ====================
 
-.. note:: https://plotly.com/python/2d-histogram-contour/
+This script creates a Dash web application that demonstrates the interactive
+capabilities of the dash_table.DataTable component. The application features
+a table that is fully editable, allowing users to modify cell values directly.
+Users can also dynamically add new rows with a button click and add new, named
+columns using an input field.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-92
+The core feature of this example is the real-time link between the data table a
+nd a dcc.Graph component. Any modification to the table's data or structure—such
+as adding a row, deleting a column, or editing a cell's value—automatically
+triggers an update to a heatmap below. This provides an immediate visual
+representation of the table's data, showcasing how to build a fully interactive
+dashboard where data manipulation and visualization are seamlessly connected.
 
+.. note:: Open your browser and go to http://127.0.0.1:8050
 
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-
-    "\napp = dash.Dash(__name__)\n\napp.layout = html.Div([\n    html.Div([\n        dcc.Input(\n            id='adding-rows-name',\n            placeholder='Enter a column name...',\n            value='',\n            style={'padding': 10}\n        ),\n        html.Button('Add Column', id='adding-rows-button', n_clicks=0)\n    ], style={'height': 50}),\n\n    dash_table.DataTable(\n        id='adding-rows-table',\n        columns=[{\n            'name': 'Column {}'.format(i),\n            'id': 'column-{}'.format(i),\n            'deletable': True,\n            'renamable': True\n        } for i in range(1, 5)],\n        data=[\n            {'column-{}'.format(i): (j + (i-1)*5) for i in range(1, 5)}\n            for j in range(5)\n        ],\n        editable=True,\n        row_deletable=True\n    ),\n\n    html.Button('Add Row', id='editing-rows-button', n_clicks=0),\n\n    dcc.Graph(id='adding-rows-graph')\n])\n\n\n@app.callback(\n    Output('adding-rows-table', 'data'),\n    Input('editing-rows-button', 'n_clicks'),\n    State('adding-rows-table', 'data'),\n    State('adding-rows-table', 'columns'))\ndef add_row(n_clicks, rows, columns):\n    if n_clicks > 0:\n        rows.append({c['id']: '' for c in columns})\n    return rows\n\n\n@app.callback(\n    Output('adding-rows-table', 'columns'),\n    Input('adding-rows-button', 'n_clicks'),\n    State('adding-rows-name', 'value'),\n    State('adding-rows-table', 'columns'))\ndef update_columns(n_clicks, value, existing_columns):\n    if n_clicks > 0:\n        existing_columns.append({\n            'id': value, 'name': value,\n            'renamable': True, 'deletable': True\n        })\n    return existing_columns\n\n\n@app.callback(\n    Output('adding-rows-graph', 'figure'),\n    Input('adding-rows-table', 'data'),\n    Input('adding-rows-table', 'columns'))\ndef display_output(rows, columns):\n    return {\n        'data': [{\n            'type': 'heatmap',\n            'z': [[row.get(c['id'], None) for c in columns] for row in rows],\n            'x': [c['name'] for c in columns]\n        }]\n    }\n\n\nif __name__ == '__main__':\n    app.run_server(debug=True)\n"
-
-
-
+.. GENERATED FROM PYTHON SOURCE LINES 21-117
 
 
-|
+
+
+
+
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 22
 
 
+    # sphinx_gallery_thumbnail_path = '_static/images/thumbnails/thumbnail-plotly-main30-dash-table.png'
+
+    # Libraries
     import dash
     from dash.dependencies import Input, Output, State
-    import dash_table
-    import dash_core_components as dcc
-    import dash_html_components as html
+    from dash import dash_table
+    from dash import dcc
+    from dash import html
 
-    """
-    app = dash.Dash(__name__)
+    try:
+        __file__
+        TERMINAL = True
+    except:
+        TERMINAL = False
 
+    # Create app
+    app = dash.Dash('table-app')
+
+    # Define layout
     app.layout = html.Div([
         html.Div([
             dcc.Input(
@@ -129,12 +140,14 @@
 
 
     if __name__ == '__main__':
-        app.run_server(debug=True)
-    """
+
+        if TERMINAL:
+            app.run_server(debug=True)
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.313 seconds)
+   **Total running time of the script:** ( 0 minutes  0.342 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main30_dash_table.py:

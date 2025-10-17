@@ -1,8 +1,17 @@
 """
-01. Basic example
------------------
+01. A basic TableOne demonstration
+-----------------------------------------------
 
-Basic usage of the tableone library.
+This script provides a practical demonstration of the tableone
+Python library, a tool designed to easily create the table
+of descriptive statistics commonly found in medical and scientific
+research papers. Using the well-known primary biliary cirrhosis
+(pbc) dataset, it walks through the essential steps of data preparation,
+including specifying continuous, categorical, and non-normally
+distributed variables. The script then generates a summary table,
+grouped by a treatment variable, and showcases the library's versatility
+by exporting the table to various formats, including HTML, GitHub-flavored
+Markdown, LaTeX, and Microsoft Excel.
 
 """
 # Libraries
@@ -30,8 +39,8 @@ groupby = 'trt'
 nonnormal = ['bili']
 
 # Create descriptive table
-mytable = TableOne(data, columns, categorical,
-                   groupby, nonnormal, pval=True)
+mytable = TableOne(data, columns=columns, categorical=categorical,
+    groupby=groupby, nonnormal=nonnormal, pval=True)
 
 
 #%%
@@ -63,9 +72,15 @@ print(mytable.tabulate(tablefmt="fancy_grid"))
 print(mytable.tabulate(tablefmt="rst"))
 
 #%%
+# Lets create the outputs folder
+from pathlib import Path
+folder_path = Path("./outputs")
+folder_path.mkdir(parents=True, exist_ok=True)
+print(f"Folder '{folder_path}' is ready.")
+
 # Save as latex file
-mytable.to_latex('./outputs/main01-mytable.tex')
+mytable.to_latex(folder_path / 'main01-mytable.tex')
 
 #%%
 # Save as xls file
-mytable.to_excel('./outputs/main01-mytable.xlsx')
+mytable.to_excel(folder_path / 'main01-mytable.xlsx')

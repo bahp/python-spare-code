@@ -1,6 +1,6 @@
 """
 06.d Collateral Sensitivity Index (CRI)
----------------------------------------
+============================================
 
 Since the computation of the Collateral Sensitivity Index is quite
 computationally expensive, the results are saved into a .csv file

@@ -1,7 +1,14 @@
 """
-10. Plot sparklines with weather
-======================================
+10. Weather Ho Chi Minh (sparklines)
+=====================================
 
+This Python script creates a stacked sparkline dashboard to
+visualize weather data from Ho Chi Minh City.
+
+The script reads multiple weather data files, combines them, and
+then generates a tall figure containing a series of small, individual
+area charts (one for each weather metric like temperature, humidity,
+etc.), all sharing the same time axis.
 """
 # -------------------
 # Main

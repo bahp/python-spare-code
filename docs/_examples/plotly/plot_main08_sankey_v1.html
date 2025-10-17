@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>08. Energy forecast 2050 (sankey) &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10. Weather Ho Chi Minh (sparklines)" href="plot_main10_weather.html" />
+    <link rel="prev" title="07b. Dengue features (parallel)" href="plot_main07_parallel_v2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#plotly">Plotly</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_roc.html">01. ROC curve (scatter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_distributions.html">02. Confusion matrix dist. (violin)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_sparklines.html">03. Sparklines (scatter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_2dhist.html">04. 2D Contour &amp; marginal histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05_boxplot_sepsis_shap.html">05. Sepsis shap  by timestep (boxplot)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main06_treemap_v1.html">06. Coffee flavours (treemap)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_parallel_v1.html">07a. Manufacturing features (parallel)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_parallel_v2.html">07b. Dengue features (parallel)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">08. Energy forecast 2050 (sankey)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_weather.html">10. Weather Ho Chi Minh (sparklines)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main11_updatemenus.html">11. Graph interaction (updatemenus)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main12_mpl2ply.html">12a. Matplotlib to Plotly (errorbar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main12_mpl2ply_shap.html">12b. Matplotlib to Plotly (shap)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_dash_table.html">30. Dash Table app</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">08. Energy forecast 2050 (sankey)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/plotly/plot_main08_sankey_v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-plotly-plot-main08-sankey-v1-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="energy-forecast-2050-sankey">
+<span id="sphx-glr-examples-plotly-plot-main08-sankey-v1-py"></span><h1>08. Energy forecast 2050 (sankey)<a class="headerlink" href="#energy-forecast-2050-sankey" title="Permalink to this heading"></a></h1>
+<p>This script creates a Sankey diagram to visualize the projected
+flow of energy for the year 2050. It begins by fetching the necessary
+data from a JSON file hosted on GitHub.</p>
+<p>Before plotting, the script processes the data to customize the
+diagram’s appearance, notably adjusting the colors and opacity
+so that each flow (or link) inherits the color of its source node.
+This enhances readability and makes the chart more intuitive.
+Finally, it uses plotly.graph_objects to construct and display
+the Sankey diagram, which effectively illustrates the distribution
+of energy from various sources through to their final consumption
+sectors.</p>
+<html>
+<head><meta charset="utf-8" /></head>
+<body>
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.1.min.js" integrity="sha256-HUEFyfiTnZJxCxur99FjbKYTvKSzwDaD3/x5TqHpFu4=" crossorigin="anonymous"></script>                <div id="d31b014f-34f7-4d87-8963-5ea9882531b0" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("d31b014f-34f7-4d87-8963-5ea9882531b0")) {                    Plotly.newPlot(                        "d31b014f-34f7-4d87-8963-5ea9882531b0",                        [{"link":{"color":["rgba(31, 119, 180, 0.4)","rgba(255, 127, 14, 0.4)","rgba(255, 127, 14, 0.4)","rgba(255, 127, 14, 0.4)","rgba(255, 127, 14, 0.4)","rgba(227, 119, 194, 0.4)","rgba(127, 127, 127, 0.4)","rgba(188, 189, 34, 0.4)","rgba(31, 119, 180, 0.4)","rgba(23, 190, 207, 0.4)","rgba(255, 127, 14, 0.4)","rgba(255, 127, 14, 0.4)","rgba(255, 127, 14, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(214, 39, 40, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(140, 86, 75, 0.4)","rgba(127, 127, 127, 0.4)","rgba(127, 127, 127, 0.4)","rgba(127, 127, 127, 0.4)","rgba(188, 189, 34, 0.4)","rgba(23, 190, 207, 0.4)","rgba(44, 160, 44, 0.4)","rgba(44, 160, 44, 0.4)","rgba(44, 160, 44, 0.4)","rgba(44, 160, 44, 0.4)","rgba(44, 160, 44, 0.4)","rgba(44, 160, 44, 0.4)","rgba(44, 160, 44, 0.4)","rgba(44, 160, 44, 0.4)","rgba(148, 103, 189, 0.4)","rgba(148, 103, 189, 0.4)","rgba(255,0,255, 0.4)","rgba(255,0,255, 0.4)","rgba(227, 119, 194, 0.4)","rgba(188, 189, 34, 0.4)","rgba(127, 127, 127, 0.4)","rgba(23, 190, 207, 0.4)","rgba(23, 190, 207, 0.4)","rgba(31, 119, 180, 0.4)","rgba(31, 119, 180, 0.4)","rgba(255, 127, 14, 0.4)","rgba(44, 160, 44, 0.4)","rgba(214, 39, 40, 0.4)","rgba(214, 39, 40, 0.4)","rgba(148, 103, 189, 0.4)","rgba(148, 103, 189, 0.4)","rgba(148, 103, 189, 0.4)","rgba(227, 119, 194, 0.4)","rgba(227, 119, 194, 0.4)","rgba(227, 119, 194, 0.4)","rgba(148, 103, 189, 0.4)","rgba(140, 86, 75, 0.4)","rgba(227, 119, 194, 0.4)","rgba(127, 127, 127, 0.4)","rgba(255,0,255, 0.4)","rgba(255,0,255, 0.4)"],"label":["stream 1","","","","stream 1","","","","","","","","","","","","","","","","","","","","","","","","","","stream 1","","","","","","","","","","","","","","","","Old generation plant (made-up)","New generation plant (made-up)","","","","","","","","","","","","","","","","","","","","","","",""],"source":[0,1,1,1,1,6,7,8,10,9,11,11,11,15,15,15,15,15,15,15,15,15,15,15,23,25,5,5,5,5,5,27,17,17,28,29,2,2,2,2,2,2,2,2,34,24,35,35,36,38,37,39,39,40,40,41,42,43,43,4,4,4,26,26,26,44,45,46,47,35,35],"target":[1,2,3,4,5,2,4,9,9,4,12,13,14,16,14,17,12,18,19,13,3,20,21,22,24,24,13,3,26,19,12,15,28,3,18,15,12,30,18,31,32,19,33,20,1,5,26,26,37,37,2,4,1,14,13,15,14,42,41,19,26,12,15,3,11,15,1,15,15,26,26],"value":[124.729,0.597,26.862,280.322,81.144,35,35,11.606,63.965,75.571,10.639,22.505,46.184,104.453,113.726,27.14,342.165,37.797,4.412,40.858,56.691,7.863,90.008,93.494,40.719,82.233,0.129,1.401,151.891,2.096,48.58,7.013,20.897,6.242,20.897,6.995,121.066,128.69,135.835,14.458,206.267,3.64,33.218,4.413,14.375,122.952,500,139.978,504.287,107.703,611.99,56.587,77.81,193.026,70.672,59.901,19.263,19.263,59.901,0.882,400.12,46.477,525.531,787.129,79.329,9.452,182.01,19.013,289.366,100,100]},"node":{"color":["rgba(31, 119, 180, 0.8)","rgba(255, 127, 14, 0.8)","rgba(44, 160, 44, 0.8)","rgba(214, 39, 40, 0.8)","rgba(148, 103, 189, 0.8)","rgba(140, 86, 75, 0.8)","rgba(227, 119, 194, 0.8)","rgba(127, 127, 127, 0.8)","rgba(188, 189, 34, 0.8)","rgba(23, 190, 207, 0.8)","rgba(31, 119, 180, 0.8)","rgba(255, 127, 14, 0.8)","rgba(44, 160, 44, 0.8)","rgba(214, 39, 40, 0.8)","rgba(148, 103, 189, 0.8)","rgba(140, 86, 75, 0.8)","rgba(227, 119, 194, 0.8)","rgba(127, 127, 127, 0.8)","rgba(188, 189, 34, 0.8)","rgba(23, 190, 207, 0.8)","rgba(31, 119, 180, 0.8)","rgba(255, 127, 14, 0.8)","rgba(44, 160, 44, 0.8)","rgba(214, 39, 40, 0.8)","rgba(148, 103, 189, 0.8)","rgba(140, 86, 75, 0.8)","rgba(227, 119, 194, 0.8)","rgba(127, 127, 127, 0.8)","rgba(188, 189, 34, 0.8)","rgba(23, 190, 207, 0.8)","rgba(31, 119, 180, 0.8)","rgba(255, 127, 14, 0.8)","rgba(44, 160, 44, 0.8)","rgba(214, 39, 40, 0.8)","rgba(148, 103, 189, 0.8)","rgba(255,0,255, 0.8)","rgba(227, 119, 194, 0.8)","rgba(127, 127, 127, 0.8)","rgba(188, 189, 34, 0.8)","rgba(23, 190, 207, 0.8)","rgba(31, 119, 180, 0.8)","rgba(255, 127, 14, 0.8)","rgba(44, 160, 44, 0.8)","rgba(214, 39, 40, 0.8)","rgba(148, 103, 189, 0.8)","rgba(140, 86, 75, 0.8)","rgba(227, 119, 194, 0.8)","rgba(127, 127, 127, 0.8)"],"label":["Agricultural 'waste'","Bio-conversion","Liquid","Losses","Solid","Gas","Biofuel imports","Biomass imports","Coal imports","Coal","Coal reserves","District heating","Industry","Heating and cooling - commercial","Heating and cooling - homes","Electricity grid","Over generation \u002f exports","H2 conversion","Road transport","Agriculture","Rail transport","Lighting & appliances - commercial","Lighting & appliances - homes","Gas imports","Ngas","Gas reserves","Thermal generation","Geothermal","H2","Hydro","International shipping","Domestic aviation","International aviation","National navigation","Marine algae","Nuclear","Oil imports","Oil","Oil reserves","Other waste","Pumped heat","Solar PV","Solar Thermal","Solar","Tidal","UK land based bioenergy","Wave","Wind"],"line":{"color":"black","width":0.5},"pad":15,"thickness":15},"valueformat":".0f","valuesuffix":"TWh","type":"sankey"}],                        {"font":{"size":10},"template":{"data":{"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Energy forecast for 2050\u003cbr\u003eSource: Department of Energy & Climate \nChange, Tom Counsell ia \u003ca href='https:\u002f\u002fbost.ocks.org\u002fmike\u002fsankey\u002f'\u003eMike Bostock\u003c\u002fa\u003e\","}},                        {"responsive": true}                    )                };            </script>        </div>
+</body>
+</html><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: [{&#39;type&#39;: &#39;sankey&#39;, &#39;domain&#39;: {&#39;x&#39;: [0, 1], &#39;y&#39;: [0, 1]}, &#39;orientation&#39;: &#39;h&#39;, &#39;valueformat&#39;: &#39;.0f&#39;, &#39;valuesuffix&#39;: &#39;TWh&#39;, &#39;node&#39;: {&#39;pad&#39;: 15, &#39;thickness&#39;: 15, &#39;line&#39;: {&#39;color&#39;: &#39;black&#39;, &#39;width&#39;: 0.5}, &#39;label&#39;: [&quot;Agricultural &#39;waste&#39;&quot;, &#39;Bio-conversion&#39;, &#39;Liquid&#39;, &#39;Losses&#39;, &#39;Solid&#39;, &#39;Gas&#39;, &#39;Biofuel imports&#39;, &#39;Biomass imports&#39;, &#39;Coal imports&#39;, &#39;Coal&#39;, &#39;Coal reserves&#39;, &#39;District heating&#39;, &#39;Industry&#39;, &#39;Heating and cooling - commercial&#39;, &#39;Heating and cooling - homes&#39;, &#39;Electricity grid&#39;, &#39;Over generation / exports&#39;, &#39;H2 conversion&#39;, &#39;Road transport&#39;, &#39;Agriculture&#39;, &#39;Rail transport&#39;, &#39;Lighting &amp; appliances - commercial&#39;, &#39;Lighting &amp; appliances - homes&#39;, &#39;Gas imports&#39;, &#39;Ngas&#39;, &#39;Gas reserves&#39;, &#39;Thermal generation&#39;, &#39;Geothermal&#39;, &#39;H2&#39;, &#39;Hydro&#39;, &#39;International shipping&#39;, &#39;Domestic aviation&#39;, &#39;International aviation&#39;, &#39;National navigation&#39;, &#39;Marine algae&#39;, &#39;Nuclear&#39;, &#39;Oil imports&#39;, &#39;Oil&#39;, &#39;Oil reserves&#39;, &#39;Other waste&#39;, &#39;Pumped heat&#39;, &#39;Solar PV&#39;, &#39;Solar Thermal&#39;, &#39;Solar&#39;, &#39;Tidal&#39;, &#39;UK land based bioenergy&#39;, &#39;Wave&#39;, &#39;Wind&#39;], &#39;color&#39;: [&#39;rgba(31, 119, 180, 0.8)&#39;, &#39;rgba(255, 127, 14, 0.8)&#39;, &#39;rgba(44, 160, 44, 0.8)&#39;, &#39;rgba(214, 39, 40, 0.8)&#39;, &#39;rgba(148, 103, 189, 0.8)&#39;, &#39;rgba(140, 86, 75, 0.8)&#39;, &#39;rgba(227, 119, 194, 0.8)&#39;, &#39;rgba(127, 127, 127, 0.8)&#39;, &#39;rgba(188, 189, 34, 0.8)&#39;, &#39;rgba(23, 190, 207, 0.8)&#39;, &#39;rgba(31, 119, 180, 0.8)&#39;, &#39;rgba(255, 127, 14, 0.8)&#39;, &#39;rgba(44, 160, 44, 0.8)&#39;, &#39;rgba(214, 39, 40, 0.8)&#39;, &#39;rgba(148, 103, 189, 0.8)&#39;, &#39;rgba(140, 86, 75, 0.8)&#39;, &#39;rgba(227, 119, 194, 0.8)&#39;, &#39;rgba(127, 127, 127, 0.8)&#39;, &#39;rgba(188, 189, 34, 0.8)&#39;, &#39;rgba(23, 190, 207, 0.8)&#39;, &#39;rgba(31, 119, 180, 0.8)&#39;, &#39;rgba(255, 127, 14, 0.8)&#39;, &#39;rgba(44, 160, 44, 0.8)&#39;, &#39;rgba(214, 39, 40, 0.8)&#39;, &#39;rgba(148, 103, 189, 0.8)&#39;, &#39;rgba(140, 86, 75, 0.8)&#39;, &#39;rgba(227, 119, 194, 0.8)&#39;, &#39;rgba(127, 127, 127, 0.8)&#39;, &#39;rgba(188, 189, 34, 0.8)&#39;, &#39;rgba(23, 190, 207, 0.8)&#39;, &#39;rgba(31, 119, 180, 0.8)&#39;, &#39;rgba(255, 127, 14, 0.8)&#39;, &#39;rgba(44, 160, 44, 0.8)&#39;, &#39;rgba(214, 39, 40, 0.8)&#39;, &#39;rgba(148, 103, 189, 0.8)&#39;, &#39;rgba(255,0,255, 0.8)&#39;, &#39;rgba(227, 119, 194, 0.8)&#39;, &#39;rgba(127, 127, 127, 0.8)&#39;, &#39;rgba(188, 189, 34, 0.8)&#39;, &#39;rgba(23, 190, 207, 0.8)&#39;, &#39;rgba(31, 119, 180, 0.8)&#39;, &#39;rgba(255, 127, 14, 0.8)&#39;, &#39;rgba(44, 160, 44, 0.8)&#39;, &#39;rgba(214, 39, 40, 0.8)&#39;, &#39;rgba(148, 103, 189, 0.8)&#39;, &#39;rgba(140, 86, 75, 0.8)&#39;, &#39;rgba(227, 119, 194, 0.8)&#39;, &#39;rgba(127, 127, 127, 0.8)&#39;]}, &#39;link&#39;: {&#39;source&#39;: [0, 1, 1, 1, 1, 6, 7, 8, 10, 9, 11, 11, 11, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 23, 25, 5, 5, 5, 5, 5, 27, 17, 17, 28, 29, 2, 2, 2, 2, 2, 2, 2, 2, 34, 24, 35, 35, 36, 38, 37, 39, 39, 40, 40, 41, 42, 43, 43, 4, 4, 4, 26, 26, 26, 44, 45, 46, 47, 35, 35], &#39;target&#39;: [1, 2, 3, 4, 5, 2, 4, 9, 9, 4, 12, 13, 14, 16, 14, 17, 12, 18, 19, 13, 3, 20, 21, 22, 24, 24, 13, 3, 26, 19, 12, 15, 28, 3, 18, 15, 12, 30, 18, 31, 32, 19, 33, 20, 1, 5, 26, 26, 37, 37, 2, 4, 1, 14, 13, 15, 14, 42, 41, 19, 26, 12, 15, 3, 11, 15, 1, 15, 15, 26, 26], &#39;value&#39;: [124.729, 0.597, 26.862, 280.322, 81.144, 35, 35, 11.606, 63.965, 75.571, 10.639, 22.505, 46.184, 104.453, 113.726, 27.14, 342.165, 37.797, 4.412, 40.858, 56.691, 7.863, 90.008, 93.494, 40.719, 82.233, 0.129, 1.401, 151.891, 2.096, 48.58, 7.013, 20.897, 6.242, 20.897, 6.995, 121.066, 128.69, 135.835, 14.458, 206.267, 3.64, 33.218, 4.413, 14.375, 122.952, 500, 139.978, 504.287, 107.703, 611.99, 56.587, 77.81, 193.026, 70.672, 59.901, 19.263, 19.263, 59.901, 0.882, 400.12, 46.477, 525.531, 787.129, 79.329, 9.452, 182.01, 19.013, 289.366, 100, 100], &#39;color&#39;: [&#39;rgba(31, 119, 180, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(227, 119, 194, 0.4)&#39;, &#39;rgba(127, 127, 127, 0.4)&#39;, &#39;rgba(188, 189, 34, 0.4)&#39;, &#39;rgba(31, 119, 180, 0.4)&#39;, &#39;rgba(23, 190, 207, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(214, 39, 40, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(127, 127, 127, 0.4)&#39;, &#39;rgba(127, 127, 127, 0.4)&#39;, &#39;rgba(127, 127, 127, 0.4)&#39;, &#39;rgba(188, 189, 34, 0.4)&#39;, &#39;rgba(23, 190, 207, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(148, 103, 189, 0.4)&#39;, &#39;rgba(148, 103, 189, 0.4)&#39;, &#39;rgba(255,0,255, 0.4)&#39;, &#39;rgba(255,0,255, 0.4)&#39;, &#39;rgba(227, 119, 194, 0.4)&#39;, &#39;rgba(188, 189, 34, 0.4)&#39;, &#39;rgba(127, 127, 127, 0.4)&#39;, &#39;rgba(23, 190, 207, 0.4)&#39;, &#39;rgba(23, 190, 207, 0.4)&#39;, &#39;rgba(31, 119, 180, 0.4)&#39;, &#39;rgba(31, 119, 180, 0.4)&#39;, &#39;rgba(255, 127, 14, 0.4)&#39;, &#39;rgba(44, 160, 44, 0.4)&#39;, &#39;rgba(214, 39, 40, 0.4)&#39;, &#39;rgba(214, 39, 40, 0.4)&#39;, &#39;rgba(148, 103, 189, 0.4)&#39;, &#39;rgba(148, 103, 189, 0.4)&#39;, &#39;rgba(148, 103, 189, 0.4)&#39;, &#39;rgba(227, 119, 194, 0.4)&#39;, &#39;rgba(227, 119, 194, 0.4)&#39;, &#39;rgba(227, 119, 194, 0.4)&#39;, &#39;rgba(148, 103, 189, 0.4)&#39;, &#39;rgba(140, 86, 75, 0.4)&#39;, &#39;rgba(227, 119, 194, 0.4)&#39;, &#39;rgba(127, 127, 127, 0.4)&#39;, &#39;rgba(255,0,255, 0.4)&#39;, &#39;rgba(255,0,255, 0.4)&#39;], &#39;label&#39;: [&#39;stream 1&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;stream 1&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;stream 1&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;Old generation plant (made-up)&#39;, &#39;New generation plant (made-up)&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;]}}], &#39;layout&#39;: {&#39;title&#39;: {&#39;text&#39;: &quot;Energy forecast for 2050, UK — Department of Energy &amp; Climate Change&lt;br&gt;Imperfect copy of &lt;a href=&#39;https://bost.ocks.org/mike/sankey/&#39;&gt;Mike Bostock&#39;s example&lt;/a&gt;&lt;br&gt;with numerous &lt;a href=&#39;https://plotly.com/javascript/&#39;&gt;Plotly&lt;/a&gt; features&quot;}, &#39;width&#39;: 1118, &#39;height&#39;: 772, &#39;font&#39;: {&#39;size&#39;: 10, &#39;weight&#39;: &#39;bold&#39;, &#39;style&#39;: &#39;italic&#39;, &#39;variant&#39;: &#39;small-caps&#39;}, &#39;updatemenus&#39;: [{&#39;y&#39;: 1, &#39;buttons&#39;: [{&#39;label&#39;: &#39;Light&#39;, &#39;method&#39;: &#39;relayout&#39;, &#39;args&#39;: [&#39;paper_bgcolor&#39;, &#39;white&#39;]}, {&#39;label&#39;: &#39;Dark&#39;, &#39;method&#39;: &#39;relayout&#39;, &#39;args&#39;: [&#39;paper_bgcolor&#39;, &#39;black&#39;]}]}, {&#39;y&#39;: 0.9, &#39;buttons&#39;: [{&#39;label&#39;: &#39;Thick&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;node.thickness&#39;, 15]}, {&#39;label&#39;: &#39;Thin&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;node.thickness&#39;, 8]}]}, {&#39;y&#39;: 0.8, &#39;buttons&#39;: [{&#39;label&#39;: &#39;Small gap&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;node.pad&#39;, 15]}, {&#39;label&#39;: &#39;Large gap&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;node.pad&#39;, 20]}]}, {&#39;y&#39;: 0.7, &#39;buttons&#39;: [{&#39;label&#39;: &#39;Snap&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;arrangement&#39;, &#39;snap&#39;]}, {&#39;label&#39;: &#39;Perpendicular&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;arrangement&#39;, &#39;perpendicular&#39;]}, {&#39;label&#39;: &#39;Freeform&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;arrangement&#39;, &#39;freeform&#39;]}, {&#39;label&#39;: &#39;Fixed&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;arrangement&#39;, &#39;fixed&#39;]}]}, {&#39;y&#39;: 0.6, &#39;buttons&#39;: [{&#39;label&#39;: &#39;Horizontal&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;orientation&#39;, &#39;h&#39;]}, {&#39;label&#39;: &#39;Vertical&#39;, &#39;method&#39;: &#39;restyle&#39;, &#39;args&#39;: [&#39;orientation&#39;, &#39;v&#39;]}]}]}}
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">18</span> <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="linenos">19</span> <span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json&#39;</span>
+<span class="linenos">22</span> <span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="linenos">23</span> <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span> <span class="c1"># override gray link colors with &#39;source&#39; colors</span>
+<span class="linenos">26</span> <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="linenos">27</span> <span class="c1"># change &#39;magenta&#39; to its &#39;rgba&#39; value to add opacity</span>
+<span class="linenos">28</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;node&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> \
+<span class="linenos">29</span>     <span class="p">[</span><span class="s1">&#39;rgba(255,0,255, 0.8)&#39;</span> <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s2">&quot;magenta&quot;</span> <span class="k">else</span> <span class="n">color</span>
+<span class="linenos">30</span>         <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;node&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]]</span>
+<span class="linenos">31</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> \
+<span class="linenos">32</span>     <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;node&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="n">src</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">opacity</span><span class="p">))</span>
+<span class="linenos">33</span>         <span class="k">for</span> <span class="n">src</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="s1">&#39;source&#39;</span><span class="p">]]</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span> <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Sankey</span><span class="p">(</span>
+<span class="linenos">38</span>     <span class="n">valueformat</span> <span class="o">=</span> <span class="s2">&quot;.0f&quot;</span><span class="p">,</span>
+<span class="linenos">39</span>     <span class="n">valuesuffix</span> <span class="o">=</span> <span class="s2">&quot;TWh&quot;</span><span class="p">,</span>
+<span class="linenos">40</span>     <span class="c1"># Define nodes</span>
+<span class="linenos">41</span>     <span class="n">node</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="linenos">42</span>       <span class="n">pad</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
+<span class="linenos">43</span>       <span class="n">thickness</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
+<span class="linenos">44</span>       <span class="n">line</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">),</span>
+<span class="linenos">45</span>       <span class="n">label</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;node&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+<span class="linenos">46</span>       <span class="n">color</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;node&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
+<span class="linenos">47</span>     <span class="p">),</span>
+<span class="linenos">48</span>     <span class="c1"># Add links</span>
+<span class="linenos">49</span>     <span class="n">link</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="linenos">50</span>       <span class="n">source</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="s1">&#39;source&#39;</span><span class="p">],</span>
+<span class="linenos">51</span>       <span class="n">target</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="s1">&#39;target&#39;</span><span class="p">],</span>
+<span class="linenos">52</span>       <span class="n">value</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">],</span>
+<span class="linenos">53</span>       <span class="n">label</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+<span class="linenos">54</span>       <span class="n">color</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
+<span class="linenos">55</span> <span class="p">))])</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Energy forecast for 2050&lt;br&gt;Source: Department of Energy &amp; Climate</span>
+<span class="linenos">58</span><span class="s2"> Change, Tom Counsell ia &lt;a href=&#39;https://bost.ocks.org/mike/sankey/&#39;&gt;Mike Bostock&lt;/a&gt;&quot;,&quot;&quot;&quot;</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">61</span> <span class="c1">#fig.show()</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span> <span class="c1"># Show</span>
+<span class="linenos">64</span> <span class="kn">from</span><span class="w"> </span><span class="nn">plotly.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">show</span>
+<span class="linenos">65</span> <span class="n">show</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.857 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plotly-plot-main08-sankey-v1-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/5c70dd9007cf74342a533f516d406535/plot_main08_sankey_v1.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main08_sankey_v1.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/5a3002e35e29e3ef64bf0be247a17965/plot_main08_sankey_v1.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main08_sankey_v1.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_main07_parallel_v2.html" class="btn btn-neutral float-left" title="07b. Dengue features (parallel)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main10_weather.html" class="btn btn-neutral float-right" title="10. Weather Ho Chi Minh (sparklines)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2025, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

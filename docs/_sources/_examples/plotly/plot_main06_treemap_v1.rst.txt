@@ -18,17 +18,21 @@
 .. _sphx_glr__examples_plotly_plot_main06_treemap_v1.py:
 
 
-06. Plot Treemap with coffee
-----------------------------------
+06. Coffee flavours (treemap)
+====================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-8
+This example uses the pandas and Plotly libraries to create
+and display an interactive treemap visualization of coffee
+flavors.
+
+.. GENERATED FROM PYTHON SOURCE LINES 11-12
 
 Lets load the dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-34
+.. GENERATED FROM PYTHON SOURCE LINES 12-38
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 13
 
 
     # Libraries
@@ -47,12 +51,12 @@ Lets load the dataset.
     # Define URL
     URL = 'https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-flavors-complete.csv'
 
-    # Load dataframe
+    # Load DataFrame
     df = pd.read_csv(URL)
 
     # Show
     if TERMINAL:
-        print("\nDF:")
+        print("\nDataFrame:")
         print(df)
     df
 
@@ -162,10 +166,10 @@ Lets load the dataset.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-54
+.. GENERATED FROM PYTHON SOURCE LINES 40-58
 
 .. code-block:: default
-   :lineno-start: 37
+   :lineno-start: 41
 
 
     # Display
@@ -198,7 +202,7 @@ Lets load the dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.525 seconds)
+   **Total running time of the script:** ( 0 minutes  3.226 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main06_treemap_v1.py:

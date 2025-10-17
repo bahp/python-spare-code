@@ -18,12 +18,22 @@
 .. _sphx_glr__examples_matplotlib_plot_main08_table.py:
 
 
-08. ``plt.bar`` with ``plt.table``
-----------------------------------
+08. Stacked bar chart with data table
+=====================================
 
-Plot bars and add a table to an Axes.
+This script demonstrates how to create a composite visualization
+in Matplotlib by combining a stacked bar chart with a data table
+directly on the same axes. This is an effective way to present
+both a visual summary and the precise underlying data in a single figure.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-60
+The example shows how to:
+
+    - Build a stacked bar chart by plotting data series sequentially.
+    - Use ``plt.table`` to add a formatted table below the chart.
+    - Synchronize the table's row colors with the colors of the bar
+      segments for easy visual reference.
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-72
 
 
 
@@ -33,12 +43,29 @@ Plot bars and add a table to an Axes.
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main08_table.py:72: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
+
+
+
+
+
+|
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 19
 
+
+    # ``plt.bar`` with ``plt.table``
 
     import numpy as np
     import matplotlib.pyplot as plt
@@ -95,7 +122,7 @@ Plot bars and add a table to an Axes.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.108 seconds)
+   **Total running time of the script:** ( 0 minutes  0.094 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main08_table.py:

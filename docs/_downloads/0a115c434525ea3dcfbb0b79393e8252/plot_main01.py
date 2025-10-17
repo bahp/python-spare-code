@@ -1,11 +1,27 @@
 """
-01. Basic example
-==================
+01. A practical example
+=======================
 
+This script provides a practical, hands-on introduction to the SHAP
+(SHapley Additive exPlanations) library, a leading tool for machine
+learning model interpretability.
 
+It demonstrates a complete workflow for understanding the predictions
+of a "black box" model:
 
+   - **Data Preparation:** Loads the standard breast cancer dataset and splits it for training.
+   - **Model Training:** Trains an XGBoost classifier, a powerful gradient boosting model.
+   - **Explainability:** Uses a shap.Explainer to compute SHAP values, which quantify
+     the contribution of each feature to a model's prediction.
+   - **Visualization:** Generates a SHAP summary plot (beeswarm plot) to elegantly
+     visualize global feature importance and the impact of feature values on the
+     model's output.
+
+The primary goal is to illustrate how to move beyond simple accuracy
+metrics and gain deeper insights into why a model makes the decisions
+it does.
 """
-# Generic
+# Libraries
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -44,7 +60,6 @@ y = data['target']
 # Filter
 X = X.iloc[:500, :3]
 y = y.iloc[:500]
-
 
 # Split dataset
 X_train, X_test, y_train, y_test = \

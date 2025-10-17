@@ -1,8 +1,13 @@
 """
-02. ``mpl.hexbin``
-------------------------
+02. Point density with ``matplotlib.hexbin``
+=============================================
 
-Make a 2D hexagonal binning plot of points x, y.
+This script demonstrates how to create a 2D hexagonal binning
+plot with ``matplotlib.hexbin``. 🐝 This type of plot is an
+excellent alternative to a scatter plot for visualizing the
+density of a large number of points. The example generates
+random data and displays it using both linear and logarithmic
+color scales to represent point concentration.
 
 """
 

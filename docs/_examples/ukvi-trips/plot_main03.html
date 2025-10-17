@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UKVI Travel History Visualizer &mdash; python-spare-code 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/python_icon_191765.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="UKVI Travel History Visualizer (plotly)" href="plot_main04.html" />
+    <link rel="prev" title="02. Saving &amp; Loading keras models" href="../tensorflow/plot_main02.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            python-spare-code
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#explainer-dashboard">Explainer Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#factory-boy">Factory Boy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotly">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scikits">Scikits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">UKVI Travel History Visualizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04.html">UKVI Travel History Visualizer (plotly)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main05.html">UKVI Travel History Calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">python-spare-code</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">UKVI Travel History Visualizer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_examples/ukvi-trips/plot_main03.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-ukvi-trips-plot-main03-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="ukvi-travel-history-visualizer">
+<span id="sphx-glr-examples-ukvi-trips-plot-main03-py"></span><h1>UKVI Travel History Visualizer<a class="headerlink" href="#ukvi-travel-history-visualizer" title="Permalink to this heading"></a></h1>
+<p>This Python script is designed to automate the tracking and visualization
+of international travel for UK immigration purposes. It extracts travel
+data directly from a PDF report (such as a UKVI travel history record),
+calculates the duration in days for each trip abroad, and generates a
+clear timeline chart using Matplotlib. The resulting plot provides
+an at-a-glance overview of all absences, making it easier to monitor
+compliance with the continuous residence requirements for Indefinite
+Leave to Remain (ILR) or citizenship applications. The script also
+supports manual entry for trips not captured in the PDF and allows
+for custom color-coding of destinations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An Optical Character Recognition (OCR) approach was chosen for data
+extraction. This is because the source PDFs contain tables as non-selectable
+images (rather than text), which cannot be read by standard text-extraction
+libraries like pdfplumber.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Pytesseract Requires a Separate Installation</strong></p>
+<p>Please be aware that pytesseract is just a Python “wrapper.” It needs the
+Tesseract-OCR engine to be installed on your system to do the real work of
+reading text from images. You must install this engine separately:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>On Windows, download the installer from the Tesseract at UB Mannheim page.</p></li>
+<li><p>On macOS, use Homebrew: brew install tesseract.</p></li>
+<li><p>On Linux, use your package manager: sudo apt install tesseract-ocr.</p></li>
+</ul>
+</div></blockquote>
+<p>After installing on Windows, you must explicitly tell pytesseract where to find
+the executable, as is done in the extract_basic_travel_data function.</p>
+</div>
+<img src="../../_images/sphx_glr_plot_main03_001.png" srcset="../../_images/sphx_glr_plot_main03_001.png" alt="Voyage Durations (total abroad 537 days)" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>---&gt; Extracted flight history:
+
+   Departure Date/Time Arrival Date/Time Voyage Code    In/Out Dep Port Arrival Port   Date Only
+0  2019-12-02 06:15:00  02/12/2019 07:55      FR5993   Inbound      MAD          STN  2019-12-02
+1  2019-12-04 20:05:00  04/12/2019 23:35      FR5998  Outbound      STN          MAD  2019-12-04
+2  2020-01-13 00:20:00  13/01/2020 07:15      VNOO51   Inbound      SGN          LHR  2020-01-13
+3  2020-09-15 10:00:00  15/09/2020 13:15      FR6035  Outbound      STN          RMI  2020-09-15
+4  2021-02-08 15:35:00  08/02/2021 16:55      IB3162   Inbound      MAD          LHR  2021-02-08
+5  2021-06-17 08:25:00  17/06/2021 11:45      FR5994  Outbound      STN          MAD  2021-06-17
+6  2021-10-05 07:05:00  05/10/2021 08:25      FR5993   Inbound      MAD          STN  2021-10-05
+7  2021-11-19 08:05:00  19/11/2021 11:05      FRO194  Outbound      STN          BLO  2021-11-19
+8  2021-12-02 20:45:00  02/12/2021 22:30      U28550   Inbound      RMU          LGW  2021-12-02
+9  2022-01-20 17:20:00  20/01/2022 20:45      UX1016  Outbound      LGW          MAD  2022-01-20
+10 2022-02-15 12:35:00  15/02/2022 14:05      FR5995   Inbound      MAD          STN  2022-02-15
+11 2022-03-24 09:50:00  24/03/2022 14:30      LS1663  Outbound      STN          TFS  2022-03-24
+12 2022-03-30 14:50:00  30/03/2022 19:05      BY4349   Inbound      TFS          LGW  2022-03-30
+13 2022-04-22 11:40:00  22/04/2022 14:20      FR1886  Outbound      STN          LIS  2022-04-22
+14 2022-04-27 15:10:00  27/04/2022 17:50      FR1887   Inbound      LIS          STN  2022-04-27
+15 2022-06-03 12:55:00  03/06/2022 16:15      FR5996  Outbound      STN          MAD  2022-06-03
+16 2022-06-14 15:35:00  14/06/2022 16:55      FR5995   Inbound      MAD          STN  2022-06-14
+17 2022-07-05 15:35:00  05/07/2022 16:55      FR0124  Outbound      STN          AOI  2022-07-05
+18 2022-08-06 05:50:00  06/08/2022 09:10      W94495  Outbound      LTN          CDT  2022-08-06
+19 2022-09-21 06:45:00  21/09/2022 08:05      FR5993   Inbound      MAD          STN  2022-09-21
+20 2022-10-26 13:05:00  26/10/2022 16:25      FR5996  Outbound      STN          MAD  2022-10-26
+21 2022-11-15 15:50:00  15/11/2022 17:15      IB3166   Inbound      MAD          LHR  2022-11-15
+22 2022-11-16 21:25:00  16/11/2022 18:20      MHOOO1  Outbound      LHR          KUL  2022-11-16
+23 2022-12-26 09:05:00  26/12/2022 15:25      MHO004   Inbound      KUL          LHR  2022-12-26
+24 2023-02-04 06:45:00  04/02/2023 12:30      W94467  Outbound      LTN          ATH  2023-02-04
+25 2023-02-06 14:10:00  06/02/2023 16:10      W95746   Inbound      ATH          LGW  2023-02-06
+26 2023-02-21 16:05:00  21/02/2023 19:15      FR3406  Outbound      LTN          BLQ  2023-02-21
+27 2023-03-01 10:15:00  01/03/2023 11:40      FR2496   Inbound      PEG          STN  2023-03-01
+28 2023-04-28 14:45:00  28/04/2023 19:15      FR2842  Outbound      STN          LPA  2023-04-28
+29 2023-05-09 12:20:00  09/05/2023 16:35      FR2843   Inbound      LPA          STN  2023-05-09
+30 2023-06-30 06:45:00  30/06/2023 09:40      FR2489  Outbound      STN          OVD  2023-06-30
+31 2023-09-04 08:50:00  04/09/2023 11:50      W45785  Outbound      LGW          MXP  2023-09-04
+32 2023-09-11 07:10:00  11/09/2023 08:10      W45786   Inbound      MXP          LGW  2023-09-11
+33 2023-10-04 18:15:00  04/10/2023 21:45      FR5996  Outbound      STN          MAD  2023-10-04
+34 2023-10-17 15:35:00  17/10/2023 17:05      FR5993   Inbound      MAD          STN  2023-10-17
+35 2023-12-15 06:15:00  15/12/2023 09:35      FR2497  Outbound      STN          PEG  2023-12-15
+36 2024-01-10 10:45:00  10/01/2024 12:15      FR2629   Inbound      MAD          STN  2024-01-10
+37 2024-02-26 11:40:00  27/02/2024 04:40      CA0848  Outbound      LGW          PVG  2024-02-26
+38 2024-04-24 16:30:00  24/04/2024 19:55      BA0464  Outbound      LHR          MAD  2024-04-24
+39 2024-05-02 20:50:00  02/05/2024 22:10      BAO465   Inbound      MAD          LHR  2024-05-02
+40 2024-06-26 15:50:00  26/06/2024 19:15      IB3177  Outbound      LHR          MAD  2024-06-26
+41 2024-07-01 18:40:00  01/07/2024 20:00      123718   Inbound      MAD          LGW  2024-07-01
+42 2024-07-20 19:15:00  20/07/2024 22:00     LXO0357  Outbound      LHR          GVA  2024-07-20
+
+
+
+Found errors in the flight sequence: ⚠️
+
+   Departure Date/Time Arrival Date/Time Voyage Code    In/Out Dep Port Arrival Port   Date Only                          validation_error
+17 2022-07-05 15:35:00  05/07/2022 16:55      FR0124  Outbound      STN          AOI  2022-07-05  Error: Part of consecutive Outbound pair
+18 2022-08-06 05:50:00  06/08/2022 09:10      W94495  Outbound      LTN          CDT  2022-08-06  Error: Part of consecutive Outbound pair
+30 2023-06-30 06:45:00  30/06/2023 09:40      FR2489  Outbound      STN          OVD  2023-06-30  Error: Part of consecutive Outbound pair
+31 2023-09-04 08:50:00  04/09/2023 11:50      W45785  Outbound      LGW          MXP  2023-09-04  Error: Part of consecutive Outbound pair
+37 2024-02-26 11:40:00  27/02/2024 04:40      CA0848  Outbound      LGW          PVG  2024-02-26  Error: Part of consecutive Outbound pair
+38 2024-04-24 16:30:00  24/04/2024 19:55      BA0464  Outbound      LHR          MAD  2024-04-24  Error: Part of consecutive Outbound pair
+
+
+---&gt; Combined trips:
+
+         Outbound Date        Inbound Date Outbound Ports Inbound Ports  Days Difference Voyage Code
+0  2019-12-04 20:05:00 2020-01-13 07:15:00        STN-MAD       SGN-LHR               39      FR5998
+1  2020-09-15 10:00:00 2021-02-08 16:55:00        STN-RMI       MAD-LHR              146      FR6035
+2  2021-06-17 08:25:00 2021-10-05 08:25:00        STN-MAD       MAD-STN              110      FR5994
+3  2021-11-19 08:05:00 2021-12-02 22:30:00        STN-BLO       RMU-LGW               13      FRO194
+4  2022-01-20 17:20:00 2022-02-15 14:05:00        LGW-MAD       MAD-STN               25      UX1016
+5  2022-03-24 09:50:00 2022-03-30 19:05:00        STN-TFS       TFS-LGW                6      LS1663
+6  2022-04-22 11:40:00 2022-04-27 17:50:00        STN-LIS       LIS-STN                5      FR1886
+7  2022-06-03 12:55:00 2022-06-14 16:55:00        STN-MAD       MAD-STN               11      FR5996
+8  2022-08-06 05:50:00 2022-09-21 08:05:00        LTN-CDT       MAD-STN               46      W94495
+9  2022-10-26 13:05:00 2022-11-15 17:15:00        STN-MAD       MAD-LHR               20      FR5996
+10 2022-11-16 21:25:00 2022-12-26 15:25:00        LHR-KUL       KUL-LHR               39      MHOOO1
+11 2023-02-04 06:45:00 2023-02-06 16:10:00        LTN-ATH       ATH-LGW                2      W94467
+12 2023-02-21 16:05:00 2023-03-01 11:40:00        LTN-BLQ       PEG-STN                7      FR3406
+13 2023-04-28 14:45:00 2023-05-09 16:35:00        STN-LPA       LPA-STN               11      FR2842
+14 2023-09-04 08:50:00 2023-09-11 08:10:00        LGW-MXP       MXP-LGW                6      W45785
+15 2023-10-04 18:15:00 2023-10-17 17:05:00        STN-MAD       MAD-STN               12      FR5996
+16 2023-12-15 06:15:00 2024-01-10 12:15:00        STN-PEG       MAD-STN               26      FR2497
+17 2024-04-24 16:30:00 2024-05-02 22:10:00        LHR-MAD       MAD-LHR                8      BA0464
+18 2024-06-26 15:50:00 2024-07-01 20:00:00        LHR-MAD       MAD-LGW                5      IB3177
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 34</span> <span class="c1"># Libraries</span>
+<span class="linenos"> 35</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos"> 36</span> <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="linenos"> 37</span>
+<span class="linenos"> 38</span> <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span> <span class="c1"># Set options to display all rows and columns#</span>
+<span class="linenos"> 42</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="linenos"> 43</span> <span class="c1">#pd.set_option(&#39;display.max_columns&#39;, None)</span>
+<span class="linenos"> 44</span> <span class="c1">#pd.set_option(&#39;display.max_colwidth&#39;, None) # No truncation of cell content</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span> <span class="k">def</span><span class="w"> </span><span class="nf">pdf2png</span><span class="p">(</span><span class="n">pdf_path</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">start_page</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end_page</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flag_save</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="linenos"> 47</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Converts the pdf to images and saves them in memory.</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="sd">     Parameters</span>
+<span class="linenos"> 50</span><span class="sd">     ----------</span>
+<span class="linenos"> 51</span><span class="sd">     pdf_path: str</span>
+<span class="linenos"> 52</span><span class="sd">         The path for the pdf file.</span>
+<span class="linenos"> 53</span><span class="sd">     start_page: int</span>
+<span class="linenos"> 54</span><span class="sd">         The start page with tables.</span>
+<span class="linenos"> 55</span><span class="sd">     end_page: int</span>
+<span class="linenos"> 56</span><span class="sd">         The end page with tables.</span>
+<span class="linenos"> 57</span><span class="sd">     flag_save: bool</span>
+<span class="linenos"> 58</span><span class="sd">         Whether to save the images.</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span><span class="sd">     Returns</span>
+<span class="linenos"> 61</span><span class="sd">     -------</span>
+<span class="linenos"> 62</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 63</span>     <span class="c1"># Libraries</span>
+<span class="linenos"> 64</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">pdf2image</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_from_path</span>
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span>     <span class="c1"># Convert images</span>
+<span class="linenos"> 67</span>     <span class="n">images</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="n">pdf_path</span><span class="p">,</span> <span class="n">first_page</span><span class="o">=</span><span class="n">start_page</span><span class="p">,</span>
+<span class="linenos"> 68</span>         <span class="n">last_page</span><span class="o">=</span><span class="n">end_page</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span>     <span class="c1"># Save images</span>
+<span class="linenos"> 71</span>     <span class="k">if</span> <span class="n">flag_save</span><span class="p">:</span>
+<span class="linenos"> 72</span>         <span class="k">if</span> <span class="n">out_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 73</span>             <span class="n">out_path</span> <span class="o">=</span> <span class="n">pdf_path</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos"> 74</span>         <span class="n">out_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 75</span>         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+<span class="linenos"> 76</span>             <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="p">(</span><span class="s2">&quot;page_</span><span class="si">%02d</span><span class="s2">.png&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">start_page</span><span class="p">)))</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span>     <span class="c1"># Return</span>
+<span class="linenos"> 79</span>     <span class="k">return</span> <span class="n">images</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span> <span class="k">def</span><span class="w"> </span><span class="nf">png2json</span><span class="p">(</span><span class="n">png_path</span><span class="p">,</span> <span class="n">out_path</span><span class="p">):</span>
+<span class="linenos"> 83</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Processes PNG images to extract flight data and saves</span>
+<span class="linenos"> 84</span><span class="sd">     it to a JSON file.</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span><span class="sd">     Parameters</span>
+<span class="linenos"> 87</span><span class="sd">     ----------</span>
+<span class="linenos"> 88</span><span class="sd">     pdf_path (pathlib.Path): The path to the original PDF file.</span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span><span class="sd">     Returns</span>
+<span class="linenos"> 91</span><span class="sd">     -------</span>
+<span class="linenos"> 92</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos"> 93</span>     <span class="c1"># Extract all flights</span>
+<span class="linenos"> 94</span>     <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 95</span>     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">png_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.png&quot;</span><span class="p">)):</span>
+<span class="linenos"> 96</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">extract_basic_travel_data</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="linenos"> 97</span>         <span class="n">results</span> <span class="o">+=</span> <span class="n">data</span>
+<span class="linenos"> 98</span>         <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="linenos"> 99</span>         <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">headers</span><span class="p">))</span>
+<span class="linenos">100</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span>     <span class="c1"># Save results as json</span>
+<span class="linenos">103</span>     <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> \
+<span class="linenos">104</span>         <span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="s1">&#39;flights.json&#39;</span><span class="p">,</span>
+<span class="linenos">105</span>             <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span> <span class="k">def</span><span class="w"> </span><span class="nf">extract_basic_travel_data</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<span class="linenos">109</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Extract the table information from an image.</span>
+<span class="linenos">110</span>
+<span class="linenos">111</span><span class="sd">     Parameters</span>
+<span class="linenos">112</span><span class="sd">     ----------</span>
+<span class="linenos">113</span><span class="sd">     image_path: str or Path</span>
+<span class="linenos">114</span><span class="sd">         The path with the image</span>
+<span class="linenos">115</span>
+<span class="linenos">116</span><span class="sd">     Returns</span>
+<span class="linenos">117</span><span class="sd">     -------</span>
+<span class="linenos">118</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">119</span>     <span class="c1"># Libraries</span>
+<span class="linenos">120</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">pytesseract</span>
+<span class="linenos">121</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
+<span class="linenos">122</span>     <span class="c1"># Tell the Python remote where the exe is (Windows)</span>
+<span class="linenos">123</span>     <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Windows&#39;</span><span class="p">:</span>
+<span class="linenos">124</span>         <span class="n">pytesseract</span><span class="o">.</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">tesseract_cmd</span> <span class="o">=</span> \
+<span class="linenos">125</span>             <span class="sa">r</span><span class="s1">&#39;C:\Program Files\Tesseract-OCR\tesseract.exe&#39;</span>
+<span class="linenos">126</span>     <span class="c1"># Perform OCR on the image</span>
+<span class="linenos">127</span>     <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<span class="linenos">128</span>     <span class="n">custom_config</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;--psm 6&#39;</span>  <span class="c1"># Assume uniform alignment for table</span>
+<span class="linenos">129</span>     <span class="n">raw_text</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">custom_config</span><span class="p">)</span>
+<span class="linenos">130</span>
+<span class="linenos">131</span>     <span class="c1"># Initialize a list to store the extracted rows</span>
+<span class="linenos">132</span>     <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">133</span>
+<span class="linenos">134</span>     <span class="c1"># Regular expression to match each row in the table</span>
+<span class="linenos">135</span>     <span class="n">row_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="linenos">136</span>         <span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{2}</span><span class="s2">/\d</span><span class="si">{2}</span><span class="s2">/\d</span><span class="si">{4}</span><span class="s2"> \d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">)\s+&quot;</span>  <span class="c1"># Departure Date/Time</span>
+<span class="linenos">137</span>         <span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{2}</span><span class="s2">/\d</span><span class="si">{2}</span><span class="s2">/\d</span><span class="si">{4}</span><span class="s2"> \d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">)\s+&quot;</span>  <span class="c1"># Arrival Date/Time</span>
+<span class="linenos">138</span>         <span class="sa">r</span><span class="s2">&quot;([A-Za-z0-9]+)\s+&quot;</span>  <span class="c1"># Voyage Code</span>
+<span class="linenos">139</span>         <span class="sa">r</span><span class="s2">&quot;(Inbound|Outbound)\s+&quot;</span>  <span class="c1"># In/Out</span>
+<span class="linenos">140</span>         <span class="sa">r</span><span class="s2">&quot;([A-Z]</span><span class="si">{3}</span><span class="s2">)\s+&quot;</span>  <span class="c1"># Dep Port</span>
+<span class="linenos">141</span>         <span class="sa">r</span><span class="s2">&quot;([A-Z]</span><span class="si">{3}</span><span class="s2">)&quot;</span>  <span class="c1"># Arrival Port</span>
+<span class="linenos">142</span>     <span class="p">)</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span>     <span class="c1"># Process the raw text line by line</span>
+<span class="linenos">145</span>     <span class="n">lines</span> <span class="o">=</span> <span class="n">raw_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">146</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+<span class="linenos">147</span>         <span class="n">match</span> <span class="o">=</span> <span class="n">row_pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="linenos">148</span>         <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+<span class="linenos">149</span>             <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">())</span>
+<span class="linenos">150</span>
+<span class="linenos">151</span>     <span class="c1"># Return</span>
+<span class="linenos">152</span>     <span class="k">return</span> <span class="n">data</span>
+<span class="linenos">153</span>
+<span class="linenos">154</span>
+<span class="linenos">155</span> <span class="k">def</span><span class="w"> </span><span class="nf">perform_validation</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="linenos">156</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="linenos">157</span>     <span class="n">MSG1</span> <span class="o">=</span> <span class="s1">&#39;Error: First flight in log is not Inbound&#39;</span>
+<span class="linenos">158</span>
+<span class="linenos">159</span>     <span class="c1"># Create a new column to store error messages, default to &#39;OK&#39;</span>
+<span class="linenos">160</span>     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;validation_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;OK&#39;</span>
+<span class="linenos">161</span>
+<span class="linenos">162</span>     <span class="c1"># Rule 1: Check if the very first flight is Inbound</span>
+<span class="linenos">163</span>     <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;In/Out&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Inbound&#39;</span><span class="p">:</span>
+<span class="linenos">164</span>         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;validation_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MSG1</span>
+<span class="linenos">165</span>
+<span class="linenos">166</span>     <span class="c1"># Rule 2: Check for consecutive Inbound/Outbound flights</span>
+<span class="linenos">167</span>     <span class="c1"># This flags a row if it&#39;s the same as the one BEFORE it</span>
+<span class="linenos">168</span>     <span class="n">is_same_as_previous</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;In/Out&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;In/Out&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">169</span>     <span class="c1"># This flags a row if it&#39;s the same as the one AFTER it</span>
+<span class="linenos">170</span>     <span class="n">is_same_as_next</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;In/Out&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;In/Out&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">171</span>
+<span class="linenos">172</span>     <span class="c1"># A row is an error if either of the above conditions is true</span>
+<span class="linenos">173</span>     <span class="n">is_consecutive</span> <span class="o">=</span> <span class="n">is_same_as_previous</span> <span class="o">|</span> <span class="n">is_same_as_next</span>
+<span class="linenos">174</span>
+<span class="linenos">175</span>     <span class="c1"># Add error messages where the sequence is broken</span>
+<span class="linenos">176</span>     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_consecutive</span><span class="p">,</span> <span class="s1">&#39;validation_error&#39;</span><span class="p">]</span> <span class="o">=</span> \
+<span class="linenos">177</span>         <span class="s1">&#39;Error: Part of consecutive &#39;</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;In/Out&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; pair&#39;</span>
+<span class="linenos">178</span>
+<span class="linenos">179</span>     <span class="c1"># Return</span>
+<span class="linenos">180</span>     <span class="k">return</span> <span class="n">df</span>
+<span class="linenos">181</span>
+<span class="linenos">182</span>
+<span class="linenos">183</span>
+<span class="linenos">184</span>
+<span class="linenos">185</span> <span class="c1"># ---------------------------------------------------------------</span>
+<span class="linenos">186</span> <span class="c1"># Main</span>
+<span class="linenos">187</span> <span class="c1"># ---------------------------------------------------------------</span>
+<span class="linenos">188</span> <span class="c1"># .. note:: Run the first time, later it can be disabled</span>
+<span class="linenos">189</span> <span class="c1">#           since the extracting of pags from pdf to</span>
+<span class="linenos">190</span> <span class="c1">#           png and the consequent OCR to extract the</span>
+<span class="linenos">191</span> <span class="c1">#           that information which will be saved in a json file</span>
+<span class="linenos">192</span> <span class="c1">#           only needs to be done once. Please check the json and</span>
+<span class="linenos">193</span> <span class="c1">#           add any missing flights (either due to poor extraction</span>
+<span class="linenos">194</span> <span class="c1">#           or not registered, or other methods of entry to the ountry&quot;</span>
+<span class="linenos">195</span>
+<span class="linenos">196</span> <span class="c1"># Flags</span>
+<span class="linenos">197</span> <span class="n">RUN_PDF2PNG</span> <span class="o">=</span> <span class="kc">False</span>   <span class="c1"># Extract pdf pages to png images</span>
+<span class="linenos">198</span> <span class="n">RUN_OCR</span> <span class="o">=</span> <span class="kc">False</span>       <span class="c1"># Extract data from png and save to json</span>
+<span class="linenos">199</span>
+<span class="linenos">200</span> <span class="c1"># Define the desired headers for the DataFrame</span>
+<span class="linenos">201</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">202</span>     <span class="s2">&quot;Departure Date/Time&quot;</span><span class="p">,</span> <span class="s2">&quot;Arrival Date/Time&quot;</span><span class="p">,</span>
+<span class="linenos">203</span>     <span class="s2">&quot;Voyage Code&quot;</span><span class="p">,</span> <span class="s2">&quot;In/Out&quot;</span><span class="p">,</span> <span class="s2">&quot;Dep Port&quot;</span><span class="p">,</span> <span class="s2">&quot;Arrival Port&quot;</span>
+<span class="linenos">204</span> <span class="p">]</span>
+<span class="linenos">205</span>
+<span class="linenos">206</span> <span class="c1"># Configuration of bundles.</span>
+<span class="linenos">207</span> <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">208</span>     <span class="s1">&#39;1085721&#39;</span><span class="p">:</span> <span class="p">{</span>            <span class="c1"># BH</span>
+<span class="linenos">209</span>         <span class="s1">&#39;start_page&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+<span class="linenos">210</span>         <span class="s1">&#39;end_page&#39;</span><span class="p">:</span> <span class="mi">12</span>
+<span class="linenos">211</span>     <span class="p">},</span>
+<span class="linenos">212</span>     <span class="s1">&#39;775243&#39;</span><span class="p">:</span> <span class="p">{</span>             <span class="c1"># VQ</span>
+<span class="linenos">213</span>         <span class="s1">&#39;start_page&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+<span class="linenos">214</span>         <span class="s1">&#39;end_page&#39;</span><span class="p">:</span> <span class="mi">7</span>
+<span class="linenos">215</span>     <span class="p">}</span>
+<span class="linenos">216</span> <span class="p">}</span>
+<span class="linenos">217</span>
+<span class="linenos">218</span> <span class="c1"># Select the bundle identifier</span>
+<span class="linenos">219</span> <span class="c1">#id = &#39;775243&#39;</span>
+<span class="linenos">220</span> <span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;1085721&#39;</span>
+<span class="linenos">221</span>
+<span class="linenos">222</span> <span class="c1"># Path</span>
+<span class="linenos">223</span> <span class="n">pdf_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/</span><span class="si">%s</span><span class="s1">-final-bundle.pdf&#39;</span> <span class="o">%</span> <span class="nb">id</span><span class="p">)</span>
+<span class="linenos">224</span> <span class="n">out_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./outputs/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">id</span><span class="p">)</span>
+<span class="linenos">225</span>
+<span class="linenos">226</span> <span class="c1"># Extract images from pdf</span>
+<span class="linenos">227</span> <span class="k">if</span> <span class="n">RUN_PDF2PNG</span><span class="p">:</span>
+<span class="linenos">228</span>     <span class="n">pdf2png</span><span class="p">(</span><span class="n">pdf_path</span><span class="o">=</span><span class="n">pdf_path</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="n">out_path</span> <span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="p">[</span><span class="nb">id</span><span class="p">])</span>
+<span class="linenos">229</span>
+<span class="linenos">230</span> <span class="c1"># Extract all flights</span>
+<span class="linenos">231</span> <span class="k">if</span> <span class="n">RUN_OCR</span><span class="p">:</span>
+<span class="linenos">232</span>     <span class="n">png2json</span><span class="p">(</span><span class="n">png_path</span><span class="o">=</span><span class="n">out_path</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="n">out_path</span><span class="p">)</span>
+<span class="linenos">233</span>
+<span class="linenos">234</span>
+<span class="linenos">235</span> <span class="c1"># -----------------------------------------------</span>
+<span class="linenos">236</span> <span class="c1"># Clean and display</span>
+<span class="linenos">237</span> <span class="c1"># -----------------------------------------------</span>
+<span class="linenos">238</span> <span class="c1"># Libraries</span>
+<span class="linenos">239</span> <span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">display_flights</span>
+<span class="linenos">240</span> <span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">combine_outbound_inbound</span>
+<span class="linenos">241</span> <span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">MISSING_FLIGHTS</span>
+<span class="linenos">242</span> <span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLORMAP</span>
+<span class="linenos">243</span>
+<span class="linenos">244</span> <span class="c1"># Load DataFrame (as extracted)</span>
+<span class="linenos">245</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="s1">&#39;flights.json&#39;</span><span class="p">)</span>
+<span class="linenos">246</span>
+<span class="linenos">247</span> <span class="c1"># Append missing rows using concat</span>
+<span class="linenos">248</span> <span class="n">df_miss</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">MISSING_FLIGHTS</span><span class="p">[</span><span class="nb">id</span><span class="p">])</span>
+<span class="linenos">249</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_miss</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">250</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="linenos">251</span>
+<span class="linenos">252</span> <span class="c1"># Save results as json</span>
+<span class="linenos">253</span> <span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="s1">&#39;flights.json&#39;</span><span class="p">,</span>
+<span class="linenos">254</span>     <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">255</span>
+<span class="linenos">256</span> <span class="c1"># Ensure &#39;Departure Date/Time&#39; is in datetime format</span>
+<span class="linenos">257</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Departure Date/Time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+<span class="linenos">258</span>     <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Departure Date/Time&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M&quot;</span><span class="p">)</span>
+<span class="linenos">259</span>
+<span class="linenos">260</span> <span class="c1"># Order chronologically</span>
+<span class="linenos">261</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Departure Date/Time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">262</span>
+<span class="linenos">263</span> <span class="c1"># Remove duplicates based on the date (ignoring hour) and</span>
+<span class="linenos">264</span> <span class="c1"># keep the first occurrence</span>
+<span class="linenos">265</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Date Only&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Departure Date/Time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="linenos">266</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date Only&#39;</span><span class="p">,</span> <span class="s1">&#39;Voyage Code&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="linenos">267</span>
+<span class="linenos">268</span> <span class="c1"># Sort the DataFrame by &quot;Departure Date/Time&quot;</span>
+<span class="linenos">269</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Departure Date/Time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">270</span>
+<span class="linenos">271</span> <span class="c1"># Show</span>
+<span class="linenos">272</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">---&gt; Extracted flight history:</span><span class="se">\n\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">df</span><span class="p">)</span>
+<span class="linenos">273</span>
+<span class="linenos">274</span>
+<span class="linenos">275</span> <span class="c1"># Validate</span>
+<span class="linenos">276</span> <span class="c1"># --------</span>
+<span class="linenos">277</span> <span class="c1"># Perform validation</span>
+<span class="linenos">278</span> <span class="n">df</span> <span class="o">=</span> <span class="n">perform_validation</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">279</span>
+<span class="linenos">280</span> <span class="c1"># Extract errors</span>
+<span class="linenos">281</span> <span class="n">error_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;validation_error&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;OK&#39;</span><span class="p">]</span>
+<span class="linenos">282</span>
+<span class="linenos">283</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">284</span> <span class="k">if</span> <span class="n">error_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+<span class="linenos">285</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All flight sequences are valid! ✅&quot;</span><span class="p">)</span>
+<span class="linenos">286</span> <span class="k">else</span><span class="p">:</span>
+<span class="linenos">287</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found errors in the flight sequence: ⚠️ </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">288</span>     <span class="nb">print</span><span class="p">(</span><span class="n">error_df</span><span class="p">)</span>
+<span class="linenos">289</span>
+<span class="linenos">290</span>
+<span class="linenos">291</span>
+<span class="linenos">292</span> <span class="c1"># Find the first &#39;Outbound&#39;</span>
+<span class="linenos">293</span> <span class="c1"># ------------------------</span>
+<span class="linenos">294</span> <span class="c1">#  .. note:: This step has been made redundant. Its</span>
+<span class="linenos">295</span> <span class="c1">#            functionality is now incorporated into the</span>
+<span class="linenos">296</span> <span class="c1">#             combine_outbound_inbound function.</span>
+<span class="linenos">297</span>
+<span class="linenos">298</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">299</span><span class="sd"> # Find the first &#39;Outbound&#39; flight and trim the DataFrame.</span>
+<span class="linenos">300</span><span class="sd"> # We do this because we want to compute time abroad, hence</span>
+<span class="linenos">301</span><span class="sd"> # each period would be (current outbound - next inbound)</span>
+<span class="linenos">302</span><span class="sd"> try:</span>
+<span class="linenos">303</span><span class="sd">     # Get the index of the first row where &#39;In/Out&#39; is &#39;Inbound&#39;</span>
+<span class="linenos">304</span><span class="sd">     first_inbound_index = df[df[&#39;In/Out&#39;] == &#39;Outbound&#39;].index[0]</span>
+<span class="linenos">305</span><span class="sd">     # Slice the DataFrame to start from that index</span>
+<span class="linenos">306</span><span class="sd">     df = df.loc[first_inbound_index:].reset_index(drop=True)</span>
+<span class="linenos">307</span><span class="sd"> except IndexError:</span>
+<span class="linenos">308</span><span class="sd">     pass</span>
+<span class="linenos">309</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="linenos">310</span>
+<span class="linenos">311</span>
+<span class="linenos">312</span>
+<span class="linenos">313</span> <span class="c1"># Combine in/out journeys</span>
+<span class="linenos">314</span> <span class="c1"># -----------------------</span>
+<span class="linenos">315</span> <span class="c1"># .. note:: For the most accurate results, this function should</span>
+<span class="linenos">316</span> <span class="c1">#           be run after the flight data JSON has been manually</span>
+<span class="linenos">317</span> <span class="c1">#           corrected. If the data is inconsistent, it will apply</span>
+<span class="linenos">318</span> <span class="c1">#           its own assumptions to handle errors (e.g., pairing the</span>
+<span class="linenos">319</span> <span class="c1">#           last seen &#39;Outbound&#39; with the next &#39;Inbound&#39; and</span>
+<span class="linenos">320</span> <span class="c1">#           ignoring invalid sequences).</span>
+<span class="linenos">321</span>
+<span class="linenos">322</span> <span class="c1"># Combine (inbound, outbound) pairs</span>
+<span class="linenos">323</span> <span class="n">df_cmb</span> <span class="o">=</span> <span class="n">combine_outbound_inbound</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos">324</span>
+<span class="linenos">325</span> <span class="c1"># Save results as json</span>
+<span class="linenos">326</span> <span class="n">df_cmb</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="s1">&#39;roundtrips.json&#39;</span><span class="p">,</span>
+<span class="linenos">327</span>     <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">328</span>
+<span class="linenos">329</span> <span class="c1"># Show</span>
+<span class="linenos">330</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">---&gt; Combined trips:</span><span class="se">\n\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">df_cmb</span><span class="p">)</span>
+<span class="linenos">331</span>
+<span class="linenos">332</span>
+<span class="linenos">333</span> <span class="c1"># Display and save</span>
+<span class="linenos">334</span> <span class="c1"># -----------------------</span>
+<span class="linenos">335</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos">336</span> <span class="n">display_flights</span><span class="p">(</span><span class="n">df_cmb</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">COLORMAP</span><span class="p">)</span>
+<span class="linenos">337</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="s1">&#39;graph.jpg&#39;</span><span class="p">)</span>
+<span class="linenos">338</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.118 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-ukvi-trips-plot-main03-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/977ad2e6fa365cf2b176176f79ebe92f/plot_main03.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main03.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/19b8de059a4675469189a0a31868f0cc/plot_main03.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_main03.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tensorflow/plot_main02.html" class="btn btn-neutral float-left" title="02. Saving &amp; Loading keras models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_main04.html" class="btn btn-neutral float-right" title="UKVI Travel History Visualizer (plotly)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2025, Bernard Hernandez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

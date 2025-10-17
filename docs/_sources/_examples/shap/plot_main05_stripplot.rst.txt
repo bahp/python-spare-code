@@ -18,15 +18,37 @@
 .. _sphx_glr__examples_shap_plot_main05_stripplot.py:
 
 
-05. Stripplot
-==========================
+05a. Custom using stripplot
+=====================================
 
-.. warning:: This method is quite slow.
+This script demonstrates how to create a custom visualization for
+sequential or time-series SHAP values using ``seaborn.stripplot``.
+This approach provides a granular, per-feature view of how SHAP
+values are distributed across different timesteps, offering an
+alternative to the standard SHAP library plots.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-128
+The script's workflow focuses on:
+
+    - **Loading Pre-computed Data:** It ingests a tidy DataFrame of SHAP
+      and feature values, structured for time-series analysis.
+    - **Per-Feature Visualization:*8 It iterates through each feature,
+      generating a dedicated stripplot to isolate its impact over
+      time without the influence of other features.
+    - **Advanced Coloring:** A key feature is the custom implementation
+      of coloring each data point by its original feature value,
+      complete with a color bar, to replicate the rich context
+      provided in native SHAP plots.
+    - *8Plot Customization:** It shows how to control axes, legends,
+      and other plot aesthetics for a polished final visualization.
+
+While noted to be slower than other methods, this example is ideal
+for creating detailed, publication-quality plots that reveal the
+dynamics of feature contributions over a sequence.
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-149
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 30
 
 
     # Libraries
@@ -155,14 +177,14 @@
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-130
+.. GENERATED FROM PYTHON SOURCE LINES 150-151
 
 Let's see how data looks like
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-133
+.. GENERATED FROM PYTHON SOURCE LINES 151-154
 
 .. code-block:: default
-   :lineno-start: 130
+   :lineno-start: 151
 
     data.head(10)
 
@@ -299,7 +321,7 @@ Let's see how data looks like
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-140
+.. GENERATED FROM PYTHON SOURCE LINES 155-161
 
 Let's show using ``sns.stripplot``
 
@@ -308,10 +330,10 @@ Let's show using ``sns.stripplot``
 .. note:: y-axis has been 'normalized'
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-191
+.. GENERATED FROM PYTHON SOURCE LINES 161-212
 
 .. code-block:: default
-   :lineno-start: 141
+   :lineno-start: 162
 
 
     def add_colorbar(fig, cmap, norm):
@@ -420,13 +442,52 @@ Let's show using ``sns.stripplot``
          :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:201: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:201: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:201: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:201: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:201: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:201: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:201: MatplotlibDeprecationWarning:
+
+    The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\shap\plot_main05_stripplot.py:211: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  22.993 seconds)
+   **Total running time of the script:** ( 0 minutes  8.549 seconds)
 
 
 .. _sphx_glr_download__examples_shap_plot_main05_stripplot.py:

@@ -19,11 +19,24 @@
 
 
 07.c ``stats.2dbin`` with fake data
------------------------------------
+============================================
 
-Use binned_statistic_2d and display using heatmap.
+This script provides a detailed example of how to aggregate 2D
+point data into a grid and visualize it using ``seaborn.heatmap``.
+It uses simple, manually created data to clearly illustrate the
+mechanics of the binning and plotting process.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-175
+The workflow includes:
+
+    - Binning Data: It uses ``scipy.stats.binned_statistic_2d``
+      to compute both the count of points and the median of values
+      within each cell of a 2D grid.
+    - Advanced Heatmap Visualization: The resulting statistical
+      matrices are plotted as two side-by-side heatmaps, demonstrating
+      careful axis labeling, matrix flipping for correct orientation,
+      and different color normalizations (`LogNorm`, robust scaling).
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-188
 
 
 
@@ -179,6 +192,10 @@ Use binned_statistic_2d and display using heatmap.
      3.74242424 3.77272727 3.8030303  3.83333333 3.86363636 3.89393939
      3.92424242 3.95454545 3.98484848]
     [1. 2. 3. 4. 5. 6.]
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main07_c_2dbin_fake.py:164: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
+
 
     '\nimport sys\nsys.exit()\n# Compute bin statistic (count and median)\n\n# Plot\nplt.figure()\nsns.violinplot(data=data, x="timestep", y="shap_values", inner="box")\nplt.figure()\nplt.tight_layout()\nsns.violinplot(data=data, x="timestep", y="feature_values", inner="box")\nplt.figure()\nsns.histplot(data=data, x="timestep", shrink=.8)\n\n\n# Plot hist\nf1 = plt.hist2d(data.timestep, data.feature_values, bins=30, cmap=\'Reds\')\ncb = plt.colorbar()\ncb.set_label(\'counts in bin\')\nplt.title(\'Counts (square bin)\')\nplt.show()\n'
 
@@ -189,7 +206,7 @@ Use binned_statistic_2d and display using heatmap.
 |
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 22
 
 
     # Libraries
@@ -362,7 +379,7 @@ Use binned_statistic_2d and display using heatmap.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.981 seconds)
+   **Total running time of the script:** ( 0 minutes  1.063 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main07_c_2dbin_fake.py:

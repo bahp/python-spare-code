@@ -18,10 +18,32 @@
 .. _sphx_glr__examples_pandas_plot_profile02.py:
 
 
-02. ``dataprep``
-======================================
+02. Generate an EDA Report with Dataprep
+========================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-25
+This script demonstrates how to quickly generate a comprehensive Exploratory
+Data Analysis (EDA) report using the `dataprep` library. It loads the classic
+Iris dataset, creates an interactive report, and saves it as an HTML file.
+
+.. note:: Dataprep Installation on Windows
+
+   The installation of the `dataprep` library may fail on a standard Windows
+   environment. This is because some of its dependencies (like `levenshtein`
+   and `regex`) need to be compiled from C++ source code during installation.
+
+   To resolve this, you must have the **Microsoft C++ Build Tools** installed on
+   your system.
+
+   1.  **Download the installer:**
+       https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+   2.  **Run the installer** and select the **"Desktop development with C++"**
+       workload.
+
+   3.  Once installed, restart your terminal and try the installation again:
+       `pip install dataprep`
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-53
 
 
 
@@ -32,12 +54,8 @@
 
  .. code-block:: none
 
-      0%|                                                                                                                                                                 | 0/799 [00:00<?, ?it/s]    Computing series-max-agg-1d2044f01a020456fe83d4dfb3d3ae11:   0%|                                                                                                      | 0/799 [00:00<?, ?it/s]    Computing series-max-agg-1d2044f01a020456fe83d4dfb3d3ae11:   0%|                                                                                                      | 0/799 [00:00<?, ?it/s]c:\users\kelda\desktop\repositories\virtualenvs\venv-py391-psc\lib\site-packages\dask\core.py:127: RuntimeWarning:
 
-    invalid value encountered in divide
-
-    Computing Power_divergenceResult-ba412ca1-1b5e-443f-9652-fa4e801557f1: 100%|##############################################################################| 799/799 [00:00<00:00, 5222.24it/s]                                                                                                                                                                                                  Report has been saved to outputs\profile02-report.html!
-
+    '\n.. note:: Lots of issues with conflicting libraries. But\n          should work in its own virtual environment.\n\n# Libraries\nimport pandas as pd\n\n# Specific\nfrom dataprep.eda import create_report\nfrom sklearn.datasets import load_iris\nfrom pathlib import Path\n\n# Load data object\nobj = load_iris(as_frame=True)\n\n# Create report\nprofile = create_report(obj.data,\n    title="Pandas Profiling Report")\n\n# Save to file\nPath(\'./outputs\').mkdir(parents=True, exist_ok=True)\nprofile.save("./outputs/profile02-report.html")\n\n# Show report in the browser\n#profile.show_browser()\n'
 
 
 
@@ -46,7 +64,12 @@
 |
 
 .. code-block:: default
-   :lineno-start: 5
+   :lineno-start: 28
+
+
+    """
+    .. note:: Lots of issues with conflicting libraries. But
+              should work in its own virtual environment.
 
     # Libraries
     import pandas as pd
@@ -69,10 +92,11 @@
 
     # Show report in the browser
     #profile.show_browser()
+    """
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.373 seconds)
+   **Total running time of the script:** ( 0 minutes  0.000 seconds)
 
 
 .. _sphx_glr_download__examples_pandas_plot_profile02.py:

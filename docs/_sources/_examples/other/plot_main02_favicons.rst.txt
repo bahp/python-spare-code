@@ -18,21 +18,28 @@
 .. _sphx_glr__examples_other_plot_main02_favicons.py:
 
 
-02. Plot favicons
-=================
+02. Visualizing Python Library Favicons
+=======================================
 
-This example lists all the libraries installed in the environment
-using pip, gets their site url, downloads the icon and displays it
-in the example.
+This script identifies installed Python packages, fetches their homepage
+URLs, and downloads their favicons. It then uses a custom HTML
+representation to display these icons in a grid.
 
 .. note:: The command ``cut`` is not available in windows! Thus, the
           code will not run in te standard Windows Command Prompt. However,
           it might be available on Cygwin o Git for windows.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-104
+.. note:: The visual output of this script is generated via a special
+          _repr_html_() method. This method is automatically detected
+          and rendered in rich display environments (Jupyter Notebook/Lab &
+          IPython). If you run this as a regular .py file, no images will
+          appear in your terminal. To see the output, you must manually get
+           the HTML content and save it to a file:
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-152
 
 .. code-block:: default
-   :lineno-start: 14
+   :lineno-start: 21
 
 
     # Libraries
@@ -99,20 +106,61 @@ in the example.
         'future'
     ]
 
-    # Define command to list packages and urls
-    COMMAND = "pip list --format=freeze | cut -d= -f1 | xargs pip show | "
-    COMMAND+= "awk '/^Name/{printf $2} /^Home-page/{print \": \"$2}'"
+    def list_packages_command():
+        """List packages using linux <cut>."""
+        # Define command to list packages and urls
+        COMMAND = "pip list --format=freeze | cut -d= -f1 | xargs pip show | "
+        COMMAND+= "awk '/^Name/{printf $2} /^Home-page/{print \": \"$2}'"
+        # List of package name and url.
+        output = sp.getoutput(COMMAND)
+        # Return
+        return output.split("\n")[2:]
 
-    # List of package name and url.
-    output = sp.getoutput(COMMAND)
+
+    def list_packages_importlib():
+        """List packages using importlib."""
+        # --- ADD THIS NEW BLOCK ---
+        import importlib.metadata
+
+        lines = []
+        # Iterate through all installed packages
+        for dist in importlib.metadata.distributions():
+            # Get package metadata
+            meta = dist.metadata
+            name = meta['Name']
+            url = meta.get('Home-page', '')  # Use .get() for safety
+
+            # Check if the package is in our include list and has a valid URL
+            if name in INCLUDE and url.startswith('https'):
+                lines.append(f"{name}: {url}")
+
+        return lines
+
+
+
+    import platform
+
+    system = platform.system()
+
+    if system == 'Windows':
+        print("This is a Windows system.")
+    elif system == 'Darwin':
+        print("This is a macOS system.")
+    elif system == 'Linux':
+        print("This is a Linux system.")
+    else:
+        print(f"This is a different system: {system}")
+
+    # Get packages
+    packages = list_packages_importlib()
 
     # Show
     print("\nCommand output:")
-    print(output)
+    print(packages)
 
     # Create dictionary
     d = {}
-    for line in output.split("\n")[2:]:
+    for line in packages:
         # Find name and url
         name, url = line.split(': ')
         if not url.startswith('https:'):
@@ -135,18 +183,18 @@ in the example.
 
  .. code-block:: none
 
+    This is a Windows system.
 
     Command output:
-    'cut' is not recognized as an internal or external command,
-    operable program or batch file.
+    ['numba: https://numba.pydata.org', 'numpy: https://numpy.org', 'PyYAML: https://pyyaml.org/', 'statsmodels: https://www.statsmodels.org/', 'torch: https://pytorch.org/']
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-109
+.. GENERATED FROM PYTHON SOURCE LINES 154-157
 
 .. code-block:: default
-   :lineno-start: 106
+   :lineno-start: 154
 
     aux = IconHTML(d)
     aux
@@ -159,15 +207,15 @@ in the example.
 .. raw:: html
 
     <div class="output_subarea output_html rendered_html output_result">
-
+    <img src=https://numba.pydata.org/_static/numba-blue-icon-rgb.svg style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://numba.pydata.org/_static/numba-blue-horizontal-rgb.svg style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://numpy.org/images/favicon.ico style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://pyyaml.org/favicon.ico style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-270x270.webp style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-192x192.webp style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-180x180.webp style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-32x32.webp style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://pytorch.org/wp-content/uploads/2025/01/pytorch_seo.png style="display: inline; vertical-align:middle;", width=25 height=25> <img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-32x32.webp style="display: inline; vertical-align:middle;", width=25 height=25>
     </div>
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-114
+.. GENERATED FROM PYTHON SOURCE LINES 159-162
 
 .. code-block:: default
-   :lineno-start: 111
+   :lineno-start: 159
 
     aux = IconHTML(d, verbose=1)
     aux
@@ -180,20 +228,20 @@ in the example.
 .. raw:: html
 
     <div class="output_subarea output_html rendered_html output_result">
-
+    <div><img src=https://numba.pydata.org/_static/numba-blue-icon-rgb.svg style="display: inline; vertical-align:middle;", width=25 height=25> <span>numba-0</span></div> <div><img src=https://numba.pydata.org/_static/numba-blue-horizontal-rgb.svg style="display: inline; vertical-align:middle;", width=25 height=25> <span>numba-1</span></div> <div><img src=https://numpy.org/images/favicon.ico style="display: inline; vertical-align:middle;", width=25 height=25> <span>numpy-0</span></div> <div><img src=https://pyyaml.org/favicon.ico style="display: inline; vertical-align:middle;", width=25 height=25> <span>pyyaml-0</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-270x270.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-0</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-192x192.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-1</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-180x180.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-2</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-32x32.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-3</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2025/01/pytorch_seo.png style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-4</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-32x32.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-5</span></div>
     </div>
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-129
+.. GENERATED FROM PYTHON SOURCE LINES 164-177
 
 .. code-block:: default
-   :lineno-start: 117
+   :lineno-start: 165
 
 
     # Create dictionary
     d = {}
-    for line in output.split("\n")[2:]:
+    for line in packages:
         # Find name and url
         name, url = line.split(': ')
         if not url.startswith('https:'):
@@ -210,10 +258,10 @@ in the example.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-132
+.. GENERATED FROM PYTHON SOURCE LINES 179-182
 
 .. code-block:: default
-   :lineno-start: 131
+   :lineno-start: 179
 
     aux = IconHTML(d, verbose=1)
     aux
@@ -221,18 +269,44 @@ in the example.
 
 
 
+
+
 .. raw:: html
 
     <div class="output_subarea output_html rendered_html output_result">
-
+    <div><img src=https://numba.pydata.org/_static/numba-blue-icon-rgb.svg style="display: inline; vertical-align:middle;", width=25 height=25> <span>numba-0</span></div> <div><img src=https://numba.pydata.org/_static/numba-blue-horizontal-rgb.svg style="display: inline; vertical-align:middle;", width=25 height=25> <span>numba-1</span></div> <div><img src=https://numpy.org/images/favicon.ico style="display: inline; vertical-align:middle;", width=25 height=25> <span>numpy-0</span></div> <div><img src=https://pyyaml.org/favicon.ico style="display: inline; vertical-align:middle;", width=25 height=25> <span>pyyaml-0</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-270x270.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-0</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-192x192.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-1</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-180x180.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-2</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-32x32.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-3</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2025/01/pytorch_seo.png style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-4</span></div> <div><img src=https://pytorch.org/wp-content/uploads/2024/10/cropped-favicon-32x32.webp style="display: inline; vertical-align:middle;", width=25 height=25> <span>torch-5</span></div>
     </div>
     <br />
     <br />
 
+.. GENERATED FROM PYTHON SOURCE LINES 183-184
+
+Write the string to a file
+
+.. GENERATED FROM PYTHON SOURCE LINES 184-192
+
+.. code-block:: default
+   :lineno-start: 185
+
+
+    #
+    from pathlib import Path
+    output_dir = Path('./objects/main02')
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    with open("%s/icons.html" % output_dir, "w") as f:
+        f.write(aux._repr_html_())
+
+
+
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.802 seconds)
+   **Total running time of the script:** ( 0 minutes  4.264 seconds)
 
 
 .. _sphx_glr_download__examples_other_plot_main02_favicons.py:

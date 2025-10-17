@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>07.b stats.2dbin and sns.heatmap &mdash; python-spare-code 0.0.1 documentation</title>
@@ -61,10 +61,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#jsonpickle">jsonpickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ldap">LDAP</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#matplotlib-seaborn">Matplotlib / Seaborn</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">02. <code class="docutils literal notranslate"><span class="pre">mpl.hexbin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">03. <code class="docutils literal notranslate"><span class="pre">mpl.hist2d</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">04. Plot GMM and KDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main01_imshow.html">01. 2D array with <code class="docutils literal notranslate"><span class="pre">mpl.imshow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main02_hexbin.html">02. Point density with <code class="docutils literal notranslate"><span class="pre">matplotlib.hexbin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main03_hist2d.html">03. 2D histograms and density plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main04_gmm_kde.html">0.4 Visualizing GMM and KDE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_a_clustermap.html">05.a <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> basic sample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_b_clustermap.html">05.b <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> with <code class="docutils literal notranslate"><span class="pre">network.csv</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main05_c_clustermap.html">05.c <code class="docutils literal notranslate"><span class="pre">sns.clustermap</span></code> multiple categories</a></li>
@@ -76,12 +76,12 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_c_2dbin_fake.html">07.c <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with fake data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_main07_d_2dbin_shap.html">07.d <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> with <code class="docutils literal notranslate"><span class="pre">shap.csv</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code> with <code class="docutils literal notranslate"><span class="pre">plt.table</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. <code class="docutils literal notranslate"><span class="pre">mpl.violin</span></code> with linear cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Animation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_main30_sepsis_shap_boxplot.html">30. Sample shap.csv boxplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main07_e_displot.html">07.e 3D Data with <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main08_table.html">08. Stacked bar chart with data table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main09_tripcolor.html">09. Triangular grids with <code class="docutils literal notranslate"><span class="pre">mpl.tripcolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main10_violin_cmap.html">10. Violin plot with linear colormap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main20_animation.html">20. Basic animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_main30_boxplot_sepsis_shap.html">11. Visualizing SHAP across timesteps</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
@@ -91,7 +91,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#shap">Shap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tableone">TableOne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tensorflow">Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tpot">TPOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#ukvi-trips">UKVI Trips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utils">Utils</a></li>
 </ul>
@@ -130,43 +129,66 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="b-stats-2dbin-and-sns-heatmap">
 <span id="sphx-glr-examples-matplotlib-plot-main07-b-2dbin-heatmap-py"></span><h1>07.b <code class="docutils literal notranslate"><span class="pre">stats.2dbin</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code><a class="headerlink" href="#b-stats-2dbin-and-sns-heatmap" title="Permalink to this heading"></a></h1>
-<p>Use binned_statistic_2d and display using heatmap.</p>
-<img src="../../_images/sphx_glr_plot_main07_b_2dbin_heatmap_001.png" srcset="../../_images/sphx_glr_plot_main07_b_2dbin_heatmap_001.png" alt="plot main07 b 2dbin heatmap" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos">10</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="linenos">11</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="linenos">12</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="linenos">15</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="linenos">16</span>
-<span class="linenos">17</span> <span class="c1"># Load data</span>
-<span class="linenos">18</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/shap/&#39;</span><span class="p">)</span>
-<span class="linenos">19</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;shap.csv&#39;</span><span class="p">)</span>
-<span class="linenos">20</span>
-<span class="linenos">21</span> <span class="c1"># Get x, y and z</span>
-<span class="linenos">22</span> <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">timestep</span>
-<span class="linenos">23</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shap_values</span>
-<span class="linenos">24</span> <span class="n">z</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_values</span>
-<span class="linenos">25</span>
-<span class="linenos">26</span> <span class="c1"># Show</span>
-<span class="linenos">27</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;timestep&#39;</span><span class="p">,</span> <span class="s1">&#39;shap_values&#39;</span><span class="p">,</span> <span class="s1">&#39;feature_values&#39;</span><span class="p">]]</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span> <span class="c1"># Binned stats</span>
-<span class="linenos">30</span> <span class="n">statistic</span><span class="p">,</span> <span class="n">x_edge</span><span class="p">,</span> <span class="n">y_edge</span><span class="p">,</span> <span class="n">binnumber</span> <span class="o">=</span> \
-<span class="linenos">31</span>     <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>
-<span class="linenos">32</span>         <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">nunique</span><span class="p">()],</span>
-<span class="linenos">33</span>         <span class="n">expand_binnumbers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span> <span class="c1"># Display</span>
-<span class="linenos">36</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span>
-<span class="linenos">37</span>     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">},</span>
-<span class="linenos">38</span>     <span class="n">square</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="linenos">39</span>
-<span class="linenos">40</span> <span class="c1"># Show</span>
-<span class="linenos">41</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p>This script offers a streamlined approach for visualizing 2D data
+density by combining <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for aggregation and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> for
+plotting. 📊 It demonstrates a powerful and common data science
+pattern for handling large, scattered datasets.</p>
+<p>The workflow involves:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Binning Data: It uses <code class="docutils literal notranslate"><span class="pre">scipy.stats.binned_statistic_2d</span></code>
+to group scattered 2D points into a grid and count the
+number of occurrences in each cell.</p></li>
+<li><p>Seaborn Visualization: The resulting 2D count matrix is
+then directly plotted using <code class="docutils literal notranslate"><span class="pre">seaborn.heatmap</span></code>, providing a
+quick and effective way to see data concentration.</p></li>
+</ul>
+</div></blockquote>
+<img src="../../_images/sphx_glr_plot_main07_b_2dbin_heatmap_001.png" srcset="../../_images/sphx_glr_plot_main07_b_2dbin_heatmap_001.png" alt="plot main07 b 2dbin heatmap" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main07_b_2dbin_heatmap.py:53: UserWarning:
+
+FigureCanvasAgg is non-interactive, and thus cannot be shown
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.110 seconds)</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">21</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">22</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos">23</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="linenos">24</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">27</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span> <span class="c1"># Load data</span>
+<span class="linenos">30</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../datasets/shap/&#39;</span><span class="p">)</span>
+<span class="linenos">31</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s1">&#39;shap.csv&#39;</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span> <span class="c1"># Get x, y and z</span>
+<span class="linenos">34</span> <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">timestep</span>
+<span class="linenos">35</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shap_values</span>
+<span class="linenos">36</span> <span class="n">z</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_values</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span> <span class="c1"># Show</span>
+<span class="linenos">39</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;timestep&#39;</span><span class="p">,</span> <span class="s1">&#39;shap_values&#39;</span><span class="p">,</span> <span class="s1">&#39;feature_values&#39;</span><span class="p">]]</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span> <span class="c1"># Binned stats</span>
+<span class="linenos">42</span> <span class="n">statistic</span><span class="p">,</span> <span class="n">x_edge</span><span class="p">,</span> <span class="n">y_edge</span><span class="p">,</span> <span class="n">binnumber</span> <span class="o">=</span> \
+<span class="linenos">43</span>     <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>
+<span class="linenos">44</span>         <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">nunique</span><span class="p">()],</span>
+<span class="linenos">45</span>         <span class="n">expand_binnumbers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span> <span class="c1"># Display</span>
+<span class="linenos">48</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span>
+<span class="linenos">49</span>     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">},</span>
+<span class="linenos">50</span>     <span class="n">square</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">51</span>
+<span class="linenos">52</span> <span class="c1"># Show</span>
+<span class="linenos">53</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.406 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-matplotlib-plot-main07-b-2dbin-heatmap-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/7fd6386a4987f2cbd61e7c93dc90886c/plot_main07_b_2dbin_heatmap.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_main07_b_2dbin_heatmap.py</span></code></a></p>

@@ -1,8 +1,21 @@
 """
 07.c ``stats.2dbin`` with fake data
------------------------------------
+============================================
 
-Use binned_statistic_2d and display using heatmap.
+This script provides a detailed example of how to aggregate 2D
+point data into a grid and visualize it using ``seaborn.heatmap``.
+It uses simple, manually created data to clearly illustrate the
+mechanics of the binning and plotting process.
+
+The workflow includes:
+
+    - Binning Data: It uses ``scipy.stats.binned_statistic_2d``
+      to compute both the count of points and the median of values
+      within each cell of a 2D grid.
+    - Advanced Heatmap Visualization: The resulting statistical
+      matrices are plotted as two side-by-side heatmaps, demonstrating
+      careful axis labeling, matrix flipping for correct orientation,
+      and different color normalizations (`LogNorm`, robust scaling).
 
 """
 

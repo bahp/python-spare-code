@@ -18,12 +18,15 @@
 .. _sphx_glr__examples_matplotlib_plot_main01_imshow.py:
 
 
-01. ``mpl.imshow``
--------------------
+01. 2D array with ``mpl.imshow``
+================================
 
-Display data as an image, i.e., on a 2D regular raster.
+This script provides a basic example of using ``matplotlib.imshow``
+to visualize a 2D NumPy array as a raster image. 🖼️ It generates
+random data and displays it as a plot, then adds a shared
+colorbar to show the value-to-color mapping.
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-27
+.. GENERATED FROM PYTHON SOURCE LINES 10-30
 
 
 
@@ -39,9 +42,13 @@ Display data as an image, i.e., on a 2D regular raster.
 
  .. code-block:: none
 
-    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main01_imshow.py:24: UserWarning:
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main01_imshow.py:27: UserWarning:
 
     This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main01_imshow.py:30: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
 
@@ -52,7 +59,7 @@ Display data as an image, i.e., on a 2D regular raster.
 |
 
 .. code-block:: default
-   :lineno-start: 8
+   :lineno-start: 11
 
 
     import matplotlib.pyplot as plt
@@ -78,7 +85,7 @@ Display data as an image, i.e., on a 2D regular raster.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.137 seconds)
+   **Total running time of the script:** ( 0 minutes  0.172 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main01_imshow.py:

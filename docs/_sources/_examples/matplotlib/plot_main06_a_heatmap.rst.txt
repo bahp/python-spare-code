@@ -19,7 +19,7 @@
 
 
 06.a ``sns.heatmap`` for CRI ``v1``
--------------------------------------------
+============================================
 
 Plot rectangular data as a color-encoded matrix.
 
@@ -580,10 +580,8 @@ Let's display a heatmap
 
     AMEC Invalid RGBA argument: nan
     ATEM Invalid RGBA argument: nan
-    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_a_heatmap.py:159: UserWarning:
-
-    This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
-
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_a_heatmap.py:159: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main06_a_heatmap.py:162: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
 
@@ -633,7 +631,7 @@ Let's draw a clustermap
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.524 seconds)
+   **Total running time of the script:** ( 0 minutes  0.556 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main06_a_heatmap.py:

@@ -18,12 +18,17 @@
 .. _sphx_glr__examples_matplotlib_plot_main02_hexbin.py:
 
 
-02. ``mpl.hexbin``
-------------------------
+02. Point density with ``matplotlib.hexbin``
+=============================================
 
-Make a 2D hexagonal binning plot of points x, y.
+This script demonstrates how to create a 2D hexagonal binning
+plot with ``matplotlib.hexbin``. 🐝 This type of plot is an
+excellent alternative to a scatter plot for visualizing the
+density of a large number of points. The example generates
+random data and displays it using both linear and logarithmic
+color scales to represent point concentration.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-54
+.. GENERATED FROM PYTHON SOURCE LINES 13-59
 
 
 
@@ -33,11 +38,26 @@ Make a 2D hexagonal binning plot of points x, y.
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    C:\Users\kelda\Desktop\repositories\github\python-spare-code\main\examples\matplotlib\plot_main02_hexbin.py:59: UserWarning:
+
+    FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 
+
+
+
+
+
+|
 
 .. code-block:: default
-   :lineno-start: 9
+   :lineno-start: 14
 
 
     import pandas as pd
@@ -89,7 +109,7 @@ Make a 2D hexagonal binning plot of points x, y.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.810 seconds)
+   **Total running time of the script:** ( 0 minutes  1.188 seconds)
 
 
 .. _sphx_glr_download__examples_matplotlib_plot_main02_hexbin.py:

@@ -1,16 +1,9 @@
 """
-01. Plot ROC
-===================
+01. ROC curve (scatter)
+=======================
 
-This example shows how to plot the ROC curves for various splits.
-
-.. todo: Instead of specify the color for each single trace,
-         which is also a good option, it is possible to
-         define in the layout the variable colorway with the
-         cycle of colors that will be used.
+This example demonstrates how to plot the ROC for different splits.
 """
-
-# sphinx_gallery_thumbnail_path = '_static/images/icon-github.svg'
 
 # Libraries
 import plotly.graph_objects as go
@@ -26,8 +19,8 @@ from plotly.graph_objects import Layout
 # Config
 # -----------------------------------------
 # Colors
-colors = px.colors.qualitative.Plotly
-colors = px.colors.sequential.Plasma_r
+#colors = px.colors.qualitative.Plotly
+#colors = px.colors.sequential.Plasma_r
 colors = px.colors.sequential.Viridis_r
 
 # -----------------------------------------
@@ -72,8 +65,8 @@ for i, (name, array) in enumerate(data.items()):
                              y=array[:, 1],
                              name=name,
                              mode='lines+markers',
-                             line=dict(color=colors[i],
-                                       width=0.5)))
+                             line=dict(width=0.5))
+    )
 
 # Update layout
 fig.update_layout(
@@ -97,7 +90,8 @@ fig.update_layout(
         'pad': 4
     },
     paper_bgcolor='rgba(0,0,0,0)',  # transparent
-    plot_bgcolor='rgba(0,0,0,0)'  # transparent
+    plot_bgcolor='rgba(0,0,0,0)',  # transparent
+    colorway=colors
 )
 
 # Update xaxes

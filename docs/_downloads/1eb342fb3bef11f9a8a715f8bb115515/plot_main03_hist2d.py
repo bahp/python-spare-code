@@ -1,8 +1,14 @@
 """
-03. ``mpl.hist2d``
-------------------------
+03. 2D histograms and density plots
+=====================================
 
-Make a 2D histogram plot.
+This script demonstrates three techniques for visualizing the
+density of a large 2D dataset, which helps to avoid overplotting
+in standard scatter plots. It compares:
+
+ - ``plt.hist2d`` for square binning.
+ - ``plt.hexbin`` for hexagonal binning.
+ - A smooth density plot using Kernel Density Estimation (KDE).
 
 See: https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html
 

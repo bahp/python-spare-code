@@ -18,15 +18,24 @@
 .. _sphx_glr__examples_tableone_plot_main01.py:
 
 
-01. Basic example
------------------
+01. A basic TableOne demonstration
+-----------------------------------------------
 
-Basic usage of the tableone library.
+This script provides a practical demonstration of the tableone
+Python library, a tool designed to easily create the table
+of descriptive statistics commonly found in medical and scientific
+research papers. Using the well-known primary biliary cirrhosis
+(pbc) dataset, it walks through the essential steps of data preparation,
+including specifying continuous, categorical, and non-normally
+distributed variables. The script then generates a summary table,
+grouped by a treatment variable, and showcases the library's versatility
+by exporting the table to various formats, including HTML, GitHub-flavored
+Markdown, LaTeX, and Microsoft Excel.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-37
+.. GENERATED FROM PYTHON SOURCE LINES 17-46
 
 .. code-block:: default
-   :lineno-start: 8
+   :lineno-start: 17
 
     # Libraries
     import pandas as pd
@@ -53,21 +62,52 @@ Basic usage of the tableone library.
     nonnormal = ['bili']
 
     # Create descriptive table
-    mytable = TableOne(data, columns, categorical,
-                       groupby, nonnormal, pval=True)
+    mytable = TableOne(data, columns=columns, categorical=categorical,
+        groupby=groupby, nonnormal=nonnormal, pval=True)
 
 
 
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\tableone\statistics.py:160: UserWarning:
+
+    No P-Value was computed for ast due to the low number of observations.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\numpy\lib\nanfunctions.py:1879: RuntimeWarning:
+
+    Degrees of freedom <= 0 for slice.
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\numpy\lib\nanfunctions.py:1384: RuntimeWarning:
+
+    All-NaN slice encountered
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\numpy\lib\nanfunctions.py:1384: RuntimeWarning:
+
+    All-NaN slice encountered
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\tableone\tableone.py:596: RuntimeWarning:
+
+    Mean of empty slice
+
+    C:\Users\kelda\Desktop\repositories\virtualenvs\venv-py311-psc\Lib\site-packages\numpy\lib\nanfunctions.py:1879: RuntimeWarning:
+
+    Degrees of freedom <= 0 for slice.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-40
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 47-49
 
 .. code-block:: default
-   :lineno-start: 38
+   :lineno-start: 47
 
     mytable.tableone
 
@@ -98,7 +138,7 @@ Basic usage of the tableone library.
         <tr>
           <th></th>
           <th></th>
-          <th colspan="5" halign="left">Grouped by trt</th>
+          <th colspan="6" halign="left">Grouped by trt</th>
         </tr>
         <tr>
           <th></th>
@@ -107,6 +147,7 @@ Basic usage of the tableone library.
           <th>Overall</th>
           <th>1.0</th>
           <th>2.0</th>
+          <th>None</th>
           <th>P-Value</th>
         </tr>
       </thead>
@@ -118,6 +159,7 @@ Basic usage of the tableone library.
           <td>418</td>
           <td>158</td>
           <td>154</td>
+          <td>106</td>
           <td></td>
         </tr>
         <tr>
@@ -127,7 +169,8 @@ Basic usage of the tableone library.
           <td>50.7 (10.4)</td>
           <td>51.4 (11.0)</td>
           <td>48.6 (10.0)</td>
-          <td>0.018</td>
+          <td>52.9 (9.8)</td>
+          <td>0.003</td>
         </tr>
         <tr>
           <th>bili, median [Q1,Q3]</th>
@@ -136,7 +179,8 @@ Basic usage of the tableone library.
           <td>1.4 [0.8,3.4]</td>
           <td>1.4 [0.8,3.2]</td>
           <td>1.3 [0.7,3.6]</td>
-          <td>0.842</td>
+          <td>1.4 [0.7,3.1]</td>
+          <td>0.972</td>
         </tr>
         <tr>
           <th>albumin, mean (SD)</th>
@@ -145,7 +189,8 @@ Basic usage of the tableone library.
           <td>3.5 (0.4)</td>
           <td>3.5 (0.4)</td>
           <td>3.5 (0.4)</td>
-          <td>0.874</td>
+          <td>3.4 (0.4)</td>
+          <td>0.175</td>
         </tr>
         <tr>
           <th>ast, mean (SD)</th>
@@ -154,7 +199,8 @@ Basic usage of the tableone library.
           <td>122.6 (56.7)</td>
           <td>120.2 (54.5)</td>
           <td>125.0 (58.9)</td>
-          <td>0.460</td>
+          <td>nan (nan)</td>
+          <td></td>
         </tr>
         <tr>
           <th>platelet, mean (SD)</th>
@@ -163,7 +209,8 @@ Basic usage of the tableone library.
           <td>257.0 (98.3)</td>
           <td>258.8 (100.3)</td>
           <td>265.2 (90.7)</td>
-          <td>0.554</td>
+          <td>241.7 (105.4)</td>
+          <td>0.175</td>
         </tr>
         <tr>
           <th>protime, mean (SD)</th>
@@ -172,67 +219,102 @@ Basic usage of the tableone library.
           <td>10.7 (1.0)</td>
           <td>10.7 (0.9)</td>
           <td>10.8 (1.1)</td>
-          <td>0.199</td>
+          <td>10.8 (1.1)</td>
+          <td>0.438</td>
         </tr>
         <tr>
-          <th rowspan="2" valign="top">ascites, n (%)</th>
+          <th rowspan="3" valign="top">ascites, n (%)</th>
           <th>0.0</th>
-          <td>106</td>
-          <td>288 (92.3)</td>
+          <td></td>
+          <td>288 (68.9)</td>
           <td>144 (91.1)</td>
           <td>144 (93.5)</td>
-          <td>0.567</td>
+          <td>0 (0.0)</td>
+          <td>&lt;0.001</td>
         </tr>
         <tr>
           <th>1.0</th>
           <td></td>
-          <td>24 (7.7)</td>
+          <td>24 (5.7)</td>
           <td>14 (8.9)</td>
           <td>10 (6.5)</td>
+          <td>0 (0.0)</td>
           <td></td>
         </tr>
         <tr>
-          <th rowspan="2" valign="top">hepato, n (%)</th>
+          <th>None</th>
+          <td></td>
+          <td>106 (25.4)</td>
+          <td>0 (0.0)</td>
+          <td>0 (0.0)</td>
+          <td>106 (100.0)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th rowspan="3" valign="top">hepato, n (%)</th>
           <th>0.0</th>
-          <td>106</td>
-          <td>152 (48.7)</td>
+          <td></td>
+          <td>152 (36.4)</td>
           <td>85 (53.8)</td>
           <td>67 (43.5)</td>
-          <td>0.088</td>
+          <td>0 (0.0)</td>
+          <td>&lt;0.001</td>
         </tr>
         <tr>
           <th>1.0</th>
           <td></td>
-          <td>160 (51.3)</td>
+          <td>160 (38.3)</td>
           <td>73 (46.2)</td>
           <td>87 (56.5)</td>
+          <td>0 (0.0)</td>
           <td></td>
         </tr>
         <tr>
-          <th rowspan="2" valign="top">spiders, n (%)</th>
+          <th>None</th>
+          <td></td>
+          <td>106 (25.4)</td>
+          <td>0 (0.0)</td>
+          <td>0 (0.0)</td>
+          <td>106 (100.0)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th rowspan="3" valign="top">spiders, n (%)</th>
           <th>0.0</th>
-          <td>106</td>
-          <td>222 (71.2)</td>
+          <td></td>
+          <td>222 (53.1)</td>
           <td>113 (71.5)</td>
           <td>109 (70.8)</td>
-          <td>0.985</td>
+          <td>0 (0.0)</td>
+          <td>&lt;0.001</td>
         </tr>
         <tr>
           <th>1.0</th>
           <td></td>
-          <td>90 (28.8)</td>
+          <td>90 (21.5)</td>
           <td>45 (28.5)</td>
           <td>45 (29.2)</td>
+          <td>0 (0.0)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>None</th>
+          <td></td>
+          <td>106 (25.4)</td>
+          <td>0 (0.0)</td>
+          <td>0 (0.0)</td>
+          <td>106 (100.0)</td>
           <td></td>
         </tr>
         <tr>
           <th rowspan="3" valign="top">edema, n (%)</th>
           <th>0.0</th>
-          <td>0</td>
+          <td></td>
           <td>354 (84.7)</td>
           <td>132 (83.5)</td>
           <td>131 (85.1)</td>
-          <td>0.877</td>
+          <td>91 (85.8)</td>
+          <td>0.066</td>
         </tr>
         <tr>
           <th>0.5</th>
@@ -240,6 +322,7 @@ Basic usage of the tableone library.
           <td>44 (10.5)</td>
           <td>16 (10.1)</td>
           <td>13 (8.4)</td>
+          <td>15 (14.2)</td>
           <td></td>
         </tr>
         <tr>
@@ -248,16 +331,18 @@ Basic usage of the tableone library.
           <td>20 (4.8)</td>
           <td>10 (6.3)</td>
           <td>10 (6.5)</td>
+          <td>0 (0.0)</td>
           <td></td>
         </tr>
         <tr>
           <th rowspan="2" valign="top">sex, n (%)</th>
           <th>f</th>
-          <td>0</td>
+          <td></td>
           <td>374 (89.5)</td>
           <td>137 (86.7)</td>
           <td>139 (90.3)</td>
-          <td>0.421</td>
+          <td>98 (92.5)</td>
+          <td>0.304</td>
         </tr>
         <tr>
           <th>m</th>
@@ -265,23 +350,35 @@ Basic usage of the tableone library.
           <td>44 (10.5)</td>
           <td>21 (13.3)</td>
           <td>15 (9.7)</td>
+          <td>8 (7.5)</td>
           <td></td>
         </tr>
         <tr>
-          <th rowspan="2" valign="top">trt, n (%)</th>
+          <th rowspan="3" valign="top">trt, n (%)</th>
           <th>1.0</th>
-          <td>106</td>
-          <td>158 (50.6)</td>
-          <td>158 (100.0)</td>
           <td></td>
+          <td>158 (37.8)</td>
+          <td>158 (100.0)</td>
+          <td>0 (0.0)</td>
+          <td>0 (0.0)</td>
           <td>&lt;0.001</td>
         </tr>
         <tr>
           <th>2.0</th>
           <td></td>
-          <td>154 (49.4)</td>
-          <td></td>
+          <td>154 (36.8)</td>
+          <td>0 (0.0)</td>
           <td>154 (100.0)</td>
+          <td>0 (0.0)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>None</th>
+          <td></td>
+          <td>106 (25.4)</td>
+          <td>0 (0.0)</td>
+          <td>0 (0.0)</td>
+          <td>106 (100.0)</td>
           <td></td>
         </tr>
       </tbody>
@@ -291,14 +388,14 @@ Basic usage of the tableone library.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-42
+.. GENERATED FROM PYTHON SOURCE LINES 50-51
 
 Convert to html
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-45
+.. GENERATED FROM PYTHON SOURCE LINES 51-54
 
 .. code-block:: default
-   :lineno-start: 42
+   :lineno-start: 51
 
     html = mytable.to_html()
     html
@@ -314,18 +411,18 @@ Convert to html
  .. code-block:: none
 
 
-    '<table border="1" class="dataframe">\n  <thead>\n    <tr>\n      <th></th>\n      <th></th>\n      <th colspan="5" halign="left">Grouped by trt</th>\n    </tr>\n    <tr>\n      <th></th>\n      <th></th>\n      <th>Missing</th>\n      <th>Overall</th>\n      <th>1.0</th>\n      <th>2.0</th>\n      <th>P-Value</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>n</th>\n      <th></th>\n      <td></td>\n      <td>418</td>\n      <td>158</td>\n      <td>154</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>age, mean (SD)</th>\n      <th></th>\n      <td>0</td>\n      <td>50.7 (10.4)</td>\n      <td>51.4 (11.0)</td>\n      <td>48.6 (10.0)</td>\n      <td>0.018</td>\n    </tr>\n    <tr>\n      <th>bili, median [Q1,Q3]</th>\n      <th></th>\n      <td>0</td>\n      <td>1.4 [0.8,3.4]</td>\n      <td>1.4 [0.8,3.2]</td>\n      <td>1.3 [0.7,3.6]</td>\n      <td>0.842</td>\n    </tr>\n    <tr>\n      <th>albumin, mean (SD)</th>\n      <th></th>\n      <td>0</td>\n      <td>3.5 (0.4)</td>\n      <td>3.5 (0.4)</td>\n      <td>3.5 (0.4)</td>\n      <td>0.874</td>\n    </tr>\n    <tr>\n      <th>ast, mean (SD)</th>\n      <th></th>\n      <td>106</td>\n      <td>122.6 (56.7)</td>\n      <td>120.2 (54.5)</td>\n      <td>125.0 (58.9)</td>\n      <td>0.460</td>\n    </tr>\n    <tr>\n      <th>platelet, mean (SD)</th>\n      <th></th>\n      <td>11</td>\n      <td>257.0 (98.3)</td>\n      <td>258.8 (100.3)</td>\n      <td>265.2 (90.7)</td>\n      <td>0.554</td>\n    </tr>\n    <tr>\n      <th>protime, mean (SD)</th>\n      <th></th>\n      <td>2</td>\n      <td>10.7 (1.0)</td>\n      <td>10.7 (0.9)</td>\n      <td>10.8 (1.1)</td>\n      <td>0.199</td>\n    </tr>\n    <tr>\n      <th rowspan="2" valign="top">ascites, n (%)</th>\n      <th>0.0</th>\n      <td>106</td>\n      <td>288 (92.3)</td>\n      <td>144 (91.1)</td>\n      <td>144 (93.5)</td>\n      <td>0.567</td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>24 (7.7)</td>\n      <td>14 (8.9)</td>\n      <td>10 (6.5)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="2" valign="top">hepato, n (%)</th>\n      <th>0.0</th>\n      <td>106</td>\n      <td>152 (48.7)</td>\n      <td>85 (53.8)</td>\n      <td>67 (43.5)</td>\n      <td>0.088</td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>160 (51.3)</td>\n      <td>73 (46.2)</td>\n      <td>87 (56.5)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="2" valign="top">spiders, n (%)</th>\n      <th>0.0</th>\n      <td>106</td>\n      <td>222 (71.2)</td>\n      <td>113 (71.5)</td>\n      <td>109 (70.8)</td>\n      <td>0.985</td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>90 (28.8)</td>\n      <td>45 (28.5)</td>\n      <td>45 (29.2)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="3" valign="top">edema, n (%)</th>\n      <th>0.0</th>\n      <td>0</td>\n      <td>354 (84.7)</td>\n      <td>132 (83.5)</td>\n      <td>131 (85.1)</td>\n      <td>0.877</td>\n    </tr>\n    <tr>\n      <th>0.5</th>\n      <td></td>\n      <td>44 (10.5)</td>\n      <td>16 (10.1)</td>\n      <td>13 (8.4)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>20 (4.8)</td>\n      <td>10 (6.3)</td>\n      <td>10 (6.5)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="2" valign="top">sex, n (%)</th>\n      <th>f</th>\n      <td>0</td>\n      <td>374 (89.5)</td>\n      <td>137 (86.7)</td>\n      <td>139 (90.3)</td>\n      <td>0.421</td>\n    </tr>\n    <tr>\n      <th>m</th>\n      <td></td>\n      <td>44 (10.5)</td>\n      <td>21 (13.3)</td>\n      <td>15 (9.7)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="2" valign="top">trt, n (%)</th>\n      <th>1.0</th>\n      <td>106</td>\n      <td>158 (50.6)</td>\n      <td>158 (100.0)</td>\n      <td></td>\n      <td>&lt;0.001</td>\n    </tr>\n    <tr>\n      <th>2.0</th>\n      <td></td>\n      <td>154 (49.4)</td>\n      <td></td>\n      <td>154 (100.0)</td>\n      <td></td>\n    </tr>\n  </tbody>\n</table>'
+    '<table border="1" class="dataframe">\n  <thead>\n    <tr>\n      <th></th>\n      <th></th>\n      <th colspan="6" halign="left">Grouped by trt</th>\n    </tr>\n    <tr>\n      <th></th>\n      <th></th>\n      <th>Missing</th>\n      <th>Overall</th>\n      <th>1.0</th>\n      <th>2.0</th>\n      <th>None</th>\n      <th>P-Value</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>n</th>\n      <th></th>\n      <td></td>\n      <td>418</td>\n      <td>158</td>\n      <td>154</td>\n      <td>106</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>age, mean (SD)</th>\n      <th></th>\n      <td>0</td>\n      <td>50.7 (10.4)</td>\n      <td>51.4 (11.0)</td>\n      <td>48.6 (10.0)</td>\n      <td>52.9 (9.8)</td>\n      <td>0.003</td>\n    </tr>\n    <tr>\n      <th>bili, median [Q1,Q3]</th>\n      <th></th>\n      <td>0</td>\n      <td>1.4 [0.8,3.4]</td>\n      <td>1.4 [0.8,3.2]</td>\n      <td>1.3 [0.7,3.6]</td>\n      <td>1.4 [0.7,3.1]</td>\n      <td>0.972</td>\n    </tr>\n    <tr>\n      <th>albumin, mean (SD)</th>\n      <th></th>\n      <td>0</td>\n      <td>3.5 (0.4)</td>\n      <td>3.5 (0.4)</td>\n      <td>3.5 (0.4)</td>\n      <td>3.4 (0.4)</td>\n      <td>0.175</td>\n    </tr>\n    <tr>\n      <th>ast, mean (SD)</th>\n      <th></th>\n      <td>106</td>\n      <td>122.6 (56.7)</td>\n      <td>120.2 (54.5)</td>\n      <td>125.0 (58.9)</td>\n      <td>nan (nan)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>platelet, mean (SD)</th>\n      <th></th>\n      <td>11</td>\n      <td>257.0 (98.3)</td>\n      <td>258.8 (100.3)</td>\n      <td>265.2 (90.7)</td>\n      <td>241.7 (105.4)</td>\n      <td>0.175</td>\n    </tr>\n    <tr>\n      <th>protime, mean (SD)</th>\n      <th></th>\n      <td>2</td>\n      <td>10.7 (1.0)</td>\n      <td>10.7 (0.9)</td>\n      <td>10.8 (1.1)</td>\n      <td>10.8 (1.1)</td>\n      <td>0.438</td>\n    </tr>\n    <tr>\n      <th rowspan="3" valign="top">ascites, n (%)</th>\n      <th>0.0</th>\n      <td></td>\n      <td>288 (68.9)</td>\n      <td>144 (91.1)</td>\n      <td>144 (93.5)</td>\n      <td>0 (0.0)</td>\n      <td>&lt;0.001</td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>24 (5.7)</td>\n      <td>14 (8.9)</td>\n      <td>10 (6.5)</td>\n      <td>0 (0.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>None</th>\n      <td></td>\n      <td>106 (25.4)</td>\n      <td>0 (0.0)</td>\n      <td>0 (0.0)</td>\n      <td>106 (100.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="3" valign="top">hepato, n (%)</th>\n      <th>0.0</th>\n      <td></td>\n      <td>152 (36.4)</td>\n      <td>85 (53.8)</td>\n      <td>67 (43.5)</td>\n      <td>0 (0.0)</td>\n      <td>&lt;0.001</td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>160 (38.3)</td>\n      <td>73 (46.2)</td>\n      <td>87 (56.5)</td>\n      <td>0 (0.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>None</th>\n      <td></td>\n      <td>106 (25.4)</td>\n      <td>0 (0.0)</td>\n      <td>0 (0.0)</td>\n      <td>106 (100.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="3" valign="top">spiders, n (%)</th>\n      <th>0.0</th>\n      <td></td>\n      <td>222 (53.1)</td>\n      <td>113 (71.5)</td>\n      <td>109 (70.8)</td>\n      <td>0 (0.0)</td>\n      <td>&lt;0.001</td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>90 (21.5)</td>\n      <td>45 (28.5)</td>\n      <td>45 (29.2)</td>\n      <td>0 (0.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>None</th>\n      <td></td>\n      <td>106 (25.4)</td>\n      <td>0 (0.0)</td>\n      <td>0 (0.0)</td>\n      <td>106 (100.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="3" valign="top">edema, n (%)</th>\n      <th>0.0</th>\n      <td></td>\n      <td>354 (84.7)</td>\n      <td>132 (83.5)</td>\n      <td>131 (85.1)</td>\n      <td>91 (85.8)</td>\n      <td>0.066</td>\n    </tr>\n    <tr>\n      <th>0.5</th>\n      <td></td>\n      <td>44 (10.5)</td>\n      <td>16 (10.1)</td>\n      <td>13 (8.4)</td>\n      <td>15 (14.2)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1.0</th>\n      <td></td>\n      <td>20 (4.8)</td>\n      <td>10 (6.3)</td>\n      <td>10 (6.5)</td>\n      <td>0 (0.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="2" valign="top">sex, n (%)</th>\n      <th>f</th>\n      <td></td>\n      <td>374 (89.5)</td>\n      <td>137 (86.7)</td>\n      <td>139 (90.3)</td>\n      <td>98 (92.5)</td>\n      <td>0.304</td>\n    </tr>\n    <tr>\n      <th>m</th>\n      <td></td>\n      <td>44 (10.5)</td>\n      <td>21 (13.3)</td>\n      <td>15 (9.7)</td>\n      <td>8 (7.5)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th rowspan="3" valign="top">trt, n (%)</th>\n      <th>1.0</th>\n      <td></td>\n      <td>158 (37.8)</td>\n      <td>158 (100.0)</td>\n      <td>0 (0.0)</td>\n      <td>0 (0.0)</td>\n      <td>&lt;0.001</td>\n    </tr>\n    <tr>\n      <th>2.0</th>\n      <td></td>\n      <td>154 (36.8)</td>\n      <td>0 (0.0)</td>\n      <td>154 (100.0)</td>\n      <td>0 (0.0)</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>None</th>\n      <td></td>\n      <td>106 (25.4)</td>\n      <td>0 (0.0)</td>\n      <td>0 (0.0)</td>\n      <td>106 (100.0)</td>\n      <td></td>\n    </tr>\n  </tbody>\n</table>'
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-47
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 Lets tabulate for github.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-49
+.. GENERATED FROM PYTHON SOURCE LINES 56-58
 
 .. code-block:: default
-   :lineno-start: 47
+   :lineno-start: 56
 
     print(mytable.tabulate(tablefmt="github"))
 
@@ -339,40 +436,44 @@ Lets tabulate for github.
 
  .. code-block:: none
 
-    |                      |     | Missing   | Overall       | 1.0           | 2.0           | P-Value   |
-    |----------------------|-----|-----------|---------------|---------------|---------------|-----------|
-    | n                    |     |           | 418           | 158           | 154           |           |
-    | age, mean (SD)       |     | 0         | 50.7 (10.4)   | 51.4 (11.0)   | 48.6 (10.0)   | 0.018     |
-    | bili, median [Q1,Q3] |     | 0         | 1.4 [0.8,3.4] | 1.4 [0.8,3.2] | 1.3 [0.7,3.6] | 0.842     |
-    | albumin, mean (SD)   |     | 0         | 3.5 (0.4)     | 3.5 (0.4)     | 3.5 (0.4)     | 0.874     |
-    | ast, mean (SD)       |     | 106       | 122.6 (56.7)  | 120.2 (54.5)  | 125.0 (58.9)  | 0.460     |
-    | platelet, mean (SD)  |     | 11        | 257.0 (98.3)  | 258.8 (100.3) | 265.2 (90.7)  | 0.554     |
-    | protime, mean (SD)   |     | 2         | 10.7 (1.0)    | 10.7 (0.9)    | 10.8 (1.1)    | 0.199     |
-    | ascites, n (%)       | 0.0 | 106       | 288 (92.3)    | 144 (91.1)    | 144 (93.5)    | 0.567     |
-    |                      | 1.0 |           | 24 (7.7)      | 14 (8.9)      | 10 (6.5)      |           |
-    | hepato, n (%)        | 0.0 | 106       | 152 (48.7)    | 85 (53.8)     | 67 (43.5)     | 0.088     |
-    |                      | 1.0 |           | 160 (51.3)    | 73 (46.2)     | 87 (56.5)     |           |
-    | spiders, n (%)       | 0.0 | 106       | 222 (71.2)    | 113 (71.5)    | 109 (70.8)    | 0.985     |
-    |                      | 1.0 |           | 90 (28.8)     | 45 (28.5)     | 45 (29.2)     |           |
-    | edema, n (%)         | 0.0 | 0         | 354 (84.7)    | 132 (83.5)    | 131 (85.1)    | 0.877     |
-    |                      | 0.5 |           | 44 (10.5)     | 16 (10.1)     | 13 (8.4)      |           |
-    |                      | 1.0 |           | 20 (4.8)      | 10 (6.3)      | 10 (6.5)      |           |
-    | sex, n (%)           | f   | 0         | 374 (89.5)    | 137 (86.7)    | 139 (90.3)    | 0.421     |
-    |                      | m   |           | 44 (10.5)     | 21 (13.3)     | 15 (9.7)      |           |
-    | trt, n (%)           | 1.0 | 106       | 158 (50.6)    | 158 (100.0)   |               | <0.001    |
-    |                      | 2.0 |           | 154 (49.4)    |               | 154 (100.0)   |           |
+    |                      |      | Missing   | Overall       | 1.0           | 2.0           | None          | P-Value   |
+    |----------------------|------|-----------|---------------|---------------|---------------|---------------|-----------|
+    | n                    |      |           | 418           | 158           | 154           | 106           |           |
+    | age, mean (SD)       |      | 0         | 50.7 (10.4)   | 51.4 (11.0)   | 48.6 (10.0)   | 52.9 (9.8)    | 0.003     |
+    | bili, median [Q1,Q3] |      | 0         | 1.4 [0.8,3.4] | 1.4 [0.8,3.2] | 1.3 [0.7,3.6] | 1.4 [0.7,3.1] | 0.972     |
+    | albumin, mean (SD)   |      | 0         | 3.5 (0.4)     | 3.5 (0.4)     | 3.5 (0.4)     | 3.4 (0.4)     | 0.175     |
+    | ast, mean (SD)       |      | 106       | 122.6 (56.7)  | 120.2 (54.5)  | 125.0 (58.9)  | nan (nan)     |           |
+    | platelet, mean (SD)  |      | 11        | 257.0 (98.3)  | 258.8 (100.3) | 265.2 (90.7)  | 241.7 (105.4) | 0.175     |
+    | protime, mean (SD)   |      | 2         | 10.7 (1.0)    | 10.7 (0.9)    | 10.8 (1.1)    | 10.8 (1.1)    | 0.438     |
+    | ascites, n (%)       | 0.0  |           | 288 (68.9)    | 144 (91.1)    | 144 (93.5)    | 0 (0.0)       | <0.001    |
+    |                      | 1.0  |           | 24 (5.7)      | 14 (8.9)      | 10 (6.5)      | 0 (0.0)       |           |
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
+    | hepato, n (%)        | 0.0  |           | 152 (36.4)    | 85 (53.8)     | 67 (43.5)     | 0 (0.0)       | <0.001    |
+    |                      | 1.0  |           | 160 (38.3)    | 73 (46.2)     | 87 (56.5)     | 0 (0.0)       |           |
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
+    | spiders, n (%)       | 0.0  |           | 222 (53.1)    | 113 (71.5)    | 109 (70.8)    | 0 (0.0)       | <0.001    |
+    |                      | 1.0  |           | 90 (21.5)     | 45 (28.5)     | 45 (29.2)     | 0 (0.0)       |           |
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
+    | edema, n (%)         | 0.0  |           | 354 (84.7)    | 132 (83.5)    | 131 (85.1)    | 91 (85.8)     | 0.066     |
+    |                      | 0.5  |           | 44 (10.5)     | 16 (10.1)     | 13 (8.4)      | 15 (14.2)     |           |
+    |                      | 1.0  |           | 20 (4.8)      | 10 (6.3)      | 10 (6.5)      | 0 (0.0)       |           |
+    | sex, n (%)           | f    |           | 374 (89.5)    | 137 (86.7)    | 139 (90.3)    | 98 (92.5)     | 0.304     |
+    |                      | m    |           | 44 (10.5)     | 21 (13.3)     | 15 (9.7)      | 8 (7.5)       |           |
+    | trt, n (%)           | 1.0  |           | 158 (37.8)    | 158 (100.0)   | 0 (0.0)       | 0 (0.0)       | <0.001    |
+    |                      | 2.0  |           | 154 (36.8)    | 0 (0.0)       | 154 (100.0)   | 0 (0.0)       |           |
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
+.. GENERATED FROM PYTHON SOURCE LINES 59-60
 
 Lets tabulate for latex.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 60-62
 
 .. code-block:: default
-   :lineno-start: 51
+   :lineno-start: 60
 
     print(mytable.tabulate(tablefmt="latex"))
 
@@ -386,44 +487,48 @@ Lets tabulate for latex.
 
  .. code-block:: none
 
-    \begin{tabular}{lllllll}
+    \begin{tabular}{llllllll}
     \hline
-                          &     & Missing   & Overall       & 1.0           & 2.0           & P-Value   \\
+                          &      & Missing   & Overall       & 1.0           & 2.0           & None          & P-Value   \\
     \hline
-     n                    &     &           & 418           & 158           & 154           &           \\
-     age, mean (SD)       &     & 0         & 50.7 (10.4)   & 51.4 (11.0)   & 48.6 (10.0)   & 0.018     \\
-     bili, median [Q1,Q3] &     & 0         & 1.4 [0.8,3.4] & 1.4 [0.8,3.2] & 1.3 [0.7,3.6] & 0.842     \\
-     albumin, mean (SD)   &     & 0         & 3.5 (0.4)     & 3.5 (0.4)     & 3.5 (0.4)     & 0.874     \\
-     ast, mean (SD)       &     & 106       & 122.6 (56.7)  & 120.2 (54.5)  & 125.0 (58.9)  & 0.460     \\
-     platelet, mean (SD)  &     & 11        & 257.0 (98.3)  & 258.8 (100.3) & 265.2 (90.7)  & 0.554     \\
-     protime, mean (SD)   &     & 2         & 10.7 (1.0)    & 10.7 (0.9)    & 10.8 (1.1)    & 0.199     \\
-     ascites, n (\%)       & 0.0 & 106       & 288 (92.3)    & 144 (91.1)    & 144 (93.5)    & 0.567     \\
-                          & 1.0 &           & 24 (7.7)      & 14 (8.9)      & 10 (6.5)      &           \\
-     hepato, n (\%)        & 0.0 & 106       & 152 (48.7)    & 85 (53.8)     & 67 (43.5)     & 0.088     \\
-                          & 1.0 &           & 160 (51.3)    & 73 (46.2)     & 87 (56.5)     &           \\
-     spiders, n (\%)       & 0.0 & 106       & 222 (71.2)    & 113 (71.5)    & 109 (70.8)    & 0.985     \\
-                          & 1.0 &           & 90 (28.8)     & 45 (28.5)     & 45 (29.2)     &           \\
-     edema, n (\%)         & 0.0 & 0         & 354 (84.7)    & 132 (83.5)    & 131 (85.1)    & 0.877     \\
-                          & 0.5 &           & 44 (10.5)     & 16 (10.1)     & 13 (8.4)      &           \\
-                          & 1.0 &           & 20 (4.8)      & 10 (6.3)      & 10 (6.5)      &           \\
-     sex, n (\%)           & f   & 0         & 374 (89.5)    & 137 (86.7)    & 139 (90.3)    & 0.421     \\
-                          & m   &           & 44 (10.5)     & 21 (13.3)     & 15 (9.7)      &           \\
-     trt, n (\%)           & 1.0 & 106       & 158 (50.6)    & 158 (100.0)   &               & \ensuremath{<}0.001    \\
-                          & 2.0 &           & 154 (49.4)    &               & 154 (100.0)   &           \\
+     n                    &      &           & 418           & 158           & 154           & 106           &           \\
+     age, mean (SD)       &      & 0         & 50.7 (10.4)   & 51.4 (11.0)   & 48.6 (10.0)   & 52.9 (9.8)    & 0.003     \\
+     bili, median [Q1,Q3] &      & 0         & 1.4 [0.8,3.4] & 1.4 [0.8,3.2] & 1.3 [0.7,3.6] & 1.4 [0.7,3.1] & 0.972     \\
+     albumin, mean (SD)   &      & 0         & 3.5 (0.4)     & 3.5 (0.4)     & 3.5 (0.4)     & 3.4 (0.4)     & 0.175     \\
+     ast, mean (SD)       &      & 106       & 122.6 (56.7)  & 120.2 (54.5)  & 125.0 (58.9)  & nan (nan)     &           \\
+     platelet, mean (SD)  &      & 11        & 257.0 (98.3)  & 258.8 (100.3) & 265.2 (90.7)  & 241.7 (105.4) & 0.175     \\
+     protime, mean (SD)   &      & 2         & 10.7 (1.0)    & 10.7 (0.9)    & 10.8 (1.1)    & 10.8 (1.1)    & 0.438     \\
+     ascites, n (\%)       & 0.0  &           & 288 (68.9)    & 144 (91.1)    & 144 (93.5)    & 0 (0.0)       & \ensuremath{<}0.001    \\
+                          & 1.0  &           & 24 (5.7)      & 14 (8.9)      & 10 (6.5)      & 0 (0.0)       &           \\
+                          & None &           & 106 (25.4)    & 0 (0.0)       & 0 (0.0)       & 106 (100.0)   &           \\
+     hepato, n (\%)        & 0.0  &           & 152 (36.4)    & 85 (53.8)     & 67 (43.5)     & 0 (0.0)       & \ensuremath{<}0.001    \\
+                          & 1.0  &           & 160 (38.3)    & 73 (46.2)     & 87 (56.5)     & 0 (0.0)       &           \\
+                          & None &           & 106 (25.4)    & 0 (0.0)       & 0 (0.0)       & 106 (100.0)   &           \\
+     spiders, n (\%)       & 0.0  &           & 222 (53.1)    & 113 (71.5)    & 109 (70.8)    & 0 (0.0)       & \ensuremath{<}0.001    \\
+                          & 1.0  &           & 90 (21.5)     & 45 (28.5)     & 45 (29.2)     & 0 (0.0)       &           \\
+                          & None &           & 106 (25.4)    & 0 (0.0)       & 0 (0.0)       & 106 (100.0)   &           \\
+     edema, n (\%)         & 0.0  &           & 354 (84.7)    & 132 (83.5)    & 131 (85.1)    & 91 (85.8)     & 0.066     \\
+                          & 0.5  &           & 44 (10.5)     & 16 (10.1)     & 13 (8.4)      & 15 (14.2)     &           \\
+                          & 1.0  &           & 20 (4.8)      & 10 (6.3)      & 10 (6.5)      & 0 (0.0)       &           \\
+     sex, n (\%)           & f    &           & 374 (89.5)    & 137 (86.7)    & 139 (90.3)    & 98 (92.5)     & 0.304     \\
+                          & m    &           & 44 (10.5)     & 21 (13.3)     & 15 (9.7)      & 8 (7.5)       &           \\
+     trt, n (\%)           & 1.0  &           & 158 (37.8)    & 158 (100.0)   & 0 (0.0)       & 0 (0.0)       & \ensuremath{<}0.001    \\
+                          & 2.0  &           & 154 (36.8)    & 0 (0.0)       & 154 (100.0)   & 0 (0.0)       &           \\
+                          & None &           & 106 (25.4)    & 0 (0.0)       & 0 (0.0)       & 106 (100.0)   &           \\
     \hline
     \end{tabular}
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-55
+.. GENERATED FROM PYTHON SOURCE LINES 63-64
 
 Lets tabulate for grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-57
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
 
 .. code-block:: default
-   :lineno-start: 55
+   :lineno-start: 64
 
     print(mytable.tabulate(tablefmt="grid"))
 
@@ -437,61 +542,69 @@ Lets tabulate for grid.
 
  .. code-block:: none
 
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      |     | Missing   | Overall       | 1.0           | 2.0           | P-Value   |
-    +======================+=====+===========+===============+===============+===============+===========+
-    | n                    |     |           | 418           | 158           | 154           |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | age, mean (SD)       |     | 0         | 50.7 (10.4)   | 51.4 (11.0)   | 48.6 (10.0)   | 0.018     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | bili, median [Q1,Q3] |     | 0         | 1.4 [0.8,3.4] | 1.4 [0.8,3.2] | 1.3 [0.7,3.6] | 0.842     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | albumin, mean (SD)   |     | 0         | 3.5 (0.4)     | 3.5 (0.4)     | 3.5 (0.4)     | 0.874     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | ast, mean (SD)       |     | 106       | 122.6 (56.7)  | 120.2 (54.5)  | 125.0 (58.9)  | 0.460     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | platelet, mean (SD)  |     | 11        | 257.0 (98.3)  | 258.8 (100.3) | 265.2 (90.7)  | 0.554     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | protime, mean (SD)   |     | 2         | 10.7 (1.0)    | 10.7 (0.9)    | 10.8 (1.1)    | 0.199     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | ascites, n (%)       | 0.0 | 106       | 288 (92.3)    | 144 (91.1)    | 144 (93.5)    | 0.567     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      | 1.0 |           | 24 (7.7)      | 14 (8.9)      | 10 (6.5)      |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | hepato, n (%)        | 0.0 | 106       | 152 (48.7)    | 85 (53.8)     | 67 (43.5)     | 0.088     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      | 1.0 |           | 160 (51.3)    | 73 (46.2)     | 87 (56.5)     |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | spiders, n (%)       | 0.0 | 106       | 222 (71.2)    | 113 (71.5)    | 109 (70.8)    | 0.985     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      | 1.0 |           | 90 (28.8)     | 45 (28.5)     | 45 (29.2)     |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | edema, n (%)         | 0.0 | 0         | 354 (84.7)    | 132 (83.5)    | 131 (85.1)    | 0.877     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      | 0.5 |           | 44 (10.5)     | 16 (10.1)     | 13 (8.4)      |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      | 1.0 |           | 20 (4.8)      | 10 (6.3)      | 10 (6.5)      |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | sex, n (%)           | f   | 0         | 374 (89.5)    | 137 (86.7)    | 139 (90.3)    | 0.421     |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      | m   |           | 44 (10.5)     | 21 (13.3)     | 15 (9.7)      |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    | trt, n (%)           | 1.0 | 106       | 158 (50.6)    | 158 (100.0)   |               | <0.001    |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
-    |                      | 2.0 |           | 154 (49.4)    |               | 154 (100.0)   |           |
-    +----------------------+-----+-----------+---------------+---------------+---------------+-----------+
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      |      | Missing   | Overall       | 1.0           | 2.0           | None          | P-Value   |
+    +======================+======+===========+===============+===============+===============+===============+===========+
+    | n                    |      |           | 418           | 158           | 154           | 106           |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | age, mean (SD)       |      | 0         | 50.7 (10.4)   | 51.4 (11.0)   | 48.6 (10.0)   | 52.9 (9.8)    | 0.003     |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | bili, median [Q1,Q3] |      | 0         | 1.4 [0.8,3.4] | 1.4 [0.8,3.2] | 1.3 [0.7,3.6] | 1.4 [0.7,3.1] | 0.972     |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | albumin, mean (SD)   |      | 0         | 3.5 (0.4)     | 3.5 (0.4)     | 3.5 (0.4)     | 3.4 (0.4)     | 0.175     |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | ast, mean (SD)       |      | 106       | 122.6 (56.7)  | 120.2 (54.5)  | 125.0 (58.9)  | nan (nan)     |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | platelet, mean (SD)  |      | 11        | 257.0 (98.3)  | 258.8 (100.3) | 265.2 (90.7)  | 241.7 (105.4) | 0.175     |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | protime, mean (SD)   |      | 2         | 10.7 (1.0)    | 10.7 (0.9)    | 10.8 (1.1)    | 10.8 (1.1)    | 0.438     |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | ascites, n (%)       | 0.0  |           | 288 (68.9)    | 144 (91.1)    | 144 (93.5)    | 0 (0.0)       | <0.001    |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | 1.0  |           | 24 (5.7)      | 14 (8.9)      | 10 (6.5)      | 0 (0.0)       |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | hepato, n (%)        | 0.0  |           | 152 (36.4)    | 85 (53.8)     | 67 (43.5)     | 0 (0.0)       | <0.001    |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | 1.0  |           | 160 (38.3)    | 73 (46.2)     | 87 (56.5)     | 0 (0.0)       |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | spiders, n (%)       | 0.0  |           | 222 (53.1)    | 113 (71.5)    | 109 (70.8)    | 0 (0.0)       | <0.001    |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | 1.0  |           | 90 (21.5)     | 45 (28.5)     | 45 (29.2)     | 0 (0.0)       |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | edema, n (%)         | 0.0  |           | 354 (84.7)    | 132 (83.5)    | 131 (85.1)    | 91 (85.8)     | 0.066     |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | 0.5  |           | 44 (10.5)     | 16 (10.1)     | 13 (8.4)      | 15 (14.2)     |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | 1.0  |           | 20 (4.8)      | 10 (6.3)      | 10 (6.5)      | 0 (0.0)       |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | sex, n (%)           | f    |           | 374 (89.5)    | 137 (86.7)    | 139 (90.3)    | 98 (92.5)     | 0.304     |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | m    |           | 44 (10.5)     | 21 (13.3)     | 15 (9.7)      | 8 (7.5)       |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    | trt, n (%)           | 1.0  |           | 158 (37.8)    | 158 (100.0)   | 0 (0.0)       | 0 (0.0)       | <0.001    |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | 2.0  |           | 154 (36.8)    | 0 (0.0)       | 154 (100.0)   | 0 (0.0)       |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
+    |                      | None |           | 106 (25.4)    | 0 (0.0)       | 0 (0.0)       | 106 (100.0)   |           |
+    +----------------------+------+-----------+---------------+---------------+---------------+---------------+-----------+
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-59
+.. GENERATED FROM PYTHON SOURCE LINES 67-68
 
 Lets tabulate for fancy grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-61
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 .. code-block:: default
-   :lineno-start: 59
+   :lineno-start: 68
 
     print(mytable.tabulate(tablefmt="fancy_grid"))
 
@@ -505,61 +618,69 @@ Lets tabulate for fancy grid.
 
  .. code-block:: none
 
-    ╒══════════════════════╤═════╤═══════════╤═══════════════╤═══════════════╤═══════════════╤═══════════╕
-    │                      │     │ Missing   │ Overall       │ 1.0           │ 2.0           │ P-Value   │
-    ╞══════════════════════╪═════╪═══════════╪═══════════════╪═══════════════╪═══════════════╪═══════════╡
-    │ n                    │     │           │ 418           │ 158           │ 154           │           │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ age, mean (SD)       │     │ 0         │ 50.7 (10.4)   │ 51.4 (11.0)   │ 48.6 (10.0)   │ 0.018     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ bili, median [Q1,Q3] │     │ 0         │ 1.4 [0.8,3.4] │ 1.4 [0.8,3.2] │ 1.3 [0.7,3.6] │ 0.842     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ albumin, mean (SD)   │     │ 0         │ 3.5 (0.4)     │ 3.5 (0.4)     │ 3.5 (0.4)     │ 0.874     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ ast, mean (SD)       │     │ 106       │ 122.6 (56.7)  │ 120.2 (54.5)  │ 125.0 (58.9)  │ 0.460     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ platelet, mean (SD)  │     │ 11        │ 257.0 (98.3)  │ 258.8 (100.3) │ 265.2 (90.7)  │ 0.554     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ protime, mean (SD)   │     │ 2         │ 10.7 (1.0)    │ 10.7 (0.9)    │ 10.8 (1.1)    │ 0.199     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ ascites, n (%)       │ 0.0 │ 106       │ 288 (92.3)    │ 144 (91.1)    │ 144 (93.5)    │ 0.567     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │                      │ 1.0 │           │ 24 (7.7)      │ 14 (8.9)      │ 10 (6.5)      │           │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ hepato, n (%)        │ 0.0 │ 106       │ 152 (48.7)    │ 85 (53.8)     │ 67 (43.5)     │ 0.088     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │                      │ 1.0 │           │ 160 (51.3)    │ 73 (46.2)     │ 87 (56.5)     │           │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ spiders, n (%)       │ 0.0 │ 106       │ 222 (71.2)    │ 113 (71.5)    │ 109 (70.8)    │ 0.985     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │                      │ 1.0 │           │ 90 (28.8)     │ 45 (28.5)     │ 45 (29.2)     │           │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ edema, n (%)         │ 0.0 │ 0         │ 354 (84.7)    │ 132 (83.5)    │ 131 (85.1)    │ 0.877     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │                      │ 0.5 │           │ 44 (10.5)     │ 16 (10.1)     │ 13 (8.4)      │           │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │                      │ 1.0 │           │ 20 (4.8)      │ 10 (6.3)      │ 10 (6.5)      │           │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ sex, n (%)           │ f   │ 0         │ 374 (89.5)    │ 137 (86.7)    │ 139 (90.3)    │ 0.421     │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │                      │ m   │           │ 44 (10.5)     │ 21 (13.3)     │ 15 (9.7)      │           │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │ trt, n (%)           │ 1.0 │ 106       │ 158 (50.6)    │ 158 (100.0)   │               │ <0.001    │
-    ├──────────────────────┼─────┼───────────┼───────────────┼───────────────┼───────────────┼───────────┤
-    │                      │ 2.0 │           │ 154 (49.4)    │               │ 154 (100.0)   │           │
-    ╘══════════════════════╧═════╧═══════════╧═══════════════╧═══════════════╧═══════════════╧═══════════╛
+    ╒══════════════════════╤══════╤═══════════╤═══════════════╤═══════════════╤═══════════════╤═══════════════╤═══════════╕
+    │                      │      │ Missing   │ Overall       │ 1.0           │ 2.0           │ None          │ P-Value   │
+    ╞══════════════════════╪══════╪═══════════╪═══════════════╪═══════════════╪═══════════════╪═══════════════╪═══════════╡
+    │ n                    │      │           │ 418           │ 158           │ 154           │ 106           │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ age, mean (SD)       │      │ 0         │ 50.7 (10.4)   │ 51.4 (11.0)   │ 48.6 (10.0)   │ 52.9 (9.8)    │ 0.003     │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ bili, median [Q1,Q3] │      │ 0         │ 1.4 [0.8,3.4] │ 1.4 [0.8,3.2] │ 1.3 [0.7,3.6] │ 1.4 [0.7,3.1] │ 0.972     │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ albumin, mean (SD)   │      │ 0         │ 3.5 (0.4)     │ 3.5 (0.4)     │ 3.5 (0.4)     │ 3.4 (0.4)     │ 0.175     │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ ast, mean (SD)       │      │ 106       │ 122.6 (56.7)  │ 120.2 (54.5)  │ 125.0 (58.9)  │ nan (nan)     │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ platelet, mean (SD)  │      │ 11        │ 257.0 (98.3)  │ 258.8 (100.3) │ 265.2 (90.7)  │ 241.7 (105.4) │ 0.175     │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ protime, mean (SD)   │      │ 2         │ 10.7 (1.0)    │ 10.7 (0.9)    │ 10.8 (1.1)    │ 10.8 (1.1)    │ 0.438     │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ ascites, n (%)       │ 0.0  │           │ 288 (68.9)    │ 144 (91.1)    │ 144 (93.5)    │ 0 (0.0)       │ <0.001    │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ 1.0  │           │ 24 (5.7)      │ 14 (8.9)      │ 10 (6.5)      │ 0 (0.0)       │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ None │           │ 106 (25.4)    │ 0 (0.0)       │ 0 (0.0)       │ 106 (100.0)   │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ hepato, n (%)        │ 0.0  │           │ 152 (36.4)    │ 85 (53.8)     │ 67 (43.5)     │ 0 (0.0)       │ <0.001    │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ 1.0  │           │ 160 (38.3)    │ 73 (46.2)     │ 87 (56.5)     │ 0 (0.0)       │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ None │           │ 106 (25.4)    │ 0 (0.0)       │ 0 (0.0)       │ 106 (100.0)   │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ spiders, n (%)       │ 0.0  │           │ 222 (53.1)    │ 113 (71.5)    │ 109 (70.8)    │ 0 (0.0)       │ <0.001    │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ 1.0  │           │ 90 (21.5)     │ 45 (28.5)     │ 45 (29.2)     │ 0 (0.0)       │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ None │           │ 106 (25.4)    │ 0 (0.0)       │ 0 (0.0)       │ 106 (100.0)   │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ edema, n (%)         │ 0.0  │           │ 354 (84.7)    │ 132 (83.5)    │ 131 (85.1)    │ 91 (85.8)     │ 0.066     │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ 0.5  │           │ 44 (10.5)     │ 16 (10.1)     │ 13 (8.4)      │ 15 (14.2)     │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ 1.0  │           │ 20 (4.8)      │ 10 (6.3)      │ 10 (6.5)      │ 0 (0.0)       │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ sex, n (%)           │ f    │           │ 374 (89.5)    │ 137 (86.7)    │ 139 (90.3)    │ 98 (92.5)     │ 0.304     │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ m    │           │ 44 (10.5)     │ 21 (13.3)     │ 15 (9.7)      │ 8 (7.5)       │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │ trt, n (%)           │ 1.0  │           │ 158 (37.8)    │ 158 (100.0)   │ 0 (0.0)       │ 0 (0.0)       │ <0.001    │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ 2.0  │           │ 154 (36.8)    │ 0 (0.0)       │ 154 (100.0)   │ 0 (0.0)       │           │
+    ├──────────────────────┼──────┼───────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────┤
+    │                      │ None │           │ 106 (25.4)    │ 0 (0.0)       │ 0 (0.0)       │ 106 (100.0)   │           │
+    ╘══════════════════════╧══════╧═══════════╧═══════════════╧═══════════════╧═══════════════╧═══════════════╧═══════════╛
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-63
+.. GENERATED FROM PYTHON SOURCE LINES 71-72
 
 Lets tabulate for markdown
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-65
+.. GENERATED FROM PYTHON SOURCE LINES 72-74
 
 .. code-block:: default
-   :lineno-start: 63
+   :lineno-start: 72
 
     print(mytable.tabulate(tablefmt="rst"))
 
@@ -573,62 +694,81 @@ Lets tabulate for markdown
 
  .. code-block:: none
 
-    ====================  ===  =========  =============  =============  =============  =========
-    ..                         Missing    Overall        1.0            2.0            P-Value
-    ====================  ===  =========  =============  =============  =============  =========
-    n                                     418            158            154
-    age, mean (SD)             0          50.7 (10.4)    51.4 (11.0)    48.6 (10.0)    0.018
-    bili, median [Q1,Q3]       0          1.4 [0.8,3.4]  1.4 [0.8,3.2]  1.3 [0.7,3.6]  0.842
-    albumin, mean (SD)         0          3.5 (0.4)      3.5 (0.4)      3.5 (0.4)      0.874
-    ast, mean (SD)             106        122.6 (56.7)   120.2 (54.5)   125.0 (58.9)   0.460
-    platelet, mean (SD)        11         257.0 (98.3)   258.8 (100.3)  265.2 (90.7)   0.554
-    protime, mean (SD)         2          10.7 (1.0)     10.7 (0.9)     10.8 (1.1)     0.199
-    ascites, n (%)        0.0  106        288 (92.3)     144 (91.1)     144 (93.5)     0.567
-    ..                    1.0             24 (7.7)       14 (8.9)       10 (6.5)
-    hepato, n (%)         0.0  106        152 (48.7)     85 (53.8)      67 (43.5)      0.088
-    ..                    1.0             160 (51.3)     73 (46.2)      87 (56.5)
-    spiders, n (%)        0.0  106        222 (71.2)     113 (71.5)     109 (70.8)     0.985
-    ..                    1.0             90 (28.8)      45 (28.5)      45 (29.2)
-    edema, n (%)          0.0  0          354 (84.7)     132 (83.5)     131 (85.1)     0.877
-    ..                    0.5             44 (10.5)      16 (10.1)      13 (8.4)
-    ..                    1.0             20 (4.8)       10 (6.3)       10 (6.5)
-    sex, n (%)            f    0          374 (89.5)     137 (86.7)     139 (90.3)     0.421
-    ..                    m               44 (10.5)      21 (13.3)      15 (9.7)
-    trt, n (%)            1.0  106        158 (50.6)     158 (100.0)                   <0.001
-    ..                    2.0             154 (49.4)                    154 (100.0)
-    ====================  ===  =========  =============  =============  =============  =========
+    ====================  ====  =========  =============  =============  =============  =============  =========
+    ..                          Missing    Overall        1.0            2.0            None           P-Value
+    ====================  ====  =========  =============  =============  =============  =============  =========
+    n                                      418            158            154            106
+    age, mean (SD)              0          50.7 (10.4)    51.4 (11.0)    48.6 (10.0)    52.9 (9.8)     0.003
+    bili, median [Q1,Q3]        0          1.4 [0.8,3.4]  1.4 [0.8,3.2]  1.3 [0.7,3.6]  1.4 [0.7,3.1]  0.972
+    albumin, mean (SD)          0          3.5 (0.4)      3.5 (0.4)      3.5 (0.4)      3.4 (0.4)      0.175
+    ast, mean (SD)              106        122.6 (56.7)   120.2 (54.5)   125.0 (58.9)   nan (nan)
+    platelet, mean (SD)         11         257.0 (98.3)   258.8 (100.3)  265.2 (90.7)   241.7 (105.4)  0.175
+    protime, mean (SD)          2          10.7 (1.0)     10.7 (0.9)     10.8 (1.1)     10.8 (1.1)     0.438
+    ascites, n (%)        0.0              288 (68.9)     144 (91.1)     144 (93.5)     0 (0.0)        <0.001
+    ..                    1.0              24 (5.7)       14 (8.9)       10 (6.5)       0 (0.0)
+    ..                    None             106 (25.4)     0 (0.0)        0 (0.0)        106 (100.0)
+    hepato, n (%)         0.0              152 (36.4)     85 (53.8)      67 (43.5)      0 (0.0)        <0.001
+    ..                    1.0              160 (38.3)     73 (46.2)      87 (56.5)      0 (0.0)
+    ..                    None             106 (25.4)     0 (0.0)        0 (0.0)        106 (100.0)
+    spiders, n (%)        0.0              222 (53.1)     113 (71.5)     109 (70.8)     0 (0.0)        <0.001
+    ..                    1.0              90 (21.5)      45 (28.5)      45 (29.2)      0 (0.0)
+    ..                    None             106 (25.4)     0 (0.0)        0 (0.0)        106 (100.0)
+    edema, n (%)          0.0              354 (84.7)     132 (83.5)     131 (85.1)     91 (85.8)      0.066
+    ..                    0.5              44 (10.5)      16 (10.1)      13 (8.4)       15 (14.2)
+    ..                    1.0              20 (4.8)       10 (6.3)       10 (6.5)       0 (0.0)
+    sex, n (%)            f                374 (89.5)     137 (86.7)     139 (90.3)     98 (92.5)      0.304
+    ..                    m                44 (10.5)      21 (13.3)      15 (9.7)       8 (7.5)
+    trt, n (%)            1.0              158 (37.8)     158 (100.0)    0 (0.0)        0 (0.0)        <0.001
+    ..                    2.0              154 (36.8)     0 (0.0)        154 (100.0)    0 (0.0)
+    ..                    None             106 (25.4)     0 (0.0)        0 (0.0)        106 (100.0)
+    ====================  ====  =========  =============  =============  =============  =============  =========
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-67
+.. GENERATED FROM PYTHON SOURCE LINES 75-76
 
-Save as latex file
+Lets create the outputs folder
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-69
+.. GENERATED FROM PYTHON SOURCE LINES 76-84
 
 .. code-block:: default
-   :lineno-start: 67
+   :lineno-start: 76
 
-    mytable.to_latex('./outputs/main01-mytable.tex')
+    from pathlib import Path
+    folder_path = Path("./outputs")
+    folder_path.mkdir(parents=True, exist_ok=True)
+    print(f"Folder '{folder_path}' is ready.")
+
+    # Save as latex file
+    mytable.to_latex(folder_path / 'main01-mytable.tex')
 
 
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    Folder 'outputs' is ready.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-71
+
+.. GENERATED FROM PYTHON SOURCE LINES 85-86
 
 Save as xls file
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-71
+.. GENERATED FROM PYTHON SOURCE LINES 86-87
 
 .. code-block:: default
-   :lineno-start: 71
+   :lineno-start: 86
 
-    mytable.to_excel('./outputs/main01-mytable.xlsx')
+    mytable.to_excel(folder_path / 'main01-mytable.xlsx')
+
 
 
 
@@ -638,7 +778,7 @@ Save as xls file
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.705 seconds)
+   **Total running time of the script:** ( 0 minutes  0.575 seconds)
 
 
 .. _sphx_glr_download__examples_tableone_plot_main01.py:

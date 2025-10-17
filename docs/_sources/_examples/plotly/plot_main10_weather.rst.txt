@@ -18,10 +18,18 @@
 .. _sphx_glr__examples_plotly_plot_main10_weather.py:
 
 
-10. Plot sparklines with weather
-======================================
+10. Weather Ho Chi Minh (sparklines)
+=====================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 6-101
+This Python script creates a stacked sparkline dashboard to
+visualize weather data from Ho Chi Minh City.
+
+The script reads multiple weather data files, combines them, and
+then generates a tall figure containing a series of small, individual
+area charts (one for each weather metric like temperature, humidity,
+etc.), all sharing the same time axis.
+
+.. GENERATED FROM PYTHON SOURCE LINES 13-108
 
 
 
@@ -33,7 +41,7 @@
 
 
 .. code-block:: default
-   :lineno-start: 6
+   :lineno-start: 13
 
     # -------------------
     # Main
@@ -134,7 +142,7 @@
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.412 seconds)
+   **Total running time of the script:** ( 0 minutes  2.446 seconds)
 
 
 .. _sphx_glr_download__examples_plotly_plot_main10_weather.py:
