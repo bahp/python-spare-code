@@ -10,7 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-#import os
+import os
 #import sys
 #sys.path.insert(0, os.path.abspath('../../%s/' % 'pkg'))
 
@@ -108,13 +108,14 @@ sphinx_gallery_conf = {
         '../source/_examples'
     ],
     # Other
-    'filename_pattern': r'/plot_',
+    'filename_pattern': r'plot_',
     'ignore_pattern': r'^_|ignore_|utils',
     'line_numbers': True,
     'download_all_examples': False,
     'within_subsection_order': FileNameSortKey,
     'image_scrapers': image_scrapers,
-    'matplotlib_animations': True
+    'matplotlib_animations': True,
+    'plot_gallery': True
 }
 
 # ------------------
@@ -169,3 +170,19 @@ html_css_files = ['css/custom.css']
 
 # Substitute project name into .rst files when |project_name| is used
 rst_epilog = '.. |project_name| replace:: %s' % project
+
+
+# -------------------------------------------------------
+# Fix error due to loading tensorflow which uses absl-py
+import logging
+from absl import logging as absl_logging
+
+# This setup function will be called by Sphinx
+def setup(app):
+    # Manually remove the absl-py handler that causes the error
+    # This prevents the AttributeError during Sphinx's shutdown sequence
+    # See: https://github.com/abseil/abseil-py/issues/99
+    logging.root.removeHandler(absl_logging.get_absl_handler())
+    absl_logging._warn_preinit_stderr = False
+    absl_logging._is_default_handler_already_set = True
+# ----------------------------------------------------------
