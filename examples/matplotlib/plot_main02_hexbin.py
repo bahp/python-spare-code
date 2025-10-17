@@ -1,6 +1,6 @@
 """
 02. Point density with ``matplotlib.hexbin``
-======================================
+=============================================
 
 This script demonstrates how to create a 2D hexagonal binning
 plot with ``matplotlib.hexbin``. 🐝 This type of plot is an

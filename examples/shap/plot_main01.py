@@ -1,6 +1,6 @@
 """
 01. A practical example
-======================
+=======================
 
 This script provides a practical, hands-on introduction to the SHAP
 (SHapley Additive exPlanations) library, a leading tool for machine
