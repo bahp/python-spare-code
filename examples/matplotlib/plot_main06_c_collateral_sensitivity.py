@@ -2,18 +2,26 @@
 06.c Collateral Sensitivity Index (CRI)
 ============================================
 
-Since the computation of the Collateral Sensitivity Index is quite
-computationally expensive, the results are saved into a .csv file
-so that can be easily loaded and displayed. This script shows a
-very basic graph of such information.
+This script creates a sophisticated, multi-panel visualization
+for pre-computed Collateral Sensitivity Index (CRI) data, designed
+for in-depth analysis of drug interactions.
 
-The generates a heatmap visualization for a dataset related to collateral
-sensitivity. It uses the Seaborn library to plot the rectangular data as
-a color-encoded matrix. The code loads the data from a CSV file, creates
-mappings for categories and colors, and then plots the heatmap using the
-loaded data and color maps. It also includes annotations, colorbar axes,
-category patches, legend elements, and formatting options to enhance the
-visualization.
+The workflow includes:
+
+    - Data Loading: It ingests pre-processed CRI and sample
+      frequency data from CSV files.
+    - Multi-Heatmap Layout: It generates several ``seaborn`` heatmaps:
+      one for the CRI (using a diverging colormap), another for
+      sample counts (with a log scale), and a composite heatmap
+      combining both metrics in its upper and lower triangles.
+    - Categorical Annotation: It enhances the final plot by adding
+      color-coded labels to the axes based on antibiotic categories,
+      creating a dense, information-rich figure.
+
+.. note:: Since the computation of the Collateral Sensitivity Index is quite
+          computationally expensive, the results are saved into a .csv file
+          so that can be easily loaded and displayed. This script shows a
+          very basic graph of such information.
 
 """
 # Libraries

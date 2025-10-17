@@ -2,7 +2,13 @@
 05.b ``sns.clustermap`` with ``network.csv``
 ============================================
 
-Plot a matrix dataset as a hierarchically-clustered heatmap.
+This script demonstrates an advanced use of ``seaborn.clustermap``
+to visualize a correlation matrix from the "brain_networks"
+dataset. 🧠 Its main purpose is to show how to add categorical
+color annotations to rows and columns. It features a clever
+workaround to create a proper legend for these annotations by
+plotting invisible bars, resulting in a polished and informative
+heatmap.
 
 .. note:: The hierarchical clustering has been deactivated.
 

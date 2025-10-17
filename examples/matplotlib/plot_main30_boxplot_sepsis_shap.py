@@ -1,5 +1,5 @@
 """
-11. Visualizing SHAP Value Distributions Across Timesteps
+11. Visualizing SHAP across timesteps
 =========================================================
 
 This script analyzes the feature importance from a time-series model

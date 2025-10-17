@@ -2,7 +2,19 @@
 07.b ``stats.2dbin`` and ``sns.heatmap``
 ============================================
 
-Use binned_statistic_2d and display using heatmap.
+This script offers a streamlined approach for visualizing 2D data
+density by combining ``scipy`` for aggregation and ``seaborn`` for
+plotting. 📊 It demonstrates a powerful and common data science
+pattern for handling large, scattered datasets.
+
+The workflow involves:
+
+    - Binning Data: It uses ``scipy.stats.binned_statistic_2d``
+      to group scattered 2D points into a grid and count the
+      number of occurrences in each cell.
+    - Seaborn Visualization: The resulting 2D count matrix is
+      then directly plotted using ``seaborn.heatmap``, providing a
+      quick and effective way to see data concentration.
 
 """
 

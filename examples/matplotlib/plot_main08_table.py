@@ -1,10 +1,22 @@
 """
-08. ``plt.bar`` with ``plt.table``
-============================================
+08. Stacked bar chart with data table
+=====================================
 
-Plot bars and add a table to an Axes.
+This script demonstrates how to create a composite visualization
+in Matplotlib by combining a stacked bar chart with a data table
+directly on the same axes. This is an effective way to present
+both a visual summary and the precise underlying data in a single figure.
+
+The example shows how to:
+
+    - Build a stacked bar chart by plotting data series sequentially.
+    - Use ``plt.table`` to add a formatted table below the chart.
+    - Synchronize the table's row colors with the colors of the bar
+      segments for easy visual reference.
 
 """
+
+# ``plt.bar`` with ``plt.table``
 
 import numpy as np
 import matplotlib.pyplot as plt

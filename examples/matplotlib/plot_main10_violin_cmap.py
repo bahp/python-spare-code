@@ -1,10 +1,20 @@
 """
-10. ``mpl.violin`` with linear cmap
+10. Violin plot with linear colormap
 ============================================
 
-Make a violin plot with a linear colormap.
+This script demonstrates a clever technique for creating a violin
+plot where the fill color is a continuous, linear colormap mapped
+to the y-axis values. 🎻
+
+Instead of using a simple solid fill, it uses the paths of the
+violin bodies as clipping masks. An ``imshow`` gradient is then
+displayed underneath, making it visible only within the violin
+shapes. A corresponding colorbar is added to complete the
+visualization.
 
 """
+
+# ``mpl.violin``
 
 import matplotlib
 import numpy as np

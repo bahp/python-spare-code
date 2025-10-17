@@ -1,8 +1,14 @@
 """
-20. Animation
-============================================
+20. Basic animation
+=======================
 
-Create an animation.
+This script provides a minimal, fundamental example of how to
+create an animation in Matplotlib using the ``FuncAnimation``
+class. It initializes an empty line plot and defines an
+update function that progressively adds data points to the line
+for each frame. ``FuncAnimation`` then repeatedly calls this
+function to generate the final animation, creating the effect
+of a line being drawn across the plot.
 
 """
 import numpy as np

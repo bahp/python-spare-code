@@ -1,8 +1,11 @@
 """
-01. ``mpl.imshow``
-========================
+01. 2D array with ``mpl.imshow``
+================================
 
-Display data as an image, i.e., on a 2D regular raster.
+This script provides a basic example of using ``matplotlib.imshow``
+to visualize a 2D NumPy array as a raster image. 🖼️ It generates
+random data and displays it as a plot, then adds a shared
+colorbar to show the value-to-color mapping.
 """
 
 import matplotlib.pyplot as plt
