@@ -254,5 +254,8 @@ code.literal {
   color: #0055aa;
 }
 
-
+/* 🔹 Extra top margin for sections inside #general within .document */
+.document > div > section#general > section {
+  margin-top: 50px;
+}
 
